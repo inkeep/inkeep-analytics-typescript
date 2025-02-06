@@ -1,0 +1,38 @@
+speakeasyVersion: 1.484.1
+sources:
+    Inkeep Analytics API:
+        sourceNamespace: inkeep-analytics-api
+        sourceRevisionDigest: sha256:0ba4b9b6ec7718179caaa67f3cbb8289136834f605bb51f531a3507773f17fdb
+        sourceBlobDigest: sha256:30a2fd6259197d4d2f467bcb8f84affbbf85405fb0c9587ba4ea893c6ffaded3
+        tags:
+            - latest
+            - 0.1.1
+targets:
+    inkeep-analytics:
+        source: Inkeep Analytics API
+        sourceNamespace: inkeep-analytics-api
+        sourceRevisionDigest: sha256:0ba4b9b6ec7718179caaa67f3cbb8289136834f605bb51f531a3507773f17fdb
+        sourceBlobDigest: sha256:30a2fd6259197d4d2f467bcb8f84affbbf85405fb0c9587ba4ea893c6ffaded3
+        codeSamplesNamespace: inkeep-analytics-api-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:e84e648bf71ad495994cfb8183c7578d3c01c7b7670291c7caba9e24793a2f1c
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Inkeep Analytics API:
+            inputs:
+                - location: https://api.analytics.inkeep.com/openapi.json
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            registry:
+                location: registry.speakeasyapi.dev/inkeep/inkeep/inkeep-analytics-api
+    targets:
+        inkeep-analytics:
+            target: typescript
+            source: Inkeep Analytics API
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/inkeep/inkeep/inkeep-analytics-api-typescript-code-samples
+                labelOverride:
+                    fixedValue: Typescript (SDK)
+                blocking: false

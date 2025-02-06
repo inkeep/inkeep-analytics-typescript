@@ -1,0 +1,105 @@
+overlay: 1.0.0
+x-speakeasy-jsonpath: rfc9535
+info:
+  title: Speakeasy Modifications
+  version: 0.0.2
+  x-speakeasy-metadata:
+    after: ""
+    before: ""
+    type: speakeasy-modifications
+actions:
+  - target: $["paths"]["/query/conversations"]["post"]
+    update:
+      x-speakeasy-name-override: conversations
+    x-speakeasy-metadata:
+      after: sdk.query.conversations()
+      before: sdk.query.queryConversations()
+      created_at: 1738802640154
+      reviewed_at: 1738803068103
+      type: method-name
+  - target: $["paths"]["/conversations/{id}"]["delete"]
+    update:
+      x-speakeasy-group: conversations
+      x-speakeasy-name-override: delete
+    x-speakeasy-metadata:
+      after: sdk.conversations.delete()
+      before: sdk.conversation.deleteConversation()
+      created_at: 1738802640154
+      reviewed_at: 1738803068103
+      type: method-name
+  - target: $["paths"]["/events"]["post"]
+    update:
+      x-speakeasy-group: events
+      x-speakeasy-name-override: log
+    x-speakeasy-metadata:
+      after: sdk.events.log()
+      before: sdk.event.logEvent()
+      created_at: 1738802640154
+      reviewed_at: 1738803068103
+      type: method-name
+  - target: $["paths"]["/query/{table}/export"]["post"]
+    update:
+      x-speakeasy-name-override: export
+    x-speakeasy-metadata:
+      after: sdk.query.export()
+      before: sdk.query.exportQuery()
+      created_at: 1738802640154
+      reviewed_at: 1738803068103
+      type: method-name
+  - target: $["paths"]["/feedback"]["post"]
+    update:
+      x-speakeasy-name-override: submit
+    x-speakeasy-metadata:
+      after: sdk.feedback.submit()
+      before: sdk.feedback.submitFeedback()
+      created_at: 1738802640154
+      reviewed_at: 1738803068103
+      type: method-name
+  - target: $["paths"]["/conversations"]["get"]
+    update:
+      x-speakeasy-group: conversations
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.conversations.list()
+      before: sdk.conversation.getAllConversation()
+      created_at: 1738802640154
+      reviewed_at: 1738803068103
+      type: method-name
+  - target: $["paths"]["/conversations/{id}"]["get"]
+    update:
+      x-speakeasy-group: conversations
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.conversations.get()
+      before: sdk.conversation.getConversation()
+      created_at: 1738802640154
+      reviewed_at: 1738803068103
+      type: method-name
+  - target: $["paths"]["/query/{table}"]["post"]
+    update:
+      x-speakeasy-name-override: table
+    x-speakeasy-metadata:
+      after: sdk.query.table()
+      before: sdk.query.queryTable()
+      created_at: 1738802640154
+      reviewed_at: 1738803068103
+      type: method-name
+  - target: $["paths"]["/conversations"]["post"]
+    update:
+      x-speakeasy-group: conversations
+      x-speakeasy-name-override: log
+    x-speakeasy-metadata:
+      after: sdk.conversations.log()
+      before: sdk.conversation.logConversation()
+      created_at: 1738802640154
+      reviewed_at: 1738803068103
+      type: method-name
+  - target: $["paths"]["/feedback"]["get"]
+    update:
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.feedback.list()
+      before: sdk.feedback.getAllFeedback()
+      created_at: 1738802640154
+      reviewed_at: 1738803068103
+      type: method-name

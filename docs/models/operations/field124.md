@@ -1,0 +1,15 @@
+# Field124
+
+## Example Usage
+
+```typescript
+import { Field124 } from "inkeep-analytics-typescript/models/operations";
+
+let value: Field124 = "firstMessageTime_hour";
+```
+
+## Values
+
+```typescript
+"firstMessageTime_hour"
+```

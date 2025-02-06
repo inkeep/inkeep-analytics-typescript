@@ -1,0 +1,15 @@
+# ThreeHundredAndNine
+
+## Example Usage
+
+```typescript
+import { ThreeHundredAndNine } from "inkeep-analytics-typescript/models/operations";
+
+let value: ThreeHundredAndNine = "min_isInitialQuestionAnswer";
+```
+
+## Values
+
+```typescript
+"min_isInitialQuestionAnswer"
+```

@@ -1,0 +1,44 @@
+# SupportTicketConversation
+
+## Example Usage
+
+```typescript
+import { SupportTicketConversation } from "inkeep-analytics-typescript/models/components";
+
+let value: SupportTicketConversation = {
+  id: "<id>",
+  type: "support_ticket",
+  createdAt: "1711332897022",
+  updatedAt: "1738743930122",
+  tags: [
+    "<value>",
+  ],
+  messages: [
+    {
+      id: "<id>",
+      type: "support_ticket",
+      conversationId: "<id>",
+      createdAt: "1718737059937",
+      updatedAt: "1738765941859",
+      role: "<value>",
+    },
+  ],
+};
+```
+
+## Fields
+
+| Field                                                                                                                    | Type                                                                                                                     | Required                                                                                                                 | Description                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `id`                                                                                                                     | *string*                                                                                                                 | :heavy_check_mark:                                                                                                       | N/A                                                                                                                      |
+| `externalId`                                                                                                             | *string*                                                                                                                 | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |
+| `externalUrl`                                                                                                            | *string*                                                                                                                 | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |
+| `type`                                                                                                                   | [components.SupportTicketConversationType](../../models/components/supportticketconversationtype.md)                     | :heavy_check_mark:                                                                                                       | N/A                                                                                                                      |
+| `createdAt`                                                                                                              | *string*                                                                                                                 | :heavy_check_mark:                                                                                                       | N/A                                                                                                                      |
+| `updatedAt`                                                                                                              | *string*                                                                                                                 | :heavy_check_mark:                                                                                                       | N/A                                                                                                                      |
+| `projectId`                                                                                                              | *string*                                                                                                                 | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |
+| `integrationId`                                                                                                          | *string*                                                                                                                 | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |
+| `properties`                                                                                                             | [components.SupportTicketConversationProperties](../../models/components/supportticketconversationproperties.md)         | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |
+| `userProperties`                                                                                                         | [components.SupportTicketConversationUserProperties](../../models/components/supportticketconversationuserproperties.md) | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |
+| `tags`                                                                                                                   | *string*[]                                                                                                               | :heavy_check_mark:                                                                                                       | N/A                                                                                                                      |
+| `messages`                                                                                                               | [components.SupportTicketMessage](../../models/components/supportticketmessage.md)[]                                     | :heavy_check_mark:                                                                                                       | The messages in the conversation. Must be at least one message.                                                          |

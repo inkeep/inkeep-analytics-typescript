@@ -1,0 +1,89 @@
+# QueryConversationsResult
+
+## Example Usage
+
+```typescript
+import { QueryConversationsResult } from "inkeep-analytics-typescript/models/operations";
+
+let value: QueryConversationsResult = {};
+```
+
+## Fields
+
+| Field                   | Type                    | Required                | Description             |
+| ----------------------- | ----------------------- | ----------------------- | ----------------------- |
+| `id`                    | *string*                | :heavy_minus_sign:      | N/A                     |
+| `userMessageCount`      | *any*                   | :heavy_minus_sign:      | N/A                     |
+| `organizationId`        | *any*                   | :heavy_minus_sign:      | N/A                     |
+| `projectId`             | *any*                   | :heavy_minus_sign:      | N/A                     |
+| `integrationId`         | *any*                   | :heavy_minus_sign:      | N/A                     |
+| `firstMessageTime`      | *any*                   | :heavy_minus_sign:      | N/A                     |
+| `type`                  | *any*                   | :heavy_minus_sign:      | N/A                     |
+| `sum`                   | *number*                | :heavy_minus_sign:      | N/A                     |
+| `count`                 | *number*                | :heavy_minus_sign:      | N/A                     |
+| `avg`                   | *number*                | :heavy_minus_sign:      | N/A                     |
+| `min`                   | *number*                | :heavy_minus_sign:      | N/A                     |
+| `max`                   | *number*                | :heavy_minus_sign:      | N/A                     |
+| `idHour`                | *string*                | :heavy_minus_sign:      | N/A                     |
+| `idDay`                 | *string*                | :heavy_minus_sign:      | N/A                     |
+| `idWeek`                | *string*                | :heavy_minus_sign:      | N/A                     |
+| `idMonth`               | *string*                | :heavy_minus_sign:      | N/A                     |
+| `userMessageCountHour`  | *string*                | :heavy_minus_sign:      | N/A                     |
+| `userMessageCountDay`   | *string*                | :heavy_minus_sign:      | N/A                     |
+| `userMessageCountWeek`  | *string*                | :heavy_minus_sign:      | N/A                     |
+| `userMessageCountMonth` | *string*                | :heavy_minus_sign:      | N/A                     |
+| `organizationIdHour`    | *string*                | :heavy_minus_sign:      | N/A                     |
+| `organizationIdDay`     | *string*                | :heavy_minus_sign:      | N/A                     |
+| `organizationIdWeek`    | *string*                | :heavy_minus_sign:      | N/A                     |
+| `organizationIdMonth`   | *string*                | :heavy_minus_sign:      | N/A                     |
+| `projectIdHour`         | *string*                | :heavy_minus_sign:      | N/A                     |
+| `projectIdDay`          | *string*                | :heavy_minus_sign:      | N/A                     |
+| `projectIdWeek`         | *string*                | :heavy_minus_sign:      | N/A                     |
+| `projectIdMonth`        | *string*                | :heavy_minus_sign:      | N/A                     |
+| `integrationIdHour`     | *string*                | :heavy_minus_sign:      | N/A                     |
+| `integrationIdDay`      | *string*                | :heavy_minus_sign:      | N/A                     |
+| `integrationIdWeek`     | *string*                | :heavy_minus_sign:      | N/A                     |
+| `integrationIdMonth`    | *string*                | :heavy_minus_sign:      | N/A                     |
+| `firstMessageTimeHour`  | *string*                | :heavy_minus_sign:      | N/A                     |
+| `firstMessageTimeDay`   | *string*                | :heavy_minus_sign:      | N/A                     |
+| `firstMessageTimeWeek`  | *string*                | :heavy_minus_sign:      | N/A                     |
+| `firstMessageTimeMonth` | *string*                | :heavy_minus_sign:      | N/A                     |
+| `typeHour`              | *string*                | :heavy_minus_sign:      | N/A                     |
+| `typeDay`               | *string*                | :heavy_minus_sign:      | N/A                     |
+| `typeWeek`              | *string*                | :heavy_minus_sign:      | N/A                     |
+| `typeMonth`             | *string*                | :heavy_minus_sign:      | N/A                     |
+| `sumId`                 | *number*                | :heavy_minus_sign:      | N/A                     |
+| `countId`               | *number*                | :heavy_minus_sign:      | N/A                     |
+| `avgId`                 | *number*                | :heavy_minus_sign:      | N/A                     |
+| `minId`                 | *number*                | :heavy_minus_sign:      | N/A                     |
+| `maxId`                 | *number*                | :heavy_minus_sign:      | N/A                     |
+| `sumUserMessageCount`   | *number*                | :heavy_minus_sign:      | N/A                     |
+| `countUserMessageCount` | *number*                | :heavy_minus_sign:      | N/A                     |
+| `avgUserMessageCount`   | *number*                | :heavy_minus_sign:      | N/A                     |
+| `minUserMessageCount`   | *number*                | :heavy_minus_sign:      | N/A                     |
+| `maxUserMessageCount`   | *number*                | :heavy_minus_sign:      | N/A                     |
+| `sumOrganizationId`     | *number*                | :heavy_minus_sign:      | N/A                     |
+| `countOrganizationId`   | *number*                | :heavy_minus_sign:      | N/A                     |
+| `avgOrganizationId`     | *number*                | :heavy_minus_sign:      | N/A                     |
+| `minOrganizationId`     | *number*                | :heavy_minus_sign:      | N/A                     |
+| `maxOrganizationId`     | *number*                | :heavy_minus_sign:      | N/A                     |
+| `sumProjectId`          | *number*                | :heavy_minus_sign:      | N/A                     |
+| `countProjectId`        | *number*                | :heavy_minus_sign:      | N/A                     |
+| `avgProjectId`          | *number*                | :heavy_minus_sign:      | N/A                     |
+| `minProjectId`          | *number*                | :heavy_minus_sign:      | N/A                     |
+| `maxProjectId`          | *number*                | :heavy_minus_sign:      | N/A                     |
+| `sumIntegrationId`      | *number*                | :heavy_minus_sign:      | N/A                     |
+| `countIntegrationId`    | *number*                | :heavy_minus_sign:      | N/A                     |
+| `avgIntegrationId`      | *number*                | :heavy_minus_sign:      | N/A                     |
+| `minIntegrationId`      | *number*                | :heavy_minus_sign:      | N/A                     |
+| `maxIntegrationId`      | *number*                | :heavy_minus_sign:      | N/A                     |
+| `sumFirstMessageTime`   | *number*                | :heavy_minus_sign:      | N/A                     |
+| `countFirstMessageTime` | *number*                | :heavy_minus_sign:      | N/A                     |
+| `avgFirstMessageTime`   | *number*                | :heavy_minus_sign:      | N/A                     |
+| `minFirstMessageTime`   | *number*                | :heavy_minus_sign:      | N/A                     |
+| `maxFirstMessageTime`   | *number*                | :heavy_minus_sign:      | N/A                     |
+| `sumType`               | *number*                | :heavy_minus_sign:      | N/A                     |
+| `countType`             | *number*                | :heavy_minus_sign:      | N/A                     |
+| `avgType`               | *number*                | :heavy_minus_sign:      | N/A                     |
+| `minType`               | *number*                | :heavy_minus_sign:      | N/A                     |
+| `maxType`               | *number*                | :heavy_minus_sign:      | N/A                     |

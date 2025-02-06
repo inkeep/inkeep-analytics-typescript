@@ -1,0 +1,42 @@
+# OpenAIExtendedMessage
+
+A message that includes the OpenAI chat completion details.
+
+## Example Usage
+
+```typescript
+import { OpenAIExtendedMessage } from "inkeep-analytics-typescript/models/components";
+
+let value: OpenAIExtendedMessage = {
+  id: "<id>",
+  type: "openai",
+  conversationId: "<id>",
+  createdAt: "1729267574119",
+  updatedAt: "1738721880842",
+  role: "assistant",
+  content: [
+    {
+      type: "text",
+    },
+  ],
+};
+```
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `id`                                                                                                             | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `type`                                                                                                           | [components.OpenAIExtendedMessageType](../../models/components/openaiextendedmessagetype.md)                     | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `externalId`                                                                                                     | *string*                                                                                                         | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `externalUrl`                                                                                                    | *string*                                                                                                         | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `conversationId`                                                                                                 | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `createdAt`                                                                                                      | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `updatedAt`                                                                                                      | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `role`                                                                                                           | [components.Role](../../models/components/role.md)                                                               | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `content`                                                                                                        | *components.Content*                                                                                             | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `name`                                                                                                           | *string*                                                                                                         | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `links`                                                                                                          | [components.Links](../../models/components/links.md)[]                                                           | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `properties`                                                                                                     | [components.OpenAIExtendedMessageProperties](../../models/components/openaiextendedmessageproperties.md)         | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `userProperties`                                                                                                 | [components.OpenAIExtendedMessageUserProperties](../../models/components/openaiextendedmessageuserproperties.md) | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
+| `toolCalls`                                                                                                      | [components.OpenAIToolCall](../../models/components/openaitoolcall.md)[]                                         | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |

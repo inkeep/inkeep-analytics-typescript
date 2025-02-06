@@ -1,0 +1,1497 @@
+lockVersion: 2.0.0
+id: 63a2136d-3fa3-4a0b-a766-1ddb2460cc12
+management:
+  docChecksum: 44ce6139d161c09bcbf469901f6e3cb0
+  docVersion: 0.1.1
+  speakeasyVersion: 1.484.1
+  generationVersion: 2.503.2
+  releaseVersion: 0.1.1
+  configChecksum: b6713fbbed9991c38fcf1ec3257ad433
+features:
+  typescript:
+    additionalDependencies: 0.1.0
+    constsAndDefaults: 0.1.11
+    core: 3.18.22
+    defaultEnabledRetries: 0.1.0
+    devContainers: 2.90.0
+    downloadStreams: 0.1.1
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.1.2
+    globalSecurity: 2.82.12
+    globalSecurityCallbacks: 0.1.0
+    globalSecurityFlattening: 0.1.0
+    globalServerURLs: 2.82.4
+    groups: 2.81.2
+    methodSecurity: 2.82.5
+    nameOverrides: 2.81.2
+    nullables: 0.1.0
+    responseFormat: 0.2.3
+    retries: 2.83.0
+    sdkHooks: 0.2.0
+    unions: 2.85.8
+generatedFiles:
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .gitattributes
+  - .npmignore
+  - FUNCTIONS.md
+  - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/models/components/aggregation.md
+  - docs/models/components/aggregation1.md
+  - docs/models/components/aggregation2.md
+  - docs/models/components/aggregation3.md
+  - docs/models/components/aggregation4.md
+  - docs/models/components/aggregation5.md
+  - docs/models/components/aggregationselection.md
+  - docs/models/components/aggregationselectionaggregation.md
+  - docs/models/components/aggregationselectionfield.md
+  - docs/models/components/aggregationselectionfield1.md
+  - docs/models/components/aggregationselectionfield2.md
+  - docs/models/components/aggregationselectionfield3.md
+  - docs/models/components/aggregationselectionfield4.md
+  - docs/models/components/aggregationselectionfield5.md
+  - docs/models/components/aggregationselectionfield6.md
+  - docs/models/components/aggregationselectionfield7.md
+  - docs/models/components/aggregationselectiontype.md
+  - docs/models/components/and.md
+  - docs/models/components/condition.md
+  - docs/models/components/content.md
+  - docs/models/components/conversation.md
+  - docs/models/components/conversationsaggregationselection.md
+  - docs/models/components/conversationsaggregationselectiontype.md
+  - docs/models/components/conversationsfilter.md
+  - docs/models/components/conversationsfilter1.md
+  - docs/models/components/conversationsfilter2.md
+  - docs/models/components/conversationsfilter3.md
+  - docs/models/components/conversationsfilterfield.md
+  - docs/models/components/conversationsfilterfield1.md
+  - docs/models/components/conversationsfilterfield2.md
+  - docs/models/components/conversationsfilterfield3.md
+  - docs/models/components/conversationsfilterfield4.md
+  - docs/models/components/conversationsfilterfield5.md
+  - docs/models/components/conversationsfilterfield6.md
+  - docs/models/components/conversationsfilterfield7.md
+  - docs/models/components/conversationssimplefieldselection.md
+  - docs/models/components/conversationssimplefieldselectionfield.md
+  - docs/models/components/conversationssimplefieldselectionfield1.md
+  - docs/models/components/conversationssimplefieldselectionfield2.md
+  - docs/models/components/conversationssimplefieldselectionfield3.md
+  - docs/models/components/conversationssimplefieldselectionfield4.md
+  - docs/models/components/conversationssimplefieldselectionfield5.md
+  - docs/models/components/conversationssimplefieldselectionfield6.md
+  - docs/models/components/conversationssimplefieldselectionfield7.md
+  - docs/models/components/conversationssimplefieldselectiontype.md
+  - docs/models/components/conversationstimebasedgroupbyselection.md
+  - docs/models/components/conversationstimebasedgroupbyselectionfield.md
+  - docs/models/components/conversationstimebasedgroupbyselectionfield1.md
+  - docs/models/components/conversationstimebasedgroupbyselectionfield2.md
+  - docs/models/components/conversationstimebasedgroupbyselectionfield3.md
+  - docs/models/components/conversationstimebasedgroupbyselectionfield4.md
+  - docs/models/components/conversationstimebasedgroupbyselectionfield5.md
+  - docs/models/components/conversationstimebasedgroupbyselectiontype.md
+  - docs/models/components/createconversation.md
+  - docs/models/components/createopenaiconversation.md
+  - docs/models/components/createopenaiconversationcontent.md
+  - docs/models/components/createopenaiconversationlinks.md
+  - docs/models/components/createopenaiconversationproperties.md
+  - docs/models/components/createopenaiconversationrole.md
+  - docs/models/components/createopenaiconversationtype.md
+  - docs/models/components/createopenaiconversationtype1.md
+  - docs/models/components/createopenaiconversationuserproperties.md
+  - docs/models/components/createsupportticketconversation.md
+  - docs/models/components/createsupportticketconversationlinks.md
+  - docs/models/components/createsupportticketconversationmessages.md
+  - docs/models/components/createsupportticketconversationmessagesproperties.md
+  - docs/models/components/createsupportticketconversationmessagestype.md
+  - docs/models/components/createsupportticketconversationmessagesuserproperties.md
+  - docs/models/components/createsupportticketconversationproperties.md
+  - docs/models/components/createsupportticketconversationtype.md
+  - docs/models/components/createsupportticketconversationtype1.md
+  - docs/models/components/createsupportticketconversationuserproperties.md
+  - docs/models/components/detail.md
+  - docs/models/components/eight.md
+  - docs/models/components/eighteen.md
+  - docs/models/components/eleven.md
+  - docs/models/components/entitytype.md
+  - docs/models/components/field.md
+  - docs/models/components/field1.md
+  - docs/models/components/field10.md
+  - docs/models/components/field11.md
+  - docs/models/components/field12.md
+  - docs/models/components/field13.md
+  - docs/models/components/field14.md
+  - docs/models/components/field15.md
+  - docs/models/components/field16.md
+  - docs/models/components/field17.md
+  - docs/models/components/field18.md
+  - docs/models/components/field19.md
+  - docs/models/components/field2.md
+  - docs/models/components/field20.md
+  - docs/models/components/field21.md
+  - docs/models/components/field22.md
+  - docs/models/components/field23.md
+  - docs/models/components/field24.md
+  - docs/models/components/field25.md
+  - docs/models/components/field26.md
+  - docs/models/components/field27.md
+  - docs/models/components/field28.md
+  - docs/models/components/field29.md
+  - docs/models/components/field3.md
+  - docs/models/components/field30.md
+  - docs/models/components/field31.md
+  - docs/models/components/field4.md
+  - docs/models/components/field5.md
+  - docs/models/components/field6.md
+  - docs/models/components/field7.md
+  - docs/models/components/field8.md
+  - docs/models/components/field9.md
+  - docs/models/components/fifteen.md
+  - docs/models/components/five.md
+  - docs/models/components/four.md
+  - docs/models/components/fourteen.md
+  - docs/models/components/getallfeedbackresponse.md
+  - docs/models/components/getallfeedbackresponsenegativefeedbacktype.md
+  - docs/models/components/getallfeedbackresponsenegativefeedbackuserproperties.md
+  - docs/models/components/getallfeedbackresponsereasons.md
+  - docs/models/components/getallfeedbackresponsetype.md
+  - docs/models/components/getallfeedbackresponseuserproperties.md
+  - docs/models/components/insertconversationevent.md
+  - docs/models/components/insertconversationevententitytype.md
+  - docs/models/components/insertconversationeventproperties.md
+  - docs/models/components/insertconversationeventuserproperties.md
+  - docs/models/components/insertevent.md
+  - docs/models/components/insertmessageevent.md
+  - docs/models/components/insertmessageeventproperties.md
+  - docs/models/components/insertmessageeventuserproperties.md
+  - docs/models/components/insertsearchevent.md
+  - docs/models/components/insertsearchevententitytype.md
+  - docs/models/components/insertsearcheventproperties.md
+  - docs/models/components/insertsearcheventuserproperties.md
+  - docs/models/components/links.md
+  - docs/models/components/message.md
+  - docs/models/components/messages.md
+  - docs/models/components/negativefeedback.md
+  - docs/models/components/nine.md
+  - docs/models/components/nineteen.md
+  - docs/models/components/one.md
+  - docs/models/components/openaichatcompletionmessage.md
+  - docs/models/components/openaichatcompletionmessagecontent.md
+  - docs/models/components/openaichatcompletionmessagerole.md
+  - docs/models/components/openaicontentitem.md
+  - docs/models/components/openaicontentitemtype.md
+  - docs/models/components/openaiconversation.md
+  - docs/models/components/openaiconversationproperties.md
+  - docs/models/components/openaiconversationtype.md
+  - docs/models/components/openaiconversationuserproperties.md
+  - docs/models/components/openaiextendedmessage.md
+  - docs/models/components/openaiextendedmessagelinkstype.md
+  - docs/models/components/openaiextendedmessageproperties.md
+  - docs/models/components/openaiextendedmessagetype.md
+  - docs/models/components/openaiextendedmessagetype1.md
+  - docs/models/components/openaiextendedmessageuserproperties.md
+  - docs/models/components/openaiimageurlobject.md
+  - docs/models/components/openaitoolcall.md
+  - docs/models/components/openaitoolcallfunction.md
+  - docs/models/components/openaitoolcalltype.md
+  - docs/models/components/operator.md
+  - docs/models/components/operator1.md
+  - docs/models/components/operator2.md
+  - docs/models/components/operator3.md
+  - docs/models/components/operator4.md
+  - docs/models/components/operator5.md
+  - docs/models/components/operator6.md
+  - docs/models/components/operator7.md
+  - docs/models/components/operator8.md
+  - docs/models/components/operator9.md
+  - docs/models/components/or.md
+  - docs/models/components/positivefeedback.md
+  - docs/models/components/properties.md
+  - docs/models/components/reasons.md
+  - docs/models/components/role.md
+  - docs/models/components/security.md
+  - docs/models/components/selectconversationevent.md
+  - docs/models/components/selectconversationevententitytype.md
+  - docs/models/components/selectconversationeventproperties.md
+  - docs/models/components/selectconversationeventuserproperties.md
+  - docs/models/components/selectevent.md
+  - docs/models/components/selectmessageevent.md
+  - docs/models/components/selectmessageevententitytype.md
+  - docs/models/components/selectmessageeventproperties.md
+  - docs/models/components/selectmessageeventuserproperties.md
+  - docs/models/components/selectsearchevent.md
+  - docs/models/components/selectsearchevententitytype.md
+  - docs/models/components/selectsearcheventproperties.md
+  - docs/models/components/selectsearcheventuserproperties.md
+  - docs/models/components/semanticthreadfilter.md
+  - docs/models/components/semanticthreadfilter1.md
+  - docs/models/components/semanticthreadfilter2.md
+  - docs/models/components/semanticthreadfilter3.md
+  - docs/models/components/semanticthreadfilterand.md
+  - docs/models/components/semanticthreadfiltercondition.md
+  - docs/models/components/semanticthreadfilterfield.md
+  - docs/models/components/semanticthreadfilterfield1.md
+  - docs/models/components/semanticthreadfilterfield10.md
+  - docs/models/components/semanticthreadfilterfield11.md
+  - docs/models/components/semanticthreadfilterfield12.md
+  - docs/models/components/semanticthreadfilterfield13.md
+  - docs/models/components/semanticthreadfilterfield14.md
+  - docs/models/components/semanticthreadfilterfield15.md
+  - docs/models/components/semanticthreadfilterfield16.md
+  - docs/models/components/semanticthreadfilterfield17.md
+  - docs/models/components/semanticthreadfilterfield18.md
+  - docs/models/components/semanticthreadfilterfield19.md
+  - docs/models/components/semanticthreadfilterfield2.md
+  - docs/models/components/semanticthreadfilterfield20.md
+  - docs/models/components/semanticthreadfilterfield21.md
+  - docs/models/components/semanticthreadfilterfield22.md
+  - docs/models/components/semanticthreadfilterfield23.md
+  - docs/models/components/semanticthreadfilterfield24.md
+  - docs/models/components/semanticthreadfilterfield25.md
+  - docs/models/components/semanticthreadfilterfield26.md
+  - docs/models/components/semanticthreadfilterfield27.md
+  - docs/models/components/semanticthreadfilterfield28.md
+  - docs/models/components/semanticthreadfilterfield29.md
+  - docs/models/components/semanticthreadfilterfield3.md
+  - docs/models/components/semanticthreadfilterfield30.md
+  - docs/models/components/semanticthreadfilterfield31.md
+  - docs/models/components/semanticthreadfilterfield4.md
+  - docs/models/components/semanticthreadfilterfield5.md
+  - docs/models/components/semanticthreadfilterfield6.md
+  - docs/models/components/semanticthreadfilterfield7.md
+  - docs/models/components/semanticthreadfilterfield8.md
+  - docs/models/components/semanticthreadfilterfield9.md
+  - docs/models/components/semanticthreadfilteroperator.md
+  - docs/models/components/semanticthreadfilteroperator1.md
+  - docs/models/components/semanticthreadfilteroperator2.md
+  - docs/models/components/semanticthreadfilteroperator3.md
+  - docs/models/components/semanticthreadfilteroperator4.md
+  - docs/models/components/semanticthreadfilteroperator5.md
+  - docs/models/components/semanticthreadfilteroperator6.md
+  - docs/models/components/semanticthreadfilteroperator7.md
+  - docs/models/components/semanticthreadfilteroperator8.md
+  - docs/models/components/semanticthreadfilteroperator9.md
+  - docs/models/components/semanticthreadfilteror.md
+  - docs/models/components/semanticthreadfiltervalue.md
+  - docs/models/components/seven.md
+  - docs/models/components/seventeen.md
+  - docs/models/components/simplefieldselection.md
+  - docs/models/components/simplefieldselectionfield.md
+  - docs/models/components/simplefieldselectionfield1.md
+  - docs/models/components/simplefieldselectionfield10.md
+  - docs/models/components/simplefieldselectionfield11.md
+  - docs/models/components/simplefieldselectionfield12.md
+  - docs/models/components/simplefieldselectionfield13.md
+  - docs/models/components/simplefieldselectionfield14.md
+  - docs/models/components/simplefieldselectionfield15.md
+  - docs/models/components/simplefieldselectionfield16.md
+  - docs/models/components/simplefieldselectionfield17.md
+  - docs/models/components/simplefieldselectionfield18.md
+  - docs/models/components/simplefieldselectionfield19.md
+  - docs/models/components/simplefieldselectionfield2.md
+  - docs/models/components/simplefieldselectionfield20.md
+  - docs/models/components/simplefieldselectionfield21.md
+  - docs/models/components/simplefieldselectionfield22.md
+  - docs/models/components/simplefieldselectionfield23.md
+  - docs/models/components/simplefieldselectionfield24.md
+  - docs/models/components/simplefieldselectionfield25.md
+  - docs/models/components/simplefieldselectionfield26.md
+  - docs/models/components/simplefieldselectionfield27.md
+  - docs/models/components/simplefieldselectionfield28.md
+  - docs/models/components/simplefieldselectionfield29.md
+  - docs/models/components/simplefieldselectionfield3.md
+  - docs/models/components/simplefieldselectionfield30.md
+  - docs/models/components/simplefieldselectionfield31.md
+  - docs/models/components/simplefieldselectionfield4.md
+  - docs/models/components/simplefieldselectionfield5.md
+  - docs/models/components/simplefieldselectionfield6.md
+  - docs/models/components/simplefieldselectionfield7.md
+  - docs/models/components/simplefieldselectionfield8.md
+  - docs/models/components/simplefieldselectionfield9.md
+  - docs/models/components/simplefieldselectiontype.md
+  - docs/models/components/six.md
+  - docs/models/components/sixteen.md
+  - docs/models/components/supportticketconversation.md
+  - docs/models/components/supportticketconversationproperties.md
+  - docs/models/components/supportticketconversationtype.md
+  - docs/models/components/supportticketconversationuserproperties.md
+  - docs/models/components/supportticketmessage.md
+  - docs/models/components/supportticketmessagelinks.md
+  - docs/models/components/supportticketmessagelinkstype.md
+  - docs/models/components/supportticketmessageproperties.md
+  - docs/models/components/supportticketmessagetype.md
+  - docs/models/components/supportticketmessageuserproperties.md
+  - docs/models/components/ten.md
+  - docs/models/components/thirteen.md
+  - docs/models/components/thirty.md
+  - docs/models/components/thirtyone.md
+  - docs/models/components/three.md
+  - docs/models/components/timebasedgroupbyselection.md
+  - docs/models/components/timebasedgroupbyselectionfield.md
+  - docs/models/components/timebasedgroupbyselectionfield1.md
+  - docs/models/components/timebasedgroupbyselectionfield2.md
+  - docs/models/components/timebasedgroupbyselectionfield3.md
+  - docs/models/components/timebasedgroupbyselectionfield4.md
+  - docs/models/components/timebasedgroupbyselectionfield5.md
+  - docs/models/components/timebasedgroupbyselectionfield6.md
+  - docs/models/components/timebasedgroupbyselectionfield7.md
+  - docs/models/components/timebasedgroupbyselectiontimeunit.md
+  - docs/models/components/timebasedgroupbyselectiontimeunit1.md
+  - docs/models/components/timebasedgroupbyselectiontimeunit2.md
+  - docs/models/components/timebasedgroupbyselectiontimeunit3.md
+  - docs/models/components/timebasedgroupbyselectiontimeunit4.md
+  - docs/models/components/timebasedgroupbyselectiontype.md
+  - docs/models/components/timeunit.md
+  - docs/models/components/timeunit1.md
+  - docs/models/components/timeunit2.md
+  - docs/models/components/timeunit3.md
+  - docs/models/components/timeunit4.md
+  - docs/models/components/twelve.md
+  - docs/models/components/twenty.md
+  - docs/models/components/twentyeight.md
+  - docs/models/components/twentyfive.md
+  - docs/models/components/twentyfour.md
+  - docs/models/components/twentynine.md
+  - docs/models/components/twentyone.md
+  - docs/models/components/twentyseven.md
+  - docs/models/components/twentysix.md
+  - docs/models/components/twentythree.md
+  - docs/models/components/twentytwo.md
+  - docs/models/components/two.md
+  - docs/models/components/type.md
+  - docs/models/components/type1.md
+  - docs/models/components/userproperties.md
+  - docs/models/components/value.md
+  - docs/models/errors/badrequest.md
+  - docs/models/errors/code.md
+  - docs/models/errors/errort.md
+  - docs/models/errors/forbidden.md
+  - docs/models/errors/forbiddencode.md
+  - docs/models/errors/forbiddenerror.md
+  - docs/models/errors/internalservererror.md
+  - docs/models/errors/internalservererrorcode.md
+  - docs/models/errors/internalservererrorerror.md
+  - docs/models/errors/notfound.md
+  - docs/models/errors/notfoundcode.md
+  - docs/models/errors/notfounderror.md
+  - docs/models/errors/unauthorized.md
+  - docs/models/errors/unauthorizedcode.md
+  - docs/models/errors/unauthorizederror.md
+  - docs/models/errors/unprocessableentity.md
+  - docs/models/errors/unprocessableentitycode.md
+  - docs/models/errors/unprocessableentityerror.md
+  - docs/models/operations/data.md
+  - docs/models/operations/deleteconversationrequest.md
+  - docs/models/operations/deleteconversationresponsebody.md
+  - docs/models/operations/deleteconversationsecurity.md
+  - docs/models/operations/direction.md
+  - docs/models/operations/direction1.md
+  - docs/models/operations/direction2.md
+  - docs/models/operations/eight.md
+  - docs/models/operations/eighteen.md
+  - docs/models/operations/eighty.md
+  - docs/models/operations/eightyeight.md
+  - docs/models/operations/eightyfive.md
+  - docs/models/operations/eightyfour.md
+  - docs/models/operations/eightynine.md
+  - docs/models/operations/eightyone.md
+  - docs/models/operations/eightyseven.md
+  - docs/models/operations/eightysix.md
+  - docs/models/operations/eightythree.md
+  - docs/models/operations/eightytwo.md
+  - docs/models/operations/eleven.md
+  - docs/models/operations/exportquerydirection.md
+  - docs/models/operations/exportquerydirection1.md
+  - docs/models/operations/exportquerydirection2.md
+  - docs/models/operations/exportqueryfield.md
+  - docs/models/operations/exportqueryfield1.md
+  - docs/models/operations/exportqueryfield10.md
+  - docs/models/operations/exportqueryfield11.md
+  - docs/models/operations/exportqueryfield12.md
+  - docs/models/operations/exportqueryfield13.md
+  - docs/models/operations/exportqueryfield14.md
+  - docs/models/operations/exportqueryfield15.md
+  - docs/models/operations/exportqueryfield16.md
+  - docs/models/operations/exportqueryfield17.md
+  - docs/models/operations/exportqueryfield18.md
+  - docs/models/operations/exportqueryfield19.md
+  - docs/models/operations/exportqueryfield2.md
+  - docs/models/operations/exportqueryfield20.md
+  - docs/models/operations/exportqueryfield21.md
+  - docs/models/operations/exportqueryfield22.md
+  - docs/models/operations/exportqueryfield23.md
+  - docs/models/operations/exportqueryfield24.md
+  - docs/models/operations/exportqueryfield25.md
+  - docs/models/operations/exportqueryfield26.md
+  - docs/models/operations/exportqueryfield27.md
+  - docs/models/operations/exportqueryfield28.md
+  - docs/models/operations/exportqueryfield29.md
+  - docs/models/operations/exportqueryfield3.md
+  - docs/models/operations/exportqueryfield30.md
+  - docs/models/operations/exportqueryfield31.md
+  - docs/models/operations/exportqueryfield32.md
+  - docs/models/operations/exportqueryfield33.md
+  - docs/models/operations/exportqueryfield34.md
+  - docs/models/operations/exportqueryfield35.md
+  - docs/models/operations/exportqueryfield36.md
+  - docs/models/operations/exportqueryfield37.md
+  - docs/models/operations/exportqueryfield38.md
+  - docs/models/operations/exportqueryfield39.md
+  - docs/models/operations/exportqueryfield4.md
+  - docs/models/operations/exportqueryfield40.md
+  - docs/models/operations/exportqueryfield41.md
+  - docs/models/operations/exportqueryfield42.md
+  - docs/models/operations/exportqueryfield43.md
+  - docs/models/operations/exportqueryfield44.md
+  - docs/models/operations/exportqueryfield45.md
+  - docs/models/operations/exportqueryfield46.md
+  - docs/models/operations/exportqueryfield47.md
+  - docs/models/operations/exportqueryfield48.md
+  - docs/models/operations/exportqueryfield49.md
+  - docs/models/operations/exportqueryfield5.md
+  - docs/models/operations/exportqueryfield50.md
+  - docs/models/operations/exportqueryfield51.md
+  - docs/models/operations/exportqueryfield52.md
+  - docs/models/operations/exportqueryfield53.md
+  - docs/models/operations/exportqueryfield54.md
+  - docs/models/operations/exportqueryfield55.md
+  - docs/models/operations/exportqueryfield56.md
+  - docs/models/operations/exportqueryfield57.md
+  - docs/models/operations/exportqueryfield58.md
+  - docs/models/operations/exportqueryfield59.md
+  - docs/models/operations/exportqueryfield6.md
+  - docs/models/operations/exportqueryfield60.md
+  - docs/models/operations/exportqueryfield61.md
+  - docs/models/operations/exportqueryfield62.md
+  - docs/models/operations/exportqueryfield63.md
+  - docs/models/operations/exportqueryfield64.md
+  - docs/models/operations/exportqueryfield65.md
+  - docs/models/operations/exportqueryfield66.md
+  - docs/models/operations/exportqueryfield67.md
+  - docs/models/operations/exportqueryfield68.md
+  - docs/models/operations/exportqueryfield69.md
+  - docs/models/operations/exportqueryfield7.md
+  - docs/models/operations/exportqueryfield70.md
+  - docs/models/operations/exportqueryfield8.md
+  - docs/models/operations/exportqueryfield9.md
+  - docs/models/operations/exportqueryfieldquery1.md
+  - docs/models/operations/exportqueryfieldquery10.md
+  - docs/models/operations/exportqueryfieldquery11.md
+  - docs/models/operations/exportqueryfieldquery12.md
+  - docs/models/operations/exportqueryfieldquery13.md
+  - docs/models/operations/exportqueryfieldquery14.md
+  - docs/models/operations/exportqueryfieldquery15.md
+  - docs/models/operations/exportqueryfieldquery16.md
+  - docs/models/operations/exportqueryfieldquery17.md
+  - docs/models/operations/exportqueryfieldquery18.md
+  - docs/models/operations/exportqueryfieldquery19.md
+  - docs/models/operations/exportqueryfieldquery2.md
+  - docs/models/operations/exportqueryfieldquery20.md
+  - docs/models/operations/exportqueryfieldquery21.md
+  - docs/models/operations/exportqueryfieldquery22.md
+  - docs/models/operations/exportqueryfieldquery23.md
+  - docs/models/operations/exportqueryfieldquery24.md
+  - docs/models/operations/exportqueryfieldquery25.md
+  - docs/models/operations/exportqueryfieldquery26.md
+  - docs/models/operations/exportqueryfieldquery27.md
+  - docs/models/operations/exportqueryfieldquery28.md
+  - docs/models/operations/exportqueryfieldquery29.md
+  - docs/models/operations/exportqueryfieldquery3.md
+  - docs/models/operations/exportqueryfieldquery30.md
+  - docs/models/operations/exportqueryfieldquery31.md
+  - docs/models/operations/exportqueryfieldquery4.md
+  - docs/models/operations/exportqueryfieldquery5.md
+  - docs/models/operations/exportqueryfieldquery6.md
+  - docs/models/operations/exportqueryfieldquery7.md
+  - docs/models/operations/exportqueryfieldquery8.md
+  - docs/models/operations/exportqueryfieldquery9.md
+  - docs/models/operations/exportquerygroupby.md
+  - docs/models/operations/exportqueryorderby.md
+  - docs/models/operations/exportqueryqueryfield.md
+  - docs/models/operations/exportqueryrequest.md
+  - docs/models/operations/exportqueryrequestbody.md
+  - docs/models/operations/exportqueryselect.md
+  - docs/models/operations/field.md
+  - docs/models/operations/field1.md
+  - docs/models/operations/field10.md
+  - docs/models/operations/field100.md
+  - docs/models/operations/field101.md
+  - docs/models/operations/field102.md
+  - docs/models/operations/field103.md
+  - docs/models/operations/field104.md
+  - docs/models/operations/field105.md
+  - docs/models/operations/field106.md
+  - docs/models/operations/field107.md
+  - docs/models/operations/field108.md
+  - docs/models/operations/field109.md
+  - docs/models/operations/field11.md
+  - docs/models/operations/field110.md
+  - docs/models/operations/field111.md
+  - docs/models/operations/field112.md
+  - docs/models/operations/field113.md
+  - docs/models/operations/field114.md
+  - docs/models/operations/field115.md
+  - docs/models/operations/field116.md
+  - docs/models/operations/field117.md
+  - docs/models/operations/field118.md
+  - docs/models/operations/field119.md
+  - docs/models/operations/field12.md
+  - docs/models/operations/field120.md
+  - docs/models/operations/field121.md
+  - docs/models/operations/field122.md
+  - docs/models/operations/field123.md
+  - docs/models/operations/field124.md
+  - docs/models/operations/field125.md
+  - docs/models/operations/field126.md
+  - docs/models/operations/field127.md
+  - docs/models/operations/field128.md
+  - docs/models/operations/field129.md
+  - docs/models/operations/field13.md
+  - docs/models/operations/field130.md
+  - docs/models/operations/field131.md
+  - docs/models/operations/field132.md
+  - docs/models/operations/field133.md
+  - docs/models/operations/field134.md
+  - docs/models/operations/field135.md
+  - docs/models/operations/field136.md
+  - docs/models/operations/field137.md
+  - docs/models/operations/field138.md
+  - docs/models/operations/field139.md
+  - docs/models/operations/field14.md
+  - docs/models/operations/field140.md
+  - docs/models/operations/field141.md
+  - docs/models/operations/field142.md
+  - docs/models/operations/field143.md
+  - docs/models/operations/field144.md
+  - docs/models/operations/field145.md
+  - docs/models/operations/field146.md
+  - docs/models/operations/field147.md
+  - docs/models/operations/field148.md
+  - docs/models/operations/field149.md
+  - docs/models/operations/field15.md
+  - docs/models/operations/field150.md
+  - docs/models/operations/field151.md
+  - docs/models/operations/field152.md
+  - docs/models/operations/field153.md
+  - docs/models/operations/field154.md
+  - docs/models/operations/field155.md
+  - docs/models/operations/field156.md
+  - docs/models/operations/field157.md
+  - docs/models/operations/field158.md
+  - docs/models/operations/field159.md
+  - docs/models/operations/field16.md
+  - docs/models/operations/field160.md
+  - docs/models/operations/field161.md
+  - docs/models/operations/field162.md
+  - docs/models/operations/field163.md
+  - docs/models/operations/field164.md
+  - docs/models/operations/field165.md
+  - docs/models/operations/field166.md
+  - docs/models/operations/field167.md
+  - docs/models/operations/field168.md
+  - docs/models/operations/field169.md
+  - docs/models/operations/field17.md
+  - docs/models/operations/field170.md
+  - docs/models/operations/field171.md
+  - docs/models/operations/field172.md
+  - docs/models/operations/field173.md
+  - docs/models/operations/field174.md
+  - docs/models/operations/field175.md
+  - docs/models/operations/field176.md
+  - docs/models/operations/field177.md
+  - docs/models/operations/field178.md
+  - docs/models/operations/field179.md
+  - docs/models/operations/field18.md
+  - docs/models/operations/field180.md
+  - docs/models/operations/field181.md
+  - docs/models/operations/field182.md
+  - docs/models/operations/field183.md
+  - docs/models/operations/field184.md
+  - docs/models/operations/field185.md
+  - docs/models/operations/field186.md
+  - docs/models/operations/field187.md
+  - docs/models/operations/field188.md
+  - docs/models/operations/field189.md
+  - docs/models/operations/field19.md
+  - docs/models/operations/field190.md
+  - docs/models/operations/field191.md
+  - docs/models/operations/field192.md
+  - docs/models/operations/field193.md
+  - docs/models/operations/field194.md
+  - docs/models/operations/field195.md
+  - docs/models/operations/field196.md
+  - docs/models/operations/field197.md
+  - docs/models/operations/field198.md
+  - docs/models/operations/field199.md
+  - docs/models/operations/field2.md
+  - docs/models/operations/field20.md
+  - docs/models/operations/field200.md
+  - docs/models/operations/field201.md
+  - docs/models/operations/field202.md
+  - docs/models/operations/field203.md
+  - docs/models/operations/field204.md
+  - docs/models/operations/field205.md
+  - docs/models/operations/field206.md
+  - docs/models/operations/field207.md
+  - docs/models/operations/field208.md
+  - docs/models/operations/field209.md
+  - docs/models/operations/field21.md
+  - docs/models/operations/field210.md
+  - docs/models/operations/field211.md
+  - docs/models/operations/field212.md
+  - docs/models/operations/field213.md
+  - docs/models/operations/field214.md
+  - docs/models/operations/field215.md
+  - docs/models/operations/field216.md
+  - docs/models/operations/field217.md
+  - docs/models/operations/field218.md
+  - docs/models/operations/field219.md
+  - docs/models/operations/field22.md
+  - docs/models/operations/field220.md
+  - docs/models/operations/field221.md
+  - docs/models/operations/field222.md
+  - docs/models/operations/field223.md
+  - docs/models/operations/field224.md
+  - docs/models/operations/field225.md
+  - docs/models/operations/field226.md
+  - docs/models/operations/field227.md
+  - docs/models/operations/field228.md
+  - docs/models/operations/field229.md
+  - docs/models/operations/field23.md
+  - docs/models/operations/field230.md
+  - docs/models/operations/field231.md
+  - docs/models/operations/field232.md
+  - docs/models/operations/field233.md
+  - docs/models/operations/field234.md
+  - docs/models/operations/field235.md
+  - docs/models/operations/field236.md
+  - docs/models/operations/field237.md
+  - docs/models/operations/field238.md
+  - docs/models/operations/field239.md
+  - docs/models/operations/field24.md
+  - docs/models/operations/field240.md
+  - docs/models/operations/field241.md
+  - docs/models/operations/field242.md
+  - docs/models/operations/field243.md
+  - docs/models/operations/field244.md
+  - docs/models/operations/field245.md
+  - docs/models/operations/field246.md
+  - docs/models/operations/field247.md
+  - docs/models/operations/field248.md
+  - docs/models/operations/field249.md
+  - docs/models/operations/field25.md
+  - docs/models/operations/field250.md
+  - docs/models/operations/field251.md
+  - docs/models/operations/field252.md
+  - docs/models/operations/field253.md
+  - docs/models/operations/field254.md
+  - docs/models/operations/field255.md
+  - docs/models/operations/field256.md
+  - docs/models/operations/field257.md
+  - docs/models/operations/field258.md
+  - docs/models/operations/field259.md
+  - docs/models/operations/field26.md
+  - docs/models/operations/field260.md
+  - docs/models/operations/field261.md
+  - docs/models/operations/field262.md
+  - docs/models/operations/field263.md
+  - docs/models/operations/field264.md
+  - docs/models/operations/field265.md
+  - docs/models/operations/field266.md
+  - docs/models/operations/field267.md
+  - docs/models/operations/field268.md
+  - docs/models/operations/field269.md
+  - docs/models/operations/field27.md
+  - docs/models/operations/field270.md
+  - docs/models/operations/field271.md
+  - docs/models/operations/field272.md
+  - docs/models/operations/field273.md
+  - docs/models/operations/field274.md
+  - docs/models/operations/field275.md
+  - docs/models/operations/field276.md
+  - docs/models/operations/field277.md
+  - docs/models/operations/field278.md
+  - docs/models/operations/field279.md
+  - docs/models/operations/field28.md
+  - docs/models/operations/field280.md
+  - docs/models/operations/field281.md
+  - docs/models/operations/field282.md
+  - docs/models/operations/field283.md
+  - docs/models/operations/field284.md
+  - docs/models/operations/field285.md
+  - docs/models/operations/field286.md
+  - docs/models/operations/field287.md
+  - docs/models/operations/field288.md
+  - docs/models/operations/field289.md
+  - docs/models/operations/field29.md
+  - docs/models/operations/field290.md
+  - docs/models/operations/field291.md
+  - docs/models/operations/field292.md
+  - docs/models/operations/field293.md
+  - docs/models/operations/field294.md
+  - docs/models/operations/field295.md
+  - docs/models/operations/field296.md
+  - docs/models/operations/field297.md
+  - docs/models/operations/field298.md
+  - docs/models/operations/field299.md
+  - docs/models/operations/field3.md
+  - docs/models/operations/field30.md
+  - docs/models/operations/field300.md
+  - docs/models/operations/field301.md
+  - docs/models/operations/field302.md
+  - docs/models/operations/field303.md
+  - docs/models/operations/field304.md
+  - docs/models/operations/field305.md
+  - docs/models/operations/field306.md
+  - docs/models/operations/field307.md
+  - docs/models/operations/field308.md
+  - docs/models/operations/field309.md
+  - docs/models/operations/field31.md
+  - docs/models/operations/field310.md
+  - docs/models/operations/field32.md
+  - docs/models/operations/field33.md
+  - docs/models/operations/field34.md
+  - docs/models/operations/field35.md
+  - docs/models/operations/field36.md
+  - docs/models/operations/field37.md
+  - docs/models/operations/field38.md
+  - docs/models/operations/field39.md
+  - docs/models/operations/field4.md
+  - docs/models/operations/field40.md
+  - docs/models/operations/field41.md
+  - docs/models/operations/field42.md
+  - docs/models/operations/field43.md
+  - docs/models/operations/field44.md
+  - docs/models/operations/field45.md
+  - docs/models/operations/field46.md
+  - docs/models/operations/field47.md
+  - docs/models/operations/field48.md
+  - docs/models/operations/field49.md
+  - docs/models/operations/field5.md
+  - docs/models/operations/field50.md
+  - docs/models/operations/field51.md
+  - docs/models/operations/field52.md
+  - docs/models/operations/field53.md
+  - docs/models/operations/field54.md
+  - docs/models/operations/field55.md
+  - docs/models/operations/field56.md
+  - docs/models/operations/field57.md
+  - docs/models/operations/field58.md
+  - docs/models/operations/field59.md
+  - docs/models/operations/field6.md
+  - docs/models/operations/field60.md
+  - docs/models/operations/field61.md
+  - docs/models/operations/field62.md
+  - docs/models/operations/field63.md
+  - docs/models/operations/field64.md
+  - docs/models/operations/field65.md
+  - docs/models/operations/field66.md
+  - docs/models/operations/field67.md
+  - docs/models/operations/field68.md
+  - docs/models/operations/field69.md
+  - docs/models/operations/field7.md
+  - docs/models/operations/field70.md
+  - docs/models/operations/field71.md
+  - docs/models/operations/field72.md
+  - docs/models/operations/field73.md
+  - docs/models/operations/field74.md
+  - docs/models/operations/field75.md
+  - docs/models/operations/field76.md
+  - docs/models/operations/field77.md
+  - docs/models/operations/field78.md
+  - docs/models/operations/field79.md
+  - docs/models/operations/field8.md
+  - docs/models/operations/field80.md
+  - docs/models/operations/field81.md
+  - docs/models/operations/field82.md
+  - docs/models/operations/field83.md
+  - docs/models/operations/field84.md
+  - docs/models/operations/field85.md
+  - docs/models/operations/field86.md
+  - docs/models/operations/field87.md
+  - docs/models/operations/field88.md
+  - docs/models/operations/field89.md
+  - docs/models/operations/field9.md
+  - docs/models/operations/field90.md
+  - docs/models/operations/field91.md
+  - docs/models/operations/field92.md
+  - docs/models/operations/field93.md
+  - docs/models/operations/field94.md
+  - docs/models/operations/field95.md
+  - docs/models/operations/field96.md
+  - docs/models/operations/field97.md
+  - docs/models/operations/field98.md
+  - docs/models/operations/field99.md
+  - docs/models/operations/fifteen.md
+  - docs/models/operations/fifty.md
+  - docs/models/operations/fiftyeight.md
+  - docs/models/operations/fiftyfive.md
+  - docs/models/operations/fiftyfour.md
+  - docs/models/operations/fiftynine.md
+  - docs/models/operations/fiftyone.md
+  - docs/models/operations/fiftyseven.md
+  - docs/models/operations/fiftysix.md
+  - docs/models/operations/fiftythree.md
+  - docs/models/operations/fiftytwo.md
+  - docs/models/operations/five.md
+  - docs/models/operations/forty.md
+  - docs/models/operations/fortyeight.md
+  - docs/models/operations/fortyfive.md
+  - docs/models/operations/fortyfour.md
+  - docs/models/operations/fortynine.md
+  - docs/models/operations/fortyone.md
+  - docs/models/operations/fortyseven.md
+  - docs/models/operations/fortysix.md
+  - docs/models/operations/fortythree.md
+  - docs/models/operations/fortytwo.md
+  - docs/models/operations/four.md
+  - docs/models/operations/fourteen.md
+  - docs/models/operations/getallconversationrequest.md
+  - docs/models/operations/getallconversationresponsebody.md
+  - docs/models/operations/getallfeedbacksecurity.md
+  - docs/models/operations/getconversationrequest.md
+  - docs/models/operations/getconversationsecurity.md
+  - docs/models/operations/groupby.md
+  - docs/models/operations/logconversationsecurity.md
+  - docs/models/operations/logeventsecurity.md
+  - docs/models/operations/nine.md
+  - docs/models/operations/nineteen.md
+  - docs/models/operations/ninety.md
+  - docs/models/operations/ninetyeight.md
+  - docs/models/operations/ninetyfive.md
+  - docs/models/operations/ninetyfour.md
+  - docs/models/operations/ninetynine.md
+  - docs/models/operations/ninetyone.md
+  - docs/models/operations/ninetyseven.md
+  - docs/models/operations/ninetysix.md
+  - docs/models/operations/ninetythree.md
+  - docs/models/operations/ninetytwo.md
+  - docs/models/operations/one.md
+  - docs/models/operations/onehundred.md
+  - docs/models/operations/onehundredandeight.md
+  - docs/models/operations/onehundredandeighteen.md
+  - docs/models/operations/onehundredandeighty.md
+  - docs/models/operations/onehundredandeightyeight.md
+  - docs/models/operations/onehundredandeightyfive.md
+  - docs/models/operations/onehundredandeightyfour.md
+  - docs/models/operations/onehundredandeightynine.md
+  - docs/models/operations/onehundredandeightyone.md
+  - docs/models/operations/onehundredandeightyseven.md
+  - docs/models/operations/onehundredandeightysix.md
+  - docs/models/operations/onehundredandeightythree.md
+  - docs/models/operations/onehundredandeightytwo.md
+  - docs/models/operations/onehundredandeleven.md
+  - docs/models/operations/onehundredandfifteen.md
+  - docs/models/operations/onehundredandfifty.md
+  - docs/models/operations/onehundredandfiftyeight.md
+  - docs/models/operations/onehundredandfiftyfive.md
+  - docs/models/operations/onehundredandfiftyfour.md
+  - docs/models/operations/onehundredandfiftynine.md
+  - docs/models/operations/onehundredandfiftyone.md
+  - docs/models/operations/onehundredandfiftyseven.md
+  - docs/models/operations/onehundredandfiftysix.md
+  - docs/models/operations/onehundredandfiftythree.md
+  - docs/models/operations/onehundredandfiftytwo.md
+  - docs/models/operations/onehundredandfive.md
+  - docs/models/operations/onehundredandforty.md
+  - docs/models/operations/onehundredandfortyeight.md
+  - docs/models/operations/onehundredandfortyfive.md
+  - docs/models/operations/onehundredandfortyfour.md
+  - docs/models/operations/onehundredandfortynine.md
+  - docs/models/operations/onehundredandfortyone.md
+  - docs/models/operations/onehundredandfortyseven.md
+  - docs/models/operations/onehundredandfortysix.md
+  - docs/models/operations/onehundredandfortythree.md
+  - docs/models/operations/onehundredandfortytwo.md
+  - docs/models/operations/onehundredandfour.md
+  - docs/models/operations/onehundredandfourteen.md
+  - docs/models/operations/onehundredandnine.md
+  - docs/models/operations/onehundredandnineteen.md
+  - docs/models/operations/onehundredandninety.md
+  - docs/models/operations/onehundredandninetyeight.md
+  - docs/models/operations/onehundredandninetyfive.md
+  - docs/models/operations/onehundredandninetyfour.md
+  - docs/models/operations/onehundredandninetynine.md
+  - docs/models/operations/onehundredandninetyone.md
+  - docs/models/operations/onehundredandninetyseven.md
+  - docs/models/operations/onehundredandninetysix.md
+  - docs/models/operations/onehundredandninetythree.md
+  - docs/models/operations/onehundredandninetytwo.md
+  - docs/models/operations/onehundredandone.md
+  - docs/models/operations/onehundredandseven.md
+  - docs/models/operations/onehundredandseventeen.md
+  - docs/models/operations/onehundredandseventy.md
+  - docs/models/operations/onehundredandseventyeight.md
+  - docs/models/operations/onehundredandseventyfive.md
+  - docs/models/operations/onehundredandseventyfour.md
+  - docs/models/operations/onehundredandseventynine.md
+  - docs/models/operations/onehundredandseventyone.md
+  - docs/models/operations/onehundredandseventyseven.md
+  - docs/models/operations/onehundredandseventysix.md
+  - docs/models/operations/onehundredandseventythree.md
+  - docs/models/operations/onehundredandseventytwo.md
+  - docs/models/operations/onehundredandsix.md
+  - docs/models/operations/onehundredandsixteen.md
+  - docs/models/operations/onehundredandsixty.md
+  - docs/models/operations/onehundredandsixtyeight.md
+  - docs/models/operations/onehundredandsixtyfive.md
+  - docs/models/operations/onehundredandsixtyfour.md
+  - docs/models/operations/onehundredandsixtynine.md
+  - docs/models/operations/onehundredandsixtyone.md
+  - docs/models/operations/onehundredandsixtyseven.md
+  - docs/models/operations/onehundredandsixtysix.md
+  - docs/models/operations/onehundredandsixtythree.md
+  - docs/models/operations/onehundredandsixtytwo.md
+  - docs/models/operations/onehundredandten.md
+  - docs/models/operations/onehundredandthirteen.md
+  - docs/models/operations/onehundredandthirty.md
+  - docs/models/operations/onehundredandthirtyeight.md
+  - docs/models/operations/onehundredandthirtyfive.md
+  - docs/models/operations/onehundredandthirtyfour.md
+  - docs/models/operations/onehundredandthirtynine.md
+  - docs/models/operations/onehundredandthirtyone.md
+  - docs/models/operations/onehundredandthirtyseven.md
+  - docs/models/operations/onehundredandthirtysix.md
+  - docs/models/operations/onehundredandthirtythree.md
+  - docs/models/operations/onehundredandthirtytwo.md
+  - docs/models/operations/onehundredandthree.md
+  - docs/models/operations/onehundredandtwelve.md
+  - docs/models/operations/onehundredandtwenty.md
+  - docs/models/operations/onehundredandtwentyeight.md
+  - docs/models/operations/onehundredandtwentyfive.md
+  - docs/models/operations/onehundredandtwentyfour.md
+  - docs/models/operations/onehundredandtwentynine.md
+  - docs/models/operations/onehundredandtwentyone.md
+  - docs/models/operations/onehundredandtwentyseven.md
+  - docs/models/operations/onehundredandtwentysix.md
+  - docs/models/operations/onehundredandtwentythree.md
+  - docs/models/operations/onehundredandtwentytwo.md
+  - docs/models/operations/onehundredandtwo.md
+  - docs/models/operations/orderby.md
+  - docs/models/operations/queryconversationsdata.md
+  - docs/models/operations/queryconversationsfield.md
+  - docs/models/operations/queryconversationsrequestbody.md
+  - docs/models/operations/queryconversationsresponsebody.md
+  - docs/models/operations/queryconversationsresult.md
+  - docs/models/operations/queryconversationssecurity.md
+  - docs/models/operations/queryconversationsstatus.md
+  - docs/models/operations/querytabledirection.md
+  - docs/models/operations/querytabledirection1.md
+  - docs/models/operations/querytabledirection2.md
+  - docs/models/operations/querytablefield.md
+  - docs/models/operations/querytablefield1.md
+  - docs/models/operations/querytablefield10.md
+  - docs/models/operations/querytablefield11.md
+  - docs/models/operations/querytablefield12.md
+  - docs/models/operations/querytablefield13.md
+  - docs/models/operations/querytablefield14.md
+  - docs/models/operations/querytablefield15.md
+  - docs/models/operations/querytablefield16.md
+  - docs/models/operations/querytablefield17.md
+  - docs/models/operations/querytablefield18.md
+  - docs/models/operations/querytablefield19.md
+  - docs/models/operations/querytablefield2.md
+  - docs/models/operations/querytablefield20.md
+  - docs/models/operations/querytablefield21.md
+  - docs/models/operations/querytablefield22.md
+  - docs/models/operations/querytablefield23.md
+  - docs/models/operations/querytablefield24.md
+  - docs/models/operations/querytablefield25.md
+  - docs/models/operations/querytablefield26.md
+  - docs/models/operations/querytablefield27.md
+  - docs/models/operations/querytablefield28.md
+  - docs/models/operations/querytablefield29.md
+  - docs/models/operations/querytablefield3.md
+  - docs/models/operations/querytablefield30.md
+  - docs/models/operations/querytablefield31.md
+  - docs/models/operations/querytablefield4.md
+  - docs/models/operations/querytablefield5.md
+  - docs/models/operations/querytablefield6.md
+  - docs/models/operations/querytablefield7.md
+  - docs/models/operations/querytablefield8.md
+  - docs/models/operations/querytablefield9.md
+  - docs/models/operations/querytablefieldquery1.md
+  - docs/models/operations/querytablefieldquery2.md
+  - docs/models/operations/querytablefieldquery3.md
+  - docs/models/operations/querytablefieldquery4.md
+  - docs/models/operations/querytablefieldquery5.md
+  - docs/models/operations/querytablefieldquery6.md
+  - docs/models/operations/querytablefieldquery7.md
+  - docs/models/operations/querytablegroupby.md
+  - docs/models/operations/querytableorderby.md
+  - docs/models/operations/querytablequeryfield.md
+  - docs/models/operations/querytablerequest.md
+  - docs/models/operations/querytablerequestbody.md
+  - docs/models/operations/querytableresponsebody.md
+  - docs/models/operations/querytablesecurity.md
+  - docs/models/operations/querytableselect.md
+  - docs/models/operations/reasons.md
+  - docs/models/operations/result.md
+  - docs/models/operations/select.md
+  - docs/models/operations/seven.md
+  - docs/models/operations/seventeen.md
+  - docs/models/operations/seventy.md
+  - docs/models/operations/seventyeight.md
+  - docs/models/operations/seventyfive.md
+  - docs/models/operations/seventyfour.md
+  - docs/models/operations/seventynine.md
+  - docs/models/operations/seventyone.md
+  - docs/models/operations/seventyseven.md
+  - docs/models/operations/seventysix.md
+  - docs/models/operations/seventythree.md
+  - docs/models/operations/seventytwo.md
+  - docs/models/operations/six.md
+  - docs/models/operations/sixteen.md
+  - docs/models/operations/sixty.md
+  - docs/models/operations/sixtyeight.md
+  - docs/models/operations/sixtyfive.md
+  - docs/models/operations/sixtyfour.md
+  - docs/models/operations/sixtynine.md
+  - docs/models/operations/sixtyone.md
+  - docs/models/operations/sixtyseven.md
+  - docs/models/operations/sixtysix.md
+  - docs/models/operations/sixtythree.md
+  - docs/models/operations/sixtytwo.md
+  - docs/models/operations/status.md
+  - docs/models/operations/submitfeedbackreasons.md
+  - docs/models/operations/submitfeedbackrequestbody.md
+  - docs/models/operations/submitfeedbackresponsebody.md
+  - docs/models/operations/submitfeedbacktype.md
+  - docs/models/operations/submitfeedbackuserproperties.md
+  - docs/models/operations/ten.md
+  - docs/models/operations/thirteen.md
+  - docs/models/operations/thirty.md
+  - docs/models/operations/thirtyeight.md
+  - docs/models/operations/thirtyfive.md
+  - docs/models/operations/thirtyfour.md
+  - docs/models/operations/thirtynine.md
+  - docs/models/operations/thirtyone.md
+  - docs/models/operations/thirtyseven.md
+  - docs/models/operations/thirtysix.md
+  - docs/models/operations/thirtythree.md
+  - docs/models/operations/thirtytwo.md
+  - docs/models/operations/three.md
+  - docs/models/operations/threehundred.md
+  - docs/models/operations/threehundredandeight.md
+  - docs/models/operations/threehundredandfive.md
+  - docs/models/operations/threehundredandfour.md
+  - docs/models/operations/threehundredandnine.md
+  - docs/models/operations/threehundredandone.md
+  - docs/models/operations/threehundredandseven.md
+  - docs/models/operations/threehundredandsix.md
+  - docs/models/operations/threehundredandten.md
+  - docs/models/operations/threehundredandthree.md
+  - docs/models/operations/threehundredandtwo.md
+  - docs/models/operations/twelve.md
+  - docs/models/operations/twenty.md
+  - docs/models/operations/twentyeight.md
+  - docs/models/operations/twentyfive.md
+  - docs/models/operations/twentyfour.md
+  - docs/models/operations/twentynine.md
+  - docs/models/operations/twentyone.md
+  - docs/models/operations/twentyseven.md
+  - docs/models/operations/twentysix.md
+  - docs/models/operations/twentythree.md
+  - docs/models/operations/twentytwo.md
+  - docs/models/operations/two.md
+  - docs/models/operations/twohundred.md
+  - docs/models/operations/twohundredandeight.md
+  - docs/models/operations/twohundredandeighteen.md
+  - docs/models/operations/twohundredandeighty.md
+  - docs/models/operations/twohundredandeightyeight.md
+  - docs/models/operations/twohundredandeightyfive.md
+  - docs/models/operations/twohundredandeightyfour.md
+  - docs/models/operations/twohundredandeightynine.md
+  - docs/models/operations/twohundredandeightyone.md
+  - docs/models/operations/twohundredandeightyseven.md
+  - docs/models/operations/twohundredandeightysix.md
+  - docs/models/operations/twohundredandeightythree.md
+  - docs/models/operations/twohundredandeightytwo.md
+  - docs/models/operations/twohundredandeleven.md
+  - docs/models/operations/twohundredandfifteen.md
+  - docs/models/operations/twohundredandfifty.md
+  - docs/models/operations/twohundredandfiftyeight.md
+  - docs/models/operations/twohundredandfiftyfive.md
+  - docs/models/operations/twohundredandfiftyfour.md
+  - docs/models/operations/twohundredandfiftynine.md
+  - docs/models/operations/twohundredandfiftyone.md
+  - docs/models/operations/twohundredandfiftyseven.md
+  - docs/models/operations/twohundredandfiftysix.md
+  - docs/models/operations/twohundredandfiftythree.md
+  - docs/models/operations/twohundredandfiftytwo.md
+  - docs/models/operations/twohundredandfive.md
+  - docs/models/operations/twohundredandforty.md
+  - docs/models/operations/twohundredandfortyeight.md
+  - docs/models/operations/twohundredandfortyfive.md
+  - docs/models/operations/twohundredandfortyfour.md
+  - docs/models/operations/twohundredandfortynine.md
+  - docs/models/operations/twohundredandfortyone.md
+  - docs/models/operations/twohundredandfortyseven.md
+  - docs/models/operations/twohundredandfortysix.md
+  - docs/models/operations/twohundredandfortythree.md
+  - docs/models/operations/twohundredandfortytwo.md
+  - docs/models/operations/twohundredandfour.md
+  - docs/models/operations/twohundredandfourteen.md
+  - docs/models/operations/twohundredandnine.md
+  - docs/models/operations/twohundredandnineteen.md
+  - docs/models/operations/twohundredandninety.md
+  - docs/models/operations/twohundredandninetyeight.md
+  - docs/models/operations/twohundredandninetyfive.md
+  - docs/models/operations/twohundredandninetyfour.md
+  - docs/models/operations/twohundredandninetynine.md
+  - docs/models/operations/twohundredandninetyone.md
+  - docs/models/operations/twohundredandninetyseven.md
+  - docs/models/operations/twohundredandninetysix.md
+  - docs/models/operations/twohundredandninetythree.md
+  - docs/models/operations/twohundredandninetytwo.md
+  - docs/models/operations/twohundredandone.md
+  - docs/models/operations/twohundredandseven.md
+  - docs/models/operations/twohundredandseventeen.md
+  - docs/models/operations/twohundredandseventy.md
+  - docs/models/operations/twohundredandseventyeight.md
+  - docs/models/operations/twohundredandseventyfive.md
+  - docs/models/operations/twohundredandseventyfour.md
+  - docs/models/operations/twohundredandseventynine.md
+  - docs/models/operations/twohundredandseventyone.md
+  - docs/models/operations/twohundredandseventyseven.md
+  - docs/models/operations/twohundredandseventysix.md
+  - docs/models/operations/twohundredandseventythree.md
+  - docs/models/operations/twohundredandseventytwo.md
+  - docs/models/operations/twohundredandsix.md
+  - docs/models/operations/twohundredandsixteen.md
+  - docs/models/operations/twohundredandsixty.md
+  - docs/models/operations/twohundredandsixtyeight.md
+  - docs/models/operations/twohundredandsixtyfive.md
+  - docs/models/operations/twohundredandsixtyfour.md
+  - docs/models/operations/twohundredandsixtynine.md
+  - docs/models/operations/twohundredandsixtyone.md
+  - docs/models/operations/twohundredandsixtyseven.md
+  - docs/models/operations/twohundredandsixtysix.md
+  - docs/models/operations/twohundredandsixtythree.md
+  - docs/models/operations/twohundredandsixtytwo.md
+  - docs/models/operations/twohundredandten.md
+  - docs/models/operations/twohundredandthirteen.md
+  - docs/models/operations/twohundredandthirty.md
+  - docs/models/operations/twohundredandthirtyeight.md
+  - docs/models/operations/twohundredandthirtyfive.md
+  - docs/models/operations/twohundredandthirtyfour.md
+  - docs/models/operations/twohundredandthirtynine.md
+  - docs/models/operations/twohundredandthirtyone.md
+  - docs/models/operations/twohundredandthirtyseven.md
+  - docs/models/operations/twohundredandthirtysix.md
+  - docs/models/operations/twohundredandthirtythree.md
+  - docs/models/operations/twohundredandthirtytwo.md
+  - docs/models/operations/twohundredandthree.md
+  - docs/models/operations/twohundredandtwelve.md
+  - docs/models/operations/twohundredandtwenty.md
+  - docs/models/operations/twohundredandtwentyeight.md
+  - docs/models/operations/twohundredandtwentyfive.md
+  - docs/models/operations/twohundredandtwentyfour.md
+  - docs/models/operations/twohundredandtwentynine.md
+  - docs/models/operations/twohundredandtwentyone.md
+  - docs/models/operations/twohundredandtwentyseven.md
+  - docs/models/operations/twohundredandtwentysix.md
+  - docs/models/operations/twohundredandtwentythree.md
+  - docs/models/operations/twohundredandtwentytwo.md
+  - docs/models/operations/twohundredandtwo.md
+  - docs/models/operations/type.md
+  - docs/models/operations/userproperties.md
+  - docs/sdks/conversations/README.md
+  - docs/sdks/events/README.md
+  - docs/sdks/export/README.md
+  - docs/sdks/feedback/README.md
+  - docs/sdks/inkeepanalytics/README.md
+  - docs/sdks/query/README.md
+  - eslint.config.mjs
+  - jsr.json
+  - package.json
+  - src/core.ts
+  - src/funcs/conversationsConversations.ts
+  - src/funcs/conversationsDelete.ts
+  - src/funcs/conversationsGet.ts
+  - src/funcs/conversationsList.ts
+  - src/funcs/conversationsLog.ts
+  - src/funcs/eventsLog.ts
+  - src/funcs/exportExport.ts
+  - src/funcs/feedbackList.ts
+  - src/funcs/feedbackSubmit.ts
+  - src/funcs/queryConversations.ts
+  - src/funcs/queryExport.ts
+  - src/funcs/queryTable.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
+  - src/index.ts
+  - src/lib/base64.ts
+  - src/lib/config.ts
+  - src/lib/dlv.ts
+  - src/lib/encodings.ts
+  - src/lib/env.ts
+  - src/lib/files.ts
+  - src/lib/http.ts
+  - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
+  - src/lib/matchers.ts
+  - src/lib/primitives.ts
+  - src/lib/retries.ts
+  - src/lib/schemas.ts
+  - src/lib/sdks.ts
+  - src/lib/security.ts
+  - src/lib/url.ts
+  - src/models/components/aggregationselection.ts
+  - src/models/components/conversation.ts
+  - src/models/components/conversationsaggregationselection.ts
+  - src/models/components/conversationsfilter.ts
+  - src/models/components/conversationssimplefieldselection.ts
+  - src/models/components/conversationstimebasedgroupbyselection.ts
+  - src/models/components/createconversation.ts
+  - src/models/components/createopenaiconversation.ts
+  - src/models/components/createsupportticketconversation.ts
+  - src/models/components/getallfeedbackresponse.ts
+  - src/models/components/index.ts
+  - src/models/components/insertconversationevent.ts
+  - src/models/components/insertevent.ts
+  - src/models/components/insertmessageevent.ts
+  - src/models/components/insertsearchevent.ts
+  - src/models/components/message.ts
+  - src/models/components/openaichatcompletionmessage.ts
+  - src/models/components/openaicontentitem.ts
+  - src/models/components/openaiconversation.ts
+  - src/models/components/openaiextendedmessage.ts
+  - src/models/components/openaiimageurlobject.ts
+  - src/models/components/openaitoolcall.ts
+  - src/models/components/openaitoolcallfunction.ts
+  - src/models/components/security.ts
+  - src/models/components/selectconversationevent.ts
+  - src/models/components/selectevent.ts
+  - src/models/components/selectmessageevent.ts
+  - src/models/components/selectsearchevent.ts
+  - src/models/components/semanticthreadfilter.ts
+  - src/models/components/simplefieldselection.ts
+  - src/models/components/supportticketconversation.ts
+  - src/models/components/supportticketmessage.ts
+  - src/models/components/timebasedgroupbyselection.ts
+  - src/models/errors/apierror.ts
+  - src/models/errors/badrequest.ts
+  - src/models/errors/forbidden.ts
+  - src/models/errors/httpclienterrors.ts
+  - src/models/errors/index.ts
+  - src/models/errors/internalservererror.ts
+  - src/models/errors/notfound.ts
+  - src/models/errors/sdkvalidationerror.ts
+  - src/models/errors/unauthorized.ts
+  - src/models/errors/unprocessableentity.ts
+  - src/models/operations/deleteconversation.ts
+  - src/models/operations/exportquery.ts
+  - src/models/operations/getallconversation.ts
+  - src/models/operations/getallfeedback.ts
+  - src/models/operations/getconversation.ts
+  - src/models/operations/index.ts
+  - src/models/operations/logconversation.ts
+  - src/models/operations/logevent.ts
+  - src/models/operations/queryconversations.ts
+  - src/models/operations/querytable.ts
+  - src/models/operations/submitfeedback.ts
+  - src/sdk/conversations.ts
+  - src/sdk/events.ts
+  - src/sdk/export.ts
+  - src/sdk/feedback.ts
+  - src/sdk/index.ts
+  - src/sdk/query.ts
+  - src/sdk/sdk.ts
+  - src/types/blobs.ts
+  - src/types/constdatetime.ts
+  - src/types/enums.ts
+  - src/types/fp.ts
+  - src/types/index.ts
+  - src/types/operations.ts
+  - src/types/rfcdate.ts
+  - src/types/streams.ts
+  - tsconfig.json
+examples:
+  logConversation:
+    speakeasy-default-log-conversation:
+      requestBody:
+        application/json: {"type": "support_ticket", "messages": [{"role": "<value>"}]}
+      responses:
+        "200":
+          application/json: {"id": "<id>", "type": "support_ticket", "createdAt": "1733847902032", "updatedAt": "1738782547049", "tags": ["<value>", "<value>"], "messages": [{"id": "<id>", "type": "support_ticket", "conversationId": "<id>", "createdAt": "1708069757418", "updatedAt": "1738719286500", "role": "<value>"}, {"id": "<id>", "type": "support_ticket", "conversationId": "<id>", "createdAt": "1715130712707", "updatedAt": "1738776315766", "role": "<value>"}]}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+  getAllConversation:
+    speakeasy-default-get-all-conversation:
+      responses:
+        "200":
+          application/json: {"conversations": [], "total": 4577.99, "pageSize": 1601.72, "count": 400.21}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "Not Found"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+  getConversation:
+    speakeasy-default-get-conversation:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "<id>", "type": "support_ticket", "createdAt": "1735928719588", "updatedAt": "1738802376242", "tags": ["<value>"], "messages": [{"id": "<id>", "type": "support_ticket", "conversationId": "<id>", "createdAt": "1718049138803", "updatedAt": "1738746959508", "role": "<value>"}, {"id": "<id>", "type": "support_ticket", "conversationId": "<id>", "createdAt": "1716851894842", "updatedAt": "1738768541226", "role": "<value>"}, {"id": "<id>", "type": "support_ticket", "conversationId": "<id>", "createdAt": "1737557749612", "updatedAt": "1738748037494", "role": "<value>"}]}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "Not Found"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+  deleteConversation:
+    speakeasy-default-delete-conversation:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"success": false, "message": "<value>"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "Not Found"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+  submitFeedback:
+    speakeasy-default-submit-feedback:
+      requestBody:
+        application/json: {"type": "negative", "messageId": "<id>"}
+      responses:
+        "200":
+          application/json: {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1721987829810"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+  getAllFeedback:
+    speakeasy-default-get-all-feedback:
+      responses:
+        "200":
+          application/json: {"positiveFeedbackCount": 1726.62, "negativeFeedbackCount": 2246.6, "positiveFeedback": [], "negativeFeedback": [{"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1731204221605", "conversation": {"id": "<id>", "type": "openai", "createdAt": "1727769494062", "updatedAt": "1738752877975", "tags": [], "messages": [], "messagesOpenAIFormat": [{"role": "system", "content": "<value>"}]}, "message": {"id": "<id>", "type": "support_ticket", "conversationId": "<id>", "createdAt": "1731361160099", "updatedAt": "1738761736066", "role": "<value>"}}]}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
+        "404":
+          application/json: {"error": {"code": "not_found", "message": "Not Found"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+  logEvent:
+    speakeasy-default-log-event:
+      requestBody:
+        application/json: {"type": "<value>", "searchQuery": "<value>", "entityType": "search"}
+      responses:
+        "200":
+          application/json: {"id": "<id>", "type": "<value>", "conversationId": "<id>", "createdAt": "1738279517326", "entityType": "conversation"}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+  queryConversations:
+    speakeasy-default-query-conversations:
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"status": "ok", "data": {"result": [{}, {}, {}], "total": 6276.48, "pageSize": 9233.28, "count": 6854.56}}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+  queryTable:
+    speakeasy-default-query-table:
+      parameters:
+        path:
+          table: "semantic_threads_view"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"status": "ok", "data": {"result": [], "total": 8462.98, "pageSize": 7689.4, "count": 7218.2}}
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+  exportQuery:
+    speakeasy-default-export-query:
+      parameters:
+        path:
+          table: "semantic_threads_view"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          text/csv: "x-file: example.file"
+        "400":
+          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
+        "422":
+          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+examplesVersion: 1.0.0
+generatedTests: {}
