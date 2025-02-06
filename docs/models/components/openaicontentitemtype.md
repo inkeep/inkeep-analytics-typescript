@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { OpenAIContentItemType } from "inkeep-analytics-typescript/models/components";
+import { OpenAIContentItemType } from "@inkeep/inkeep-analytics/models/components";
 
 let value: OpenAIContentItemType = "image_url";
 ```

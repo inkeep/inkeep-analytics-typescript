@@ -5,15 +5,15 @@ Conversations retrieved successfully
 ## Example Usage
 
 ```typescript
-import { GetAllConversationResponseBody } from "inkeep-analytics-typescript/models/operations";
+import { GetAllConversationResponseBody } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: GetAllConversationResponseBody = {
   conversations: [
     {
       id: "<id>",
       type: "support_ticket",
-      createdAt: "1726629107683",
-      updatedAt: "1738762956049",
+      createdAt: "1726707949517",
+      updatedAt: "1738841797883",
       tags: [
         "<value>",
       ],
@@ -22,8 +22,8 @@ let value: GetAllConversationResponseBody = {
           id: "<id>",
           type: "support_ticket",
           conversationId: "<id>",
-          createdAt: "1725870478334",
-          updatedAt: "1738779759723",
+          createdAt: "1725949320168",
+          updatedAt: "1738858601557",
           role: "<value>",
         },
       ],

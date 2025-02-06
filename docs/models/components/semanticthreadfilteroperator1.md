@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { SemanticThreadFilterOperator1 } from "inkeep-analytics-typescript/models/components";
+import { SemanticThreadFilterOperator1 } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SemanticThreadFilterOperator1 = "eq";
 ```

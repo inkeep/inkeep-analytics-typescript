@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { LogEventSecurity } from "inkeep-analytics-typescript/models/operations";
+import { LogEventSecurity } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: LogEventSecurity = {};
 ```

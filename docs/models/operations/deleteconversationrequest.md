@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { DeleteConversationRequest } from "inkeep-analytics-typescript/models/operations";
+import { DeleteConversationRequest } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: DeleteConversationRequest = {
   id: "<id>",

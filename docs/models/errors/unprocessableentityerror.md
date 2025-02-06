@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UnprocessableEntityError } from "inkeep-analytics-typescript/models/errors";
+import { UnprocessableEntityError } from "@inkeep/inkeep-analytics/models/errors";
 
 let value: UnprocessableEntityError = {
   code: "unprocessable_entity",

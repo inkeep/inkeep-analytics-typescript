@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { InsertMessageEventUserProperties } from "inkeep-analytics-typescript/models/components";
+import { InsertMessageEventUserProperties } from "@inkeep/inkeep-analytics/models/components";
 
 let value: InsertMessageEventUserProperties = {};
 ```

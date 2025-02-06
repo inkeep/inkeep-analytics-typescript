@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { OpenAIConversationUserProperties } from "inkeep-analytics-typescript/models/components";
+import { OpenAIConversationUserProperties } from "@inkeep/inkeep-analytics/models/components";
 
 let value: OpenAIConversationUserProperties = {};
 ```

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GroupBy } from "inkeep-analytics-typescript/models/operations";
+import { GroupBy } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: GroupBy = {
   field: "userMessageCount",

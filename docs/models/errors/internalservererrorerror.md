@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { InternalServerErrorError } from "inkeep-analytics-typescript/models/errors";
+import { InternalServerErrorError } from "@inkeep/inkeep-analytics/models/errors";
 
 let value: InternalServerErrorError = {
   code: "internal_server_error",

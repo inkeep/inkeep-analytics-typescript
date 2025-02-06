@@ -5,13 +5,13 @@ Feedback provided successfully
 ## Example Usage
 
 ```typescript
-import { SubmitFeedbackResponseBody } from "inkeep-analytics-typescript/models/operations";
+import { SubmitFeedbackResponseBody } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: SubmitFeedbackResponseBody = {
   id: "<id>",
   type: "negative",
   messageId: "<id>",
-  createdAt: "1735544503042",
+  createdAt: "1735623345010",
 };
 ```
 

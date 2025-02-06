@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { BadRequest } from "inkeep-analytics-typescript/models/errors";
+import { BadRequest } from "@inkeep/inkeep-analytics/models/errors";
 
 // No examples available for this model
 ```

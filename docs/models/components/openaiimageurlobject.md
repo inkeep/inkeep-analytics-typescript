@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { OpenAIImageUrlObject } from "inkeep-analytics-typescript/models/components";
+import { OpenAIImageUrlObject } from "@inkeep/inkeep-analytics/models/components";
 
 let value: OpenAIImageUrlObject = {
   url: "https://sorrowful-import.name/",

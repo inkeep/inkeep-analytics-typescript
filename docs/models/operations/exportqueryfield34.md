@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ExportQueryField34 } from "inkeep-analytics-typescript/models/operations";
+import { ExportQueryField34 } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: ExportQueryField34 = "id_week";
 ```

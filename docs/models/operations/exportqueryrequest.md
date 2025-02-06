@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ExportQueryRequest } from "inkeep-analytics-typescript/models/operations";
+import { ExportQueryRequest } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: ExportQueryRequest = {
   table: "semantic_threads_view",

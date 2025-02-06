@@ -10,7 +10,7 @@ mkdir samples
 npm install
 npm install -g ts-node
 npm link
-npm link inkeep-analytics-typescript
+npm link @inkeep/inkeep-analytics
 TS_CONFIG_CONTENT=$(cat <<EOL
 {
   "compilerOptions": {

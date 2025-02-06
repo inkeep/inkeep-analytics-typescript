@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Type } from "inkeep-analytics-typescript/models/operations";
+import { Type } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: Type = "positive";
 ```

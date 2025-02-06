@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ErrorT } from "inkeep-analytics-typescript/models/errors";
+import { ErrorT } from "@inkeep/inkeep-analytics/models/errors";
 
 let value: ErrorT = {
   code: "bad_request",

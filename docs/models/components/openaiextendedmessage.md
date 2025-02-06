@@ -5,14 +5,14 @@ A message that includes the OpenAI chat completion details.
 ## Example Usage
 
 ```typescript
-import { OpenAIExtendedMessage } from "inkeep-analytics-typescript/models/components";
+import { OpenAIExtendedMessage } from "@inkeep/inkeep-analytics/models/components";
 
 let value: OpenAIExtendedMessage = {
   id: "<id>",
   type: "openai",
   conversationId: "<id>",
-  createdAt: "1729267574119",
-  updatedAt: "1738721880842",
+  createdAt: "1729346415962",
+  updatedAt: "1738800722685",
   role: "assistant",
   content: [
     {

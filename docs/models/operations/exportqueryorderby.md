@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ExportQueryOrderBy } from "inkeep-analytics-typescript/models/operations";
+import { ExportQueryOrderBy } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: ExportQueryOrderBy = {
   field: "min_hasNegativeFeedback",

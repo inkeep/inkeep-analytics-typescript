@@ -19,9 +19,9 @@ specific category of applications.
 ## Example
 
 ```typescript
-import { InkeepAnalyticsCore } from "inkeep-analytics-typescript/core.js";
-import { conversationsLog } from "inkeep-analytics-typescript/funcs/conversationsLog.js";
-import { SDKValidationError } from "inkeep-analytics-typescript/models/errors/sdkvalidationerror.js";
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { conversationsLog } from "@inkeep/inkeep-analytics/funcs/conversationsLog.js";
+import { SDKValidationError } from "@inkeep/inkeep-analytics/models/errors/sdkvalidationerror.js";
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

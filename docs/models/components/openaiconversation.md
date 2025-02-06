@@ -3,13 +3,13 @@
 ## Example Usage
 
 ```typescript
-import { OpenAIConversation } from "inkeep-analytics-typescript/models/components";
+import { OpenAIConversation } from "@inkeep/inkeep-analytics/models/components";
 
 let value: OpenAIConversation = {
   id: "<id>",
   type: "openai",
-  createdAt: "1709507270454",
-  updatedAt: "1738724205278",
+  createdAt: "1709586112291",
+  updatedAt: "1738803047115",
   tags: [
     "<value>",
   ],
@@ -18,8 +18,8 @@ let value: OpenAIConversation = {
       id: "<id>",
       type: "openai",
       conversationId: "<id>",
-      createdAt: "1707904684755",
-      updatedAt: "1738788614916",
+      createdAt: "1707983526593",
+      updatedAt: "1738867456754",
       role: "assistant",
       content: [
         {

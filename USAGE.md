@@ -1,6 +1,6 @@
 <!-- Start SDK Example Usage [usage] -->
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics();
 

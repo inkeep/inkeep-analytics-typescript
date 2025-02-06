@@ -5,7 +5,7 @@ Note: The maximum size of the request body is 2 MB.
 ## Example Usage
 
 ```typescript
-import { SubmitFeedbackRequestBody } from "inkeep-analytics-typescript/models/operations";
+import { SubmitFeedbackRequestBody } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: SubmitFeedbackRequestBody = {
   type: "negative",

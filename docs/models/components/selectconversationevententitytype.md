@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { SelectConversationEventEntityType } from "inkeep-analytics-typescript/models/components";
+import { SelectConversationEventEntityType } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SelectConversationEventEntityType = "conversation";
 ```

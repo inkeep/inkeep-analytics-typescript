@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { TimeBasedGroupBySelectionTimeUnit4 } from "inkeep-analytics-typescript/models/components";
+import { TimeBasedGroupBySelectionTimeUnit4 } from "@inkeep/inkeep-analytics/models/components";
 
 let value: TimeBasedGroupBySelectionTimeUnit4 = "month";
 ```

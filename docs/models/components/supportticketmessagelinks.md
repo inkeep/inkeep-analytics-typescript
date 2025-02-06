@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { SupportTicketMessageLinks } from "inkeep-analytics-typescript/models/components";
+import { SupportTicketMessageLinks } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SupportTicketMessageLinks = {
   url: "https://dual-cod.name/",

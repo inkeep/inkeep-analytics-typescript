@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { Unauthorized } from "inkeep-analytics-typescript/models/errors";
+import { Unauthorized } from "@inkeep/inkeep-analytics/models/errors";
 
 // No examples available for this model
 ```

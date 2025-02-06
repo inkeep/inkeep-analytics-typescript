@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { InsertMessageEvent } from "inkeep-analytics-typescript/models/components";
+import { InsertMessageEvent } from "@inkeep/inkeep-analytics/models/components";
 
 let value: InsertMessageEvent = {
   type: "<value>",

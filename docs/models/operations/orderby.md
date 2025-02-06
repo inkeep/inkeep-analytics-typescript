@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { OrderBy } from "inkeep-analytics-typescript/models/operations";
+import { OrderBy } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: OrderBy = {
   field: "organizationId_week",

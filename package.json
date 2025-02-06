@@ -1,11 +1,11 @@
 {
   "name": "@inkeep/inkeep-analytics",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "Speakeasy",
   "type": "module",
   "tshy": {
     "sourceDialects": [
-      "inkeep-analytics-typescript/source"
+      "@inkeep/inkeep-analytics/source"
     ],
     "exports": {
       ".": "./src/index.ts",
@@ -36,10 +36,11 @@
     "typescript-eslint": "^8.22.0",
     "zod": "^3.23.4"
   },
+  "dependencies": {},
   "exports": {
     ".": {
       "import": {
-        "inkeep-analytics-typescript/source": "./src/index.ts",
+        "@inkeep/inkeep-analytics/source": "./src/index.ts",
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
       },
@@ -51,7 +52,7 @@
     "./package.json": "./package.json",
     "./types": {
       "import": {
-        "inkeep-analytics-typescript/source": "./src/types/index.ts",
+        "@inkeep/inkeep-analytics/source": "./src/types/index.ts",
         "types": "./dist/esm/types/index.d.ts",
         "default": "./dist/esm/types/index.js"
       },
@@ -62,7 +63,7 @@
     },
     "./models/errors": {
       "import": {
-        "inkeep-analytics-typescript/source": "./src/models/errors/index.ts",
+        "@inkeep/inkeep-analytics/source": "./src/models/errors/index.ts",
         "types": "./dist/esm/models/errors/index.d.ts",
         "default": "./dist/esm/models/errors/index.js"
       },
@@ -73,7 +74,7 @@
     },
     "./models/components": {
       "import": {
-        "inkeep-analytics-typescript/source": "./src/models/components/index.ts",
+        "@inkeep/inkeep-analytics/source": "./src/models/components/index.ts",
         "types": "./dist/esm/models/components/index.d.ts",
         "default": "./dist/esm/models/components/index.js"
       },
@@ -84,7 +85,7 @@
     },
     "./models/operations": {
       "import": {
-        "inkeep-analytics-typescript/source": "./src/models/operations/index.ts",
+        "@inkeep/inkeep-analytics/source": "./src/models/operations/index.ts",
         "types": "./dist/esm/models/operations/index.d.ts",
         "default": "./dist/esm/models/operations/index.js"
       },
@@ -95,7 +96,7 @@
     },
     "./*.js": {
       "import": {
-        "inkeep-analytics-typescript/source": "./src/*.ts",
+        "@inkeep/inkeep-analytics/source": "./src/*.ts",
         "types": "./dist/esm/*.d.ts",
         "default": "./dist/esm/*.js"
       },
@@ -106,7 +107,7 @@
     },
     "./*": {
       "import": {
-        "inkeep-analytics-typescript/source": "./src/*.ts",
+        "@inkeep/inkeep-analytics/source": "./src/*.ts",
         "types": "./dist/esm/*.d.ts",
         "default": "./dist/esm/*.js"
       },

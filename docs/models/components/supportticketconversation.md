@@ -3,13 +3,13 @@
 ## Example Usage
 
 ```typescript
-import { SupportTicketConversation } from "inkeep-analytics-typescript/models/components";
+import { SupportTicketConversation } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SupportTicketConversation = {
   id: "<id>",
   type: "support_ticket",
-  createdAt: "1711332897022",
-  updatedAt: "1738743930122",
+  createdAt: "1711411738865",
+  updatedAt: "1738822771965",
   tags: [
     "<value>",
   ],
@@ -18,8 +18,8 @@ let value: SupportTicketConversation = {
       id: "<id>",
       type: "support_ticket",
       conversationId: "<id>",
-      createdAt: "1718737059937",
-      updatedAt: "1738765941859",
+      createdAt: "1718815901781",
+      updatedAt: "1738844783703",
       role: "<value>",
     },
   ],

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NotFoundError } from "inkeep-analytics-typescript/models/errors";
+import { NotFoundError } from "@inkeep/inkeep-analytics/models/errors";
 
 let value: NotFoundError = {
   code: "not_found",

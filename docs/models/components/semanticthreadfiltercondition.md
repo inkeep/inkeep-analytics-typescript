@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { SemanticThreadFilterCondition } from "inkeep-analytics-typescript/models/components";
+import { SemanticThreadFilterCondition } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SemanticThreadFilterCondition = {
   field: "firstPartyEntities",

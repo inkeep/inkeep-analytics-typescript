@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { OpenAIToolCall } from "inkeep-analytics-typescript/models/components";
+import { OpenAIToolCall } from "@inkeep/inkeep-analytics/models/components";
 
 let value: OpenAIToolCall = {
   id: "<id>",

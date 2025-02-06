@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { QueryTableOrderBy } from "inkeep-analytics-typescript/models/operations";
+import { QueryTableOrderBy } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: QueryTableOrderBy = {
   field: "sum_firstPartyEntities",

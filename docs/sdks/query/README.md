@@ -16,7 +16,7 @@ Query Conversations
 ### Example Usage
 
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics();
 
@@ -37,8 +37,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { InkeepAnalyticsCore } from "inkeep-analytics-typescript/core.js";
-import { queryConversations } from "inkeep-analytics-typescript/funcs/queryConversations.js";
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { queryConversations } from "@inkeep/inkeep-analytics/funcs/queryConversations.js";
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -94,7 +94,7 @@ Query
 ### Example Usage
 
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics();
 
@@ -118,8 +118,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { InkeepAnalyticsCore } from "inkeep-analytics-typescript/core.js";
-import { queryTable } from "inkeep-analytics-typescript/funcs/queryTable.js";
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { queryTable } from "@inkeep/inkeep-analytics/funcs/queryTable.js";
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -178,7 +178,7 @@ Query Export
 ### Example Usage
 
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics({
   apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
@@ -202,8 +202,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { InkeepAnalyticsCore } from "inkeep-analytics-typescript/core.js";
-import { queryExport } from "inkeep-analytics-typescript/funcs/queryExport.js";
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { queryExport } from "@inkeep/inkeep-analytics/funcs/queryExport.js";
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

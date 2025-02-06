@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { GetAllFeedbackResponseNegativeFeedbackType } from "inkeep-analytics-typescript/models/components";
+import { GetAllFeedbackResponseNegativeFeedbackType } from "@inkeep/inkeep-analytics/models/components";
 
 let value: GetAllFeedbackResponseNegativeFeedbackType = "negative";
 ```

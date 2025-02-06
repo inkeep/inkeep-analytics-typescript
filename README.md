@@ -17,8 +17,7 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 <!-- Start Summary [summary] -->
 ## Summary
 
-Inkeep Analytics API: 
-The Inkeep Analytics API provides endpoints for managing conversations, feedback, events, and queries.
+Inkeep Analytics API: The Inkeep Analytics API provides endpoints for managing and updating conversations, feedback, events, and queries.
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -45,34 +44,30 @@ The Inkeep Analytics API provides endpoints for managing conversations, feedback
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-> [!TIP]
-> To finish publishing your SDK to npm and others you must [run your first generation action](https://www.speakeasy.com/docs/github-setup#step-by-step-guide).
-
-
 The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
 
 ### NPM
 
 ```bash
-npm add <UNSET>
+npm add @inkeep/inkeep-analytics
 ```
 
 ### PNPM
 
 ```bash
-pnpm add <UNSET>
+pnpm add @inkeep/inkeep-analytics
 ```
 
 ### Bun
 
 ```bash
-bun add <UNSET>
+bun add @inkeep/inkeep-analytics
 ```
 
 ### Yarn
 
 ```bash
-yarn add <UNSET> zod
+yarn add @inkeep/inkeep-analytics zod
 
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
@@ -94,7 +89,7 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 ### Example
 
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics();
 
@@ -132,7 +127,7 @@ This SDK supports the following security scheme globally:
 
 To authenticate with the API the `apiIntegrationKey` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics({
   apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
@@ -153,7 +148,7 @@ run();
 
 Some operations in this SDK require the security scheme to be specified at the request level. For example:
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics();
 
@@ -253,7 +248,7 @@ Some of the endpoints in this SDK support retries.  If you use the SDK without a
 
 To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics();
 
@@ -290,7 +285,7 @@ run();
 
 If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics({
   retryConfig: {
@@ -343,7 +338,7 @@ Some methods specify known errors which can be thrown. All the known errors are 
 If the method throws an error and it is not captured by the known errors, it will default to throwing a `APIError`.
 
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 import {
   BadRequest,
   Forbidden,
@@ -351,7 +346,7 @@ import {
   SDKValidationError,
   Unauthorized,
   UnprocessableEntity,
-} from "inkeep-analytics-typescript/models/errors";
+} from "@inkeep/inkeep-analytics/models/errors";
 
 const inkeepAnalytics = new InkeepAnalytics();
 
@@ -439,7 +434,7 @@ In some rare cases, the SDK can fail to get a response from the server or even m
 
 The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics({
   serverURL: "https://api.analytics.inkeep.com",
@@ -484,8 +479,8 @@ custom header and a timeout to requests and how to use the `"requestError"` hook
 to log errors:
 
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
-import { HTTPClient } from "inkeep-analytics-typescript/lib/http";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
+import { HTTPClient } from "@inkeep/inkeep-analytics/lib/http";
 
 const httpClient = new HTTPClient({
   // fetcher takes a function that has the same signature as native `fetch`.
@@ -526,7 +521,7 @@ You can pass a logger that matches `console`'s interface as an SDK option.
 > Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
 
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const sdk = new InkeepAnalytics({ debugLogger: console });
 ```

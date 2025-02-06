@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { ConversationsFilterField7 } from "inkeep-analytics-typescript/models/components";
+import { ConversationsFilterField7 } from "@inkeep/inkeep-analytics/models/components";
 
 let value: ConversationsFilterField7 = "type";
 ```

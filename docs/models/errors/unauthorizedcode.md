@@ -5,7 +5,7 @@ A short code indicating the error code returned.
 ## Example Usage
 
 ```typescript
-import { UnauthorizedCode } from "inkeep-analytics-typescript/models/errors";
+import { UnauthorizedCode } from "@inkeep/inkeep-analytics/models/errors";
 
 let value: UnauthorizedCode = "unauthorized";
 ```

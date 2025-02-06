@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UnprocessableEntity } from "inkeep-analytics-typescript/models/errors";
+import { UnprocessableEntity } from "@inkeep/inkeep-analytics/models/errors";
 
 // No examples available for this model
 ```

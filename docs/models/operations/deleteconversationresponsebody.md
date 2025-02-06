@@ -5,7 +5,7 @@ Conversation deleted successfully
 ## Example Usage
 
 ```typescript
-import { DeleteConversationResponseBody } from "inkeep-analytics-typescript/models/operations";
+import { DeleteConversationResponseBody } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: DeleteConversationResponseBody = {
   success: false,

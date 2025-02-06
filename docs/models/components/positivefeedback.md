@@ -3,18 +3,18 @@
 ## Example Usage
 
 ```typescript
-import { PositiveFeedback } from "inkeep-analytics-typescript/models/components";
+import { PositiveFeedback } from "@inkeep/inkeep-analytics/models/components";
 
 let value: PositiveFeedback = {
   id: "<id>",
   type: "positive",
   messageId: "<id>",
-  createdAt: "1730452155556",
+  createdAt: "1730530997367",
   conversation: {
     id: "<id>",
     type: "support_ticket",
-    createdAt: "1715111756494",
-    updatedAt: "1738766457027",
+    createdAt: "1715190598305",
+    updatedAt: "1738845298838",
     tags: [
       "<value>",
     ],
@@ -23,8 +23,8 @@ let value: PositiveFeedback = {
         id: "<id>",
         type: "support_ticket",
         conversationId: "<id>",
-        createdAt: "1725937711363",
-        updatedAt: "1738766119602",
+        createdAt: "1726016553173",
+        updatedAt: "1738844961412",
         role: "<value>",
       },
     ],
@@ -33,8 +33,8 @@ let value: PositiveFeedback = {
     id: "<id>",
     type: "openai",
     conversationId: "<id>",
-    createdAt: "1737312969485",
-    updatedAt: "1738755308796",
+    createdAt: "1737391811296",
+    updatedAt: "1738834150607",
     role: "assistant",
     content: [
       {

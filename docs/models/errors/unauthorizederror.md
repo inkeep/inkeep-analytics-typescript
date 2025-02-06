@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { UnauthorizedError } from "inkeep-analytics-typescript/models/errors";
+import { UnauthorizedError } from "@inkeep/inkeep-analytics/models/errors";
 
 let value: UnauthorizedError = {
   code: "unauthorized",

@@ -20,7 +20,7 @@ Logs a new conversation or updates an existing one with new messages. Always inc
 ### Example Usage
 
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics();
 
@@ -48,8 +48,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { InkeepAnalyticsCore } from "inkeep-analytics-typescript/core.js";
-import { conversationsLog } from "inkeep-analytics-typescript/funcs/conversationsLog.js";
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { conversationsLog } from "@inkeep/inkeep-analytics/funcs/conversationsLog.js";
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -112,7 +112,7 @@ Get All Conversations
 ### Example Usage
 
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics({
   apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
@@ -133,8 +133,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { InkeepAnalyticsCore } from "inkeep-analytics-typescript/core.js";
-import { conversationsList } from "inkeep-analytics-typescript/funcs/conversationsList.js";
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { conversationsList } from "@inkeep/inkeep-analytics/funcs/conversationsList.js";
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -190,7 +190,7 @@ Get Conversation
 ### Example Usage
 
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics();
 
@@ -213,8 +213,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { InkeepAnalyticsCore } from "inkeep-analytics-typescript/core.js";
-import { conversationsGet } from "inkeep-analytics-typescript/funcs/conversationsGet.js";
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { conversationsGet } from "@inkeep/inkeep-analytics/funcs/conversationsGet.js";
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -273,7 +273,7 @@ Delete Conversation
 ### Example Usage
 
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics();
 
@@ -296,8 +296,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { InkeepAnalyticsCore } from "inkeep-analytics-typescript/core.js";
-import { conversationsDelete } from "inkeep-analytics-typescript/funcs/conversationsDelete.js";
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { conversationsDelete } from "@inkeep/inkeep-analytics/funcs/conversationsDelete.js";
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -356,7 +356,7 @@ Query Conversations
 ### Example Usage
 
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics();
 
@@ -377,8 +377,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { InkeepAnalyticsCore } from "inkeep-analytics-typescript/core.js";
-import { conversationsConversations } from "inkeep-analytics-typescript/funcs/conversationsConversations.js";
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { conversationsConversations } from "@inkeep/inkeep-analytics/funcs/conversationsConversations.js";
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

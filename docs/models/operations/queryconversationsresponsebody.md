@@ -5,7 +5,7 @@ Query results
 ## Example Usage
 
 ```typescript
-import { QueryConversationsResponseBody } from "inkeep-analytics-typescript/models/operations";
+import { QueryConversationsResponseBody } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: QueryConversationsResponseBody = {
   status: "ok",

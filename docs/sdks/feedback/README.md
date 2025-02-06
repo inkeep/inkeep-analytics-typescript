@@ -17,7 +17,7 @@ Submit Feedback
 ### Example Usage
 
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics({
   apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
@@ -41,8 +41,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { InkeepAnalyticsCore } from "inkeep-analytics-typescript/core.js";
-import { feedbackSubmit } from "inkeep-analytics-typescript/funcs/feedbackSubmit.js";
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { feedbackSubmit } from "@inkeep/inkeep-analytics/funcs/feedbackSubmit.js";
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -100,7 +100,7 @@ Get All Feedback
 ### Example Usage
 
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics();
 
@@ -121,8 +121,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { InkeepAnalyticsCore } from "inkeep-analytics-typescript/core.js";
-import { feedbackList } from "inkeep-analytics-typescript/funcs/feedbackList.js";
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { feedbackList } from "@inkeep/inkeep-analytics/funcs/feedbackList.js";
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

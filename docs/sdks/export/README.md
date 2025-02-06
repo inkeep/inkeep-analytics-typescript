@@ -14,7 +14,7 @@ Query Export
 ### Example Usage
 
 ```typescript
-import { InkeepAnalytics } from "inkeep-analytics-typescript";
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics({
   apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
@@ -38,8 +38,8 @@ run();
 The standalone function version of this method:
 
 ```typescript
-import { InkeepAnalyticsCore } from "inkeep-analytics-typescript/core.js";
-import { exportExport } from "inkeep-analytics-typescript/funcs/exportExport.js";
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { exportExport } from "@inkeep/inkeep-analytics/funcs/exportExport.js";
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.

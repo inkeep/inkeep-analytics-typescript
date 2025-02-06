@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { NotFound } from "inkeep-analytics-typescript/models/errors";
+import { NotFound } from "@inkeep/inkeep-analytics/models/errors";
 
 // No examples available for this model
 ```

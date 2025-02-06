@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { TwoHundredAndFour } from "inkeep-analytics-typescript/models/operations";
+import { TwoHundredAndFour } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: TwoHundredAndFour = "min_isDocumented";
 ```

@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { InternalServerError } from "inkeep-analytics-typescript/models/errors";
+import { InternalServerError } from "@inkeep/inkeep-analytics/models/errors";
 
 // No examples available for this model
 ```

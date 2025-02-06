@@ -5,7 +5,7 @@ Query results
 ## Example Usage
 
 ```typescript
-import { QueryTableResponseBody } from "inkeep-analytics-typescript/models/operations";
+import { QueryTableResponseBody } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: QueryTableResponseBody = {
   status: "ok",

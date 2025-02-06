@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { QueryTableField8 } from "inkeep-analytics-typescript/models/operations";
+import { QueryTableField8 } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: QueryTableField8 = "isOnTopic";
 ```

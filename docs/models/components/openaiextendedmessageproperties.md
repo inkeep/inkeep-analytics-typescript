@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { OpenAIExtendedMessageProperties } from "inkeep-analytics-typescript/models/components";
+import { OpenAIExtendedMessageProperties } from "@inkeep/inkeep-analytics/models/components";
 
 let value: OpenAIExtendedMessageProperties = {};
 ```

@@ -3,14 +3,14 @@
 ## Example Usage
 
 ```typescript
-import { SupportTicketMessage } from "inkeep-analytics-typescript/models/components";
+import { SupportTicketMessage } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SupportTicketMessage = {
   id: "<id>",
   type: "support_ticket",
   conversationId: "<id>",
-  createdAt: "1715254881163",
-  updatedAt: "1738756966223",
+  createdAt: "1715333723006",
+  updatedAt: "1738835808066",
   role: "<value>",
 };
 ```

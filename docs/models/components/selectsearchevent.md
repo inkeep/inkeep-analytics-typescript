@@ -3,13 +3,13 @@
 ## Example Usage
 
 ```typescript
-import { SelectSearchEvent } from "inkeep-analytics-typescript/models/components";
+import { SelectSearchEvent } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SelectSearchEvent = {
   id: "<id>",
   type: "<value>",
   searchQuery: "<value>",
-  createdAt: "1707636492999",
+  createdAt: "1707715334814",
   entityType: "search",
 };
 ```
