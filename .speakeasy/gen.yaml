@@ -44,7 +44,7 @@ typescript:
   methodArguments: require-security-and-request
   moduleFormat: dual
   outputModelSuffix: output
-  packageName: inkeep-analytics-typescript
+  packageName: "@inkeep/inkeep-analytics"
   responseFormat: flat
   templateVersion: v2
   useIndexModules: true
