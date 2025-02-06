@@ -12,6 +12,9 @@ targets:
     inkeep-analytics:
         target: typescript
         source: Inkeep Analytics API
+        publish:
+            npm:
+                token: $npm_token
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/inkeep/inkeep/inkeep-analytics-api-typescript-code-samples
