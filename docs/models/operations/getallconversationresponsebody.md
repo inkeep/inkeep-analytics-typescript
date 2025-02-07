@@ -12,8 +12,8 @@ let value: GetAllConversationResponseBody = {
     {
       id: "<id>",
       type: "support_ticket",
-      createdAt: "1726707949517",
-      updatedAt: "1738841797883",
+      createdAt: "1726713986399",
+      updatedAt: "1738847834765",
       tags: [
         "<value>",
       ],
@@ -22,8 +22,8 @@ let value: GetAllConversationResponseBody = {
           id: "<id>",
           type: "support_ticket",
           conversationId: "<id>",
-          createdAt: "1725949320168",
-          updatedAt: "1738858601557",
+          createdAt: "1725955357051",
+          updatedAt: "1738864638440",
           role: "<value>",
         },
       ],

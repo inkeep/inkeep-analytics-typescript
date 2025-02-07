@@ -11,7 +11,7 @@ let value: SubmitFeedbackResponseBody = {
   id: "<id>",
   type: "negative",
   messageId: "<id>",
-  createdAt: "1735623345010",
+  createdAt: "1735629381925",
 };
 ```
 
