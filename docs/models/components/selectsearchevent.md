@@ -9,7 +9,7 @@ let value: SelectSearchEvent = {
   id: "<id>",
   type: "<value>",
   searchQuery: "<value>",
-  createdAt: "1724862807457",
+  createdAt: "1724924746182",
   entityType: "search",
 };
 ```

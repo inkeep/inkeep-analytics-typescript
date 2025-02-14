@@ -5,11 +5,11 @@
 ```typescript
 import { EightySix } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: EightySix = "subject_week";
+let value: EightySix = "sum_messageId";
 ```
 
 ## Values
 
 ```typescript
-"subject_week"
+"sum_messageId"
 ```

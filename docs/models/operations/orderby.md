@@ -6,8 +6,8 @@
 import { OrderBy } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: OrderBy = {
-  field: "projectId_hour",
-  direction: "desc",
+  field: "count_id",
+  direction: "asc",
 };
 ```
 

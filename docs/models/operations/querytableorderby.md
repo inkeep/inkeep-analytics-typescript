@@ -6,7 +6,7 @@
 import { QueryTableOrderBy } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: QueryTableOrderBy = {
-  field: "avg_integrationId",
+  field: "min_conversationIds",
   direction: "asc",
 };
 ```

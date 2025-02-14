@@ -8,7 +8,7 @@
 ```typescript
 const value: components.ConversationsAggregationSelection = {
   type: "aggregation",
-  aggregation: "count",
+  aggregation: "avg",
 };
 ```
 
@@ -17,8 +17,8 @@ const value: components.ConversationsAggregationSelection = {
 ```typescript
 const value: components.ConversationsTimeBasedGroupBySelection = {
   type: "time",
-  timeUnit: "week",
-  field: "firstMessageTime",
+  timeUnit: "day",
+  field: "integrationId",
 };
 ```
 
@@ -27,7 +27,7 @@ const value: components.ConversationsTimeBasedGroupBySelection = {
 ```typescript
 const value: components.ConversationsSimpleFieldSelection = {
   type: "field",
-  field: "integrationId",
+  field: "type",
 };
 ```
 

@@ -5,11 +5,11 @@
 ```typescript
 import { Field64 } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: Field64 = "isClear_hour";
+let value: Field64 = "min_type";
 ```
 
 ## Values
 
 ```typescript
-"isClear_hour"
+"min_type"
 ```

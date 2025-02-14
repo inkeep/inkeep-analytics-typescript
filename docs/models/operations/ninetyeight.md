@@ -5,11 +5,11 @@
 ```typescript
 import { NinetyEight } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: NinetyEight = "firstPartyEntities_week";
+let value: NinetyEight = "avg_searchQuery";
 ```
 
 ## Values
 
 ```typescript
-"firstPartyEntities_week"
+"avg_searchQuery"
 ```

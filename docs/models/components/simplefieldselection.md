@@ -7,7 +7,7 @@ import { SimpleFieldSelection } from "@inkeep/inkeep-analytics/models/components
 
 let value: SimpleFieldSelection = {
   type: "field",
-  field: "isAnswerConfident",
+  field: "lastMessageTime",
 };
 ```
 

@@ -5,11 +5,11 @@
 ```typescript
 import { Field66 } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: Field66 = "isClear_week";
+let value: Field66 = "sum_createdAt";
 ```
 
 ## Values
 
 ```typescript
-"isClear_week"
+"sum_createdAt"
 ```

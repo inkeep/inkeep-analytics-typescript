@@ -7,7 +7,11 @@
 
 ```typescript
 const value: components.SemanticThreadFilter = {
-  and: [],
+  condition: {
+    field: "messagesCount",
+    operator: "in",
+    value: false,
+  },
 };
 ```
 

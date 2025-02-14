@@ -5,11 +5,11 @@
 ```typescript
 import { SeventyNine } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: SeventyNine = "isAnswerConfident_month";
+let value: SeventyNine = "min_properties";
 ```
 
 ## Values
 
 ```typescript
-"isAnswerConfident_month"
+"min_properties"
 ```

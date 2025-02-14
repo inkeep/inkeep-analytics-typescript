@@ -7,8 +7,8 @@ import { TimeBasedGroupBySelection } from "@inkeep/inkeep-analytics/models/compo
 
 let value: TimeBasedGroupBySelection = {
   type: "time",
-  timeUnit: "day",
-  field: "projectId",
+  timeUnit: "month",
+  field: "isClear",
 };
 ```
 

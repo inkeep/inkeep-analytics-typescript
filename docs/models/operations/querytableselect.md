@@ -8,7 +8,7 @@
 ```typescript
 const value: components.AggregationSelection = {
   type: "aggregation",
-  aggregation: "avg",
+  aggregation: "sum",
 };
 ```
 
@@ -18,7 +18,7 @@ const value: components.AggregationSelection = {
 const value: components.TimeBasedGroupBySelection = {
   type: "time",
   timeUnit: "day",
-  field: "category",
+  field: "isInitialQuestionAnswer",
 };
 ```
 
@@ -27,7 +27,7 @@ const value: components.TimeBasedGroupBySelection = {
 ```typescript
 const value: components.SimpleFieldSelection = {
   type: "field",
-  field: "isClear",
+  field: "hasNegativeFeedback",
 };
 ```
 

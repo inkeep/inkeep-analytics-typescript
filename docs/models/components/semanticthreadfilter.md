@@ -8,9 +8,11 @@
 ```typescript
 const value: components.SemanticThreadFilter1 = {
   condition: {
-    field: "isOnTopic",
-    operator: "gt",
-    value: "<value>",
+    field: "isAnswerConfident",
+    operator: "lte",
+    value: [
+      "<value>",
+    ],
   },
 };
 ```

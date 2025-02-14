@@ -6,7 +6,7 @@
 import { GroupBy } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: GroupBy = {
-  field: "type",
+  field: "id",
 };
 ```
 

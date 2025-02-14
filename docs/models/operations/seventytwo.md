@@ -5,11 +5,11 @@
 ```typescript
 import { SeventyTwo } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: SeventyTwo = "isFeatureSupported_hour";
+let value: SeventyTwo = "count_organizationId";
 ```
 
 ## Values
 
 ```typescript
-"isFeatureSupported_hour"
+"count_organizationId"
 ```

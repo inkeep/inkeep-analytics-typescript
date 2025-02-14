@@ -5,11 +5,11 @@
 ```typescript
 import { Field42 } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: Field42 = "messagesCount_week";
+let value: Field42 = "messageId_month";
 ```
 
 ## Values
 
 ```typescript
-"messagesCount_week"
+"messageId_month"
 ```

@@ -14,8 +14,8 @@ let value: Condition = {
 
 ## Fields
 
-| Field                                 | Type                                  | Required                              | Description                           |
-| ------------------------------------- | ------------------------------------- | ------------------------------------- | ------------------------------------- |
-| `field`                               | *components.ConversationsFilterField* | :heavy_check_mark:                    | N/A                                   |
-| `operator`                            | *components.SelectOperators*          | :heavy_check_mark:                    | Available Select Operators            |
-| `value`                               | *components.Value*                    | :heavy_check_mark:                    | N/A                                   |
+| Field                                           | Type                                            | Required                                        | Description                                     |
+| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
+| `field`                                         | *components.ConversationsFilterField*           | :heavy_check_mark:                              | N/A                                             |
+| `operator`                                      | *components.ConversationsFilterSelectOperators* | :heavy_check_mark:                              | Available Select Operators                      |
+| `value`                                         | *components.ConversationsFilterValue*           | :heavy_check_mark:                              | N/A                                             |

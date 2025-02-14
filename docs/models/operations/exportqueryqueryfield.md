@@ -423,184 +423,184 @@ const value: operations.ExportQueryField69 = "isDocumented_day";
 const value: operations.ExportQueryField70 = "isDocumented_week";
 ```
 
-### `operations.Field71`
+### `operations.ExportQueryField71`
 
 ```typescript
-const value: operations.Field71 = "isDocumented_month";
+const value: operations.ExportQueryField71 = "isDocumented_month";
 ```
 
-### `operations.Field72`
+### `operations.ExportQueryField72`
 
 ```typescript
-const value: operations.Field72 = "isFeatureSupported_hour";
+const value: operations.ExportQueryField72 = "isFeatureSupported_hour";
 ```
 
-### `operations.Field73`
+### `operations.ExportQueryField73`
 
 ```typescript
-const value: operations.Field73 = "isFeatureSupported_day";
+const value: operations.ExportQueryField73 = "isFeatureSupported_day";
 ```
 
-### `operations.Field74`
+### `operations.ExportQueryField74`
 
 ```typescript
-const value: operations.Field74 = "isFeatureSupported_week";
+const value: operations.ExportQueryField74 = "isFeatureSupported_week";
 ```
 
-### `operations.Field75`
+### `operations.ExportQueryField75`
 
 ```typescript
-const value: operations.Field75 = "isFeatureSupported_month";
+const value: operations.ExportQueryField75 = "isFeatureSupported_month";
 ```
 
-### `operations.Field76`
+### `operations.ExportQueryField76`
 
 ```typescript
-const value: operations.Field76 = "isAnswerConfident_hour";
+const value: operations.ExportQueryField76 = "isAnswerConfident_hour";
 ```
 
-### `operations.Field77`
+### `operations.ExportQueryField77`
 
 ```typescript
-const value: operations.Field77 = "isAnswerConfident_day";
+const value: operations.ExportQueryField77 = "isAnswerConfident_day";
 ```
 
-### `operations.Field78`
+### `operations.ExportQueryField78`
 
 ```typescript
-const value: operations.Field78 = "isAnswerConfident_week";
+const value: operations.ExportQueryField78 = "isAnswerConfident_week";
 ```
 
-### `operations.Field79`
+### `operations.ExportQueryField79`
 
 ```typescript
-const value: operations.Field79 = "isAnswerConfident_month";
+const value: operations.ExportQueryField79 = "isAnswerConfident_month";
 ```
 
-### `operations.Field80`
+### `operations.ExportQueryField80`
 
 ```typescript
-const value: operations.Field80 = "gapSummary_hour";
+const value: operations.ExportQueryField80 = "gapSummary_hour";
 ```
 
-### `operations.Field81`
+### `operations.ExportQueryField81`
 
 ```typescript
-const value: operations.Field81 = "gapSummary_day";
+const value: operations.ExportQueryField81 = "gapSummary_day";
 ```
 
-### `operations.Field82`
+### `operations.ExportQueryField82`
 
 ```typescript
-const value: operations.Field82 = "gapSummary_week";
+const value: operations.ExportQueryField82 = "gapSummary_week";
 ```
 
-### `operations.Field83`
+### `operations.ExportQueryField83`
 
 ```typescript
-const value: operations.Field83 = "gapSummary_month";
+const value: operations.ExportQueryField83 = "gapSummary_month";
 ```
 
-### `operations.Field84`
+### `operations.ExportQueryField84`
 
 ```typescript
-const value: operations.Field84 = "subject_hour";
+const value: operations.ExportQueryField84 = "subject_hour";
 ```
 
-### `operations.Field85`
+### `operations.ExportQueryField85`
 
 ```typescript
-const value: operations.Field85 = "subject_day";
+const value: operations.ExportQueryField85 = "subject_day";
 ```
 
-### `operations.Field86`
+### `operations.ExportQueryField86`
 
 ```typescript
-const value: operations.Field86 = "subject_week";
+const value: operations.ExportQueryField86 = "subject_week";
 ```
 
-### `operations.Field87`
+### `operations.ExportQueryField87`
 
 ```typescript
-const value: operations.Field87 = "subject_month";
+const value: operations.ExportQueryField87 = "subject_month";
 ```
 
-### `operations.Field88`
+### `operations.ExportQueryField88`
 
 ```typescript
-const value: operations.Field88 = "category_hour";
+const value: operations.ExportQueryField88 = "category_hour";
 ```
 
-### `operations.Field89`
+### `operations.ExportQueryField89`
 
 ```typescript
-const value: operations.Field89 = "category_day";
+const value: operations.ExportQueryField89 = "category_day";
 ```
 
-### `operations.Field90`
+### `operations.ExportQueryField90`
 
 ```typescript
-const value: operations.Field90 = "category_week";
+const value: operations.ExportQueryField90 = "category_week";
 ```
 
-### `operations.Field91`
+### `operations.ExportQueryField91`
 
 ```typescript
-const value: operations.Field91 = "category_month";
+const value: operations.ExportQueryField91 = "category_month";
 ```
 
-### `operations.Field92`
+### `operations.ExportQueryField92`
 
 ```typescript
-const value: operations.Field92 = "languages_hour";
+const value: operations.ExportQueryField92 = "languages_hour";
 ```
 
-### `operations.Field93`
+### `operations.ExportQueryField93`
 
 ```typescript
-const value: operations.Field93 = "languages_day";
+const value: operations.ExportQueryField93 = "languages_day";
 ```
 
-### `operations.Field94`
+### `operations.ExportQueryField94`
 
 ```typescript
-const value: operations.Field94 = "languages_week";
+const value: operations.ExportQueryField94 = "languages_week";
 ```
 
-### `operations.Field95`
+### `operations.ExportQueryField95`
 
 ```typescript
-const value: operations.Field95 = "languages_month";
+const value: operations.ExportQueryField95 = "languages_month";
 ```
 
-### `operations.Field96`
+### `operations.ExportQueryField96`
 
 ```typescript
-const value: operations.Field96 = "firstPartyEntities_hour";
+const value: operations.ExportQueryField96 = "firstPartyEntities_hour";
 ```
 
-### `operations.Field97`
+### `operations.ExportQueryField97`
 
 ```typescript
-const value: operations.Field97 = "firstPartyEntities_day";
+const value: operations.ExportQueryField97 = "firstPartyEntities_day";
 ```
 
-### `operations.Field98`
+### `operations.ExportQueryField98`
 
 ```typescript
-const value: operations.Field98 = "firstPartyEntities_week";
+const value: operations.ExportQueryField98 = "firstPartyEntities_week";
 ```
 
-### `operations.Field99`
+### `operations.ExportQueryField99`
 
 ```typescript
-const value: operations.Field99 = "firstPartyEntities_month";
+const value: operations.ExportQueryField99 = "firstPartyEntities_month";
 ```
 
-### `operations.Field100`
+### `operations.ExportQueryField100`
 
 ```typescript
-const value: operations.Field100 = "thirdPartyEntities_hour";
+const value: operations.ExportQueryField100 = "thirdPartyEntities_hour";
 ```
 
 ### `operations.Field101`

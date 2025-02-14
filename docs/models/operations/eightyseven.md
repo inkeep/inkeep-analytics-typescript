@@ -5,11 +5,11 @@
 ```typescript
 import { EightySeven } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: EightySeven = "subject_month";
+let value: EightySeven = "count_messageId";
 ```
 
 ## Values
 
 ```typescript
-"subject_month"
+"count_messageId"
 ```

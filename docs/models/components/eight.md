@@ -5,11 +5,11 @@
 ```typescript
 import { Eight } from "@inkeep/inkeep-analytics/models/components";
 
-let value: Eight = "isOnTopic";
+let value: Eight = "messageId";
 ```
 
 ## Values
 
 ```typescript
-"isOnTopic"
+"messageId"
 ```

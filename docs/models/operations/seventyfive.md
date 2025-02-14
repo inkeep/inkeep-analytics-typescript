@@ -5,11 +5,11 @@
 ```typescript
 import { SeventyFive } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: SeventyFive = "isFeatureSupported_month";
+let value: SeventyFive = "max_organizationId";
 ```
 
 ## Values
 
 ```typescript
-"isFeatureSupported_month"
+"max_organizationId"
 ```

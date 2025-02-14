@@ -4,6 +4,7 @@
 
 import { queryConversations } from "../funcs/queryConversations.js";
 import { queryExport } from "../funcs/queryExport.js";
+import { queryQueryEvents } from "../funcs/queryQueryEvents.js";
 import { queryTable } from "../funcs/queryTable.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "../models/operations/index.js";
@@ -19,6 +20,22 @@ export class Query extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.QueryConversationsResponseBody> {
     return unwrapAsync(queryConversations(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Query Events
+   */
+  async queryEvents(
+    security: operations.QueryEventsSecurity,
+    request: operations.QueryEventsRequestBody,
+    options?: RequestOptions,
+  ): Promise<operations.QueryEventsResponseBody> {
+    return unwrapAsync(queryQueryEvents(
       this,
       security,
       request,

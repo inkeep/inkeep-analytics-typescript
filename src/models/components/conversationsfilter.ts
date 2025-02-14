@@ -92,66 +92,88 @@ export type ConversationsFilterField =
   | ConversationsFilterField6
   | ConversationsFilterField7;
 
-export const SelectOperators9 = {
+export const ConversationsFilterSelectOperators9 = {
   ArrayContains: "arrayContains",
 } as const;
-export type SelectOperators9 = ClosedEnum<typeof SelectOperators9>;
+export type ConversationsFilterSelectOperators9 = ClosedEnum<
+  typeof ConversationsFilterSelectOperators9
+>;
 
-export const SelectOperators8 = {
+export const ConversationsFilterSelectOperators8 = {
   NotIn: "notIn",
 } as const;
-export type SelectOperators8 = ClosedEnum<typeof SelectOperators8>;
+export type ConversationsFilterSelectOperators8 = ClosedEnum<
+  typeof ConversationsFilterSelectOperators8
+>;
 
-export const SelectOperators7 = {
+export const ConversationsFilterSelectOperators7 = {
   In: "in",
 } as const;
-export type SelectOperators7 = ClosedEnum<typeof SelectOperators7>;
+export type ConversationsFilterSelectOperators7 = ClosedEnum<
+  typeof ConversationsFilterSelectOperators7
+>;
 
-export const SelectOperators6 = {
+export const ConversationsFilterSelectOperators6 = {
   Lte: "lte",
 } as const;
-export type SelectOperators6 = ClosedEnum<typeof SelectOperators6>;
+export type ConversationsFilterSelectOperators6 = ClosedEnum<
+  typeof ConversationsFilterSelectOperators6
+>;
 
-export const SelectOperators5 = {
+export const ConversationsFilterSelectOperators5 = {
   Lt: "lt",
 } as const;
-export type SelectOperators5 = ClosedEnum<typeof SelectOperators5>;
+export type ConversationsFilterSelectOperators5 = ClosedEnum<
+  typeof ConversationsFilterSelectOperators5
+>;
 
-export const SelectOperators4 = {
+export const ConversationsFilterSelectOperators4 = {
   Gte: "gte",
 } as const;
-export type SelectOperators4 = ClosedEnum<typeof SelectOperators4>;
+export type ConversationsFilterSelectOperators4 = ClosedEnum<
+  typeof ConversationsFilterSelectOperators4
+>;
 
-export const SelectOperators3 = {
+export const ConversationsFilterSelectOperators3 = {
   Gt: "gt",
 } as const;
-export type SelectOperators3 = ClosedEnum<typeof SelectOperators3>;
+export type ConversationsFilterSelectOperators3 = ClosedEnum<
+  typeof ConversationsFilterSelectOperators3
+>;
 
-export const SelectOperators2 = {
+export const ConversationsFilterSelectOperators2 = {
   Neq: "neq",
 } as const;
-export type SelectOperators2 = ClosedEnum<typeof SelectOperators2>;
+export type ConversationsFilterSelectOperators2 = ClosedEnum<
+  typeof ConversationsFilterSelectOperators2
+>;
 
-export const SelectOperators1 = {
+export const ConversationsFilterSelectOperators1 = {
   Eq: "eq",
 } as const;
-export type SelectOperators1 = ClosedEnum<typeof SelectOperators1>;
+export type ConversationsFilterSelectOperators1 = ClosedEnum<
+  typeof ConversationsFilterSelectOperators1
+>;
 
 /**
  * Available Select Operators
  */
-export type SelectOperators =
-  | SelectOperators1
-  | SelectOperators2
-  | SelectOperators3
-  | SelectOperators4
-  | SelectOperators5
-  | SelectOperators6
-  | SelectOperators7
-  | SelectOperators8
-  | SelectOperators9;
+export type ConversationsFilterSelectOperators =
+  | ConversationsFilterSelectOperators1
+  | ConversationsFilterSelectOperators2
+  | ConversationsFilterSelectOperators3
+  | ConversationsFilterSelectOperators4
+  | ConversationsFilterSelectOperators5
+  | ConversationsFilterSelectOperators6
+  | ConversationsFilterSelectOperators7
+  | ConversationsFilterSelectOperators8
+  | ConversationsFilterSelectOperators9;
 
-export type Value = string | boolean | number | Array<string>;
+export type ConversationsFilterValue =
+  | string
+  | boolean
+  | number
+  | Array<string>;
 
 export type Condition = {
   field:
@@ -166,15 +188,15 @@ export type Condition = {
    * Available Select Operators
    */
   operator:
-    | SelectOperators1
-    | SelectOperators2
-    | SelectOperators3
-    | SelectOperators4
-    | SelectOperators5
-    | SelectOperators6
-    | SelectOperators7
-    | SelectOperators8
-    | SelectOperators9;
+    | ConversationsFilterSelectOperators1
+    | ConversationsFilterSelectOperators2
+    | ConversationsFilterSelectOperators3
+    | ConversationsFilterSelectOperators4
+    | ConversationsFilterSelectOperators5
+    | ConversationsFilterSelectOperators6
+    | ConversationsFilterSelectOperators7
+    | ConversationsFilterSelectOperators8
+    | ConversationsFilterSelectOperators9;
   value: string | boolean | number | Array<string>;
 };
 
@@ -644,213 +666,231 @@ export function conversationsFilterFieldFromJSON(
 }
 
 /** @internal */
-export const SelectOperators9$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators9
-> = z.nativeEnum(SelectOperators9);
+export const ConversationsFilterSelectOperators9$inboundSchema: z.ZodNativeEnum<
+  typeof ConversationsFilterSelectOperators9
+> = z.nativeEnum(ConversationsFilterSelectOperators9);
 
 /** @internal */
-export const SelectOperators9$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators9
-> = SelectOperators9$inboundSchema;
+export const ConversationsFilterSelectOperators9$outboundSchema:
+  z.ZodNativeEnum<typeof ConversationsFilterSelectOperators9> =
+    ConversationsFilterSelectOperators9$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SelectOperators9$ {
-  /** @deprecated use `SelectOperators9$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators9$inboundSchema;
-  /** @deprecated use `SelectOperators9$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators9$outboundSchema;
+export namespace ConversationsFilterSelectOperators9$ {
+  /** @deprecated use `ConversationsFilterSelectOperators9$inboundSchema` instead. */
+  export const inboundSchema =
+    ConversationsFilterSelectOperators9$inboundSchema;
+  /** @deprecated use `ConversationsFilterSelectOperators9$outboundSchema` instead. */
+  export const outboundSchema =
+    ConversationsFilterSelectOperators9$outboundSchema;
 }
 
 /** @internal */
-export const SelectOperators8$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators8
-> = z.nativeEnum(SelectOperators8);
+export const ConversationsFilterSelectOperators8$inboundSchema: z.ZodNativeEnum<
+  typeof ConversationsFilterSelectOperators8
+> = z.nativeEnum(ConversationsFilterSelectOperators8);
 
 /** @internal */
-export const SelectOperators8$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators8
-> = SelectOperators8$inboundSchema;
+export const ConversationsFilterSelectOperators8$outboundSchema:
+  z.ZodNativeEnum<typeof ConversationsFilterSelectOperators8> =
+    ConversationsFilterSelectOperators8$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SelectOperators8$ {
-  /** @deprecated use `SelectOperators8$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators8$inboundSchema;
-  /** @deprecated use `SelectOperators8$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators8$outboundSchema;
+export namespace ConversationsFilterSelectOperators8$ {
+  /** @deprecated use `ConversationsFilterSelectOperators8$inboundSchema` instead. */
+  export const inboundSchema =
+    ConversationsFilterSelectOperators8$inboundSchema;
+  /** @deprecated use `ConversationsFilterSelectOperators8$outboundSchema` instead. */
+  export const outboundSchema =
+    ConversationsFilterSelectOperators8$outboundSchema;
 }
 
 /** @internal */
-export const SelectOperators7$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators7
-> = z.nativeEnum(SelectOperators7);
+export const ConversationsFilterSelectOperators7$inboundSchema: z.ZodNativeEnum<
+  typeof ConversationsFilterSelectOperators7
+> = z.nativeEnum(ConversationsFilterSelectOperators7);
 
 /** @internal */
-export const SelectOperators7$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators7
-> = SelectOperators7$inboundSchema;
+export const ConversationsFilterSelectOperators7$outboundSchema:
+  z.ZodNativeEnum<typeof ConversationsFilterSelectOperators7> =
+    ConversationsFilterSelectOperators7$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SelectOperators7$ {
-  /** @deprecated use `SelectOperators7$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators7$inboundSchema;
-  /** @deprecated use `SelectOperators7$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators7$outboundSchema;
+export namespace ConversationsFilterSelectOperators7$ {
+  /** @deprecated use `ConversationsFilterSelectOperators7$inboundSchema` instead. */
+  export const inboundSchema =
+    ConversationsFilterSelectOperators7$inboundSchema;
+  /** @deprecated use `ConversationsFilterSelectOperators7$outboundSchema` instead. */
+  export const outboundSchema =
+    ConversationsFilterSelectOperators7$outboundSchema;
 }
 
 /** @internal */
-export const SelectOperators6$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators6
-> = z.nativeEnum(SelectOperators6);
+export const ConversationsFilterSelectOperators6$inboundSchema: z.ZodNativeEnum<
+  typeof ConversationsFilterSelectOperators6
+> = z.nativeEnum(ConversationsFilterSelectOperators6);
 
 /** @internal */
-export const SelectOperators6$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators6
-> = SelectOperators6$inboundSchema;
+export const ConversationsFilterSelectOperators6$outboundSchema:
+  z.ZodNativeEnum<typeof ConversationsFilterSelectOperators6> =
+    ConversationsFilterSelectOperators6$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SelectOperators6$ {
-  /** @deprecated use `SelectOperators6$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators6$inboundSchema;
-  /** @deprecated use `SelectOperators6$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators6$outboundSchema;
+export namespace ConversationsFilterSelectOperators6$ {
+  /** @deprecated use `ConversationsFilterSelectOperators6$inboundSchema` instead. */
+  export const inboundSchema =
+    ConversationsFilterSelectOperators6$inboundSchema;
+  /** @deprecated use `ConversationsFilterSelectOperators6$outboundSchema` instead. */
+  export const outboundSchema =
+    ConversationsFilterSelectOperators6$outboundSchema;
 }
 
 /** @internal */
-export const SelectOperators5$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators5
-> = z.nativeEnum(SelectOperators5);
+export const ConversationsFilterSelectOperators5$inboundSchema: z.ZodNativeEnum<
+  typeof ConversationsFilterSelectOperators5
+> = z.nativeEnum(ConversationsFilterSelectOperators5);
 
 /** @internal */
-export const SelectOperators5$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators5
-> = SelectOperators5$inboundSchema;
+export const ConversationsFilterSelectOperators5$outboundSchema:
+  z.ZodNativeEnum<typeof ConversationsFilterSelectOperators5> =
+    ConversationsFilterSelectOperators5$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SelectOperators5$ {
-  /** @deprecated use `SelectOperators5$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators5$inboundSchema;
-  /** @deprecated use `SelectOperators5$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators5$outboundSchema;
+export namespace ConversationsFilterSelectOperators5$ {
+  /** @deprecated use `ConversationsFilterSelectOperators5$inboundSchema` instead. */
+  export const inboundSchema =
+    ConversationsFilterSelectOperators5$inboundSchema;
+  /** @deprecated use `ConversationsFilterSelectOperators5$outboundSchema` instead. */
+  export const outboundSchema =
+    ConversationsFilterSelectOperators5$outboundSchema;
 }
 
 /** @internal */
-export const SelectOperators4$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators4
-> = z.nativeEnum(SelectOperators4);
+export const ConversationsFilterSelectOperators4$inboundSchema: z.ZodNativeEnum<
+  typeof ConversationsFilterSelectOperators4
+> = z.nativeEnum(ConversationsFilterSelectOperators4);
 
 /** @internal */
-export const SelectOperators4$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators4
-> = SelectOperators4$inboundSchema;
+export const ConversationsFilterSelectOperators4$outboundSchema:
+  z.ZodNativeEnum<typeof ConversationsFilterSelectOperators4> =
+    ConversationsFilterSelectOperators4$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SelectOperators4$ {
-  /** @deprecated use `SelectOperators4$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators4$inboundSchema;
-  /** @deprecated use `SelectOperators4$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators4$outboundSchema;
+export namespace ConversationsFilterSelectOperators4$ {
+  /** @deprecated use `ConversationsFilterSelectOperators4$inboundSchema` instead. */
+  export const inboundSchema =
+    ConversationsFilterSelectOperators4$inboundSchema;
+  /** @deprecated use `ConversationsFilterSelectOperators4$outboundSchema` instead. */
+  export const outboundSchema =
+    ConversationsFilterSelectOperators4$outboundSchema;
 }
 
 /** @internal */
-export const SelectOperators3$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators3
-> = z.nativeEnum(SelectOperators3);
+export const ConversationsFilterSelectOperators3$inboundSchema: z.ZodNativeEnum<
+  typeof ConversationsFilterSelectOperators3
+> = z.nativeEnum(ConversationsFilterSelectOperators3);
 
 /** @internal */
-export const SelectOperators3$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators3
-> = SelectOperators3$inboundSchema;
+export const ConversationsFilterSelectOperators3$outboundSchema:
+  z.ZodNativeEnum<typeof ConversationsFilterSelectOperators3> =
+    ConversationsFilterSelectOperators3$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SelectOperators3$ {
-  /** @deprecated use `SelectOperators3$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators3$inboundSchema;
-  /** @deprecated use `SelectOperators3$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators3$outboundSchema;
+export namespace ConversationsFilterSelectOperators3$ {
+  /** @deprecated use `ConversationsFilterSelectOperators3$inboundSchema` instead. */
+  export const inboundSchema =
+    ConversationsFilterSelectOperators3$inboundSchema;
+  /** @deprecated use `ConversationsFilterSelectOperators3$outboundSchema` instead. */
+  export const outboundSchema =
+    ConversationsFilterSelectOperators3$outboundSchema;
 }
 
 /** @internal */
-export const SelectOperators2$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators2
-> = z.nativeEnum(SelectOperators2);
+export const ConversationsFilterSelectOperators2$inboundSchema: z.ZodNativeEnum<
+  typeof ConversationsFilterSelectOperators2
+> = z.nativeEnum(ConversationsFilterSelectOperators2);
 
 /** @internal */
-export const SelectOperators2$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators2
-> = SelectOperators2$inboundSchema;
+export const ConversationsFilterSelectOperators2$outboundSchema:
+  z.ZodNativeEnum<typeof ConversationsFilterSelectOperators2> =
+    ConversationsFilterSelectOperators2$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SelectOperators2$ {
-  /** @deprecated use `SelectOperators2$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators2$inboundSchema;
-  /** @deprecated use `SelectOperators2$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators2$outboundSchema;
+export namespace ConversationsFilterSelectOperators2$ {
+  /** @deprecated use `ConversationsFilterSelectOperators2$inboundSchema` instead. */
+  export const inboundSchema =
+    ConversationsFilterSelectOperators2$inboundSchema;
+  /** @deprecated use `ConversationsFilterSelectOperators2$outboundSchema` instead. */
+  export const outboundSchema =
+    ConversationsFilterSelectOperators2$outboundSchema;
 }
 
 /** @internal */
-export const SelectOperators1$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators1
-> = z.nativeEnum(SelectOperators1);
+export const ConversationsFilterSelectOperators1$inboundSchema: z.ZodNativeEnum<
+  typeof ConversationsFilterSelectOperators1
+> = z.nativeEnum(ConversationsFilterSelectOperators1);
 
 /** @internal */
-export const SelectOperators1$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators1
-> = SelectOperators1$inboundSchema;
+export const ConversationsFilterSelectOperators1$outboundSchema:
+  z.ZodNativeEnum<typeof ConversationsFilterSelectOperators1> =
+    ConversationsFilterSelectOperators1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SelectOperators1$ {
-  /** @deprecated use `SelectOperators1$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators1$inboundSchema;
-  /** @deprecated use `SelectOperators1$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators1$outboundSchema;
+export namespace ConversationsFilterSelectOperators1$ {
+  /** @deprecated use `ConversationsFilterSelectOperators1$inboundSchema` instead. */
+  export const inboundSchema =
+    ConversationsFilterSelectOperators1$inboundSchema;
+  /** @deprecated use `ConversationsFilterSelectOperators1$outboundSchema` instead. */
+  export const outboundSchema =
+    ConversationsFilterSelectOperators1$outboundSchema;
 }
 
 /** @internal */
-export const SelectOperators$inboundSchema: z.ZodType<
-  SelectOperators,
+export const ConversationsFilterSelectOperators$inboundSchema: z.ZodType<
+  ConversationsFilterSelectOperators,
   z.ZodTypeDef,
   unknown
 > = z.union([
-  SelectOperators1$inboundSchema,
-  SelectOperators2$inboundSchema,
-  SelectOperators3$inboundSchema,
-  SelectOperators4$inboundSchema,
-  SelectOperators5$inboundSchema,
-  SelectOperators6$inboundSchema,
-  SelectOperators7$inboundSchema,
-  SelectOperators8$inboundSchema,
-  SelectOperators9$inboundSchema,
+  ConversationsFilterSelectOperators1$inboundSchema,
+  ConversationsFilterSelectOperators2$inboundSchema,
+  ConversationsFilterSelectOperators3$inboundSchema,
+  ConversationsFilterSelectOperators4$inboundSchema,
+  ConversationsFilterSelectOperators5$inboundSchema,
+  ConversationsFilterSelectOperators6$inboundSchema,
+  ConversationsFilterSelectOperators7$inboundSchema,
+  ConversationsFilterSelectOperators8$inboundSchema,
+  ConversationsFilterSelectOperators9$inboundSchema,
 ]);
 
 /** @internal */
-export type SelectOperators$Outbound =
+export type ConversationsFilterSelectOperators$Outbound =
   | string
   | string
   | string
@@ -862,89 +902,106 @@ export type SelectOperators$Outbound =
   | string;
 
 /** @internal */
-export const SelectOperators$outboundSchema: z.ZodType<
-  SelectOperators$Outbound,
+export const ConversationsFilterSelectOperators$outboundSchema: z.ZodType<
+  ConversationsFilterSelectOperators$Outbound,
   z.ZodTypeDef,
-  SelectOperators
+  ConversationsFilterSelectOperators
 > = z.union([
-  SelectOperators1$outboundSchema,
-  SelectOperators2$outboundSchema,
-  SelectOperators3$outboundSchema,
-  SelectOperators4$outboundSchema,
-  SelectOperators5$outboundSchema,
-  SelectOperators6$outboundSchema,
-  SelectOperators7$outboundSchema,
-  SelectOperators8$outboundSchema,
-  SelectOperators9$outboundSchema,
+  ConversationsFilterSelectOperators1$outboundSchema,
+  ConversationsFilterSelectOperators2$outboundSchema,
+  ConversationsFilterSelectOperators3$outboundSchema,
+  ConversationsFilterSelectOperators4$outboundSchema,
+  ConversationsFilterSelectOperators5$outboundSchema,
+  ConversationsFilterSelectOperators6$outboundSchema,
+  ConversationsFilterSelectOperators7$outboundSchema,
+  ConversationsFilterSelectOperators8$outboundSchema,
+  ConversationsFilterSelectOperators9$outboundSchema,
 ]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SelectOperators$ {
-  /** @deprecated use `SelectOperators$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators$inboundSchema;
-  /** @deprecated use `SelectOperators$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators$outboundSchema;
-  /** @deprecated use `SelectOperators$Outbound` instead. */
-  export type Outbound = SelectOperators$Outbound;
+export namespace ConversationsFilterSelectOperators$ {
+  /** @deprecated use `ConversationsFilterSelectOperators$inboundSchema` instead. */
+  export const inboundSchema = ConversationsFilterSelectOperators$inboundSchema;
+  /** @deprecated use `ConversationsFilterSelectOperators$outboundSchema` instead. */
+  export const outboundSchema =
+    ConversationsFilterSelectOperators$outboundSchema;
+  /** @deprecated use `ConversationsFilterSelectOperators$Outbound` instead. */
+  export type Outbound = ConversationsFilterSelectOperators$Outbound;
 }
 
-export function selectOperatorsToJSON(
-  selectOperators: SelectOperators,
+export function conversationsFilterSelectOperatorsToJSON(
+  conversationsFilterSelectOperators: ConversationsFilterSelectOperators,
 ): string {
-  return JSON.stringify(SelectOperators$outboundSchema.parse(selectOperators));
+  return JSON.stringify(
+    ConversationsFilterSelectOperators$outboundSchema.parse(
+      conversationsFilterSelectOperators,
+    ),
+  );
 }
 
-export function selectOperatorsFromJSON(
+export function conversationsFilterSelectOperatorsFromJSON(
   jsonString: string,
-): SafeParseResult<SelectOperators, SDKValidationError> {
+): SafeParseResult<ConversationsFilterSelectOperators, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SelectOperators$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SelectOperators' from JSON`,
+    (x) =>
+      ConversationsFilterSelectOperators$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ConversationsFilterSelectOperators' from JSON`,
   );
 }
 
 /** @internal */
-export const Value$inboundSchema: z.ZodType<Value, z.ZodTypeDef, unknown> = z
-  .union([z.string(), z.boolean(), z.number(), z.array(z.string())]);
-
-/** @internal */
-export type Value$Outbound = string | boolean | number | Array<string>;
-
-/** @internal */
-export const Value$outboundSchema: z.ZodType<
-  Value$Outbound,
+export const ConversationsFilterValue$inboundSchema: z.ZodType<
+  ConversationsFilterValue,
   z.ZodTypeDef,
-  Value
+  unknown
+> = z.union([z.string(), z.boolean(), z.number(), z.array(z.string())]);
+
+/** @internal */
+export type ConversationsFilterValue$Outbound =
+  | string
+  | boolean
+  | number
+  | Array<string>;
+
+/** @internal */
+export const ConversationsFilterValue$outboundSchema: z.ZodType<
+  ConversationsFilterValue$Outbound,
+  z.ZodTypeDef,
+  ConversationsFilterValue
 > = z.union([z.string(), z.boolean(), z.number(), z.array(z.string())]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Value$ {
-  /** @deprecated use `Value$inboundSchema` instead. */
-  export const inboundSchema = Value$inboundSchema;
-  /** @deprecated use `Value$outboundSchema` instead. */
-  export const outboundSchema = Value$outboundSchema;
-  /** @deprecated use `Value$Outbound` instead. */
-  export type Outbound = Value$Outbound;
+export namespace ConversationsFilterValue$ {
+  /** @deprecated use `ConversationsFilterValue$inboundSchema` instead. */
+  export const inboundSchema = ConversationsFilterValue$inboundSchema;
+  /** @deprecated use `ConversationsFilterValue$outboundSchema` instead. */
+  export const outboundSchema = ConversationsFilterValue$outboundSchema;
+  /** @deprecated use `ConversationsFilterValue$Outbound` instead. */
+  export type Outbound = ConversationsFilterValue$Outbound;
 }
 
-export function valueToJSON(value: Value): string {
-  return JSON.stringify(Value$outboundSchema.parse(value));
+export function conversationsFilterValueToJSON(
+  conversationsFilterValue: ConversationsFilterValue,
+): string {
+  return JSON.stringify(
+    ConversationsFilterValue$outboundSchema.parse(conversationsFilterValue),
+  );
 }
 
-export function valueFromJSON(
+export function conversationsFilterValueFromJSON(
   jsonString: string,
-): SafeParseResult<Value, SDKValidationError> {
+): SafeParseResult<ConversationsFilterValue, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Value$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Value' from JSON`,
+    (x) => ConversationsFilterValue$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ConversationsFilterValue' from JSON`,
   );
 }
 
@@ -964,15 +1021,15 @@ export const Condition$inboundSchema: z.ZodType<
     ConversationsFilterField7$inboundSchema,
   ]),
   operator: z.union([
-    SelectOperators1$inboundSchema,
-    SelectOperators2$inboundSchema,
-    SelectOperators3$inboundSchema,
-    SelectOperators4$inboundSchema,
-    SelectOperators5$inboundSchema,
-    SelectOperators6$inboundSchema,
-    SelectOperators7$inboundSchema,
-    SelectOperators8$inboundSchema,
-    SelectOperators9$inboundSchema,
+    ConversationsFilterSelectOperators1$inboundSchema,
+    ConversationsFilterSelectOperators2$inboundSchema,
+    ConversationsFilterSelectOperators3$inboundSchema,
+    ConversationsFilterSelectOperators4$inboundSchema,
+    ConversationsFilterSelectOperators5$inboundSchema,
+    ConversationsFilterSelectOperators6$inboundSchema,
+    ConversationsFilterSelectOperators7$inboundSchema,
+    ConversationsFilterSelectOperators8$inboundSchema,
+    ConversationsFilterSelectOperators9$inboundSchema,
   ]),
   value: z.union([z.string(), z.boolean(), z.number(), z.array(z.string())]),
 });
@@ -1009,15 +1066,15 @@ export const Condition$outboundSchema: z.ZodType<
     ConversationsFilterField7$outboundSchema,
   ]),
   operator: z.union([
-    SelectOperators1$outboundSchema,
-    SelectOperators2$outboundSchema,
-    SelectOperators3$outboundSchema,
-    SelectOperators4$outboundSchema,
-    SelectOperators5$outboundSchema,
-    SelectOperators6$outboundSchema,
-    SelectOperators7$outboundSchema,
-    SelectOperators8$outboundSchema,
-    SelectOperators9$outboundSchema,
+    ConversationsFilterSelectOperators1$outboundSchema,
+    ConversationsFilterSelectOperators2$outboundSchema,
+    ConversationsFilterSelectOperators3$outboundSchema,
+    ConversationsFilterSelectOperators4$outboundSchema,
+    ConversationsFilterSelectOperators5$outboundSchema,
+    ConversationsFilterSelectOperators6$outboundSchema,
+    ConversationsFilterSelectOperators7$outboundSchema,
+    ConversationsFilterSelectOperators8$outboundSchema,
+    ConversationsFilterSelectOperators9$outboundSchema,
   ]),
   value: z.union([z.string(), z.boolean(), z.number(), z.array(z.string())]),
 });

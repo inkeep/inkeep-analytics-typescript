@@ -15,37 +15,47 @@ export type AggregationSelectionType = ClosedEnum<
   typeof AggregationSelectionType
 >;
 
-export const Aggregation5 = {
+export const AggregationSelectionAggregation5 = {
   Max: "max",
 } as const;
-export type Aggregation5 = ClosedEnum<typeof Aggregation5>;
+export type AggregationSelectionAggregation5 = ClosedEnum<
+  typeof AggregationSelectionAggregation5
+>;
 
-export const Aggregation4 = {
+export const AggregationSelectionAggregation4 = {
   Min: "min",
 } as const;
-export type Aggregation4 = ClosedEnum<typeof Aggregation4>;
+export type AggregationSelectionAggregation4 = ClosedEnum<
+  typeof AggregationSelectionAggregation4
+>;
 
-export const Aggregation3 = {
+export const AggregationSelectionAggregation3 = {
   Avg: "avg",
 } as const;
-export type Aggregation3 = ClosedEnum<typeof Aggregation3>;
+export type AggregationSelectionAggregation3 = ClosedEnum<
+  typeof AggregationSelectionAggregation3
+>;
 
-export const Aggregation2 = {
+export const AggregationSelectionAggregation2 = {
   Count: "count",
 } as const;
-export type Aggregation2 = ClosedEnum<typeof Aggregation2>;
+export type AggregationSelectionAggregation2 = ClosedEnum<
+  typeof AggregationSelectionAggregation2
+>;
 
-export const Aggregation1 = {
+export const AggregationSelectionAggregation1 = {
   Sum: "sum",
 } as const;
-export type Aggregation1 = ClosedEnum<typeof Aggregation1>;
+export type AggregationSelectionAggregation1 = ClosedEnum<
+  typeof AggregationSelectionAggregation1
+>;
 
 export type AggregationSelectionAggregation =
-  | Aggregation1
-  | Aggregation2
-  | Aggregation3
-  | Aggregation4
-  | Aggregation5;
+  | AggregationSelectionAggregation1
+  | AggregationSelectionAggregation2
+  | AggregationSelectionAggregation3
+  | AggregationSelectionAggregation4
+  | AggregationSelectionAggregation5;
 
 export const ThirtyOne = {
   IsInitialQuestionAnswer: "isInitialQuestionAnswer",
@@ -152,20 +162,26 @@ export const Eleven = {
 } as const;
 export type Eleven = ClosedEnum<typeof Eleven>;
 
-export const Ten = {
+export const AggregationSelectionField10 = {
   IsDocumented: "isDocumented",
 } as const;
-export type Ten = ClosedEnum<typeof Ten>;
+export type AggregationSelectionField10 = ClosedEnum<
+  typeof AggregationSelectionField10
+>;
 
-export const Nine = {
+export const AggregationSelectionField9 = {
   IsClear: "isClear",
 } as const;
-export type Nine = ClosedEnum<typeof Nine>;
+export type AggregationSelectionField9 = ClosedEnum<
+  typeof AggregationSelectionField9
+>;
 
-export const Eight = {
+export const AggregationSelectionField8 = {
   IsOnTopic: "isOnTopic",
 } as const;
-export type Eight = ClosedEnum<typeof Eight>;
+export type AggregationSelectionField8 = ClosedEnum<
+  typeof AggregationSelectionField8
+>;
 
 export const AggregationSelectionField7 = {
   Answer: "answer",
@@ -224,9 +240,9 @@ export type AggregationSelectionField =
   | AggregationSelectionField5
   | AggregationSelectionField6
   | AggregationSelectionField7
-  | Eight
-  | Nine
-  | Ten
+  | AggregationSelectionField8
+  | AggregationSelectionField9
+  | AggregationSelectionField10
   | Eleven
   | Twelve
   | Thirteen
@@ -252,11 +268,11 @@ export type AggregationSelectionField =
 export type AggregationSelection = {
   type: AggregationSelectionType;
   aggregation:
-    | Aggregation1
-    | Aggregation2
-    | Aggregation3
-    | Aggregation4
-    | Aggregation5;
+    | AggregationSelectionAggregation1
+    | AggregationSelectionAggregation2
+    | AggregationSelectionAggregation3
+    | AggregationSelectionAggregation4
+    | AggregationSelectionAggregation5;
   field?:
     | AggregationSelectionField1
     | AggregationSelectionField2
@@ -265,9 +281,9 @@ export type AggregationSelection = {
     | AggregationSelectionField5
     | AggregationSelectionField6
     | AggregationSelectionField7
-    | Eight
-    | Nine
-    | Ten
+    | AggregationSelectionField8
+    | AggregationSelectionField9
+    | AggregationSelectionField10
     | Eleven
     | Twelve
     | Thirteen
@@ -314,98 +330,108 @@ export namespace AggregationSelectionType$ {
 }
 
 /** @internal */
-export const Aggregation5$inboundSchema: z.ZodNativeEnum<typeof Aggregation5> =
-  z.nativeEnum(Aggregation5);
+export const AggregationSelectionAggregation5$inboundSchema: z.ZodNativeEnum<
+  typeof AggregationSelectionAggregation5
+> = z.nativeEnum(AggregationSelectionAggregation5);
 
 /** @internal */
-export const Aggregation5$outboundSchema: z.ZodNativeEnum<typeof Aggregation5> =
-  Aggregation5$inboundSchema;
+export const AggregationSelectionAggregation5$outboundSchema: z.ZodNativeEnum<
+  typeof AggregationSelectionAggregation5
+> = AggregationSelectionAggregation5$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Aggregation5$ {
-  /** @deprecated use `Aggregation5$inboundSchema` instead. */
-  export const inboundSchema = Aggregation5$inboundSchema;
-  /** @deprecated use `Aggregation5$outboundSchema` instead. */
-  export const outboundSchema = Aggregation5$outboundSchema;
+export namespace AggregationSelectionAggregation5$ {
+  /** @deprecated use `AggregationSelectionAggregation5$inboundSchema` instead. */
+  export const inboundSchema = AggregationSelectionAggregation5$inboundSchema;
+  /** @deprecated use `AggregationSelectionAggregation5$outboundSchema` instead. */
+  export const outboundSchema = AggregationSelectionAggregation5$outboundSchema;
 }
 
 /** @internal */
-export const Aggregation4$inboundSchema: z.ZodNativeEnum<typeof Aggregation4> =
-  z.nativeEnum(Aggregation4);
+export const AggregationSelectionAggregation4$inboundSchema: z.ZodNativeEnum<
+  typeof AggregationSelectionAggregation4
+> = z.nativeEnum(AggregationSelectionAggregation4);
 
 /** @internal */
-export const Aggregation4$outboundSchema: z.ZodNativeEnum<typeof Aggregation4> =
-  Aggregation4$inboundSchema;
+export const AggregationSelectionAggregation4$outboundSchema: z.ZodNativeEnum<
+  typeof AggregationSelectionAggregation4
+> = AggregationSelectionAggregation4$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Aggregation4$ {
-  /** @deprecated use `Aggregation4$inboundSchema` instead. */
-  export const inboundSchema = Aggregation4$inboundSchema;
-  /** @deprecated use `Aggregation4$outboundSchema` instead. */
-  export const outboundSchema = Aggregation4$outboundSchema;
+export namespace AggregationSelectionAggregation4$ {
+  /** @deprecated use `AggregationSelectionAggregation4$inboundSchema` instead. */
+  export const inboundSchema = AggregationSelectionAggregation4$inboundSchema;
+  /** @deprecated use `AggregationSelectionAggregation4$outboundSchema` instead. */
+  export const outboundSchema = AggregationSelectionAggregation4$outboundSchema;
 }
 
 /** @internal */
-export const Aggregation3$inboundSchema: z.ZodNativeEnum<typeof Aggregation3> =
-  z.nativeEnum(Aggregation3);
+export const AggregationSelectionAggregation3$inboundSchema: z.ZodNativeEnum<
+  typeof AggregationSelectionAggregation3
+> = z.nativeEnum(AggregationSelectionAggregation3);
 
 /** @internal */
-export const Aggregation3$outboundSchema: z.ZodNativeEnum<typeof Aggregation3> =
-  Aggregation3$inboundSchema;
+export const AggregationSelectionAggregation3$outboundSchema: z.ZodNativeEnum<
+  typeof AggregationSelectionAggregation3
+> = AggregationSelectionAggregation3$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Aggregation3$ {
-  /** @deprecated use `Aggregation3$inboundSchema` instead. */
-  export const inboundSchema = Aggregation3$inboundSchema;
-  /** @deprecated use `Aggregation3$outboundSchema` instead. */
-  export const outboundSchema = Aggregation3$outboundSchema;
+export namespace AggregationSelectionAggregation3$ {
+  /** @deprecated use `AggregationSelectionAggregation3$inboundSchema` instead. */
+  export const inboundSchema = AggregationSelectionAggregation3$inboundSchema;
+  /** @deprecated use `AggregationSelectionAggregation3$outboundSchema` instead. */
+  export const outboundSchema = AggregationSelectionAggregation3$outboundSchema;
 }
 
 /** @internal */
-export const Aggregation2$inboundSchema: z.ZodNativeEnum<typeof Aggregation2> =
-  z.nativeEnum(Aggregation2);
+export const AggregationSelectionAggregation2$inboundSchema: z.ZodNativeEnum<
+  typeof AggregationSelectionAggregation2
+> = z.nativeEnum(AggregationSelectionAggregation2);
 
 /** @internal */
-export const Aggregation2$outboundSchema: z.ZodNativeEnum<typeof Aggregation2> =
-  Aggregation2$inboundSchema;
+export const AggregationSelectionAggregation2$outboundSchema: z.ZodNativeEnum<
+  typeof AggregationSelectionAggregation2
+> = AggregationSelectionAggregation2$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Aggregation2$ {
-  /** @deprecated use `Aggregation2$inboundSchema` instead. */
-  export const inboundSchema = Aggregation2$inboundSchema;
-  /** @deprecated use `Aggregation2$outboundSchema` instead. */
-  export const outboundSchema = Aggregation2$outboundSchema;
+export namespace AggregationSelectionAggregation2$ {
+  /** @deprecated use `AggregationSelectionAggregation2$inboundSchema` instead. */
+  export const inboundSchema = AggregationSelectionAggregation2$inboundSchema;
+  /** @deprecated use `AggregationSelectionAggregation2$outboundSchema` instead. */
+  export const outboundSchema = AggregationSelectionAggregation2$outboundSchema;
 }
 
 /** @internal */
-export const Aggregation1$inboundSchema: z.ZodNativeEnum<typeof Aggregation1> =
-  z.nativeEnum(Aggregation1);
+export const AggregationSelectionAggregation1$inboundSchema: z.ZodNativeEnum<
+  typeof AggregationSelectionAggregation1
+> = z.nativeEnum(AggregationSelectionAggregation1);
 
 /** @internal */
-export const Aggregation1$outboundSchema: z.ZodNativeEnum<typeof Aggregation1> =
-  Aggregation1$inboundSchema;
+export const AggregationSelectionAggregation1$outboundSchema: z.ZodNativeEnum<
+  typeof AggregationSelectionAggregation1
+> = AggregationSelectionAggregation1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Aggregation1$ {
-  /** @deprecated use `Aggregation1$inboundSchema` instead. */
-  export const inboundSchema = Aggregation1$inboundSchema;
-  /** @deprecated use `Aggregation1$outboundSchema` instead. */
-  export const outboundSchema = Aggregation1$outboundSchema;
+export namespace AggregationSelectionAggregation1$ {
+  /** @deprecated use `AggregationSelectionAggregation1$inboundSchema` instead. */
+  export const inboundSchema = AggregationSelectionAggregation1$inboundSchema;
+  /** @deprecated use `AggregationSelectionAggregation1$outboundSchema` instead. */
+  export const outboundSchema = AggregationSelectionAggregation1$outboundSchema;
 }
 
 /** @internal */
@@ -414,11 +440,11 @@ export const AggregationSelectionAggregation$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  Aggregation1$inboundSchema,
-  Aggregation2$inboundSchema,
-  Aggregation3$inboundSchema,
-  Aggregation4$inboundSchema,
-  Aggregation5$inboundSchema,
+  AggregationSelectionAggregation1$inboundSchema,
+  AggregationSelectionAggregation2$inboundSchema,
+  AggregationSelectionAggregation3$inboundSchema,
+  AggregationSelectionAggregation4$inboundSchema,
+  AggregationSelectionAggregation5$inboundSchema,
 ]);
 
 /** @internal */
@@ -435,11 +461,11 @@ export const AggregationSelectionAggregation$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AggregationSelectionAggregation
 > = z.union([
-  Aggregation1$outboundSchema,
-  Aggregation2$outboundSchema,
-  Aggregation3$outboundSchema,
-  Aggregation4$outboundSchema,
-  Aggregation5$outboundSchema,
+  AggregationSelectionAggregation1$outboundSchema,
+  AggregationSelectionAggregation2$outboundSchema,
+  AggregationSelectionAggregation3$outboundSchema,
+  AggregationSelectionAggregation4$outboundSchema,
+  AggregationSelectionAggregation5$outboundSchema,
 ]);
 
 /**
@@ -875,61 +901,66 @@ export namespace Eleven$ {
 }
 
 /** @internal */
-export const Ten$inboundSchema: z.ZodNativeEnum<typeof Ten> = z.nativeEnum(Ten);
+export const AggregationSelectionField10$inboundSchema: z.ZodNativeEnum<
+  typeof AggregationSelectionField10
+> = z.nativeEnum(AggregationSelectionField10);
 
 /** @internal */
-export const Ten$outboundSchema: z.ZodNativeEnum<typeof Ten> =
-  Ten$inboundSchema;
+export const AggregationSelectionField10$outboundSchema: z.ZodNativeEnum<
+  typeof AggregationSelectionField10
+> = AggregationSelectionField10$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Ten$ {
-  /** @deprecated use `Ten$inboundSchema` instead. */
-  export const inboundSchema = Ten$inboundSchema;
-  /** @deprecated use `Ten$outboundSchema` instead. */
-  export const outboundSchema = Ten$outboundSchema;
+export namespace AggregationSelectionField10$ {
+  /** @deprecated use `AggregationSelectionField10$inboundSchema` instead. */
+  export const inboundSchema = AggregationSelectionField10$inboundSchema;
+  /** @deprecated use `AggregationSelectionField10$outboundSchema` instead. */
+  export const outboundSchema = AggregationSelectionField10$outboundSchema;
 }
 
 /** @internal */
-export const Nine$inboundSchema: z.ZodNativeEnum<typeof Nine> = z.nativeEnum(
-  Nine,
-);
+export const AggregationSelectionField9$inboundSchema: z.ZodNativeEnum<
+  typeof AggregationSelectionField9
+> = z.nativeEnum(AggregationSelectionField9);
 
 /** @internal */
-export const Nine$outboundSchema: z.ZodNativeEnum<typeof Nine> =
-  Nine$inboundSchema;
+export const AggregationSelectionField9$outboundSchema: z.ZodNativeEnum<
+  typeof AggregationSelectionField9
+> = AggregationSelectionField9$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Nine$ {
-  /** @deprecated use `Nine$inboundSchema` instead. */
-  export const inboundSchema = Nine$inboundSchema;
-  /** @deprecated use `Nine$outboundSchema` instead. */
-  export const outboundSchema = Nine$outboundSchema;
+export namespace AggregationSelectionField9$ {
+  /** @deprecated use `AggregationSelectionField9$inboundSchema` instead. */
+  export const inboundSchema = AggregationSelectionField9$inboundSchema;
+  /** @deprecated use `AggregationSelectionField9$outboundSchema` instead. */
+  export const outboundSchema = AggregationSelectionField9$outboundSchema;
 }
 
 /** @internal */
-export const Eight$inboundSchema: z.ZodNativeEnum<typeof Eight> = z.nativeEnum(
-  Eight,
-);
+export const AggregationSelectionField8$inboundSchema: z.ZodNativeEnum<
+  typeof AggregationSelectionField8
+> = z.nativeEnum(AggregationSelectionField8);
 
 /** @internal */
-export const Eight$outboundSchema: z.ZodNativeEnum<typeof Eight> =
-  Eight$inboundSchema;
+export const AggregationSelectionField8$outboundSchema: z.ZodNativeEnum<
+  typeof AggregationSelectionField8
+> = AggregationSelectionField8$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Eight$ {
-  /** @deprecated use `Eight$inboundSchema` instead. */
-  export const inboundSchema = Eight$inboundSchema;
-  /** @deprecated use `Eight$outboundSchema` instead. */
-  export const outboundSchema = Eight$outboundSchema;
+export namespace AggregationSelectionField8$ {
+  /** @deprecated use `AggregationSelectionField8$inboundSchema` instead. */
+  export const inboundSchema = AggregationSelectionField8$inboundSchema;
+  /** @deprecated use `AggregationSelectionField8$outboundSchema` instead. */
+  export const outboundSchema = AggregationSelectionField8$outboundSchema;
 }
 
 /** @internal */
@@ -1092,9 +1123,9 @@ export const AggregationSelectionField$inboundSchema: z.ZodType<
   AggregationSelectionField5$inboundSchema,
   AggregationSelectionField6$inboundSchema,
   AggregationSelectionField7$inboundSchema,
-  Eight$inboundSchema,
-  Nine$inboundSchema,
-  Ten$inboundSchema,
+  AggregationSelectionField8$inboundSchema,
+  AggregationSelectionField9$inboundSchema,
+  AggregationSelectionField10$inboundSchema,
   Eleven$inboundSchema,
   Twelve$inboundSchema,
   Thirteen$inboundSchema,
@@ -1165,9 +1196,9 @@ export const AggregationSelectionField$outboundSchema: z.ZodType<
   AggregationSelectionField5$outboundSchema,
   AggregationSelectionField6$outboundSchema,
   AggregationSelectionField7$outboundSchema,
-  Eight$outboundSchema,
-  Nine$outboundSchema,
-  Ten$outboundSchema,
+  AggregationSelectionField8$outboundSchema,
+  AggregationSelectionField9$outboundSchema,
+  AggregationSelectionField10$outboundSchema,
   Eleven$outboundSchema,
   Twelve$outboundSchema,
   Thirteen$outboundSchema,
@@ -1230,11 +1261,11 @@ export const AggregationSelection$inboundSchema: z.ZodType<
 > = z.object({
   type: AggregationSelectionType$inboundSchema,
   aggregation: z.union([
-    Aggregation1$inboundSchema,
-    Aggregation2$inboundSchema,
-    Aggregation3$inboundSchema,
-    Aggregation4$inboundSchema,
-    Aggregation5$inboundSchema,
+    AggregationSelectionAggregation1$inboundSchema,
+    AggregationSelectionAggregation2$inboundSchema,
+    AggregationSelectionAggregation3$inboundSchema,
+    AggregationSelectionAggregation4$inboundSchema,
+    AggregationSelectionAggregation5$inboundSchema,
   ]),
   field: z.union([
     AggregationSelectionField1$inboundSchema,
@@ -1244,9 +1275,9 @@ export const AggregationSelection$inboundSchema: z.ZodType<
     AggregationSelectionField5$inboundSchema,
     AggregationSelectionField6$inboundSchema,
     AggregationSelectionField7$inboundSchema,
-    Eight$inboundSchema,
-    Nine$inboundSchema,
-    Ten$inboundSchema,
+    AggregationSelectionField8$inboundSchema,
+    AggregationSelectionField9$inboundSchema,
+    AggregationSelectionField10$inboundSchema,
     Eleven$inboundSchema,
     Twelve$inboundSchema,
     Thirteen$inboundSchema,
@@ -1318,11 +1349,11 @@ export const AggregationSelection$outboundSchema: z.ZodType<
 > = z.object({
   type: AggregationSelectionType$outboundSchema,
   aggregation: z.union([
-    Aggregation1$outboundSchema,
-    Aggregation2$outboundSchema,
-    Aggregation3$outboundSchema,
-    Aggregation4$outboundSchema,
-    Aggregation5$outboundSchema,
+    AggregationSelectionAggregation1$outboundSchema,
+    AggregationSelectionAggregation2$outboundSchema,
+    AggregationSelectionAggregation3$outboundSchema,
+    AggregationSelectionAggregation4$outboundSchema,
+    AggregationSelectionAggregation5$outboundSchema,
   ]),
   field: z.union([
     AggregationSelectionField1$outboundSchema,
@@ -1332,9 +1363,9 @@ export const AggregationSelection$outboundSchema: z.ZodType<
     AggregationSelectionField5$outboundSchema,
     AggregationSelectionField6$outboundSchema,
     AggregationSelectionField7$outboundSchema,
-    Eight$outboundSchema,
-    Nine$outboundSchema,
-    Ten$outboundSchema,
+    AggregationSelectionField8$outboundSchema,
+    AggregationSelectionField9$outboundSchema,
+    AggregationSelectionField10$outboundSchema,
     Eleven$outboundSchema,
     Twelve$outboundSchema,
     Thirteen$outboundSchema,

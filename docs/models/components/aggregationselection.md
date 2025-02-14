@@ -7,7 +7,7 @@ import { AggregationSelection } from "@inkeep/inkeep-analytics/models/components
 
 let value: AggregationSelection = {
   type: "aggregation",
-  aggregation: "avg",
+  aggregation: "min",
 };
 ```
 
