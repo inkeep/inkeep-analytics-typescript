@@ -43,7 +43,7 @@ typescript:
   inputModelSuffix: input
   maxMethodParams: 0
   methodArguments: require-security-and-request
-  moduleFormat: dual
+  moduleFormat: esm
   outputModelSuffix: output
   packageName: '@inkeep/inkeep-analytics'
   responseFormat: flat
