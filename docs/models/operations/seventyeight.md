@@ -5,11 +5,11 @@
 ```typescript
 import { SeventyEight } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: SeventyEight = "isAnswerConfident_week";
+let value: SeventyEight = "avg_properties";
 ```
 
 ## Values
 
 ```typescript
-"isAnswerConfident_week"
+"avg_properties"
 ```

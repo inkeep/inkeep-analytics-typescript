@@ -6,9 +6,9 @@
 import { SemanticThreadFilterCondition } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SemanticThreadFilterCondition = {
-  field: "gapSummary",
+  field: "isInitialQuestionAnswer",
   operator: "neq",
-  value: "<value>",
+  value: 2633.22,
 };
 ```
 

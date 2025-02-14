@@ -45,22 +45,22 @@ const value: components.TimeBasedGroupBySelectionField6 = "questionLength";
 const value: components.TimeBasedGroupBySelectionField7 = "answer";
 ```
 
-### `components.Field8`
+### `components.TimeBasedGroupBySelectionField8`
 
 ```typescript
-const value: components.Field8 = "isOnTopic";
+const value: components.TimeBasedGroupBySelectionField8 = "isOnTopic";
 ```
 
-### `components.Field9`
+### `components.TimeBasedGroupBySelectionField9`
 
 ```typescript
-const value: components.Field9 = "isClear";
+const value: components.TimeBasedGroupBySelectionField9 = "isClear";
 ```
 
-### `components.Field10`
+### `components.TimeBasedGroupBySelectionField10`
 
 ```typescript
-const value: components.Field10 = "isDocumented";
+const value: components.TimeBasedGroupBySelectionField10 = "isDocumented";
 ```
 
 ### `components.Field11`

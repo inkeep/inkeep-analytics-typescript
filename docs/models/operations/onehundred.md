@@ -5,11 +5,11 @@
 ```typescript
 import { OneHundred } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: OneHundred = "thirdPartyEntities_hour";
+let value: OneHundred = "max_searchQuery";
 ```
 
 ## Values
 
 ```typescript
-"thirdPartyEntities_hour"
+"max_searchQuery"
 ```

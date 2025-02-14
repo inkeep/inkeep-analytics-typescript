@@ -9,8 +9,8 @@
 const value: components.OpenAIConversation = {
   id: "<id>",
   type: "openai",
-  createdAt: "1725278473467",
-  updatedAt: "1739482483003",
+  createdAt: "1725340412163",
+  updatedAt: "1739544421699",
   tags: [
     "<value>",
   ],
@@ -19,8 +19,8 @@ const value: components.OpenAIConversation = {
       id: "<id>",
       type: "openai",
       conversationId: "<id>",
-      createdAt: "1726979836583",
-      updatedAt: "1739467768720",
+      createdAt: "1727041775279",
+      updatedAt: "1739529707416",
       role: "user",
       content: [
         {
@@ -48,8 +48,8 @@ const value: components.OpenAIConversation = {
 const value: components.SupportTicketConversation = {
   id: "<id>",
   type: "support_ticket",
-  createdAt: "1732938931371",
-  updatedAt: "1739466387353",
+  createdAt: "1733000870067",
+  updatedAt: "1739528326049",
   tags: [
     "<value>",
   ],
@@ -58,8 +58,8 @@ const value: components.SupportTicketConversation = {
       id: "<id>",
       type: "support_ticket",
       conversationId: "<id>",
-      createdAt: "1725884944073",
-      updatedAt: "1739500661986",
+      createdAt: "1725946882769",
+      updatedAt: "1739562600682",
       role: "<value>",
     },
   ],
@@ -72,8 +72,8 @@ const value: components.SupportTicketConversation = {
 const value: components.SupportCopilotConversation = {
   id: "<id>",
   type: "support_copilot",
-  createdAt: "1710211284423",
-  updatedAt: "1739428219247",
+  createdAt: "1710273223119",
+  updatedAt: "1739490157943",
   tags: [
     "<value>",
   ],
@@ -82,8 +82,8 @@ const value: components.SupportCopilotConversation = {
       id: "<id>",
       type: "support_copilot",
       conversationId: "<id>",
-      createdAt: "1708608698725",
-      updatedAt: "1739492628886",
+      createdAt: "1708670637421",
+      updatedAt: "1739554567582",
       role: "<value>",
     },
   ],

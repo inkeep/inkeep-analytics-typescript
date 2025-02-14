@@ -3,33 +3,33 @@
 
 ## Supported Types
 
-### `components.Aggregation1`
+### `components.AggregationSelectionAggregation1`
 
 ```typescript
-const value: components.Aggregation1 = "sum";
+const value: components.AggregationSelectionAggregation1 = "sum";
 ```
 
-### `components.Aggregation2`
+### `components.AggregationSelectionAggregation2`
 
 ```typescript
-const value: components.Aggregation2 = "count";
+const value: components.AggregationSelectionAggregation2 = "count";
 ```
 
-### `components.Aggregation3`
+### `components.AggregationSelectionAggregation3`
 
 ```typescript
-const value: components.Aggregation3 = "avg";
+const value: components.AggregationSelectionAggregation3 = "avg";
 ```
 
-### `components.Aggregation4`
+### `components.AggregationSelectionAggregation4`
 
 ```typescript
-const value: components.Aggregation4 = "min";
+const value: components.AggregationSelectionAggregation4 = "min";
 ```
 
-### `components.Aggregation5`
+### `components.AggregationSelectionAggregation5`
 
 ```typescript
-const value: components.Aggregation5 = "max";
+const value: components.AggregationSelectionAggregation5 = "max";
 ```
 

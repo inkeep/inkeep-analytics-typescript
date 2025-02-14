@@ -8,7 +8,7 @@ Note: The maximum size of the request body is 2 MB.
 import { SubmitFeedbackRequestBody } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: SubmitFeedbackRequestBody = {
-  type: "positive",
+  type: "negative",
   messageId: "<id>",
 };
 ```

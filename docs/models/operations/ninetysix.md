@@ -5,11 +5,11 @@
 ```typescript
 import { NinetySix } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: NinetySix = "firstPartyEntities_hour";
+let value: NinetySix = "sum_searchQuery";
 ```
 
 ## Values
 
 ```typescript
-"firstPartyEntities_hour"
+"sum_searchQuery"
 ```

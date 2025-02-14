@@ -5,11 +5,11 @@
 ```typescript
 import { Ten } from "@inkeep/inkeep-analytics/models/components";
 
-let value: Ten = "isDocumented";
+let value: Ten = "searchQuery";
 ```
 
 ## Values
 
 ```typescript
-"isDocumented"
+"searchQuery"
 ```

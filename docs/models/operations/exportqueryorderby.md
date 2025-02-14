@@ -6,8 +6,8 @@
 import { ExportQueryOrderBy } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: ExportQueryOrderBy = {
-  field: "avg_languages",
-  direction: "desc",
+  field: "max_areAIAnnotationsVerified",
+  direction: "asc",
 };
 ```
 

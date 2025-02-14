@@ -5,11 +5,11 @@
 ```typescript
 import { EightyThree } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: EightyThree = "gapSummary_month";
+let value: EightyThree = "avg_userProperties";
 ```
 
 ## Values
 
 ```typescript
-"gapSummary_month"
+"avg_userProperties"
 ```

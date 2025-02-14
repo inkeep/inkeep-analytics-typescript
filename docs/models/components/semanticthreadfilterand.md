@@ -7,7 +7,7 @@
 
 ```typescript
 const value: components.SemanticThreadFilter = {
-  or: [],
+  and: [],
 };
 ```
 

@@ -157,20 +157,26 @@ export const Field11 = {
 } as const;
 export type Field11 = ClosedEnum<typeof Field11>;
 
-export const Field10 = {
+export const TimeBasedGroupBySelectionField10 = {
   IsDocumented: "isDocumented",
 } as const;
-export type Field10 = ClosedEnum<typeof Field10>;
+export type TimeBasedGroupBySelectionField10 = ClosedEnum<
+  typeof TimeBasedGroupBySelectionField10
+>;
 
-export const Field9 = {
+export const TimeBasedGroupBySelectionField9 = {
   IsClear: "isClear",
 } as const;
-export type Field9 = ClosedEnum<typeof Field9>;
+export type TimeBasedGroupBySelectionField9 = ClosedEnum<
+  typeof TimeBasedGroupBySelectionField9
+>;
 
-export const Field8 = {
+export const TimeBasedGroupBySelectionField8 = {
   IsOnTopic: "isOnTopic",
 } as const;
-export type Field8 = ClosedEnum<typeof Field8>;
+export type TimeBasedGroupBySelectionField8 = ClosedEnum<
+  typeof TimeBasedGroupBySelectionField8
+>;
 
 export const TimeBasedGroupBySelectionField7 = {
   Answer: "answer",
@@ -229,9 +235,9 @@ export type TimeBasedGroupBySelectionField =
   | TimeBasedGroupBySelectionField5
   | TimeBasedGroupBySelectionField6
   | TimeBasedGroupBySelectionField7
-  | Field8
-  | Field9
-  | Field10
+  | TimeBasedGroupBySelectionField8
+  | TimeBasedGroupBySelectionField9
+  | TimeBasedGroupBySelectionField10
   | Field11
   | Field12
   | Field13
@@ -272,9 +278,9 @@ export type TimeBasedGroupBySelection = {
     | TimeBasedGroupBySelectionField5
     | TimeBasedGroupBySelectionField6
     | TimeBasedGroupBySelectionField7
-    | Field8
-    | Field9
-    | Field10
+    | TimeBasedGroupBySelectionField8
+    | TimeBasedGroupBySelectionField9
+    | TimeBasedGroupBySelectionField10
     | Field11
     | Field12
     | Field13
@@ -872,60 +878,66 @@ export namespace Field11$ {
 }
 
 /** @internal */
-export const Field10$inboundSchema: z.ZodNativeEnum<typeof Field10> = z
-  .nativeEnum(Field10);
+export const TimeBasedGroupBySelectionField10$inboundSchema: z.ZodNativeEnum<
+  typeof TimeBasedGroupBySelectionField10
+> = z.nativeEnum(TimeBasedGroupBySelectionField10);
 
 /** @internal */
-export const Field10$outboundSchema: z.ZodNativeEnum<typeof Field10> =
-  Field10$inboundSchema;
+export const TimeBasedGroupBySelectionField10$outboundSchema: z.ZodNativeEnum<
+  typeof TimeBasedGroupBySelectionField10
+> = TimeBasedGroupBySelectionField10$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Field10$ {
-  /** @deprecated use `Field10$inboundSchema` instead. */
-  export const inboundSchema = Field10$inboundSchema;
-  /** @deprecated use `Field10$outboundSchema` instead. */
-  export const outboundSchema = Field10$outboundSchema;
+export namespace TimeBasedGroupBySelectionField10$ {
+  /** @deprecated use `TimeBasedGroupBySelectionField10$inboundSchema` instead. */
+  export const inboundSchema = TimeBasedGroupBySelectionField10$inboundSchema;
+  /** @deprecated use `TimeBasedGroupBySelectionField10$outboundSchema` instead. */
+  export const outboundSchema = TimeBasedGroupBySelectionField10$outboundSchema;
 }
 
 /** @internal */
-export const Field9$inboundSchema: z.ZodNativeEnum<typeof Field9> = z
-  .nativeEnum(Field9);
+export const TimeBasedGroupBySelectionField9$inboundSchema: z.ZodNativeEnum<
+  typeof TimeBasedGroupBySelectionField9
+> = z.nativeEnum(TimeBasedGroupBySelectionField9);
 
 /** @internal */
-export const Field9$outboundSchema: z.ZodNativeEnum<typeof Field9> =
-  Field9$inboundSchema;
+export const TimeBasedGroupBySelectionField9$outboundSchema: z.ZodNativeEnum<
+  typeof TimeBasedGroupBySelectionField9
+> = TimeBasedGroupBySelectionField9$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Field9$ {
-  /** @deprecated use `Field9$inboundSchema` instead. */
-  export const inboundSchema = Field9$inboundSchema;
-  /** @deprecated use `Field9$outboundSchema` instead. */
-  export const outboundSchema = Field9$outboundSchema;
+export namespace TimeBasedGroupBySelectionField9$ {
+  /** @deprecated use `TimeBasedGroupBySelectionField9$inboundSchema` instead. */
+  export const inboundSchema = TimeBasedGroupBySelectionField9$inboundSchema;
+  /** @deprecated use `TimeBasedGroupBySelectionField9$outboundSchema` instead. */
+  export const outboundSchema = TimeBasedGroupBySelectionField9$outboundSchema;
 }
 
 /** @internal */
-export const Field8$inboundSchema: z.ZodNativeEnum<typeof Field8> = z
-  .nativeEnum(Field8);
+export const TimeBasedGroupBySelectionField8$inboundSchema: z.ZodNativeEnum<
+  typeof TimeBasedGroupBySelectionField8
+> = z.nativeEnum(TimeBasedGroupBySelectionField8);
 
 /** @internal */
-export const Field8$outboundSchema: z.ZodNativeEnum<typeof Field8> =
-  Field8$inboundSchema;
+export const TimeBasedGroupBySelectionField8$outboundSchema: z.ZodNativeEnum<
+  typeof TimeBasedGroupBySelectionField8
+> = TimeBasedGroupBySelectionField8$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Field8$ {
-  /** @deprecated use `Field8$inboundSchema` instead. */
-  export const inboundSchema = Field8$inboundSchema;
-  /** @deprecated use `Field8$outboundSchema` instead. */
-  export const outboundSchema = Field8$outboundSchema;
+export namespace TimeBasedGroupBySelectionField8$ {
+  /** @deprecated use `TimeBasedGroupBySelectionField8$inboundSchema` instead. */
+  export const inboundSchema = TimeBasedGroupBySelectionField8$inboundSchema;
+  /** @deprecated use `TimeBasedGroupBySelectionField8$outboundSchema` instead. */
+  export const outboundSchema = TimeBasedGroupBySelectionField8$outboundSchema;
 }
 
 /** @internal */
@@ -1088,9 +1100,9 @@ export const TimeBasedGroupBySelectionField$inboundSchema: z.ZodType<
   TimeBasedGroupBySelectionField5$inboundSchema,
   TimeBasedGroupBySelectionField6$inboundSchema,
   TimeBasedGroupBySelectionField7$inboundSchema,
-  Field8$inboundSchema,
-  Field9$inboundSchema,
-  Field10$inboundSchema,
+  TimeBasedGroupBySelectionField8$inboundSchema,
+  TimeBasedGroupBySelectionField9$inboundSchema,
+  TimeBasedGroupBySelectionField10$inboundSchema,
   Field11$inboundSchema,
   Field12$inboundSchema,
   Field13$inboundSchema,
@@ -1161,9 +1173,9 @@ export const TimeBasedGroupBySelectionField$outboundSchema: z.ZodType<
   TimeBasedGroupBySelectionField5$outboundSchema,
   TimeBasedGroupBySelectionField6$outboundSchema,
   TimeBasedGroupBySelectionField7$outboundSchema,
-  Field8$outboundSchema,
-  Field9$outboundSchema,
-  Field10$outboundSchema,
+  TimeBasedGroupBySelectionField8$outboundSchema,
+  TimeBasedGroupBySelectionField9$outboundSchema,
+  TimeBasedGroupBySelectionField10$outboundSchema,
   Field11$outboundSchema,
   Field12$outboundSchema,
   Field13$outboundSchema,
@@ -1241,9 +1253,9 @@ export const TimeBasedGroupBySelection$inboundSchema: z.ZodType<
     TimeBasedGroupBySelectionField5$inboundSchema,
     TimeBasedGroupBySelectionField6$inboundSchema,
     TimeBasedGroupBySelectionField7$inboundSchema,
-    Field8$inboundSchema,
-    Field9$inboundSchema,
-    Field10$inboundSchema,
+    TimeBasedGroupBySelectionField8$inboundSchema,
+    TimeBasedGroupBySelectionField9$inboundSchema,
+    TimeBasedGroupBySelectionField10$inboundSchema,
     Field11$inboundSchema,
     Field12$inboundSchema,
     Field13$inboundSchema,
@@ -1327,9 +1339,9 @@ export const TimeBasedGroupBySelection$outboundSchema: z.ZodType<
     TimeBasedGroupBySelectionField5$outboundSchema,
     TimeBasedGroupBySelectionField6$outboundSchema,
     TimeBasedGroupBySelectionField7$outboundSchema,
-    Field8$outboundSchema,
-    Field9$outboundSchema,
-    Field10$outboundSchema,
+    TimeBasedGroupBySelectionField8$outboundSchema,
+    TimeBasedGroupBySelectionField9$outboundSchema,
+    TimeBasedGroupBySelectionField10$outboundSchema,
     Field11$outboundSchema,
     Field12$outboundSchema,
     Field13$outboundSchema,

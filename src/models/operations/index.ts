@@ -11,5 +11,6 @@ export * from "./getconversationbyexternalid.js";
 export * from "./logconversation.js";
 export * from "./logevent.js";
 export * from "./queryconversations.js";
+export * from "./queryevents.js";
 export * from "./querytable.js";
 export * from "./submitfeedback.js";

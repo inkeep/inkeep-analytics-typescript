@@ -5,11 +5,11 @@
 ```typescript
 import { Field60 } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: Field60 = "isOnTopic_hour";
+let value: Field60 = "max_id";
 ```
 
 ## Values
 
 ```typescript
-"isOnTopic_hour"
+"max_id"
 ```

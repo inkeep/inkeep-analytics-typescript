@@ -45,562 +45,562 @@ const value: operations.QueryTableFieldQuery6 = "questionLength";
 const value: operations.QueryTableFieldQuery7 = "answer";
 ```
 
-### `operations.QueryTableField8`
+### `operations.QueryTableFieldQuery8`
 
 ```typescript
-const value: operations.QueryTableField8 = "isOnTopic";
+const value: operations.QueryTableFieldQuery8 = "isOnTopic";
 ```
 
-### `operations.QueryTableField9`
+### `operations.QueryTableFieldQuery9`
 
 ```typescript
-const value: operations.QueryTableField9 = "isClear";
+const value: operations.QueryTableFieldQuery9 = "isClear";
 ```
 
-### `operations.QueryTableField10`
+### `operations.QueryTableFieldQuery10`
 
 ```typescript
-const value: operations.QueryTableField10 = "isDocumented";
+const value: operations.QueryTableFieldQuery10 = "isDocumented";
 ```
 
-### `operations.QueryTableField11`
+### `operations.QueryTableFieldQuery11`
 
 ```typescript
-const value: operations.QueryTableField11 = "isFeatureSupported";
+const value: operations.QueryTableFieldQuery11 = "isFeatureSupported";
 ```
 
-### `operations.QueryTableField12`
+### `operations.QueryTableFieldQuery12`
 
 ```typescript
-const value: operations.QueryTableField12 = "isAnswerConfident";
+const value: operations.QueryTableFieldQuery12 = "isAnswerConfident";
 ```
 
-### `operations.QueryTableField13`
+### `operations.QueryTableFieldQuery13`
 
 ```typescript
-const value: operations.QueryTableField13 = "gapSummary";
+const value: operations.QueryTableFieldQuery13 = "gapSummary";
 ```
 
-### `operations.QueryTableField14`
+### `operations.QueryTableFieldQuery14`
 
 ```typescript
-const value: operations.QueryTableField14 = "subject";
+const value: operations.QueryTableFieldQuery14 = "subject";
 ```
 
-### `operations.QueryTableField15`
+### `operations.QueryTableFieldQuery15`
 
 ```typescript
-const value: operations.QueryTableField15 = "category";
+const value: operations.QueryTableFieldQuery15 = "category";
 ```
 
-### `operations.QueryTableField16`
+### `operations.QueryTableFieldQuery16`
 
 ```typescript
-const value: operations.QueryTableField16 = "languages";
+const value: operations.QueryTableFieldQuery16 = "languages";
 ```
 
-### `operations.QueryTableField17`
+### `operations.QueryTableFieldQuery17`
 
 ```typescript
-const value: operations.QueryTableField17 = "firstPartyEntities";
+const value: operations.QueryTableFieldQuery17 = "firstPartyEntities";
 ```
 
-### `operations.QueryTableField18`
+### `operations.QueryTableFieldQuery18`
 
 ```typescript
-const value: operations.QueryTableField18 = "thirdPartyEntities";
+const value: operations.QueryTableFieldQuery18 = "thirdPartyEntities";
 ```
 
-### `operations.QueryTableField19`
+### `operations.QueryTableFieldQuery19`
 
 ```typescript
-const value: operations.QueryTableField19 = "emotion";
+const value: operations.QueryTableFieldQuery19 = "emotion";
 ```
 
-### `operations.QueryTableField20`
+### `operations.QueryTableFieldQuery20`
 
 ```typescript
-const value: operations.QueryTableField20 = "sentiment";
+const value: operations.QueryTableFieldQuery20 = "sentiment";
 ```
 
-### `operations.QueryTableField21`
+### `operations.QueryTableFieldQuery21`
 
 ```typescript
-const value: operations.QueryTableField21 = "questionType";
+const value: operations.QueryTableFieldQuery21 = "questionType";
 ```
 
-### `operations.QueryTableField22`
+### `operations.QueryTableFieldQuery22`
 
 ```typescript
-const value: operations.QueryTableField22 = "projectId";
+const value: operations.QueryTableFieldQuery22 = "projectId";
 ```
 
-### `operations.QueryTableField23`
+### `operations.QueryTableFieldQuery23`
 
 ```typescript
-const value: operations.QueryTableField23 = "integrationId";
+const value: operations.QueryTableFieldQuery23 = "integrationId";
 ```
 
-### `operations.QueryTableField24`
+### `operations.QueryTableFieldQuery24`
 
 ```typescript
-const value: operations.QueryTableField24 = "firstMessageTime";
+const value: operations.QueryTableFieldQuery24 = "firstMessageTime";
 ```
 
-### `operations.QueryTableField25`
+### `operations.QueryTableFieldQuery25`
 
 ```typescript
-const value: operations.QueryTableField25 = "lastMessageTime";
+const value: operations.QueryTableFieldQuery25 = "lastMessageTime";
 ```
 
-### `operations.QueryTableField26`
+### `operations.QueryTableFieldQuery26`
 
 ```typescript
-const value: operations.QueryTableField26 = "lastUpdated";
+const value: operations.QueryTableFieldQuery26 = "lastUpdated";
 ```
 
-### `operations.QueryTableField27`
+### `operations.QueryTableFieldQuery27`
 
 ```typescript
-const value: operations.QueryTableField27 = "hasPositiveFeedback";
+const value: operations.QueryTableFieldQuery27 = "hasPositiveFeedback";
 ```
 
-### `operations.QueryTableField28`
+### `operations.QueryTableFieldQuery28`
 
 ```typescript
-const value: operations.QueryTableField28 = "hasNegativeFeedback";
+const value: operations.QueryTableFieldQuery28 = "hasNegativeFeedback";
 ```
 
-### `operations.QueryTableField29`
+### `operations.QueryTableFieldQuery29`
 
 ```typescript
-const value: operations.QueryTableField29 = "conversationIds";
+const value: operations.QueryTableFieldQuery29 = "conversationIds";
 ```
 
-### `operations.QueryTableField30`
+### `operations.QueryTableFieldQuery30`
 
 ```typescript
-const value: operations.QueryTableField30 = "areAIAnnotationsVerified";
+const value: operations.QueryTableFieldQuery30 = "areAIAnnotationsVerified";
 ```
 
-### `operations.QueryTableField31`
+### `operations.QueryTableFieldQuery31`
 
 ```typescript
-const value: operations.QueryTableField31 = "isInitialQuestionAnswer";
+const value: operations.QueryTableFieldQuery31 = "isInitialQuestionAnswer";
 ```
 
-### `operations.Field32`
+### `operations.QueryTableField32`
 
 ```typescript
-const value: operations.Field32 = "id_hour";
+const value: operations.QueryTableField32 = "id_hour";
 ```
 
-### `operations.Field33`
+### `operations.QueryTableField33`
 
 ```typescript
-const value: operations.Field33 = "id_day";
+const value: operations.QueryTableField33 = "id_day";
 ```
 
-### `operations.Field34`
+### `operations.QueryTableField34`
 
 ```typescript
-const value: operations.Field34 = "id_week";
+const value: operations.QueryTableField34 = "id_week";
 ```
 
-### `operations.Field35`
+### `operations.QueryTableField35`
 
 ```typescript
-const value: operations.Field35 = "id_month";
+const value: operations.QueryTableField35 = "id_month";
 ```
 
-### `operations.Field36`
+### `operations.QueryTableField36`
 
 ```typescript
-const value: operations.Field36 = "messageIds_hour";
+const value: operations.QueryTableField36 = "messageIds_hour";
 ```
 
-### `operations.Field37`
+### `operations.QueryTableField37`
 
 ```typescript
-const value: operations.Field37 = "messageIds_day";
+const value: operations.QueryTableField37 = "messageIds_day";
 ```
 
-### `operations.Field38`
+### `operations.QueryTableField38`
 
 ```typescript
-const value: operations.Field38 = "messageIds_week";
+const value: operations.QueryTableField38 = "messageIds_week";
 ```
 
-### `operations.Field39`
+### `operations.QueryTableField39`
 
 ```typescript
-const value: operations.Field39 = "messageIds_month";
+const value: operations.QueryTableField39 = "messageIds_month";
 ```
 
-### `operations.Field40`
+### `operations.QueryTableField40`
 
 ```typescript
-const value: operations.Field40 = "messagesCount_hour";
+const value: operations.QueryTableField40 = "messagesCount_hour";
 ```
 
-### `operations.Field41`
+### `operations.QueryTableField41`
 
 ```typescript
-const value: operations.Field41 = "messagesCount_day";
+const value: operations.QueryTableField41 = "messagesCount_day";
 ```
 
-### `operations.Field42`
+### `operations.QueryTableField42`
 
 ```typescript
-const value: operations.Field42 = "messagesCount_week";
+const value: operations.QueryTableField42 = "messagesCount_week";
 ```
 
-### `operations.Field43`
+### `operations.QueryTableField43`
 
 ```typescript
-const value: operations.Field43 = "messagesCount_month";
+const value: operations.QueryTableField43 = "messagesCount_month";
 ```
 
-### `operations.Field44`
+### `operations.QueryTableField44`
 
 ```typescript
-const value: operations.Field44 = "organizationId_hour";
+const value: operations.QueryTableField44 = "organizationId_hour";
 ```
 
-### `operations.Field45`
+### `operations.QueryTableField45`
 
 ```typescript
-const value: operations.Field45 = "organizationId_day";
+const value: operations.QueryTableField45 = "organizationId_day";
 ```
 
-### `operations.Field46`
+### `operations.QueryTableField46`
 
 ```typescript
-const value: operations.Field46 = "organizationId_week";
+const value: operations.QueryTableField46 = "organizationId_week";
 ```
 
-### `operations.Field47`
+### `operations.QueryTableField47`
 
 ```typescript
-const value: operations.Field47 = "organizationId_month";
+const value: operations.QueryTableField47 = "organizationId_month";
 ```
 
-### `operations.Field48`
+### `operations.QueryTableField48`
 
 ```typescript
-const value: operations.Field48 = "question_hour";
+const value: operations.QueryTableField48 = "question_hour";
 ```
 
-### `operations.Field49`
+### `operations.QueryTableField49`
 
 ```typescript
-const value: operations.Field49 = "question_day";
+const value: operations.QueryTableField49 = "question_day";
 ```
 
-### `operations.Field50`
+### `operations.QueryTableField50`
 
 ```typescript
-const value: operations.Field50 = "question_week";
+const value: operations.QueryTableField50 = "question_week";
 ```
 
-### `operations.Field51`
+### `operations.QueryTableField51`
 
 ```typescript
-const value: operations.Field51 = "question_month";
+const value: operations.QueryTableField51 = "question_month";
 ```
 
-### `operations.Field52`
+### `operations.QueryTableField52`
 
 ```typescript
-const value: operations.Field52 = "questionLength_hour";
+const value: operations.QueryTableField52 = "questionLength_hour";
 ```
 
-### `operations.Field53`
+### `operations.QueryTableField53`
 
 ```typescript
-const value: operations.Field53 = "questionLength_day";
+const value: operations.QueryTableField53 = "questionLength_day";
 ```
 
-### `operations.Field54`
+### `operations.QueryTableField54`
 
 ```typescript
-const value: operations.Field54 = "questionLength_week";
+const value: operations.QueryTableField54 = "questionLength_week";
 ```
 
-### `operations.Field55`
+### `operations.QueryTableField55`
 
 ```typescript
-const value: operations.Field55 = "questionLength_month";
+const value: operations.QueryTableField55 = "questionLength_month";
 ```
 
-### `operations.Field56`
+### `operations.QueryTableField56`
 
 ```typescript
-const value: operations.Field56 = "answer_hour";
+const value: operations.QueryTableField56 = "answer_hour";
 ```
 
-### `operations.Field57`
+### `operations.QueryTableField57`
 
 ```typescript
-const value: operations.Field57 = "answer_day";
+const value: operations.QueryTableField57 = "answer_day";
 ```
 
-### `operations.Field58`
+### `operations.QueryTableField58`
 
 ```typescript
-const value: operations.Field58 = "answer_week";
+const value: operations.QueryTableField58 = "answer_week";
 ```
 
-### `operations.Field59`
+### `operations.QueryTableField59`
 
 ```typescript
-const value: operations.Field59 = "answer_month";
+const value: operations.QueryTableField59 = "answer_month";
 ```
 
-### `operations.Field60`
+### `operations.QueryTableField60`
 
 ```typescript
-const value: operations.Field60 = "isOnTopic_hour";
+const value: operations.QueryTableField60 = "isOnTopic_hour";
 ```
 
-### `operations.Field61`
+### `operations.QueryTableField61`
 
 ```typescript
-const value: operations.Field61 = "isOnTopic_day";
+const value: operations.QueryTableField61 = "isOnTopic_day";
 ```
 
-### `operations.Field62`
+### `operations.QueryTableField62`
 
 ```typescript
-const value: operations.Field62 = "isOnTopic_week";
+const value: operations.QueryTableField62 = "isOnTopic_week";
 ```
 
-### `operations.Field63`
+### `operations.QueryTableField63`
 
 ```typescript
-const value: operations.Field63 = "isOnTopic_month";
+const value: operations.QueryTableField63 = "isOnTopic_month";
 ```
 
-### `operations.Field64`
+### `operations.QueryTableField64`
 
 ```typescript
-const value: operations.Field64 = "isClear_hour";
+const value: operations.QueryTableField64 = "isClear_hour";
 ```
 
-### `operations.Field65`
+### `operations.QueryTableField65`
 
 ```typescript
-const value: operations.Field65 = "isClear_day";
+const value: operations.QueryTableField65 = "isClear_day";
 ```
 
-### `operations.Field66`
+### `operations.QueryTableField66`
 
 ```typescript
-const value: operations.Field66 = "isClear_week";
+const value: operations.QueryTableField66 = "isClear_week";
 ```
 
-### `operations.Field67`
+### `operations.QueryTableField67`
 
 ```typescript
-const value: operations.Field67 = "isClear_month";
+const value: operations.QueryTableField67 = "isClear_month";
 ```
 
-### `operations.Field68`
+### `operations.QueryTableField68`
 
 ```typescript
-const value: operations.Field68 = "isDocumented_hour";
+const value: operations.QueryTableField68 = "isDocumented_hour";
 ```
 
-### `operations.Field69`
+### `operations.QueryTableField69`
 
 ```typescript
-const value: operations.Field69 = "isDocumented_day";
+const value: operations.QueryTableField69 = "isDocumented_day";
 ```
 
-### `operations.Field70`
+### `operations.QueryTableField70`
 
 ```typescript
-const value: operations.Field70 = "isDocumented_week";
+const value: operations.QueryTableField70 = "isDocumented_week";
 ```
 
-### `operations.SeventyOne`
+### `operations.Field71`
 
 ```typescript
-const value: operations.SeventyOne = "isDocumented_month";
+const value: operations.Field71 = "isDocumented_month";
 ```
 
-### `operations.SeventyTwo`
+### `operations.Field72`
 
 ```typescript
-const value: operations.SeventyTwo = "isFeatureSupported_hour";
+const value: operations.Field72 = "isFeatureSupported_hour";
 ```
 
-### `operations.SeventyThree`
+### `operations.Field73`
 
 ```typescript
-const value: operations.SeventyThree = "isFeatureSupported_day";
+const value: operations.Field73 = "isFeatureSupported_day";
 ```
 
-### `operations.SeventyFour`
+### `operations.Field74`
 
 ```typescript
-const value: operations.SeventyFour = "isFeatureSupported_week";
+const value: operations.Field74 = "isFeatureSupported_week";
 ```
 
-### `operations.SeventyFive`
+### `operations.Field75`
 
 ```typescript
-const value: operations.SeventyFive = "isFeatureSupported_month";
+const value: operations.Field75 = "isFeatureSupported_month";
 ```
 
-### `operations.SeventySix`
+### `operations.Field76`
 
 ```typescript
-const value: operations.SeventySix = "isAnswerConfident_hour";
+const value: operations.Field76 = "isAnswerConfident_hour";
 ```
 
-### `operations.SeventySeven`
+### `operations.Field77`
 
 ```typescript
-const value: operations.SeventySeven = "isAnswerConfident_day";
+const value: operations.Field77 = "isAnswerConfident_day";
 ```
 
-### `operations.SeventyEight`
+### `operations.Field78`
 
 ```typescript
-const value: operations.SeventyEight = "isAnswerConfident_week";
+const value: operations.Field78 = "isAnswerConfident_week";
 ```
 
-### `operations.SeventyNine`
+### `operations.Field79`
 
 ```typescript
-const value: operations.SeventyNine = "isAnswerConfident_month";
+const value: operations.Field79 = "isAnswerConfident_month";
 ```
 
-### `operations.Eighty`
+### `operations.Field80`
 
 ```typescript
-const value: operations.Eighty = "gapSummary_hour";
+const value: operations.Field80 = "gapSummary_hour";
 ```
 
-### `operations.EightyOne`
+### `operations.Field81`
 
 ```typescript
-const value: operations.EightyOne = "gapSummary_day";
+const value: operations.Field81 = "gapSummary_day";
 ```
 
-### `operations.EightyTwo`
+### `operations.Field82`
 
 ```typescript
-const value: operations.EightyTwo = "gapSummary_week";
+const value: operations.Field82 = "gapSummary_week";
 ```
 
-### `operations.EightyThree`
+### `operations.Field83`
 
 ```typescript
-const value: operations.EightyThree = "gapSummary_month";
+const value: operations.Field83 = "gapSummary_month";
 ```
 
-### `operations.EightyFour`
+### `operations.Field84`
 
 ```typescript
-const value: operations.EightyFour = "subject_hour";
+const value: operations.Field84 = "subject_hour";
 ```
 
-### `operations.EightyFive`
+### `operations.Field85`
 
 ```typescript
-const value: operations.EightyFive = "subject_day";
+const value: operations.Field85 = "subject_day";
 ```
 
-### `operations.EightySix`
+### `operations.Field86`
 
 ```typescript
-const value: operations.EightySix = "subject_week";
+const value: operations.Field86 = "subject_week";
 ```
 
-### `operations.EightySeven`
+### `operations.Field87`
 
 ```typescript
-const value: operations.EightySeven = "subject_month";
+const value: operations.Field87 = "subject_month";
 ```
 
-### `operations.EightyEight`
+### `operations.Field88`
 
 ```typescript
-const value: operations.EightyEight = "category_hour";
+const value: operations.Field88 = "category_hour";
 ```
 
-### `operations.EightyNine`
+### `operations.Field89`
 
 ```typescript
-const value: operations.EightyNine = "category_day";
+const value: operations.Field89 = "category_day";
 ```
 
-### `operations.Ninety`
+### `operations.Field90`
 
 ```typescript
-const value: operations.Ninety = "category_week";
+const value: operations.Field90 = "category_week";
 ```
 
-### `operations.NinetyOne`
+### `operations.Field91`
 
 ```typescript
-const value: operations.NinetyOne = "category_month";
+const value: operations.Field91 = "category_month";
 ```
 
-### `operations.NinetyTwo`
+### `operations.Field92`
 
 ```typescript
-const value: operations.NinetyTwo = "languages_hour";
+const value: operations.Field92 = "languages_hour";
 ```
 
-### `operations.NinetyThree`
+### `operations.Field93`
 
 ```typescript
-const value: operations.NinetyThree = "languages_day";
+const value: operations.Field93 = "languages_day";
 ```
 
-### `operations.NinetyFour`
+### `operations.Field94`
 
 ```typescript
-const value: operations.NinetyFour = "languages_week";
+const value: operations.Field94 = "languages_week";
 ```
 
-### `operations.NinetyFive`
+### `operations.Field95`
 
 ```typescript
-const value: operations.NinetyFive = "languages_month";
+const value: operations.Field95 = "languages_month";
 ```
 
-### `operations.NinetySix`
+### `operations.Field96`
 
 ```typescript
-const value: operations.NinetySix = "firstPartyEntities_hour";
+const value: operations.Field96 = "firstPartyEntities_hour";
 ```
 
-### `operations.NinetySeven`
+### `operations.Field97`
 
 ```typescript
-const value: operations.NinetySeven = "firstPartyEntities_day";
+const value: operations.Field97 = "firstPartyEntities_day";
 ```
 
-### `operations.NinetyEight`
+### `operations.Field98`
 
 ```typescript
-const value: operations.NinetyEight = "firstPartyEntities_week";
+const value: operations.Field98 = "firstPartyEntities_week";
 ```
 
-### `operations.NinetyNine`
+### `operations.Field99`
 
 ```typescript
-const value: operations.NinetyNine = "firstPartyEntities_month";
+const value: operations.Field99 = "firstPartyEntities_month";
 ```
 
-### `operations.OneHundred`
+### `operations.Field100`
 
 ```typescript
-const value: operations.OneHundred = "thirdPartyEntities_hour";
+const value: operations.Field100 = "thirdPartyEntities_hour";
 ```
 
 ### `operations.OneHundredAndOne`

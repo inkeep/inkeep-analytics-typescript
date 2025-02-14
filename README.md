@@ -74,7 +74,8 @@ yarn add @inkeep/inkeep-analytics zod
 ```
 
 > [!NOTE]
-> This package is published with CommonJS and ES Modules (ESM) support.
+> This package is published as an ES Module (ESM) only. For applications using
+> CommonJS, use `await import("@inkeep/inkeep-analytics")` to import and use this package.
 <!-- End SDK Installation [installation] -->
 
 <!-- Start Requirements [requirements] -->
@@ -194,6 +195,7 @@ run();
 ### [events](docs/sdks/events/README.md)
 
 * [log](docs/sdks/events/README.md#log) - Log Event
+* [queryEvents](docs/sdks/events/README.md#queryevents) - Query Events
 
 ### [export](docs/sdks/export/README.md)
 
@@ -208,6 +210,7 @@ run();
 ### [query](docs/sdks/query/README.md)
 
 * [conversations](docs/sdks/query/README.md#conversations) - Query Conversations
+* [queryEvents](docs/sdks/query/README.md#queryevents) - Query Events
 * [table](docs/sdks/query/README.md#table) - Query
 * [export](docs/sdks/query/README.md#export) - Query Export
 
@@ -236,11 +239,13 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`conversationsList`](docs/sdks/conversations/README.md#list) - Get All Conversations
 - [`conversationsLog`](docs/sdks/conversations/README.md#log) - Log Conversation
 - [`eventsLog`](docs/sdks/events/README.md#log) - Log Event
+- [`eventsQueryEvents`](docs/sdks/events/README.md#queryevents) - Query Events
 - [`exportExport`](docs/sdks/export/README.md#export) - Query Export
 - [`feedbackList`](docs/sdks/feedback/README.md#list) - Get All Feedback
 - [`feedbackSubmit`](docs/sdks/feedback/README.md#submit) - Submit Feedback
 - [`queryConversations`](docs/sdks/query/README.md#conversations) - Query Conversations
 - [`queryExport`](docs/sdks/query/README.md#export) - Query Export
+- [`queryQueryEvents`](docs/sdks/query/README.md#queryevents) - Query Events
 - [`queryTable`](docs/sdks/query/README.md#table) - Query
 
 </details>

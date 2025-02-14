@@ -5,11 +5,11 @@
 ```typescript
 import { EightyFive } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: EightyFive = "subject_day";
+let value: EightyFive = "max_userProperties";
 ```
 
 ## Values
 
 ```typescript
-"subject_day"
+"max_userProperties"
 ```

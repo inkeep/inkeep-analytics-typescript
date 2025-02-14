@@ -5,11 +5,11 @@
 ```typescript
 import { Eighty } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: Eighty = "gapSummary_hour";
+let value: Eighty = "max_properties";
 ```
 
 ## Values
 
 ```typescript
-"gapSummary_hour"
+"max_properties"
 ```

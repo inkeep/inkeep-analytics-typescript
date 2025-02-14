@@ -5,11 +5,11 @@
 ```typescript
 import { SeventyFour } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: SeventyFour = "isFeatureSupported_week";
+let value: SeventyFour = "min_organizationId";
 ```
 
 ## Values
 
 ```typescript
-"isFeatureSupported_week"
+"min_organizationId"
 ```

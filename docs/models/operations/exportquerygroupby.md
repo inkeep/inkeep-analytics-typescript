@@ -6,7 +6,7 @@
 import { ExportQueryGroupBy } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: ExportQueryGroupBy = {
-  field: "firstMessageTime",
+  field: "question",
 };
 ```
 

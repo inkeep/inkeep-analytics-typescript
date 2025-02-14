@@ -45,22 +45,22 @@ const value: components.AggregationSelectionField6 = "questionLength";
 const value: components.AggregationSelectionField7 = "answer";
 ```
 
-### `components.Eight`
+### `components.AggregationSelectionField8`
 
 ```typescript
-const value: components.Eight = "isOnTopic";
+const value: components.AggregationSelectionField8 = "isOnTopic";
 ```
 
-### `components.Nine`
+### `components.AggregationSelectionField9`
 
 ```typescript
-const value: components.Nine = "isClear";
+const value: components.AggregationSelectionField9 = "isClear";
 ```
 
-### `components.Ten`
+### `components.AggregationSelectionField10`
 
 ```typescript
-const value: components.Ten = "isDocumented";
+const value: components.AggregationSelectionField10 = "isDocumented";
 ```
 
 ### `components.Eleven`

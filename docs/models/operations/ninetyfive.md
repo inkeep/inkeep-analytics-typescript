@@ -5,11 +5,11 @@
 ```typescript
 import { NinetyFive } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: NinetyFive = "languages_month";
+let value: NinetyFive = "max_conversationId";
 ```
 
 ## Values
 
 ```typescript
-"languages_month"
+"max_conversationId"
 ```

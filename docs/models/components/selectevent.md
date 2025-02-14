@@ -10,7 +10,7 @@ const value: components.SelectMessageEvent = {
   id: "<id>",
   type: "<value>",
   messageId: "<id>",
-  createdAt: "1727570034110",
+  createdAt: "1727631972855",
   entityType: "message",
 };
 ```
@@ -22,7 +22,7 @@ const value: components.SelectConversationEvent = {
   id: "<id>",
   type: "<value>",
   conversationId: "<id>",
-  createdAt: "1726174572056",
+  createdAt: "1726236510801",
   entityType: "conversation",
 };
 ```
@@ -34,7 +34,7 @@ const value: components.SelectSearchEvent = {
   id: "<id>",
   type: "<value>",
   searchQuery: "<value>",
-  createdAt: "1715473279641",
+  createdAt: "1715535218386",
   entityType: "search",
 };
 ```
