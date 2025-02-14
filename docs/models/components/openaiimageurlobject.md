@@ -6,7 +6,7 @@
 import { OpenAIImageUrlObject } from "@inkeep/inkeep-analytics/models/components";
 
 let value: OpenAIImageUrlObject = {
-  url: "https://sorrowful-import.name/",
+  url: "https://pointless-nun.name/",
 };
 ```
 

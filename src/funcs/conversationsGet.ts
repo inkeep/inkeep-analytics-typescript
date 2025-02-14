@@ -92,6 +92,7 @@ export async function conversationsGet(
   );
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "getConversation",
     oAuth2Scopes: [],
 

@@ -8,9 +8,9 @@
 ```typescript
 const value: components.ConversationsFilter1 = {
   condition: {
-    field: "firstMessageTime",
-    operator: "gt",
-    value: "<value>",
+    field: "integrationId",
+    operator: "in",
+    value: 9560.84,
   },
 };
 ```

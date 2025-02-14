@@ -6,54 +6,39 @@
 import { GetAllFeedbackResponse } from "@inkeep/inkeep-analytics/models/components";
 
 let value: GetAllFeedbackResponse = {
-  positiveFeedbackCount: 6063.93,
-  negativeFeedbackCount: 191.93,
+  positiveFeedbackCount: 8681.26,
+  negativeFeedbackCount: 1624.93,
   positiveFeedback: [
     {
       id: "<id>",
-      type: "positive",
+      type: "negative",
       messageId: "<id>",
-      createdAt: "1728171188044",
+      createdAt: "1711875878700",
       conversation: {
         id: "<id>",
-        type: "openai",
-        createdAt: "1726841689977",
-        updatedAt: "1738838601213",
+        type: "support_copilot",
+        createdAt: "1733430701721",
+        updatedAt: "1739469861581",
         tags: [
           "<value>",
         ],
         messages: [
           {
             id: "<id>",
-            type: "openai",
+            type: "support_copilot",
             conversationId: "<id>",
-            createdAt: "1711624265980",
-            updatedAt: "1738827327321",
-            role: "user",
-            content: [
-              {
-                type: "image_url",
-              },
-            ],
-          },
-        ],
-        messagesOpenAIFormat: [
-          {
-            role: "user",
-            content: [
-              {
-                type: "text",
-              },
-            ],
+            createdAt: "1720812023901",
+            updatedAt: "1739426667806",
+            role: "<value>",
           },
         ],
       },
       message: {
         id: "<id>",
-        type: "support_ticket",
+        type: "support_copilot",
         conversationId: "<id>",
-        createdAt: "1718943386796",
-        updatedAt: "1738839214324",
+        createdAt: "1722274013434",
+        updatedAt: "1739483076730",
         role: "<value>",
       },
     },
@@ -63,34 +48,33 @@ let value: GetAllFeedbackResponse = {
       id: "<id>",
       type: "negative",
       messageId: "<id>",
-      createdAt: "1732776088866",
+      createdAt: "1738735137059",
       conversation: {
         id: "<id>",
-        type: "support_ticket",
-        createdAt: "1710512711052",
-        updatedAt: "1738880998413",
+        type: "support_copilot",
+        createdAt: "1708340507199",
+        updatedAt: "1739451793597",
         tags: [
           "<value>",
         ],
         messages: [
           {
             id: "<id>",
-            type: "support_ticket",
+            type: "support_copilot",
             conversationId: "<id>",
-            createdAt: "1729876268944",
-            updatedAt: "1738887855418",
+            createdAt: "1730992073500",
+            updatedAt: "1739435520485",
             role: "<value>",
           },
         ],
       },
       message: {
         id: "<id>",
-        type: "openai",
+        type: "support_ticket",
         conversationId: "<id>",
-        createdAt: "1734729178513",
-        updatedAt: "1738815595263",
-        role: "user",
-        content: "<value>",
+        createdAt: "1709684694599",
+        updatedAt: "1739437971353",
+        role: "<value>",
       },
     },
   ],

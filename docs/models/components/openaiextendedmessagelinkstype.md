@@ -6,7 +6,7 @@
 ### `components.OpenAIExtendedMessageType1`
 
 ```typescript
-const value: components.OpenAIExtendedMessageType1 = "stackoverflow_question";
+const value: components.OpenAIExtendedMessageType1 = "github_issue";
 ```
 
 ### `string`

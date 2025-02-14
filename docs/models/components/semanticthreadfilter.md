@@ -8,9 +8,9 @@
 ```typescript
 const value: components.SemanticThreadFilter1 = {
   condition: {
-    field: "isFeatureSupported",
-    operator: "arrayContains",
-    value: 318.38,
+    field: "isOnTopic",
+    operator: "gt",
+    value: "<value>",
   },
 };
 ```

@@ -5,7 +5,7 @@
 ```typescript
 import { OpenAIExtendedMessageType1 } from "@inkeep/inkeep-analytics/models/components";
 
-let value: OpenAIExtendedMessageType1 = "stackoverflow_question";
+let value: OpenAIExtendedMessageType1 = "github_issue";
 ```
 
 ## Values

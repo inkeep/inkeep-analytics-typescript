@@ -7,9 +7,9 @@ import { SemanticThreadFilter1 } from "@inkeep/inkeep-analytics/models/component
 
 let value: SemanticThreadFilter1 = {
   condition: {
-    field: "id",
-    operator: "notIn",
-    value: "<value>",
+    field: "areAIAnnotationsVerified",
+    operator: "in",
+    value: false,
   },
 };
 ```

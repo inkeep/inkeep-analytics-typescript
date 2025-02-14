@@ -3,6 +3,7 @@
  */
 
 import { ClientSDK } from "../lib/sdks.js";
+import { Conversation } from "./conversation.js";
 import { Conversations } from "./conversations.js";
 import { Events } from "./events.js";
 import { Export } from "./export.js";
@@ -13,6 +14,11 @@ export class InkeepAnalytics extends ClientSDK {
   private _conversations?: Conversations;
   get conversations(): Conversations {
     return (this._conversations ??= new Conversations(this._options));
+  }
+
+  private _conversation?: Conversation;
+  get conversation(): Conversation {
+    return (this._conversation ??= new Conversation(this._options));
   }
 
   private _feedback?: Feedback;

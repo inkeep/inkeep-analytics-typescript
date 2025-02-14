@@ -35,6 +35,9 @@ export const TimeUnit1 = {
 } as const;
 export type TimeUnit1 = ClosedEnum<typeof TimeUnit1>;
 
+/**
+ * Available Time Units
+ */
 export type TimeUnit = TimeUnit1 | TimeUnit2 | TimeUnit3 | TimeUnit4;
 
 export const Field7 = {
@@ -93,6 +96,9 @@ export type ConversationsTimeBasedGroupBySelectionField =
 
 export type ConversationsTimeBasedGroupBySelection = {
   type: ConversationsTimeBasedGroupBySelectionType;
+  /**
+   * Available Time Units
+   */
   timeUnit: TimeUnit1 | TimeUnit2 | TimeUnit3 | TimeUnit4;
   field:
     | ConversationsTimeBasedGroupBySelectionField1

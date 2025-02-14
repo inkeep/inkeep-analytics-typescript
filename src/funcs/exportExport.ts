@@ -80,6 +80,7 @@ export async function exportExport(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "exportQuery",
     oAuth2Scopes: [],
 

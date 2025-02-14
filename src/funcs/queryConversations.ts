@@ -85,6 +85,7 @@ export async function queryConversations(
   );
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "queryConversations",
     oAuth2Scopes: [],
 

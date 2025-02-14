@@ -43,6 +43,9 @@ export type TimeBasedGroupBySelectionTimeUnit1 = ClosedEnum<
   typeof TimeBasedGroupBySelectionTimeUnit1
 >;
 
+/**
+ * Available Time Units
+ */
 export type TimeBasedGroupBySelectionTimeUnit =
   | TimeBasedGroupBySelectionTimeUnit1
   | TimeBasedGroupBySelectionTimeUnit2
@@ -253,6 +256,9 @@ export type TimeBasedGroupBySelectionField =
 
 export type TimeBasedGroupBySelection = {
   type: TimeBasedGroupBySelectionType;
+  /**
+   * Available Time Units
+   */
   timeUnit:
     | TimeBasedGroupBySelectionTimeUnit1
     | TimeBasedGroupBySelectionTimeUnit2

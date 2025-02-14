@@ -6,7 +6,7 @@
 import { ExportQueryOrderBy } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: ExportQueryOrderBy = {
-  field: "min_hasNegativeFeedback",
+  field: "avg_languages",
   direction: "desc",
 };
 ```

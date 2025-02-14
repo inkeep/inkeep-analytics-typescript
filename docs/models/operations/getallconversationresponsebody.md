@@ -11,27 +11,42 @@ let value: GetAllConversationResponseBody = {
   conversations: [
     {
       id: "<id>",
-      type: "support_ticket",
-      createdAt: "1726713986399",
-      updatedAt: "1738847834765",
+      type: "openai",
+      createdAt: "1708749360804",
+      updatedAt: "1739426502751",
       tags: [
         "<value>",
       ],
       messages: [
         {
           id: "<id>",
-          type: "support_ticket",
+          type: "openai",
           conversationId: "<id>",
-          createdAt: "1725955357051",
-          updatedAt: "1738864638440",
-          role: "<value>",
+          createdAt: "1729396422279",
+          updatedAt: "1739459891407",
+          role: "user",
+          content: [
+            {
+              type: "image_url",
+            },
+          ],
+        },
+      ],
+      messagesOpenAIFormat: [
+        {
+          role: "system",
+          content: [
+            {
+              type: "text",
+            },
+          ],
         },
       ],
     },
   ],
-  total: 3119.45,
-  pageSize: 3982.21,
-  count: 2098.43,
+  total: 206.51,
+  pageSize: 7583.79,
+  count: 3200.17,
 };
 ```
 

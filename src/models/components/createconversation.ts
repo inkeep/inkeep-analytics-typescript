@@ -13,6 +13,12 @@ import {
   CreateOpenAIConversation$outboundSchema,
 } from "./createopenaiconversation.js";
 import {
+  CreateSupportCopilotConversation,
+  CreateSupportCopilotConversation$inboundSchema,
+  CreateSupportCopilotConversation$Outbound,
+  CreateSupportCopilotConversation$outboundSchema,
+} from "./createsupportcopilotconversation.js";
+import {
   CreateSupportTicketConversation,
   CreateSupportTicketConversation$inboundSchema,
   CreateSupportTicketConversation$Outbound,
@@ -21,7 +27,8 @@ import {
 
 export type CreateConversation =
   | (CreateOpenAIConversation & { type: "openai" })
-  | (CreateSupportTicketConversation & { type: "support_ticket" });
+  | (CreateSupportTicketConversation & { type: "support_ticket" })
+  | (CreateSupportCopilotConversation & { type: "support_copilot" });
 
 /** @internal */
 export const CreateConversation$inboundSchema: z.ZodType<
@@ -39,12 +46,18 @@ export const CreateConversation$inboundSchema: z.ZodType<
       type: v.type,
     })),
   ),
+  CreateSupportCopilotConversation$inboundSchema.and(
+    z.object({ type: z.literal("support_copilot") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
 ]);
 
 /** @internal */
 export type CreateConversation$Outbound =
   | (CreateOpenAIConversation$Outbound & { type: "openai" })
-  | (CreateSupportTicketConversation$Outbound & { type: "support_ticket" });
+  | (CreateSupportTicketConversation$Outbound & { type: "support_ticket" })
+  | (CreateSupportCopilotConversation$Outbound & { type: "support_copilot" });
 
 /** @internal */
 export const CreateConversation$outboundSchema: z.ZodType<
@@ -59,6 +72,11 @@ export const CreateConversation$outboundSchema: z.ZodType<
   ),
   CreateSupportTicketConversation$outboundSchema.and(
     z.object({ type: z.literal("support_ticket") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
+  CreateSupportCopilotConversation$outboundSchema.and(
+    z.object({ type: z.literal("support_copilot") }).transform((v) => ({
       type: v.type,
     })),
   ),

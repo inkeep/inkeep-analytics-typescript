@@ -9,9 +9,9 @@ let value: Data = {
   result: [
     {},
   ],
-  total: 3834.64,
-  pageSize: 5883.17,
-  count: 8310.49,
+  total: 5173.79,
+  pageSize: 1320.68,
+  count: 7168.6,
 };
 ```
 

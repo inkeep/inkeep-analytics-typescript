@@ -85,6 +85,7 @@ export async function eventsLog(
   );
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "logEvent",
     oAuth2Scopes: [],
 

@@ -90,6 +90,7 @@ export async function conversationsLog(
   );
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "logConversation",
     oAuth2Scopes: [],
 

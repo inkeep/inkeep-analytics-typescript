@@ -29,11 +29,20 @@ export type OpenAIConversationProperties = {};
 
 export type OpenAIConversationUserProperties = {};
 
+export const OpenAIConversationVisibility = {
+  Private: "private",
+  Public: "public",
+} as const;
+export type OpenAIConversationVisibility = ClosedEnum<
+  typeof OpenAIConversationVisibility
+>;
+
 export type OpenAIConversation = {
   id: string;
   externalId?: string | null | undefined;
   externalUrl?: string | null | undefined;
   type: OpenAIConversationType;
+  supportTicketConversationId?: string | null | undefined;
   createdAt: string;
   updatedAt: string;
   projectId?: string | null | undefined;
@@ -41,6 +50,7 @@ export type OpenAIConversation = {
   properties?: OpenAIConversationProperties | null | undefined;
   userProperties?: OpenAIConversationUserProperties | null | undefined;
   tags: Array<string>;
+  visibility?: OpenAIConversationVisibility | null | undefined;
   /**
    * The messages in the conversation. Must be at least one message.
    */
@@ -170,6 +180,27 @@ export function openAIConversationUserPropertiesFromJSON(
 }
 
 /** @internal */
+export const OpenAIConversationVisibility$inboundSchema: z.ZodNativeEnum<
+  typeof OpenAIConversationVisibility
+> = z.nativeEnum(OpenAIConversationVisibility);
+
+/** @internal */
+export const OpenAIConversationVisibility$outboundSchema: z.ZodNativeEnum<
+  typeof OpenAIConversationVisibility
+> = OpenAIConversationVisibility$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OpenAIConversationVisibility$ {
+  /** @deprecated use `OpenAIConversationVisibility$inboundSchema` instead. */
+  export const inboundSchema = OpenAIConversationVisibility$inboundSchema;
+  /** @deprecated use `OpenAIConversationVisibility$outboundSchema` instead. */
+  export const outboundSchema = OpenAIConversationVisibility$outboundSchema;
+}
+
+/** @internal */
 export const OpenAIConversation$inboundSchema: z.ZodType<
   OpenAIConversation,
   z.ZodTypeDef,
@@ -179,6 +210,7 @@ export const OpenAIConversation$inboundSchema: z.ZodType<
   externalId: z.nullable(z.string()).optional(),
   externalUrl: z.nullable(z.string()).optional(),
   type: OpenAIConversationType$inboundSchema,
+  supportTicketConversationId: z.nullable(z.string()).optional(),
   createdAt: z.string(),
   updatedAt: z.string(),
   projectId: z.nullable(z.string()).optional(),
@@ -190,6 +222,7 @@ export const OpenAIConversation$inboundSchema: z.ZodType<
     z.lazy(() => OpenAIConversationUserProperties$inboundSchema),
   ).optional(),
   tags: z.array(z.string()),
+  visibility: z.nullable(OpenAIConversationVisibility$inboundSchema).optional(),
   messages: z.array(OpenAIExtendedMessage$inboundSchema),
   messagesOpenAIFormat: z.array(OpenAIChatCompletionMessage$inboundSchema),
 });
@@ -200,6 +233,7 @@ export type OpenAIConversation$Outbound = {
   externalId?: string | null | undefined;
   externalUrl?: string | null | undefined;
   type: string;
+  supportTicketConversationId?: string | null | undefined;
   createdAt: string;
   updatedAt: string;
   projectId?: string | null | undefined;
@@ -207,6 +241,7 @@ export type OpenAIConversation$Outbound = {
   properties?: OpenAIConversationProperties$Outbound | null | undefined;
   userProperties?: OpenAIConversationUserProperties$Outbound | null | undefined;
   tags: Array<string>;
+  visibility?: string | null | undefined;
   messages: Array<OpenAIExtendedMessage$Outbound>;
   messagesOpenAIFormat: Array<OpenAIChatCompletionMessage$Outbound>;
 };
@@ -221,6 +256,7 @@ export const OpenAIConversation$outboundSchema: z.ZodType<
   externalId: z.nullable(z.string()).optional(),
   externalUrl: z.nullable(z.string()).optional(),
   type: OpenAIConversationType$outboundSchema,
+  supportTicketConversationId: z.nullable(z.string()).optional(),
   createdAt: z.string(),
   updatedAt: z.string(),
   projectId: z.nullable(z.string()).optional(),
@@ -232,6 +268,8 @@ export const OpenAIConversation$outboundSchema: z.ZodType<
     z.lazy(() => OpenAIConversationUserProperties$outboundSchema),
   ).optional(),
   tags: z.array(z.string()),
+  visibility: z.nullable(OpenAIConversationVisibility$outboundSchema)
+    .optional(),
   messages: z.array(OpenAIExtendedMessage$outboundSchema),
   messagesOpenAIFormat: z.array(OpenAIChatCompletionMessage$outboundSchema),
 });
