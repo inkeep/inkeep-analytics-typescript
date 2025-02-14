@@ -6,7 +6,7 @@
 import { QueryTableGroupBy } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: QueryTableGroupBy = {
-  field: "id",
+  field: "emotion",
 };
 ```
 

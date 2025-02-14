@@ -13,6 +13,12 @@ import {
   OpenAIExtendedMessage$outboundSchema,
 } from "./openaiextendedmessage.js";
 import {
+  SupportCopilotMessage,
+  SupportCopilotMessage$inboundSchema,
+  SupportCopilotMessage$Outbound,
+  SupportCopilotMessage$outboundSchema,
+} from "./supportcopilotmessage.js";
+import {
   SupportTicketMessage,
   SupportTicketMessage$inboundSchema,
   SupportTicketMessage$Outbound,
@@ -21,6 +27,7 @@ import {
 
 export type Message =
   | (SupportTicketMessage & { type: "support_ticket" })
+  | (SupportCopilotMessage & { type: "support_copilot" })
   | (OpenAIExtendedMessage & { type: "openai" });
 
 /** @internal */
@@ -28,6 +35,11 @@ export const Message$inboundSchema: z.ZodType<Message, z.ZodTypeDef, unknown> =
   z.union([
     SupportTicketMessage$inboundSchema.and(
       z.object({ type: z.literal("support_ticket") }).transform((v) => ({
+        type: v.type,
+      })),
+    ),
+    SupportCopilotMessage$inboundSchema.and(
+      z.object({ type: z.literal("support_copilot") }).transform((v) => ({
         type: v.type,
       })),
     ),
@@ -41,6 +53,7 @@ export const Message$inboundSchema: z.ZodType<Message, z.ZodTypeDef, unknown> =
 /** @internal */
 export type Message$Outbound =
   | (SupportTicketMessage$Outbound & { type: "support_ticket" })
+  | (SupportCopilotMessage$Outbound & { type: "support_copilot" })
   | (OpenAIExtendedMessage$Outbound & { type: "openai" });
 
 /** @internal */
@@ -51,6 +64,11 @@ export const Message$outboundSchema: z.ZodType<
 > = z.union([
   SupportTicketMessage$outboundSchema.and(
     z.object({ type: z.literal("support_ticket") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
+  SupportCopilotMessage$outboundSchema.and(
+    z.object({ type: z.literal("support_copilot") }).transform((v) => ({
       type: v.type,
     })),
   ),

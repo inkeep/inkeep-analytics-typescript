@@ -13,9 +13,9 @@ let value: QueryTableResponseBody = {
     result: [
       {},
     ],
-    total: 6289.82,
-    pageSize: 8726.51,
-    count: 2735.42,
+    total: 3960.6,
+    pageSize: 5654.21,
+    count: 1832.8,
   },
 };
 ```

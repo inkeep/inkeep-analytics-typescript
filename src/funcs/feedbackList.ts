@@ -71,6 +71,7 @@ export async function feedbackList(
   );
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "getAllFeedback",
     oAuth2Scopes: [],
 

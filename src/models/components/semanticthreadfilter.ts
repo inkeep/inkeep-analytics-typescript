@@ -286,79 +286,82 @@ export type SemanticThreadFilterField =
   | SemanticThreadFilterField30
   | SemanticThreadFilterField31;
 
-export const SemanticThreadFilterOperator9 = {
+export const SemanticThreadFilterSelectOperators9 = {
   ArrayContains: "arrayContains",
 } as const;
-export type SemanticThreadFilterOperator9 = ClosedEnum<
-  typeof SemanticThreadFilterOperator9
+export type SemanticThreadFilterSelectOperators9 = ClosedEnum<
+  typeof SemanticThreadFilterSelectOperators9
 >;
 
-export const SemanticThreadFilterOperator8 = {
+export const SemanticThreadFilterSelectOperators8 = {
   NotIn: "notIn",
 } as const;
-export type SemanticThreadFilterOperator8 = ClosedEnum<
-  typeof SemanticThreadFilterOperator8
+export type SemanticThreadFilterSelectOperators8 = ClosedEnum<
+  typeof SemanticThreadFilterSelectOperators8
 >;
 
-export const SemanticThreadFilterOperator7 = {
+export const SemanticThreadFilterSelectOperators7 = {
   In: "in",
 } as const;
-export type SemanticThreadFilterOperator7 = ClosedEnum<
-  typeof SemanticThreadFilterOperator7
+export type SemanticThreadFilterSelectOperators7 = ClosedEnum<
+  typeof SemanticThreadFilterSelectOperators7
 >;
 
-export const SemanticThreadFilterOperator6 = {
+export const SemanticThreadFilterSelectOperators6 = {
   Lte: "lte",
 } as const;
-export type SemanticThreadFilterOperator6 = ClosedEnum<
-  typeof SemanticThreadFilterOperator6
+export type SemanticThreadFilterSelectOperators6 = ClosedEnum<
+  typeof SemanticThreadFilterSelectOperators6
 >;
 
-export const SemanticThreadFilterOperator5 = {
+export const SemanticThreadFilterSelectOperators5 = {
   Lt: "lt",
 } as const;
-export type SemanticThreadFilterOperator5 = ClosedEnum<
-  typeof SemanticThreadFilterOperator5
+export type SemanticThreadFilterSelectOperators5 = ClosedEnum<
+  typeof SemanticThreadFilterSelectOperators5
 >;
 
-export const SemanticThreadFilterOperator4 = {
+export const SemanticThreadFilterSelectOperators4 = {
   Gte: "gte",
 } as const;
-export type SemanticThreadFilterOperator4 = ClosedEnum<
-  typeof SemanticThreadFilterOperator4
+export type SemanticThreadFilterSelectOperators4 = ClosedEnum<
+  typeof SemanticThreadFilterSelectOperators4
 >;
 
-export const SemanticThreadFilterOperator3 = {
+export const SemanticThreadFilterSelectOperators3 = {
   Gt: "gt",
 } as const;
-export type SemanticThreadFilterOperator3 = ClosedEnum<
-  typeof SemanticThreadFilterOperator3
+export type SemanticThreadFilterSelectOperators3 = ClosedEnum<
+  typeof SemanticThreadFilterSelectOperators3
 >;
 
-export const SemanticThreadFilterOperator2 = {
+export const SemanticThreadFilterSelectOperators2 = {
   Neq: "neq",
 } as const;
-export type SemanticThreadFilterOperator2 = ClosedEnum<
-  typeof SemanticThreadFilterOperator2
+export type SemanticThreadFilterSelectOperators2 = ClosedEnum<
+  typeof SemanticThreadFilterSelectOperators2
 >;
 
-export const SemanticThreadFilterOperator1 = {
+export const SemanticThreadFilterSelectOperators1 = {
   Eq: "eq",
 } as const;
-export type SemanticThreadFilterOperator1 = ClosedEnum<
-  typeof SemanticThreadFilterOperator1
+export type SemanticThreadFilterSelectOperators1 = ClosedEnum<
+  typeof SemanticThreadFilterSelectOperators1
 >;
 
-export type SemanticThreadFilterOperator =
-  | SemanticThreadFilterOperator1
-  | SemanticThreadFilterOperator2
-  | SemanticThreadFilterOperator3
-  | SemanticThreadFilterOperator4
-  | SemanticThreadFilterOperator5
-  | SemanticThreadFilterOperator6
-  | SemanticThreadFilterOperator7
-  | SemanticThreadFilterOperator8
-  | SemanticThreadFilterOperator9;
+/**
+ * Available Select Operators
+ */
+export type SemanticThreadFilterSelectOperators =
+  | SemanticThreadFilterSelectOperators1
+  | SemanticThreadFilterSelectOperators2
+  | SemanticThreadFilterSelectOperators3
+  | SemanticThreadFilterSelectOperators4
+  | SemanticThreadFilterSelectOperators5
+  | SemanticThreadFilterSelectOperators6
+  | SemanticThreadFilterSelectOperators7
+  | SemanticThreadFilterSelectOperators8
+  | SemanticThreadFilterSelectOperators9;
 
 export type SemanticThreadFilterValue =
   | string
@@ -399,16 +402,19 @@ export type SemanticThreadFilterCondition = {
     | SemanticThreadFilterField29
     | SemanticThreadFilterField30
     | SemanticThreadFilterField31;
+  /**
+   * Available Select Operators
+   */
   operator:
-    | SemanticThreadFilterOperator1
-    | SemanticThreadFilterOperator2
-    | SemanticThreadFilterOperator3
-    | SemanticThreadFilterOperator4
-    | SemanticThreadFilterOperator5
-    | SemanticThreadFilterOperator6
-    | SemanticThreadFilterOperator7
-    | SemanticThreadFilterOperator8
-    | SemanticThreadFilterOperator9;
+    | SemanticThreadFilterSelectOperators1
+    | SemanticThreadFilterSelectOperators2
+    | SemanticThreadFilterSelectOperators3
+    | SemanticThreadFilterSelectOperators4
+    | SemanticThreadFilterSelectOperators5
+    | SemanticThreadFilterSelectOperators6
+    | SemanticThreadFilterSelectOperators7
+    | SemanticThreadFilterSelectOperators8
+    | SemanticThreadFilterSelectOperators9;
   value: string | boolean | number | Array<string>;
 };
 
@@ -1474,213 +1480,240 @@ export function semanticThreadFilterFieldFromJSON(
 }
 
 /** @internal */
-export const SemanticThreadFilterOperator9$inboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator9
-> = z.nativeEnum(SemanticThreadFilterOperator9);
+export const SemanticThreadFilterSelectOperators9$inboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators9> = z.nativeEnum(
+    SemanticThreadFilterSelectOperators9,
+  );
 
 /** @internal */
-export const SemanticThreadFilterOperator9$outboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator9
-> = SemanticThreadFilterOperator9$inboundSchema;
+export const SemanticThreadFilterSelectOperators9$outboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators9> =
+    SemanticThreadFilterSelectOperators9$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SemanticThreadFilterOperator9$ {
-  /** @deprecated use `SemanticThreadFilterOperator9$inboundSchema` instead. */
-  export const inboundSchema = SemanticThreadFilterOperator9$inboundSchema;
-  /** @deprecated use `SemanticThreadFilterOperator9$outboundSchema` instead. */
-  export const outboundSchema = SemanticThreadFilterOperator9$outboundSchema;
+export namespace SemanticThreadFilterSelectOperators9$ {
+  /** @deprecated use `SemanticThreadFilterSelectOperators9$inboundSchema` instead. */
+  export const inboundSchema =
+    SemanticThreadFilterSelectOperators9$inboundSchema;
+  /** @deprecated use `SemanticThreadFilterSelectOperators9$outboundSchema` instead. */
+  export const outboundSchema =
+    SemanticThreadFilterSelectOperators9$outboundSchema;
 }
 
 /** @internal */
-export const SemanticThreadFilterOperator8$inboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator8
-> = z.nativeEnum(SemanticThreadFilterOperator8);
+export const SemanticThreadFilterSelectOperators8$inboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators8> = z.nativeEnum(
+    SemanticThreadFilterSelectOperators8,
+  );
 
 /** @internal */
-export const SemanticThreadFilterOperator8$outboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator8
-> = SemanticThreadFilterOperator8$inboundSchema;
+export const SemanticThreadFilterSelectOperators8$outboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators8> =
+    SemanticThreadFilterSelectOperators8$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SemanticThreadFilterOperator8$ {
-  /** @deprecated use `SemanticThreadFilterOperator8$inboundSchema` instead. */
-  export const inboundSchema = SemanticThreadFilterOperator8$inboundSchema;
-  /** @deprecated use `SemanticThreadFilterOperator8$outboundSchema` instead. */
-  export const outboundSchema = SemanticThreadFilterOperator8$outboundSchema;
+export namespace SemanticThreadFilterSelectOperators8$ {
+  /** @deprecated use `SemanticThreadFilterSelectOperators8$inboundSchema` instead. */
+  export const inboundSchema =
+    SemanticThreadFilterSelectOperators8$inboundSchema;
+  /** @deprecated use `SemanticThreadFilterSelectOperators8$outboundSchema` instead. */
+  export const outboundSchema =
+    SemanticThreadFilterSelectOperators8$outboundSchema;
 }
 
 /** @internal */
-export const SemanticThreadFilterOperator7$inboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator7
-> = z.nativeEnum(SemanticThreadFilterOperator7);
+export const SemanticThreadFilterSelectOperators7$inboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators7> = z.nativeEnum(
+    SemanticThreadFilterSelectOperators7,
+  );
 
 /** @internal */
-export const SemanticThreadFilterOperator7$outboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator7
-> = SemanticThreadFilterOperator7$inboundSchema;
+export const SemanticThreadFilterSelectOperators7$outboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators7> =
+    SemanticThreadFilterSelectOperators7$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SemanticThreadFilterOperator7$ {
-  /** @deprecated use `SemanticThreadFilterOperator7$inboundSchema` instead. */
-  export const inboundSchema = SemanticThreadFilterOperator7$inboundSchema;
-  /** @deprecated use `SemanticThreadFilterOperator7$outboundSchema` instead. */
-  export const outboundSchema = SemanticThreadFilterOperator7$outboundSchema;
+export namespace SemanticThreadFilterSelectOperators7$ {
+  /** @deprecated use `SemanticThreadFilterSelectOperators7$inboundSchema` instead. */
+  export const inboundSchema =
+    SemanticThreadFilterSelectOperators7$inboundSchema;
+  /** @deprecated use `SemanticThreadFilterSelectOperators7$outboundSchema` instead. */
+  export const outboundSchema =
+    SemanticThreadFilterSelectOperators7$outboundSchema;
 }
 
 /** @internal */
-export const SemanticThreadFilterOperator6$inboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator6
-> = z.nativeEnum(SemanticThreadFilterOperator6);
+export const SemanticThreadFilterSelectOperators6$inboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators6> = z.nativeEnum(
+    SemanticThreadFilterSelectOperators6,
+  );
 
 /** @internal */
-export const SemanticThreadFilterOperator6$outboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator6
-> = SemanticThreadFilterOperator6$inboundSchema;
+export const SemanticThreadFilterSelectOperators6$outboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators6> =
+    SemanticThreadFilterSelectOperators6$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SemanticThreadFilterOperator6$ {
-  /** @deprecated use `SemanticThreadFilterOperator6$inboundSchema` instead. */
-  export const inboundSchema = SemanticThreadFilterOperator6$inboundSchema;
-  /** @deprecated use `SemanticThreadFilterOperator6$outboundSchema` instead. */
-  export const outboundSchema = SemanticThreadFilterOperator6$outboundSchema;
+export namespace SemanticThreadFilterSelectOperators6$ {
+  /** @deprecated use `SemanticThreadFilterSelectOperators6$inboundSchema` instead. */
+  export const inboundSchema =
+    SemanticThreadFilterSelectOperators6$inboundSchema;
+  /** @deprecated use `SemanticThreadFilterSelectOperators6$outboundSchema` instead. */
+  export const outboundSchema =
+    SemanticThreadFilterSelectOperators6$outboundSchema;
 }
 
 /** @internal */
-export const SemanticThreadFilterOperator5$inboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator5
-> = z.nativeEnum(SemanticThreadFilterOperator5);
+export const SemanticThreadFilterSelectOperators5$inboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators5> = z.nativeEnum(
+    SemanticThreadFilterSelectOperators5,
+  );
 
 /** @internal */
-export const SemanticThreadFilterOperator5$outboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator5
-> = SemanticThreadFilterOperator5$inboundSchema;
+export const SemanticThreadFilterSelectOperators5$outboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators5> =
+    SemanticThreadFilterSelectOperators5$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SemanticThreadFilterOperator5$ {
-  /** @deprecated use `SemanticThreadFilterOperator5$inboundSchema` instead. */
-  export const inboundSchema = SemanticThreadFilterOperator5$inboundSchema;
-  /** @deprecated use `SemanticThreadFilterOperator5$outboundSchema` instead. */
-  export const outboundSchema = SemanticThreadFilterOperator5$outboundSchema;
+export namespace SemanticThreadFilterSelectOperators5$ {
+  /** @deprecated use `SemanticThreadFilterSelectOperators5$inboundSchema` instead. */
+  export const inboundSchema =
+    SemanticThreadFilterSelectOperators5$inboundSchema;
+  /** @deprecated use `SemanticThreadFilterSelectOperators5$outboundSchema` instead. */
+  export const outboundSchema =
+    SemanticThreadFilterSelectOperators5$outboundSchema;
 }
 
 /** @internal */
-export const SemanticThreadFilterOperator4$inboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator4
-> = z.nativeEnum(SemanticThreadFilterOperator4);
+export const SemanticThreadFilterSelectOperators4$inboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators4> = z.nativeEnum(
+    SemanticThreadFilterSelectOperators4,
+  );
 
 /** @internal */
-export const SemanticThreadFilterOperator4$outboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator4
-> = SemanticThreadFilterOperator4$inboundSchema;
+export const SemanticThreadFilterSelectOperators4$outboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators4> =
+    SemanticThreadFilterSelectOperators4$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SemanticThreadFilterOperator4$ {
-  /** @deprecated use `SemanticThreadFilterOperator4$inboundSchema` instead. */
-  export const inboundSchema = SemanticThreadFilterOperator4$inboundSchema;
-  /** @deprecated use `SemanticThreadFilterOperator4$outboundSchema` instead. */
-  export const outboundSchema = SemanticThreadFilterOperator4$outboundSchema;
+export namespace SemanticThreadFilterSelectOperators4$ {
+  /** @deprecated use `SemanticThreadFilterSelectOperators4$inboundSchema` instead. */
+  export const inboundSchema =
+    SemanticThreadFilterSelectOperators4$inboundSchema;
+  /** @deprecated use `SemanticThreadFilterSelectOperators4$outboundSchema` instead. */
+  export const outboundSchema =
+    SemanticThreadFilterSelectOperators4$outboundSchema;
 }
 
 /** @internal */
-export const SemanticThreadFilterOperator3$inboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator3
-> = z.nativeEnum(SemanticThreadFilterOperator3);
+export const SemanticThreadFilterSelectOperators3$inboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators3> = z.nativeEnum(
+    SemanticThreadFilterSelectOperators3,
+  );
 
 /** @internal */
-export const SemanticThreadFilterOperator3$outboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator3
-> = SemanticThreadFilterOperator3$inboundSchema;
+export const SemanticThreadFilterSelectOperators3$outboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators3> =
+    SemanticThreadFilterSelectOperators3$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SemanticThreadFilterOperator3$ {
-  /** @deprecated use `SemanticThreadFilterOperator3$inboundSchema` instead. */
-  export const inboundSchema = SemanticThreadFilterOperator3$inboundSchema;
-  /** @deprecated use `SemanticThreadFilterOperator3$outboundSchema` instead. */
-  export const outboundSchema = SemanticThreadFilterOperator3$outboundSchema;
+export namespace SemanticThreadFilterSelectOperators3$ {
+  /** @deprecated use `SemanticThreadFilterSelectOperators3$inboundSchema` instead. */
+  export const inboundSchema =
+    SemanticThreadFilterSelectOperators3$inboundSchema;
+  /** @deprecated use `SemanticThreadFilterSelectOperators3$outboundSchema` instead. */
+  export const outboundSchema =
+    SemanticThreadFilterSelectOperators3$outboundSchema;
 }
 
 /** @internal */
-export const SemanticThreadFilterOperator2$inboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator2
-> = z.nativeEnum(SemanticThreadFilterOperator2);
+export const SemanticThreadFilterSelectOperators2$inboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators2> = z.nativeEnum(
+    SemanticThreadFilterSelectOperators2,
+  );
 
 /** @internal */
-export const SemanticThreadFilterOperator2$outboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator2
-> = SemanticThreadFilterOperator2$inboundSchema;
+export const SemanticThreadFilterSelectOperators2$outboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators2> =
+    SemanticThreadFilterSelectOperators2$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SemanticThreadFilterOperator2$ {
-  /** @deprecated use `SemanticThreadFilterOperator2$inboundSchema` instead. */
-  export const inboundSchema = SemanticThreadFilterOperator2$inboundSchema;
-  /** @deprecated use `SemanticThreadFilterOperator2$outboundSchema` instead. */
-  export const outboundSchema = SemanticThreadFilterOperator2$outboundSchema;
+export namespace SemanticThreadFilterSelectOperators2$ {
+  /** @deprecated use `SemanticThreadFilterSelectOperators2$inboundSchema` instead. */
+  export const inboundSchema =
+    SemanticThreadFilterSelectOperators2$inboundSchema;
+  /** @deprecated use `SemanticThreadFilterSelectOperators2$outboundSchema` instead. */
+  export const outboundSchema =
+    SemanticThreadFilterSelectOperators2$outboundSchema;
 }
 
 /** @internal */
-export const SemanticThreadFilterOperator1$inboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator1
-> = z.nativeEnum(SemanticThreadFilterOperator1);
+export const SemanticThreadFilterSelectOperators1$inboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators1> = z.nativeEnum(
+    SemanticThreadFilterSelectOperators1,
+  );
 
 /** @internal */
-export const SemanticThreadFilterOperator1$outboundSchema: z.ZodNativeEnum<
-  typeof SemanticThreadFilterOperator1
-> = SemanticThreadFilterOperator1$inboundSchema;
+export const SemanticThreadFilterSelectOperators1$outboundSchema:
+  z.ZodNativeEnum<typeof SemanticThreadFilterSelectOperators1> =
+    SemanticThreadFilterSelectOperators1$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SemanticThreadFilterOperator1$ {
-  /** @deprecated use `SemanticThreadFilterOperator1$inboundSchema` instead. */
-  export const inboundSchema = SemanticThreadFilterOperator1$inboundSchema;
-  /** @deprecated use `SemanticThreadFilterOperator1$outboundSchema` instead. */
-  export const outboundSchema = SemanticThreadFilterOperator1$outboundSchema;
+export namespace SemanticThreadFilterSelectOperators1$ {
+  /** @deprecated use `SemanticThreadFilterSelectOperators1$inboundSchema` instead. */
+  export const inboundSchema =
+    SemanticThreadFilterSelectOperators1$inboundSchema;
+  /** @deprecated use `SemanticThreadFilterSelectOperators1$outboundSchema` instead. */
+  export const outboundSchema =
+    SemanticThreadFilterSelectOperators1$outboundSchema;
 }
 
 /** @internal */
-export const SemanticThreadFilterOperator$inboundSchema: z.ZodType<
-  SemanticThreadFilterOperator,
+export const SemanticThreadFilterSelectOperators$inboundSchema: z.ZodType<
+  SemanticThreadFilterSelectOperators,
   z.ZodTypeDef,
   unknown
 > = z.union([
-  SemanticThreadFilterOperator1$inboundSchema,
-  SemanticThreadFilterOperator2$inboundSchema,
-  SemanticThreadFilterOperator3$inboundSchema,
-  SemanticThreadFilterOperator4$inboundSchema,
-  SemanticThreadFilterOperator5$inboundSchema,
-  SemanticThreadFilterOperator6$inboundSchema,
-  SemanticThreadFilterOperator7$inboundSchema,
-  SemanticThreadFilterOperator8$inboundSchema,
-  SemanticThreadFilterOperator9$inboundSchema,
+  SemanticThreadFilterSelectOperators1$inboundSchema,
+  SemanticThreadFilterSelectOperators2$inboundSchema,
+  SemanticThreadFilterSelectOperators3$inboundSchema,
+  SemanticThreadFilterSelectOperators4$inboundSchema,
+  SemanticThreadFilterSelectOperators5$inboundSchema,
+  SemanticThreadFilterSelectOperators6$inboundSchema,
+  SemanticThreadFilterSelectOperators7$inboundSchema,
+  SemanticThreadFilterSelectOperators8$inboundSchema,
+  SemanticThreadFilterSelectOperators9$inboundSchema,
 ]);
 
 /** @internal */
-export type SemanticThreadFilterOperator$Outbound =
+export type SemanticThreadFilterSelectOperators$Outbound =
   | string
   | string
   | string
@@ -1692,52 +1725,55 @@ export type SemanticThreadFilterOperator$Outbound =
   | string;
 
 /** @internal */
-export const SemanticThreadFilterOperator$outboundSchema: z.ZodType<
-  SemanticThreadFilterOperator$Outbound,
+export const SemanticThreadFilterSelectOperators$outboundSchema: z.ZodType<
+  SemanticThreadFilterSelectOperators$Outbound,
   z.ZodTypeDef,
-  SemanticThreadFilterOperator
+  SemanticThreadFilterSelectOperators
 > = z.union([
-  SemanticThreadFilterOperator1$outboundSchema,
-  SemanticThreadFilterOperator2$outboundSchema,
-  SemanticThreadFilterOperator3$outboundSchema,
-  SemanticThreadFilterOperator4$outboundSchema,
-  SemanticThreadFilterOperator5$outboundSchema,
-  SemanticThreadFilterOperator6$outboundSchema,
-  SemanticThreadFilterOperator7$outboundSchema,
-  SemanticThreadFilterOperator8$outboundSchema,
-  SemanticThreadFilterOperator9$outboundSchema,
+  SemanticThreadFilterSelectOperators1$outboundSchema,
+  SemanticThreadFilterSelectOperators2$outboundSchema,
+  SemanticThreadFilterSelectOperators3$outboundSchema,
+  SemanticThreadFilterSelectOperators4$outboundSchema,
+  SemanticThreadFilterSelectOperators5$outboundSchema,
+  SemanticThreadFilterSelectOperators6$outboundSchema,
+  SemanticThreadFilterSelectOperators7$outboundSchema,
+  SemanticThreadFilterSelectOperators8$outboundSchema,
+  SemanticThreadFilterSelectOperators9$outboundSchema,
 ]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace SemanticThreadFilterOperator$ {
-  /** @deprecated use `SemanticThreadFilterOperator$inboundSchema` instead. */
-  export const inboundSchema = SemanticThreadFilterOperator$inboundSchema;
-  /** @deprecated use `SemanticThreadFilterOperator$outboundSchema` instead. */
-  export const outboundSchema = SemanticThreadFilterOperator$outboundSchema;
-  /** @deprecated use `SemanticThreadFilterOperator$Outbound` instead. */
-  export type Outbound = SemanticThreadFilterOperator$Outbound;
+export namespace SemanticThreadFilterSelectOperators$ {
+  /** @deprecated use `SemanticThreadFilterSelectOperators$inboundSchema` instead. */
+  export const inboundSchema =
+    SemanticThreadFilterSelectOperators$inboundSchema;
+  /** @deprecated use `SemanticThreadFilterSelectOperators$outboundSchema` instead. */
+  export const outboundSchema =
+    SemanticThreadFilterSelectOperators$outboundSchema;
+  /** @deprecated use `SemanticThreadFilterSelectOperators$Outbound` instead. */
+  export type Outbound = SemanticThreadFilterSelectOperators$Outbound;
 }
 
-export function semanticThreadFilterOperatorToJSON(
-  semanticThreadFilterOperator: SemanticThreadFilterOperator,
+export function semanticThreadFilterSelectOperatorsToJSON(
+  semanticThreadFilterSelectOperators: SemanticThreadFilterSelectOperators,
 ): string {
   return JSON.stringify(
-    SemanticThreadFilterOperator$outboundSchema.parse(
-      semanticThreadFilterOperator,
+    SemanticThreadFilterSelectOperators$outboundSchema.parse(
+      semanticThreadFilterSelectOperators,
     ),
   );
 }
 
-export function semanticThreadFilterOperatorFromJSON(
+export function semanticThreadFilterSelectOperatorsFromJSON(
   jsonString: string,
-): SafeParseResult<SemanticThreadFilterOperator, SDKValidationError> {
+): SafeParseResult<SemanticThreadFilterSelectOperators, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => SemanticThreadFilterOperator$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SemanticThreadFilterOperator' from JSON`,
+    (x) =>
+      SemanticThreadFilterSelectOperators$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SemanticThreadFilterSelectOperators' from JSON`,
   );
 }
 
@@ -1833,15 +1869,15 @@ export const SemanticThreadFilterCondition$inboundSchema: z.ZodType<
     SemanticThreadFilterField31$inboundSchema,
   ]),
   operator: z.union([
-    SemanticThreadFilterOperator1$inboundSchema,
-    SemanticThreadFilterOperator2$inboundSchema,
-    SemanticThreadFilterOperator3$inboundSchema,
-    SemanticThreadFilterOperator4$inboundSchema,
-    SemanticThreadFilterOperator5$inboundSchema,
-    SemanticThreadFilterOperator6$inboundSchema,
-    SemanticThreadFilterOperator7$inboundSchema,
-    SemanticThreadFilterOperator8$inboundSchema,
-    SemanticThreadFilterOperator9$inboundSchema,
+    SemanticThreadFilterSelectOperators1$inboundSchema,
+    SemanticThreadFilterSelectOperators2$inboundSchema,
+    SemanticThreadFilterSelectOperators3$inboundSchema,
+    SemanticThreadFilterSelectOperators4$inboundSchema,
+    SemanticThreadFilterSelectOperators5$inboundSchema,
+    SemanticThreadFilterSelectOperators6$inboundSchema,
+    SemanticThreadFilterSelectOperators7$inboundSchema,
+    SemanticThreadFilterSelectOperators8$inboundSchema,
+    SemanticThreadFilterSelectOperators9$inboundSchema,
   ]),
   value: z.union([z.string(), z.boolean(), z.number(), z.array(z.string())]),
 });
@@ -1933,15 +1969,15 @@ export const SemanticThreadFilterCondition$outboundSchema: z.ZodType<
     SemanticThreadFilterField31$outboundSchema,
   ]),
   operator: z.union([
-    SemanticThreadFilterOperator1$outboundSchema,
-    SemanticThreadFilterOperator2$outboundSchema,
-    SemanticThreadFilterOperator3$outboundSchema,
-    SemanticThreadFilterOperator4$outboundSchema,
-    SemanticThreadFilterOperator5$outboundSchema,
-    SemanticThreadFilterOperator6$outboundSchema,
-    SemanticThreadFilterOperator7$outboundSchema,
-    SemanticThreadFilterOperator8$outboundSchema,
-    SemanticThreadFilterOperator9$outboundSchema,
+    SemanticThreadFilterSelectOperators1$outboundSchema,
+    SemanticThreadFilterSelectOperators2$outboundSchema,
+    SemanticThreadFilterSelectOperators3$outboundSchema,
+    SemanticThreadFilterSelectOperators4$outboundSchema,
+    SemanticThreadFilterSelectOperators5$outboundSchema,
+    SemanticThreadFilterSelectOperators6$outboundSchema,
+    SemanticThreadFilterSelectOperators7$outboundSchema,
+    SemanticThreadFilterSelectOperators8$outboundSchema,
+    SemanticThreadFilterSelectOperators9$outboundSchema,
   ]),
   value: z.union([z.string(), z.boolean(), z.number(), z.array(z.string())]),
 });

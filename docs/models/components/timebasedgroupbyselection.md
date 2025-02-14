@@ -7,8 +7,8 @@ import { TimeBasedGroupBySelection } from "@inkeep/inkeep-analytics/models/compo
 
 let value: TimeBasedGroupBySelection = {
   type: "time",
-  timeUnit: "week",
-  field: "thirdPartyEntities",
+  timeUnit: "day",
+  field: "projectId",
 };
 ```
 
@@ -17,5 +17,5 @@ let value: TimeBasedGroupBySelection = {
 | Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
 | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | `type`                                                                                               | [components.TimeBasedGroupBySelectionType](../../models/components/timebasedgroupbyselectiontype.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
-| `timeUnit`                                                                                           | *components.TimeBasedGroupBySelectionTimeUnit*                                                       | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| `timeUnit`                                                                                           | *components.TimeBasedGroupBySelectionTimeUnit*                                                       | :heavy_check_mark:                                                                                   | Available Time Units                                                                                 |
 | `field`                                                                                              | *components.TimeBasedGroupBySelectionField*                                                          | :heavy_check_mark:                                                                                   | N/A                                                                                                  |

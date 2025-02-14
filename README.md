@@ -17,7 +17,7 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 <!-- Start Summary [summary] -->
 ## Summary
 
-Inkeep Analytics API: The Inkeep Analytics API provides endpoints for managing and updating conversations, feedback, events, and queries.
+Inkeep Analytics API: The Inkeep Analytics API provides endpoints for managing conversations, feedback, events, and queries.
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -179,6 +179,10 @@ run();
 <details open>
 <summary>Available methods</summary>
 
+### [conversation](docs/sdks/conversation/README.md)
+
+* [getConversationByExternalId](docs/sdks/conversation/README.md#getconversationbyexternalid) - Get Conversation by External ID
+
 ### [conversations](docs/sdks/conversations/README.md)
 
 * [log](docs/sdks/conversations/README.md#log) - Log Conversation
@@ -225,6 +229,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
+- [`conversationGetConversationByExternalId`](docs/sdks/conversation/README.md#getconversationbyexternalid) - Get Conversation by External ID
 - [`conversationsConversations`](docs/sdks/conversations/README.md#conversations) - Query Conversations
 - [`conversationsDelete`](docs/sdks/conversations/README.md#delete) - Delete Conversation
 - [`conversationsGet`](docs/sdks/conversations/README.md#get) - Get Conversation

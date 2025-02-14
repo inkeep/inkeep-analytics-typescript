@@ -91,6 +91,7 @@ export async function conversationsDelete(
   );
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "deleteConversation",
     oAuth2Scopes: [],
 

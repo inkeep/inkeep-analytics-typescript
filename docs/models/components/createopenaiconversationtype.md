@@ -6,7 +6,7 @@
 ### `components.CreateOpenAIConversationType1`
 
 ```typescript
-const value: components.CreateOpenAIConversationType1 = "site";
+const value: components.CreateOpenAIConversationType1 = "documentation";
 ```
 
 ### `string`

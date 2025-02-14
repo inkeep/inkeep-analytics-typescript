@@ -8,8 +8,8 @@ import { OpenAIConversation } from "@inkeep/inkeep-analytics/models/components";
 let value: OpenAIConversation = {
   id: "<id>",
   type: "openai",
-  createdAt: "1709592148662",
-  updatedAt: "1738809083486",
+  createdAt: "1735407793614",
+  updatedAt: "1739505243024",
   tags: [
     "<value>",
   ],
@@ -18,19 +18,15 @@ let value: OpenAIConversation = {
       id: "<id>",
       type: "openai",
       conversationId: "<id>",
-      createdAt: "1707989562964",
-      updatedAt: "1738873493125",
+      createdAt: "1733173355060",
+      updatedAt: "1739460562733",
       role: "assistant",
-      content: [
-        {
-          type: "image_url",
-        },
-      ],
+      content: "<value>",
     },
   ],
   messagesOpenAIFormat: [
     {
-      role: "assistant",
+      role: "user",
       content: "<value>",
     },
   ],
@@ -45,6 +41,7 @@ let value: OpenAIConversation = {
 | `externalId`                                                                                               | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
 | `externalUrl`                                                                                              | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
 | `type`                                                                                                     | [components.OpenAIConversationType](../../models/components/openaiconversationtype.md)                     | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `supportTicketConversationId`                                                                              | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
 | `createdAt`                                                                                                | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
 | `updatedAt`                                                                                                | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
 | `projectId`                                                                                                | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
@@ -52,5 +49,6 @@ let value: OpenAIConversation = {
 | `properties`                                                                                               | [components.OpenAIConversationProperties](../../models/components/openaiconversationproperties.md)         | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
 | `userProperties`                                                                                           | [components.OpenAIConversationUserProperties](../../models/components/openaiconversationuserproperties.md) | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
 | `tags`                                                                                                     | *string*[]                                                                                                 | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| `visibility`                                                                                               | [components.OpenAIConversationVisibility](../../models/components/openaiconversationvisibility.md)         | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
 | `messages`                                                                                                 | [components.OpenAIExtendedMessage](../../models/components/openaiextendedmessage.md)[]                     | :heavy_check_mark:                                                                                         | The messages in the conversation. Must be at least one message.                                            |
 | `messagesOpenAIFormat`                                                                                     | [components.OpenAIChatCompletionMessage](../../models/components/openaichatcompletionmessage.md)[]         | :heavy_check_mark:                                                                                         | N/A                                                                                                        |

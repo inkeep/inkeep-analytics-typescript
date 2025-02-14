@@ -91,6 +91,7 @@ export async function queryTable(
   );
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "queryTable",
     oAuth2Scopes: [],
 

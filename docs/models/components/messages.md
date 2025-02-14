@@ -9,7 +9,7 @@ let value: Messages = {
   role: "system",
   content: [
     {
-      type: "text",
+      type: "image_url",
     },
   ],
 };

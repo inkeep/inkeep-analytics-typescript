@@ -77,6 +77,7 @@ export async function conversationsList(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "getAllConversation",
     oAuth2Scopes: [],
 

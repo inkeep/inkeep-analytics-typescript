@@ -8,7 +8,7 @@
 ```typescript
 const value: components.AggregationSelection = {
   type: "aggregation",
-  aggregation: "min",
+  aggregation: "sum",
 };
 ```
 
@@ -17,8 +17,8 @@ const value: components.AggregationSelection = {
 ```typescript
 const value: components.TimeBasedGroupBySelection = {
   type: "time",
-  timeUnit: "hour",
-  field: "areAIAnnotationsVerified",
+  timeUnit: "day",
+  field: "isAnswerConfident",
 };
 ```
 
@@ -27,7 +27,7 @@ const value: components.TimeBasedGroupBySelection = {
 ```typescript
 const value: components.SimpleFieldSelection = {
   type: "field",
-  field: "projectId",
+  field: "areAIAnnotationsVerified",
 };
 ```
 

@@ -30,6 +30,12 @@ export type Properties = {};
 
 export type UserProperties = {};
 
+export const Visibility = {
+  Private: "private",
+  Public: "public",
+} as const;
+export type Visibility = ClosedEnum<typeof Visibility>;
+
 export const CreateOpenAIConversationRole = {
   System: "system",
   User: "user",
@@ -93,6 +99,7 @@ export type CreateOpenAIConversation = {
   externalId?: string | null | undefined;
   externalUrl?: string | null | undefined;
   type: Type;
+  supportTicketConversationId?: string | null | undefined;
   createdAt?: string | null | undefined;
   updatedAt?: string | null | undefined;
   projectId?: string | null | undefined;
@@ -100,6 +107,7 @@ export type CreateOpenAIConversation = {
   properties?: Properties | null | undefined;
   userProperties?: UserProperties | null | undefined;
   tags?: Array<string> | null | undefined;
+  visibility?: Visibility | null | undefined;
   /**
    * The messages in the conversation. Must be at least one message.
    */
@@ -212,6 +220,25 @@ export function userPropertiesFromJSON(
     (x) => UserProperties$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'UserProperties' from JSON`,
   );
+}
+
+/** @internal */
+export const Visibility$inboundSchema: z.ZodNativeEnum<typeof Visibility> = z
+  .nativeEnum(Visibility);
+
+/** @internal */
+export const Visibility$outboundSchema: z.ZodNativeEnum<typeof Visibility> =
+  Visibility$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Visibility$ {
+  /** @deprecated use `Visibility$inboundSchema` instead. */
+  export const inboundSchema = Visibility$inboundSchema;
+  /** @deprecated use `Visibility$outboundSchema` instead. */
+  export const outboundSchema = Visibility$outboundSchema;
 }
 
 /** @internal */
@@ -655,6 +682,7 @@ export const CreateOpenAIConversation$inboundSchema: z.ZodType<
   externalId: z.nullable(z.string()).optional(),
   externalUrl: z.nullable(z.string()).optional(),
   type: Type$inboundSchema,
+  supportTicketConversationId: z.nullable(z.string()).optional(),
   createdAt: z.nullable(z.string()).optional(),
   updatedAt: z.nullable(z.string()).optional(),
   projectId: z.nullable(z.string()).optional(),
@@ -663,6 +691,7 @@ export const CreateOpenAIConversation$inboundSchema: z.ZodType<
   userProperties: z.nullable(z.lazy(() => UserProperties$inboundSchema))
     .optional(),
   tags: z.nullable(z.array(z.string())).optional(),
+  visibility: z.nullable(Visibility$inboundSchema).optional(),
   messages: z.array(z.lazy(() => Messages$inboundSchema)),
 });
 
@@ -672,6 +701,7 @@ export type CreateOpenAIConversation$Outbound = {
   externalId?: string | null | undefined;
   externalUrl?: string | null | undefined;
   type: string;
+  supportTicketConversationId?: string | null | undefined;
   createdAt?: string | null | undefined;
   updatedAt?: string | null | undefined;
   projectId?: string | null | undefined;
@@ -679,6 +709,7 @@ export type CreateOpenAIConversation$Outbound = {
   properties?: Properties$Outbound | null | undefined;
   userProperties?: UserProperties$Outbound | null | undefined;
   tags?: Array<string> | null | undefined;
+  visibility?: string | null | undefined;
   messages: Array<Messages$Outbound>;
 };
 
@@ -692,6 +723,7 @@ export const CreateOpenAIConversation$outboundSchema: z.ZodType<
   externalId: z.nullable(z.string()).optional(),
   externalUrl: z.nullable(z.string()).optional(),
   type: Type$outboundSchema,
+  supportTicketConversationId: z.nullable(z.string()).optional(),
   createdAt: z.nullable(z.string()).optional(),
   updatedAt: z.nullable(z.string()).optional(),
   projectId: z.nullable(z.string()).optional(),
@@ -700,6 +732,7 @@ export const CreateOpenAIConversation$outboundSchema: z.ZodType<
   userProperties: z.nullable(z.lazy(() => UserProperties$outboundSchema))
     .optional(),
   tags: z.nullable(z.array(z.string())).optional(),
+  visibility: z.nullable(Visibility$outboundSchema).optional(),
   messages: z.array(z.lazy(() => Messages$outboundSchema)),
 });
 

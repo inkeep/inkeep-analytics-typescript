@@ -6,11 +6,9 @@
 import { Condition } from "@inkeep/inkeep-analytics/models/components";
 
 let value: Condition = {
-  field: "id",
-  operator: "lte",
-  value: [
-    "<value>",
-  ],
+  field: "organizationId",
+  operator: "notIn",
+  value: false,
 };
 ```
 
@@ -19,5 +17,5 @@ let value: Condition = {
 | Field                                 | Type                                  | Required                              | Description                           |
 | ------------------------------------- | ------------------------------------- | ------------------------------------- | ------------------------------------- |
 | `field`                               | *components.ConversationsFilterField* | :heavy_check_mark:                    | N/A                                   |
-| `operator`                            | *components.Operator*                 | :heavy_check_mark:                    | N/A                                   |
+| `operator`                            | *components.SelectOperators*          | :heavy_check_mark:                    | Available Select Operators            |
 | `value`                               | *components.Value*                    | :heavy_check_mark:                    | N/A                                   |

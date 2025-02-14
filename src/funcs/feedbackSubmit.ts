@@ -72,6 +72,7 @@ export async function feedbackSubmit(
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? "",
     operationID: "submitFeedback",
     oAuth2Scopes: [],
 

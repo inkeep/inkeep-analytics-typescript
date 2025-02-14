@@ -30,3 +30,16 @@ const value: components.CreateSupportTicketConversation = {
 };
 ```
 
+### `components.CreateSupportCopilotConversation`
+
+```typescript
+const value: components.CreateSupportCopilotConversation = {
+  type: "support_copilot",
+  messages: [
+    {
+      role: "<value>",
+    },
+  ],
+};
+```
+

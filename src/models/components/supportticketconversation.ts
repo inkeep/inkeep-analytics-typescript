@@ -25,11 +25,20 @@ export type SupportTicketConversationProperties = {};
 
 export type SupportTicketConversationUserProperties = {};
 
+export const SupportTicketConversationVisibility = {
+  Private: "private",
+  Public: "public",
+} as const;
+export type SupportTicketConversationVisibility = ClosedEnum<
+  typeof SupportTicketConversationVisibility
+>;
+
 export type SupportTicketConversation = {
   id: string;
   externalId?: string | null | undefined;
   externalUrl?: string | null | undefined;
   type: SupportTicketConversationType;
+  supportTicketConversationId?: string | null | undefined;
   createdAt: string;
   updatedAt: string;
   projectId?: string | null | undefined;
@@ -37,6 +46,7 @@ export type SupportTicketConversation = {
   properties?: SupportTicketConversationProperties | null | undefined;
   userProperties?: SupportTicketConversationUserProperties | null | undefined;
   tags: Array<string>;
+  visibility?: SupportTicketConversationVisibility | null | undefined;
   /**
    * The messages in the conversation. Must be at least one message.
    */
@@ -177,6 +187,29 @@ export function supportTicketConversationUserPropertiesFromJSON(
 }
 
 /** @internal */
+export const SupportTicketConversationVisibility$inboundSchema: z.ZodNativeEnum<
+  typeof SupportTicketConversationVisibility
+> = z.nativeEnum(SupportTicketConversationVisibility);
+
+/** @internal */
+export const SupportTicketConversationVisibility$outboundSchema:
+  z.ZodNativeEnum<typeof SupportTicketConversationVisibility> =
+    SupportTicketConversationVisibility$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SupportTicketConversationVisibility$ {
+  /** @deprecated use `SupportTicketConversationVisibility$inboundSchema` instead. */
+  export const inboundSchema =
+    SupportTicketConversationVisibility$inboundSchema;
+  /** @deprecated use `SupportTicketConversationVisibility$outboundSchema` instead. */
+  export const outboundSchema =
+    SupportTicketConversationVisibility$outboundSchema;
+}
+
+/** @internal */
 export const SupportTicketConversation$inboundSchema: z.ZodType<
   SupportTicketConversation,
   z.ZodTypeDef,
@@ -186,6 +219,7 @@ export const SupportTicketConversation$inboundSchema: z.ZodType<
   externalId: z.nullable(z.string()).optional(),
   externalUrl: z.nullable(z.string()).optional(),
   type: SupportTicketConversationType$inboundSchema,
+  supportTicketConversationId: z.nullable(z.string()).optional(),
   createdAt: z.string(),
   updatedAt: z.string(),
   projectId: z.nullable(z.string()).optional(),
@@ -197,6 +231,8 @@ export const SupportTicketConversation$inboundSchema: z.ZodType<
     z.lazy(() => SupportTicketConversationUserProperties$inboundSchema),
   ).optional(),
   tags: z.array(z.string()),
+  visibility: z.nullable(SupportTicketConversationVisibility$inboundSchema)
+    .optional(),
   messages: z.array(SupportTicketMessage$inboundSchema),
 });
 
@@ -206,6 +242,7 @@ export type SupportTicketConversation$Outbound = {
   externalId?: string | null | undefined;
   externalUrl?: string | null | undefined;
   type: string;
+  supportTicketConversationId?: string | null | undefined;
   createdAt: string;
   updatedAt: string;
   projectId?: string | null | undefined;
@@ -216,6 +253,7 @@ export type SupportTicketConversation$Outbound = {
     | null
     | undefined;
   tags: Array<string>;
+  visibility?: string | null | undefined;
   messages: Array<SupportTicketMessage$Outbound>;
 };
 
@@ -229,6 +267,7 @@ export const SupportTicketConversation$outboundSchema: z.ZodType<
   externalId: z.nullable(z.string()).optional(),
   externalUrl: z.nullable(z.string()).optional(),
   type: SupportTicketConversationType$outboundSchema,
+  supportTicketConversationId: z.nullable(z.string()).optional(),
   createdAt: z.string(),
   updatedAt: z.string(),
   projectId: z.nullable(z.string()).optional(),
@@ -240,6 +279,8 @@ export const SupportTicketConversation$outboundSchema: z.ZodType<
     z.lazy(() => SupportTicketConversationUserProperties$outboundSchema),
   ).optional(),
   tags: z.array(z.string()),
+  visibility: z.nullable(SupportTicketConversationVisibility$outboundSchema)
+    .optional(),
   messages: z.array(SupportTicketMessage$outboundSchema),
 });
 
