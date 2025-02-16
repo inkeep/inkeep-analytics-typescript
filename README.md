@@ -74,8 +74,7 @@ yarn add @inkeep/inkeep-analytics zod
 ```
 
 > [!NOTE]
-> This package is published as an ES Module (ESM) only. For applications using
-> CommonJS, use `await import("@inkeep/inkeep-analytics")` to import and use this package.
+> This package is published with CommonJS and ES Modules (ESM) support.
 <!-- End SDK Installation [installation] -->
 
 <!-- Start Requirements [requirements] -->
