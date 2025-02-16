@@ -12,8 +12,8 @@ let value: GetAllConversationResponseBody = {
     {
       id: "<id>",
       type: "openai",
-      createdAt: "1738080268153",
-      updatedAt: "1739542029712",
+      createdAt: "1738191144833",
+      updatedAt: "1739652906391",
       tags: [
         "<value>",
       ],
@@ -22,8 +22,8 @@ let value: GetAllConversationResponseBody = {
           id: "<id>",
           type: "openai",
           conversationId: "<id>",
-          createdAt: "1714829281303",
-          updatedAt: "1739564483285",
+          createdAt: "1714940157982",
+          updatedAt: "1739675359964",
           role: "assistant",
           content: "<value>",
         },
