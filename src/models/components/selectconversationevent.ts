@@ -24,6 +24,8 @@ export type SelectConversationEvent = {
   type: string;
   conversationId: string;
   createdAt: string;
+  projectId?: string | null | undefined;
+  integrationId?: string | null | undefined;
   properties?: SelectConversationEventProperties | null | undefined;
   userProperties?: SelectConversationEventUserProperties | null | undefined;
   entityType: SelectConversationEventEntityType;
@@ -165,6 +167,8 @@ export const SelectConversationEvent$inboundSchema: z.ZodType<
   type: z.string(),
   conversationId: z.string(),
   createdAt: z.string(),
+  projectId: z.nullable(z.string()).optional(),
+  integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(
     z.lazy(() => SelectConversationEventProperties$inboundSchema),
   ).optional(),
@@ -180,6 +184,8 @@ export type SelectConversationEvent$Outbound = {
   type: string;
   conversationId: string;
   createdAt: string;
+  projectId?: string | null | undefined;
+  integrationId?: string | null | undefined;
   properties?: SelectConversationEventProperties$Outbound | null | undefined;
   userProperties?:
     | SelectConversationEventUserProperties$Outbound
@@ -198,6 +204,8 @@ export const SelectConversationEvent$outboundSchema: z.ZodType<
   type: z.string(),
   conversationId: z.string(),
   createdAt: z.string(),
+  projectId: z.nullable(z.string()).optional(),
+  integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(
     z.lazy(() => SelectConversationEventProperties$outboundSchema),
   ).optional(),

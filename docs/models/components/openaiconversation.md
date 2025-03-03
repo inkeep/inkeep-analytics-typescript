@@ -8,8 +8,8 @@ import { OpenAIConversation } from "@inkeep/inkeep-analytics/models/components";
 let value: OpenAIConversation = {
   id: "<id>",
   type: "openai",
-  createdAt: "1735469732311",
-  updatedAt: "1739567181721",
+  createdAt: "1736943926754",
+  updatedAt: "1741041376165",
   tags: [
     "<value>",
   ],
@@ -18,8 +18,8 @@ let value: OpenAIConversation = {
       id: "<id>",
       type: "openai",
       conversationId: "<id>",
-      createdAt: "1733235293757",
-      updatedAt: "1739522501430",
+      createdAt: "1734709488201",
+      updatedAt: "1740996695874",
       role: "assistant",
       content: "<value>",
     },

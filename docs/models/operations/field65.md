@@ -5,11 +5,11 @@
 ```typescript
 import { Field65 } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: Field65 = "max_type";
+let value: Field65 = "max_eventType";
 ```
 
 ## Values
 
 ```typescript
-"max_type"
+"max_eventType"
 ```

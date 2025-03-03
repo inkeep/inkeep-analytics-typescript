@@ -3,32 +3,30 @@
 
 ## Supported Types
 
-### `components.SemanticThreadFilter1`
+### `components.Conditiion`
 
 ```typescript
-const value: components.SemanticThreadFilter1 = {
+const value: components.Conditiion = {
   condition: {
-    field: "isAnswerConfident",
-    operator: "lte",
-    value: [
-      "<value>",
-    ],
+    field: "questionLength",
+    operator: "arrayContains",
+    value: 2155.07,
   },
 };
 ```
 
-### `components.SemanticThreadFilter2`
+### `components.And`
 
 ```typescript
-const value: components.SemanticThreadFilter2 = {
+const value: components.And = {
   and: [],
 };
 ```
 
-### `components.SemanticThreadFilter3`
+### `components.Or`
 
 ```typescript
-const value: components.SemanticThreadFilter3 = {
+const value: components.Or = {
   or: [],
 };
 ```

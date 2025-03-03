@@ -23,7 +23,9 @@ export type InsertSearchEvent = {
   id?: string | undefined;
   type: string;
   searchQuery: string;
-  createdAt?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  projectId?: string | null | undefined;
+  integrationId?: string | null | undefined;
   properties?: InsertSearchEventProperties | null | undefined;
   userProperties?: InsertSearchEventUserProperties | null | undefined;
   entityType: InsertSearchEventEntityType;
@@ -159,7 +161,11 @@ export const InsertSearchEvent$inboundSchema: z.ZodType<
   id: z.string().optional(),
   type: z.string(),
   searchQuery: z.string(),
-  createdAt: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  projectId: z.nullable(z.string()).optional(),
+  integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(
     z.lazy(() => InsertSearchEventProperties$inboundSchema),
   ).optional(),
@@ -175,6 +181,8 @@ export type InsertSearchEvent$Outbound = {
   type: string;
   searchQuery: string;
   createdAt?: string | null | undefined;
+  projectId?: string | null | undefined;
+  integrationId?: string | null | undefined;
   properties?: InsertSearchEventProperties$Outbound | null | undefined;
   userProperties?: InsertSearchEventUserProperties$Outbound | null | undefined;
   entityType: string;
@@ -189,7 +197,9 @@ export const InsertSearchEvent$outboundSchema: z.ZodType<
   id: z.string().optional(),
   type: z.string(),
   searchQuery: z.string(),
-  createdAt: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  projectId: z.nullable(z.string()).optional(),
+  integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(
     z.lazy(() => InsertSearchEventProperties$outboundSchema),
   ).optional(),

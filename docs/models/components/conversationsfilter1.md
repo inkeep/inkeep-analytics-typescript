@@ -7,17 +7,15 @@ import { ConversationsFilter1 } from "@inkeep/inkeep-analytics/models/components
 
 let value: ConversationsFilter1 = {
   condition: {
-    field: "type",
+    field: "integrationId",
     operator: "lte",
-    value: [
-      "<value>",
-    ],
+    value: "<value>",
   },
 };
 ```
 
 ## Fields
 
-| Field                                                        | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `condition`                                                  | [components.Condition](../../models/components/condition.md) | :heavy_check_mark:                                           | N/A                                                          |
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `condition`                                                                                        | [components.ConversationsFilterCondition](../../models/components/conversationsfiltercondition.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |

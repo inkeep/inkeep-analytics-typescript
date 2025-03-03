@@ -1,31 +1,15 @@
 # TimeBasedGroupBySelectionTimeUnit
 
-Available Time Units
-
-
-## Supported Types
-
-### `components.TimeBasedGroupBySelectionTimeUnit1`
+## Example Usage
 
 ```typescript
-const value: components.TimeBasedGroupBySelectionTimeUnit1 = "hour";
+import { TimeBasedGroupBySelectionTimeUnit } from "@inkeep/inkeep-analytics/models/components";
+
+let value: TimeBasedGroupBySelectionTimeUnit = "hour";
 ```
 
-### `components.TimeBasedGroupBySelectionTimeUnit2`
+## Values
 
 ```typescript
-const value: components.TimeBasedGroupBySelectionTimeUnit2 = "day";
+"hour" | "day" | "week" | "month"
 ```
-
-### `components.TimeBasedGroupBySelectionTimeUnit3`
-
-```typescript
-const value: components.TimeBasedGroupBySelectionTimeUnit3 = "week";
-```
-
-### `components.TimeBasedGroupBySelectionTimeUnit4`
-
-```typescript
-const value: components.TimeBasedGroupBySelectionTimeUnit4 = "month";
-```
-

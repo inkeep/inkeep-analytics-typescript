@@ -5,7 +5,7 @@
 ```typescript
 import { GetAllFeedbackResponseType } from "@inkeep/inkeep-analytics/models/components";
 
-let value: GetAllFeedbackResponseType = "positive";
+let value: GetAllFeedbackResponseType = "negative";
 ```
 
 ## Values

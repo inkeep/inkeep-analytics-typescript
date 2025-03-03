@@ -19,22 +19,98 @@ export const Code = {
  */
 export type Code = ClosedEnum<typeof Code>;
 
+/**
+ * A short code indicating the error code returned.
+ */
+export const BadRequestCode = {
+  BadRequest: "bad_request",
+} as const;
+/**
+ * A short code indicating the error code returned.
+ */
+export type BadRequestCode = ClosedEnum<typeof BadRequestCode>;
+
+/**
+ * Legacy error format for backward compatibility.
+ */
 export type ErrorT = {
   /**
    * A short code indicating the error code returned.
    */
-  code: Code;
+  code: BadRequestCode;
   /**
-   * A human readable error message.
+   * A concise error message suitable for display to end users. May be truncated if the full detail is long.
    */
   message: string;
 };
 
 export type BadRequestData = {
+  /**
+   * A short, human-readable summary of the problem type.
+   */
+  title: string;
+  /**
+   * The HTTP status code.
+   */
+  status: number;
+  /**
+   * A detailed explanation specific to this occurrence of the problem, providing context and specifics about what went wrong.
+   */
+  detail: string;
+  /**
+   * A URI reference that identifies the specific occurrence of the problem.
+   */
+  instance?: string | undefined;
+  /**
+   * A unique identifier for the request, useful for troubleshooting.
+   */
+  requestId?: string | undefined;
+  /**
+   * A short code indicating the error code returned.
+   */
+  code: Code;
+  /**
+   * A URI reference that identifies the problem type.
+   */
+  type: string;
+  /**
+   * Legacy error format for backward compatibility.
+   */
   error: ErrorT;
 };
 
 export class BadRequest extends Error {
+  /**
+   * A short, human-readable summary of the problem type.
+   */
+  title: string;
+  /**
+   * The HTTP status code.
+   */
+  status: number;
+  /**
+   * A detailed explanation specific to this occurrence of the problem, providing context and specifics about what went wrong.
+   */
+  detail: string;
+  /**
+   * A URI reference that identifies the specific occurrence of the problem.
+   */
+  instance?: string | undefined;
+  /**
+   * A unique identifier for the request, useful for troubleshooting.
+   */
+  requestId?: string | undefined;
+  /**
+   * A short code indicating the error code returned.
+   */
+  code: Code;
+  /**
+   * A URI reference that identifies the problem type.
+   */
+  type: string;
+  /**
+   * Legacy error format for backward compatibility.
+   */
   error: ErrorT;
 
   /** The original data that was passed to this error instance. */
@@ -47,6 +123,13 @@ export class BadRequest extends Error {
     super(message);
     this.data$ = err;
 
+    this.title = err.title;
+    this.status = err.status;
+    this.detail = err.detail;
+    if (err.instance != null) this.instance = err.instance;
+    if (err.requestId != null) this.requestId = err.requestId;
+    this.code = err.code;
+    this.type = err.type;
     this.error = err.error;
 
     this.name = "BadRequest";
@@ -74,9 +157,30 @@ export namespace Code$ {
 }
 
 /** @internal */
+export const BadRequestCode$inboundSchema: z.ZodNativeEnum<
+  typeof BadRequestCode
+> = z.nativeEnum(BadRequestCode);
+
+/** @internal */
+export const BadRequestCode$outboundSchema: z.ZodNativeEnum<
+  typeof BadRequestCode
+> = BadRequestCode$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace BadRequestCode$ {
+  /** @deprecated use `BadRequestCode$inboundSchema` instead. */
+  export const inboundSchema = BadRequestCode$inboundSchema;
+  /** @deprecated use `BadRequestCode$outboundSchema` instead. */
+  export const outboundSchema = BadRequestCode$outboundSchema;
+}
+
+/** @internal */
 export const ErrorT$inboundSchema: z.ZodType<ErrorT, z.ZodTypeDef, unknown> = z
   .object({
-    code: Code$inboundSchema,
+    code: BadRequestCode$inboundSchema,
     message: z.string(),
   });
 
@@ -92,7 +196,7 @@ export const ErrorT$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ErrorT
 > = z.object({
-  code: Code$outboundSchema,
+  code: BadRequestCode$outboundSchema,
   message: z.string(),
 });
 
@@ -129,6 +233,13 @@ export const BadRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  title: z.string(),
+  status: z.number(),
+  detail: z.string(),
+  instance: z.string().optional(),
+  requestId: z.string().optional(),
+  code: Code$inboundSchema,
+  type: z.string(),
   error: z.lazy(() => ErrorT$inboundSchema),
 })
   .transform((v) => {
@@ -137,6 +248,13 @@ export const BadRequest$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BadRequest$Outbound = {
+  title: string;
+  status: number;
+  detail: string;
+  instance?: string | undefined;
+  requestId?: string | undefined;
+  code: string;
+  type: string;
   error: ErrorT$Outbound;
 };
 
@@ -148,6 +266,13 @@ export const BadRequest$outboundSchema: z.ZodType<
 > = z.instanceof(BadRequest)
   .transform(v => v.data$)
   .pipe(z.object({
+    title: z.string(),
+    status: z.number(),
+    detail: z.string(),
+    instance: z.string().optional(),
+    requestId: z.string().optional(),
+    code: Code$outboundSchema,
+    type: z.string(),
     error: z.lazy(() => ErrorT$outboundSchema),
   }));
 

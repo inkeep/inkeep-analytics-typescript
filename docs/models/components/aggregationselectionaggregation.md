@@ -1,35 +1,15 @@
 # AggregationSelectionAggregation
 
-
-## Supported Types
-
-### `components.AggregationSelectionAggregation1`
+## Example Usage
 
 ```typescript
-const value: components.AggregationSelectionAggregation1 = "sum";
+import { AggregationSelectionAggregation } from "@inkeep/inkeep-analytics/models/components";
+
+let value: AggregationSelectionAggregation = "max";
 ```
 
-### `components.AggregationSelectionAggregation2`
+## Values
 
 ```typescript
-const value: components.AggregationSelectionAggregation2 = "count";
+"sum" | "count" | "avg" | "min" | "max"
 ```
-
-### `components.AggregationSelectionAggregation3`
-
-```typescript
-const value: components.AggregationSelectionAggregation3 = "avg";
-```
-
-### `components.AggregationSelectionAggregation4`
-
-```typescript
-const value: components.AggregationSelectionAggregation4 = "min";
-```
-
-### `components.AggregationSelectionAggregation5`
-
-```typescript
-const value: components.AggregationSelectionAggregation5 = "max";
-```
-

@@ -7,15 +7,15 @@ import { TimeBasedGroupBySelection } from "@inkeep/inkeep-analytics/models/compo
 
 let value: TimeBasedGroupBySelection = {
   type: "time",
-  timeUnit: "month",
-  field: "isClear",
+  timeUnit: "day",
+  field: "thirdPartyEntities",
 };
 ```
 
 ## Fields
 
-| Field                                                                                                | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `type`                                                                                               | [components.TimeBasedGroupBySelectionType](../../models/components/timebasedgroupbyselectiontype.md) | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
-| `timeUnit`                                                                                           | *components.TimeBasedGroupBySelectionTimeUnit*                                                       | :heavy_check_mark:                                                                                   | Available Time Units                                                                                 |
-| `field`                                                                                              | *components.TimeBasedGroupBySelectionField*                                                          | :heavy_check_mark:                                                                                   | N/A                                                                                                  |
+| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `type`                                                                                                       | [components.TimeBasedGroupBySelectionType](../../models/components/timebasedgroupbyselectiontype.md)         | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `timeUnit`                                                                                                   | [components.TimeBasedGroupBySelectionTimeUnit](../../models/components/timebasedgroupbyselectiontimeunit.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
+| `field`                                                                                                      | [components.TimeBasedGroupBySelectionField](../../models/components/timebasedgroupbyselectionfield.md)       | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

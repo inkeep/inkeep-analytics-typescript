@@ -1,31 +1,15 @@
 # EventsTimeBasedGroupBySelectionTimeUnit
 
-Available Time Units
-
-
-## Supported Types
-
-### `components.EventsTimeBasedGroupBySelectionTimeUnit1`
+## Example Usage
 
 ```typescript
-const value: components.EventsTimeBasedGroupBySelectionTimeUnit1 = "hour";
+import { EventsTimeBasedGroupBySelectionTimeUnit } from "@inkeep/inkeep-analytics/models/components";
+
+let value: EventsTimeBasedGroupBySelectionTimeUnit = "week";
 ```
 
-### `components.EventsTimeBasedGroupBySelectionTimeUnit2`
+## Values
 
 ```typescript
-const value: components.EventsTimeBasedGroupBySelectionTimeUnit2 = "day";
+"hour" | "day" | "week" | "month"
 ```
-
-### `components.EventsTimeBasedGroupBySelectionTimeUnit3`
-
-```typescript
-const value: components.EventsTimeBasedGroupBySelectionTimeUnit3 = "week";
-```
-
-### `components.EventsTimeBasedGroupBySelectionTimeUnit4`
-
-```typescript
-const value: components.EventsTimeBasedGroupBySelectionTimeUnit4 = "month";
-```
-

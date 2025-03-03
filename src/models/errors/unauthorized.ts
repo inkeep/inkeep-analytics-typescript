@@ -19,22 +19,98 @@ export const UnauthorizedCode = {
  */
 export type UnauthorizedCode = ClosedEnum<typeof UnauthorizedCode>;
 
+/**
+ * A short code indicating the error code returned.
+ */
+export const UnauthorizedErrorCode = {
+  Unauthorized: "unauthorized",
+} as const;
+/**
+ * A short code indicating the error code returned.
+ */
+export type UnauthorizedErrorCode = ClosedEnum<typeof UnauthorizedErrorCode>;
+
+/**
+ * Legacy error format for backward compatibility.
+ */
 export type UnauthorizedError = {
   /**
    * A short code indicating the error code returned.
    */
-  code: UnauthorizedCode;
+  code: UnauthorizedErrorCode;
   /**
-   * A human readable error message.
+   * A concise error message suitable for display to end users. May be truncated if the full detail is long.
    */
   message: string;
 };
 
 export type UnauthorizedData = {
+  /**
+   * A short, human-readable summary of the problem type.
+   */
+  title: string;
+  /**
+   * The HTTP status code.
+   */
+  status: number;
+  /**
+   * A detailed explanation specific to this occurrence of the problem, providing context and specifics about what went wrong.
+   */
+  detail: string;
+  /**
+   * A URI reference that identifies the specific occurrence of the problem.
+   */
+  instance?: string | undefined;
+  /**
+   * A unique identifier for the request, useful for troubleshooting.
+   */
+  requestId?: string | undefined;
+  /**
+   * A short code indicating the error code returned.
+   */
+  code: UnauthorizedCode;
+  /**
+   * A URI reference that identifies the problem type.
+   */
+  type: string;
+  /**
+   * Legacy error format for backward compatibility.
+   */
   error: UnauthorizedError;
 };
 
 export class Unauthorized extends Error {
+  /**
+   * A short, human-readable summary of the problem type.
+   */
+  title: string;
+  /**
+   * The HTTP status code.
+   */
+  status: number;
+  /**
+   * A detailed explanation specific to this occurrence of the problem, providing context and specifics about what went wrong.
+   */
+  detail: string;
+  /**
+   * A URI reference that identifies the specific occurrence of the problem.
+   */
+  instance?: string | undefined;
+  /**
+   * A unique identifier for the request, useful for troubleshooting.
+   */
+  requestId?: string | undefined;
+  /**
+   * A short code indicating the error code returned.
+   */
+  code: UnauthorizedCode;
+  /**
+   * A URI reference that identifies the problem type.
+   */
+  type: string;
+  /**
+   * Legacy error format for backward compatibility.
+   */
   error: UnauthorizedError;
 
   /** The original data that was passed to this error instance. */
@@ -47,6 +123,13 @@ export class Unauthorized extends Error {
     super(message);
     this.data$ = err;
 
+    this.title = err.title;
+    this.status = err.status;
+    this.detail = err.detail;
+    if (err.instance != null) this.instance = err.instance;
+    if (err.requestId != null) this.requestId = err.requestId;
+    this.code = err.code;
+    this.type = err.type;
     this.error = err.error;
 
     this.name = "Unauthorized";
@@ -75,12 +158,33 @@ export namespace UnauthorizedCode$ {
 }
 
 /** @internal */
+export const UnauthorizedErrorCode$inboundSchema: z.ZodNativeEnum<
+  typeof UnauthorizedErrorCode
+> = z.nativeEnum(UnauthorizedErrorCode);
+
+/** @internal */
+export const UnauthorizedErrorCode$outboundSchema: z.ZodNativeEnum<
+  typeof UnauthorizedErrorCode
+> = UnauthorizedErrorCode$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace UnauthorizedErrorCode$ {
+  /** @deprecated use `UnauthorizedErrorCode$inboundSchema` instead. */
+  export const inboundSchema = UnauthorizedErrorCode$inboundSchema;
+  /** @deprecated use `UnauthorizedErrorCode$outboundSchema` instead. */
+  export const outboundSchema = UnauthorizedErrorCode$outboundSchema;
+}
+
+/** @internal */
 export const UnauthorizedError$inboundSchema: z.ZodType<
   UnauthorizedError,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  code: UnauthorizedCode$inboundSchema,
+  code: UnauthorizedErrorCode$inboundSchema,
   message: z.string(),
 });
 
@@ -96,7 +200,7 @@ export const UnauthorizedError$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   UnauthorizedError
 > = z.object({
-  code: UnauthorizedCode$outboundSchema,
+  code: UnauthorizedErrorCode$outboundSchema,
   message: z.string(),
 });
 
@@ -137,6 +241,13 @@ export const Unauthorized$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  title: z.string(),
+  status: z.number(),
+  detail: z.string(),
+  instance: z.string().optional(),
+  requestId: z.string().optional(),
+  code: UnauthorizedCode$inboundSchema,
+  type: z.string(),
   error: z.lazy(() => UnauthorizedError$inboundSchema),
 })
   .transform((v) => {
@@ -145,6 +256,13 @@ export const Unauthorized$inboundSchema: z.ZodType<
 
 /** @internal */
 export type Unauthorized$Outbound = {
+  title: string;
+  status: number;
+  detail: string;
+  instance?: string | undefined;
+  requestId?: string | undefined;
+  code: string;
+  type: string;
   error: UnauthorizedError$Outbound;
 };
 
@@ -156,6 +274,13 @@ export const Unauthorized$outboundSchema: z.ZodType<
 > = z.instanceof(Unauthorized)
   .transform(v => v.data$)
   .pipe(z.object({
+    title: z.string(),
+    status: z.number(),
+    detail: z.string(),
+    instance: z.string().optional(),
+    requestId: z.string().optional(),
+    code: UnauthorizedCode$outboundSchema,
+    type: z.string(),
     error: z.lazy(() => UnauthorizedError$outboundSchema),
   }));
 

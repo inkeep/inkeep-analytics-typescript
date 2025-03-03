@@ -5,11 +5,11 @@
 ```typescript
 import { Five } from "@inkeep/inkeep-analytics/models/components";
 
-let value: Five = "max";
+let value: Five = "integrationId";
 ```
 
 ## Values
 
 ```typescript
-"max"
+"integrationId"
 ```

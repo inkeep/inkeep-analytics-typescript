@@ -28,7 +28,7 @@ export type SubmitFeedbackRequestBody = {
   id?: string | null | undefined;
   type: Type;
   messageId: string;
-  createdAt?: string | null | undefined;
+  createdAt?: Date | null | undefined;
   reasons?: Array<Reasons> | null | undefined;
   userProperties?: UserProperties | null | undefined;
 };
@@ -181,7 +181,9 @@ export const SubmitFeedbackRequestBody$inboundSchema: z.ZodType<
   id: z.nullable(z.string()).optional(),
   type: Type$inboundSchema,
   messageId: z.string(),
-  createdAt: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$inboundSchema))).optional(),
   userProperties: z.nullable(z.lazy(() => UserProperties$inboundSchema))
     .optional(),
@@ -206,7 +208,7 @@ export const SubmitFeedbackRequestBody$outboundSchema: z.ZodType<
   id: z.nullable(z.string()).optional(),
   type: Type$outboundSchema,
   messageId: z.string(),
-  createdAt: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$outboundSchema))).optional(),
   userProperties: z.nullable(z.lazy(() => UserProperties$outboundSchema))
     .optional(),

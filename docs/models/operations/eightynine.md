@@ -5,11 +5,11 @@
 ```typescript
 import { EightyNine } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: EightyNine = "min_messageId";
+let value: EightyNine = "min_projectId";
 ```
 
 ## Values
 
 ```typescript
-"min_messageId"
+"min_projectId"
 ```

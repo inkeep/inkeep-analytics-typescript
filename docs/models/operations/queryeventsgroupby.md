@@ -6,7 +6,7 @@
 import { QueryEventsGroupBy } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: QueryEventsGroupBy = {
-  field: "type",
+  field: "conversationId",
 };
 ```
 

@@ -37,31 +37,42 @@ const value: components.EventsTimeBasedGroupBySelectionField5 =
 ### `components.EventsTimeBasedGroupBySelectionField6`
 
 ```typescript
-const value: components.EventsTimeBasedGroupBySelectionField6 = "properties";
+const value: components.EventsTimeBasedGroupBySelectionField6 = "projectId";
 ```
 
 ### `components.EventsTimeBasedGroupBySelectionField7`
 
 ```typescript
-const value: components.EventsTimeBasedGroupBySelectionField7 =
-  "userProperties";
+const value: components.EventsTimeBasedGroupBySelectionField7 = "integrationId";
 ```
 
 ### `components.Field8`
 
 ```typescript
-const value: components.Field8 = "messageId";
+const value: components.Field8 = "properties";
 ```
 
 ### `components.Field9`
 
 ```typescript
-const value: components.Field9 = "conversationId";
+const value: components.Field9 = "userProperties";
 ```
 
 ### `components.Field10`
 
 ```typescript
-const value: components.Field10 = "searchQuery";
+const value: components.Field10 = "messageId";
+```
+
+### `components.Field11`
+
+```typescript
+const value: components.Field11 = "conversationId";
+```
+
+### `components.Field12`
+
+```typescript
+const value: components.Field12 = "searchQuery";
 ```
 

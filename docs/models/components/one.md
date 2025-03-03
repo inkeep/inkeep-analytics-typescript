@@ -5,11 +5,11 @@
 ```typescript
 import { One } from "@inkeep/inkeep-analytics/models/components";
 
-let value: One = "sum";
+let value: One = "id";
 ```
 
 ## Values
 
 ```typescript
-"sum"
+"id"
 ```

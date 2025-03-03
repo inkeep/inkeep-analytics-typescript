@@ -1,5 +1,7 @@
 # ErrorT
 
+Legacy error format for backward compatibility.
+
 ## Example Usage
 
 ```typescript
@@ -13,7 +15,7 @@ let value: ErrorT = {
 
 ## Fields
 
-| Field                                            | Type                                             | Required                                         | Description                                      | Example                                          |
-| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
-| `code`                                           | [errors.Code](../../models/errors/code.md)       | :heavy_check_mark:                               | A short code indicating the error code returned. | bad_request                                      |
-| `message`                                        | *string*                                         | :heavy_check_mark:                               | A human readable error message.                  | Bad Request                                      |
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             | Example                                                                                                 |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `code`                                                                                                  | [errors.BadRequestCode](../../models/errors/badrequestcode.md)                                          | :heavy_check_mark:                                                                                      | A short code indicating the error code returned.                                                        | bad_request                                                                                             |
+| `message`                                                                                               | *string*                                                                                                | :heavy_check_mark:                                                                                      | A concise error message suitable for display to end users. May be truncated if the full detail is long. | Bad Request                                                                                             |

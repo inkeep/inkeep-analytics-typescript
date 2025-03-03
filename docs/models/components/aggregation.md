@@ -1,35 +1,15 @@
 # Aggregation
 
-
-## Supported Types
-
-### `components.One`
+## Example Usage
 
 ```typescript
-const value: components.One = "sum";
+import { Aggregation } from "@inkeep/inkeep-analytics/models/components";
+
+let value: Aggregation = "count";
 ```
 
-### `components.Two`
+## Values
 
 ```typescript
-const value: components.Two = "count";
+"sum" | "count" | "avg" | "min" | "max"
 ```
-
-### `components.Three`
-
-```typescript
-const value: components.Three = "avg";
-```
-
-### `components.Four`
-
-```typescript
-const value: components.Four = "min";
-```
-
-### `components.Five`
-
-```typescript
-const value: components.Five = "max";
-```
-

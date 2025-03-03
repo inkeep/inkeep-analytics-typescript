@@ -3,7 +3,6 @@
  */
 
 import { eventsLog } from "../funcs/eventsLog.js";
-import { eventsQueryEvents } from "../funcs/eventsQueryEvents.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
 import * as operations from "../models/operations/index.js";
@@ -19,22 +18,6 @@ export class Events extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.SelectEvent> {
     return unwrapAsync(eventsLog(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Query Events
-   */
-  async queryEvents(
-    security: operations.QueryEventsSecurity,
-    request: operations.QueryEventsRequestBody,
-    options?: RequestOptions,
-  ): Promise<operations.QueryEventsResponseBody> {
-    return unwrapAsync(eventsQueryEvents(
       this,
       security,
       request,

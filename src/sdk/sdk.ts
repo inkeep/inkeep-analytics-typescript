@@ -6,7 +6,6 @@ import { ClientSDK } from "../lib/sdks.js";
 import { Conversation } from "./conversation.js";
 import { Conversations } from "./conversations.js";
 import { Events } from "./events.js";
-import { Export } from "./export.js";
 import { Feedback } from "./feedback.js";
 import { Query } from "./query.js";
 
@@ -34,10 +33,5 @@ export class InkeepAnalytics extends ClientSDK {
   private _query?: Query;
   get query(): Query {
     return (this._query ??= new Query(this._options));
-  }
-
-  private _export?: Export;
-  get export(): Export {
-    return (this._export ??= new Export(this._options));
   }
 }

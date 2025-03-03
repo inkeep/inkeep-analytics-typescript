@@ -15,7 +15,7 @@ export type QueryConversationsSecurity = {
   apiIntegrationKey?: string | undefined;
 };
 
-export type Select =
+export type SelectionSchema =
   | (components.ConversationsSimpleFieldSelection & { type: "field" })
   | (components.ConversationsAggregationSelection & { type: "aggregation" })
   | (components.ConversationsTimeBasedGroupBySelection & { type: "time" });
@@ -584,23 +584,25 @@ export type QueryConversationsRequestBody = {
   groupBy?: Array<GroupBy> | undefined;
   where?: components.ConversationsFilter | undefined;
   orderBy?: Array<OrderBy> | undefined;
+  /**
+   * Notes for the query
+   */
+  notes?: string | undefined;
 };
 
-export const QueryConversationsStatus = {
+export const Status = {
   Ok: "ok",
 } as const;
-export type QueryConversationsStatus = ClosedEnum<
-  typeof QueryConversationsStatus
->;
+export type Status = ClosedEnum<typeof Status>;
 
-export type QueryConversationsResult = {
+export type Result = {
   id?: string | undefined;
-  userMessageCount?: any | undefined;
-  organizationId?: any | undefined;
-  projectId?: any | undefined;
-  integrationId?: any | undefined;
-  firstMessageTime?: any | undefined;
-  type?: any | undefined;
+  userMessageCount?: number | undefined;
+  organizationId?: string | undefined;
+  projectId?: string | undefined;
+  integrationId?: string | undefined;
+  firstMessageTime?: Date | undefined;
+  type?: string | undefined;
   sum?: number | undefined;
   count?: number | undefined;
   avg?: number | undefined;
@@ -671,8 +673,8 @@ export type QueryConversationsResult = {
   maxType?: number | undefined;
 };
 
-export type QueryConversationsData = {
-  result: Array<QueryConversationsResult>;
+export type Data = {
+  result: Array<Result>;
   total: number;
   pageSize: number;
   count: number;
@@ -682,8 +684,8 @@ export type QueryConversationsData = {
  * Query results
  */
 export type QueryConversationsResponseBody = {
-  status: QueryConversationsStatus;
-  data: QueryConversationsData;
+  status: Status;
+  data: Data;
 };
 
 /** @internal */
@@ -754,27 +756,26 @@ export function queryConversationsSecurityFromJSON(
 }
 
 /** @internal */
-export const Select$inboundSchema: z.ZodType<Select, z.ZodTypeDef, unknown> = z
-  .union([
-    components.ConversationsSimpleFieldSelection$inboundSchema.and(
-      z.object({ type: z.literal("field") }).transform((v) => ({
-        type: v.type,
-      })),
-    ),
-    components.ConversationsAggregationSelection$inboundSchema.and(
-      z.object({ type: z.literal("aggregation") }).transform((v) => ({
-        type: v.type,
-      })),
-    ),
-    components.ConversationsTimeBasedGroupBySelection$inboundSchema.and(
-      z.object({ type: z.literal("time") }).transform((v) => ({
-        type: v.type,
-      })),
-    ),
-  ]);
+export const SelectionSchema$inboundSchema: z.ZodType<
+  SelectionSchema,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  components.ConversationsSimpleFieldSelection$inboundSchema.and(
+    z.object({ type: z.literal("field") }).transform((v) => ({ type: v.type })),
+  ),
+  components.ConversationsAggregationSelection$inboundSchema.and(
+    z.object({ type: z.literal("aggregation") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
+  components.ConversationsTimeBasedGroupBySelection$inboundSchema.and(
+    z.object({ type: z.literal("time") }).transform((v) => ({ type: v.type })),
+  ),
+]);
 
 /** @internal */
-export type Select$Outbound =
+export type SelectionSchema$Outbound =
   | (components.ConversationsSimpleFieldSelection$Outbound & { type: "field" })
   | (components.ConversationsAggregationSelection$Outbound & {
     type: "aggregation";
@@ -784,10 +785,10 @@ export type Select$Outbound =
   });
 
 /** @internal */
-export const Select$outboundSchema: z.ZodType<
-  Select$Outbound,
+export const SelectionSchema$outboundSchema: z.ZodType<
+  SelectionSchema$Outbound,
   z.ZodTypeDef,
-  Select
+  SelectionSchema
 > = z.union([
   components.ConversationsSimpleFieldSelection$outboundSchema.and(
     z.object({ type: z.literal("field") }).transform((v) => ({ type: v.type })),
@@ -806,26 +807,28 @@ export const Select$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Select$ {
-  /** @deprecated use `Select$inboundSchema` instead. */
-  export const inboundSchema = Select$inboundSchema;
-  /** @deprecated use `Select$outboundSchema` instead. */
-  export const outboundSchema = Select$outboundSchema;
-  /** @deprecated use `Select$Outbound` instead. */
-  export type Outbound = Select$Outbound;
+export namespace SelectionSchema$ {
+  /** @deprecated use `SelectionSchema$inboundSchema` instead. */
+  export const inboundSchema = SelectionSchema$inboundSchema;
+  /** @deprecated use `SelectionSchema$outboundSchema` instead. */
+  export const outboundSchema = SelectionSchema$outboundSchema;
+  /** @deprecated use `SelectionSchema$Outbound` instead. */
+  export type Outbound = SelectionSchema$Outbound;
 }
 
-export function selectToJSON(select: Select): string {
-  return JSON.stringify(Select$outboundSchema.parse(select));
+export function selectionSchemaToJSON(
+  selectionSchema: SelectionSchema,
+): string {
+  return JSON.stringify(SelectionSchema$outboundSchema.parse(selectionSchema));
 }
 
-export function selectFromJSON(
+export function selectionSchemaFromJSON(
   jsonString: string,
-): SafeParseResult<Select, SDKValidationError> {
+): SafeParseResult<SelectionSchema, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Select$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Select' from JSON`,
+    (x) => SelectionSchema$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SelectionSchema' from JSON`,
   );
 }
 
@@ -3056,6 +3059,7 @@ export const QueryConversationsRequestBody$inboundSchema: z.ZodType<
   groupBy: z.array(z.lazy(() => GroupBy$inboundSchema)).optional(),
   where: components.ConversationsFilter$inboundSchema.optional(),
   orderBy: z.array(z.lazy(() => OrderBy$inboundSchema)).optional(),
+  notes: z.string().optional(),
 });
 
 /** @internal */
@@ -3076,6 +3080,7 @@ export type QueryConversationsRequestBody$Outbound = {
   groupBy?: Array<GroupBy$Outbound> | undefined;
   where?: components.ConversationsFilter$Outbound | undefined;
   orderBy?: Array<OrderBy$Outbound> | undefined;
+  notes?: string | undefined;
 };
 
 /** @internal */
@@ -3106,6 +3111,7 @@ export const QueryConversationsRequestBody$outboundSchema: z.ZodType<
   groupBy: z.array(z.lazy(() => GroupBy$outboundSchema)).optional(),
   where: components.ConversationsFilter$outboundSchema.optional(),
   orderBy: z.array(z.lazy(() => OrderBy$outboundSchema)).optional(),
+  notes: z.string().optional(),
 });
 
 /**
@@ -3142,184 +3148,181 @@ export function queryConversationsRequestBodyFromJSON(
 }
 
 /** @internal */
-export const QueryConversationsStatus$inboundSchema: z.ZodNativeEnum<
-  typeof QueryConversationsStatus
-> = z.nativeEnum(QueryConversationsStatus);
+export const Status$inboundSchema: z.ZodNativeEnum<typeof Status> = z
+  .nativeEnum(Status);
 
 /** @internal */
-export const QueryConversationsStatus$outboundSchema: z.ZodNativeEnum<
-  typeof QueryConversationsStatus
-> = QueryConversationsStatus$inboundSchema;
+export const Status$outboundSchema: z.ZodNativeEnum<typeof Status> =
+  Status$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QueryConversationsStatus$ {
-  /** @deprecated use `QueryConversationsStatus$inboundSchema` instead. */
-  export const inboundSchema = QueryConversationsStatus$inboundSchema;
-  /** @deprecated use `QueryConversationsStatus$outboundSchema` instead. */
-  export const outboundSchema = QueryConversationsStatus$outboundSchema;
+export namespace Status$ {
+  /** @deprecated use `Status$inboundSchema` instead. */
+  export const inboundSchema = Status$inboundSchema;
+  /** @deprecated use `Status$outboundSchema` instead. */
+  export const outboundSchema = Status$outboundSchema;
 }
 
 /** @internal */
-export const QueryConversationsResult$inboundSchema: z.ZodType<
-  QueryConversationsResult,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string().optional(),
-  userMessageCount: z.any().optional(),
-  organizationId: z.any().optional(),
-  projectId: z.any().optional(),
-  integrationId: z.any().optional(),
-  firstMessageTime: z.any().optional(),
-  type: z.any().optional(),
-  sum: z.number().optional(),
-  count: z.number().optional(),
-  avg: z.number().optional(),
-  min: z.number().optional(),
-  max: z.number().optional(),
-  id_hour: z.string().optional(),
-  id_day: z.string().optional(),
-  id_week: z.string().optional(),
-  id_month: z.string().optional(),
-  userMessageCount_hour: z.string().optional(),
-  userMessageCount_day: z.string().optional(),
-  userMessageCount_week: z.string().optional(),
-  userMessageCount_month: z.string().optional(),
-  organizationId_hour: z.string().optional(),
-  organizationId_day: z.string().optional(),
-  organizationId_week: z.string().optional(),
-  organizationId_month: z.string().optional(),
-  projectId_hour: z.string().optional(),
-  projectId_day: z.string().optional(),
-  projectId_week: z.string().optional(),
-  projectId_month: z.string().optional(),
-  integrationId_hour: z.string().optional(),
-  integrationId_day: z.string().optional(),
-  integrationId_week: z.string().optional(),
-  integrationId_month: z.string().optional(),
-  firstMessageTime_hour: z.string().optional(),
-  firstMessageTime_day: z.string().optional(),
-  firstMessageTime_week: z.string().optional(),
-  firstMessageTime_month: z.string().optional(),
-  type_hour: z.string().optional(),
-  type_day: z.string().optional(),
-  type_week: z.string().optional(),
-  type_month: z.string().optional(),
-  sum_id: z.number().optional(),
-  count_id: z.number().optional(),
-  avg_id: z.number().optional(),
-  min_id: z.number().optional(),
-  max_id: z.number().optional(),
-  sum_userMessageCount: z.number().optional(),
-  count_userMessageCount: z.number().optional(),
-  avg_userMessageCount: z.number().optional(),
-  min_userMessageCount: z.number().optional(),
-  max_userMessageCount: z.number().optional(),
-  sum_organizationId: z.number().optional(),
-  count_organizationId: z.number().optional(),
-  avg_organizationId: z.number().optional(),
-  min_organizationId: z.number().optional(),
-  max_organizationId: z.number().optional(),
-  sum_projectId: z.number().optional(),
-  count_projectId: z.number().optional(),
-  avg_projectId: z.number().optional(),
-  min_projectId: z.number().optional(),
-  max_projectId: z.number().optional(),
-  sum_integrationId: z.number().optional(),
-  count_integrationId: z.number().optional(),
-  avg_integrationId: z.number().optional(),
-  min_integrationId: z.number().optional(),
-  max_integrationId: z.number().optional(),
-  sum_firstMessageTime: z.number().optional(),
-  count_firstMessageTime: z.number().optional(),
-  avg_firstMessageTime: z.number().optional(),
-  min_firstMessageTime: z.number().optional(),
-  max_firstMessageTime: z.number().optional(),
-  sum_type: z.number().optional(),
-  count_type: z.number().optional(),
-  avg_type: z.number().optional(),
-  min_type: z.number().optional(),
-  max_type: z.number().optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "id_hour": "idHour",
-    "id_day": "idDay",
-    "id_week": "idWeek",
-    "id_month": "idMonth",
-    "userMessageCount_hour": "userMessageCountHour",
-    "userMessageCount_day": "userMessageCountDay",
-    "userMessageCount_week": "userMessageCountWeek",
-    "userMessageCount_month": "userMessageCountMonth",
-    "organizationId_hour": "organizationIdHour",
-    "organizationId_day": "organizationIdDay",
-    "organizationId_week": "organizationIdWeek",
-    "organizationId_month": "organizationIdMonth",
-    "projectId_hour": "projectIdHour",
-    "projectId_day": "projectIdDay",
-    "projectId_week": "projectIdWeek",
-    "projectId_month": "projectIdMonth",
-    "integrationId_hour": "integrationIdHour",
-    "integrationId_day": "integrationIdDay",
-    "integrationId_week": "integrationIdWeek",
-    "integrationId_month": "integrationIdMonth",
-    "firstMessageTime_hour": "firstMessageTimeHour",
-    "firstMessageTime_day": "firstMessageTimeDay",
-    "firstMessageTime_week": "firstMessageTimeWeek",
-    "firstMessageTime_month": "firstMessageTimeMonth",
-    "type_hour": "typeHour",
-    "type_day": "typeDay",
-    "type_week": "typeWeek",
-    "type_month": "typeMonth",
-    "sum_id": "sumId",
-    "count_id": "countId",
-    "avg_id": "avgId",
-    "min_id": "minId",
-    "max_id": "maxId",
-    "sum_userMessageCount": "sumUserMessageCount",
-    "count_userMessageCount": "countUserMessageCount",
-    "avg_userMessageCount": "avgUserMessageCount",
-    "min_userMessageCount": "minUserMessageCount",
-    "max_userMessageCount": "maxUserMessageCount",
-    "sum_organizationId": "sumOrganizationId",
-    "count_organizationId": "countOrganizationId",
-    "avg_organizationId": "avgOrganizationId",
-    "min_organizationId": "minOrganizationId",
-    "max_organizationId": "maxOrganizationId",
-    "sum_projectId": "sumProjectId",
-    "count_projectId": "countProjectId",
-    "avg_projectId": "avgProjectId",
-    "min_projectId": "minProjectId",
-    "max_projectId": "maxProjectId",
-    "sum_integrationId": "sumIntegrationId",
-    "count_integrationId": "countIntegrationId",
-    "avg_integrationId": "avgIntegrationId",
-    "min_integrationId": "minIntegrationId",
-    "max_integrationId": "maxIntegrationId",
-    "sum_firstMessageTime": "sumFirstMessageTime",
-    "count_firstMessageTime": "countFirstMessageTime",
-    "avg_firstMessageTime": "avgFirstMessageTime",
-    "min_firstMessageTime": "minFirstMessageTime",
-    "max_firstMessageTime": "maxFirstMessageTime",
-    "sum_type": "sumType",
-    "count_type": "countType",
-    "avg_type": "avgType",
-    "min_type": "minType",
-    "max_type": "maxType",
+export const Result$inboundSchema: z.ZodType<Result, z.ZodTypeDef, unknown> = z
+  .object({
+    id: z.string().optional(),
+    userMessageCount: z.number().optional(),
+    organizationId: z.string().optional(),
+    projectId: z.string().optional(),
+    integrationId: z.string().optional(),
+    firstMessageTime: z.string().datetime({ offset: true }).transform(v =>
+      new Date(v)
+    ).optional(),
+    type: z.string().optional(),
+    sum: z.number().optional(),
+    count: z.number().optional(),
+    avg: z.number().optional(),
+    min: z.number().optional(),
+    max: z.number().optional(),
+    id_hour: z.string().optional(),
+    id_day: z.string().optional(),
+    id_week: z.string().optional(),
+    id_month: z.string().optional(),
+    userMessageCount_hour: z.string().optional(),
+    userMessageCount_day: z.string().optional(),
+    userMessageCount_week: z.string().optional(),
+    userMessageCount_month: z.string().optional(),
+    organizationId_hour: z.string().optional(),
+    organizationId_day: z.string().optional(),
+    organizationId_week: z.string().optional(),
+    organizationId_month: z.string().optional(),
+    projectId_hour: z.string().optional(),
+    projectId_day: z.string().optional(),
+    projectId_week: z.string().optional(),
+    projectId_month: z.string().optional(),
+    integrationId_hour: z.string().optional(),
+    integrationId_day: z.string().optional(),
+    integrationId_week: z.string().optional(),
+    integrationId_month: z.string().optional(),
+    firstMessageTime_hour: z.string().optional(),
+    firstMessageTime_day: z.string().optional(),
+    firstMessageTime_week: z.string().optional(),
+    firstMessageTime_month: z.string().optional(),
+    type_hour: z.string().optional(),
+    type_day: z.string().optional(),
+    type_week: z.string().optional(),
+    type_month: z.string().optional(),
+    sum_id: z.number().optional(),
+    count_id: z.number().optional(),
+    avg_id: z.number().optional(),
+    min_id: z.number().optional(),
+    max_id: z.number().optional(),
+    sum_userMessageCount: z.number().optional(),
+    count_userMessageCount: z.number().optional(),
+    avg_userMessageCount: z.number().optional(),
+    min_userMessageCount: z.number().optional(),
+    max_userMessageCount: z.number().optional(),
+    sum_organizationId: z.number().optional(),
+    count_organizationId: z.number().optional(),
+    avg_organizationId: z.number().optional(),
+    min_organizationId: z.number().optional(),
+    max_organizationId: z.number().optional(),
+    sum_projectId: z.number().optional(),
+    count_projectId: z.number().optional(),
+    avg_projectId: z.number().optional(),
+    min_projectId: z.number().optional(),
+    max_projectId: z.number().optional(),
+    sum_integrationId: z.number().optional(),
+    count_integrationId: z.number().optional(),
+    avg_integrationId: z.number().optional(),
+    min_integrationId: z.number().optional(),
+    max_integrationId: z.number().optional(),
+    sum_firstMessageTime: z.number().optional(),
+    count_firstMessageTime: z.number().optional(),
+    avg_firstMessageTime: z.number().optional(),
+    min_firstMessageTime: z.number().optional(),
+    max_firstMessageTime: z.number().optional(),
+    sum_type: z.number().optional(),
+    count_type: z.number().optional(),
+    avg_type: z.number().optional(),
+    min_type: z.number().optional(),
+    max_type: z.number().optional(),
+  }).transform((v) => {
+    return remap$(v, {
+      "id_hour": "idHour",
+      "id_day": "idDay",
+      "id_week": "idWeek",
+      "id_month": "idMonth",
+      "userMessageCount_hour": "userMessageCountHour",
+      "userMessageCount_day": "userMessageCountDay",
+      "userMessageCount_week": "userMessageCountWeek",
+      "userMessageCount_month": "userMessageCountMonth",
+      "organizationId_hour": "organizationIdHour",
+      "organizationId_day": "organizationIdDay",
+      "organizationId_week": "organizationIdWeek",
+      "organizationId_month": "organizationIdMonth",
+      "projectId_hour": "projectIdHour",
+      "projectId_day": "projectIdDay",
+      "projectId_week": "projectIdWeek",
+      "projectId_month": "projectIdMonth",
+      "integrationId_hour": "integrationIdHour",
+      "integrationId_day": "integrationIdDay",
+      "integrationId_week": "integrationIdWeek",
+      "integrationId_month": "integrationIdMonth",
+      "firstMessageTime_hour": "firstMessageTimeHour",
+      "firstMessageTime_day": "firstMessageTimeDay",
+      "firstMessageTime_week": "firstMessageTimeWeek",
+      "firstMessageTime_month": "firstMessageTimeMonth",
+      "type_hour": "typeHour",
+      "type_day": "typeDay",
+      "type_week": "typeWeek",
+      "type_month": "typeMonth",
+      "sum_id": "sumId",
+      "count_id": "countId",
+      "avg_id": "avgId",
+      "min_id": "minId",
+      "max_id": "maxId",
+      "sum_userMessageCount": "sumUserMessageCount",
+      "count_userMessageCount": "countUserMessageCount",
+      "avg_userMessageCount": "avgUserMessageCount",
+      "min_userMessageCount": "minUserMessageCount",
+      "max_userMessageCount": "maxUserMessageCount",
+      "sum_organizationId": "sumOrganizationId",
+      "count_organizationId": "countOrganizationId",
+      "avg_organizationId": "avgOrganizationId",
+      "min_organizationId": "minOrganizationId",
+      "max_organizationId": "maxOrganizationId",
+      "sum_projectId": "sumProjectId",
+      "count_projectId": "countProjectId",
+      "avg_projectId": "avgProjectId",
+      "min_projectId": "minProjectId",
+      "max_projectId": "maxProjectId",
+      "sum_integrationId": "sumIntegrationId",
+      "count_integrationId": "countIntegrationId",
+      "avg_integrationId": "avgIntegrationId",
+      "min_integrationId": "minIntegrationId",
+      "max_integrationId": "maxIntegrationId",
+      "sum_firstMessageTime": "sumFirstMessageTime",
+      "count_firstMessageTime": "countFirstMessageTime",
+      "avg_firstMessageTime": "avgFirstMessageTime",
+      "min_firstMessageTime": "minFirstMessageTime",
+      "max_firstMessageTime": "maxFirstMessageTime",
+      "sum_type": "sumType",
+      "count_type": "countType",
+      "avg_type": "avgType",
+      "min_type": "minType",
+      "max_type": "maxType",
+    });
   });
-});
 
 /** @internal */
-export type QueryConversationsResult$Outbound = {
+export type Result$Outbound = {
   id?: string | undefined;
-  userMessageCount?: any | undefined;
-  organizationId?: any | undefined;
-  projectId?: any | undefined;
-  integrationId?: any | undefined;
-  firstMessageTime?: any | undefined;
-  type?: any | undefined;
+  userMessageCount?: number | undefined;
+  organizationId?: string | undefined;
+  projectId?: string | undefined;
+  integrationId?: string | undefined;
+  firstMessageTime?: string | undefined;
+  type?: string | undefined;
   sum?: number | undefined;
   count?: number | undefined;
   avg?: number | undefined;
@@ -3391,18 +3394,18 @@ export type QueryConversationsResult$Outbound = {
 };
 
 /** @internal */
-export const QueryConversationsResult$outboundSchema: z.ZodType<
-  QueryConversationsResult$Outbound,
+export const Result$outboundSchema: z.ZodType<
+  Result$Outbound,
   z.ZodTypeDef,
-  QueryConversationsResult
+  Result
 > = z.object({
   id: z.string().optional(),
-  userMessageCount: z.any().optional(),
-  organizationId: z.any().optional(),
-  projectId: z.any().optional(),
-  integrationId: z.any().optional(),
-  firstMessageTime: z.any().optional(),
-  type: z.any().optional(),
+  userMessageCount: z.number().optional(),
+  organizationId: z.string().optional(),
+  projectId: z.string().optional(),
+  integrationId: z.string().optional(),
+  firstMessageTime: z.date().transform(v => v.toISOString()).optional(),
+  type: z.string().optional(),
   sum: z.number().optional(),
   count: z.number().optional(),
   avg: z.number().optional(),
@@ -3543,93 +3546,79 @@ export const QueryConversationsResult$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QueryConversationsResult$ {
-  /** @deprecated use `QueryConversationsResult$inboundSchema` instead. */
-  export const inboundSchema = QueryConversationsResult$inboundSchema;
-  /** @deprecated use `QueryConversationsResult$outboundSchema` instead. */
-  export const outboundSchema = QueryConversationsResult$outboundSchema;
-  /** @deprecated use `QueryConversationsResult$Outbound` instead. */
-  export type Outbound = QueryConversationsResult$Outbound;
+export namespace Result$ {
+  /** @deprecated use `Result$inboundSchema` instead. */
+  export const inboundSchema = Result$inboundSchema;
+  /** @deprecated use `Result$outboundSchema` instead. */
+  export const outboundSchema = Result$outboundSchema;
+  /** @deprecated use `Result$Outbound` instead. */
+  export type Outbound = Result$Outbound;
 }
 
-export function queryConversationsResultToJSON(
-  queryConversationsResult: QueryConversationsResult,
-): string {
-  return JSON.stringify(
-    QueryConversationsResult$outboundSchema.parse(queryConversationsResult),
-  );
+export function resultToJSON(result: Result): string {
+  return JSON.stringify(Result$outboundSchema.parse(result));
 }
 
-export function queryConversationsResultFromJSON(
+export function resultFromJSON(
   jsonString: string,
-): SafeParseResult<QueryConversationsResult, SDKValidationError> {
+): SafeParseResult<Result, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => QueryConversationsResult$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryConversationsResult' from JSON`,
+    (x) => Result$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Result' from JSON`,
   );
 }
 
 /** @internal */
-export const QueryConversationsData$inboundSchema: z.ZodType<
-  QueryConversationsData,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  result: z.array(z.lazy(() => QueryConversationsResult$inboundSchema)),
-  total: z.number(),
-  pageSize: z.number(),
-  count: z.number(),
-});
+export const Data$inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z
+  .object({
+    result: z.array(z.lazy(() => Result$inboundSchema)),
+    total: z.number(),
+    pageSize: z.number(),
+    count: z.number(),
+  });
 
 /** @internal */
-export type QueryConversationsData$Outbound = {
-  result: Array<QueryConversationsResult$Outbound>;
+export type Data$Outbound = {
+  result: Array<Result$Outbound>;
   total: number;
   pageSize: number;
   count: number;
 };
 
 /** @internal */
-export const QueryConversationsData$outboundSchema: z.ZodType<
-  QueryConversationsData$Outbound,
-  z.ZodTypeDef,
-  QueryConversationsData
-> = z.object({
-  result: z.array(z.lazy(() => QueryConversationsResult$outboundSchema)),
-  total: z.number(),
-  pageSize: z.number(),
-  count: z.number(),
-});
+export const Data$outboundSchema: z.ZodType<Data$Outbound, z.ZodTypeDef, Data> =
+  z.object({
+    result: z.array(z.lazy(() => Result$outboundSchema)),
+    total: z.number(),
+    pageSize: z.number(),
+    count: z.number(),
+  });
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QueryConversationsData$ {
-  /** @deprecated use `QueryConversationsData$inboundSchema` instead. */
-  export const inboundSchema = QueryConversationsData$inboundSchema;
-  /** @deprecated use `QueryConversationsData$outboundSchema` instead. */
-  export const outboundSchema = QueryConversationsData$outboundSchema;
-  /** @deprecated use `QueryConversationsData$Outbound` instead. */
-  export type Outbound = QueryConversationsData$Outbound;
+export namespace Data$ {
+  /** @deprecated use `Data$inboundSchema` instead. */
+  export const inboundSchema = Data$inboundSchema;
+  /** @deprecated use `Data$outboundSchema` instead. */
+  export const outboundSchema = Data$outboundSchema;
+  /** @deprecated use `Data$Outbound` instead. */
+  export type Outbound = Data$Outbound;
 }
 
-export function queryConversationsDataToJSON(
-  queryConversationsData: QueryConversationsData,
-): string {
-  return JSON.stringify(
-    QueryConversationsData$outboundSchema.parse(queryConversationsData),
-  );
+export function dataToJSON(data: Data): string {
+  return JSON.stringify(Data$outboundSchema.parse(data));
 }
 
-export function queryConversationsDataFromJSON(
+export function dataFromJSON(
   jsonString: string,
-): SafeParseResult<QueryConversationsData, SDKValidationError> {
+): SafeParseResult<Data, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => QueryConversationsData$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryConversationsData' from JSON`,
+    (x) => Data$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Data' from JSON`,
   );
 }
 
@@ -3639,14 +3628,14 @@ export const QueryConversationsResponseBody$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  status: QueryConversationsStatus$inboundSchema,
-  data: z.lazy(() => QueryConversationsData$inboundSchema),
+  status: Status$inboundSchema,
+  data: z.lazy(() => Data$inboundSchema),
 });
 
 /** @internal */
 export type QueryConversationsResponseBody$Outbound = {
   status: string;
-  data: QueryConversationsData$Outbound;
+  data: Data$Outbound;
 };
 
 /** @internal */
@@ -3655,8 +3644,8 @@ export const QueryConversationsResponseBody$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   QueryConversationsResponseBody
 > = z.object({
-  status: QueryConversationsStatus$outboundSchema,
-  data: z.lazy(() => QueryConversationsData$outboundSchema),
+  status: Status$outboundSchema,
+  data: z.lazy(() => Data$outboundSchema),
 });
 
 /**

@@ -1,5 +1,7 @@
 # ForbiddenError
 
+Legacy error format for backward compatibility.
+
 ## Example Usage
 
 ```typescript
@@ -13,7 +15,7 @@ let value: ForbiddenError = {
 
 ## Fields
 
-| Field                                                        | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `code`                                                       | [errors.ForbiddenCode](../../models/errors/forbiddencode.md) | :heavy_check_mark:                                           | A short code indicating the error code returned.             | forbidden                                                    |
-| `message`                                                    | *string*                                                     | :heavy_check_mark:                                           | A human readable error message.                              | Forbidden                                                    |
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             | Example                                                                                                 |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `code`                                                                                                  | [errors.ForbiddenErrorCode](../../models/errors/forbiddenerrorcode.md)                                  | :heavy_check_mark:                                                                                      | A short code indicating the error code returned.                                                        | forbidden                                                                                               |
+| `message`                                                                                               | *string*                                                                                                | :heavy_check_mark:                                                                                      | A concise error message suitable for display to end users. May be truncated if the full detail is long. | Forbidden                                                                                               |

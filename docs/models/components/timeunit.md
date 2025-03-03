@@ -1,31 +1,15 @@
 # TimeUnit
 
-Available Time Units
-
-
-## Supported Types
-
-### `components.TimeUnit1`
+## Example Usage
 
 ```typescript
-const value: components.TimeUnit1 = "hour";
+import { TimeUnit } from "@inkeep/inkeep-analytics/models/components";
+
+let value: TimeUnit = "hour";
 ```
 
-### `components.TimeUnit2`
+## Values
 
 ```typescript
-const value: components.TimeUnit2 = "day";
+"hour" | "day" | "week" | "month"
 ```
-
-### `components.TimeUnit3`
-
-```typescript
-const value: components.TimeUnit3 = "week";
-```
-
-### `components.TimeUnit4`
-
-```typescript
-const value: components.TimeUnit4 = "month";
-```
-

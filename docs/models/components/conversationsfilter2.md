@@ -12,6 +12,6 @@ let value: ConversationsFilter2 = {
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `and`              | *components.And*[] | :heavy_check_mark: | And condition      |
+| Field                                 | Type                                  | Required                              | Description                           |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| `and`                                 | *components.ConversationsFilterAnd*[] | :heavy_check_mark:                    | And condition                         |

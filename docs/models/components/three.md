@@ -5,11 +5,11 @@
 ```typescript
 import { Three } from "@inkeep/inkeep-analytics/models/components";
 
-let value: Three = "avg";
+let value: Three = "organizationId";
 ```
 
 ## Values
 
 ```typescript
-"avg"
+"organizationId"
 ```

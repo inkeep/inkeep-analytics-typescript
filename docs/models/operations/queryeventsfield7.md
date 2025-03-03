@@ -5,11 +5,11 @@
 ```typescript
 import { QueryEventsField7 } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: QueryEventsField7 = "userProperties";
+let value: QueryEventsField7 = "integrationId";
 ```
 
 ## Values
 
 ```typescript
-"userProperties"
+"integrationId"
 ```

@@ -74,8 +74,58 @@ yarn add @inkeep/inkeep-analytics zod
 ```
 
 > [!NOTE]
-> This package is published as an ES Module (ESM) only. For applications using
-> CommonJS, use `await import("@inkeep/inkeep-analytics")` to import and use this package.
+> This package is published with CommonJS and ES Modules (ESM) support.
+
+
+### Model Context Protocol (MCP) Server
+
+This SDK is also an installable MCP server where the various SDK methods are
+exposed as tools that can be invoked by AI applications.
+
+> Node.js v20 or greater is required to run the MCP server.
+
+<details>
+<summary>Claude installation steps</summary>
+
+Add the following server definition to your `claude_desktop_config.json` file:
+
+```json
+{
+  "mcpServers": {
+    "InkeepAnalytics": {
+      "command": "npx",
+      "args": [
+        "-y", "--package", "@inkeep/inkeep-analytics",
+        "--",
+        "mcp", "start",
+        "--api-integration-key", "..."
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary>Cursor installation steps</summary>
+
+Go to `Cursor Settings > Features > MCP Servers > Add new MCP server` and use the following settings:
+
+- Name: InkeepAnalytics
+- Type: `command`
+- Command:
+```sh
+npx -y --package @inkeep/inkeep-analytics -- mcp start --api-integration-key ... 
+```
+
+</details>
+
+For a full list of server arguments, run:
+
+```sh
+npx -y --package @inkeep/inkeep-analytics -- mcp start --help
+```
 <!-- End SDK Installation [installation] -->
 
 <!-- Start Requirements [requirements] -->
@@ -154,9 +204,7 @@ import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 const inkeepAnalytics = new InkeepAnalytics();
 
 async function run() {
-  const result = await inkeepAnalytics.conversations.log({
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
+  const result = await inkeepAnalytics.conversations.log({}, {
     type: "support_ticket",
     messages: [
       {
@@ -190,16 +238,10 @@ run();
 * [list](docs/sdks/conversations/README.md#list) - Get All Conversations
 * [get](docs/sdks/conversations/README.md#get) - Get Conversation
 * [delete](docs/sdks/conversations/README.md#delete) - Delete Conversation
-* [conversations](docs/sdks/conversations/README.md#conversations) - Query Conversations
 
 ### [events](docs/sdks/events/README.md)
 
 * [log](docs/sdks/events/README.md#log) - Log Event
-* [queryEvents](docs/sdks/events/README.md#queryevents) - Query Events
-
-### [export](docs/sdks/export/README.md)
-
-* [export](docs/sdks/export/README.md#export) - Query Export
 
 ### [feedback](docs/sdks/feedback/README.md)
 
@@ -211,8 +253,8 @@ run();
 
 * [conversations](docs/sdks/query/README.md#conversations) - Query Conversations
 * [queryEvents](docs/sdks/query/README.md#queryevents) - Query Events
-* [table](docs/sdks/query/README.md#table) - Query
-* [export](docs/sdks/query/README.md#export) - Query Export
+* [querySemanticThreads](docs/sdks/query/README.md#querysemanticthreads) - Query Semantic Threads
+* [exportSemanticThreadsQueryResults](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -233,20 +275,17 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 <summary>Available standalone functions</summary>
 
 - [`conversationGetConversationByExternalId`](docs/sdks/conversation/README.md#getconversationbyexternalid) - Get Conversation by External ID
-- [`conversationsConversations`](docs/sdks/conversations/README.md#conversations) - Query Conversations
 - [`conversationsDelete`](docs/sdks/conversations/README.md#delete) - Delete Conversation
 - [`conversationsGet`](docs/sdks/conversations/README.md#get) - Get Conversation
 - [`conversationsList`](docs/sdks/conversations/README.md#list) - Get All Conversations
 - [`conversationsLog`](docs/sdks/conversations/README.md#log) - Log Conversation
 - [`eventsLog`](docs/sdks/events/README.md#log) - Log Event
-- [`eventsQueryEvents`](docs/sdks/events/README.md#queryevents) - Query Events
-- [`exportExport`](docs/sdks/export/README.md#export) - Query Export
 - [`feedbackList`](docs/sdks/feedback/README.md#list) - Get All Feedback
 - [`feedbackSubmit`](docs/sdks/feedback/README.md#submit) - Submit Feedback
 - [`queryConversations`](docs/sdks/query/README.md#conversations) - Query Conversations
-- [`queryExport`](docs/sdks/query/README.md#export) - Query Export
+- [`queryExportSemanticThreadsQueryResults`](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 - [`queryQueryEvents`](docs/sdks/query/README.md#queryevents) - Query Events
-- [`queryTable`](docs/sdks/query/README.md#table) - Query
+- [`queryQuerySemanticThreads`](docs/sdks/query/README.md#querysemanticthreads) - Query Semantic Threads
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -336,14 +375,14 @@ run();
 
 Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `log` method may throw the following errors:
 
-| Error Type                 | Status Code | Content Type     |
-| -------------------------- | ----------- | ---------------- |
-| errors.BadRequest          | 400         | application/json |
-| errors.Unauthorized        | 401         | application/json |
-| errors.Forbidden           | 403         | application/json |
-| errors.UnprocessableEntity | 422         | application/json |
-| errors.InternalServerError | 500         | application/json |
-| errors.APIError            | 4XX, 5XX    | \*/\*            |
+| Error Type                 | Status Code | Content Type             |
+| -------------------------- | ----------- | ------------------------ |
+| errors.BadRequest          | 400         | application/problem+json |
+| errors.Unauthorized        | 401         | application/problem+json |
+| errors.Forbidden           | 403         | application/problem+json |
+| errors.UnprocessableEntity | 422         | application/problem+json |
+| errors.InternalServerError | 500         | application/problem+json |
+| errors.APIError            | 4XX, 5XX    | \*/\*                    |
 
 If the method throws an error and it is not captured by the known errors, it will default to throwing a `APIError`.
 
@@ -442,7 +481,7 @@ In some rare cases, the SDK can fail to get a response from the server or even m
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
+The default server can be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 

@@ -6,16 +6,16 @@
 import { Condition } from "@inkeep/inkeep-analytics/models/components";
 
 let value: Condition = {
-  field: "organizationId",
-  operator: "notIn",
-  value: false,
+  field: "integrationId",
+  operator: "gt",
+  value: "<value>",
 };
 ```
 
 ## Fields
 
-| Field                                           | Type                                            | Required                                        | Description                                     |
-| ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- | ----------------------------------------------- |
-| `field`                                         | *components.ConversationsFilterField*           | :heavy_check_mark:                              | N/A                                             |
-| `operator`                                      | *components.ConversationsFilterSelectOperators* | :heavy_check_mark:                              | Available Select Operators                      |
-| `value`                                         | *components.ConversationsFilterValue*           | :heavy_check_mark:                              | N/A                                             |
+| Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `field`                                                                  | [components.ConditiionField](../../models/components/conditiionfield.md) | :heavy_check_mark:                                                       | N/A                                                                      |
+| `operator`                                                               | [components.FilterOperator](../../models/components/filteroperator.md)   | :heavy_check_mark:                                                       | Available Select Operators                                               |
+| `value`                                                                  | *components.ConditionValue*                                              | :heavy_check_mark:                                                       | The value to compare the field against                                   |

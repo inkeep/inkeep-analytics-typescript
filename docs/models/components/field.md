@@ -3,34 +3,34 @@
 
 ## Supported Types
 
-### `components.Field1`
+### `components.One`
 
 ```typescript
-const value: components.Field1 = "id";
+const value: components.One = "id";
 ```
 
-### `components.Field2`
+### `components.Two`
 
 ```typescript
-const value: components.Field2 = "userMessageCount";
+const value: components.Two = "userMessageCount";
 ```
 
-### `components.Field3`
+### `components.Three`
 
 ```typescript
-const value: components.Field3 = "organizationId";
+const value: components.Three = "organizationId";
 ```
 
-### `components.Field4`
+### `components.Four`
 
 ```typescript
-const value: components.Field4 = "projectId";
+const value: components.Four = "projectId";
 ```
 
-### `components.Field5`
+### `components.Five`
 
 ```typescript
-const value: components.Field5 = "integrationId";
+const value: components.Five = "integrationId";
 ```
 
 ### `components.Six`

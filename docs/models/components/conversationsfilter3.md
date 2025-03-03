@@ -12,6 +12,6 @@ let value: ConversationsFilter3 = {
 
 ## Fields
 
-| Field              | Type               | Required           | Description        |
-| ------------------ | ------------------ | ------------------ | ------------------ |
-| `or`               | *components.Or*[]  | :heavy_check_mark: | Or condition       |
+| Field                                | Type                                 | Required                             | Description                          |
+| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
+| `or`                                 | *components.ConversationsFilterOr*[] | :heavy_check_mark:                   | Or condition                         |
