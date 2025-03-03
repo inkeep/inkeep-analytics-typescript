@@ -13,16 +13,16 @@ let value: QueryConversationsResponseBody = {
     result: [
       {},
     ],
-    total: 1832.8,
-    pageSize: 1448.47,
-    count: 4880.56,
+    total: 3381.59,
+    pageSize: 9615.71,
+    count: 2317.01,
   },
 };
 ```
 
 ## Fields
 
-| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `status`                                                                                   | [operations.QueryConversationsStatus](../../models/operations/queryconversationsstatus.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |
-| `data`                                                                                     | [operations.QueryConversationsData](../../models/operations/queryconversationsdata.md)     | :heavy_check_mark:                                                                         | N/A                                                                                        |
+| Field                                                  | Type                                                   | Required                                               | Description                                            |
+| ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ | ------------------------------------------------------ |
+| `status`                                               | [operations.Status](../../models/operations/status.md) | :heavy_check_mark:                                     | N/A                                                    |
+| `data`                                                 | [operations.Data](../../models/operations/data.md)     | :heavy_check_mark:                                     | N/A                                                    |

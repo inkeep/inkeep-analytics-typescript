@@ -3,38 +3,34 @@
 
 ## Supported Types
 
-### `components.ConversationsTimeBasedGroupBySelectionField1`
+### `components.Field1`
 
 ```typescript
-const value: components.ConversationsTimeBasedGroupBySelectionField1 = "id";
+const value: components.Field1 = "id";
 ```
 
-### `components.ConversationsTimeBasedGroupBySelectionField2`
+### `components.Field2`
 
 ```typescript
-const value: components.ConversationsTimeBasedGroupBySelectionField2 =
-  "userMessageCount";
+const value: components.Field2 = "userMessageCount";
 ```
 
-### `components.ConversationsTimeBasedGroupBySelectionField3`
+### `components.Field3`
 
 ```typescript
-const value: components.ConversationsTimeBasedGroupBySelectionField3 =
-  "organizationId";
+const value: components.Field3 = "organizationId";
 ```
 
-### `components.ConversationsTimeBasedGroupBySelectionField4`
+### `components.Field4`
 
 ```typescript
-const value: components.ConversationsTimeBasedGroupBySelectionField4 =
-  "projectId";
+const value: components.Field4 = "projectId";
 ```
 
-### `components.ConversationsTimeBasedGroupBySelectionField5`
+### `components.Field5`
 
 ```typescript
-const value: components.ConversationsTimeBasedGroupBySelectionField5 =
-  "integrationId";
+const value: components.Field5 = "integrationId";
 ```
 
 ### `components.Field6`

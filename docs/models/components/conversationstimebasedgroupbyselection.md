@@ -7,8 +7,8 @@ import { ConversationsTimeBasedGroupBySelection } from "@inkeep/inkeep-analytics
 
 let value: ConversationsTimeBasedGroupBySelection = {
   type: "time",
-  timeUnit: "day",
-  field: "integrationId",
+  timeUnit: "hour",
+  field: "type",
 };
 ```
 
@@ -17,5 +17,5 @@ let value: ConversationsTimeBasedGroupBySelection = {
 | Field                                                                                                                          | Type                                                                                                                           | Required                                                                                                                       | Description                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
 | `type`                                                                                                                         | [components.ConversationsTimeBasedGroupBySelectionType](../../models/components/conversationstimebasedgroupbyselectiontype.md) | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |
-| `timeUnit`                                                                                                                     | *components.TimeUnit*                                                                                                          | :heavy_check_mark:                                                                                                             | Available Time Units                                                                                                           |
+| `timeUnit`                                                                                                                     | [components.TimeUnit](../../models/components/timeunit.md)                                                                     | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |
 | `field`                                                                                                                        | *components.ConversationsTimeBasedGroupBySelectionField*                                                                       | :heavy_check_mark:                                                                                                             | N/A                                                                                                                            |

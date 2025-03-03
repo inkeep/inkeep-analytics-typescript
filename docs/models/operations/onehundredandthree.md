@@ -5,11 +5,11 @@
 ```typescript
 import { OneHundredAndThree } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: OneHundredAndThree = "thirdPartyEntities_month";
+let value: OneHundredAndThree = "avg_userProperties";
 ```
 
 ## Values
 
 ```typescript
-"thirdPartyEntities_month"
+"avg_userProperties"
 ```

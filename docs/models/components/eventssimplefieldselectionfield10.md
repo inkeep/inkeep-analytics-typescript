@@ -5,11 +5,11 @@
 ```typescript
 import { EventsSimpleFieldSelectionField10 } from "@inkeep/inkeep-analytics/models/components";
 
-let value: EventsSimpleFieldSelectionField10 = "searchQuery";
+let value: EventsSimpleFieldSelectionField10 = "messageId";
 ```
 
 ## Values
 
 ```typescript
-"searchQuery"
+"messageId"
 ```

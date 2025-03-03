@@ -5,11 +5,11 @@
 ```typescript
 import { Field70 } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: Field70 = "max_createdAt";
+let value: Field70 = "max_id";
 ```
 
 ## Values
 
 ```typescript
-"max_createdAt"
+"max_id"
 ```

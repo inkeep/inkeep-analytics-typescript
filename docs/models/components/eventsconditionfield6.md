@@ -5,11 +5,11 @@
 ```typescript
 import { EventsConditionField6 } from "@inkeep/inkeep-analytics/models/components";
 
-let value: EventsConditionField6 = "properties";
+let value: EventsConditionField6 = "projectId";
 ```
 
 ## Values
 
 ```typescript
-"properties"
+"projectId"
 ```

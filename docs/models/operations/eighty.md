@@ -5,11 +5,11 @@
 ```typescript
 import { Eighty } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: Eighty = "max_properties";
+let value: Eighty = "max_createdAt";
 ```
 
 ## Values
 
 ```typescript
-"max_properties"
+"max_createdAt"
 ```

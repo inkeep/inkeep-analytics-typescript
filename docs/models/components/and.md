@@ -1,19 +1,19 @@
 # And
 
+AND operator
 
-## Supported Types
-
-### `components.ConversationsFilter`
+## Example Usage
 
 ```typescript
-const value: components.ConversationsFilter = {
-  condition: {
-    field: "type",
-    operator: "lt",
-    value: [
-      "<value>",
-    ],
-  },
+import { And } from "@inkeep/inkeep-analytics/models/components";
+
+let value: And = {
+  and: [],
 };
 ```
 
+## Fields
+
+| Field                 | Type                  | Required              | Description           |
+| --------------------- | --------------------- | --------------------- | --------------------- |
+| `and`                 | *components.Andand*[] | :heavy_check_mark:    | And condition         |

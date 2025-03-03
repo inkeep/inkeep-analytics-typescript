@@ -15,33 +15,43 @@ export type QueryEventsSecurity = {
   apiIntegrationKey?: string | undefined;
 };
 
-export type QueryEventsSelect =
+export type EventsSelection =
   | (components.EventsSimpleFieldSelection & { type: "field" })
   | (components.EventsAggregationSelection & { type: "aggregation" })
   | (components.EventsTimeBasedGroupBySelection & { type: "time" });
 
-export const Field10 = {
+export const Field12 = {
   SearchQuery: "searchQuery",
+} as const;
+export type Field12 = ClosedEnum<typeof Field12>;
+
+export const Field11 = {
+  ConversationId: "conversationId",
+} as const;
+export type Field11 = ClosedEnum<typeof Field11>;
+
+export const Field10 = {
+  MessageId: "messageId",
 } as const;
 export type Field10 = ClosedEnum<typeof Field10>;
 
 export const Field9 = {
-  ConversationId: "conversationId",
+  UserProperties: "userProperties",
 } as const;
 export type Field9 = ClosedEnum<typeof Field9>;
 
 export const Field8 = {
-  MessageId: "messageId",
+  Properties: "properties",
 } as const;
 export type Field8 = ClosedEnum<typeof Field8>;
 
 export const QueryEventsField7 = {
-  UserProperties: "userProperties",
+  IntegrationId: "integrationId",
 } as const;
 export type QueryEventsField7 = ClosedEnum<typeof QueryEventsField7>;
 
 export const QueryEventsField6 = {
-  Properties: "properties",
+  ProjectId: "projectId",
 } as const;
 export type QueryEventsField6 = ClosedEnum<typeof QueryEventsField6>;
 
@@ -80,7 +90,9 @@ export type QueryEventsField =
   | QueryEventsField7
   | Field8
   | Field9
-  | Field10;
+  | Field10
+  | Field11
+  | Field12;
 
 export type QueryEventsGroupBy = {
   field:
@@ -93,481 +105,583 @@ export type QueryEventsGroupBy = {
     | QueryEventsField7
     | Field8
     | Field9
-    | Field10;
+    | Field10
+    | Field11
+    | Field12;
 };
 
-export const OneHundred = {
+export const OneHundredAndTwenty = {
   MaxSearchQuery: "max_searchQuery",
+} as const;
+export type OneHundredAndTwenty = ClosedEnum<typeof OneHundredAndTwenty>;
+
+export const OneHundredAndNineteen = {
+  MinSearchQuery: "min_searchQuery",
+} as const;
+export type OneHundredAndNineteen = ClosedEnum<typeof OneHundredAndNineteen>;
+
+export const OneHundredAndEighteen = {
+  AvgSearchQuery: "avg_searchQuery",
+} as const;
+export type OneHundredAndEighteen = ClosedEnum<typeof OneHundredAndEighteen>;
+
+export const OneHundredAndSeventeen = {
+  CountSearchQuery: "count_searchQuery",
+} as const;
+export type OneHundredAndSeventeen = ClosedEnum<typeof OneHundredAndSeventeen>;
+
+export const OneHundredAndSixteen = {
+  SumSearchQuery: "sum_searchQuery",
+} as const;
+export type OneHundredAndSixteen = ClosedEnum<typeof OneHundredAndSixteen>;
+
+export const OneHundredAndFifteen = {
+  MaxConversationId: "max_conversationId",
+} as const;
+export type OneHundredAndFifteen = ClosedEnum<typeof OneHundredAndFifteen>;
+
+export const OneHundredAndFourteen = {
+  MinConversationId: "min_conversationId",
+} as const;
+export type OneHundredAndFourteen = ClosedEnum<typeof OneHundredAndFourteen>;
+
+export const OneHundredAndThirteen = {
+  AvgConversationId: "avg_conversationId",
+} as const;
+export type OneHundredAndThirteen = ClosedEnum<typeof OneHundredAndThirteen>;
+
+export const OneHundredAndTwelve = {
+  CountConversationId: "count_conversationId",
+} as const;
+export type OneHundredAndTwelve = ClosedEnum<typeof OneHundredAndTwelve>;
+
+export const OneHundredAndEleven = {
+  SumConversationId: "sum_conversationId",
+} as const;
+export type OneHundredAndEleven = ClosedEnum<typeof OneHundredAndEleven>;
+
+export const OneHundredAndTen = {
+  MaxMessageId: "max_messageId",
+} as const;
+export type OneHundredAndTen = ClosedEnum<typeof OneHundredAndTen>;
+
+export const OneHundredAndNine = {
+  MinMessageId: "min_messageId",
+} as const;
+export type OneHundredAndNine = ClosedEnum<typeof OneHundredAndNine>;
+
+export const OneHundredAndEight = {
+  AvgMessageId: "avg_messageId",
+} as const;
+export type OneHundredAndEight = ClosedEnum<typeof OneHundredAndEight>;
+
+export const OneHundredAndSeven = {
+  CountMessageId: "count_messageId",
+} as const;
+export type OneHundredAndSeven = ClosedEnum<typeof OneHundredAndSeven>;
+
+export const OneHundredAndSix = {
+  SumMessageId: "sum_messageId",
+} as const;
+export type OneHundredAndSix = ClosedEnum<typeof OneHundredAndSix>;
+
+export const OneHundredAndFive = {
+  MaxUserProperties: "max_userProperties",
+} as const;
+export type OneHundredAndFive = ClosedEnum<typeof OneHundredAndFive>;
+
+export const OneHundredAndFour = {
+  MinUserProperties: "min_userProperties",
+} as const;
+export type OneHundredAndFour = ClosedEnum<typeof OneHundredAndFour>;
+
+export const OneHundredAndThree = {
+  AvgUserProperties: "avg_userProperties",
+} as const;
+export type OneHundredAndThree = ClosedEnum<typeof OneHundredAndThree>;
+
+export const OneHundredAndTwo = {
+  CountUserProperties: "count_userProperties",
+} as const;
+export type OneHundredAndTwo = ClosedEnum<typeof OneHundredAndTwo>;
+
+export const OneHundredAndOne = {
+  SumUserProperties: "sum_userProperties",
+} as const;
+export type OneHundredAndOne = ClosedEnum<typeof OneHundredAndOne>;
+
+export const OneHundred = {
+  MaxProperties: "max_properties",
 } as const;
 export type OneHundred = ClosedEnum<typeof OneHundred>;
 
 export const NinetyNine = {
-  MinSearchQuery: "min_searchQuery",
+  MinProperties: "min_properties",
 } as const;
 export type NinetyNine = ClosedEnum<typeof NinetyNine>;
 
 export const NinetyEight = {
-  AvgSearchQuery: "avg_searchQuery",
+  AvgProperties: "avg_properties",
 } as const;
 export type NinetyEight = ClosedEnum<typeof NinetyEight>;
 
 export const NinetySeven = {
-  CountSearchQuery: "count_searchQuery",
+  CountProperties: "count_properties",
 } as const;
 export type NinetySeven = ClosedEnum<typeof NinetySeven>;
 
 export const NinetySix = {
-  SumSearchQuery: "sum_searchQuery",
+  SumProperties: "sum_properties",
 } as const;
 export type NinetySix = ClosedEnum<typeof NinetySix>;
 
 export const NinetyFive = {
-  MaxConversationId: "max_conversationId",
+  MaxIntegrationId: "max_integrationId",
 } as const;
 export type NinetyFive = ClosedEnum<typeof NinetyFive>;
 
 export const NinetyFour = {
-  MinConversationId: "min_conversationId",
+  MinIntegrationId: "min_integrationId",
 } as const;
 export type NinetyFour = ClosedEnum<typeof NinetyFour>;
 
 export const NinetyThree = {
-  AvgConversationId: "avg_conversationId",
+  AvgIntegrationId: "avg_integrationId",
 } as const;
 export type NinetyThree = ClosedEnum<typeof NinetyThree>;
 
 export const NinetyTwo = {
-  CountConversationId: "count_conversationId",
+  CountIntegrationId: "count_integrationId",
 } as const;
 export type NinetyTwo = ClosedEnum<typeof NinetyTwo>;
 
 export const NinetyOne = {
-  SumConversationId: "sum_conversationId",
+  SumIntegrationId: "sum_integrationId",
 } as const;
 export type NinetyOne = ClosedEnum<typeof NinetyOne>;
 
 export const Ninety = {
-  MaxMessageId: "max_messageId",
+  MaxProjectId: "max_projectId",
 } as const;
 export type Ninety = ClosedEnum<typeof Ninety>;
 
 export const EightyNine = {
-  MinMessageId: "min_messageId",
+  MinProjectId: "min_projectId",
 } as const;
 export type EightyNine = ClosedEnum<typeof EightyNine>;
 
 export const EightyEight = {
-  AvgMessageId: "avg_messageId",
+  AvgProjectId: "avg_projectId",
 } as const;
 export type EightyEight = ClosedEnum<typeof EightyEight>;
 
 export const EightySeven = {
-  CountMessageId: "count_messageId",
+  CountProjectId: "count_projectId",
 } as const;
 export type EightySeven = ClosedEnum<typeof EightySeven>;
 
 export const EightySix = {
-  SumMessageId: "sum_messageId",
+  SumProjectId: "sum_projectId",
 } as const;
 export type EightySix = ClosedEnum<typeof EightySix>;
 
 export const EightyFive = {
-  MaxUserProperties: "max_userProperties",
+  MaxOrganizationId: "max_organizationId",
 } as const;
 export type EightyFive = ClosedEnum<typeof EightyFive>;
 
 export const EightyFour = {
-  MinUserProperties: "min_userProperties",
+  MinOrganizationId: "min_organizationId",
 } as const;
 export type EightyFour = ClosedEnum<typeof EightyFour>;
 
 export const EightyThree = {
-  AvgUserProperties: "avg_userProperties",
+  AvgOrganizationId: "avg_organizationId",
 } as const;
 export type EightyThree = ClosedEnum<typeof EightyThree>;
 
 export const EightyTwo = {
-  CountUserProperties: "count_userProperties",
+  CountOrganizationId: "count_organizationId",
 } as const;
 export type EightyTwo = ClosedEnum<typeof EightyTwo>;
 
 export const EightyOne = {
-  SumUserProperties: "sum_userProperties",
+  SumOrganizationId: "sum_organizationId",
 } as const;
 export type EightyOne = ClosedEnum<typeof EightyOne>;
 
 export const Eighty = {
-  MaxProperties: "max_properties",
+  MaxCreatedAt: "max_createdAt",
 } as const;
 export type Eighty = ClosedEnum<typeof Eighty>;
 
 export const SeventyNine = {
-  MinProperties: "min_properties",
+  MinCreatedAt: "min_createdAt",
 } as const;
 export type SeventyNine = ClosedEnum<typeof SeventyNine>;
 
 export const SeventyEight = {
-  AvgProperties: "avg_properties",
+  AvgCreatedAt: "avg_createdAt",
 } as const;
 export type SeventyEight = ClosedEnum<typeof SeventyEight>;
 
 export const SeventySeven = {
-  CountProperties: "count_properties",
+  CountCreatedAt: "count_createdAt",
 } as const;
 export type SeventySeven = ClosedEnum<typeof SeventySeven>;
 
 export const SeventySix = {
-  SumProperties: "sum_properties",
+  SumCreatedAt: "sum_createdAt",
 } as const;
 export type SeventySix = ClosedEnum<typeof SeventySix>;
 
 export const SeventyFive = {
-  MaxOrganizationId: "max_organizationId",
+  MaxType: "max_type",
 } as const;
 export type SeventyFive = ClosedEnum<typeof SeventyFive>;
 
 export const SeventyFour = {
-  MinOrganizationId: "min_organizationId",
+  MinType: "min_type",
 } as const;
 export type SeventyFour = ClosedEnum<typeof SeventyFour>;
 
 export const SeventyThree = {
-  AvgOrganizationId: "avg_organizationId",
+  AvgType: "avg_type",
 } as const;
 export type SeventyThree = ClosedEnum<typeof SeventyThree>;
 
 export const SeventyTwo = {
-  CountOrganizationId: "count_organizationId",
+  CountType: "count_type",
 } as const;
 export type SeventyTwo = ClosedEnum<typeof SeventyTwo>;
 
 export const SeventyOne = {
-  SumOrganizationId: "sum_organizationId",
+  SumType: "sum_type",
 } as const;
 export type SeventyOne = ClosedEnum<typeof SeventyOne>;
 
 export const Field70 = {
-  MaxCreatedAt: "max_createdAt",
+  MaxId: "max_id",
 } as const;
 export type Field70 = ClosedEnum<typeof Field70>;
 
 export const Field69 = {
-  MinCreatedAt: "min_createdAt",
+  MinId: "min_id",
 } as const;
 export type Field69 = ClosedEnum<typeof Field69>;
 
 export const Field68 = {
-  AvgCreatedAt: "avg_createdAt",
+  AvgId: "avg_id",
 } as const;
 export type Field68 = ClosedEnum<typeof Field68>;
 
 export const Field67 = {
-  CountCreatedAt: "count_createdAt",
+  CountId: "count_id",
 } as const;
 export type Field67 = ClosedEnum<typeof Field67>;
 
 export const Field66 = {
-  SumCreatedAt: "sum_createdAt",
+  SumId: "sum_id",
 } as const;
 export type Field66 = ClosedEnum<typeof Field66>;
 
 export const Field65 = {
-  MaxType: "max_type",
+  MaxEventType: "max_eventType",
 } as const;
 export type Field65 = ClosedEnum<typeof Field65>;
 
 export const Field64 = {
-  MinType: "min_type",
+  MinEventType: "min_eventType",
 } as const;
 export type Field64 = ClosedEnum<typeof Field64>;
 
 export const Field63 = {
-  AvgType: "avg_type",
+  AvgEventType: "avg_eventType",
 } as const;
 export type Field63 = ClosedEnum<typeof Field63>;
 
 export const Field62 = {
-  CountType: "count_type",
+  CountEventType: "count_eventType",
 } as const;
 export type Field62 = ClosedEnum<typeof Field62>;
 
 export const Field61 = {
-  SumType: "sum_type",
+  SumEventType: "sum_eventType",
 } as const;
 export type Field61 = ClosedEnum<typeof Field61>;
 
 export const Field60 = {
-  MaxId: "max_id",
+  SearchQueryMonth: "searchQuery_month",
 } as const;
 export type Field60 = ClosedEnum<typeof Field60>;
 
 export const Field59 = {
-  MinId: "min_id",
+  SearchQueryWeek: "searchQuery_week",
 } as const;
 export type Field59 = ClosedEnum<typeof Field59>;
 
 export const Field58 = {
-  AvgId: "avg_id",
+  SearchQueryDay: "searchQuery_day",
 } as const;
 export type Field58 = ClosedEnum<typeof Field58>;
 
 export const Field57 = {
-  CountId: "count_id",
+  SearchQueryHour: "searchQuery_hour",
 } as const;
 export type Field57 = ClosedEnum<typeof Field57>;
 
 export const Field56 = {
-  SumId: "sum_id",
+  ConversationIdMonth: "conversationId_month",
 } as const;
 export type Field56 = ClosedEnum<typeof Field56>;
 
 export const Field55 = {
-  MaxEventType: "max_eventType",
+  ConversationIdWeek: "conversationId_week",
 } as const;
 export type Field55 = ClosedEnum<typeof Field55>;
 
 export const Field54 = {
-  MinEventType: "min_eventType",
+  ConversationIdDay: "conversationId_day",
 } as const;
 export type Field54 = ClosedEnum<typeof Field54>;
 
 export const Field53 = {
-  AvgEventType: "avg_eventType",
+  ConversationIdHour: "conversationId_hour",
 } as const;
 export type Field53 = ClosedEnum<typeof Field53>;
 
 export const Field52 = {
-  CountEventType: "count_eventType",
+  MessageIdMonth: "messageId_month",
 } as const;
 export type Field52 = ClosedEnum<typeof Field52>;
 
 export const Field51 = {
-  SumEventType: "sum_eventType",
+  MessageIdWeek: "messageId_week",
 } as const;
 export type Field51 = ClosedEnum<typeof Field51>;
 
 export const Field50 = {
-  SearchQueryMonth: "searchQuery_month",
+  MessageIdDay: "messageId_day",
 } as const;
 export type Field50 = ClosedEnum<typeof Field50>;
 
 export const Field49 = {
-  SearchQueryWeek: "searchQuery_week",
+  MessageIdHour: "messageId_hour",
 } as const;
 export type Field49 = ClosedEnum<typeof Field49>;
 
 export const Field48 = {
-  SearchQueryDay: "searchQuery_day",
+  UserPropertiesMonth: "userProperties_month",
 } as const;
 export type Field48 = ClosedEnum<typeof Field48>;
 
 export const Field47 = {
-  SearchQueryHour: "searchQuery_hour",
+  UserPropertiesWeek: "userProperties_week",
 } as const;
 export type Field47 = ClosedEnum<typeof Field47>;
 
 export const Field46 = {
-  ConversationIdMonth: "conversationId_month",
+  UserPropertiesDay: "userProperties_day",
 } as const;
 export type Field46 = ClosedEnum<typeof Field46>;
 
 export const Field45 = {
-  ConversationIdWeek: "conversationId_week",
+  UserPropertiesHour: "userProperties_hour",
 } as const;
 export type Field45 = ClosedEnum<typeof Field45>;
 
 export const Field44 = {
-  ConversationIdDay: "conversationId_day",
+  PropertiesMonth: "properties_month",
 } as const;
 export type Field44 = ClosedEnum<typeof Field44>;
 
 export const Field43 = {
-  ConversationIdHour: "conversationId_hour",
+  PropertiesWeek: "properties_week",
 } as const;
 export type Field43 = ClosedEnum<typeof Field43>;
 
 export const Field42 = {
-  MessageIdMonth: "messageId_month",
+  PropertiesDay: "properties_day",
 } as const;
 export type Field42 = ClosedEnum<typeof Field42>;
 
 export const Field41 = {
-  MessageIdWeek: "messageId_week",
+  PropertiesHour: "properties_hour",
 } as const;
 export type Field41 = ClosedEnum<typeof Field41>;
 
 export const Field40 = {
-  MessageIdDay: "messageId_day",
+  IntegrationIdMonth: "integrationId_month",
 } as const;
 export type Field40 = ClosedEnum<typeof Field40>;
 
 export const Field39 = {
-  MessageIdHour: "messageId_hour",
+  IntegrationIdWeek: "integrationId_week",
 } as const;
 export type Field39 = ClosedEnum<typeof Field39>;
 
 export const Field38 = {
-  UserPropertiesMonth: "userProperties_month",
+  IntegrationIdDay: "integrationId_day",
 } as const;
 export type Field38 = ClosedEnum<typeof Field38>;
 
 export const Field37 = {
-  UserPropertiesWeek: "userProperties_week",
+  IntegrationIdHour: "integrationId_hour",
 } as const;
 export type Field37 = ClosedEnum<typeof Field37>;
 
 export const Field36 = {
-  UserPropertiesDay: "userProperties_day",
+  ProjectIdMonth: "projectId_month",
 } as const;
 export type Field36 = ClosedEnum<typeof Field36>;
 
 export const Field35 = {
-  UserPropertiesHour: "userProperties_hour",
+  ProjectIdWeek: "projectId_week",
 } as const;
 export type Field35 = ClosedEnum<typeof Field35>;
 
 export const Field34 = {
-  PropertiesMonth: "properties_month",
+  ProjectIdDay: "projectId_day",
 } as const;
 export type Field34 = ClosedEnum<typeof Field34>;
 
 export const Field33 = {
-  PropertiesWeek: "properties_week",
+  ProjectIdHour: "projectId_hour",
 } as const;
 export type Field33 = ClosedEnum<typeof Field33>;
 
 export const Field32 = {
-  PropertiesDay: "properties_day",
+  OrganizationIdMonth: "organizationId_month",
 } as const;
 export type Field32 = ClosedEnum<typeof Field32>;
 
 export const Field31 = {
-  PropertiesHour: "properties_hour",
+  OrganizationIdWeek: "organizationId_week",
 } as const;
 export type Field31 = ClosedEnum<typeof Field31>;
 
 export const Field30 = {
-  OrganizationIdMonth: "organizationId_month",
+  OrganizationIdDay: "organizationId_day",
 } as const;
 export type Field30 = ClosedEnum<typeof Field30>;
 
 export const Field29 = {
-  OrganizationIdWeek: "organizationId_week",
+  OrganizationIdHour: "organizationId_hour",
 } as const;
 export type Field29 = ClosedEnum<typeof Field29>;
 
 export const Field28 = {
-  OrganizationIdDay: "organizationId_day",
+  CreatedAtMonth: "createdAt_month",
 } as const;
 export type Field28 = ClosedEnum<typeof Field28>;
 
 export const Field27 = {
-  OrganizationIdHour: "organizationId_hour",
+  CreatedAtWeek: "createdAt_week",
 } as const;
 export type Field27 = ClosedEnum<typeof Field27>;
 
 export const Field26 = {
-  CreatedAtMonth: "createdAt_month",
+  CreatedAtDay: "createdAt_day",
 } as const;
 export type Field26 = ClosedEnum<typeof Field26>;
 
 export const Field25 = {
-  CreatedAtWeek: "createdAt_week",
+  CreatedAtHour: "createdAt_hour",
 } as const;
 export type Field25 = ClosedEnum<typeof Field25>;
 
 export const Field24 = {
-  CreatedAtDay: "createdAt_day",
+  TypeMonth: "type_month",
 } as const;
 export type Field24 = ClosedEnum<typeof Field24>;
 
 export const Field23 = {
-  CreatedAtHour: "createdAt_hour",
+  TypeWeek: "type_week",
 } as const;
 export type Field23 = ClosedEnum<typeof Field23>;
 
 export const Field22 = {
-  TypeMonth: "type_month",
+  TypeDay: "type_day",
 } as const;
 export type Field22 = ClosedEnum<typeof Field22>;
 
 export const Field21 = {
-  TypeWeek: "type_week",
+  TypeHour: "type_hour",
 } as const;
 export type Field21 = ClosedEnum<typeof Field21>;
 
 export const Field20 = {
-  TypeDay: "type_day",
+  IdMonth: "id_month",
 } as const;
 export type Field20 = ClosedEnum<typeof Field20>;
 
 export const Field19 = {
-  TypeHour: "type_hour",
+  IdWeek: "id_week",
 } as const;
 export type Field19 = ClosedEnum<typeof Field19>;
 
 export const Field18 = {
-  IdMonth: "id_month",
+  IdDay: "id_day",
 } as const;
 export type Field18 = ClosedEnum<typeof Field18>;
 
 export const Field17 = {
-  IdWeek: "id_week",
+  IdHour: "id_hour",
 } as const;
 export type Field17 = ClosedEnum<typeof Field17>;
 
 export const Field16 = {
-  IdDay: "id_day",
+  EventTypeMonth: "eventType_month",
 } as const;
 export type Field16 = ClosedEnum<typeof Field16>;
 
 export const Field15 = {
-  IdHour: "id_hour",
+  EventTypeWeek: "eventType_week",
 } as const;
 export type Field15 = ClosedEnum<typeof Field15>;
 
 export const Field14 = {
-  EventTypeMonth: "eventType_month",
+  EventTypeDay: "eventType_day",
 } as const;
 export type Field14 = ClosedEnum<typeof Field14>;
 
 export const Field13 = {
-  EventTypeWeek: "eventType_week",
+  EventTypeHour: "eventType_hour",
 } as const;
 export type Field13 = ClosedEnum<typeof Field13>;
 
-export const Field12 = {
-  EventTypeDay: "eventType_day",
+export const QueryEventsField12 = {
+  SearchQuery: "searchQuery",
 } as const;
-export type Field12 = ClosedEnum<typeof Field12>;
+export type QueryEventsField12 = ClosedEnum<typeof QueryEventsField12>;
 
-export const Field11 = {
-  EventTypeHour: "eventType_hour",
+export const QueryEventsField11 = {
+  ConversationId: "conversationId",
 } as const;
-export type Field11 = ClosedEnum<typeof Field11>;
+export type QueryEventsField11 = ClosedEnum<typeof QueryEventsField11>;
 
 export const QueryEventsField10 = {
-  SearchQuery: "searchQuery",
+  MessageId: "messageId",
 } as const;
 export type QueryEventsField10 = ClosedEnum<typeof QueryEventsField10>;
 
 export const QueryEventsField9 = {
-  ConversationId: "conversationId",
+  UserProperties: "userProperties",
 } as const;
 export type QueryEventsField9 = ClosedEnum<typeof QueryEventsField9>;
 
 export const QueryEventsField8 = {
-  MessageId: "messageId",
+  Properties: "properties",
 } as const;
 export type QueryEventsField8 = ClosedEnum<typeof QueryEventsField8>;
 
 export const QueryEventsFieldQuery7 = {
-  UserProperties: "userProperties",
+  IntegrationId: "integrationId",
 } as const;
 export type QueryEventsFieldQuery7 = ClosedEnum<typeof QueryEventsFieldQuery7>;
 
 export const QueryEventsFieldQuery6 = {
-  Properties: "properties",
+  ProjectId: "projectId",
 } as const;
 export type QueryEventsFieldQuery6 = ClosedEnum<typeof QueryEventsFieldQuery6>;
 
@@ -607,8 +721,8 @@ export type QueryEventsQueryField =
   | QueryEventsField8
   | QueryEventsField9
   | QueryEventsField10
-  | Field11
-  | Field12
+  | QueryEventsField11
+  | QueryEventsField12
   | Field13
   | Field14
   | Field15
@@ -696,7 +810,27 @@ export type QueryEventsQueryField =
   | NinetySeven
   | NinetyEight
   | NinetyNine
-  | OneHundred;
+  | OneHundred
+  | OneHundredAndOne
+  | OneHundredAndTwo
+  | OneHundredAndThree
+  | OneHundredAndFour
+  | OneHundredAndFive
+  | OneHundredAndSix
+  | OneHundredAndSeven
+  | OneHundredAndEight
+  | OneHundredAndNine
+  | OneHundredAndTen
+  | OneHundredAndEleven
+  | OneHundredAndTwelve
+  | OneHundredAndThirteen
+  | OneHundredAndFourteen
+  | OneHundredAndFifteen
+  | OneHundredAndSixteen
+  | OneHundredAndSeventeen
+  | OneHundredAndEighteen
+  | OneHundredAndNineteen
+  | OneHundredAndTwenty;
 
 export const QueryEventsDirection2 = {
   Desc: "desc",
@@ -724,8 +858,8 @@ export type QueryEventsOrderBy = {
     | QueryEventsField8
     | QueryEventsField9
     | QueryEventsField10
-    | Field11
-    | Field12
+    | QueryEventsField11
+    | QueryEventsField12
     | Field13
     | Field14
     | Field15
@@ -813,7 +947,27 @@ export type QueryEventsOrderBy = {
     | NinetySeven
     | NinetyEight
     | NinetyNine
-    | OneHundred;
+    | OneHundred
+    | OneHundredAndOne
+    | OneHundredAndTwo
+    | OneHundredAndThree
+    | OneHundredAndFour
+    | OneHundredAndFive
+    | OneHundredAndSix
+    | OneHundredAndSeven
+    | OneHundredAndEight
+    | OneHundredAndNine
+    | OneHundredAndTen
+    | OneHundredAndEleven
+    | OneHundredAndTwelve
+    | OneHundredAndThirteen
+    | OneHundredAndFourteen
+    | OneHundredAndFifteen
+    | OneHundredAndSixteen
+    | OneHundredAndSeventeen
+    | OneHundredAndEighteen
+    | OneHundredAndNineteen
+    | OneHundredAndTwenty;
   direction: QueryEventsDirection1 | QueryEventsDirection2;
 };
 
@@ -831,6 +985,10 @@ export type QueryEventsRequestBody = {
   groupBy?: Array<QueryEventsGroupBy> | undefined;
   where?: components.EventsFilter | undefined;
   orderBy?: Array<QueryEventsOrderBy> | undefined;
+  /**
+   * Notes for the query
+   */
+  notes?: string | undefined;
 };
 
 export const QueryEventsStatus = {
@@ -844,6 +1002,8 @@ export type QueryEventsResult = {
   type?: string | undefined;
   createdAt?: string | undefined;
   organizationId?: string | undefined;
+  projectId?: string | null | undefined;
+  integrationId?: string | null | undefined;
   properties?: { [k: string]: any } | undefined;
   userProperties?: { [k: string]: any } | undefined;
   messageId?: any | undefined;
@@ -874,6 +1034,14 @@ export type QueryEventsResult = {
   organizationIdDay?: string | undefined;
   organizationIdWeek?: string | undefined;
   organizationIdMonth?: string | undefined;
+  projectIdHour?: string | undefined;
+  projectIdDay?: string | undefined;
+  projectIdWeek?: string | undefined;
+  projectIdMonth?: string | undefined;
+  integrationIdHour?: string | undefined;
+  integrationIdDay?: string | undefined;
+  integrationIdWeek?: string | undefined;
+  integrationIdMonth?: string | undefined;
   propertiesHour?: string | undefined;
   propertiesDay?: string | undefined;
   propertiesWeek?: string | undefined;
@@ -919,6 +1087,16 @@ export type QueryEventsResult = {
   avgOrganizationId?: number | undefined;
   minOrganizationId?: number | undefined;
   maxOrganizationId?: number | undefined;
+  sumProjectId?: number | undefined;
+  countProjectId?: number | undefined;
+  avgProjectId?: number | undefined;
+  minProjectId?: number | undefined;
+  maxProjectId?: number | undefined;
+  sumIntegrationId?: number | undefined;
+  countIntegrationId?: number | undefined;
+  avgIntegrationId?: number | undefined;
+  minIntegrationId?: number | undefined;
+  maxIntegrationId?: number | undefined;
   sumProperties?: number | undefined;
   countProperties?: number | undefined;
   avgProperties?: number | undefined;
@@ -1029,8 +1207,8 @@ export function queryEventsSecurityFromJSON(
 }
 
 /** @internal */
-export const QueryEventsSelect$inboundSchema: z.ZodType<
-  QueryEventsSelect,
+export const EventsSelection$inboundSchema: z.ZodType<
+  EventsSelection,
   z.ZodTypeDef,
   unknown
 > = z.union([
@@ -1048,16 +1226,16 @@ export const QueryEventsSelect$inboundSchema: z.ZodType<
 ]);
 
 /** @internal */
-export type QueryEventsSelect$Outbound =
+export type EventsSelection$Outbound =
   | (components.EventsSimpleFieldSelection$Outbound & { type: "field" })
   | (components.EventsAggregationSelection$Outbound & { type: "aggregation" })
   | (components.EventsTimeBasedGroupBySelection$Outbound & { type: "time" });
 
 /** @internal */
-export const QueryEventsSelect$outboundSchema: z.ZodType<
-  QueryEventsSelect$Outbound,
+export const EventsSelection$outboundSchema: z.ZodType<
+  EventsSelection$Outbound,
   z.ZodTypeDef,
-  QueryEventsSelect
+  EventsSelection
 > = z.union([
   components.EventsSimpleFieldSelection$outboundSchema.and(
     z.object({ type: z.literal("field") }).transform((v) => ({ type: v.type })),
@@ -1076,31 +1254,67 @@ export const QueryEventsSelect$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QueryEventsSelect$ {
-  /** @deprecated use `QueryEventsSelect$inboundSchema` instead. */
-  export const inboundSchema = QueryEventsSelect$inboundSchema;
-  /** @deprecated use `QueryEventsSelect$outboundSchema` instead. */
-  export const outboundSchema = QueryEventsSelect$outboundSchema;
-  /** @deprecated use `QueryEventsSelect$Outbound` instead. */
-  export type Outbound = QueryEventsSelect$Outbound;
+export namespace EventsSelection$ {
+  /** @deprecated use `EventsSelection$inboundSchema` instead. */
+  export const inboundSchema = EventsSelection$inboundSchema;
+  /** @deprecated use `EventsSelection$outboundSchema` instead. */
+  export const outboundSchema = EventsSelection$outboundSchema;
+  /** @deprecated use `EventsSelection$Outbound` instead. */
+  export type Outbound = EventsSelection$Outbound;
 }
 
-export function queryEventsSelectToJSON(
-  queryEventsSelect: QueryEventsSelect,
+export function eventsSelectionToJSON(
+  eventsSelection: EventsSelection,
 ): string {
-  return JSON.stringify(
-    QueryEventsSelect$outboundSchema.parse(queryEventsSelect),
-  );
+  return JSON.stringify(EventsSelection$outboundSchema.parse(eventsSelection));
 }
 
-export function queryEventsSelectFromJSON(
+export function eventsSelectionFromJSON(
   jsonString: string,
-): SafeParseResult<QueryEventsSelect, SDKValidationError> {
+): SafeParseResult<EventsSelection, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => QueryEventsSelect$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryEventsSelect' from JSON`,
+    (x) => EventsSelection$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EventsSelection' from JSON`,
   );
+}
+
+/** @internal */
+export const Field12$inboundSchema: z.ZodNativeEnum<typeof Field12> = z
+  .nativeEnum(Field12);
+
+/** @internal */
+export const Field12$outboundSchema: z.ZodNativeEnum<typeof Field12> =
+  Field12$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Field12$ {
+  /** @deprecated use `Field12$inboundSchema` instead. */
+  export const inboundSchema = Field12$inboundSchema;
+  /** @deprecated use `Field12$outboundSchema` instead. */
+  export const outboundSchema = Field12$outboundSchema;
+}
+
+/** @internal */
+export const Field11$inboundSchema: z.ZodNativeEnum<typeof Field11> = z
+  .nativeEnum(Field11);
+
+/** @internal */
+export const Field11$outboundSchema: z.ZodNativeEnum<typeof Field11> =
+  Field11$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Field11$ {
+  /** @deprecated use `Field11$inboundSchema` instead. */
+  export const inboundSchema = Field11$inboundSchema;
+  /** @deprecated use `Field11$outboundSchema` instead. */
+  export const outboundSchema = Field11$outboundSchema;
 }
 
 /** @internal */
@@ -1323,10 +1537,14 @@ export const QueryEventsField$inboundSchema: z.ZodType<
   Field8$inboundSchema,
   Field9$inboundSchema,
   Field10$inboundSchema,
+  Field11$inboundSchema,
+  Field12$inboundSchema,
 ]);
 
 /** @internal */
 export type QueryEventsField$Outbound =
+  | string
+  | string
   | string
   | string
   | string
@@ -1354,6 +1572,8 @@ export const QueryEventsField$outboundSchema: z.ZodType<
   Field8$outboundSchema,
   Field9$outboundSchema,
   Field10$outboundSchema,
+  Field11$outboundSchema,
+  Field12$outboundSchema,
 ]);
 
 /**
@@ -1404,12 +1624,16 @@ export const QueryEventsGroupBy$inboundSchema: z.ZodType<
     Field8$inboundSchema,
     Field9$inboundSchema,
     Field10$inboundSchema,
+    Field11$inboundSchema,
+    Field12$inboundSchema,
   ]),
 });
 
 /** @internal */
 export type QueryEventsGroupBy$Outbound = {
   field:
+    | string
+    | string
     | string
     | string
     | string
@@ -1439,6 +1663,8 @@ export const QueryEventsGroupBy$outboundSchema: z.ZodType<
     Field8$outboundSchema,
     Field9$outboundSchema,
     Field10$outboundSchema,
+    Field11$outboundSchema,
+    Field12$outboundSchema,
   ]),
 });
 
@@ -1471,6 +1697,426 @@ export function queryEventsGroupByFromJSON(
     (x) => QueryEventsGroupBy$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'QueryEventsGroupBy' from JSON`,
   );
+}
+
+/** @internal */
+export const OneHundredAndTwenty$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndTwenty
+> = z.nativeEnum(OneHundredAndTwenty);
+
+/** @internal */
+export const OneHundredAndTwenty$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndTwenty
+> = OneHundredAndTwenty$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndTwenty$ {
+  /** @deprecated use `OneHundredAndTwenty$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndTwenty$inboundSchema;
+  /** @deprecated use `OneHundredAndTwenty$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndTwenty$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndNineteen$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndNineteen
+> = z.nativeEnum(OneHundredAndNineteen);
+
+/** @internal */
+export const OneHundredAndNineteen$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndNineteen
+> = OneHundredAndNineteen$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndNineteen$ {
+  /** @deprecated use `OneHundredAndNineteen$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndNineteen$inboundSchema;
+  /** @deprecated use `OneHundredAndNineteen$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndNineteen$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndEighteen$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndEighteen
+> = z.nativeEnum(OneHundredAndEighteen);
+
+/** @internal */
+export const OneHundredAndEighteen$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndEighteen
+> = OneHundredAndEighteen$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndEighteen$ {
+  /** @deprecated use `OneHundredAndEighteen$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndEighteen$inboundSchema;
+  /** @deprecated use `OneHundredAndEighteen$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndEighteen$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndSeventeen$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndSeventeen
+> = z.nativeEnum(OneHundredAndSeventeen);
+
+/** @internal */
+export const OneHundredAndSeventeen$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndSeventeen
+> = OneHundredAndSeventeen$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndSeventeen$ {
+  /** @deprecated use `OneHundredAndSeventeen$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndSeventeen$inboundSchema;
+  /** @deprecated use `OneHundredAndSeventeen$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndSeventeen$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndSixteen$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndSixteen
+> = z.nativeEnum(OneHundredAndSixteen);
+
+/** @internal */
+export const OneHundredAndSixteen$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndSixteen
+> = OneHundredAndSixteen$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndSixteen$ {
+  /** @deprecated use `OneHundredAndSixteen$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndSixteen$inboundSchema;
+  /** @deprecated use `OneHundredAndSixteen$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndSixteen$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndFifteen$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndFifteen
+> = z.nativeEnum(OneHundredAndFifteen);
+
+/** @internal */
+export const OneHundredAndFifteen$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndFifteen
+> = OneHundredAndFifteen$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndFifteen$ {
+  /** @deprecated use `OneHundredAndFifteen$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndFifteen$inboundSchema;
+  /** @deprecated use `OneHundredAndFifteen$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndFifteen$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndFourteen$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndFourteen
+> = z.nativeEnum(OneHundredAndFourteen);
+
+/** @internal */
+export const OneHundredAndFourteen$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndFourteen
+> = OneHundredAndFourteen$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndFourteen$ {
+  /** @deprecated use `OneHundredAndFourteen$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndFourteen$inboundSchema;
+  /** @deprecated use `OneHundredAndFourteen$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndFourteen$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndThirteen$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndThirteen
+> = z.nativeEnum(OneHundredAndThirteen);
+
+/** @internal */
+export const OneHundredAndThirteen$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndThirteen
+> = OneHundredAndThirteen$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndThirteen$ {
+  /** @deprecated use `OneHundredAndThirteen$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndThirteen$inboundSchema;
+  /** @deprecated use `OneHundredAndThirteen$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndThirteen$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndTwelve$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndTwelve
+> = z.nativeEnum(OneHundredAndTwelve);
+
+/** @internal */
+export const OneHundredAndTwelve$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndTwelve
+> = OneHundredAndTwelve$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndTwelve$ {
+  /** @deprecated use `OneHundredAndTwelve$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndTwelve$inboundSchema;
+  /** @deprecated use `OneHundredAndTwelve$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndTwelve$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndEleven$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndEleven
+> = z.nativeEnum(OneHundredAndEleven);
+
+/** @internal */
+export const OneHundredAndEleven$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndEleven
+> = OneHundredAndEleven$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndEleven$ {
+  /** @deprecated use `OneHundredAndEleven$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndEleven$inboundSchema;
+  /** @deprecated use `OneHundredAndEleven$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndEleven$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndTen$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndTen
+> = z.nativeEnum(OneHundredAndTen);
+
+/** @internal */
+export const OneHundredAndTen$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndTen
+> = OneHundredAndTen$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndTen$ {
+  /** @deprecated use `OneHundredAndTen$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndTen$inboundSchema;
+  /** @deprecated use `OneHundredAndTen$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndTen$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndNine$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndNine
+> = z.nativeEnum(OneHundredAndNine);
+
+/** @internal */
+export const OneHundredAndNine$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndNine
+> = OneHundredAndNine$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndNine$ {
+  /** @deprecated use `OneHundredAndNine$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndNine$inboundSchema;
+  /** @deprecated use `OneHundredAndNine$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndNine$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndEight$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndEight
+> = z.nativeEnum(OneHundredAndEight);
+
+/** @internal */
+export const OneHundredAndEight$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndEight
+> = OneHundredAndEight$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndEight$ {
+  /** @deprecated use `OneHundredAndEight$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndEight$inboundSchema;
+  /** @deprecated use `OneHundredAndEight$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndEight$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndSeven$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndSeven
+> = z.nativeEnum(OneHundredAndSeven);
+
+/** @internal */
+export const OneHundredAndSeven$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndSeven
+> = OneHundredAndSeven$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndSeven$ {
+  /** @deprecated use `OneHundredAndSeven$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndSeven$inboundSchema;
+  /** @deprecated use `OneHundredAndSeven$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndSeven$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndSix$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndSix
+> = z.nativeEnum(OneHundredAndSix);
+
+/** @internal */
+export const OneHundredAndSix$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndSix
+> = OneHundredAndSix$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndSix$ {
+  /** @deprecated use `OneHundredAndSix$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndSix$inboundSchema;
+  /** @deprecated use `OneHundredAndSix$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndSix$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndFive$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndFive
+> = z.nativeEnum(OneHundredAndFive);
+
+/** @internal */
+export const OneHundredAndFive$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndFive
+> = OneHundredAndFive$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndFive$ {
+  /** @deprecated use `OneHundredAndFive$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndFive$inboundSchema;
+  /** @deprecated use `OneHundredAndFive$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndFive$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndFour$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndFour
+> = z.nativeEnum(OneHundredAndFour);
+
+/** @internal */
+export const OneHundredAndFour$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndFour
+> = OneHundredAndFour$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndFour$ {
+  /** @deprecated use `OneHundredAndFour$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndFour$inboundSchema;
+  /** @deprecated use `OneHundredAndFour$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndFour$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndThree$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndThree
+> = z.nativeEnum(OneHundredAndThree);
+
+/** @internal */
+export const OneHundredAndThree$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndThree
+> = OneHundredAndThree$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndThree$ {
+  /** @deprecated use `OneHundredAndThree$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndThree$inboundSchema;
+  /** @deprecated use `OneHundredAndThree$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndThree$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndTwo$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndTwo
+> = z.nativeEnum(OneHundredAndTwo);
+
+/** @internal */
+export const OneHundredAndTwo$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndTwo
+> = OneHundredAndTwo$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndTwo$ {
+  /** @deprecated use `OneHundredAndTwo$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndTwo$inboundSchema;
+  /** @deprecated use `OneHundredAndTwo$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndTwo$outboundSchema;
+}
+
+/** @internal */
+export const OneHundredAndOne$inboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndOne
+> = z.nativeEnum(OneHundredAndOne);
+
+/** @internal */
+export const OneHundredAndOne$outboundSchema: z.ZodNativeEnum<
+  typeof OneHundredAndOne
+> = OneHundredAndOne$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OneHundredAndOne$ {
+  /** @deprecated use `OneHundredAndOne$inboundSchema` instead. */
+  export const inboundSchema = OneHundredAndOne$inboundSchema;
+  /** @deprecated use `OneHundredAndOne$outboundSchema` instead. */
+  export const outboundSchema = OneHundredAndOne$outboundSchema;
 }
 
 /** @internal */
@@ -3146,41 +3792,45 @@ export namespace Field13$ {
 }
 
 /** @internal */
-export const Field12$inboundSchema: z.ZodNativeEnum<typeof Field12> = z
-  .nativeEnum(Field12);
+export const QueryEventsField12$inboundSchema: z.ZodNativeEnum<
+  typeof QueryEventsField12
+> = z.nativeEnum(QueryEventsField12);
 
 /** @internal */
-export const Field12$outboundSchema: z.ZodNativeEnum<typeof Field12> =
-  Field12$inboundSchema;
+export const QueryEventsField12$outboundSchema: z.ZodNativeEnum<
+  typeof QueryEventsField12
+> = QueryEventsField12$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Field12$ {
-  /** @deprecated use `Field12$inboundSchema` instead. */
-  export const inboundSchema = Field12$inboundSchema;
-  /** @deprecated use `Field12$outboundSchema` instead. */
-  export const outboundSchema = Field12$outboundSchema;
+export namespace QueryEventsField12$ {
+  /** @deprecated use `QueryEventsField12$inboundSchema` instead. */
+  export const inboundSchema = QueryEventsField12$inboundSchema;
+  /** @deprecated use `QueryEventsField12$outboundSchema` instead. */
+  export const outboundSchema = QueryEventsField12$outboundSchema;
 }
 
 /** @internal */
-export const Field11$inboundSchema: z.ZodNativeEnum<typeof Field11> = z
-  .nativeEnum(Field11);
+export const QueryEventsField11$inboundSchema: z.ZodNativeEnum<
+  typeof QueryEventsField11
+> = z.nativeEnum(QueryEventsField11);
 
 /** @internal */
-export const Field11$outboundSchema: z.ZodNativeEnum<typeof Field11> =
-  Field11$inboundSchema;
+export const QueryEventsField11$outboundSchema: z.ZodNativeEnum<
+  typeof QueryEventsField11
+> = QueryEventsField11$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Field11$ {
-  /** @deprecated use `Field11$inboundSchema` instead. */
-  export const inboundSchema = Field11$inboundSchema;
-  /** @deprecated use `Field11$outboundSchema` instead. */
-  export const outboundSchema = Field11$outboundSchema;
+export namespace QueryEventsField11$ {
+  /** @deprecated use `QueryEventsField11$inboundSchema` instead. */
+  export const inboundSchema = QueryEventsField11$inboundSchema;
+  /** @deprecated use `QueryEventsField11$outboundSchema` instead. */
+  export const outboundSchema = QueryEventsField11$outboundSchema;
 }
 
 /** @internal */
@@ -3409,8 +4059,8 @@ export const QueryEventsQueryField$inboundSchema: z.ZodType<
   QueryEventsField8$inboundSchema,
   QueryEventsField9$inboundSchema,
   QueryEventsField10$inboundSchema,
-  Field11$inboundSchema,
-  Field12$inboundSchema,
+  QueryEventsField11$inboundSchema,
+  QueryEventsField12$inboundSchema,
   Field13$inboundSchema,
   Field14$inboundSchema,
   Field15$inboundSchema,
@@ -3499,10 +4149,50 @@ export const QueryEventsQueryField$inboundSchema: z.ZodType<
   NinetyEight$inboundSchema,
   NinetyNine$inboundSchema,
   OneHundred$inboundSchema,
+  OneHundredAndOne$inboundSchema,
+  OneHundredAndTwo$inboundSchema,
+  OneHundredAndThree$inboundSchema,
+  OneHundredAndFour$inboundSchema,
+  OneHundredAndFive$inboundSchema,
+  OneHundredAndSix$inboundSchema,
+  OneHundredAndSeven$inboundSchema,
+  OneHundredAndEight$inboundSchema,
+  OneHundredAndNine$inboundSchema,
+  OneHundredAndTen$inboundSchema,
+  OneHundredAndEleven$inboundSchema,
+  OneHundredAndTwelve$inboundSchema,
+  OneHundredAndThirteen$inboundSchema,
+  OneHundredAndFourteen$inboundSchema,
+  OneHundredAndFifteen$inboundSchema,
+  OneHundredAndSixteen$inboundSchema,
+  OneHundredAndSeventeen$inboundSchema,
+  OneHundredAndEighteen$inboundSchema,
+  OneHundredAndNineteen$inboundSchema,
+  OneHundredAndTwenty$inboundSchema,
 ]);
 
 /** @internal */
 export type QueryEventsQueryField$Outbound =
+  | string
+  | string
+  | string
+  | string
+  | string
+  | string
+  | string
+  | string
+  | string
+  | string
+  | string
+  | string
+  | string
+  | string
+  | string
+  | string
+  | string
+  | string
+  | string
+  | string
   | string
   | string
   | string
@@ -3620,8 +4310,8 @@ export const QueryEventsQueryField$outboundSchema: z.ZodType<
   QueryEventsField8$outboundSchema,
   QueryEventsField9$outboundSchema,
   QueryEventsField10$outboundSchema,
-  Field11$outboundSchema,
-  Field12$outboundSchema,
+  QueryEventsField11$outboundSchema,
+  QueryEventsField12$outboundSchema,
   Field13$outboundSchema,
   Field14$outboundSchema,
   Field15$outboundSchema,
@@ -3710,6 +4400,26 @@ export const QueryEventsQueryField$outboundSchema: z.ZodType<
   NinetyEight$outboundSchema,
   NinetyNine$outboundSchema,
   OneHundred$outboundSchema,
+  OneHundredAndOne$outboundSchema,
+  OneHundredAndTwo$outboundSchema,
+  OneHundredAndThree$outboundSchema,
+  OneHundredAndFour$outboundSchema,
+  OneHundredAndFive$outboundSchema,
+  OneHundredAndSix$outboundSchema,
+  OneHundredAndSeven$outboundSchema,
+  OneHundredAndEight$outboundSchema,
+  OneHundredAndNine$outboundSchema,
+  OneHundredAndTen$outboundSchema,
+  OneHundredAndEleven$outboundSchema,
+  OneHundredAndTwelve$outboundSchema,
+  OneHundredAndThirteen$outboundSchema,
+  OneHundredAndFourteen$outboundSchema,
+  OneHundredAndFifteen$outboundSchema,
+  OneHundredAndSixteen$outboundSchema,
+  OneHundredAndSeventeen$outboundSchema,
+  OneHundredAndEighteen$outboundSchema,
+  OneHundredAndNineteen$outboundSchema,
+  OneHundredAndTwenty$outboundSchema,
 ]);
 
 /**
@@ -3856,8 +4566,8 @@ export const QueryEventsOrderBy$inboundSchema: z.ZodType<
     QueryEventsField8$inboundSchema,
     QueryEventsField9$inboundSchema,
     QueryEventsField10$inboundSchema,
-    Field11$inboundSchema,
-    Field12$inboundSchema,
+    QueryEventsField11$inboundSchema,
+    QueryEventsField12$inboundSchema,
     Field13$inboundSchema,
     Field14$inboundSchema,
     Field15$inboundSchema,
@@ -3946,6 +4656,26 @@ export const QueryEventsOrderBy$inboundSchema: z.ZodType<
     NinetyEight$inboundSchema,
     NinetyNine$inboundSchema,
     OneHundred$inboundSchema,
+    OneHundredAndOne$inboundSchema,
+    OneHundredAndTwo$inboundSchema,
+    OneHundredAndThree$inboundSchema,
+    OneHundredAndFour$inboundSchema,
+    OneHundredAndFive$inboundSchema,
+    OneHundredAndSix$inboundSchema,
+    OneHundredAndSeven$inboundSchema,
+    OneHundredAndEight$inboundSchema,
+    OneHundredAndNine$inboundSchema,
+    OneHundredAndTen$inboundSchema,
+    OneHundredAndEleven$inboundSchema,
+    OneHundredAndTwelve$inboundSchema,
+    OneHundredAndThirteen$inboundSchema,
+    OneHundredAndFourteen$inboundSchema,
+    OneHundredAndFifteen$inboundSchema,
+    OneHundredAndSixteen$inboundSchema,
+    OneHundredAndSeventeen$inboundSchema,
+    OneHundredAndEighteen$inboundSchema,
+    OneHundredAndNineteen$inboundSchema,
+    OneHundredAndTwenty$inboundSchema,
   ]),
   direction: z.union([
     QueryEventsDirection1$inboundSchema,
@@ -3956,6 +4686,26 @@ export const QueryEventsOrderBy$inboundSchema: z.ZodType<
 /** @internal */
 export type QueryEventsOrderBy$Outbound = {
   field:
+    | string
+    | string
+    | string
+    | string
+    | string
+    | string
+    | string
+    | string
+    | string
+    | string
+    | string
+    | string
+    | string
+    | string
+    | string
+    | string
+    | string
+    | string
+    | string
+    | string
     | string
     | string
     | string
@@ -4076,8 +4826,8 @@ export const QueryEventsOrderBy$outboundSchema: z.ZodType<
     QueryEventsField8$outboundSchema,
     QueryEventsField9$outboundSchema,
     QueryEventsField10$outboundSchema,
-    Field11$outboundSchema,
-    Field12$outboundSchema,
+    QueryEventsField11$outboundSchema,
+    QueryEventsField12$outboundSchema,
     Field13$outboundSchema,
     Field14$outboundSchema,
     Field15$outboundSchema,
@@ -4166,6 +4916,26 @@ export const QueryEventsOrderBy$outboundSchema: z.ZodType<
     NinetyEight$outboundSchema,
     NinetyNine$outboundSchema,
     OneHundred$outboundSchema,
+    OneHundredAndOne$outboundSchema,
+    OneHundredAndTwo$outboundSchema,
+    OneHundredAndThree$outboundSchema,
+    OneHundredAndFour$outboundSchema,
+    OneHundredAndFive$outboundSchema,
+    OneHundredAndSix$outboundSchema,
+    OneHundredAndSeven$outboundSchema,
+    OneHundredAndEight$outboundSchema,
+    OneHundredAndNine$outboundSchema,
+    OneHundredAndTen$outboundSchema,
+    OneHundredAndEleven$outboundSchema,
+    OneHundredAndTwelve$outboundSchema,
+    OneHundredAndThirteen$outboundSchema,
+    OneHundredAndFourteen$outboundSchema,
+    OneHundredAndFifteen$outboundSchema,
+    OneHundredAndSixteen$outboundSchema,
+    OneHundredAndSeventeen$outboundSchema,
+    OneHundredAndEighteen$outboundSchema,
+    OneHundredAndNineteen$outboundSchema,
+    OneHundredAndTwenty$outboundSchema,
   ]),
   direction: z.union([
     QueryEventsDirection1$outboundSchema,
@@ -4232,6 +5002,7 @@ export const QueryEventsRequestBody$inboundSchema: z.ZodType<
   groupBy: z.array(z.lazy(() => QueryEventsGroupBy$inboundSchema)).optional(),
   where: components.EventsFilter$inboundSchema.optional(),
   orderBy: z.array(z.lazy(() => QueryEventsOrderBy$inboundSchema)).optional(),
+  notes: z.string().optional(),
 });
 
 /** @internal */
@@ -4248,6 +5019,7 @@ export type QueryEventsRequestBody$Outbound = {
   groupBy?: Array<QueryEventsGroupBy$Outbound> | undefined;
   where?: components.EventsFilter$Outbound | undefined;
   orderBy?: Array<QueryEventsOrderBy$Outbound> | undefined;
+  notes?: string | undefined;
 };
 
 /** @internal */
@@ -4278,6 +5050,7 @@ export const QueryEventsRequestBody$outboundSchema: z.ZodType<
   groupBy: z.array(z.lazy(() => QueryEventsGroupBy$outboundSchema)).optional(),
   where: components.EventsFilter$outboundSchema.optional(),
   orderBy: z.array(z.lazy(() => QueryEventsOrderBy$outboundSchema)).optional(),
+  notes: z.string().optional(),
 });
 
 /**
@@ -4343,6 +5116,8 @@ export const QueryEventsResult$inboundSchema: z.ZodType<
   type: z.string().optional(),
   createdAt: z.string().optional(),
   organizationId: z.string().optional(),
+  projectId: z.nullable(z.string()).optional(),
+  integrationId: z.nullable(z.string()).optional(),
   properties: z.record(z.any()).optional(),
   userProperties: z.record(z.any()).optional(),
   messageId: z.any().optional(),
@@ -4373,6 +5148,14 @@ export const QueryEventsResult$inboundSchema: z.ZodType<
   organizationId_day: z.string().optional(),
   organizationId_week: z.string().optional(),
   organizationId_month: z.string().optional(),
+  projectId_hour: z.string().optional(),
+  projectId_day: z.string().optional(),
+  projectId_week: z.string().optional(),
+  projectId_month: z.string().optional(),
+  integrationId_hour: z.string().optional(),
+  integrationId_day: z.string().optional(),
+  integrationId_week: z.string().optional(),
+  integrationId_month: z.string().optional(),
   properties_hour: z.string().optional(),
   properties_day: z.string().optional(),
   properties_week: z.string().optional(),
@@ -4418,6 +5201,16 @@ export const QueryEventsResult$inboundSchema: z.ZodType<
   avg_organizationId: z.number().optional(),
   min_organizationId: z.number().optional(),
   max_organizationId: z.number().optional(),
+  sum_projectId: z.number().optional(),
+  count_projectId: z.number().optional(),
+  avg_projectId: z.number().optional(),
+  min_projectId: z.number().optional(),
+  max_projectId: z.number().optional(),
+  sum_integrationId: z.number().optional(),
+  count_integrationId: z.number().optional(),
+  avg_integrationId: z.number().optional(),
+  min_integrationId: z.number().optional(),
+  max_integrationId: z.number().optional(),
   sum_properties: z.number().optional(),
   count_properties: z.number().optional(),
   avg_properties: z.number().optional(),
@@ -4465,6 +5258,14 @@ export const QueryEventsResult$inboundSchema: z.ZodType<
     "organizationId_day": "organizationIdDay",
     "organizationId_week": "organizationIdWeek",
     "organizationId_month": "organizationIdMonth",
+    "projectId_hour": "projectIdHour",
+    "projectId_day": "projectIdDay",
+    "projectId_week": "projectIdWeek",
+    "projectId_month": "projectIdMonth",
+    "integrationId_hour": "integrationIdHour",
+    "integrationId_day": "integrationIdDay",
+    "integrationId_week": "integrationIdWeek",
+    "integrationId_month": "integrationIdMonth",
     "properties_hour": "propertiesHour",
     "properties_day": "propertiesDay",
     "properties_week": "propertiesWeek",
@@ -4510,6 +5311,16 @@ export const QueryEventsResult$inboundSchema: z.ZodType<
     "avg_organizationId": "avgOrganizationId",
     "min_organizationId": "minOrganizationId",
     "max_organizationId": "maxOrganizationId",
+    "sum_projectId": "sumProjectId",
+    "count_projectId": "countProjectId",
+    "avg_projectId": "avgProjectId",
+    "min_projectId": "minProjectId",
+    "max_projectId": "maxProjectId",
+    "sum_integrationId": "sumIntegrationId",
+    "count_integrationId": "countIntegrationId",
+    "avg_integrationId": "avgIntegrationId",
+    "min_integrationId": "minIntegrationId",
+    "max_integrationId": "maxIntegrationId",
     "sum_properties": "sumProperties",
     "count_properties": "countProperties",
     "avg_properties": "avgProperties",
@@ -4545,6 +5356,8 @@ export type QueryEventsResult$Outbound = {
   type?: string | undefined;
   createdAt?: string | undefined;
   organizationId?: string | undefined;
+  projectId?: string | null | undefined;
+  integrationId?: string | null | undefined;
   properties?: { [k: string]: any } | undefined;
   userProperties?: { [k: string]: any } | undefined;
   messageId?: any | undefined;
@@ -4575,6 +5388,14 @@ export type QueryEventsResult$Outbound = {
   organizationId_day?: string | undefined;
   organizationId_week?: string | undefined;
   organizationId_month?: string | undefined;
+  projectId_hour?: string | undefined;
+  projectId_day?: string | undefined;
+  projectId_week?: string | undefined;
+  projectId_month?: string | undefined;
+  integrationId_hour?: string | undefined;
+  integrationId_day?: string | undefined;
+  integrationId_week?: string | undefined;
+  integrationId_month?: string | undefined;
   properties_hour?: string | undefined;
   properties_day?: string | undefined;
   properties_week?: string | undefined;
@@ -4620,6 +5441,16 @@ export type QueryEventsResult$Outbound = {
   avg_organizationId?: number | undefined;
   min_organizationId?: number | undefined;
   max_organizationId?: number | undefined;
+  sum_projectId?: number | undefined;
+  count_projectId?: number | undefined;
+  avg_projectId?: number | undefined;
+  min_projectId?: number | undefined;
+  max_projectId?: number | undefined;
+  sum_integrationId?: number | undefined;
+  count_integrationId?: number | undefined;
+  avg_integrationId?: number | undefined;
+  min_integrationId?: number | undefined;
+  max_integrationId?: number | undefined;
   sum_properties?: number | undefined;
   count_properties?: number | undefined;
   avg_properties?: number | undefined;
@@ -4658,6 +5489,8 @@ export const QueryEventsResult$outboundSchema: z.ZodType<
   type: z.string().optional(),
   createdAt: z.string().optional(),
   organizationId: z.string().optional(),
+  projectId: z.nullable(z.string()).optional(),
+  integrationId: z.nullable(z.string()).optional(),
   properties: z.record(z.any()).optional(),
   userProperties: z.record(z.any()).optional(),
   messageId: z.any().optional(),
@@ -4688,6 +5521,14 @@ export const QueryEventsResult$outboundSchema: z.ZodType<
   organizationIdDay: z.string().optional(),
   organizationIdWeek: z.string().optional(),
   organizationIdMonth: z.string().optional(),
+  projectIdHour: z.string().optional(),
+  projectIdDay: z.string().optional(),
+  projectIdWeek: z.string().optional(),
+  projectIdMonth: z.string().optional(),
+  integrationIdHour: z.string().optional(),
+  integrationIdDay: z.string().optional(),
+  integrationIdWeek: z.string().optional(),
+  integrationIdMonth: z.string().optional(),
   propertiesHour: z.string().optional(),
   propertiesDay: z.string().optional(),
   propertiesWeek: z.string().optional(),
@@ -4733,6 +5574,16 @@ export const QueryEventsResult$outboundSchema: z.ZodType<
   avgOrganizationId: z.number().optional(),
   minOrganizationId: z.number().optional(),
   maxOrganizationId: z.number().optional(),
+  sumProjectId: z.number().optional(),
+  countProjectId: z.number().optional(),
+  avgProjectId: z.number().optional(),
+  minProjectId: z.number().optional(),
+  maxProjectId: z.number().optional(),
+  sumIntegrationId: z.number().optional(),
+  countIntegrationId: z.number().optional(),
+  avgIntegrationId: z.number().optional(),
+  minIntegrationId: z.number().optional(),
+  maxIntegrationId: z.number().optional(),
   sumProperties: z.number().optional(),
   countProperties: z.number().optional(),
   avgProperties: z.number().optional(),
@@ -4780,6 +5631,14 @@ export const QueryEventsResult$outboundSchema: z.ZodType<
     organizationIdDay: "organizationId_day",
     organizationIdWeek: "organizationId_week",
     organizationIdMonth: "organizationId_month",
+    projectIdHour: "projectId_hour",
+    projectIdDay: "projectId_day",
+    projectIdWeek: "projectId_week",
+    projectIdMonth: "projectId_month",
+    integrationIdHour: "integrationId_hour",
+    integrationIdDay: "integrationId_day",
+    integrationIdWeek: "integrationId_week",
+    integrationIdMonth: "integrationId_month",
     propertiesHour: "properties_hour",
     propertiesDay: "properties_day",
     propertiesWeek: "properties_week",
@@ -4825,6 +5684,16 @@ export const QueryEventsResult$outboundSchema: z.ZodType<
     avgOrganizationId: "avg_organizationId",
     minOrganizationId: "min_organizationId",
     maxOrganizationId: "max_organizationId",
+    sumProjectId: "sum_projectId",
+    countProjectId: "count_projectId",
+    avgProjectId: "avg_projectId",
+    minProjectId: "min_projectId",
+    maxProjectId: "max_projectId",
+    sumIntegrationId: "sum_integrationId",
+    countIntegrationId: "count_integrationId",
+    avgIntegrationId: "avg_integrationId",
+    minIntegrationId: "min_integrationId",
+    maxIntegrationId: "max_integrationId",
     sumProperties: "sum_properties",
     countProperties: "count_properties",
     avgProperties: "avg_properties",

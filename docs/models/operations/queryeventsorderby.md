@@ -6,8 +6,8 @@
 import { QueryEventsOrderBy } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: QueryEventsOrderBy = {
-  field: "createdAt_week",
-  direction: "asc",
+  field: "projectId_month",
+  direction: "desc",
 };
 ```
 

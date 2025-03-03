@@ -15,36 +15,50 @@ export type EventsSimpleFieldSelectionType = ClosedEnum<
   typeof EventsSimpleFieldSelectionType
 >;
 
-export const EventsSimpleFieldSelectionField10 = {
+export const EventsSimpleFieldSelectionField12 = {
   SearchQuery: "searchQuery",
+} as const;
+export type EventsSimpleFieldSelectionField12 = ClosedEnum<
+  typeof EventsSimpleFieldSelectionField12
+>;
+
+export const EventsSimpleFieldSelectionField11 = {
+  ConversationId: "conversationId",
+} as const;
+export type EventsSimpleFieldSelectionField11 = ClosedEnum<
+  typeof EventsSimpleFieldSelectionField11
+>;
+
+export const EventsSimpleFieldSelectionField10 = {
+  MessageId: "messageId",
 } as const;
 export type EventsSimpleFieldSelectionField10 = ClosedEnum<
   typeof EventsSimpleFieldSelectionField10
 >;
 
 export const EventsSimpleFieldSelectionField9 = {
-  ConversationId: "conversationId",
+  UserProperties: "userProperties",
 } as const;
 export type EventsSimpleFieldSelectionField9 = ClosedEnum<
   typeof EventsSimpleFieldSelectionField9
 >;
 
 export const EventsSimpleFieldSelectionField8 = {
-  MessageId: "messageId",
+  Properties: "properties",
 } as const;
 export type EventsSimpleFieldSelectionField8 = ClosedEnum<
   typeof EventsSimpleFieldSelectionField8
 >;
 
 export const EventsSimpleFieldSelectionField7 = {
-  UserProperties: "userProperties",
+  IntegrationId: "integrationId",
 } as const;
 export type EventsSimpleFieldSelectionField7 = ClosedEnum<
   typeof EventsSimpleFieldSelectionField7
 >;
 
 export const EventsSimpleFieldSelectionField6 = {
-  Properties: "properties",
+  ProjectId: "projectId",
 } as const;
 export type EventsSimpleFieldSelectionField6 = ClosedEnum<
   typeof EventsSimpleFieldSelectionField6
@@ -95,7 +109,9 @@ export type EventsSimpleFieldSelectionField =
   | EventsSimpleFieldSelectionField7
   | EventsSimpleFieldSelectionField8
   | EventsSimpleFieldSelectionField9
-  | EventsSimpleFieldSelectionField10;
+  | EventsSimpleFieldSelectionField10
+  | EventsSimpleFieldSelectionField11
+  | EventsSimpleFieldSelectionField12;
 
 export type EventsSimpleFieldSelection = {
   type: EventsSimpleFieldSelectionType;
@@ -109,7 +125,9 @@ export type EventsSimpleFieldSelection = {
     | EventsSimpleFieldSelectionField7
     | EventsSimpleFieldSelectionField8
     | EventsSimpleFieldSelectionField9
-    | EventsSimpleFieldSelectionField10;
+    | EventsSimpleFieldSelectionField10
+    | EventsSimpleFieldSelectionField11
+    | EventsSimpleFieldSelectionField12;
 };
 
 /** @internal */
@@ -131,6 +149,50 @@ export namespace EventsSimpleFieldSelectionType$ {
   export const inboundSchema = EventsSimpleFieldSelectionType$inboundSchema;
   /** @deprecated use `EventsSimpleFieldSelectionType$outboundSchema` instead. */
   export const outboundSchema = EventsSimpleFieldSelectionType$outboundSchema;
+}
+
+/** @internal */
+export const EventsSimpleFieldSelectionField12$inboundSchema: z.ZodNativeEnum<
+  typeof EventsSimpleFieldSelectionField12
+> = z.nativeEnum(EventsSimpleFieldSelectionField12);
+
+/** @internal */
+export const EventsSimpleFieldSelectionField12$outboundSchema: z.ZodNativeEnum<
+  typeof EventsSimpleFieldSelectionField12
+> = EventsSimpleFieldSelectionField12$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace EventsSimpleFieldSelectionField12$ {
+  /** @deprecated use `EventsSimpleFieldSelectionField12$inboundSchema` instead. */
+  export const inboundSchema = EventsSimpleFieldSelectionField12$inboundSchema;
+  /** @deprecated use `EventsSimpleFieldSelectionField12$outboundSchema` instead. */
+  export const outboundSchema =
+    EventsSimpleFieldSelectionField12$outboundSchema;
+}
+
+/** @internal */
+export const EventsSimpleFieldSelectionField11$inboundSchema: z.ZodNativeEnum<
+  typeof EventsSimpleFieldSelectionField11
+> = z.nativeEnum(EventsSimpleFieldSelectionField11);
+
+/** @internal */
+export const EventsSimpleFieldSelectionField11$outboundSchema: z.ZodNativeEnum<
+  typeof EventsSimpleFieldSelectionField11
+> = EventsSimpleFieldSelectionField11$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace EventsSimpleFieldSelectionField11$ {
+  /** @deprecated use `EventsSimpleFieldSelectionField11$inboundSchema` instead. */
+  export const inboundSchema = EventsSimpleFieldSelectionField11$inboundSchema;
+  /** @deprecated use `EventsSimpleFieldSelectionField11$outboundSchema` instead. */
+  export const outboundSchema =
+    EventsSimpleFieldSelectionField11$outboundSchema;
 }
 
 /** @internal */
@@ -360,10 +422,14 @@ export const EventsSimpleFieldSelectionField$inboundSchema: z.ZodType<
   EventsSimpleFieldSelectionField8$inboundSchema,
   EventsSimpleFieldSelectionField9$inboundSchema,
   EventsSimpleFieldSelectionField10$inboundSchema,
+  EventsSimpleFieldSelectionField11$inboundSchema,
+  EventsSimpleFieldSelectionField12$inboundSchema,
 ]);
 
 /** @internal */
 export type EventsSimpleFieldSelectionField$Outbound =
+  | string
+  | string
   | string
   | string
   | string
@@ -391,6 +457,8 @@ export const EventsSimpleFieldSelectionField$outboundSchema: z.ZodType<
   EventsSimpleFieldSelectionField8$outboundSchema,
   EventsSimpleFieldSelectionField9$outboundSchema,
   EventsSimpleFieldSelectionField10$outboundSchema,
+  EventsSimpleFieldSelectionField11$outboundSchema,
+  EventsSimpleFieldSelectionField12$outboundSchema,
 ]);
 
 /**
@@ -444,6 +512,8 @@ export const EventsSimpleFieldSelection$inboundSchema: z.ZodType<
     EventsSimpleFieldSelectionField8$inboundSchema,
     EventsSimpleFieldSelectionField9$inboundSchema,
     EventsSimpleFieldSelectionField10$inboundSchema,
+    EventsSimpleFieldSelectionField11$inboundSchema,
+    EventsSimpleFieldSelectionField12$inboundSchema,
   ]),
 });
 
@@ -451,6 +521,8 @@ export const EventsSimpleFieldSelection$inboundSchema: z.ZodType<
 export type EventsSimpleFieldSelection$Outbound = {
   type: string;
   field:
+    | string
+    | string
     | string
     | string
     | string
@@ -481,6 +553,8 @@ export const EventsSimpleFieldSelection$outboundSchema: z.ZodType<
     EventsSimpleFieldSelectionField8$outboundSchema,
     EventsSimpleFieldSelectionField9$outboundSchema,
     EventsSimpleFieldSelectionField10$outboundSchema,
+    EventsSimpleFieldSelectionField11$outboundSchema,
+    EventsSimpleFieldSelectionField12$outboundSchema,
   ]),
 });
 

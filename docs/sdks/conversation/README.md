@@ -83,10 +83,10 @@ run();
 
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
-| errors.BadRequest          | 400                        | application/json           |
-| errors.Unauthorized        | 401                        | application/json           |
-| errors.Forbidden           | 403                        | application/json           |
-| errors.NotFound            | 404                        | application/json           |
-| errors.UnprocessableEntity | 422                        | application/json           |
-| errors.InternalServerError | 500                        | application/json           |
+| errors.BadRequest          | 400                        | application/problem+json   |
+| errors.Unauthorized        | 401                        | application/problem+json   |
+| errors.Forbidden           | 403                        | application/problem+json   |
+| errors.NotFound            | 404                        | application/problem+json   |
+| errors.UnprocessableEntity | 422                        | application/problem+json   |
+| errors.InternalServerError | 500                        | application/problem+json   |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |

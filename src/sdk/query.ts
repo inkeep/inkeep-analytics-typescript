@@ -3,10 +3,11 @@
  */
 
 import { queryConversations } from "../funcs/queryConversations.js";
-import { queryExport } from "../funcs/queryExport.js";
+import { queryExportSemanticThreadsQueryResults } from "../funcs/queryExportSemanticThreadsQueryResults.js";
 import { queryQueryEvents } from "../funcs/queryQueryEvents.js";
-import { queryTable } from "../funcs/queryTable.js";
+import { queryQuerySemanticThreads } from "../funcs/queryQuerySemanticThreads.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
+import * as components from "../models/components/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
@@ -44,14 +45,14 @@ export class Query extends ClientSDK {
   }
 
   /**
-   * Query
+   * Query Semantic Threads
    */
-  async table(
-    security: operations.QueryTableSecurity,
-    request: operations.QueryTableRequest,
+  async querySemanticThreads(
+    security: operations.QuerySemanticThreadsSecurity,
+    request: components.QuerySemanticThreadsParamsSchema,
     options?: RequestOptions,
-  ): Promise<operations.QueryTableResponseBody> {
-    return unwrapAsync(queryTable(
+  ): Promise<operations.QuerySemanticThreadsResponseBody> {
+    return unwrapAsync(queryQuerySemanticThreads(
       this,
       security,
       request,
@@ -60,13 +61,13 @@ export class Query extends ClientSDK {
   }
 
   /**
-   * Query Export
+   * Export Semantic Threads Query Results
    */
-  async export(
-    request: operations.ExportQueryRequest,
+  async exportSemanticThreadsQueryResults(
+    request: components.QuerySemanticThreadsParamsSchema,
     options?: RequestOptions,
   ): Promise<ReadableStream<Uint8Array>> {
-    return unwrapAsync(queryExport(
+    return unwrapAsync(queryExportSemanticThreadsQueryResults(
       this,
       request,
       options,

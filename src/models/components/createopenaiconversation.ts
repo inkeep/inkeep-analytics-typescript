@@ -83,8 +83,8 @@ export type Messages = {
   id?: string | undefined;
   externalId?: string | null | undefined;
   externalUrl?: string | null | undefined;
-  createdAt?: string | null | undefined;
-  updatedAt?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
   role: CreateOpenAIConversationRole;
   content: string | Array<OpenAIContentItem>;
   name?: string | null | undefined;
@@ -100,8 +100,8 @@ export type CreateOpenAIConversation = {
   externalUrl?: string | null | undefined;
   type: Type;
   supportTicketConversationId?: string | null | undefined;
-  createdAt?: string | null | undefined;
-  updatedAt?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
   projectId?: string | null | undefined;
   integrationId?: string | null | undefined;
   properties?: Properties | null | undefined;
@@ -575,8 +575,12 @@ export const Messages$inboundSchema: z.ZodType<
   id: z.string().optional(),
   externalId: z.nullable(z.string()).optional(),
   externalUrl: z.nullable(z.string()).optional(),
-  createdAt: z.nullable(z.string()).optional(),
-  updatedAt: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updatedAt: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
   role: CreateOpenAIConversationRole$inboundSchema,
   content: z.union([z.string(), z.array(OpenAIContentItem$inboundSchema)]),
   name: z.nullable(z.string()).optional(),
@@ -624,8 +628,8 @@ export const Messages$outboundSchema: z.ZodType<
   id: z.string().optional(),
   externalId: z.nullable(z.string()).optional(),
   externalUrl: z.nullable(z.string()).optional(),
-  createdAt: z.nullable(z.string()).optional(),
-  updatedAt: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   role: CreateOpenAIConversationRole$outboundSchema,
   content: z.union([z.string(), z.array(OpenAIContentItem$outboundSchema)]),
   name: z.nullable(z.string()).optional(),
@@ -683,8 +687,12 @@ export const CreateOpenAIConversation$inboundSchema: z.ZodType<
   externalUrl: z.nullable(z.string()).optional(),
   type: Type$inboundSchema,
   supportTicketConversationId: z.nullable(z.string()).optional(),
-  createdAt: z.nullable(z.string()).optional(),
-  updatedAt: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  updatedAt: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
   projectId: z.nullable(z.string()).optional(),
   integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(z.lazy(() => Properties$inboundSchema)).optional(),
@@ -724,8 +732,8 @@ export const CreateOpenAIConversation$outboundSchema: z.ZodType<
   externalUrl: z.nullable(z.string()).optional(),
   type: Type$outboundSchema,
   supportTicketConversationId: z.nullable(z.string()).optional(),
-  createdAt: z.nullable(z.string()).optional(),
-  updatedAt: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   projectId: z.nullable(z.string()).optional(),
   integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(z.lazy(() => Properties$outboundSchema)).optional(),

@@ -21,7 +21,9 @@ export type InsertMessageEvent = {
   id?: string | undefined;
   type: string;
   messageId: string;
-  createdAt?: string | null | undefined;
+  createdAt?: Date | null | undefined;
+  projectId?: string | null | undefined;
+  integrationId?: string | null | undefined;
   properties?: InsertMessageEventProperties | null | undefined;
   userProperties?: InsertMessageEventUserProperties | null | undefined;
   entityType: EntityType;
@@ -155,7 +157,11 @@ export const InsertMessageEvent$inboundSchema: z.ZodType<
   id: z.string().optional(),
   type: z.string(),
   messageId: z.string(),
-  createdAt: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
+  projectId: z.nullable(z.string()).optional(),
+  integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(
     z.lazy(() => InsertMessageEventProperties$inboundSchema),
   ).optional(),
@@ -171,6 +177,8 @@ export type InsertMessageEvent$Outbound = {
   type: string;
   messageId: string;
   createdAt?: string | null | undefined;
+  projectId?: string | null | undefined;
+  integrationId?: string | null | undefined;
   properties?: InsertMessageEventProperties$Outbound | null | undefined;
   userProperties?: InsertMessageEventUserProperties$Outbound | null | undefined;
   entityType: string;
@@ -185,7 +193,9 @@ export const InsertMessageEvent$outboundSchema: z.ZodType<
   id: z.string().optional(),
   type: z.string(),
   messageId: z.string(),
-  createdAt: z.nullable(z.string()).optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  projectId: z.nullable(z.string()).optional(),
+  integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(
     z.lazy(() => InsertMessageEventProperties$outboundSchema),
   ).optional(),

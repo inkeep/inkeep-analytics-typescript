@@ -7,29 +7,44 @@ import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  FilterOperator,
+  FilterOperator$inboundSchema,
+  FilterOperator$outboundSchema,
+} from "./filteroperator.js";
+
+export const EventsConditionField12 = {
+  SearchQuery: "searchQuery",
+} as const;
+export type EventsConditionField12 = ClosedEnum<typeof EventsConditionField12>;
+
+export const EventsConditionField11 = {
+  ConversationId: "conversationId",
+} as const;
+export type EventsConditionField11 = ClosedEnum<typeof EventsConditionField11>;
 
 export const EventsConditionField10 = {
-  SearchQuery: "searchQuery",
+  MessageId: "messageId",
 } as const;
 export type EventsConditionField10 = ClosedEnum<typeof EventsConditionField10>;
 
 export const EventsConditionField9 = {
-  ConversationId: "conversationId",
+  UserProperties: "userProperties",
 } as const;
 export type EventsConditionField9 = ClosedEnum<typeof EventsConditionField9>;
 
 export const EventsConditionField8 = {
-  MessageId: "messageId",
+  Properties: "properties",
 } as const;
 export type EventsConditionField8 = ClosedEnum<typeof EventsConditionField8>;
 
 export const EventsConditionField7 = {
-  UserProperties: "userProperties",
+  IntegrationId: "integrationId",
 } as const;
 export type EventsConditionField7 = ClosedEnum<typeof EventsConditionField7>;
 
 export const EventsConditionField6 = {
-  Properties: "properties",
+  ProjectId: "projectId",
 } as const;
 export type EventsConditionField6 = ClosedEnum<typeof EventsConditionField6>;
 
@@ -68,66 +83,9 @@ export type EventsConditionField =
   | EventsConditionField7
   | EventsConditionField8
   | EventsConditionField9
-  | EventsConditionField10;
-
-export const SelectOperators9 = {
-  ArrayContains: "arrayContains",
-} as const;
-export type SelectOperators9 = ClosedEnum<typeof SelectOperators9>;
-
-export const SelectOperators8 = {
-  NotIn: "notIn",
-} as const;
-export type SelectOperators8 = ClosedEnum<typeof SelectOperators8>;
-
-export const SelectOperators7 = {
-  In: "in",
-} as const;
-export type SelectOperators7 = ClosedEnum<typeof SelectOperators7>;
-
-export const SelectOperators6 = {
-  Lte: "lte",
-} as const;
-export type SelectOperators6 = ClosedEnum<typeof SelectOperators6>;
-
-export const SelectOperators5 = {
-  Lt: "lt",
-} as const;
-export type SelectOperators5 = ClosedEnum<typeof SelectOperators5>;
-
-export const SelectOperators4 = {
-  Gte: "gte",
-} as const;
-export type SelectOperators4 = ClosedEnum<typeof SelectOperators4>;
-
-export const SelectOperators3 = {
-  Gt: "gt",
-} as const;
-export type SelectOperators3 = ClosedEnum<typeof SelectOperators3>;
-
-export const SelectOperators2 = {
-  Neq: "neq",
-} as const;
-export type SelectOperators2 = ClosedEnum<typeof SelectOperators2>;
-
-export const SelectOperators1 = {
-  Eq: "eq",
-} as const;
-export type SelectOperators1 = ClosedEnum<typeof SelectOperators1>;
-
-/**
- * Available Select Operators
- */
-export type SelectOperators =
-  | SelectOperators1
-  | SelectOperators2
-  | SelectOperators3
-  | SelectOperators4
-  | SelectOperators5
-  | SelectOperators6
-  | SelectOperators7
-  | SelectOperators8
-  | SelectOperators9;
+  | EventsConditionField10
+  | EventsConditionField11
+  | EventsConditionField12;
 
 export type Value = string | boolean | number | Array<string>;
 
@@ -142,22 +100,57 @@ export type EventsCondition = {
     | EventsConditionField7
     | EventsConditionField8
     | EventsConditionField9
-    | EventsConditionField10;
+    | EventsConditionField10
+    | EventsConditionField11
+    | EventsConditionField12;
   /**
    * Available Select Operators
    */
-  operator:
-    | SelectOperators1
-    | SelectOperators2
-    | SelectOperators3
-    | SelectOperators4
-    | SelectOperators5
-    | SelectOperators6
-    | SelectOperators7
-    | SelectOperators8
-    | SelectOperators9;
+  operator: FilterOperator;
   value: string | boolean | number | Array<string>;
 };
+
+/** @internal */
+export const EventsConditionField12$inboundSchema: z.ZodNativeEnum<
+  typeof EventsConditionField12
+> = z.nativeEnum(EventsConditionField12);
+
+/** @internal */
+export const EventsConditionField12$outboundSchema: z.ZodNativeEnum<
+  typeof EventsConditionField12
+> = EventsConditionField12$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace EventsConditionField12$ {
+  /** @deprecated use `EventsConditionField12$inboundSchema` instead. */
+  export const inboundSchema = EventsConditionField12$inboundSchema;
+  /** @deprecated use `EventsConditionField12$outboundSchema` instead. */
+  export const outboundSchema = EventsConditionField12$outboundSchema;
+}
+
+/** @internal */
+export const EventsConditionField11$inboundSchema: z.ZodNativeEnum<
+  typeof EventsConditionField11
+> = z.nativeEnum(EventsConditionField11);
+
+/** @internal */
+export const EventsConditionField11$outboundSchema: z.ZodNativeEnum<
+  typeof EventsConditionField11
+> = EventsConditionField11$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace EventsConditionField11$ {
+  /** @deprecated use `EventsConditionField11$inboundSchema` instead. */
+  export const inboundSchema = EventsConditionField11$inboundSchema;
+  /** @deprecated use `EventsConditionField11$outboundSchema` instead. */
+  export const outboundSchema = EventsConditionField11$outboundSchema;
+}
 
 /** @internal */
 export const EventsConditionField10$inboundSchema: z.ZodNativeEnum<
@@ -385,10 +378,14 @@ export const EventsConditionField$inboundSchema: z.ZodType<
   EventsConditionField8$inboundSchema,
   EventsConditionField9$inboundSchema,
   EventsConditionField10$inboundSchema,
+  EventsConditionField11$inboundSchema,
+  EventsConditionField12$inboundSchema,
 ]);
 
 /** @internal */
 export type EventsConditionField$Outbound =
+  | string
+  | string
   | string
   | string
   | string
@@ -416,6 +413,8 @@ export const EventsConditionField$outboundSchema: z.ZodType<
   EventsConditionField8$outboundSchema,
   EventsConditionField9$outboundSchema,
   EventsConditionField10$outboundSchema,
+  EventsConditionField11$outboundSchema,
+  EventsConditionField12$outboundSchema,
 ]);
 
 /**
@@ -446,270 +445,6 @@ export function eventsConditionFieldFromJSON(
     jsonString,
     (x) => EventsConditionField$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'EventsConditionField' from JSON`,
-  );
-}
-
-/** @internal */
-export const SelectOperators9$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators9
-> = z.nativeEnum(SelectOperators9);
-
-/** @internal */
-export const SelectOperators9$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators9
-> = SelectOperators9$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SelectOperators9$ {
-  /** @deprecated use `SelectOperators9$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators9$inboundSchema;
-  /** @deprecated use `SelectOperators9$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators9$outboundSchema;
-}
-
-/** @internal */
-export const SelectOperators8$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators8
-> = z.nativeEnum(SelectOperators8);
-
-/** @internal */
-export const SelectOperators8$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators8
-> = SelectOperators8$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SelectOperators8$ {
-  /** @deprecated use `SelectOperators8$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators8$inboundSchema;
-  /** @deprecated use `SelectOperators8$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators8$outboundSchema;
-}
-
-/** @internal */
-export const SelectOperators7$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators7
-> = z.nativeEnum(SelectOperators7);
-
-/** @internal */
-export const SelectOperators7$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators7
-> = SelectOperators7$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SelectOperators7$ {
-  /** @deprecated use `SelectOperators7$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators7$inboundSchema;
-  /** @deprecated use `SelectOperators7$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators7$outboundSchema;
-}
-
-/** @internal */
-export const SelectOperators6$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators6
-> = z.nativeEnum(SelectOperators6);
-
-/** @internal */
-export const SelectOperators6$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators6
-> = SelectOperators6$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SelectOperators6$ {
-  /** @deprecated use `SelectOperators6$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators6$inboundSchema;
-  /** @deprecated use `SelectOperators6$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators6$outboundSchema;
-}
-
-/** @internal */
-export const SelectOperators5$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators5
-> = z.nativeEnum(SelectOperators5);
-
-/** @internal */
-export const SelectOperators5$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators5
-> = SelectOperators5$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SelectOperators5$ {
-  /** @deprecated use `SelectOperators5$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators5$inboundSchema;
-  /** @deprecated use `SelectOperators5$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators5$outboundSchema;
-}
-
-/** @internal */
-export const SelectOperators4$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators4
-> = z.nativeEnum(SelectOperators4);
-
-/** @internal */
-export const SelectOperators4$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators4
-> = SelectOperators4$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SelectOperators4$ {
-  /** @deprecated use `SelectOperators4$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators4$inboundSchema;
-  /** @deprecated use `SelectOperators4$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators4$outboundSchema;
-}
-
-/** @internal */
-export const SelectOperators3$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators3
-> = z.nativeEnum(SelectOperators3);
-
-/** @internal */
-export const SelectOperators3$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators3
-> = SelectOperators3$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SelectOperators3$ {
-  /** @deprecated use `SelectOperators3$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators3$inboundSchema;
-  /** @deprecated use `SelectOperators3$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators3$outboundSchema;
-}
-
-/** @internal */
-export const SelectOperators2$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators2
-> = z.nativeEnum(SelectOperators2);
-
-/** @internal */
-export const SelectOperators2$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators2
-> = SelectOperators2$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SelectOperators2$ {
-  /** @deprecated use `SelectOperators2$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators2$inboundSchema;
-  /** @deprecated use `SelectOperators2$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators2$outboundSchema;
-}
-
-/** @internal */
-export const SelectOperators1$inboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators1
-> = z.nativeEnum(SelectOperators1);
-
-/** @internal */
-export const SelectOperators1$outboundSchema: z.ZodNativeEnum<
-  typeof SelectOperators1
-> = SelectOperators1$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SelectOperators1$ {
-  /** @deprecated use `SelectOperators1$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators1$inboundSchema;
-  /** @deprecated use `SelectOperators1$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators1$outboundSchema;
-}
-
-/** @internal */
-export const SelectOperators$inboundSchema: z.ZodType<
-  SelectOperators,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  SelectOperators1$inboundSchema,
-  SelectOperators2$inboundSchema,
-  SelectOperators3$inboundSchema,
-  SelectOperators4$inboundSchema,
-  SelectOperators5$inboundSchema,
-  SelectOperators6$inboundSchema,
-  SelectOperators7$inboundSchema,
-  SelectOperators8$inboundSchema,
-  SelectOperators9$inboundSchema,
-]);
-
-/** @internal */
-export type SelectOperators$Outbound =
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string;
-
-/** @internal */
-export const SelectOperators$outboundSchema: z.ZodType<
-  SelectOperators$Outbound,
-  z.ZodTypeDef,
-  SelectOperators
-> = z.union([
-  SelectOperators1$outboundSchema,
-  SelectOperators2$outboundSchema,
-  SelectOperators3$outboundSchema,
-  SelectOperators4$outboundSchema,
-  SelectOperators5$outboundSchema,
-  SelectOperators6$outboundSchema,
-  SelectOperators7$outboundSchema,
-  SelectOperators8$outboundSchema,
-  SelectOperators9$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SelectOperators$ {
-  /** @deprecated use `SelectOperators$inboundSchema` instead. */
-  export const inboundSchema = SelectOperators$inboundSchema;
-  /** @deprecated use `SelectOperators$outboundSchema` instead. */
-  export const outboundSchema = SelectOperators$outboundSchema;
-  /** @deprecated use `SelectOperators$Outbound` instead. */
-  export type Outbound = SelectOperators$Outbound;
-}
-
-export function selectOperatorsToJSON(
-  selectOperators: SelectOperators,
-): string {
-  return JSON.stringify(SelectOperators$outboundSchema.parse(selectOperators));
-}
-
-export function selectOperatorsFromJSON(
-  jsonString: string,
-): SafeParseResult<SelectOperators, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SelectOperators$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SelectOperators' from JSON`,
   );
 }
 
@@ -771,18 +506,10 @@ export const EventsCondition$inboundSchema: z.ZodType<
     EventsConditionField8$inboundSchema,
     EventsConditionField9$inboundSchema,
     EventsConditionField10$inboundSchema,
+    EventsConditionField11$inboundSchema,
+    EventsConditionField12$inboundSchema,
   ]),
-  operator: z.union([
-    SelectOperators1$inboundSchema,
-    SelectOperators2$inboundSchema,
-    SelectOperators3$inboundSchema,
-    SelectOperators4$inboundSchema,
-    SelectOperators5$inboundSchema,
-    SelectOperators6$inboundSchema,
-    SelectOperators7$inboundSchema,
-    SelectOperators8$inboundSchema,
-    SelectOperators9$inboundSchema,
-  ]),
+  operator: FilterOperator$inboundSchema,
   value: z.union([z.string(), z.boolean(), z.number(), z.array(z.string())]),
 });
 
@@ -798,17 +525,10 @@ export type EventsCondition$Outbound = {
     | string
     | string
     | string
-    | string;
-  operator:
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
     | string
     | string
     | string;
+  operator: string;
   value: string | boolean | number | Array<string>;
 };
 
@@ -829,18 +549,10 @@ export const EventsCondition$outboundSchema: z.ZodType<
     EventsConditionField8$outboundSchema,
     EventsConditionField9$outboundSchema,
     EventsConditionField10$outboundSchema,
+    EventsConditionField11$outboundSchema,
+    EventsConditionField12$outboundSchema,
   ]),
-  operator: z.union([
-    SelectOperators1$outboundSchema,
-    SelectOperators2$outboundSchema,
-    SelectOperators3$outboundSchema,
-    SelectOperators4$outboundSchema,
-    SelectOperators5$outboundSchema,
-    SelectOperators6$outboundSchema,
-    SelectOperators7$outboundSchema,
-    SelectOperators8$outboundSchema,
-    SelectOperators9$outboundSchema,
-  ]),
+  operator: FilterOperator$outboundSchema,
   value: z.union([z.string(), z.boolean(), z.number(), z.array(z.string())]),
 });
 

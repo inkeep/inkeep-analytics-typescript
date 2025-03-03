@@ -15,67 +15,50 @@ export type EventsTimeBasedGroupBySelectionType = ClosedEnum<
   typeof EventsTimeBasedGroupBySelectionType
 >;
 
-export const EventsTimeBasedGroupBySelectionTimeUnit4 = {
+export const EventsTimeBasedGroupBySelectionTimeUnit = {
+  Hour: "hour",
+  Day: "day",
+  Week: "week",
   Month: "month",
 } as const;
-export type EventsTimeBasedGroupBySelectionTimeUnit4 = ClosedEnum<
-  typeof EventsTimeBasedGroupBySelectionTimeUnit4
+export type EventsTimeBasedGroupBySelectionTimeUnit = ClosedEnum<
+  typeof EventsTimeBasedGroupBySelectionTimeUnit
 >;
 
-export const EventsTimeBasedGroupBySelectionTimeUnit3 = {
-  Week: "week",
+export const Field12 = {
+  SearchQuery: "searchQuery",
 } as const;
-export type EventsTimeBasedGroupBySelectionTimeUnit3 = ClosedEnum<
-  typeof EventsTimeBasedGroupBySelectionTimeUnit3
->;
+export type Field12 = ClosedEnum<typeof Field12>;
 
-export const EventsTimeBasedGroupBySelectionTimeUnit2 = {
-  Day: "day",
+export const Field11 = {
+  ConversationId: "conversationId",
 } as const;
-export type EventsTimeBasedGroupBySelectionTimeUnit2 = ClosedEnum<
-  typeof EventsTimeBasedGroupBySelectionTimeUnit2
->;
-
-export const EventsTimeBasedGroupBySelectionTimeUnit1 = {
-  Hour: "hour",
-} as const;
-export type EventsTimeBasedGroupBySelectionTimeUnit1 = ClosedEnum<
-  typeof EventsTimeBasedGroupBySelectionTimeUnit1
->;
-
-/**
- * Available Time Units
- */
-export type EventsTimeBasedGroupBySelectionTimeUnit =
-  | EventsTimeBasedGroupBySelectionTimeUnit1
-  | EventsTimeBasedGroupBySelectionTimeUnit2
-  | EventsTimeBasedGroupBySelectionTimeUnit3
-  | EventsTimeBasedGroupBySelectionTimeUnit4;
+export type Field11 = ClosedEnum<typeof Field11>;
 
 export const Field10 = {
-  SearchQuery: "searchQuery",
+  MessageId: "messageId",
 } as const;
 export type Field10 = ClosedEnum<typeof Field10>;
 
 export const Field9 = {
-  ConversationId: "conversationId",
+  UserProperties: "userProperties",
 } as const;
 export type Field9 = ClosedEnum<typeof Field9>;
 
 export const Field8 = {
-  MessageId: "messageId",
+  Properties: "properties",
 } as const;
 export type Field8 = ClosedEnum<typeof Field8>;
 
 export const EventsTimeBasedGroupBySelectionField7 = {
-  UserProperties: "userProperties",
+  IntegrationId: "integrationId",
 } as const;
 export type EventsTimeBasedGroupBySelectionField7 = ClosedEnum<
   typeof EventsTimeBasedGroupBySelectionField7
 >;
 
 export const EventsTimeBasedGroupBySelectionField6 = {
-  Properties: "properties",
+  ProjectId: "projectId",
 } as const;
 export type EventsTimeBasedGroupBySelectionField6 = ClosedEnum<
   typeof EventsTimeBasedGroupBySelectionField6
@@ -126,18 +109,13 @@ export type EventsTimeBasedGroupBySelectionField =
   | EventsTimeBasedGroupBySelectionField7
   | Field8
   | Field9
-  | Field10;
+  | Field10
+  | Field11
+  | Field12;
 
 export type EventsTimeBasedGroupBySelection = {
   type: EventsTimeBasedGroupBySelectionType;
-  /**
-   * Available Time Units
-   */
-  timeUnit:
-    | EventsTimeBasedGroupBySelectionTimeUnit1
-    | EventsTimeBasedGroupBySelectionTimeUnit2
-    | EventsTimeBasedGroupBySelectionTimeUnit3
-    | EventsTimeBasedGroupBySelectionTimeUnit4;
+  timeUnit: EventsTimeBasedGroupBySelectionTimeUnit;
   field:
     | EventsTimeBasedGroupBySelectionField1
     | EventsTimeBasedGroupBySelectionField2
@@ -148,7 +126,9 @@ export type EventsTimeBasedGroupBySelection = {
     | EventsTimeBasedGroupBySelectionField7
     | Field8
     | Field9
-    | Field10;
+    | Field10
+    | Field11
+    | Field12;
 };
 
 /** @internal */
@@ -175,127 +155,14 @@ export namespace EventsTimeBasedGroupBySelectionType$ {
 }
 
 /** @internal */
-export const EventsTimeBasedGroupBySelectionTimeUnit4$inboundSchema:
-  z.ZodNativeEnum<typeof EventsTimeBasedGroupBySelectionTimeUnit4> = z
-    .nativeEnum(EventsTimeBasedGroupBySelectionTimeUnit4);
+export const EventsTimeBasedGroupBySelectionTimeUnit$inboundSchema:
+  z.ZodNativeEnum<typeof EventsTimeBasedGroupBySelectionTimeUnit> = z
+    .nativeEnum(EventsTimeBasedGroupBySelectionTimeUnit);
 
 /** @internal */
-export const EventsTimeBasedGroupBySelectionTimeUnit4$outboundSchema:
-  z.ZodNativeEnum<typeof EventsTimeBasedGroupBySelectionTimeUnit4> =
-    EventsTimeBasedGroupBySelectionTimeUnit4$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsTimeBasedGroupBySelectionTimeUnit4$ {
-  /** @deprecated use `EventsTimeBasedGroupBySelectionTimeUnit4$inboundSchema` instead. */
-  export const inboundSchema =
-    EventsTimeBasedGroupBySelectionTimeUnit4$inboundSchema;
-  /** @deprecated use `EventsTimeBasedGroupBySelectionTimeUnit4$outboundSchema` instead. */
-  export const outboundSchema =
-    EventsTimeBasedGroupBySelectionTimeUnit4$outboundSchema;
-}
-
-/** @internal */
-export const EventsTimeBasedGroupBySelectionTimeUnit3$inboundSchema:
-  z.ZodNativeEnum<typeof EventsTimeBasedGroupBySelectionTimeUnit3> = z
-    .nativeEnum(EventsTimeBasedGroupBySelectionTimeUnit3);
-
-/** @internal */
-export const EventsTimeBasedGroupBySelectionTimeUnit3$outboundSchema:
-  z.ZodNativeEnum<typeof EventsTimeBasedGroupBySelectionTimeUnit3> =
-    EventsTimeBasedGroupBySelectionTimeUnit3$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsTimeBasedGroupBySelectionTimeUnit3$ {
-  /** @deprecated use `EventsTimeBasedGroupBySelectionTimeUnit3$inboundSchema` instead. */
-  export const inboundSchema =
-    EventsTimeBasedGroupBySelectionTimeUnit3$inboundSchema;
-  /** @deprecated use `EventsTimeBasedGroupBySelectionTimeUnit3$outboundSchema` instead. */
-  export const outboundSchema =
-    EventsTimeBasedGroupBySelectionTimeUnit3$outboundSchema;
-}
-
-/** @internal */
-export const EventsTimeBasedGroupBySelectionTimeUnit2$inboundSchema:
-  z.ZodNativeEnum<typeof EventsTimeBasedGroupBySelectionTimeUnit2> = z
-    .nativeEnum(EventsTimeBasedGroupBySelectionTimeUnit2);
-
-/** @internal */
-export const EventsTimeBasedGroupBySelectionTimeUnit2$outboundSchema:
-  z.ZodNativeEnum<typeof EventsTimeBasedGroupBySelectionTimeUnit2> =
-    EventsTimeBasedGroupBySelectionTimeUnit2$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsTimeBasedGroupBySelectionTimeUnit2$ {
-  /** @deprecated use `EventsTimeBasedGroupBySelectionTimeUnit2$inboundSchema` instead. */
-  export const inboundSchema =
-    EventsTimeBasedGroupBySelectionTimeUnit2$inboundSchema;
-  /** @deprecated use `EventsTimeBasedGroupBySelectionTimeUnit2$outboundSchema` instead. */
-  export const outboundSchema =
-    EventsTimeBasedGroupBySelectionTimeUnit2$outboundSchema;
-}
-
-/** @internal */
-export const EventsTimeBasedGroupBySelectionTimeUnit1$inboundSchema:
-  z.ZodNativeEnum<typeof EventsTimeBasedGroupBySelectionTimeUnit1> = z
-    .nativeEnum(EventsTimeBasedGroupBySelectionTimeUnit1);
-
-/** @internal */
-export const EventsTimeBasedGroupBySelectionTimeUnit1$outboundSchema:
-  z.ZodNativeEnum<typeof EventsTimeBasedGroupBySelectionTimeUnit1> =
-    EventsTimeBasedGroupBySelectionTimeUnit1$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsTimeBasedGroupBySelectionTimeUnit1$ {
-  /** @deprecated use `EventsTimeBasedGroupBySelectionTimeUnit1$inboundSchema` instead. */
-  export const inboundSchema =
-    EventsTimeBasedGroupBySelectionTimeUnit1$inboundSchema;
-  /** @deprecated use `EventsTimeBasedGroupBySelectionTimeUnit1$outboundSchema` instead. */
-  export const outboundSchema =
-    EventsTimeBasedGroupBySelectionTimeUnit1$outboundSchema;
-}
-
-/** @internal */
-export const EventsTimeBasedGroupBySelectionTimeUnit$inboundSchema: z.ZodType<
-  EventsTimeBasedGroupBySelectionTimeUnit,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  EventsTimeBasedGroupBySelectionTimeUnit1$inboundSchema,
-  EventsTimeBasedGroupBySelectionTimeUnit2$inboundSchema,
-  EventsTimeBasedGroupBySelectionTimeUnit3$inboundSchema,
-  EventsTimeBasedGroupBySelectionTimeUnit4$inboundSchema,
-]);
-
-/** @internal */
-export type EventsTimeBasedGroupBySelectionTimeUnit$Outbound =
-  | string
-  | string
-  | string
-  | string;
-
-/** @internal */
-export const EventsTimeBasedGroupBySelectionTimeUnit$outboundSchema: z.ZodType<
-  EventsTimeBasedGroupBySelectionTimeUnit$Outbound,
-  z.ZodTypeDef,
-  EventsTimeBasedGroupBySelectionTimeUnit
-> = z.union([
-  EventsTimeBasedGroupBySelectionTimeUnit1$outboundSchema,
-  EventsTimeBasedGroupBySelectionTimeUnit2$outboundSchema,
-  EventsTimeBasedGroupBySelectionTimeUnit3$outboundSchema,
-  EventsTimeBasedGroupBySelectionTimeUnit4$outboundSchema,
-]);
+export const EventsTimeBasedGroupBySelectionTimeUnit$outboundSchema:
+  z.ZodNativeEnum<typeof EventsTimeBasedGroupBySelectionTimeUnit> =
+    EventsTimeBasedGroupBySelectionTimeUnit$inboundSchema;
 
 /**
  * @internal
@@ -308,35 +175,44 @@ export namespace EventsTimeBasedGroupBySelectionTimeUnit$ {
   /** @deprecated use `EventsTimeBasedGroupBySelectionTimeUnit$outboundSchema` instead. */
   export const outboundSchema =
     EventsTimeBasedGroupBySelectionTimeUnit$outboundSchema;
-  /** @deprecated use `EventsTimeBasedGroupBySelectionTimeUnit$Outbound` instead. */
-  export type Outbound = EventsTimeBasedGroupBySelectionTimeUnit$Outbound;
 }
 
-export function eventsTimeBasedGroupBySelectionTimeUnitToJSON(
-  eventsTimeBasedGroupBySelectionTimeUnit:
-    EventsTimeBasedGroupBySelectionTimeUnit,
-): string {
-  return JSON.stringify(
-    EventsTimeBasedGroupBySelectionTimeUnit$outboundSchema.parse(
-      eventsTimeBasedGroupBySelectionTimeUnit,
-    ),
-  );
+/** @internal */
+export const Field12$inboundSchema: z.ZodNativeEnum<typeof Field12> = z
+  .nativeEnum(Field12);
+
+/** @internal */
+export const Field12$outboundSchema: z.ZodNativeEnum<typeof Field12> =
+  Field12$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Field12$ {
+  /** @deprecated use `Field12$inboundSchema` instead. */
+  export const inboundSchema = Field12$inboundSchema;
+  /** @deprecated use `Field12$outboundSchema` instead. */
+  export const outboundSchema = Field12$outboundSchema;
 }
 
-export function eventsTimeBasedGroupBySelectionTimeUnitFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  EventsTimeBasedGroupBySelectionTimeUnit,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EventsTimeBasedGroupBySelectionTimeUnit$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'EventsTimeBasedGroupBySelectionTimeUnit' from JSON`,
-  );
+/** @internal */
+export const Field11$inboundSchema: z.ZodNativeEnum<typeof Field11> = z
+  .nativeEnum(Field11);
+
+/** @internal */
+export const Field11$outboundSchema: z.ZodNativeEnum<typeof Field11> =
+  Field11$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Field11$ {
+  /** @deprecated use `Field11$inboundSchema` instead. */
+  export const inboundSchema = Field11$inboundSchema;
+  /** @deprecated use `Field11$outboundSchema` instead. */
+  export const outboundSchema = Field11$outboundSchema;
 }
 
 /** @internal */
@@ -580,10 +456,14 @@ export const EventsTimeBasedGroupBySelectionField$inboundSchema: z.ZodType<
   Field8$inboundSchema,
   Field9$inboundSchema,
   Field10$inboundSchema,
+  Field11$inboundSchema,
+  Field12$inboundSchema,
 ]);
 
 /** @internal */
 export type EventsTimeBasedGroupBySelectionField$Outbound =
+  | string
+  | string
   | string
   | string
   | string
@@ -611,6 +491,8 @@ export const EventsTimeBasedGroupBySelectionField$outboundSchema: z.ZodType<
   Field8$outboundSchema,
   Field9$outboundSchema,
   Field10$outboundSchema,
+  Field11$outboundSchema,
+  Field12$outboundSchema,
 ]);
 
 /**
@@ -656,12 +538,7 @@ export const EventsTimeBasedGroupBySelection$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: EventsTimeBasedGroupBySelectionType$inboundSchema,
-  timeUnit: z.union([
-    EventsTimeBasedGroupBySelectionTimeUnit1$inboundSchema,
-    EventsTimeBasedGroupBySelectionTimeUnit2$inboundSchema,
-    EventsTimeBasedGroupBySelectionTimeUnit3$inboundSchema,
-    EventsTimeBasedGroupBySelectionTimeUnit4$inboundSchema,
-  ]),
+  timeUnit: EventsTimeBasedGroupBySelectionTimeUnit$inboundSchema,
   field: z.union([
     EventsTimeBasedGroupBySelectionField1$inboundSchema,
     EventsTimeBasedGroupBySelectionField2$inboundSchema,
@@ -673,14 +550,18 @@ export const EventsTimeBasedGroupBySelection$inboundSchema: z.ZodType<
     Field8$inboundSchema,
     Field9$inboundSchema,
     Field10$inboundSchema,
+    Field11$inboundSchema,
+    Field12$inboundSchema,
   ]),
 });
 
 /** @internal */
 export type EventsTimeBasedGroupBySelection$Outbound = {
   type: string;
-  timeUnit: string | string | string | string;
+  timeUnit: string;
   field:
+    | string
+    | string
     | string
     | string
     | string
@@ -700,12 +581,7 @@ export const EventsTimeBasedGroupBySelection$outboundSchema: z.ZodType<
   EventsTimeBasedGroupBySelection
 > = z.object({
   type: EventsTimeBasedGroupBySelectionType$outboundSchema,
-  timeUnit: z.union([
-    EventsTimeBasedGroupBySelectionTimeUnit1$outboundSchema,
-    EventsTimeBasedGroupBySelectionTimeUnit2$outboundSchema,
-    EventsTimeBasedGroupBySelectionTimeUnit3$outboundSchema,
-    EventsTimeBasedGroupBySelectionTimeUnit4$outboundSchema,
-  ]),
+  timeUnit: EventsTimeBasedGroupBySelectionTimeUnit$outboundSchema,
   field: z.union([
     EventsTimeBasedGroupBySelectionField1$outboundSchema,
     EventsTimeBasedGroupBySelectionField2$outboundSchema,
@@ -717,6 +593,8 @@ export const EventsTimeBasedGroupBySelection$outboundSchema: z.ZodType<
     Field8$outboundSchema,
     Field9$outboundSchema,
     Field10$outboundSchema,
+    Field11$outboundSchema,
+    Field12$outboundSchema,
   ]),
 });
 

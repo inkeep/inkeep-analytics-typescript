@@ -5,11 +5,11 @@
 ```typescript
 import { SeventyFour } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: SeventyFour = "min_organizationId";
+let value: SeventyFour = "min_type";
 ```
 
 ## Values
 
 ```typescript
-"min_organizationId"
+"min_type"
 ```

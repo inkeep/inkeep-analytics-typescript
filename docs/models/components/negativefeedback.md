@@ -7,14 +7,14 @@ import { NegativeFeedback } from "@inkeep/inkeep-analytics/models/components";
 
 let value: NegativeFeedback = {
   id: "<id>",
-  type: "positive",
+  type: "negative",
   messageId: "<id>",
-  createdAt: "1736306523121",
+  createdAt: "1732378843048",
   conversation: {
     id: "<id>",
     type: "support_ticket",
-    createdAt: "1721778466417",
-    updatedAt: "1739559691856",
+    createdAt: "1739658277355",
+    updatedAt: "1741012464915",
     tags: [
       "<value>",
     ],
@@ -23,8 +23,8 @@ let value: NegativeFeedback = {
         id: "<id>",
         type: "support_ticket",
         conversationId: "<id>",
-        createdAt: "1733457163404",
-        updatedAt: "1739543445841",
+        createdAt: "1722873917194",
+        updatedAt: "1741009216574",
         role: "<value>",
       },
     ],
@@ -33,10 +33,14 @@ let value: NegativeFeedback = {
     id: "<id>",
     type: "openai",
     conversationId: "<id>",
-    createdAt: "1737029833360",
-    updatedAt: "1739544340306",
-    role: "assistant",
-    content: "<value>",
+    createdAt: "1719017687925",
+    updatedAt: "1741013863142",
+    role: "system",
+    content: [
+      {
+        type: "text",
+      },
+    ],
   },
 };
 ```

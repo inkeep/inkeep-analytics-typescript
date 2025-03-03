@@ -19,22 +19,98 @@ export const ForbiddenCode = {
  */
 export type ForbiddenCode = ClosedEnum<typeof ForbiddenCode>;
 
+/**
+ * A short code indicating the error code returned.
+ */
+export const ForbiddenErrorCode = {
+  Forbidden: "forbidden",
+} as const;
+/**
+ * A short code indicating the error code returned.
+ */
+export type ForbiddenErrorCode = ClosedEnum<typeof ForbiddenErrorCode>;
+
+/**
+ * Legacy error format for backward compatibility.
+ */
 export type ForbiddenError = {
   /**
    * A short code indicating the error code returned.
    */
-  code: ForbiddenCode;
+  code: ForbiddenErrorCode;
   /**
-   * A human readable error message.
+   * A concise error message suitable for display to end users. May be truncated if the full detail is long.
    */
   message: string;
 };
 
 export type ForbiddenData = {
+  /**
+   * A short, human-readable summary of the problem type.
+   */
+  title: string;
+  /**
+   * The HTTP status code.
+   */
+  status: number;
+  /**
+   * A detailed explanation specific to this occurrence of the problem, providing context and specifics about what went wrong.
+   */
+  detail: string;
+  /**
+   * A URI reference that identifies the specific occurrence of the problem.
+   */
+  instance?: string | undefined;
+  /**
+   * A unique identifier for the request, useful for troubleshooting.
+   */
+  requestId?: string | undefined;
+  /**
+   * A short code indicating the error code returned.
+   */
+  code: ForbiddenCode;
+  /**
+   * A URI reference that identifies the problem type.
+   */
+  type: string;
+  /**
+   * Legacy error format for backward compatibility.
+   */
   error: ForbiddenError;
 };
 
 export class Forbidden extends Error {
+  /**
+   * A short, human-readable summary of the problem type.
+   */
+  title: string;
+  /**
+   * The HTTP status code.
+   */
+  status: number;
+  /**
+   * A detailed explanation specific to this occurrence of the problem, providing context and specifics about what went wrong.
+   */
+  detail: string;
+  /**
+   * A URI reference that identifies the specific occurrence of the problem.
+   */
+  instance?: string | undefined;
+  /**
+   * A unique identifier for the request, useful for troubleshooting.
+   */
+  requestId?: string | undefined;
+  /**
+   * A short code indicating the error code returned.
+   */
+  code: ForbiddenCode;
+  /**
+   * A URI reference that identifies the problem type.
+   */
+  type: string;
+  /**
+   * Legacy error format for backward compatibility.
+   */
   error: ForbiddenError;
 
   /** The original data that was passed to this error instance. */
@@ -47,6 +123,13 @@ export class Forbidden extends Error {
     super(message);
     this.data$ = err;
 
+    this.title = err.title;
+    this.status = err.status;
+    this.detail = err.detail;
+    if (err.instance != null) this.instance = err.instance;
+    if (err.requestId != null) this.requestId = err.requestId;
+    this.code = err.code;
+    this.type = err.type;
     this.error = err.error;
 
     this.name = "Forbidden";
@@ -75,12 +158,33 @@ export namespace ForbiddenCode$ {
 }
 
 /** @internal */
+export const ForbiddenErrorCode$inboundSchema: z.ZodNativeEnum<
+  typeof ForbiddenErrorCode
+> = z.nativeEnum(ForbiddenErrorCode);
+
+/** @internal */
+export const ForbiddenErrorCode$outboundSchema: z.ZodNativeEnum<
+  typeof ForbiddenErrorCode
+> = ForbiddenErrorCode$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ForbiddenErrorCode$ {
+  /** @deprecated use `ForbiddenErrorCode$inboundSchema` instead. */
+  export const inboundSchema = ForbiddenErrorCode$inboundSchema;
+  /** @deprecated use `ForbiddenErrorCode$outboundSchema` instead. */
+  export const outboundSchema = ForbiddenErrorCode$outboundSchema;
+}
+
+/** @internal */
 export const ForbiddenError$inboundSchema: z.ZodType<
   ForbiddenError,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  code: ForbiddenCode$inboundSchema,
+  code: ForbiddenErrorCode$inboundSchema,
   message: z.string(),
 });
 
@@ -96,7 +200,7 @@ export const ForbiddenError$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ForbiddenError
 > = z.object({
-  code: ForbiddenCode$outboundSchema,
+  code: ForbiddenErrorCode$outboundSchema,
   message: z.string(),
 });
 
@@ -133,6 +237,13 @@ export const Forbidden$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  title: z.string(),
+  status: z.number(),
+  detail: z.string(),
+  instance: z.string().optional(),
+  requestId: z.string().optional(),
+  code: ForbiddenCode$inboundSchema,
+  type: z.string(),
   error: z.lazy(() => ForbiddenError$inboundSchema),
 })
   .transform((v) => {
@@ -141,6 +252,13 @@ export const Forbidden$inboundSchema: z.ZodType<
 
 /** @internal */
 export type Forbidden$Outbound = {
+  title: string;
+  status: number;
+  detail: string;
+  instance?: string | undefined;
+  requestId?: string | undefined;
+  code: string;
+  type: string;
   error: ForbiddenError$Outbound;
 };
 
@@ -152,6 +270,13 @@ export const Forbidden$outboundSchema: z.ZodType<
 > = z.instanceof(Forbidden)
   .transform(v => v.data$)
   .pipe(z.object({
+    title: z.string(),
+    status: z.number(),
+    detail: z.string(),
+    instance: z.string().optional(),
+    requestId: z.string().optional(),
+    code: ForbiddenCode$outboundSchema,
+    type: z.string(),
     error: z.lazy(() => ForbiddenError$outboundSchema),
   }));
 

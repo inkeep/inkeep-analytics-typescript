@@ -6,7 +6,7 @@
 import { OrderBy } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: OrderBy = {
-  field: "count_id",
+  field: "count_userMessageCount",
   direction: "asc",
 };
 ```

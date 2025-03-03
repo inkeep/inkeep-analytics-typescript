@@ -7,7 +7,11 @@
 
 ```typescript
 const value: components.EventsFilter = {
-  or: [],
+  condition: {
+    field: "createdAt",
+    operator: "eq",
+    value: false,
+  },
 };
 ```
 

@@ -15,32 +15,14 @@ export type ConversationsAggregationSelectionType = ClosedEnum<
   typeof ConversationsAggregationSelectionType
 >;
 
-export const Five = {
+export const Aggregation = {
+  Sum: "sum",
+  Count: "count",
+  Avg: "avg",
+  Min: "min",
   Max: "max",
 } as const;
-export type Five = ClosedEnum<typeof Five>;
-
-export const Four = {
-  Min: "min",
-} as const;
-export type Four = ClosedEnum<typeof Four>;
-
-export const Three = {
-  Avg: "avg",
-} as const;
-export type Three = ClosedEnum<typeof Three>;
-
-export const Two = {
-  Count: "count",
-} as const;
-export type Two = ClosedEnum<typeof Two>;
-
-export const One = {
-  Sum: "sum",
-} as const;
-export type One = ClosedEnum<typeof One>;
-
-export type Aggregation = One | Two | Three | Four | Five;
+export type Aggregation = ClosedEnum<typeof Aggregation>;
 
 export const Seven = {
   Type: "type",
@@ -52,37 +34,37 @@ export const Six = {
 } as const;
 export type Six = ClosedEnum<typeof Six>;
 
-export const Field5 = {
+export const Five = {
   IntegrationId: "integrationId",
 } as const;
-export type Field5 = ClosedEnum<typeof Field5>;
+export type Five = ClosedEnum<typeof Five>;
 
-export const Field4 = {
+export const Four = {
   ProjectId: "projectId",
 } as const;
-export type Field4 = ClosedEnum<typeof Field4>;
+export type Four = ClosedEnum<typeof Four>;
 
-export const Field3 = {
+export const Three = {
   OrganizationId: "organizationId",
 } as const;
-export type Field3 = ClosedEnum<typeof Field3>;
+export type Three = ClosedEnum<typeof Three>;
 
-export const Field2 = {
+export const Two = {
   UserMessageCount: "userMessageCount",
 } as const;
-export type Field2 = ClosedEnum<typeof Field2>;
+export type Two = ClosedEnum<typeof Two>;
 
-export const Field1 = {
+export const One = {
   Id: "id",
 } as const;
-export type Field1 = ClosedEnum<typeof Field1>;
+export type One = ClosedEnum<typeof One>;
 
-export type Field = Field1 | Field2 | Field3 | Field4 | Field5 | Six | Seven;
+export type Field = One | Two | Three | Four | Five | Six | Seven;
 
 export type ConversationsAggregationSelection = {
   type: ConversationsAggregationSelectionType;
-  aggregation: One | Two | Three | Four | Five;
-  field?: Field1 | Field2 | Field3 | Field4 | Field5 | Six | Seven | undefined;
+  aggregation: Aggregation;
+  field?: One | Two | Three | Four | Five | Six | Seven | undefined;
 };
 
 /** @internal */
@@ -107,6 +89,63 @@ export namespace ConversationsAggregationSelectionType$ {
   /** @deprecated use `ConversationsAggregationSelectionType$outboundSchema` instead. */
   export const outboundSchema =
     ConversationsAggregationSelectionType$outboundSchema;
+}
+
+/** @internal */
+export const Aggregation$inboundSchema: z.ZodNativeEnum<typeof Aggregation> = z
+  .nativeEnum(Aggregation);
+
+/** @internal */
+export const Aggregation$outboundSchema: z.ZodNativeEnum<typeof Aggregation> =
+  Aggregation$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Aggregation$ {
+  /** @deprecated use `Aggregation$inboundSchema` instead. */
+  export const inboundSchema = Aggregation$inboundSchema;
+  /** @deprecated use `Aggregation$outboundSchema` instead. */
+  export const outboundSchema = Aggregation$outboundSchema;
+}
+
+/** @internal */
+export const Seven$inboundSchema: z.ZodNativeEnum<typeof Seven> = z.nativeEnum(
+  Seven,
+);
+
+/** @internal */
+export const Seven$outboundSchema: z.ZodNativeEnum<typeof Seven> =
+  Seven$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Seven$ {
+  /** @deprecated use `Seven$inboundSchema` instead. */
+  export const inboundSchema = Seven$inboundSchema;
+  /** @deprecated use `Seven$outboundSchema` instead. */
+  export const outboundSchema = Seven$outboundSchema;
+}
+
+/** @internal */
+export const Six$inboundSchema: z.ZodNativeEnum<typeof Six> = z.nativeEnum(Six);
+
+/** @internal */
+export const Six$outboundSchema: z.ZodNativeEnum<typeof Six> =
+  Six$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Six$ {
+  /** @deprecated use `Six$inboundSchema` instead. */
+  export const inboundSchema = Six$inboundSchema;
+  /** @deprecated use `Six$outboundSchema` instead. */
+  export const outboundSchema = Six$outboundSchema;
 }
 
 /** @internal */
@@ -206,202 +245,13 @@ export namespace One$ {
 }
 
 /** @internal */
-export const Aggregation$inboundSchema: z.ZodType<
-  Aggregation,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  One$inboundSchema,
-  Two$inboundSchema,
-  Three$inboundSchema,
-  Four$inboundSchema,
-  Five$inboundSchema,
-]);
-
-/** @internal */
-export type Aggregation$Outbound = string | string | string | string | string;
-
-/** @internal */
-export const Aggregation$outboundSchema: z.ZodType<
-  Aggregation$Outbound,
-  z.ZodTypeDef,
-  Aggregation
-> = z.union([
-  One$outboundSchema,
-  Two$outboundSchema,
-  Three$outboundSchema,
-  Four$outboundSchema,
-  Five$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Aggregation$ {
-  /** @deprecated use `Aggregation$inboundSchema` instead. */
-  export const inboundSchema = Aggregation$inboundSchema;
-  /** @deprecated use `Aggregation$outboundSchema` instead. */
-  export const outboundSchema = Aggregation$outboundSchema;
-  /** @deprecated use `Aggregation$Outbound` instead. */
-  export type Outbound = Aggregation$Outbound;
-}
-
-export function aggregationToJSON(aggregation: Aggregation): string {
-  return JSON.stringify(Aggregation$outboundSchema.parse(aggregation));
-}
-
-export function aggregationFromJSON(
-  jsonString: string,
-): SafeParseResult<Aggregation, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Aggregation$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Aggregation' from JSON`,
-  );
-}
-
-/** @internal */
-export const Seven$inboundSchema: z.ZodNativeEnum<typeof Seven> = z.nativeEnum(
-  Seven,
-);
-
-/** @internal */
-export const Seven$outboundSchema: z.ZodNativeEnum<typeof Seven> =
-  Seven$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Seven$ {
-  /** @deprecated use `Seven$inboundSchema` instead. */
-  export const inboundSchema = Seven$inboundSchema;
-  /** @deprecated use `Seven$outboundSchema` instead. */
-  export const outboundSchema = Seven$outboundSchema;
-}
-
-/** @internal */
-export const Six$inboundSchema: z.ZodNativeEnum<typeof Six> = z.nativeEnum(Six);
-
-/** @internal */
-export const Six$outboundSchema: z.ZodNativeEnum<typeof Six> =
-  Six$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Six$ {
-  /** @deprecated use `Six$inboundSchema` instead. */
-  export const inboundSchema = Six$inboundSchema;
-  /** @deprecated use `Six$outboundSchema` instead. */
-  export const outboundSchema = Six$outboundSchema;
-}
-
-/** @internal */
-export const Field5$inboundSchema: z.ZodNativeEnum<typeof Field5> = z
-  .nativeEnum(Field5);
-
-/** @internal */
-export const Field5$outboundSchema: z.ZodNativeEnum<typeof Field5> =
-  Field5$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field5$ {
-  /** @deprecated use `Field5$inboundSchema` instead. */
-  export const inboundSchema = Field5$inboundSchema;
-  /** @deprecated use `Field5$outboundSchema` instead. */
-  export const outboundSchema = Field5$outboundSchema;
-}
-
-/** @internal */
-export const Field4$inboundSchema: z.ZodNativeEnum<typeof Field4> = z
-  .nativeEnum(Field4);
-
-/** @internal */
-export const Field4$outboundSchema: z.ZodNativeEnum<typeof Field4> =
-  Field4$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field4$ {
-  /** @deprecated use `Field4$inboundSchema` instead. */
-  export const inboundSchema = Field4$inboundSchema;
-  /** @deprecated use `Field4$outboundSchema` instead. */
-  export const outboundSchema = Field4$outboundSchema;
-}
-
-/** @internal */
-export const Field3$inboundSchema: z.ZodNativeEnum<typeof Field3> = z
-  .nativeEnum(Field3);
-
-/** @internal */
-export const Field3$outboundSchema: z.ZodNativeEnum<typeof Field3> =
-  Field3$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field3$ {
-  /** @deprecated use `Field3$inboundSchema` instead. */
-  export const inboundSchema = Field3$inboundSchema;
-  /** @deprecated use `Field3$outboundSchema` instead. */
-  export const outboundSchema = Field3$outboundSchema;
-}
-
-/** @internal */
-export const Field2$inboundSchema: z.ZodNativeEnum<typeof Field2> = z
-  .nativeEnum(Field2);
-
-/** @internal */
-export const Field2$outboundSchema: z.ZodNativeEnum<typeof Field2> =
-  Field2$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field2$ {
-  /** @deprecated use `Field2$inboundSchema` instead. */
-  export const inboundSchema = Field2$inboundSchema;
-  /** @deprecated use `Field2$outboundSchema` instead. */
-  export const outboundSchema = Field2$outboundSchema;
-}
-
-/** @internal */
-export const Field1$inboundSchema: z.ZodNativeEnum<typeof Field1> = z
-  .nativeEnum(Field1);
-
-/** @internal */
-export const Field1$outboundSchema: z.ZodNativeEnum<typeof Field1> =
-  Field1$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field1$ {
-  /** @deprecated use `Field1$inboundSchema` instead. */
-  export const inboundSchema = Field1$inboundSchema;
-  /** @deprecated use `Field1$outboundSchema` instead. */
-  export const outboundSchema = Field1$outboundSchema;
-}
-
-/** @internal */
 export const Field$inboundSchema: z.ZodType<Field, z.ZodTypeDef, unknown> = z
   .union([
-    Field1$inboundSchema,
-    Field2$inboundSchema,
-    Field3$inboundSchema,
-    Field4$inboundSchema,
-    Field5$inboundSchema,
+    One$inboundSchema,
+    Two$inboundSchema,
+    Three$inboundSchema,
+    Four$inboundSchema,
+    Five$inboundSchema,
     Six$inboundSchema,
     Seven$inboundSchema,
   ]);
@@ -422,11 +272,11 @@ export const Field$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Field
 > = z.union([
-  Field1$outboundSchema,
-  Field2$outboundSchema,
-  Field3$outboundSchema,
-  Field4$outboundSchema,
-  Field5$outboundSchema,
+  One$outboundSchema,
+  Two$outboundSchema,
+  Three$outboundSchema,
+  Four$outboundSchema,
+  Five$outboundSchema,
   Six$outboundSchema,
   Seven$outboundSchema,
 ]);
@@ -465,19 +315,13 @@ export const ConversationsAggregationSelection$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   type: ConversationsAggregationSelectionType$inboundSchema,
-  aggregation: z.union([
+  aggregation: Aggregation$inboundSchema,
+  field: z.union([
     One$inboundSchema,
     Two$inboundSchema,
     Three$inboundSchema,
     Four$inboundSchema,
     Five$inboundSchema,
-  ]),
-  field: z.union([
-    Field1$inboundSchema,
-    Field2$inboundSchema,
-    Field3$inboundSchema,
-    Field4$inboundSchema,
-    Field5$inboundSchema,
     Six$inboundSchema,
     Seven$inboundSchema,
   ]).optional(),
@@ -486,7 +330,7 @@ export const ConversationsAggregationSelection$inboundSchema: z.ZodType<
 /** @internal */
 export type ConversationsAggregationSelection$Outbound = {
   type: string;
-  aggregation: string | string | string | string | string;
+  aggregation: string;
   field?:
     | string
     | string
@@ -505,19 +349,13 @@ export const ConversationsAggregationSelection$outboundSchema: z.ZodType<
   ConversationsAggregationSelection
 > = z.object({
   type: ConversationsAggregationSelectionType$outboundSchema,
-  aggregation: z.union([
+  aggregation: Aggregation$outboundSchema,
+  field: z.union([
     One$outboundSchema,
     Two$outboundSchema,
     Three$outboundSchema,
     Four$outboundSchema,
     Five$outboundSchema,
-  ]),
-  field: z.union([
-    Field1$outboundSchema,
-    Field2$outboundSchema,
-    Field3$outboundSchema,
-    Field4$outboundSchema,
-    Field5$outboundSchema,
     Six$outboundSchema,
     Seven$outboundSchema,
   ]).optional(),

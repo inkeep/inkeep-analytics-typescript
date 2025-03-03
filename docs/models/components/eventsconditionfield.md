@@ -36,30 +36,42 @@ const value: components.EventsConditionField5 = "organizationId";
 ### `components.EventsConditionField6`
 
 ```typescript
-const value: components.EventsConditionField6 = "properties";
+const value: components.EventsConditionField6 = "projectId";
 ```
 
 ### `components.EventsConditionField7`
 
 ```typescript
-const value: components.EventsConditionField7 = "userProperties";
+const value: components.EventsConditionField7 = "integrationId";
 ```
 
 ### `components.EventsConditionField8`
 
 ```typescript
-const value: components.EventsConditionField8 = "messageId";
+const value: components.EventsConditionField8 = "properties";
 ```
 
 ### `components.EventsConditionField9`
 
 ```typescript
-const value: components.EventsConditionField9 = "conversationId";
+const value: components.EventsConditionField9 = "userProperties";
 ```
 
 ### `components.EventsConditionField10`
 
 ```typescript
-const value: components.EventsConditionField10 = "searchQuery";
+const value: components.EventsConditionField10 = "messageId";
+```
+
+### `components.EventsConditionField11`
+
+```typescript
+const value: components.EventsConditionField11 = "conversationId";
+```
+
+### `components.EventsConditionField12`
+
+```typescript
+const value: components.EventsConditionField12 = "searchQuery";
 ```
 

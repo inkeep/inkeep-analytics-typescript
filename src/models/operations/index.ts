@@ -3,7 +3,6 @@
  */
 
 export * from "./deleteconversation.js";
-export * from "./exportquery.js";
 export * from "./getallconversation.js";
 export * from "./getallfeedback.js";
 export * from "./getconversation.js";
@@ -12,5 +11,5 @@ export * from "./logconversation.js";
 export * from "./logevent.js";
 export * from "./queryconversations.js";
 export * from "./queryevents.js";
-export * from "./querytable.js";
+export * from "./querysemanticthreads.js";
 export * from "./submitfeedback.js";

@@ -7,7 +7,7 @@ import { EventsSimpleFieldSelection } from "@inkeep/inkeep-analytics/models/comp
 
 let value: EventsSimpleFieldSelection = {
   type: "field",
-  field: "id",
+  field: "messageId",
 };
 ```
 

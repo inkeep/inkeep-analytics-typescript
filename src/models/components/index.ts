@@ -3,6 +3,9 @@
  */
 
 export * from "./aggregationselection.js";
+export * from "./and.js";
+export * from "./conditiion.js";
+export * from "./conditionvalue.js";
 export * from "./conversation.js";
 export * from "./conversationsaggregationselection.js";
 export * from "./conversationsfilter.js";
@@ -17,7 +20,9 @@ export * from "./eventscondition.js";
 export * from "./eventsfilter.js";
 export * from "./eventssimplefieldselection.js";
 export * from "./eventstimebasedgroupbyselection.js";
+export * from "./filteroperator.js";
 export * from "./getallfeedbackresponse.js";
+export * from "./groupbyitemschema.js";
 export * from "./insertconversationevent.js";
 export * from "./insertevent.js";
 export * from "./insertmessageevent.js";
@@ -30,6 +35,9 @@ export * from "./openaiextendedmessage.js";
 export * from "./openaiimageurlobject.js";
 export * from "./openaitoolcall.js";
 export * from "./openaitoolcallfunction.js";
+export * from "./or.js";
+export * from "./orderbyschema.js";
+export * from "./querysemanticthreadsparamsschema.js";
 export * from "./security.js";
 export * from "./selectconversationevent.js";
 export * from "./selectevent.js";

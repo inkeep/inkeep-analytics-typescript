@@ -5,7 +5,7 @@
 ```typescript
 import { SubmitFeedbackType } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: SubmitFeedbackType = "negative";
+let value: SubmitFeedbackType = "positive";
 ```
 
 ## Values

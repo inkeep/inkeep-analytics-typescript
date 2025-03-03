@@ -5,11 +5,11 @@
 ```typescript
 import { EightyThree } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: EightyThree = "avg_userProperties";
+let value: EightyThree = "avg_organizationId";
 ```
 
 ## Values
 
 ```typescript
-"avg_userProperties"
+"avg_organizationId"
 ```

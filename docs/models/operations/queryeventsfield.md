@@ -36,30 +36,42 @@ const value: operations.QueryEventsField5 = "organizationId";
 ### `operations.QueryEventsField6`
 
 ```typescript
-const value: operations.QueryEventsField6 = "properties";
+const value: operations.QueryEventsField6 = "projectId";
 ```
 
 ### `operations.QueryEventsField7`
 
 ```typescript
-const value: operations.QueryEventsField7 = "userProperties";
+const value: operations.QueryEventsField7 = "integrationId";
 ```
 
 ### `operations.Field8`
 
 ```typescript
-const value: operations.Field8 = "messageId";
+const value: operations.Field8 = "properties";
 ```
 
 ### `operations.Field9`
 
 ```typescript
-const value: operations.Field9 = "conversationId";
+const value: operations.Field9 = "userProperties";
 ```
 
 ### `operations.Field10`
 
 ```typescript
-const value: operations.Field10 = "searchQuery";
+const value: operations.Field10 = "messageId";
+```
+
+### `operations.Field11`
+
+```typescript
+const value: operations.Field11 = "conversationId";
+```
+
+### `operations.Field12`
+
+```typescript
+const value: operations.Field12 = "searchQuery";
 ```
 

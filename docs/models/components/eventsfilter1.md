@@ -8,8 +8,8 @@ import { EventsFilter1 } from "@inkeep/inkeep-analytics/models/components";
 let value: EventsFilter1 = {
   condition: {
     field: "createdAt",
-    operator: "gte",
-    value: "<value>",
+    operator: "in",
+    value: false,
   },
 };
 ```

@@ -24,6 +24,8 @@ export type SelectSearchEvent = {
   type: string;
   searchQuery: string;
   createdAt: string;
+  projectId?: string | null | undefined;
+  integrationId?: string | null | undefined;
   properties?: SelectSearchEventProperties | null | undefined;
   userProperties?: SelectSearchEventUserProperties | null | undefined;
   entityType: SelectSearchEventEntityType;
@@ -160,6 +162,8 @@ export const SelectSearchEvent$inboundSchema: z.ZodType<
   type: z.string(),
   searchQuery: z.string(),
   createdAt: z.string(),
+  projectId: z.nullable(z.string()).optional(),
+  integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(
     z.lazy(() => SelectSearchEventProperties$inboundSchema),
   ).optional(),
@@ -175,6 +179,8 @@ export type SelectSearchEvent$Outbound = {
   type: string;
   searchQuery: string;
   createdAt: string;
+  projectId?: string | null | undefined;
+  integrationId?: string | null | undefined;
   properties?: SelectSearchEventProperties$Outbound | null | undefined;
   userProperties?: SelectSearchEventUserProperties$Outbound | null | undefined;
   entityType: string;
@@ -190,6 +196,8 @@ export const SelectSearchEvent$outboundSchema: z.ZodType<
   type: z.string(),
   searchQuery: z.string(),
   createdAt: z.string(),
+  projectId: z.nullable(z.string()).optional(),
+  integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(
     z.lazy(() => SelectSearchEventProperties$outboundSchema),
   ).optional(),

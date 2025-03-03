@@ -8,9 +8,9 @@
 ```typescript
 const value: components.EventsFilter1 = {
   condition: {
-    field: "id",
-    operator: "arrayContains",
-    value: 4904.59,
+    field: "type",
+    operator: "eq",
+    value: "<value>",
   },
 };
 ```

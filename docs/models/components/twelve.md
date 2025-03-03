@@ -5,11 +5,11 @@
 ```typescript
 import { Twelve } from "@inkeep/inkeep-analytics/models/components";
 
-let value: Twelve = "isAnswerConfident";
+let value: Twelve = "searchQuery";
 ```
 
 ## Values
 
 ```typescript
-"isAnswerConfident"
+"searchQuery"
 ```
