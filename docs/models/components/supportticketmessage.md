@@ -9,8 +9,8 @@ let value: SupportTicketMessage = {
   id: "<id>",
   type: "support_ticket",
   conversationId: "<id>",
-  createdAt: "1712988014946",
-  updatedAt: "1741013530825",
+  createdAt: "1712991164640",
+  updatedAt: "1741016680519",
   role: "<value>",
 };
 ```

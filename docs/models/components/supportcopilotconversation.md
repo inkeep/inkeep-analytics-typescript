@@ -8,8 +8,8 @@ import { SupportCopilotConversation } from "@inkeep/inkeep-analytics/models/comp
 let value: SupportCopilotConversation = {
   id: "<id>",
   type: "support_copilot",
-  createdAt: "1715706645780",
-  updatedAt: "1740988682105",
+  createdAt: "1715709795474",
+  updatedAt: "1740991831799",
   tags: [
     "<value>",
   ],
@@ -18,8 +18,8 @@ let value: SupportCopilotConversation = {
       id: "<id>",
       type: "support_copilot",
       conversationId: "<id>",
-      createdAt: "1735398066296",
-      updatedAt: "1740965214073",
+      createdAt: "1735401215990",
+      updatedAt: "1740968363767",
       role: "<value>",
     },
   ],
