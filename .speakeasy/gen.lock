@@ -5,8 +5,8 @@ management:
   docVersion: 0.1.1
   speakeasyVersion: 1.509.0
   generationVersion: 2.539.0
-  releaseVersion: 0.2.2
-  configChecksum: 0220dbec490ff3983bbf8585e06739bb
+  releaseVersion: 0.2.4-alpha
+  configChecksum: a18567f526f6437a82ff91281495de89
   repoURL: https://github.com/inkeep/inkeep-analytics-typescript.git
   installationURL: https://github.com/inkeep/inkeep-analytics-typescript
   published: true
