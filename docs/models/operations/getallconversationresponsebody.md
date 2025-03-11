@@ -11,27 +11,27 @@ let value: GetAllConversationResponseBody = {
   conversations: [
     {
       id: "<id>",
-      type: "support_ticket",
-      createdAt: "1720724978027",
-      updatedAt: "1741041227462",
+      type: "support_copilot",
+      createdAt: "1737822332479",
+      updatedAt: "1741659680534",
       tags: [
         "<value>",
       ],
       messages: [
         {
           id: "<id>",
-          type: "support_ticket",
+          type: "support_copilot",
           conversationId: "<id>",
-          createdAt: "1733645671522",
-          updatedAt: "1741024658871",
+          createdAt: "1740504939373",
+          updatedAt: "1741650482729",
           role: "<value>",
         },
       ],
     },
   ],
-  total: 9037.2,
-  pageSize: 834.22,
-  count: 5521.93,
+  total: 9493.19,
+  pageSize: 9413.78,
+  count: 7992.03,
 };
 ```
 

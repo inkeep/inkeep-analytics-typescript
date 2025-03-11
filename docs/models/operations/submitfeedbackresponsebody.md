@@ -9,9 +9,9 @@ import { SubmitFeedbackResponseBody } from "@inkeep/inkeep-analytics/models/oper
 
 let value: SubmitFeedbackResponseBody = {
   id: "<id>",
-  type: "positive",
+  type: "negative",
   messageId: "<id>",
-  createdAt: "1712673244783",
+  createdAt: "1729666222715",
 };
 ```
 

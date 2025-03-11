@@ -1,19 +1,17 @@
 # Or
 
-OR operator
 
-## Example Usage
+## Supported Types
+
+### `components.ConversationsFilter`
 
 ```typescript
-import { Or } from "@inkeep/inkeep-analytics/models/components";
-
-let value: Or = {
-  or: [],
+const value: components.ConversationsFilter = {
+  condition: {
+    field: "organizationId",
+    operator: "eq",
+    value: false,
+  },
 };
 ```
 
-## Fields
-
-| Field               | Type                | Required            | Description         |
-| ------------------- | ------------------- | ------------------- | ------------------- |
-| `or`                | *components.Oror*[] | :heavy_check_mark:  | Or condition        |

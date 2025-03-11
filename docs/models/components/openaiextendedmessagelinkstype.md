@@ -3,10 +3,10 @@
 
 ## Supported Types
 
-### `components.OpenAIExtendedMessageType1`
+### `components.One`
 
 ```typescript
-const value: components.OpenAIExtendedMessageType1 = "github_issue";
+const value: components.One = "github_issue";
 ```
 
 ### `string`

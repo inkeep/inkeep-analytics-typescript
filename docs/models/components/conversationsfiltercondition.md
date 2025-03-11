@@ -6,16 +6,16 @@
 import { ConversationsFilterCondition } from "@inkeep/inkeep-analytics/models/components";
 
 let value: ConversationsFilterCondition = {
-  field: "integrationId",
-  operator: "eq",
-  value: "<value>",
+  condition: {
+    field: "type",
+    operator: "lte",
+    value: 5899.1,
+  },
 };
 ```
 
 ## Fields
 
-| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `field`                                                                | *components.ConversationsFilterField*                                  | :heavy_check_mark:                                                     | N/A                                                                    |
-| `operator`                                                             | [components.FilterOperator](../../models/components/filteroperator.md) | :heavy_check_mark:                                                     | Available Select Operators                                             |
-| `value`                                                                | *components.ConversationsFilterValue*                                  | :heavy_check_mark:                                                     | N/A                                                                    |
+| Field                                                        | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `condition`                                                  | [components.Condition](../../models/components/condition.md) | :heavy_check_mark:                                           | N/A                                                          |

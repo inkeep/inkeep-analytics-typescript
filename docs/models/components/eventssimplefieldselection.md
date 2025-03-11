@@ -7,13 +7,13 @@ import { EventsSimpleFieldSelection } from "@inkeep/inkeep-analytics/models/comp
 
 let value: EventsSimpleFieldSelection = {
   type: "field",
-  field: "messageId",
+  field: "properties",
 };
 ```
 
 ## Fields
 
-| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `type`                                                                                                 | [components.EventsSimpleFieldSelectionType](../../models/components/eventssimplefieldselectiontype.md) | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
-| `field`                                                                                                | *components.EventsSimpleFieldSelectionField*                                                           | :heavy_check_mark:                                                                                     | N/A                                                                                                    |
+| Field                                                                                                    | Type                                                                                                     | Required                                                                                                 | Description                                                                                              |
+| -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `type`                                                                                                   | [components.EventsSimpleFieldSelectionType](../../models/components/eventssimplefieldselectiontype.md)   | :heavy_check_mark:                                                                                       | N/A                                                                                                      |
+| `field`                                                                                                  | [components.EventsSimpleFieldSelectionField](../../models/components/eventssimplefieldselectionfield.md) | :heavy_check_mark:                                                                                       | N/A                                                                                                      |

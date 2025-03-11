@@ -1,13 +1,19 @@
-# EventsFilterOr
+# EventsFilterOR
 
+EventsFilter OR operator
 
-## Supported Types
-
-### `components.EventsFilter`
+## Example Usage
 
 ```typescript
-const value: components.EventsFilter = {
-  and: [],
+import { EventsFilterOR } from "@inkeep/inkeep-analytics/models/components";
+
+let value: EventsFilterOR = {
+  or: [],
 };
 ```
 
+## Fields
+
+| Field                           | Type                            | Required                        | Description                     |
+| ------------------------------- | ------------------------------- | ------------------------------- | ------------------------------- |
+| `or`                            | *components.EventsFilterOROR*[] | :heavy_check_mark:              | EventsFilter OR condition       |

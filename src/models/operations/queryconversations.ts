@@ -7,7 +7,6 @@ import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
-import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type QueryConversationsSecurity = {
@@ -15,594 +14,26 @@ export type QueryConversationsSecurity = {
   apiIntegrationKey?: string | undefined;
 };
 
-export type SelectionSchema =
-  | (components.ConversationsSimpleFieldSelection & { type: "field" })
-  | (components.ConversationsAggregationSelection & { type: "aggregation" })
-  | (components.ConversationsTimeBasedGroupBySelection & { type: "time" });
-
-export const Seven = {
-  Type: "type",
-} as const;
-export type Seven = ClosedEnum<typeof Seven>;
-
-export const Six = {
-  FirstMessageTime: "firstMessageTime",
-} as const;
-export type Six = ClosedEnum<typeof Six>;
-
-export const Five = {
-  IntegrationId: "integrationId",
-} as const;
-export type Five = ClosedEnum<typeof Five>;
-
-export const Four = {
-  ProjectId: "projectId",
-} as const;
-export type Four = ClosedEnum<typeof Four>;
-
-export const Three = {
-  OrganizationId: "organizationId",
-} as const;
-export type Three = ClosedEnum<typeof Three>;
-
-export const Two = {
-  UserMessageCount: "userMessageCount",
-} as const;
-export type Two = ClosedEnum<typeof Two>;
-
-export const One = {
-  Id: "id",
-} as const;
-export type One = ClosedEnum<typeof One>;
-
-export type Field = One | Two | Three | Four | Five | Six | Seven;
-
-export type GroupBy = {
-  field: One | Two | Three | Four | Five | Six | Seven;
-};
-
-export const Seventy = {
-  MaxType: "max_type",
-} as const;
-export type Seventy = ClosedEnum<typeof Seventy>;
-
-export const SixtyNine = {
-  MinType: "min_type",
-} as const;
-export type SixtyNine = ClosedEnum<typeof SixtyNine>;
-
-export const SixtyEight = {
-  AvgType: "avg_type",
-} as const;
-export type SixtyEight = ClosedEnum<typeof SixtyEight>;
-
-export const SixtySeven = {
-  CountType: "count_type",
-} as const;
-export type SixtySeven = ClosedEnum<typeof SixtySeven>;
-
-export const SixtySix = {
-  SumType: "sum_type",
-} as const;
-export type SixtySix = ClosedEnum<typeof SixtySix>;
-
-export const SixtyFive = {
-  MaxFirstMessageTime: "max_firstMessageTime",
-} as const;
-export type SixtyFive = ClosedEnum<typeof SixtyFive>;
-
-export const SixtyFour = {
-  MinFirstMessageTime: "min_firstMessageTime",
-} as const;
-export type SixtyFour = ClosedEnum<typeof SixtyFour>;
-
-export const SixtyThree = {
-  AvgFirstMessageTime: "avg_firstMessageTime",
-} as const;
-export type SixtyThree = ClosedEnum<typeof SixtyThree>;
-
-export const SixtyTwo = {
-  CountFirstMessageTime: "count_firstMessageTime",
-} as const;
-export type SixtyTwo = ClosedEnum<typeof SixtyTwo>;
-
-export const SixtyOne = {
-  SumFirstMessageTime: "sum_firstMessageTime",
-} as const;
-export type SixtyOne = ClosedEnum<typeof SixtyOne>;
-
-export const Sixty = {
-  MaxIntegrationId: "max_integrationId",
-} as const;
-export type Sixty = ClosedEnum<typeof Sixty>;
-
-export const FiftyNine = {
-  MinIntegrationId: "min_integrationId",
-} as const;
-export type FiftyNine = ClosedEnum<typeof FiftyNine>;
-
-export const FiftyEight = {
-  AvgIntegrationId: "avg_integrationId",
-} as const;
-export type FiftyEight = ClosedEnum<typeof FiftyEight>;
-
-export const FiftySeven = {
-  CountIntegrationId: "count_integrationId",
-} as const;
-export type FiftySeven = ClosedEnum<typeof FiftySeven>;
-
-export const FiftySix = {
-  SumIntegrationId: "sum_integrationId",
-} as const;
-export type FiftySix = ClosedEnum<typeof FiftySix>;
-
-export const FiftyFive = {
-  MaxProjectId: "max_projectId",
-} as const;
-export type FiftyFive = ClosedEnum<typeof FiftyFive>;
-
-export const FiftyFour = {
-  MinProjectId: "min_projectId",
-} as const;
-export type FiftyFour = ClosedEnum<typeof FiftyFour>;
-
-export const FiftyThree = {
-  AvgProjectId: "avg_projectId",
-} as const;
-export type FiftyThree = ClosedEnum<typeof FiftyThree>;
-
-export const FiftyTwo = {
-  CountProjectId: "count_projectId",
-} as const;
-export type FiftyTwo = ClosedEnum<typeof FiftyTwo>;
-
-export const FiftyOne = {
-  SumProjectId: "sum_projectId",
-} as const;
-export type FiftyOne = ClosedEnum<typeof FiftyOne>;
-
-export const Fifty = {
-  MaxOrganizationId: "max_organizationId",
-} as const;
-export type Fifty = ClosedEnum<typeof Fifty>;
-
-export const FortyNine = {
-  MinOrganizationId: "min_organizationId",
-} as const;
-export type FortyNine = ClosedEnum<typeof FortyNine>;
-
-export const FortyEight = {
-  AvgOrganizationId: "avg_organizationId",
-} as const;
-export type FortyEight = ClosedEnum<typeof FortyEight>;
-
-export const FortySeven = {
-  CountOrganizationId: "count_organizationId",
-} as const;
-export type FortySeven = ClosedEnum<typeof FortySeven>;
-
-export const FortySix = {
-  SumOrganizationId: "sum_organizationId",
-} as const;
-export type FortySix = ClosedEnum<typeof FortySix>;
-
-export const FortyFive = {
-  MaxUserMessageCount: "max_userMessageCount",
-} as const;
-export type FortyFive = ClosedEnum<typeof FortyFive>;
-
-export const FortyFour = {
-  MinUserMessageCount: "min_userMessageCount",
-} as const;
-export type FortyFour = ClosedEnum<typeof FortyFour>;
-
-export const FortyThree = {
-  AvgUserMessageCount: "avg_userMessageCount",
-} as const;
-export type FortyThree = ClosedEnum<typeof FortyThree>;
-
-export const FortyTwo = {
-  CountUserMessageCount: "count_userMessageCount",
-} as const;
-export type FortyTwo = ClosedEnum<typeof FortyTwo>;
-
-export const FortyOne = {
-  SumUserMessageCount: "sum_userMessageCount",
-} as const;
-export type FortyOne = ClosedEnum<typeof FortyOne>;
-
-export const Forty = {
-  MaxId: "max_id",
-} as const;
-export type Forty = ClosedEnum<typeof Forty>;
-
-export const ThirtyNine = {
-  MinId: "min_id",
-} as const;
-export type ThirtyNine = ClosedEnum<typeof ThirtyNine>;
-
-export const ThirtyEight = {
-  AvgId: "avg_id",
-} as const;
-export type ThirtyEight = ClosedEnum<typeof ThirtyEight>;
-
-export const ThirtySeven = {
-  CountId: "count_id",
-} as const;
-export type ThirtySeven = ClosedEnum<typeof ThirtySeven>;
-
-export const ThirtySix = {
-  SumId: "sum_id",
-} as const;
-export type ThirtySix = ClosedEnum<typeof ThirtySix>;
-
-export const ThirtyFive = {
-  TypeMonth: "type_month",
-} as const;
-export type ThirtyFive = ClosedEnum<typeof ThirtyFive>;
-
-export const ThirtyFour = {
-  TypeWeek: "type_week",
-} as const;
-export type ThirtyFour = ClosedEnum<typeof ThirtyFour>;
-
-export const ThirtyThree = {
-  TypeDay: "type_day",
-} as const;
-export type ThirtyThree = ClosedEnum<typeof ThirtyThree>;
-
-export const ThirtyTwo = {
-  TypeHour: "type_hour",
-} as const;
-export type ThirtyTwo = ClosedEnum<typeof ThirtyTwo>;
-
-export const ThirtyOne = {
-  FirstMessageTimeMonth: "firstMessageTime_month",
-} as const;
-export type ThirtyOne = ClosedEnum<typeof ThirtyOne>;
-
-export const Thirty = {
-  FirstMessageTimeWeek: "firstMessageTime_week",
-} as const;
-export type Thirty = ClosedEnum<typeof Thirty>;
-
-export const TwentyNine = {
-  FirstMessageTimeDay: "firstMessageTime_day",
-} as const;
-export type TwentyNine = ClosedEnum<typeof TwentyNine>;
-
-export const TwentyEight = {
-  FirstMessageTimeHour: "firstMessageTime_hour",
-} as const;
-export type TwentyEight = ClosedEnum<typeof TwentyEight>;
-
-export const TwentySeven = {
-  IntegrationIdMonth: "integrationId_month",
-} as const;
-export type TwentySeven = ClosedEnum<typeof TwentySeven>;
-
-export const TwentySix = {
-  IntegrationIdWeek: "integrationId_week",
-} as const;
-export type TwentySix = ClosedEnum<typeof TwentySix>;
-
-export const TwentyFive = {
-  IntegrationIdDay: "integrationId_day",
-} as const;
-export type TwentyFive = ClosedEnum<typeof TwentyFive>;
-
-export const TwentyFour = {
-  IntegrationIdHour: "integrationId_hour",
-} as const;
-export type TwentyFour = ClosedEnum<typeof TwentyFour>;
-
-export const TwentyThree = {
-  ProjectIdMonth: "projectId_month",
-} as const;
-export type TwentyThree = ClosedEnum<typeof TwentyThree>;
-
-export const TwentyTwo = {
-  ProjectIdWeek: "projectId_week",
-} as const;
-export type TwentyTwo = ClosedEnum<typeof TwentyTwo>;
-
-export const TwentyOne = {
-  ProjectIdDay: "projectId_day",
-} as const;
-export type TwentyOne = ClosedEnum<typeof TwentyOne>;
-
-export const Twenty = {
-  ProjectIdHour: "projectId_hour",
-} as const;
-export type Twenty = ClosedEnum<typeof Twenty>;
-
-export const Nineteen = {
-  OrganizationIdMonth: "organizationId_month",
-} as const;
-export type Nineteen = ClosedEnum<typeof Nineteen>;
-
-export const Eighteen = {
-  OrganizationIdWeek: "organizationId_week",
-} as const;
-export type Eighteen = ClosedEnum<typeof Eighteen>;
-
-export const Seventeen = {
-  OrganizationIdDay: "organizationId_day",
-} as const;
-export type Seventeen = ClosedEnum<typeof Seventeen>;
-
-export const Sixteen = {
-  OrganizationIdHour: "organizationId_hour",
-} as const;
-export type Sixteen = ClosedEnum<typeof Sixteen>;
-
-export const Fifteen = {
-  UserMessageCountMonth: "userMessageCount_month",
-} as const;
-export type Fifteen = ClosedEnum<typeof Fifteen>;
-
-export const Fourteen = {
-  UserMessageCountWeek: "userMessageCount_week",
-} as const;
-export type Fourteen = ClosedEnum<typeof Fourteen>;
-
-export const Thirteen = {
-  UserMessageCountDay: "userMessageCount_day",
-} as const;
-export type Thirteen = ClosedEnum<typeof Thirteen>;
-
-export const Twelve = {
-  UserMessageCountHour: "userMessageCount_hour",
-} as const;
-export type Twelve = ClosedEnum<typeof Twelve>;
-
-export const Eleven = {
-  IdMonth: "id_month",
-} as const;
-export type Eleven = ClosedEnum<typeof Eleven>;
-
-export const Ten = {
-  IdWeek: "id_week",
-} as const;
-export type Ten = ClosedEnum<typeof Ten>;
-
-export const Nine = {
-  IdDay: "id_day",
-} as const;
-export type Nine = ClosedEnum<typeof Nine>;
-
-export const Eight = {
-  IdHour: "id_hour",
-} as const;
-export type Eight = ClosedEnum<typeof Eight>;
-
-export const Field7 = {
-  Type: "type",
-} as const;
-export type Field7 = ClosedEnum<typeof Field7>;
-
-export const Field6 = {
-  FirstMessageTime: "firstMessageTime",
-} as const;
-export type Field6 = ClosedEnum<typeof Field6>;
-
-export const Field5 = {
-  IntegrationId: "integrationId",
-} as const;
-export type Field5 = ClosedEnum<typeof Field5>;
-
-export const Field4 = {
-  ProjectId: "projectId",
-} as const;
-export type Field4 = ClosedEnum<typeof Field4>;
-
-export const Field3 = {
-  OrganizationId: "organizationId",
-} as const;
-export type Field3 = ClosedEnum<typeof Field3>;
-
-export const Field2 = {
-  UserMessageCount: "userMessageCount",
-} as const;
-export type Field2 = ClosedEnum<typeof Field2>;
-
-export const Field1 = {
-  Id: "id",
-} as const;
-export type Field1 = ClosedEnum<typeof Field1>;
-
-export type QueryConversationsField =
-  | Field1
-  | Field2
-  | Field3
-  | Field4
-  | Field5
-  | Field6
-  | Field7
-  | Eight
-  | Nine
-  | Ten
-  | Eleven
-  | Twelve
-  | Thirteen
-  | Fourteen
-  | Fifteen
-  | Sixteen
-  | Seventeen
-  | Eighteen
-  | Nineteen
-  | Twenty
-  | TwentyOne
-  | TwentyTwo
-  | TwentyThree
-  | TwentyFour
-  | TwentyFive
-  | TwentySix
-  | TwentySeven
-  | TwentyEight
-  | TwentyNine
-  | Thirty
-  | ThirtyOne
-  | ThirtyTwo
-  | ThirtyThree
-  | ThirtyFour
-  | ThirtyFive
-  | ThirtySix
-  | ThirtySeven
-  | ThirtyEight
-  | ThirtyNine
-  | Forty
-  | FortyOne
-  | FortyTwo
-  | FortyThree
-  | FortyFour
-  | FortyFive
-  | FortySix
-  | FortySeven
-  | FortyEight
-  | FortyNine
-  | Fifty
-  | FiftyOne
-  | FiftyTwo
-  | FiftyThree
-  | FiftyFour
-  | FiftyFive
-  | FiftySix
-  | FiftySeven
-  | FiftyEight
-  | FiftyNine
-  | Sixty
-  | SixtyOne
-  | SixtyTwo
-  | SixtyThree
-  | SixtyFour
-  | SixtyFive
-  | SixtySix
-  | SixtySeven
-  | SixtyEight
-  | SixtyNine
-  | Seventy;
-
-export const Direction2 = {
-  Desc: "desc",
-} as const;
-export type Direction2 = ClosedEnum<typeof Direction2>;
-
-export const Direction1 = {
-  Asc: "asc",
-} as const;
-export type Direction1 = ClosedEnum<typeof Direction1>;
-
-export type Direction = Direction1 | Direction2;
-
-export type OrderBy = {
-  field:
-    | Field1
-    | Field2
-    | Field3
-    | Field4
-    | Field5
-    | Field6
-    | Field7
-    | Eight
-    | Nine
-    | Ten
-    | Eleven
-    | Twelve
-    | Thirteen
-    | Fourteen
-    | Fifteen
-    | Sixteen
-    | Seventeen
-    | Eighteen
-    | Nineteen
-    | Twenty
-    | TwentyOne
-    | TwentyTwo
-    | TwentyThree
-    | TwentyFour
-    | TwentyFive
-    | TwentySix
-    | TwentySeven
-    | TwentyEight
-    | TwentyNine
-    | Thirty
-    | ThirtyOne
-    | ThirtyTwo
-    | ThirtyThree
-    | ThirtyFour
-    | ThirtyFive
-    | ThirtySix
-    | ThirtySeven
-    | ThirtyEight
-    | ThirtyNine
-    | Forty
-    | FortyOne
-    | FortyTwo
-    | FortyThree
-    | FortyFour
-    | FortyFive
-    | FortySix
-    | FortySeven
-    | FortyEight
-    | FortyNine
-    | Fifty
-    | FiftyOne
-    | FiftyTwo
-    | FiftyThree
-    | FiftyFour
-    | FiftyFive
-    | FiftySix
-    | FiftySeven
-    | FiftyEight
-    | FiftyNine
-    | Sixty
-    | SixtyOne
-    | SixtyTwo
-    | SixtyThree
-    | SixtyFour
-    | SixtyFive
-    | SixtySix
-    | SixtySeven
-    | SixtyEight
-    | SixtyNine
-    | Seventy;
-  direction: Direction1 | Direction2;
-};
-
-/**
- * Note: The maximum size of the request body is 2 MB.
- */
-export type QueryConversationsRequestBody = {
-  select?:
-    | Array<
-      | (components.ConversationsSimpleFieldSelection & { type: "field" })
-      | (components.ConversationsAggregationSelection & { type: "aggregation" })
-      | (components.ConversationsTimeBasedGroupBySelection & { type: "time" })
-    >
-    | undefined;
-  groupBy?: Array<GroupBy> | undefined;
-  where?: components.ConversationsFilter | undefined;
-  orderBy?: Array<OrderBy> | undefined;
-  /**
-   * Notes for the query
-   */
-  notes?: string | undefined;
-};
-
 export const Status = {
   Ok: "ok",
 } as const;
 export type Status = ClosedEnum<typeof Status>;
 
-export type Result = {
-  id?: string | undefined;
-  userMessageCount?: number | undefined;
-  organizationId?: string | undefined;
-  projectId?: string | undefined;
-  integrationId?: string | undefined;
-  firstMessageTime?: Date | undefined;
-  type?: string | undefined;
+export const QueryConversationsType = {
+  Openai: "openai",
+  SupportTicket: "support_ticket",
+  SupportCopilot: "support_copilot",
+} as const;
+export type QueryConversationsType = ClosedEnum<typeof QueryConversationsType>;
+
+export type ConversationsResultItem = {
+  id: string;
+  organizationId: string | null;
+  projectId: string | null;
+  integrationId: string | null;
+  firstMessageTime: string;
+  userMessageCount: number;
+  type: QueryConversationsType | null;
   sum?: number | undefined;
   count?: number | undefined;
   avg?: number | undefined;
@@ -612,10 +43,6 @@ export type Result = {
   idDay?: string | undefined;
   idWeek?: string | undefined;
   idMonth?: string | undefined;
-  userMessageCountHour?: string | undefined;
-  userMessageCountDay?: string | undefined;
-  userMessageCountWeek?: string | undefined;
-  userMessageCountMonth?: string | undefined;
   organizationIdHour?: string | undefined;
   organizationIdDay?: string | undefined;
   organizationIdWeek?: string | undefined;
@@ -632,56 +59,60 @@ export type Result = {
   firstMessageTimeDay?: string | undefined;
   firstMessageTimeWeek?: string | undefined;
   firstMessageTimeMonth?: string | undefined;
+  userMessageCountHour?: string | undefined;
+  userMessageCountDay?: string | undefined;
+  userMessageCountWeek?: string | undefined;
+  userMessageCountMonth?: string | undefined;
   typeHour?: string | undefined;
   typeDay?: string | undefined;
   typeWeek?: string | undefined;
   typeMonth?: string | undefined;
   sumId?: number | undefined;
-  countId?: number | undefined;
-  avgId?: number | undefined;
-  minId?: number | undefined;
-  maxId?: number | undefined;
-  sumUserMessageCount?: number | undefined;
-  countUserMessageCount?: number | undefined;
-  avgUserMessageCount?: number | undefined;
-  minUserMessageCount?: number | undefined;
-  maxUserMessageCount?: number | undefined;
   sumOrganizationId?: number | undefined;
-  countOrganizationId?: number | undefined;
-  avgOrganizationId?: number | undefined;
-  minOrganizationId?: number | undefined;
-  maxOrganizationId?: number | undefined;
   sumProjectId?: number | undefined;
-  countProjectId?: number | undefined;
-  avgProjectId?: number | undefined;
-  minProjectId?: number | undefined;
-  maxProjectId?: number | undefined;
   sumIntegrationId?: number | undefined;
-  countIntegrationId?: number | undefined;
-  avgIntegrationId?: number | undefined;
-  minIntegrationId?: number | undefined;
-  maxIntegrationId?: number | undefined;
   sumFirstMessageTime?: number | undefined;
-  countFirstMessageTime?: number | undefined;
-  avgFirstMessageTime?: number | undefined;
-  minFirstMessageTime?: number | undefined;
-  maxFirstMessageTime?: number | undefined;
+  sumUserMessageCount?: number | undefined;
   sumType?: number | undefined;
+  countId?: number | undefined;
+  countOrganizationId?: number | undefined;
+  countProjectId?: number | undefined;
+  countIntegrationId?: number | undefined;
+  countFirstMessageTime?: number | undefined;
+  countUserMessageCount?: number | undefined;
   countType?: number | undefined;
+  avgId?: number | undefined;
+  avgOrganizationId?: number | undefined;
+  avgProjectId?: number | undefined;
+  avgIntegrationId?: number | undefined;
+  avgFirstMessageTime?: number | undefined;
+  avgUserMessageCount?: number | undefined;
   avgType?: number | undefined;
+  minId?: number | undefined;
+  minOrganizationId?: number | undefined;
+  minProjectId?: number | undefined;
+  minIntegrationId?: number | undefined;
+  minFirstMessageTime?: number | undefined;
+  minUserMessageCount?: number | undefined;
   minType?: number | undefined;
+  maxId?: number | undefined;
+  maxOrganizationId?: number | undefined;
+  maxProjectId?: number | undefined;
+  maxIntegrationId?: number | undefined;
+  maxFirstMessageTime?: number | undefined;
+  maxUserMessageCount?: number | undefined;
   maxType?: number | undefined;
 };
 
 export type Data = {
-  result: Array<Result>;
+  result: Array<ConversationsResultItem>;
   total: number;
   pageSize: number;
   count: number;
 };
 
 /**
- * Query results
+ * Query Conversations Results
  */
 export type QueryConversationsResponseBody = {
   status: Status;
@@ -756,2398 +187,6 @@ export function queryConversationsSecurityFromJSON(
 }
 
 /** @internal */
-export const SelectionSchema$inboundSchema: z.ZodType<
-  SelectionSchema,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  components.ConversationsSimpleFieldSelection$inboundSchema.and(
-    z.object({ type: z.literal("field") }).transform((v) => ({ type: v.type })),
-  ),
-  components.ConversationsAggregationSelection$inboundSchema.and(
-    z.object({ type: z.literal("aggregation") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-  components.ConversationsTimeBasedGroupBySelection$inboundSchema.and(
-    z.object({ type: z.literal("time") }).transform((v) => ({ type: v.type })),
-  ),
-]);
-
-/** @internal */
-export type SelectionSchema$Outbound =
-  | (components.ConversationsSimpleFieldSelection$Outbound & { type: "field" })
-  | (components.ConversationsAggregationSelection$Outbound & {
-    type: "aggregation";
-  })
-  | (components.ConversationsTimeBasedGroupBySelection$Outbound & {
-    type: "time";
-  });
-
-/** @internal */
-export const SelectionSchema$outboundSchema: z.ZodType<
-  SelectionSchema$Outbound,
-  z.ZodTypeDef,
-  SelectionSchema
-> = z.union([
-  components.ConversationsSimpleFieldSelection$outboundSchema.and(
-    z.object({ type: z.literal("field") }).transform((v) => ({ type: v.type })),
-  ),
-  components.ConversationsAggregationSelection$outboundSchema.and(
-    z.object({ type: z.literal("aggregation") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-  components.ConversationsTimeBasedGroupBySelection$outboundSchema.and(
-    z.object({ type: z.literal("time") }).transform((v) => ({ type: v.type })),
-  ),
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SelectionSchema$ {
-  /** @deprecated use `SelectionSchema$inboundSchema` instead. */
-  export const inboundSchema = SelectionSchema$inboundSchema;
-  /** @deprecated use `SelectionSchema$outboundSchema` instead. */
-  export const outboundSchema = SelectionSchema$outboundSchema;
-  /** @deprecated use `SelectionSchema$Outbound` instead. */
-  export type Outbound = SelectionSchema$Outbound;
-}
-
-export function selectionSchemaToJSON(
-  selectionSchema: SelectionSchema,
-): string {
-  return JSON.stringify(SelectionSchema$outboundSchema.parse(selectionSchema));
-}
-
-export function selectionSchemaFromJSON(
-  jsonString: string,
-): SafeParseResult<SelectionSchema, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SelectionSchema$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SelectionSchema' from JSON`,
-  );
-}
-
-/** @internal */
-export const Seven$inboundSchema: z.ZodNativeEnum<typeof Seven> = z.nativeEnum(
-  Seven,
-);
-
-/** @internal */
-export const Seven$outboundSchema: z.ZodNativeEnum<typeof Seven> =
-  Seven$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Seven$ {
-  /** @deprecated use `Seven$inboundSchema` instead. */
-  export const inboundSchema = Seven$inboundSchema;
-  /** @deprecated use `Seven$outboundSchema` instead. */
-  export const outboundSchema = Seven$outboundSchema;
-}
-
-/** @internal */
-export const Six$inboundSchema: z.ZodNativeEnum<typeof Six> = z.nativeEnum(Six);
-
-/** @internal */
-export const Six$outboundSchema: z.ZodNativeEnum<typeof Six> =
-  Six$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Six$ {
-  /** @deprecated use `Six$inboundSchema` instead. */
-  export const inboundSchema = Six$inboundSchema;
-  /** @deprecated use `Six$outboundSchema` instead. */
-  export const outboundSchema = Six$outboundSchema;
-}
-
-/** @internal */
-export const Five$inboundSchema: z.ZodNativeEnum<typeof Five> = z.nativeEnum(
-  Five,
-);
-
-/** @internal */
-export const Five$outboundSchema: z.ZodNativeEnum<typeof Five> =
-  Five$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Five$ {
-  /** @deprecated use `Five$inboundSchema` instead. */
-  export const inboundSchema = Five$inboundSchema;
-  /** @deprecated use `Five$outboundSchema` instead. */
-  export const outboundSchema = Five$outboundSchema;
-}
-
-/** @internal */
-export const Four$inboundSchema: z.ZodNativeEnum<typeof Four> = z.nativeEnum(
-  Four,
-);
-
-/** @internal */
-export const Four$outboundSchema: z.ZodNativeEnum<typeof Four> =
-  Four$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Four$ {
-  /** @deprecated use `Four$inboundSchema` instead. */
-  export const inboundSchema = Four$inboundSchema;
-  /** @deprecated use `Four$outboundSchema` instead. */
-  export const outboundSchema = Four$outboundSchema;
-}
-
-/** @internal */
-export const Three$inboundSchema: z.ZodNativeEnum<typeof Three> = z.nativeEnum(
-  Three,
-);
-
-/** @internal */
-export const Three$outboundSchema: z.ZodNativeEnum<typeof Three> =
-  Three$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Three$ {
-  /** @deprecated use `Three$inboundSchema` instead. */
-  export const inboundSchema = Three$inboundSchema;
-  /** @deprecated use `Three$outboundSchema` instead. */
-  export const outboundSchema = Three$outboundSchema;
-}
-
-/** @internal */
-export const Two$inboundSchema: z.ZodNativeEnum<typeof Two> = z.nativeEnum(Two);
-
-/** @internal */
-export const Two$outboundSchema: z.ZodNativeEnum<typeof Two> =
-  Two$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Two$ {
-  /** @deprecated use `Two$inboundSchema` instead. */
-  export const inboundSchema = Two$inboundSchema;
-  /** @deprecated use `Two$outboundSchema` instead. */
-  export const outboundSchema = Two$outboundSchema;
-}
-
-/** @internal */
-export const One$inboundSchema: z.ZodNativeEnum<typeof One> = z.nativeEnum(One);
-
-/** @internal */
-export const One$outboundSchema: z.ZodNativeEnum<typeof One> =
-  One$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace One$ {
-  /** @deprecated use `One$inboundSchema` instead. */
-  export const inboundSchema = One$inboundSchema;
-  /** @deprecated use `One$outboundSchema` instead. */
-  export const outboundSchema = One$outboundSchema;
-}
-
-/** @internal */
-export const Field$inboundSchema: z.ZodType<Field, z.ZodTypeDef, unknown> = z
-  .union([
-    One$inboundSchema,
-    Two$inboundSchema,
-    Three$inboundSchema,
-    Four$inboundSchema,
-    Five$inboundSchema,
-    Six$inboundSchema,
-    Seven$inboundSchema,
-  ]);
-
-/** @internal */
-export type Field$Outbound =
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string;
-
-/** @internal */
-export const Field$outboundSchema: z.ZodType<
-  Field$Outbound,
-  z.ZodTypeDef,
-  Field
-> = z.union([
-  One$outboundSchema,
-  Two$outboundSchema,
-  Three$outboundSchema,
-  Four$outboundSchema,
-  Five$outboundSchema,
-  Six$outboundSchema,
-  Seven$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field$ {
-  /** @deprecated use `Field$inboundSchema` instead. */
-  export const inboundSchema = Field$inboundSchema;
-  /** @deprecated use `Field$outboundSchema` instead. */
-  export const outboundSchema = Field$outboundSchema;
-  /** @deprecated use `Field$Outbound` instead. */
-  export type Outbound = Field$Outbound;
-}
-
-export function fieldToJSON(field: Field): string {
-  return JSON.stringify(Field$outboundSchema.parse(field));
-}
-
-export function fieldFromJSON(
-  jsonString: string,
-): SafeParseResult<Field, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Field$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Field' from JSON`,
-  );
-}
-
-/** @internal */
-export const GroupBy$inboundSchema: z.ZodType<GroupBy, z.ZodTypeDef, unknown> =
-  z.object({
-    field: z.union([
-      One$inboundSchema,
-      Two$inboundSchema,
-      Three$inboundSchema,
-      Four$inboundSchema,
-      Five$inboundSchema,
-      Six$inboundSchema,
-      Seven$inboundSchema,
-    ]),
-  });
-
-/** @internal */
-export type GroupBy$Outbound = {
-  field: string | string | string | string | string | string | string;
-};
-
-/** @internal */
-export const GroupBy$outboundSchema: z.ZodType<
-  GroupBy$Outbound,
-  z.ZodTypeDef,
-  GroupBy
-> = z.object({
-  field: z.union([
-    One$outboundSchema,
-    Two$outboundSchema,
-    Three$outboundSchema,
-    Four$outboundSchema,
-    Five$outboundSchema,
-    Six$outboundSchema,
-    Seven$outboundSchema,
-  ]),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GroupBy$ {
-  /** @deprecated use `GroupBy$inboundSchema` instead. */
-  export const inboundSchema = GroupBy$inboundSchema;
-  /** @deprecated use `GroupBy$outboundSchema` instead. */
-  export const outboundSchema = GroupBy$outboundSchema;
-  /** @deprecated use `GroupBy$Outbound` instead. */
-  export type Outbound = GroupBy$Outbound;
-}
-
-export function groupByToJSON(groupBy: GroupBy): string {
-  return JSON.stringify(GroupBy$outboundSchema.parse(groupBy));
-}
-
-export function groupByFromJSON(
-  jsonString: string,
-): SafeParseResult<GroupBy, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GroupBy$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GroupBy' from JSON`,
-  );
-}
-
-/** @internal */
-export const Seventy$inboundSchema: z.ZodNativeEnum<typeof Seventy> = z
-  .nativeEnum(Seventy);
-
-/** @internal */
-export const Seventy$outboundSchema: z.ZodNativeEnum<typeof Seventy> =
-  Seventy$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Seventy$ {
-  /** @deprecated use `Seventy$inboundSchema` instead. */
-  export const inboundSchema = Seventy$inboundSchema;
-  /** @deprecated use `Seventy$outboundSchema` instead. */
-  export const outboundSchema = Seventy$outboundSchema;
-}
-
-/** @internal */
-export const SixtyNine$inboundSchema: z.ZodNativeEnum<typeof SixtyNine> = z
-  .nativeEnum(SixtyNine);
-
-/** @internal */
-export const SixtyNine$outboundSchema: z.ZodNativeEnum<typeof SixtyNine> =
-  SixtyNine$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SixtyNine$ {
-  /** @deprecated use `SixtyNine$inboundSchema` instead. */
-  export const inboundSchema = SixtyNine$inboundSchema;
-  /** @deprecated use `SixtyNine$outboundSchema` instead. */
-  export const outboundSchema = SixtyNine$outboundSchema;
-}
-
-/** @internal */
-export const SixtyEight$inboundSchema: z.ZodNativeEnum<typeof SixtyEight> = z
-  .nativeEnum(SixtyEight);
-
-/** @internal */
-export const SixtyEight$outboundSchema: z.ZodNativeEnum<typeof SixtyEight> =
-  SixtyEight$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SixtyEight$ {
-  /** @deprecated use `SixtyEight$inboundSchema` instead. */
-  export const inboundSchema = SixtyEight$inboundSchema;
-  /** @deprecated use `SixtyEight$outboundSchema` instead. */
-  export const outboundSchema = SixtyEight$outboundSchema;
-}
-
-/** @internal */
-export const SixtySeven$inboundSchema: z.ZodNativeEnum<typeof SixtySeven> = z
-  .nativeEnum(SixtySeven);
-
-/** @internal */
-export const SixtySeven$outboundSchema: z.ZodNativeEnum<typeof SixtySeven> =
-  SixtySeven$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SixtySeven$ {
-  /** @deprecated use `SixtySeven$inboundSchema` instead. */
-  export const inboundSchema = SixtySeven$inboundSchema;
-  /** @deprecated use `SixtySeven$outboundSchema` instead. */
-  export const outboundSchema = SixtySeven$outboundSchema;
-}
-
-/** @internal */
-export const SixtySix$inboundSchema: z.ZodNativeEnum<typeof SixtySix> = z
-  .nativeEnum(SixtySix);
-
-/** @internal */
-export const SixtySix$outboundSchema: z.ZodNativeEnum<typeof SixtySix> =
-  SixtySix$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SixtySix$ {
-  /** @deprecated use `SixtySix$inboundSchema` instead. */
-  export const inboundSchema = SixtySix$inboundSchema;
-  /** @deprecated use `SixtySix$outboundSchema` instead. */
-  export const outboundSchema = SixtySix$outboundSchema;
-}
-
-/** @internal */
-export const SixtyFive$inboundSchema: z.ZodNativeEnum<typeof SixtyFive> = z
-  .nativeEnum(SixtyFive);
-
-/** @internal */
-export const SixtyFive$outboundSchema: z.ZodNativeEnum<typeof SixtyFive> =
-  SixtyFive$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SixtyFive$ {
-  /** @deprecated use `SixtyFive$inboundSchema` instead. */
-  export const inboundSchema = SixtyFive$inboundSchema;
-  /** @deprecated use `SixtyFive$outboundSchema` instead. */
-  export const outboundSchema = SixtyFive$outboundSchema;
-}
-
-/** @internal */
-export const SixtyFour$inboundSchema: z.ZodNativeEnum<typeof SixtyFour> = z
-  .nativeEnum(SixtyFour);
-
-/** @internal */
-export const SixtyFour$outboundSchema: z.ZodNativeEnum<typeof SixtyFour> =
-  SixtyFour$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SixtyFour$ {
-  /** @deprecated use `SixtyFour$inboundSchema` instead. */
-  export const inboundSchema = SixtyFour$inboundSchema;
-  /** @deprecated use `SixtyFour$outboundSchema` instead. */
-  export const outboundSchema = SixtyFour$outboundSchema;
-}
-
-/** @internal */
-export const SixtyThree$inboundSchema: z.ZodNativeEnum<typeof SixtyThree> = z
-  .nativeEnum(SixtyThree);
-
-/** @internal */
-export const SixtyThree$outboundSchema: z.ZodNativeEnum<typeof SixtyThree> =
-  SixtyThree$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SixtyThree$ {
-  /** @deprecated use `SixtyThree$inboundSchema` instead. */
-  export const inboundSchema = SixtyThree$inboundSchema;
-  /** @deprecated use `SixtyThree$outboundSchema` instead. */
-  export const outboundSchema = SixtyThree$outboundSchema;
-}
-
-/** @internal */
-export const SixtyTwo$inboundSchema: z.ZodNativeEnum<typeof SixtyTwo> = z
-  .nativeEnum(SixtyTwo);
-
-/** @internal */
-export const SixtyTwo$outboundSchema: z.ZodNativeEnum<typeof SixtyTwo> =
-  SixtyTwo$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SixtyTwo$ {
-  /** @deprecated use `SixtyTwo$inboundSchema` instead. */
-  export const inboundSchema = SixtyTwo$inboundSchema;
-  /** @deprecated use `SixtyTwo$outboundSchema` instead. */
-  export const outboundSchema = SixtyTwo$outboundSchema;
-}
-
-/** @internal */
-export const SixtyOne$inboundSchema: z.ZodNativeEnum<typeof SixtyOne> = z
-  .nativeEnum(SixtyOne);
-
-/** @internal */
-export const SixtyOne$outboundSchema: z.ZodNativeEnum<typeof SixtyOne> =
-  SixtyOne$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SixtyOne$ {
-  /** @deprecated use `SixtyOne$inboundSchema` instead. */
-  export const inboundSchema = SixtyOne$inboundSchema;
-  /** @deprecated use `SixtyOne$outboundSchema` instead. */
-  export const outboundSchema = SixtyOne$outboundSchema;
-}
-
-/** @internal */
-export const Sixty$inboundSchema: z.ZodNativeEnum<typeof Sixty> = z.nativeEnum(
-  Sixty,
-);
-
-/** @internal */
-export const Sixty$outboundSchema: z.ZodNativeEnum<typeof Sixty> =
-  Sixty$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Sixty$ {
-  /** @deprecated use `Sixty$inboundSchema` instead. */
-  export const inboundSchema = Sixty$inboundSchema;
-  /** @deprecated use `Sixty$outboundSchema` instead. */
-  export const outboundSchema = Sixty$outboundSchema;
-}
-
-/** @internal */
-export const FiftyNine$inboundSchema: z.ZodNativeEnum<typeof FiftyNine> = z
-  .nativeEnum(FiftyNine);
-
-/** @internal */
-export const FiftyNine$outboundSchema: z.ZodNativeEnum<typeof FiftyNine> =
-  FiftyNine$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FiftyNine$ {
-  /** @deprecated use `FiftyNine$inboundSchema` instead. */
-  export const inboundSchema = FiftyNine$inboundSchema;
-  /** @deprecated use `FiftyNine$outboundSchema` instead. */
-  export const outboundSchema = FiftyNine$outboundSchema;
-}
-
-/** @internal */
-export const FiftyEight$inboundSchema: z.ZodNativeEnum<typeof FiftyEight> = z
-  .nativeEnum(FiftyEight);
-
-/** @internal */
-export const FiftyEight$outboundSchema: z.ZodNativeEnum<typeof FiftyEight> =
-  FiftyEight$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FiftyEight$ {
-  /** @deprecated use `FiftyEight$inboundSchema` instead. */
-  export const inboundSchema = FiftyEight$inboundSchema;
-  /** @deprecated use `FiftyEight$outboundSchema` instead. */
-  export const outboundSchema = FiftyEight$outboundSchema;
-}
-
-/** @internal */
-export const FiftySeven$inboundSchema: z.ZodNativeEnum<typeof FiftySeven> = z
-  .nativeEnum(FiftySeven);
-
-/** @internal */
-export const FiftySeven$outboundSchema: z.ZodNativeEnum<typeof FiftySeven> =
-  FiftySeven$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FiftySeven$ {
-  /** @deprecated use `FiftySeven$inboundSchema` instead. */
-  export const inboundSchema = FiftySeven$inboundSchema;
-  /** @deprecated use `FiftySeven$outboundSchema` instead. */
-  export const outboundSchema = FiftySeven$outboundSchema;
-}
-
-/** @internal */
-export const FiftySix$inboundSchema: z.ZodNativeEnum<typeof FiftySix> = z
-  .nativeEnum(FiftySix);
-
-/** @internal */
-export const FiftySix$outboundSchema: z.ZodNativeEnum<typeof FiftySix> =
-  FiftySix$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FiftySix$ {
-  /** @deprecated use `FiftySix$inboundSchema` instead. */
-  export const inboundSchema = FiftySix$inboundSchema;
-  /** @deprecated use `FiftySix$outboundSchema` instead. */
-  export const outboundSchema = FiftySix$outboundSchema;
-}
-
-/** @internal */
-export const FiftyFive$inboundSchema: z.ZodNativeEnum<typeof FiftyFive> = z
-  .nativeEnum(FiftyFive);
-
-/** @internal */
-export const FiftyFive$outboundSchema: z.ZodNativeEnum<typeof FiftyFive> =
-  FiftyFive$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FiftyFive$ {
-  /** @deprecated use `FiftyFive$inboundSchema` instead. */
-  export const inboundSchema = FiftyFive$inboundSchema;
-  /** @deprecated use `FiftyFive$outboundSchema` instead. */
-  export const outboundSchema = FiftyFive$outboundSchema;
-}
-
-/** @internal */
-export const FiftyFour$inboundSchema: z.ZodNativeEnum<typeof FiftyFour> = z
-  .nativeEnum(FiftyFour);
-
-/** @internal */
-export const FiftyFour$outboundSchema: z.ZodNativeEnum<typeof FiftyFour> =
-  FiftyFour$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FiftyFour$ {
-  /** @deprecated use `FiftyFour$inboundSchema` instead. */
-  export const inboundSchema = FiftyFour$inboundSchema;
-  /** @deprecated use `FiftyFour$outboundSchema` instead. */
-  export const outboundSchema = FiftyFour$outboundSchema;
-}
-
-/** @internal */
-export const FiftyThree$inboundSchema: z.ZodNativeEnum<typeof FiftyThree> = z
-  .nativeEnum(FiftyThree);
-
-/** @internal */
-export const FiftyThree$outboundSchema: z.ZodNativeEnum<typeof FiftyThree> =
-  FiftyThree$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FiftyThree$ {
-  /** @deprecated use `FiftyThree$inboundSchema` instead. */
-  export const inboundSchema = FiftyThree$inboundSchema;
-  /** @deprecated use `FiftyThree$outboundSchema` instead. */
-  export const outboundSchema = FiftyThree$outboundSchema;
-}
-
-/** @internal */
-export const FiftyTwo$inboundSchema: z.ZodNativeEnum<typeof FiftyTwo> = z
-  .nativeEnum(FiftyTwo);
-
-/** @internal */
-export const FiftyTwo$outboundSchema: z.ZodNativeEnum<typeof FiftyTwo> =
-  FiftyTwo$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FiftyTwo$ {
-  /** @deprecated use `FiftyTwo$inboundSchema` instead. */
-  export const inboundSchema = FiftyTwo$inboundSchema;
-  /** @deprecated use `FiftyTwo$outboundSchema` instead. */
-  export const outboundSchema = FiftyTwo$outboundSchema;
-}
-
-/** @internal */
-export const FiftyOne$inboundSchema: z.ZodNativeEnum<typeof FiftyOne> = z
-  .nativeEnum(FiftyOne);
-
-/** @internal */
-export const FiftyOne$outboundSchema: z.ZodNativeEnum<typeof FiftyOne> =
-  FiftyOne$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FiftyOne$ {
-  /** @deprecated use `FiftyOne$inboundSchema` instead. */
-  export const inboundSchema = FiftyOne$inboundSchema;
-  /** @deprecated use `FiftyOne$outboundSchema` instead. */
-  export const outboundSchema = FiftyOne$outboundSchema;
-}
-
-/** @internal */
-export const Fifty$inboundSchema: z.ZodNativeEnum<typeof Fifty> = z.nativeEnum(
-  Fifty,
-);
-
-/** @internal */
-export const Fifty$outboundSchema: z.ZodNativeEnum<typeof Fifty> =
-  Fifty$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Fifty$ {
-  /** @deprecated use `Fifty$inboundSchema` instead. */
-  export const inboundSchema = Fifty$inboundSchema;
-  /** @deprecated use `Fifty$outboundSchema` instead. */
-  export const outboundSchema = Fifty$outboundSchema;
-}
-
-/** @internal */
-export const FortyNine$inboundSchema: z.ZodNativeEnum<typeof FortyNine> = z
-  .nativeEnum(FortyNine);
-
-/** @internal */
-export const FortyNine$outboundSchema: z.ZodNativeEnum<typeof FortyNine> =
-  FortyNine$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FortyNine$ {
-  /** @deprecated use `FortyNine$inboundSchema` instead. */
-  export const inboundSchema = FortyNine$inboundSchema;
-  /** @deprecated use `FortyNine$outboundSchema` instead. */
-  export const outboundSchema = FortyNine$outboundSchema;
-}
-
-/** @internal */
-export const FortyEight$inboundSchema: z.ZodNativeEnum<typeof FortyEight> = z
-  .nativeEnum(FortyEight);
-
-/** @internal */
-export const FortyEight$outboundSchema: z.ZodNativeEnum<typeof FortyEight> =
-  FortyEight$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FortyEight$ {
-  /** @deprecated use `FortyEight$inboundSchema` instead. */
-  export const inboundSchema = FortyEight$inboundSchema;
-  /** @deprecated use `FortyEight$outboundSchema` instead. */
-  export const outboundSchema = FortyEight$outboundSchema;
-}
-
-/** @internal */
-export const FortySeven$inboundSchema: z.ZodNativeEnum<typeof FortySeven> = z
-  .nativeEnum(FortySeven);
-
-/** @internal */
-export const FortySeven$outboundSchema: z.ZodNativeEnum<typeof FortySeven> =
-  FortySeven$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FortySeven$ {
-  /** @deprecated use `FortySeven$inboundSchema` instead. */
-  export const inboundSchema = FortySeven$inboundSchema;
-  /** @deprecated use `FortySeven$outboundSchema` instead. */
-  export const outboundSchema = FortySeven$outboundSchema;
-}
-
-/** @internal */
-export const FortySix$inboundSchema: z.ZodNativeEnum<typeof FortySix> = z
-  .nativeEnum(FortySix);
-
-/** @internal */
-export const FortySix$outboundSchema: z.ZodNativeEnum<typeof FortySix> =
-  FortySix$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FortySix$ {
-  /** @deprecated use `FortySix$inboundSchema` instead. */
-  export const inboundSchema = FortySix$inboundSchema;
-  /** @deprecated use `FortySix$outboundSchema` instead. */
-  export const outboundSchema = FortySix$outboundSchema;
-}
-
-/** @internal */
-export const FortyFive$inboundSchema: z.ZodNativeEnum<typeof FortyFive> = z
-  .nativeEnum(FortyFive);
-
-/** @internal */
-export const FortyFive$outboundSchema: z.ZodNativeEnum<typeof FortyFive> =
-  FortyFive$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FortyFive$ {
-  /** @deprecated use `FortyFive$inboundSchema` instead. */
-  export const inboundSchema = FortyFive$inboundSchema;
-  /** @deprecated use `FortyFive$outboundSchema` instead. */
-  export const outboundSchema = FortyFive$outboundSchema;
-}
-
-/** @internal */
-export const FortyFour$inboundSchema: z.ZodNativeEnum<typeof FortyFour> = z
-  .nativeEnum(FortyFour);
-
-/** @internal */
-export const FortyFour$outboundSchema: z.ZodNativeEnum<typeof FortyFour> =
-  FortyFour$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FortyFour$ {
-  /** @deprecated use `FortyFour$inboundSchema` instead. */
-  export const inboundSchema = FortyFour$inboundSchema;
-  /** @deprecated use `FortyFour$outboundSchema` instead. */
-  export const outboundSchema = FortyFour$outboundSchema;
-}
-
-/** @internal */
-export const FortyThree$inboundSchema: z.ZodNativeEnum<typeof FortyThree> = z
-  .nativeEnum(FortyThree);
-
-/** @internal */
-export const FortyThree$outboundSchema: z.ZodNativeEnum<typeof FortyThree> =
-  FortyThree$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FortyThree$ {
-  /** @deprecated use `FortyThree$inboundSchema` instead. */
-  export const inboundSchema = FortyThree$inboundSchema;
-  /** @deprecated use `FortyThree$outboundSchema` instead. */
-  export const outboundSchema = FortyThree$outboundSchema;
-}
-
-/** @internal */
-export const FortyTwo$inboundSchema: z.ZodNativeEnum<typeof FortyTwo> = z
-  .nativeEnum(FortyTwo);
-
-/** @internal */
-export const FortyTwo$outboundSchema: z.ZodNativeEnum<typeof FortyTwo> =
-  FortyTwo$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FortyTwo$ {
-  /** @deprecated use `FortyTwo$inboundSchema` instead. */
-  export const inboundSchema = FortyTwo$inboundSchema;
-  /** @deprecated use `FortyTwo$outboundSchema` instead. */
-  export const outboundSchema = FortyTwo$outboundSchema;
-}
-
-/** @internal */
-export const FortyOne$inboundSchema: z.ZodNativeEnum<typeof FortyOne> = z
-  .nativeEnum(FortyOne);
-
-/** @internal */
-export const FortyOne$outboundSchema: z.ZodNativeEnum<typeof FortyOne> =
-  FortyOne$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FortyOne$ {
-  /** @deprecated use `FortyOne$inboundSchema` instead. */
-  export const inboundSchema = FortyOne$inboundSchema;
-  /** @deprecated use `FortyOne$outboundSchema` instead. */
-  export const outboundSchema = FortyOne$outboundSchema;
-}
-
-/** @internal */
-export const Forty$inboundSchema: z.ZodNativeEnum<typeof Forty> = z.nativeEnum(
-  Forty,
-);
-
-/** @internal */
-export const Forty$outboundSchema: z.ZodNativeEnum<typeof Forty> =
-  Forty$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Forty$ {
-  /** @deprecated use `Forty$inboundSchema` instead. */
-  export const inboundSchema = Forty$inboundSchema;
-  /** @deprecated use `Forty$outboundSchema` instead. */
-  export const outboundSchema = Forty$outboundSchema;
-}
-
-/** @internal */
-export const ThirtyNine$inboundSchema: z.ZodNativeEnum<typeof ThirtyNine> = z
-  .nativeEnum(ThirtyNine);
-
-/** @internal */
-export const ThirtyNine$outboundSchema: z.ZodNativeEnum<typeof ThirtyNine> =
-  ThirtyNine$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ThirtyNine$ {
-  /** @deprecated use `ThirtyNine$inboundSchema` instead. */
-  export const inboundSchema = ThirtyNine$inboundSchema;
-  /** @deprecated use `ThirtyNine$outboundSchema` instead. */
-  export const outboundSchema = ThirtyNine$outboundSchema;
-}
-
-/** @internal */
-export const ThirtyEight$inboundSchema: z.ZodNativeEnum<typeof ThirtyEight> = z
-  .nativeEnum(ThirtyEight);
-
-/** @internal */
-export const ThirtyEight$outboundSchema: z.ZodNativeEnum<typeof ThirtyEight> =
-  ThirtyEight$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ThirtyEight$ {
-  /** @deprecated use `ThirtyEight$inboundSchema` instead. */
-  export const inboundSchema = ThirtyEight$inboundSchema;
-  /** @deprecated use `ThirtyEight$outboundSchema` instead. */
-  export const outboundSchema = ThirtyEight$outboundSchema;
-}
-
-/** @internal */
-export const ThirtySeven$inboundSchema: z.ZodNativeEnum<typeof ThirtySeven> = z
-  .nativeEnum(ThirtySeven);
-
-/** @internal */
-export const ThirtySeven$outboundSchema: z.ZodNativeEnum<typeof ThirtySeven> =
-  ThirtySeven$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ThirtySeven$ {
-  /** @deprecated use `ThirtySeven$inboundSchema` instead. */
-  export const inboundSchema = ThirtySeven$inboundSchema;
-  /** @deprecated use `ThirtySeven$outboundSchema` instead. */
-  export const outboundSchema = ThirtySeven$outboundSchema;
-}
-
-/** @internal */
-export const ThirtySix$inboundSchema: z.ZodNativeEnum<typeof ThirtySix> = z
-  .nativeEnum(ThirtySix);
-
-/** @internal */
-export const ThirtySix$outboundSchema: z.ZodNativeEnum<typeof ThirtySix> =
-  ThirtySix$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ThirtySix$ {
-  /** @deprecated use `ThirtySix$inboundSchema` instead. */
-  export const inboundSchema = ThirtySix$inboundSchema;
-  /** @deprecated use `ThirtySix$outboundSchema` instead. */
-  export const outboundSchema = ThirtySix$outboundSchema;
-}
-
-/** @internal */
-export const ThirtyFive$inboundSchema: z.ZodNativeEnum<typeof ThirtyFive> = z
-  .nativeEnum(ThirtyFive);
-
-/** @internal */
-export const ThirtyFive$outboundSchema: z.ZodNativeEnum<typeof ThirtyFive> =
-  ThirtyFive$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ThirtyFive$ {
-  /** @deprecated use `ThirtyFive$inboundSchema` instead. */
-  export const inboundSchema = ThirtyFive$inboundSchema;
-  /** @deprecated use `ThirtyFive$outboundSchema` instead. */
-  export const outboundSchema = ThirtyFive$outboundSchema;
-}
-
-/** @internal */
-export const ThirtyFour$inboundSchema: z.ZodNativeEnum<typeof ThirtyFour> = z
-  .nativeEnum(ThirtyFour);
-
-/** @internal */
-export const ThirtyFour$outboundSchema: z.ZodNativeEnum<typeof ThirtyFour> =
-  ThirtyFour$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ThirtyFour$ {
-  /** @deprecated use `ThirtyFour$inboundSchema` instead. */
-  export const inboundSchema = ThirtyFour$inboundSchema;
-  /** @deprecated use `ThirtyFour$outboundSchema` instead. */
-  export const outboundSchema = ThirtyFour$outboundSchema;
-}
-
-/** @internal */
-export const ThirtyThree$inboundSchema: z.ZodNativeEnum<typeof ThirtyThree> = z
-  .nativeEnum(ThirtyThree);
-
-/** @internal */
-export const ThirtyThree$outboundSchema: z.ZodNativeEnum<typeof ThirtyThree> =
-  ThirtyThree$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ThirtyThree$ {
-  /** @deprecated use `ThirtyThree$inboundSchema` instead. */
-  export const inboundSchema = ThirtyThree$inboundSchema;
-  /** @deprecated use `ThirtyThree$outboundSchema` instead. */
-  export const outboundSchema = ThirtyThree$outboundSchema;
-}
-
-/** @internal */
-export const ThirtyTwo$inboundSchema: z.ZodNativeEnum<typeof ThirtyTwo> = z
-  .nativeEnum(ThirtyTwo);
-
-/** @internal */
-export const ThirtyTwo$outboundSchema: z.ZodNativeEnum<typeof ThirtyTwo> =
-  ThirtyTwo$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ThirtyTwo$ {
-  /** @deprecated use `ThirtyTwo$inboundSchema` instead. */
-  export const inboundSchema = ThirtyTwo$inboundSchema;
-  /** @deprecated use `ThirtyTwo$outboundSchema` instead. */
-  export const outboundSchema = ThirtyTwo$outboundSchema;
-}
-
-/** @internal */
-export const ThirtyOne$inboundSchema: z.ZodNativeEnum<typeof ThirtyOne> = z
-  .nativeEnum(ThirtyOne);
-
-/** @internal */
-export const ThirtyOne$outboundSchema: z.ZodNativeEnum<typeof ThirtyOne> =
-  ThirtyOne$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace ThirtyOne$ {
-  /** @deprecated use `ThirtyOne$inboundSchema` instead. */
-  export const inboundSchema = ThirtyOne$inboundSchema;
-  /** @deprecated use `ThirtyOne$outboundSchema` instead. */
-  export const outboundSchema = ThirtyOne$outboundSchema;
-}
-
-/** @internal */
-export const Thirty$inboundSchema: z.ZodNativeEnum<typeof Thirty> = z
-  .nativeEnum(Thirty);
-
-/** @internal */
-export const Thirty$outboundSchema: z.ZodNativeEnum<typeof Thirty> =
-  Thirty$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Thirty$ {
-  /** @deprecated use `Thirty$inboundSchema` instead. */
-  export const inboundSchema = Thirty$inboundSchema;
-  /** @deprecated use `Thirty$outboundSchema` instead. */
-  export const outboundSchema = Thirty$outboundSchema;
-}
-
-/** @internal */
-export const TwentyNine$inboundSchema: z.ZodNativeEnum<typeof TwentyNine> = z
-  .nativeEnum(TwentyNine);
-
-/** @internal */
-export const TwentyNine$outboundSchema: z.ZodNativeEnum<typeof TwentyNine> =
-  TwentyNine$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TwentyNine$ {
-  /** @deprecated use `TwentyNine$inboundSchema` instead. */
-  export const inboundSchema = TwentyNine$inboundSchema;
-  /** @deprecated use `TwentyNine$outboundSchema` instead. */
-  export const outboundSchema = TwentyNine$outboundSchema;
-}
-
-/** @internal */
-export const TwentyEight$inboundSchema: z.ZodNativeEnum<typeof TwentyEight> = z
-  .nativeEnum(TwentyEight);
-
-/** @internal */
-export const TwentyEight$outboundSchema: z.ZodNativeEnum<typeof TwentyEight> =
-  TwentyEight$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TwentyEight$ {
-  /** @deprecated use `TwentyEight$inboundSchema` instead. */
-  export const inboundSchema = TwentyEight$inboundSchema;
-  /** @deprecated use `TwentyEight$outboundSchema` instead. */
-  export const outboundSchema = TwentyEight$outboundSchema;
-}
-
-/** @internal */
-export const TwentySeven$inboundSchema: z.ZodNativeEnum<typeof TwentySeven> = z
-  .nativeEnum(TwentySeven);
-
-/** @internal */
-export const TwentySeven$outboundSchema: z.ZodNativeEnum<typeof TwentySeven> =
-  TwentySeven$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TwentySeven$ {
-  /** @deprecated use `TwentySeven$inboundSchema` instead. */
-  export const inboundSchema = TwentySeven$inboundSchema;
-  /** @deprecated use `TwentySeven$outboundSchema` instead. */
-  export const outboundSchema = TwentySeven$outboundSchema;
-}
-
-/** @internal */
-export const TwentySix$inboundSchema: z.ZodNativeEnum<typeof TwentySix> = z
-  .nativeEnum(TwentySix);
-
-/** @internal */
-export const TwentySix$outboundSchema: z.ZodNativeEnum<typeof TwentySix> =
-  TwentySix$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TwentySix$ {
-  /** @deprecated use `TwentySix$inboundSchema` instead. */
-  export const inboundSchema = TwentySix$inboundSchema;
-  /** @deprecated use `TwentySix$outboundSchema` instead. */
-  export const outboundSchema = TwentySix$outboundSchema;
-}
-
-/** @internal */
-export const TwentyFive$inboundSchema: z.ZodNativeEnum<typeof TwentyFive> = z
-  .nativeEnum(TwentyFive);
-
-/** @internal */
-export const TwentyFive$outboundSchema: z.ZodNativeEnum<typeof TwentyFive> =
-  TwentyFive$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TwentyFive$ {
-  /** @deprecated use `TwentyFive$inboundSchema` instead. */
-  export const inboundSchema = TwentyFive$inboundSchema;
-  /** @deprecated use `TwentyFive$outboundSchema` instead. */
-  export const outboundSchema = TwentyFive$outboundSchema;
-}
-
-/** @internal */
-export const TwentyFour$inboundSchema: z.ZodNativeEnum<typeof TwentyFour> = z
-  .nativeEnum(TwentyFour);
-
-/** @internal */
-export const TwentyFour$outboundSchema: z.ZodNativeEnum<typeof TwentyFour> =
-  TwentyFour$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TwentyFour$ {
-  /** @deprecated use `TwentyFour$inboundSchema` instead. */
-  export const inboundSchema = TwentyFour$inboundSchema;
-  /** @deprecated use `TwentyFour$outboundSchema` instead. */
-  export const outboundSchema = TwentyFour$outboundSchema;
-}
-
-/** @internal */
-export const TwentyThree$inboundSchema: z.ZodNativeEnum<typeof TwentyThree> = z
-  .nativeEnum(TwentyThree);
-
-/** @internal */
-export const TwentyThree$outboundSchema: z.ZodNativeEnum<typeof TwentyThree> =
-  TwentyThree$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TwentyThree$ {
-  /** @deprecated use `TwentyThree$inboundSchema` instead. */
-  export const inboundSchema = TwentyThree$inboundSchema;
-  /** @deprecated use `TwentyThree$outboundSchema` instead. */
-  export const outboundSchema = TwentyThree$outboundSchema;
-}
-
-/** @internal */
-export const TwentyTwo$inboundSchema: z.ZodNativeEnum<typeof TwentyTwo> = z
-  .nativeEnum(TwentyTwo);
-
-/** @internal */
-export const TwentyTwo$outboundSchema: z.ZodNativeEnum<typeof TwentyTwo> =
-  TwentyTwo$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TwentyTwo$ {
-  /** @deprecated use `TwentyTwo$inboundSchema` instead. */
-  export const inboundSchema = TwentyTwo$inboundSchema;
-  /** @deprecated use `TwentyTwo$outboundSchema` instead. */
-  export const outboundSchema = TwentyTwo$outboundSchema;
-}
-
-/** @internal */
-export const TwentyOne$inboundSchema: z.ZodNativeEnum<typeof TwentyOne> = z
-  .nativeEnum(TwentyOne);
-
-/** @internal */
-export const TwentyOne$outboundSchema: z.ZodNativeEnum<typeof TwentyOne> =
-  TwentyOne$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TwentyOne$ {
-  /** @deprecated use `TwentyOne$inboundSchema` instead. */
-  export const inboundSchema = TwentyOne$inboundSchema;
-  /** @deprecated use `TwentyOne$outboundSchema` instead. */
-  export const outboundSchema = TwentyOne$outboundSchema;
-}
-
-/** @internal */
-export const Twenty$inboundSchema: z.ZodNativeEnum<typeof Twenty> = z
-  .nativeEnum(Twenty);
-
-/** @internal */
-export const Twenty$outboundSchema: z.ZodNativeEnum<typeof Twenty> =
-  Twenty$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Twenty$ {
-  /** @deprecated use `Twenty$inboundSchema` instead. */
-  export const inboundSchema = Twenty$inboundSchema;
-  /** @deprecated use `Twenty$outboundSchema` instead. */
-  export const outboundSchema = Twenty$outboundSchema;
-}
-
-/** @internal */
-export const Nineteen$inboundSchema: z.ZodNativeEnum<typeof Nineteen> = z
-  .nativeEnum(Nineteen);
-
-/** @internal */
-export const Nineteen$outboundSchema: z.ZodNativeEnum<typeof Nineteen> =
-  Nineteen$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Nineteen$ {
-  /** @deprecated use `Nineteen$inboundSchema` instead. */
-  export const inboundSchema = Nineteen$inboundSchema;
-  /** @deprecated use `Nineteen$outboundSchema` instead. */
-  export const outboundSchema = Nineteen$outboundSchema;
-}
-
-/** @internal */
-export const Eighteen$inboundSchema: z.ZodNativeEnum<typeof Eighteen> = z
-  .nativeEnum(Eighteen);
-
-/** @internal */
-export const Eighteen$outboundSchema: z.ZodNativeEnum<typeof Eighteen> =
-  Eighteen$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Eighteen$ {
-  /** @deprecated use `Eighteen$inboundSchema` instead. */
-  export const inboundSchema = Eighteen$inboundSchema;
-  /** @deprecated use `Eighteen$outboundSchema` instead. */
-  export const outboundSchema = Eighteen$outboundSchema;
-}
-
-/** @internal */
-export const Seventeen$inboundSchema: z.ZodNativeEnum<typeof Seventeen> = z
-  .nativeEnum(Seventeen);
-
-/** @internal */
-export const Seventeen$outboundSchema: z.ZodNativeEnum<typeof Seventeen> =
-  Seventeen$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Seventeen$ {
-  /** @deprecated use `Seventeen$inboundSchema` instead. */
-  export const inboundSchema = Seventeen$inboundSchema;
-  /** @deprecated use `Seventeen$outboundSchema` instead. */
-  export const outboundSchema = Seventeen$outboundSchema;
-}
-
-/** @internal */
-export const Sixteen$inboundSchema: z.ZodNativeEnum<typeof Sixteen> = z
-  .nativeEnum(Sixteen);
-
-/** @internal */
-export const Sixteen$outboundSchema: z.ZodNativeEnum<typeof Sixteen> =
-  Sixteen$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Sixteen$ {
-  /** @deprecated use `Sixteen$inboundSchema` instead. */
-  export const inboundSchema = Sixteen$inboundSchema;
-  /** @deprecated use `Sixteen$outboundSchema` instead. */
-  export const outboundSchema = Sixteen$outboundSchema;
-}
-
-/** @internal */
-export const Fifteen$inboundSchema: z.ZodNativeEnum<typeof Fifteen> = z
-  .nativeEnum(Fifteen);
-
-/** @internal */
-export const Fifteen$outboundSchema: z.ZodNativeEnum<typeof Fifteen> =
-  Fifteen$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Fifteen$ {
-  /** @deprecated use `Fifteen$inboundSchema` instead. */
-  export const inboundSchema = Fifteen$inboundSchema;
-  /** @deprecated use `Fifteen$outboundSchema` instead. */
-  export const outboundSchema = Fifteen$outboundSchema;
-}
-
-/** @internal */
-export const Fourteen$inboundSchema: z.ZodNativeEnum<typeof Fourteen> = z
-  .nativeEnum(Fourteen);
-
-/** @internal */
-export const Fourteen$outboundSchema: z.ZodNativeEnum<typeof Fourteen> =
-  Fourteen$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Fourteen$ {
-  /** @deprecated use `Fourteen$inboundSchema` instead. */
-  export const inboundSchema = Fourteen$inboundSchema;
-  /** @deprecated use `Fourteen$outboundSchema` instead. */
-  export const outboundSchema = Fourteen$outboundSchema;
-}
-
-/** @internal */
-export const Thirteen$inboundSchema: z.ZodNativeEnum<typeof Thirteen> = z
-  .nativeEnum(Thirteen);
-
-/** @internal */
-export const Thirteen$outboundSchema: z.ZodNativeEnum<typeof Thirteen> =
-  Thirteen$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Thirteen$ {
-  /** @deprecated use `Thirteen$inboundSchema` instead. */
-  export const inboundSchema = Thirteen$inboundSchema;
-  /** @deprecated use `Thirteen$outboundSchema` instead. */
-  export const outboundSchema = Thirteen$outboundSchema;
-}
-
-/** @internal */
-export const Twelve$inboundSchema: z.ZodNativeEnum<typeof Twelve> = z
-  .nativeEnum(Twelve);
-
-/** @internal */
-export const Twelve$outboundSchema: z.ZodNativeEnum<typeof Twelve> =
-  Twelve$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Twelve$ {
-  /** @deprecated use `Twelve$inboundSchema` instead. */
-  export const inboundSchema = Twelve$inboundSchema;
-  /** @deprecated use `Twelve$outboundSchema` instead. */
-  export const outboundSchema = Twelve$outboundSchema;
-}
-
-/** @internal */
-export const Eleven$inboundSchema: z.ZodNativeEnum<typeof Eleven> = z
-  .nativeEnum(Eleven);
-
-/** @internal */
-export const Eleven$outboundSchema: z.ZodNativeEnum<typeof Eleven> =
-  Eleven$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Eleven$ {
-  /** @deprecated use `Eleven$inboundSchema` instead. */
-  export const inboundSchema = Eleven$inboundSchema;
-  /** @deprecated use `Eleven$outboundSchema` instead. */
-  export const outboundSchema = Eleven$outboundSchema;
-}
-
-/** @internal */
-export const Ten$inboundSchema: z.ZodNativeEnum<typeof Ten> = z.nativeEnum(Ten);
-
-/** @internal */
-export const Ten$outboundSchema: z.ZodNativeEnum<typeof Ten> =
-  Ten$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Ten$ {
-  /** @deprecated use `Ten$inboundSchema` instead. */
-  export const inboundSchema = Ten$inboundSchema;
-  /** @deprecated use `Ten$outboundSchema` instead. */
-  export const outboundSchema = Ten$outboundSchema;
-}
-
-/** @internal */
-export const Nine$inboundSchema: z.ZodNativeEnum<typeof Nine> = z.nativeEnum(
-  Nine,
-);
-
-/** @internal */
-export const Nine$outboundSchema: z.ZodNativeEnum<typeof Nine> =
-  Nine$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Nine$ {
-  /** @deprecated use `Nine$inboundSchema` instead. */
-  export const inboundSchema = Nine$inboundSchema;
-  /** @deprecated use `Nine$outboundSchema` instead. */
-  export const outboundSchema = Nine$outboundSchema;
-}
-
-/** @internal */
-export const Eight$inboundSchema: z.ZodNativeEnum<typeof Eight> = z.nativeEnum(
-  Eight,
-);
-
-/** @internal */
-export const Eight$outboundSchema: z.ZodNativeEnum<typeof Eight> =
-  Eight$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Eight$ {
-  /** @deprecated use `Eight$inboundSchema` instead. */
-  export const inboundSchema = Eight$inboundSchema;
-  /** @deprecated use `Eight$outboundSchema` instead. */
-  export const outboundSchema = Eight$outboundSchema;
-}
-
-/** @internal */
-export const Field7$inboundSchema: z.ZodNativeEnum<typeof Field7> = z
-  .nativeEnum(Field7);
-
-/** @internal */
-export const Field7$outboundSchema: z.ZodNativeEnum<typeof Field7> =
-  Field7$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field7$ {
-  /** @deprecated use `Field7$inboundSchema` instead. */
-  export const inboundSchema = Field7$inboundSchema;
-  /** @deprecated use `Field7$outboundSchema` instead. */
-  export const outboundSchema = Field7$outboundSchema;
-}
-
-/** @internal */
-export const Field6$inboundSchema: z.ZodNativeEnum<typeof Field6> = z
-  .nativeEnum(Field6);
-
-/** @internal */
-export const Field6$outboundSchema: z.ZodNativeEnum<typeof Field6> =
-  Field6$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field6$ {
-  /** @deprecated use `Field6$inboundSchema` instead. */
-  export const inboundSchema = Field6$inboundSchema;
-  /** @deprecated use `Field6$outboundSchema` instead. */
-  export const outboundSchema = Field6$outboundSchema;
-}
-
-/** @internal */
-export const Field5$inboundSchema: z.ZodNativeEnum<typeof Field5> = z
-  .nativeEnum(Field5);
-
-/** @internal */
-export const Field5$outboundSchema: z.ZodNativeEnum<typeof Field5> =
-  Field5$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field5$ {
-  /** @deprecated use `Field5$inboundSchema` instead. */
-  export const inboundSchema = Field5$inboundSchema;
-  /** @deprecated use `Field5$outboundSchema` instead. */
-  export const outboundSchema = Field5$outboundSchema;
-}
-
-/** @internal */
-export const Field4$inboundSchema: z.ZodNativeEnum<typeof Field4> = z
-  .nativeEnum(Field4);
-
-/** @internal */
-export const Field4$outboundSchema: z.ZodNativeEnum<typeof Field4> =
-  Field4$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field4$ {
-  /** @deprecated use `Field4$inboundSchema` instead. */
-  export const inboundSchema = Field4$inboundSchema;
-  /** @deprecated use `Field4$outboundSchema` instead. */
-  export const outboundSchema = Field4$outboundSchema;
-}
-
-/** @internal */
-export const Field3$inboundSchema: z.ZodNativeEnum<typeof Field3> = z
-  .nativeEnum(Field3);
-
-/** @internal */
-export const Field3$outboundSchema: z.ZodNativeEnum<typeof Field3> =
-  Field3$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field3$ {
-  /** @deprecated use `Field3$inboundSchema` instead. */
-  export const inboundSchema = Field3$inboundSchema;
-  /** @deprecated use `Field3$outboundSchema` instead. */
-  export const outboundSchema = Field3$outboundSchema;
-}
-
-/** @internal */
-export const Field2$inboundSchema: z.ZodNativeEnum<typeof Field2> = z
-  .nativeEnum(Field2);
-
-/** @internal */
-export const Field2$outboundSchema: z.ZodNativeEnum<typeof Field2> =
-  Field2$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field2$ {
-  /** @deprecated use `Field2$inboundSchema` instead. */
-  export const inboundSchema = Field2$inboundSchema;
-  /** @deprecated use `Field2$outboundSchema` instead. */
-  export const outboundSchema = Field2$outboundSchema;
-}
-
-/** @internal */
-export const Field1$inboundSchema: z.ZodNativeEnum<typeof Field1> = z
-  .nativeEnum(Field1);
-
-/** @internal */
-export const Field1$outboundSchema: z.ZodNativeEnum<typeof Field1> =
-  Field1$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field1$ {
-  /** @deprecated use `Field1$inboundSchema` instead. */
-  export const inboundSchema = Field1$inboundSchema;
-  /** @deprecated use `Field1$outboundSchema` instead. */
-  export const outboundSchema = Field1$outboundSchema;
-}
-
-/** @internal */
-export const QueryConversationsField$inboundSchema: z.ZodType<
-  QueryConversationsField,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  Field1$inboundSchema,
-  Field2$inboundSchema,
-  Field3$inboundSchema,
-  Field4$inboundSchema,
-  Field5$inboundSchema,
-  Field6$inboundSchema,
-  Field7$inboundSchema,
-  Eight$inboundSchema,
-  Nine$inboundSchema,
-  Ten$inboundSchema,
-  Eleven$inboundSchema,
-  Twelve$inboundSchema,
-  Thirteen$inboundSchema,
-  Fourteen$inboundSchema,
-  Fifteen$inboundSchema,
-  Sixteen$inboundSchema,
-  Seventeen$inboundSchema,
-  Eighteen$inboundSchema,
-  Nineteen$inboundSchema,
-  Twenty$inboundSchema,
-  TwentyOne$inboundSchema,
-  TwentyTwo$inboundSchema,
-  TwentyThree$inboundSchema,
-  TwentyFour$inboundSchema,
-  TwentyFive$inboundSchema,
-  TwentySix$inboundSchema,
-  TwentySeven$inboundSchema,
-  TwentyEight$inboundSchema,
-  TwentyNine$inboundSchema,
-  Thirty$inboundSchema,
-  ThirtyOne$inboundSchema,
-  ThirtyTwo$inboundSchema,
-  ThirtyThree$inboundSchema,
-  ThirtyFour$inboundSchema,
-  ThirtyFive$inboundSchema,
-  ThirtySix$inboundSchema,
-  ThirtySeven$inboundSchema,
-  ThirtyEight$inboundSchema,
-  ThirtyNine$inboundSchema,
-  Forty$inboundSchema,
-  FortyOne$inboundSchema,
-  FortyTwo$inboundSchema,
-  FortyThree$inboundSchema,
-  FortyFour$inboundSchema,
-  FortyFive$inboundSchema,
-  FortySix$inboundSchema,
-  FortySeven$inboundSchema,
-  FortyEight$inboundSchema,
-  FortyNine$inboundSchema,
-  Fifty$inboundSchema,
-  FiftyOne$inboundSchema,
-  FiftyTwo$inboundSchema,
-  FiftyThree$inboundSchema,
-  FiftyFour$inboundSchema,
-  FiftyFive$inboundSchema,
-  FiftySix$inboundSchema,
-  FiftySeven$inboundSchema,
-  FiftyEight$inboundSchema,
-  FiftyNine$inboundSchema,
-  Sixty$inboundSchema,
-  SixtyOne$inboundSchema,
-  SixtyTwo$inboundSchema,
-  SixtyThree$inboundSchema,
-  SixtyFour$inboundSchema,
-  SixtyFive$inboundSchema,
-  SixtySix$inboundSchema,
-  SixtySeven$inboundSchema,
-  SixtyEight$inboundSchema,
-  SixtyNine$inboundSchema,
-  Seventy$inboundSchema,
-]);
-
-/** @internal */
-export type QueryConversationsField$Outbound =
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string;
-
-/** @internal */
-export const QueryConversationsField$outboundSchema: z.ZodType<
-  QueryConversationsField$Outbound,
-  z.ZodTypeDef,
-  QueryConversationsField
-> = z.union([
-  Field1$outboundSchema,
-  Field2$outboundSchema,
-  Field3$outboundSchema,
-  Field4$outboundSchema,
-  Field5$outboundSchema,
-  Field6$outboundSchema,
-  Field7$outboundSchema,
-  Eight$outboundSchema,
-  Nine$outboundSchema,
-  Ten$outboundSchema,
-  Eleven$outboundSchema,
-  Twelve$outboundSchema,
-  Thirteen$outboundSchema,
-  Fourteen$outboundSchema,
-  Fifteen$outboundSchema,
-  Sixteen$outboundSchema,
-  Seventeen$outboundSchema,
-  Eighteen$outboundSchema,
-  Nineteen$outboundSchema,
-  Twenty$outboundSchema,
-  TwentyOne$outboundSchema,
-  TwentyTwo$outboundSchema,
-  TwentyThree$outboundSchema,
-  TwentyFour$outboundSchema,
-  TwentyFive$outboundSchema,
-  TwentySix$outboundSchema,
-  TwentySeven$outboundSchema,
-  TwentyEight$outboundSchema,
-  TwentyNine$outboundSchema,
-  Thirty$outboundSchema,
-  ThirtyOne$outboundSchema,
-  ThirtyTwo$outboundSchema,
-  ThirtyThree$outboundSchema,
-  ThirtyFour$outboundSchema,
-  ThirtyFive$outboundSchema,
-  ThirtySix$outboundSchema,
-  ThirtySeven$outboundSchema,
-  ThirtyEight$outboundSchema,
-  ThirtyNine$outboundSchema,
-  Forty$outboundSchema,
-  FortyOne$outboundSchema,
-  FortyTwo$outboundSchema,
-  FortyThree$outboundSchema,
-  FortyFour$outboundSchema,
-  FortyFive$outboundSchema,
-  FortySix$outboundSchema,
-  FortySeven$outboundSchema,
-  FortyEight$outboundSchema,
-  FortyNine$outboundSchema,
-  Fifty$outboundSchema,
-  FiftyOne$outboundSchema,
-  FiftyTwo$outboundSchema,
-  FiftyThree$outboundSchema,
-  FiftyFour$outboundSchema,
-  FiftyFive$outboundSchema,
-  FiftySix$outboundSchema,
-  FiftySeven$outboundSchema,
-  FiftyEight$outboundSchema,
-  FiftyNine$outboundSchema,
-  Sixty$outboundSchema,
-  SixtyOne$outboundSchema,
-  SixtyTwo$outboundSchema,
-  SixtyThree$outboundSchema,
-  SixtyFour$outboundSchema,
-  SixtyFive$outboundSchema,
-  SixtySix$outboundSchema,
-  SixtySeven$outboundSchema,
-  SixtyEight$outboundSchema,
-  SixtyNine$outboundSchema,
-  Seventy$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace QueryConversationsField$ {
-  /** @deprecated use `QueryConversationsField$inboundSchema` instead. */
-  export const inboundSchema = QueryConversationsField$inboundSchema;
-  /** @deprecated use `QueryConversationsField$outboundSchema` instead. */
-  export const outboundSchema = QueryConversationsField$outboundSchema;
-  /** @deprecated use `QueryConversationsField$Outbound` instead. */
-  export type Outbound = QueryConversationsField$Outbound;
-}
-
-export function queryConversationsFieldToJSON(
-  queryConversationsField: QueryConversationsField,
-): string {
-  return JSON.stringify(
-    QueryConversationsField$outboundSchema.parse(queryConversationsField),
-  );
-}
-
-export function queryConversationsFieldFromJSON(
-  jsonString: string,
-): SafeParseResult<QueryConversationsField, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => QueryConversationsField$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryConversationsField' from JSON`,
-  );
-}
-
-/** @internal */
-export const Direction2$inboundSchema: z.ZodNativeEnum<typeof Direction2> = z
-  .nativeEnum(Direction2);
-
-/** @internal */
-export const Direction2$outboundSchema: z.ZodNativeEnum<typeof Direction2> =
-  Direction2$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Direction2$ {
-  /** @deprecated use `Direction2$inboundSchema` instead. */
-  export const inboundSchema = Direction2$inboundSchema;
-  /** @deprecated use `Direction2$outboundSchema` instead. */
-  export const outboundSchema = Direction2$outboundSchema;
-}
-
-/** @internal */
-export const Direction1$inboundSchema: z.ZodNativeEnum<typeof Direction1> = z
-  .nativeEnum(Direction1);
-
-/** @internal */
-export const Direction1$outboundSchema: z.ZodNativeEnum<typeof Direction1> =
-  Direction1$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Direction1$ {
-  /** @deprecated use `Direction1$inboundSchema` instead. */
-  export const inboundSchema = Direction1$inboundSchema;
-  /** @deprecated use `Direction1$outboundSchema` instead. */
-  export const outboundSchema = Direction1$outboundSchema;
-}
-
-/** @internal */
-export const Direction$inboundSchema: z.ZodType<
-  Direction,
-  z.ZodTypeDef,
-  unknown
-> = z.union([Direction1$inboundSchema, Direction2$inboundSchema]);
-
-/** @internal */
-export type Direction$Outbound = string | string;
-
-/** @internal */
-export const Direction$outboundSchema: z.ZodType<
-  Direction$Outbound,
-  z.ZodTypeDef,
-  Direction
-> = z.union([Direction1$outboundSchema, Direction2$outboundSchema]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Direction$ {
-  /** @deprecated use `Direction$inboundSchema` instead. */
-  export const inboundSchema = Direction$inboundSchema;
-  /** @deprecated use `Direction$outboundSchema` instead. */
-  export const outboundSchema = Direction$outboundSchema;
-  /** @deprecated use `Direction$Outbound` instead. */
-  export type Outbound = Direction$Outbound;
-}
-
-export function directionToJSON(direction: Direction): string {
-  return JSON.stringify(Direction$outboundSchema.parse(direction));
-}
-
-export function directionFromJSON(
-  jsonString: string,
-): SafeParseResult<Direction, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Direction$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Direction' from JSON`,
-  );
-}
-
-/** @internal */
-export const OrderBy$inboundSchema: z.ZodType<OrderBy, z.ZodTypeDef, unknown> =
-  z.object({
-    field: z.union([
-      Field1$inboundSchema,
-      Field2$inboundSchema,
-      Field3$inboundSchema,
-      Field4$inboundSchema,
-      Field5$inboundSchema,
-      Field6$inboundSchema,
-      Field7$inboundSchema,
-      Eight$inboundSchema,
-      Nine$inboundSchema,
-      Ten$inboundSchema,
-      Eleven$inboundSchema,
-      Twelve$inboundSchema,
-      Thirteen$inboundSchema,
-      Fourteen$inboundSchema,
-      Fifteen$inboundSchema,
-      Sixteen$inboundSchema,
-      Seventeen$inboundSchema,
-      Eighteen$inboundSchema,
-      Nineteen$inboundSchema,
-      Twenty$inboundSchema,
-      TwentyOne$inboundSchema,
-      TwentyTwo$inboundSchema,
-      TwentyThree$inboundSchema,
-      TwentyFour$inboundSchema,
-      TwentyFive$inboundSchema,
-      TwentySix$inboundSchema,
-      TwentySeven$inboundSchema,
-      TwentyEight$inboundSchema,
-      TwentyNine$inboundSchema,
-      Thirty$inboundSchema,
-      ThirtyOne$inboundSchema,
-      ThirtyTwo$inboundSchema,
-      ThirtyThree$inboundSchema,
-      ThirtyFour$inboundSchema,
-      ThirtyFive$inboundSchema,
-      ThirtySix$inboundSchema,
-      ThirtySeven$inboundSchema,
-      ThirtyEight$inboundSchema,
-      ThirtyNine$inboundSchema,
-      Forty$inboundSchema,
-      FortyOne$inboundSchema,
-      FortyTwo$inboundSchema,
-      FortyThree$inboundSchema,
-      FortyFour$inboundSchema,
-      FortyFive$inboundSchema,
-      FortySix$inboundSchema,
-      FortySeven$inboundSchema,
-      FortyEight$inboundSchema,
-      FortyNine$inboundSchema,
-      Fifty$inboundSchema,
-      FiftyOne$inboundSchema,
-      FiftyTwo$inboundSchema,
-      FiftyThree$inboundSchema,
-      FiftyFour$inboundSchema,
-      FiftyFive$inboundSchema,
-      FiftySix$inboundSchema,
-      FiftySeven$inboundSchema,
-      FiftyEight$inboundSchema,
-      FiftyNine$inboundSchema,
-      Sixty$inboundSchema,
-      SixtyOne$inboundSchema,
-      SixtyTwo$inboundSchema,
-      SixtyThree$inboundSchema,
-      SixtyFour$inboundSchema,
-      SixtyFive$inboundSchema,
-      SixtySix$inboundSchema,
-      SixtySeven$inboundSchema,
-      SixtyEight$inboundSchema,
-      SixtyNine$inboundSchema,
-      Seventy$inboundSchema,
-    ]),
-    direction: z.union([Direction1$inboundSchema, Direction2$inboundSchema]),
-  });
-
-/** @internal */
-export type OrderBy$Outbound = {
-  field:
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string;
-  direction: string | string;
-};
-
-/** @internal */
-export const OrderBy$outboundSchema: z.ZodType<
-  OrderBy$Outbound,
-  z.ZodTypeDef,
-  OrderBy
-> = z.object({
-  field: z.union([
-    Field1$outboundSchema,
-    Field2$outboundSchema,
-    Field3$outboundSchema,
-    Field4$outboundSchema,
-    Field5$outboundSchema,
-    Field6$outboundSchema,
-    Field7$outboundSchema,
-    Eight$outboundSchema,
-    Nine$outboundSchema,
-    Ten$outboundSchema,
-    Eleven$outboundSchema,
-    Twelve$outboundSchema,
-    Thirteen$outboundSchema,
-    Fourteen$outboundSchema,
-    Fifteen$outboundSchema,
-    Sixteen$outboundSchema,
-    Seventeen$outboundSchema,
-    Eighteen$outboundSchema,
-    Nineteen$outboundSchema,
-    Twenty$outboundSchema,
-    TwentyOne$outboundSchema,
-    TwentyTwo$outboundSchema,
-    TwentyThree$outboundSchema,
-    TwentyFour$outboundSchema,
-    TwentyFive$outboundSchema,
-    TwentySix$outboundSchema,
-    TwentySeven$outboundSchema,
-    TwentyEight$outboundSchema,
-    TwentyNine$outboundSchema,
-    Thirty$outboundSchema,
-    ThirtyOne$outboundSchema,
-    ThirtyTwo$outboundSchema,
-    ThirtyThree$outboundSchema,
-    ThirtyFour$outboundSchema,
-    ThirtyFive$outboundSchema,
-    ThirtySix$outboundSchema,
-    ThirtySeven$outboundSchema,
-    ThirtyEight$outboundSchema,
-    ThirtyNine$outboundSchema,
-    Forty$outboundSchema,
-    FortyOne$outboundSchema,
-    FortyTwo$outboundSchema,
-    FortyThree$outboundSchema,
-    FortyFour$outboundSchema,
-    FortyFive$outboundSchema,
-    FortySix$outboundSchema,
-    FortySeven$outboundSchema,
-    FortyEight$outboundSchema,
-    FortyNine$outboundSchema,
-    Fifty$outboundSchema,
-    FiftyOne$outboundSchema,
-    FiftyTwo$outboundSchema,
-    FiftyThree$outboundSchema,
-    FiftyFour$outboundSchema,
-    FiftyFive$outboundSchema,
-    FiftySix$outboundSchema,
-    FiftySeven$outboundSchema,
-    FiftyEight$outboundSchema,
-    FiftyNine$outboundSchema,
-    Sixty$outboundSchema,
-    SixtyOne$outboundSchema,
-    SixtyTwo$outboundSchema,
-    SixtyThree$outboundSchema,
-    SixtyFour$outboundSchema,
-    SixtyFive$outboundSchema,
-    SixtySix$outboundSchema,
-    SixtySeven$outboundSchema,
-    SixtyEight$outboundSchema,
-    SixtyNine$outboundSchema,
-    Seventy$outboundSchema,
-  ]),
-  direction: z.union([Direction1$outboundSchema, Direction2$outboundSchema]),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OrderBy$ {
-  /** @deprecated use `OrderBy$inboundSchema` instead. */
-  export const inboundSchema = OrderBy$inboundSchema;
-  /** @deprecated use `OrderBy$outboundSchema` instead. */
-  export const outboundSchema = OrderBy$outboundSchema;
-  /** @deprecated use `OrderBy$Outbound` instead. */
-  export type Outbound = OrderBy$Outbound;
-}
-
-export function orderByToJSON(orderBy: OrderBy): string {
-  return JSON.stringify(OrderBy$outboundSchema.parse(orderBy));
-}
-
-export function orderByFromJSON(
-  jsonString: string,
-): SafeParseResult<OrderBy, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OrderBy$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OrderBy' from JSON`,
-  );
-}
-
-/** @internal */
-export const QueryConversationsRequestBody$inboundSchema: z.ZodType<
-  QueryConversationsRequestBody,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  select: z.array(
-    z.union([
-      components.ConversationsSimpleFieldSelection$inboundSchema.and(
-        z.object({ type: z.literal("field") }).transform((v) => ({
-          type: v.type,
-        })),
-      ),
-      components.ConversationsAggregationSelection$inboundSchema.and(
-        z.object({ type: z.literal("aggregation") }).transform((v) => ({
-          type: v.type,
-        })),
-      ),
-      components.ConversationsTimeBasedGroupBySelection$inboundSchema.and(
-        z.object({ type: z.literal("time") }).transform((v) => ({
-          type: v.type,
-        })),
-      ),
-    ]),
-  ).optional(),
-  groupBy: z.array(z.lazy(() => GroupBy$inboundSchema)).optional(),
-  where: components.ConversationsFilter$inboundSchema.optional(),
-  orderBy: z.array(z.lazy(() => OrderBy$inboundSchema)).optional(),
-  notes: z.string().optional(),
-});
-
-/** @internal */
-export type QueryConversationsRequestBody$Outbound = {
-  select?:
-    | Array<
-      | (components.ConversationsSimpleFieldSelection$Outbound & {
-        type: "field";
-      })
-      | (components.ConversationsAggregationSelection$Outbound & {
-        type: "aggregation";
-      })
-      | (components.ConversationsTimeBasedGroupBySelection$Outbound & {
-        type: "time";
-      })
-    >
-    | undefined;
-  groupBy?: Array<GroupBy$Outbound> | undefined;
-  where?: components.ConversationsFilter$Outbound | undefined;
-  orderBy?: Array<OrderBy$Outbound> | undefined;
-  notes?: string | undefined;
-};
-
-/** @internal */
-export const QueryConversationsRequestBody$outboundSchema: z.ZodType<
-  QueryConversationsRequestBody$Outbound,
-  z.ZodTypeDef,
-  QueryConversationsRequestBody
-> = z.object({
-  select: z.array(
-    z.union([
-      components.ConversationsSimpleFieldSelection$outboundSchema.and(
-        z.object({ type: z.literal("field") }).transform((v) => ({
-          type: v.type,
-        })),
-      ),
-      components.ConversationsAggregationSelection$outboundSchema.and(
-        z.object({ type: z.literal("aggregation") }).transform((v) => ({
-          type: v.type,
-        })),
-      ),
-      components.ConversationsTimeBasedGroupBySelection$outboundSchema.and(
-        z.object({ type: z.literal("time") }).transform((v) => ({
-          type: v.type,
-        })),
-      ),
-    ]),
-  ).optional(),
-  groupBy: z.array(z.lazy(() => GroupBy$outboundSchema)).optional(),
-  where: components.ConversationsFilter$outboundSchema.optional(),
-  orderBy: z.array(z.lazy(() => OrderBy$outboundSchema)).optional(),
-  notes: z.string().optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace QueryConversationsRequestBody$ {
-  /** @deprecated use `QueryConversationsRequestBody$inboundSchema` instead. */
-  export const inboundSchema = QueryConversationsRequestBody$inboundSchema;
-  /** @deprecated use `QueryConversationsRequestBody$outboundSchema` instead. */
-  export const outboundSchema = QueryConversationsRequestBody$outboundSchema;
-  /** @deprecated use `QueryConversationsRequestBody$Outbound` instead. */
-  export type Outbound = QueryConversationsRequestBody$Outbound;
-}
-
-export function queryConversationsRequestBodyToJSON(
-  queryConversationsRequestBody: QueryConversationsRequestBody,
-): string {
-  return JSON.stringify(
-    QueryConversationsRequestBody$outboundSchema.parse(
-      queryConversationsRequestBody,
-    ),
-  );
-}
-
-export function queryConversationsRequestBodyFromJSON(
-  jsonString: string,
-): SafeParseResult<QueryConversationsRequestBody, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => QueryConversationsRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryConversationsRequestBody' from JSON`,
-  );
-}
-
-/** @internal */
 export const Status$inboundSchema: z.ZodNativeEnum<typeof Status> = z
   .nativeEnum(Status);
 
@@ -3167,162 +206,184 @@ export namespace Status$ {
 }
 
 /** @internal */
-export const Result$inboundSchema: z.ZodType<Result, z.ZodTypeDef, unknown> = z
-  .object({
-    id: z.string().optional(),
-    userMessageCount: z.number().optional(),
-    organizationId: z.string().optional(),
-    projectId: z.string().optional(),
-    integrationId: z.string().optional(),
-    firstMessageTime: z.string().datetime({ offset: true }).transform(v =>
-      new Date(v)
-    ).optional(),
-    type: z.string().optional(),
-    sum: z.number().optional(),
-    count: z.number().optional(),
-    avg: z.number().optional(),
-    min: z.number().optional(),
-    max: z.number().optional(),
-    id_hour: z.string().optional(),
-    id_day: z.string().optional(),
-    id_week: z.string().optional(),
-    id_month: z.string().optional(),
-    userMessageCount_hour: z.string().optional(),
-    userMessageCount_day: z.string().optional(),
-    userMessageCount_week: z.string().optional(),
-    userMessageCount_month: z.string().optional(),
-    organizationId_hour: z.string().optional(),
-    organizationId_day: z.string().optional(),
-    organizationId_week: z.string().optional(),
-    organizationId_month: z.string().optional(),
-    projectId_hour: z.string().optional(),
-    projectId_day: z.string().optional(),
-    projectId_week: z.string().optional(),
-    projectId_month: z.string().optional(),
-    integrationId_hour: z.string().optional(),
-    integrationId_day: z.string().optional(),
-    integrationId_week: z.string().optional(),
-    integrationId_month: z.string().optional(),
-    firstMessageTime_hour: z.string().optional(),
-    firstMessageTime_day: z.string().optional(),
-    firstMessageTime_week: z.string().optional(),
-    firstMessageTime_month: z.string().optional(),
-    type_hour: z.string().optional(),
-    type_day: z.string().optional(),
-    type_week: z.string().optional(),
-    type_month: z.string().optional(),
-    sum_id: z.number().optional(),
-    count_id: z.number().optional(),
-    avg_id: z.number().optional(),
-    min_id: z.number().optional(),
-    max_id: z.number().optional(),
-    sum_userMessageCount: z.number().optional(),
-    count_userMessageCount: z.number().optional(),
-    avg_userMessageCount: z.number().optional(),
-    min_userMessageCount: z.number().optional(),
-    max_userMessageCount: z.number().optional(),
-    sum_organizationId: z.number().optional(),
-    count_organizationId: z.number().optional(),
-    avg_organizationId: z.number().optional(),
-    min_organizationId: z.number().optional(),
-    max_organizationId: z.number().optional(),
-    sum_projectId: z.number().optional(),
-    count_projectId: z.number().optional(),
-    avg_projectId: z.number().optional(),
-    min_projectId: z.number().optional(),
-    max_projectId: z.number().optional(),
-    sum_integrationId: z.number().optional(),
-    count_integrationId: z.number().optional(),
-    avg_integrationId: z.number().optional(),
-    min_integrationId: z.number().optional(),
-    max_integrationId: z.number().optional(),
-    sum_firstMessageTime: z.number().optional(),
-    count_firstMessageTime: z.number().optional(),
-    avg_firstMessageTime: z.number().optional(),
-    min_firstMessageTime: z.number().optional(),
-    max_firstMessageTime: z.number().optional(),
-    sum_type: z.number().optional(),
-    count_type: z.number().optional(),
-    avg_type: z.number().optional(),
-    min_type: z.number().optional(),
-    max_type: z.number().optional(),
-  }).transform((v) => {
-    return remap$(v, {
-      "id_hour": "idHour",
-      "id_day": "idDay",
-      "id_week": "idWeek",
-      "id_month": "idMonth",
-      "userMessageCount_hour": "userMessageCountHour",
-      "userMessageCount_day": "userMessageCountDay",
-      "userMessageCount_week": "userMessageCountWeek",
-      "userMessageCount_month": "userMessageCountMonth",
-      "organizationId_hour": "organizationIdHour",
-      "organizationId_day": "organizationIdDay",
-      "organizationId_week": "organizationIdWeek",
-      "organizationId_month": "organizationIdMonth",
-      "projectId_hour": "projectIdHour",
-      "projectId_day": "projectIdDay",
-      "projectId_week": "projectIdWeek",
-      "projectId_month": "projectIdMonth",
-      "integrationId_hour": "integrationIdHour",
-      "integrationId_day": "integrationIdDay",
-      "integrationId_week": "integrationIdWeek",
-      "integrationId_month": "integrationIdMonth",
-      "firstMessageTime_hour": "firstMessageTimeHour",
-      "firstMessageTime_day": "firstMessageTimeDay",
-      "firstMessageTime_week": "firstMessageTimeWeek",
-      "firstMessageTime_month": "firstMessageTimeMonth",
-      "type_hour": "typeHour",
-      "type_day": "typeDay",
-      "type_week": "typeWeek",
-      "type_month": "typeMonth",
-      "sum_id": "sumId",
-      "count_id": "countId",
-      "avg_id": "avgId",
-      "min_id": "minId",
-      "max_id": "maxId",
-      "sum_userMessageCount": "sumUserMessageCount",
-      "count_userMessageCount": "countUserMessageCount",
-      "avg_userMessageCount": "avgUserMessageCount",
-      "min_userMessageCount": "minUserMessageCount",
-      "max_userMessageCount": "maxUserMessageCount",
-      "sum_organizationId": "sumOrganizationId",
-      "count_organizationId": "countOrganizationId",
-      "avg_organizationId": "avgOrganizationId",
-      "min_organizationId": "minOrganizationId",
-      "max_organizationId": "maxOrganizationId",
-      "sum_projectId": "sumProjectId",
-      "count_projectId": "countProjectId",
-      "avg_projectId": "avgProjectId",
-      "min_projectId": "minProjectId",
-      "max_projectId": "maxProjectId",
-      "sum_integrationId": "sumIntegrationId",
-      "count_integrationId": "countIntegrationId",
-      "avg_integrationId": "avgIntegrationId",
-      "min_integrationId": "minIntegrationId",
-      "max_integrationId": "maxIntegrationId",
-      "sum_firstMessageTime": "sumFirstMessageTime",
-      "count_firstMessageTime": "countFirstMessageTime",
-      "avg_firstMessageTime": "avgFirstMessageTime",
-      "min_firstMessageTime": "minFirstMessageTime",
-      "max_firstMessageTime": "maxFirstMessageTime",
-      "sum_type": "sumType",
-      "count_type": "countType",
-      "avg_type": "avgType",
-      "min_type": "minType",
-      "max_type": "maxType",
-    });
-  });
+export const QueryConversationsType$inboundSchema: z.ZodNativeEnum<
+  typeof QueryConversationsType
+> = z.nativeEnum(QueryConversationsType);
 
 /** @internal */
-export type Result$Outbound = {
-  id?: string | undefined;
-  userMessageCount?: number | undefined;
-  organizationId?: string | undefined;
-  projectId?: string | undefined;
-  integrationId?: string | undefined;
-  firstMessageTime?: string | undefined;
-  type?: string | undefined;
+export const QueryConversationsType$outboundSchema: z.ZodNativeEnum<
+  typeof QueryConversationsType
+> = QueryConversationsType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace QueryConversationsType$ {
+  /** @deprecated use `QueryConversationsType$inboundSchema` instead. */
+  export const inboundSchema = QueryConversationsType$inboundSchema;
+  /** @deprecated use `QueryConversationsType$outboundSchema` instead. */
+  export const outboundSchema = QueryConversationsType$outboundSchema;
+}
+
+/** @internal */
+export const ConversationsResultItem$inboundSchema: z.ZodType<
+  ConversationsResultItem,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  id: z.string(),
+  organizationId: z.nullable(z.string()),
+  projectId: z.nullable(z.string()),
+  integrationId: z.nullable(z.string()),
+  firstMessageTime: z.string(),
+  userMessageCount: z.number(),
+  type: z.nullable(QueryConversationsType$inboundSchema),
+  sum: z.number().optional(),
+  count: z.number().optional(),
+  avg: z.number().optional(),
+  min: z.number().optional(),
+  max: z.number().optional(),
+  id_hour: z.string().optional(),
+  id_day: z.string().optional(),
+  id_week: z.string().optional(),
+  id_month: z.string().optional(),
+  organizationId_hour: z.string().optional(),
+  organizationId_day: z.string().optional(),
+  organizationId_week: z.string().optional(),
+  organizationId_month: z.string().optional(),
+  projectId_hour: z.string().optional(),
+  projectId_day: z.string().optional(),
+  projectId_week: z.string().optional(),
+  projectId_month: z.string().optional(),
+  integrationId_hour: z.string().optional(),
+  integrationId_day: z.string().optional(),
+  integrationId_week: z.string().optional(),
+  integrationId_month: z.string().optional(),
+  firstMessageTime_hour: z.string().optional(),
+  firstMessageTime_day: z.string().optional(),
+  firstMessageTime_week: z.string().optional(),
+  firstMessageTime_month: z.string().optional(),
+  userMessageCount_hour: z.string().optional(),
+  userMessageCount_day: z.string().optional(),
+  userMessageCount_week: z.string().optional(),
+  userMessageCount_month: z.string().optional(),
+  type_hour: z.string().optional(),
+  type_day: z.string().optional(),
+  type_week: z.string().optional(),
+  type_month: z.string().optional(),
+  sum_id: z.number().optional(),
+  sum_organizationId: z.number().optional(),
+  sum_projectId: z.number().optional(),
+  sum_integrationId: z.number().optional(),
+  sum_firstMessageTime: z.number().optional(),
+  sum_userMessageCount: z.number().optional(),
+  sum_type: z.number().optional(),
+  count_id: z.number().optional(),
+  count_organizationId: z.number().optional(),
+  count_projectId: z.number().optional(),
+  count_integrationId: z.number().optional(),
+  count_firstMessageTime: z.number().optional(),
+  count_userMessageCount: z.number().optional(),
+  count_type: z.number().optional(),
+  avg_id: z.number().optional(),
+  avg_organizationId: z.number().optional(),
+  avg_projectId: z.number().optional(),
+  avg_integrationId: z.number().optional(),
+  avg_firstMessageTime: z.number().optional(),
+  avg_userMessageCount: z.number().optional(),
+  avg_type: z.number().optional(),
+  min_id: z.number().optional(),
+  min_organizationId: z.number().optional(),
+  min_projectId: z.number().optional(),
+  min_integrationId: z.number().optional(),
+  min_firstMessageTime: z.number().optional(),
+  min_userMessageCount: z.number().optional(),
+  min_type: z.number().optional(),
+  max_id: z.number().optional(),
+  max_organizationId: z.number().optional(),
+  max_projectId: z.number().optional(),
+  max_integrationId: z.number().optional(),
+  max_firstMessageTime: z.number().optional(),
+  max_userMessageCount: z.number().optional(),
+  max_type: z.number().optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "id_hour": "idHour",
+    "id_day": "idDay",
+    "id_week": "idWeek",
+    "id_month": "idMonth",
+    "organizationId_hour": "organizationIdHour",
+    "organizationId_day": "organizationIdDay",
+    "organizationId_week": "organizationIdWeek",
+    "organizationId_month": "organizationIdMonth",
+    "projectId_hour": "projectIdHour",
+    "projectId_day": "projectIdDay",
+    "projectId_week": "projectIdWeek",
+    "projectId_month": "projectIdMonth",
+    "integrationId_hour": "integrationIdHour",
+    "integrationId_day": "integrationIdDay",
+    "integrationId_week": "integrationIdWeek",
+    "integrationId_month": "integrationIdMonth",
+    "firstMessageTime_hour": "firstMessageTimeHour",
+    "firstMessageTime_day": "firstMessageTimeDay",
+    "firstMessageTime_week": "firstMessageTimeWeek",
+    "firstMessageTime_month": "firstMessageTimeMonth",
+    "userMessageCount_hour": "userMessageCountHour",
+    "userMessageCount_day": "userMessageCountDay",
+    "userMessageCount_week": "userMessageCountWeek",
+    "userMessageCount_month": "userMessageCountMonth",
+    "type_hour": "typeHour",
+    "type_day": "typeDay",
+    "type_week": "typeWeek",
+    "type_month": "typeMonth",
+    "sum_id": "sumId",
+    "sum_organizationId": "sumOrganizationId",
+    "sum_projectId": "sumProjectId",
+    "sum_integrationId": "sumIntegrationId",
+    "sum_firstMessageTime": "sumFirstMessageTime",
+    "sum_userMessageCount": "sumUserMessageCount",
+    "sum_type": "sumType",
+    "count_id": "countId",
+    "count_organizationId": "countOrganizationId",
+    "count_projectId": "countProjectId",
+    "count_integrationId": "countIntegrationId",
+    "count_firstMessageTime": "countFirstMessageTime",
+    "count_userMessageCount": "countUserMessageCount",
+    "count_type": "countType",
+    "avg_id": "avgId",
+    "avg_organizationId": "avgOrganizationId",
+    "avg_projectId": "avgProjectId",
+    "avg_integrationId": "avgIntegrationId",
+    "avg_firstMessageTime": "avgFirstMessageTime",
+    "avg_userMessageCount": "avgUserMessageCount",
+    "avg_type": "avgType",
+    "min_id": "minId",
+    "min_organizationId": "minOrganizationId",
+    "min_projectId": "minProjectId",
+    "min_integrationId": "minIntegrationId",
+    "min_firstMessageTime": "minFirstMessageTime",
+    "min_userMessageCount": "minUserMessageCount",
+    "min_type": "minType",
+    "max_id": "maxId",
+    "max_organizationId": "maxOrganizationId",
+    "max_projectId": "maxProjectId",
+    "max_integrationId": "maxIntegrationId",
+    "max_firstMessageTime": "maxFirstMessageTime",
+    "max_userMessageCount": "maxUserMessageCount",
+    "max_type": "maxType",
+  });
+});
+
+/** @internal */
+export type ConversationsResultItem$Outbound = {
+  id: string;
+  organizationId: string | null;
+  projectId: string | null;
+  integrationId: string | null;
+  firstMessageTime: string;
+  userMessageCount: number;
+  type: string | null;
   sum?: number | undefined;
   count?: number | undefined;
   avg?: number | undefined;
@@ -3332,10 +393,6 @@ export type Result$Outbound = {
   id_day?: string | undefined;
   id_week?: string | undefined;
   id_month?: string | undefined;
-  userMessageCount_hour?: string | undefined;
-  userMessageCount_day?: string | undefined;
-  userMessageCount_week?: string | undefined;
-  userMessageCount_month?: string | undefined;
   organizationId_hour?: string | undefined;
   organizationId_day?: string | undefined;
   organizationId_week?: string | undefined;
@@ -3352,60 +409,64 @@ export type Result$Outbound = {
   firstMessageTime_day?: string | undefined;
   firstMessageTime_week?: string | undefined;
   firstMessageTime_month?: string | undefined;
+  userMessageCount_hour?: string | undefined;
+  userMessageCount_day?: string | undefined;
+  userMessageCount_week?: string | undefined;
+  userMessageCount_month?: string | undefined;
   type_hour?: string | undefined;
   type_day?: string | undefined;
   type_week?: string | undefined;
   type_month?: string | undefined;
   sum_id?: number | undefined;
-  count_id?: number | undefined;
-  avg_id?: number | undefined;
-  min_id?: number | undefined;
-  max_id?: number | undefined;
-  sum_userMessageCount?: number | undefined;
-  count_userMessageCount?: number | undefined;
-  avg_userMessageCount?: number | undefined;
-  min_userMessageCount?: number | undefined;
-  max_userMessageCount?: number | undefined;
   sum_organizationId?: number | undefined;
-  count_organizationId?: number | undefined;
-  avg_organizationId?: number | undefined;
-  min_organizationId?: number | undefined;
-  max_organizationId?: number | undefined;
   sum_projectId?: number | undefined;
-  count_projectId?: number | undefined;
-  avg_projectId?: number | undefined;
-  min_projectId?: number | undefined;
-  max_projectId?: number | undefined;
   sum_integrationId?: number | undefined;
-  count_integrationId?: number | undefined;
-  avg_integrationId?: number | undefined;
-  min_integrationId?: number | undefined;
-  max_integrationId?: number | undefined;
   sum_firstMessageTime?: number | undefined;
-  count_firstMessageTime?: number | undefined;
-  avg_firstMessageTime?: number | undefined;
-  min_firstMessageTime?: number | undefined;
-  max_firstMessageTime?: number | undefined;
+  sum_userMessageCount?: number | undefined;
   sum_type?: number | undefined;
+  count_id?: number | undefined;
+  count_organizationId?: number | undefined;
+  count_projectId?: number | undefined;
+  count_integrationId?: number | undefined;
+  count_firstMessageTime?: number | undefined;
+  count_userMessageCount?: number | undefined;
   count_type?: number | undefined;
+  avg_id?: number | undefined;
+  avg_organizationId?: number | undefined;
+  avg_projectId?: number | undefined;
+  avg_integrationId?: number | undefined;
+  avg_firstMessageTime?: number | undefined;
+  avg_userMessageCount?: number | undefined;
   avg_type?: number | undefined;
+  min_id?: number | undefined;
+  min_organizationId?: number | undefined;
+  min_projectId?: number | undefined;
+  min_integrationId?: number | undefined;
+  min_firstMessageTime?: number | undefined;
+  min_userMessageCount?: number | undefined;
   min_type?: number | undefined;
+  max_id?: number | undefined;
+  max_organizationId?: number | undefined;
+  max_projectId?: number | undefined;
+  max_integrationId?: number | undefined;
+  max_firstMessageTime?: number | undefined;
+  max_userMessageCount?: number | undefined;
   max_type?: number | undefined;
 };
 
 /** @internal */
-export const Result$outboundSchema: z.ZodType<
-  Result$Outbound,
+export const ConversationsResultItem$outboundSchema: z.ZodType<
+  ConversationsResultItem$Outbound,
   z.ZodTypeDef,
-  Result
+  ConversationsResultItem
 > = z.object({
-  id: z.string().optional(),
-  userMessageCount: z.number().optional(),
-  organizationId: z.string().optional(),
-  projectId: z.string().optional(),
-  integrationId: z.string().optional(),
-  firstMessageTime: z.date().transform(v => v.toISOString()).optional(),
-  type: z.string().optional(),
+  id: z.string(),
+  organizationId: z.nullable(z.string()),
+  projectId: z.nullable(z.string()),
+  integrationId: z.nullable(z.string()),
+  firstMessageTime: z.string(),
+  userMessageCount: z.number(),
+  type: z.nullable(QueryConversationsType$outboundSchema),
   sum: z.number().optional(),
   count: z.number().optional(),
   avg: z.number().optional(),
@@ -3415,10 +476,6 @@ export const Result$outboundSchema: z.ZodType<
   idDay: z.string().optional(),
   idWeek: z.string().optional(),
   idMonth: z.string().optional(),
-  userMessageCountHour: z.string().optional(),
-  userMessageCountDay: z.string().optional(),
-  userMessageCountWeek: z.string().optional(),
-  userMessageCountMonth: z.string().optional(),
   organizationIdHour: z.string().optional(),
   organizationIdDay: z.string().optional(),
   organizationIdWeek: z.string().optional(),
@@ -3435,44 +492,48 @@ export const Result$outboundSchema: z.ZodType<
   firstMessageTimeDay: z.string().optional(),
   firstMessageTimeWeek: z.string().optional(),
   firstMessageTimeMonth: z.string().optional(),
+  userMessageCountHour: z.string().optional(),
+  userMessageCountDay: z.string().optional(),
+  userMessageCountWeek: z.string().optional(),
+  userMessageCountMonth: z.string().optional(),
   typeHour: z.string().optional(),
   typeDay: z.string().optional(),
   typeWeek: z.string().optional(),
   typeMonth: z.string().optional(),
   sumId: z.number().optional(),
-  countId: z.number().optional(),
-  avgId: z.number().optional(),
-  minId: z.number().optional(),
-  maxId: z.number().optional(),
-  sumUserMessageCount: z.number().optional(),
-  countUserMessageCount: z.number().optional(),
-  avgUserMessageCount: z.number().optional(),
-  minUserMessageCount: z.number().optional(),
-  maxUserMessageCount: z.number().optional(),
   sumOrganizationId: z.number().optional(),
-  countOrganizationId: z.number().optional(),
-  avgOrganizationId: z.number().optional(),
-  minOrganizationId: z.number().optional(),
-  maxOrganizationId: z.number().optional(),
   sumProjectId: z.number().optional(),
-  countProjectId: z.number().optional(),
-  avgProjectId: z.number().optional(),
-  minProjectId: z.number().optional(),
-  maxProjectId: z.number().optional(),
   sumIntegrationId: z.number().optional(),
-  countIntegrationId: z.number().optional(),
-  avgIntegrationId: z.number().optional(),
-  minIntegrationId: z.number().optional(),
-  maxIntegrationId: z.number().optional(),
   sumFirstMessageTime: z.number().optional(),
-  countFirstMessageTime: z.number().optional(),
-  avgFirstMessageTime: z.number().optional(),
-  minFirstMessageTime: z.number().optional(),
-  maxFirstMessageTime: z.number().optional(),
+  sumUserMessageCount: z.number().optional(),
   sumType: z.number().optional(),
+  countId: z.number().optional(),
+  countOrganizationId: z.number().optional(),
+  countProjectId: z.number().optional(),
+  countIntegrationId: z.number().optional(),
+  countFirstMessageTime: z.number().optional(),
+  countUserMessageCount: z.number().optional(),
   countType: z.number().optional(),
+  avgId: z.number().optional(),
+  avgOrganizationId: z.number().optional(),
+  avgProjectId: z.number().optional(),
+  avgIntegrationId: z.number().optional(),
+  avgFirstMessageTime: z.number().optional(),
+  avgUserMessageCount: z.number().optional(),
   avgType: z.number().optional(),
+  minId: z.number().optional(),
+  minOrganizationId: z.number().optional(),
+  minProjectId: z.number().optional(),
+  minIntegrationId: z.number().optional(),
+  minFirstMessageTime: z.number().optional(),
+  minUserMessageCount: z.number().optional(),
   minType: z.number().optional(),
+  maxId: z.number().optional(),
+  maxOrganizationId: z.number().optional(),
+  maxProjectId: z.number().optional(),
+  maxIntegrationId: z.number().optional(),
+  maxFirstMessageTime: z.number().optional(),
+  maxUserMessageCount: z.number().optional(),
   maxType: z.number().optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -3480,10 +541,6 @@ export const Result$outboundSchema: z.ZodType<
     idDay: "id_day",
     idWeek: "id_week",
     idMonth: "id_month",
-    userMessageCountHour: "userMessageCount_hour",
-    userMessageCountDay: "userMessageCount_day",
-    userMessageCountWeek: "userMessageCount_week",
-    userMessageCountMonth: "userMessageCount_month",
     organizationIdHour: "organizationId_hour",
     organizationIdDay: "organizationId_day",
     organizationIdWeek: "organizationId_week",
@@ -3500,44 +557,48 @@ export const Result$outboundSchema: z.ZodType<
     firstMessageTimeDay: "firstMessageTime_day",
     firstMessageTimeWeek: "firstMessageTime_week",
     firstMessageTimeMonth: "firstMessageTime_month",
+    userMessageCountHour: "userMessageCount_hour",
+    userMessageCountDay: "userMessageCount_day",
+    userMessageCountWeek: "userMessageCount_week",
+    userMessageCountMonth: "userMessageCount_month",
     typeHour: "type_hour",
     typeDay: "type_day",
     typeWeek: "type_week",
     typeMonth: "type_month",
     sumId: "sum_id",
-    countId: "count_id",
-    avgId: "avg_id",
-    minId: "min_id",
-    maxId: "max_id",
-    sumUserMessageCount: "sum_userMessageCount",
-    countUserMessageCount: "count_userMessageCount",
-    avgUserMessageCount: "avg_userMessageCount",
-    minUserMessageCount: "min_userMessageCount",
-    maxUserMessageCount: "max_userMessageCount",
     sumOrganizationId: "sum_organizationId",
-    countOrganizationId: "count_organizationId",
-    avgOrganizationId: "avg_organizationId",
-    minOrganizationId: "min_organizationId",
-    maxOrganizationId: "max_organizationId",
     sumProjectId: "sum_projectId",
-    countProjectId: "count_projectId",
-    avgProjectId: "avg_projectId",
-    minProjectId: "min_projectId",
-    maxProjectId: "max_projectId",
     sumIntegrationId: "sum_integrationId",
-    countIntegrationId: "count_integrationId",
-    avgIntegrationId: "avg_integrationId",
-    minIntegrationId: "min_integrationId",
-    maxIntegrationId: "max_integrationId",
     sumFirstMessageTime: "sum_firstMessageTime",
-    countFirstMessageTime: "count_firstMessageTime",
-    avgFirstMessageTime: "avg_firstMessageTime",
-    minFirstMessageTime: "min_firstMessageTime",
-    maxFirstMessageTime: "max_firstMessageTime",
+    sumUserMessageCount: "sum_userMessageCount",
     sumType: "sum_type",
+    countId: "count_id",
+    countOrganizationId: "count_organizationId",
+    countProjectId: "count_projectId",
+    countIntegrationId: "count_integrationId",
+    countFirstMessageTime: "count_firstMessageTime",
+    countUserMessageCount: "count_userMessageCount",
     countType: "count_type",
+    avgId: "avg_id",
+    avgOrganizationId: "avg_organizationId",
+    avgProjectId: "avg_projectId",
+    avgIntegrationId: "avg_integrationId",
+    avgFirstMessageTime: "avg_firstMessageTime",
+    avgUserMessageCount: "avg_userMessageCount",
     avgType: "avg_type",
+    minId: "min_id",
+    minOrganizationId: "min_organizationId",
+    minProjectId: "min_projectId",
+    minIntegrationId: "min_integrationId",
+    minFirstMessageTime: "min_firstMessageTime",
+    minUserMessageCount: "min_userMessageCount",
     minType: "min_type",
+    maxId: "max_id",
+    maxOrganizationId: "max_organizationId",
+    maxProjectId: "max_projectId",
+    maxIntegrationId: "max_integrationId",
+    maxFirstMessageTime: "max_firstMessageTime",
+    maxUserMessageCount: "max_userMessageCount",
     maxType: "max_type",
   });
 });
@@ -3546,33 +607,37 @@ export const Result$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace Result$ {
-  /** @deprecated use `Result$inboundSchema` instead. */
-  export const inboundSchema = Result$inboundSchema;
-  /** @deprecated use `Result$outboundSchema` instead. */
-  export const outboundSchema = Result$outboundSchema;
-  /** @deprecated use `Result$Outbound` instead. */
-  export type Outbound = Result$Outbound;
+export namespace ConversationsResultItem$ {
+  /** @deprecated use `ConversationsResultItem$inboundSchema` instead. */
+  export const inboundSchema = ConversationsResultItem$inboundSchema;
+  /** @deprecated use `ConversationsResultItem$outboundSchema` instead. */
+  export const outboundSchema = ConversationsResultItem$outboundSchema;
+  /** @deprecated use `ConversationsResultItem$Outbound` instead. */
+  export type Outbound = ConversationsResultItem$Outbound;
 }
 
-export function resultToJSON(result: Result): string {
-  return JSON.stringify(Result$outboundSchema.parse(result));
+export function conversationsResultItemToJSON(
+  conversationsResultItem: ConversationsResultItem,
+): string {
+  return JSON.stringify(
+    ConversationsResultItem$outboundSchema.parse(conversationsResultItem),
+  );
 }
 
-export function resultFromJSON(
+export function conversationsResultItemFromJSON(
   jsonString: string,
-): SafeParseResult<Result, SDKValidationError> {
+): SafeParseResult<ConversationsResultItem, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => Result$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Result' from JSON`,
+    (x) => ConversationsResultItem$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ConversationsResultItem' from JSON`,
   );
 }
 
 /** @internal */
 export const Data$inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z
   .object({
-    result: z.array(z.lazy(() => Result$inboundSchema)),
+    result: z.array(z.lazy(() => ConversationsResultItem$inboundSchema)),
     total: z.number(),
     pageSize: z.number(),
     count: z.number(),
@@ -3580,7 +645,7 @@ export const Data$inboundSchema: z.ZodType<Data, z.ZodTypeDef, unknown> = z
 
 /** @internal */
 export type Data$Outbound = {
-  result: Array<Result$Outbound>;
+  result: Array<ConversationsResultItem$Outbound>;
   total: number;
   pageSize: number;
   count: number;
@@ -3589,7 +654,7 @@ export type Data$Outbound = {
 /** @internal */
 export const Data$outboundSchema: z.ZodType<Data$Outbound, z.ZodTypeDef, Data> =
   z.object({
-    result: z.array(z.lazy(() => Result$outboundSchema)),
+    result: z.array(z.lazy(() => ConversationsResultItem$outboundSchema)),
     total: z.number(),
     pageSize: z.number(),
     count: z.number(),

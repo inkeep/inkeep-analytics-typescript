@@ -183,167 +183,165 @@ export type SemanticThreadResultItem = {
   isInitialQuestionAnswerWeek?: string | undefined;
   isInitialQuestionAnswerMonth?: string | undefined;
   sumId?: number | undefined;
-  countId?: number | undefined;
-  avgId?: number | undefined;
-  minId?: number | undefined;
-  maxId?: number | undefined;
   sumMessageIds?: number | undefined;
-  countMessageIds?: number | undefined;
-  avgMessageIds?: number | undefined;
-  minMessageIds?: number | undefined;
-  maxMessageIds?: number | undefined;
   sumMessagesCount?: number | undefined;
-  countMessagesCount?: number | undefined;
-  avgMessagesCount?: number | undefined;
-  minMessagesCount?: number | undefined;
-  maxMessagesCount?: number | undefined;
   sumOrganizationId?: number | undefined;
-  countOrganizationId?: number | undefined;
-  avgOrganizationId?: number | undefined;
-  minOrganizationId?: number | undefined;
-  maxOrganizationId?: number | undefined;
   sumQuestion?: number | undefined;
-  countQuestion?: number | undefined;
-  avgQuestion?: number | undefined;
-  minQuestion?: number | undefined;
-  maxQuestion?: number | undefined;
   sumQuestionLength?: number | undefined;
-  countQuestionLength?: number | undefined;
-  avgQuestionLength?: number | undefined;
-  minQuestionLength?: number | undefined;
-  maxQuestionLength?: number | undefined;
   sumAnswer?: number | undefined;
-  countAnswer?: number | undefined;
-  avgAnswer?: number | undefined;
-  minAnswer?: number | undefined;
-  maxAnswer?: number | undefined;
   sumIsOnTopic?: number | undefined;
-  countIsOnTopic?: number | undefined;
-  avgIsOnTopic?: number | undefined;
-  minIsOnTopic?: number | undefined;
-  maxIsOnTopic?: number | undefined;
   sumIsClear?: number | undefined;
-  countIsClear?: number | undefined;
-  avgIsClear?: number | undefined;
-  minIsClear?: number | undefined;
-  maxIsClear?: number | undefined;
   sumIsDocumented?: number | undefined;
-  countIsDocumented?: number | undefined;
-  avgIsDocumented?: number | undefined;
-  minIsDocumented?: number | undefined;
-  maxIsDocumented?: number | undefined;
   sumIsFeatureSupported?: number | undefined;
-  countIsFeatureSupported?: number | undefined;
-  avgIsFeatureSupported?: number | undefined;
-  minIsFeatureSupported?: number | undefined;
-  maxIsFeatureSupported?: number | undefined;
   sumIsAnswerConfident?: number | undefined;
-  countIsAnswerConfident?: number | undefined;
-  avgIsAnswerConfident?: number | undefined;
-  minIsAnswerConfident?: number | undefined;
-  maxIsAnswerConfident?: number | undefined;
   sumGapSummary?: number | undefined;
-  countGapSummary?: number | undefined;
-  avgGapSummary?: number | undefined;
-  minGapSummary?: number | undefined;
-  maxGapSummary?: number | undefined;
   sumSubject?: number | undefined;
-  countSubject?: number | undefined;
-  avgSubject?: number | undefined;
-  minSubject?: number | undefined;
-  maxSubject?: number | undefined;
   sumCategory?: number | undefined;
-  countCategory?: number | undefined;
-  avgCategory?: number | undefined;
-  minCategory?: number | undefined;
-  maxCategory?: number | undefined;
   sumLanguages?: number | undefined;
-  countLanguages?: number | undefined;
-  avgLanguages?: number | undefined;
-  minLanguages?: number | undefined;
-  maxLanguages?: number | undefined;
   sumFirstPartyEntities?: number | undefined;
-  countFirstPartyEntities?: number | undefined;
-  avgFirstPartyEntities?: number | undefined;
-  minFirstPartyEntities?: number | undefined;
-  maxFirstPartyEntities?: number | undefined;
   sumThirdPartyEntities?: number | undefined;
-  countThirdPartyEntities?: number | undefined;
-  avgThirdPartyEntities?: number | undefined;
-  minThirdPartyEntities?: number | undefined;
-  maxThirdPartyEntities?: number | undefined;
   sumEmotion?: number | undefined;
-  countEmotion?: number | undefined;
-  avgEmotion?: number | undefined;
-  minEmotion?: number | undefined;
-  maxEmotion?: number | undefined;
   sumSentiment?: number | undefined;
-  countSentiment?: number | undefined;
-  avgSentiment?: number | undefined;
-  minSentiment?: number | undefined;
-  maxSentiment?: number | undefined;
   sumQuestionType?: number | undefined;
-  countQuestionType?: number | undefined;
-  avgQuestionType?: number | undefined;
-  minQuestionType?: number | undefined;
-  maxQuestionType?: number | undefined;
   sumProjectId?: number | undefined;
-  countProjectId?: number | undefined;
-  avgProjectId?: number | undefined;
-  minProjectId?: number | undefined;
-  maxProjectId?: number | undefined;
   sumIntegrationId?: number | undefined;
-  countIntegrationId?: number | undefined;
-  avgIntegrationId?: number | undefined;
-  minIntegrationId?: number | undefined;
-  maxIntegrationId?: number | undefined;
   sumFirstMessageTime?: number | undefined;
-  countFirstMessageTime?: number | undefined;
-  avgFirstMessageTime?: number | undefined;
-  minFirstMessageTime?: number | undefined;
-  maxFirstMessageTime?: number | undefined;
   sumLastMessageTime?: number | undefined;
-  countLastMessageTime?: number | undefined;
-  avgLastMessageTime?: number | undefined;
-  minLastMessageTime?: number | undefined;
-  maxLastMessageTime?: number | undefined;
   sumLastUpdated?: number | undefined;
-  countLastUpdated?: number | undefined;
-  avgLastUpdated?: number | undefined;
-  minLastUpdated?: number | undefined;
-  maxLastUpdated?: number | undefined;
   sumHasPositiveFeedback?: number | undefined;
-  countHasPositiveFeedback?: number | undefined;
-  avgHasPositiveFeedback?: number | undefined;
-  minHasPositiveFeedback?: number | undefined;
-  maxHasPositiveFeedback?: number | undefined;
   sumHasNegativeFeedback?: number | undefined;
-  countHasNegativeFeedback?: number | undefined;
-  avgHasNegativeFeedback?: number | undefined;
-  minHasNegativeFeedback?: number | undefined;
-  maxHasNegativeFeedback?: number | undefined;
   sumConversationIds?: number | undefined;
-  countConversationIds?: number | undefined;
-  avgConversationIds?: number | undefined;
-  minConversationIds?: number | undefined;
-  maxConversationIds?: number | undefined;
   sumAreAIAnnotationsVerified?: number | undefined;
-  countAreAIAnnotationsVerified?: number | undefined;
-  avgAreAIAnnotationsVerified?: number | undefined;
-  minAreAIAnnotationsVerified?: number | undefined;
-  maxAreAIAnnotationsVerified?: number | undefined;
   sumIsInitialQuestionAnswer?: number | undefined;
+  countId?: number | undefined;
+  countMessageIds?: number | undefined;
+  countMessagesCount?: number | undefined;
+  countOrganizationId?: number | undefined;
+  countQuestion?: number | undefined;
+  countQuestionLength?: number | undefined;
+  countAnswer?: number | undefined;
+  countIsOnTopic?: number | undefined;
+  countIsClear?: number | undefined;
+  countIsDocumented?: number | undefined;
+  countIsFeatureSupported?: number | undefined;
+  countIsAnswerConfident?: number | undefined;
+  countGapSummary?: number | undefined;
+  countSubject?: number | undefined;
+  countCategory?: number | undefined;
+  countLanguages?: number | undefined;
+  countFirstPartyEntities?: number | undefined;
+  countThirdPartyEntities?: number | undefined;
+  countEmotion?: number | undefined;
+  countSentiment?: number | undefined;
+  countQuestionType?: number | undefined;
+  countProjectId?: number | undefined;
+  countIntegrationId?: number | undefined;
+  countFirstMessageTime?: number | undefined;
+  countLastMessageTime?: number | undefined;
+  countLastUpdated?: number | undefined;
+  countHasPositiveFeedback?: number | undefined;
+  countHasNegativeFeedback?: number | undefined;
+  countConversationIds?: number | undefined;
+  countAreAIAnnotationsVerified?: number | undefined;
   countIsInitialQuestionAnswer?: number | undefined;
+  avgId?: number | undefined;
+  avgMessageIds?: number | undefined;
+  avgMessagesCount?: number | undefined;
+  avgOrganizationId?: number | undefined;
+  avgQuestion?: number | undefined;
+  avgQuestionLength?: number | undefined;
+  avgAnswer?: number | undefined;
+  avgIsOnTopic?: number | undefined;
+  avgIsClear?: number | undefined;
+  avgIsDocumented?: number | undefined;
+  avgIsFeatureSupported?: number | undefined;
+  avgIsAnswerConfident?: number | undefined;
+  avgGapSummary?: number | undefined;
+  avgSubject?: number | undefined;
+  avgCategory?: number | undefined;
+  avgLanguages?: number | undefined;
+  avgFirstPartyEntities?: number | undefined;
+  avgThirdPartyEntities?: number | undefined;
+  avgEmotion?: number | undefined;
+  avgSentiment?: number | undefined;
+  avgQuestionType?: number | undefined;
+  avgProjectId?: number | undefined;
+  avgIntegrationId?: number | undefined;
+  avgFirstMessageTime?: number | undefined;
+  avgLastMessageTime?: number | undefined;
+  avgLastUpdated?: number | undefined;
+  avgHasPositiveFeedback?: number | undefined;
+  avgHasNegativeFeedback?: number | undefined;
+  avgConversationIds?: number | undefined;
+  avgAreAIAnnotationsVerified?: number | undefined;
   avgIsInitialQuestionAnswer?: number | undefined;
+  minId?: number | undefined;
+  minMessageIds?: number | undefined;
+  minMessagesCount?: number | undefined;
+  minOrganizationId?: number | undefined;
+  minQuestion?: number | undefined;
+  minQuestionLength?: number | undefined;
+  minAnswer?: number | undefined;
+  minIsOnTopic?: number | undefined;
+  minIsClear?: number | undefined;
+  minIsDocumented?: number | undefined;
+  minIsFeatureSupported?: number | undefined;
+  minIsAnswerConfident?: number | undefined;
+  minGapSummary?: number | undefined;
+  minSubject?: number | undefined;
+  minCategory?: number | undefined;
+  minLanguages?: number | undefined;
+  minFirstPartyEntities?: number | undefined;
+  minThirdPartyEntities?: number | undefined;
+  minEmotion?: number | undefined;
+  minSentiment?: number | undefined;
+  minQuestionType?: number | undefined;
+  minProjectId?: number | undefined;
+  minIntegrationId?: number | undefined;
+  minFirstMessageTime?: number | undefined;
+  minLastMessageTime?: number | undefined;
+  minLastUpdated?: number | undefined;
+  minHasPositiveFeedback?: number | undefined;
+  minHasNegativeFeedback?: number | undefined;
+  minConversationIds?: number | undefined;
+  minAreAIAnnotationsVerified?: number | undefined;
   minIsInitialQuestionAnswer?: number | undefined;
+  maxId?: number | undefined;
+  maxMessageIds?: number | undefined;
+  maxMessagesCount?: number | undefined;
+  maxOrganizationId?: number | undefined;
+  maxQuestion?: number | undefined;
+  maxQuestionLength?: number | undefined;
+  maxAnswer?: number | undefined;
+  maxIsOnTopic?: number | undefined;
+  maxIsClear?: number | undefined;
+  maxIsDocumented?: number | undefined;
+  maxIsFeatureSupported?: number | undefined;
+  maxIsAnswerConfident?: number | undefined;
+  maxGapSummary?: number | undefined;
+  maxSubject?: number | undefined;
+  maxCategory?: number | undefined;
+  maxLanguages?: number | undefined;
+  maxFirstPartyEntities?: number | undefined;
+  maxThirdPartyEntities?: number | undefined;
+  maxEmotion?: number | undefined;
+  maxSentiment?: number | undefined;
+  maxQuestionType?: number | undefined;
+  maxProjectId?: number | undefined;
+  maxIntegrationId?: number | undefined;
+  maxFirstMessageTime?: number | undefined;
+  maxLastMessageTime?: number | undefined;
+  maxLastUpdated?: number | undefined;
+  maxHasPositiveFeedback?: number | undefined;
+  maxHasNegativeFeedback?: number | undefined;
+  maxConversationIds?: number | undefined;
+  maxAreAIAnnotationsVerified?: number | undefined;
   maxIsInitialQuestionAnswer?: number | undefined;
 };
 
 export type QuerySemanticThreadsData = {
+  totalCount: number;
   result: Array<SemanticThreadResultItem>;
-  total: number;
-  pageSize: number;
-  count: number;
 };
 
 /**
@@ -616,159 +614,159 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
   isInitialQuestionAnswer_week: z.string().optional(),
   isInitialQuestionAnswer_month: z.string().optional(),
   sum_id: z.number().optional(),
-  count_id: z.number().optional(),
-  avg_id: z.number().optional(),
-  min_id: z.number().optional(),
-  max_id: z.number().optional(),
   sum_messageIds: z.number().optional(),
-  count_messageIds: z.number().optional(),
-  avg_messageIds: z.number().optional(),
-  min_messageIds: z.number().optional(),
-  max_messageIds: z.number().optional(),
   sum_messagesCount: z.number().optional(),
-  count_messagesCount: z.number().optional(),
-  avg_messagesCount: z.number().optional(),
-  min_messagesCount: z.number().optional(),
-  max_messagesCount: z.number().optional(),
   sum_organizationId: z.number().optional(),
-  count_organizationId: z.number().optional(),
-  avg_organizationId: z.number().optional(),
-  min_organizationId: z.number().optional(),
-  max_organizationId: z.number().optional(),
   sum_question: z.number().optional(),
-  count_question: z.number().optional(),
-  avg_question: z.number().optional(),
-  min_question: z.number().optional(),
-  max_question: z.number().optional(),
   sum_questionLength: z.number().optional(),
-  count_questionLength: z.number().optional(),
-  avg_questionLength: z.number().optional(),
-  min_questionLength: z.number().optional(),
-  max_questionLength: z.number().optional(),
   sum_answer: z.number().optional(),
-  count_answer: z.number().optional(),
-  avg_answer: z.number().optional(),
-  min_answer: z.number().optional(),
-  max_answer: z.number().optional(),
   sum_isOnTopic: z.number().optional(),
-  count_isOnTopic: z.number().optional(),
-  avg_isOnTopic: z.number().optional(),
-  min_isOnTopic: z.number().optional(),
-  max_isOnTopic: z.number().optional(),
   sum_isClear: z.number().optional(),
-  count_isClear: z.number().optional(),
-  avg_isClear: z.number().optional(),
-  min_isClear: z.number().optional(),
-  max_isClear: z.number().optional(),
   sum_isDocumented: z.number().optional(),
-  count_isDocumented: z.number().optional(),
-  avg_isDocumented: z.number().optional(),
-  min_isDocumented: z.number().optional(),
-  max_isDocumented: z.number().optional(),
   sum_isFeatureSupported: z.number().optional(),
-  count_isFeatureSupported: z.number().optional(),
-  avg_isFeatureSupported: z.number().optional(),
-  min_isFeatureSupported: z.number().optional(),
-  max_isFeatureSupported: z.number().optional(),
   sum_isAnswerConfident: z.number().optional(),
-  count_isAnswerConfident: z.number().optional(),
-  avg_isAnswerConfident: z.number().optional(),
-  min_isAnswerConfident: z.number().optional(),
-  max_isAnswerConfident: z.number().optional(),
   sum_gapSummary: z.number().optional(),
-  count_gapSummary: z.number().optional(),
-  avg_gapSummary: z.number().optional(),
-  min_gapSummary: z.number().optional(),
-  max_gapSummary: z.number().optional(),
   sum_subject: z.number().optional(),
-  count_subject: z.number().optional(),
-  avg_subject: z.number().optional(),
-  min_subject: z.number().optional(),
-  max_subject: z.number().optional(),
   sum_category: z.number().optional(),
-  count_category: z.number().optional(),
-  avg_category: z.number().optional(),
-  min_category: z.number().optional(),
-  max_category: z.number().optional(),
   sum_languages: z.number().optional(),
-  count_languages: z.number().optional(),
-  avg_languages: z.number().optional(),
-  min_languages: z.number().optional(),
-  max_languages: z.number().optional(),
   sum_firstPartyEntities: z.number().optional(),
-  count_firstPartyEntities: z.number().optional(),
-  avg_firstPartyEntities: z.number().optional(),
-  min_firstPartyEntities: z.number().optional(),
-  max_firstPartyEntities: z.number().optional(),
   sum_thirdPartyEntities: z.number().optional(),
-  count_thirdPartyEntities: z.number().optional(),
-  avg_thirdPartyEntities: z.number().optional(),
-  min_thirdPartyEntities: z.number().optional(),
-  max_thirdPartyEntities: z.number().optional(),
   sum_emotion: z.number().optional(),
-  count_emotion: z.number().optional(),
-  avg_emotion: z.number().optional(),
-  min_emotion: z.number().optional(),
-  max_emotion: z.number().optional(),
   sum_sentiment: z.number().optional(),
-  count_sentiment: z.number().optional(),
-  avg_sentiment: z.number().optional(),
-  min_sentiment: z.number().optional(),
-  max_sentiment: z.number().optional(),
   sum_questionType: z.number().optional(),
-  count_questionType: z.number().optional(),
-  avg_questionType: z.number().optional(),
-  min_questionType: z.number().optional(),
-  max_questionType: z.number().optional(),
   sum_projectId: z.number().optional(),
-  count_projectId: z.number().optional(),
-  avg_projectId: z.number().optional(),
-  min_projectId: z.number().optional(),
-  max_projectId: z.number().optional(),
   sum_integrationId: z.number().optional(),
-  count_integrationId: z.number().optional(),
-  avg_integrationId: z.number().optional(),
-  min_integrationId: z.number().optional(),
-  max_integrationId: z.number().optional(),
   sum_firstMessageTime: z.number().optional(),
-  count_firstMessageTime: z.number().optional(),
-  avg_firstMessageTime: z.number().optional(),
-  min_firstMessageTime: z.number().optional(),
-  max_firstMessageTime: z.number().optional(),
   sum_lastMessageTime: z.number().optional(),
-  count_lastMessageTime: z.number().optional(),
-  avg_lastMessageTime: z.number().optional(),
-  min_lastMessageTime: z.number().optional(),
-  max_lastMessageTime: z.number().optional(),
   sum_lastUpdated: z.number().optional(),
-  count_lastUpdated: z.number().optional(),
-  avg_lastUpdated: z.number().optional(),
-  min_lastUpdated: z.number().optional(),
-  max_lastUpdated: z.number().optional(),
   sum_hasPositiveFeedback: z.number().optional(),
-  count_hasPositiveFeedback: z.number().optional(),
-  avg_hasPositiveFeedback: z.number().optional(),
-  min_hasPositiveFeedback: z.number().optional(),
-  max_hasPositiveFeedback: z.number().optional(),
   sum_hasNegativeFeedback: z.number().optional(),
-  count_hasNegativeFeedback: z.number().optional(),
-  avg_hasNegativeFeedback: z.number().optional(),
-  min_hasNegativeFeedback: z.number().optional(),
-  max_hasNegativeFeedback: z.number().optional(),
   sum_conversationIds: z.number().optional(),
-  count_conversationIds: z.number().optional(),
-  avg_conversationIds: z.number().optional(),
-  min_conversationIds: z.number().optional(),
-  max_conversationIds: z.number().optional(),
   sum_areAIAnnotationsVerified: z.number().optional(),
-  count_areAIAnnotationsVerified: z.number().optional(),
-  avg_areAIAnnotationsVerified: z.number().optional(),
-  min_areAIAnnotationsVerified: z.number().optional(),
-  max_areAIAnnotationsVerified: z.number().optional(),
   sum_isInitialQuestionAnswer: z.number().optional(),
+  count_id: z.number().optional(),
+  count_messageIds: z.number().optional(),
+  count_messagesCount: z.number().optional(),
+  count_organizationId: z.number().optional(),
+  count_question: z.number().optional(),
+  count_questionLength: z.number().optional(),
+  count_answer: z.number().optional(),
+  count_isOnTopic: z.number().optional(),
+  count_isClear: z.number().optional(),
+  count_isDocumented: z.number().optional(),
+  count_isFeatureSupported: z.number().optional(),
+  count_isAnswerConfident: z.number().optional(),
+  count_gapSummary: z.number().optional(),
+  count_subject: z.number().optional(),
+  count_category: z.number().optional(),
+  count_languages: z.number().optional(),
+  count_firstPartyEntities: z.number().optional(),
+  count_thirdPartyEntities: z.number().optional(),
+  count_emotion: z.number().optional(),
+  count_sentiment: z.number().optional(),
+  count_questionType: z.number().optional(),
+  count_projectId: z.number().optional(),
+  count_integrationId: z.number().optional(),
+  count_firstMessageTime: z.number().optional(),
+  count_lastMessageTime: z.number().optional(),
+  count_lastUpdated: z.number().optional(),
+  count_hasPositiveFeedback: z.number().optional(),
+  count_hasNegativeFeedback: z.number().optional(),
+  count_conversationIds: z.number().optional(),
+  count_areAIAnnotationsVerified: z.number().optional(),
   count_isInitialQuestionAnswer: z.number().optional(),
+  avg_id: z.number().optional(),
+  avg_messageIds: z.number().optional(),
+  avg_messagesCount: z.number().optional(),
+  avg_organizationId: z.number().optional(),
+  avg_question: z.number().optional(),
+  avg_questionLength: z.number().optional(),
+  avg_answer: z.number().optional(),
+  avg_isOnTopic: z.number().optional(),
+  avg_isClear: z.number().optional(),
+  avg_isDocumented: z.number().optional(),
+  avg_isFeatureSupported: z.number().optional(),
+  avg_isAnswerConfident: z.number().optional(),
+  avg_gapSummary: z.number().optional(),
+  avg_subject: z.number().optional(),
+  avg_category: z.number().optional(),
+  avg_languages: z.number().optional(),
+  avg_firstPartyEntities: z.number().optional(),
+  avg_thirdPartyEntities: z.number().optional(),
+  avg_emotion: z.number().optional(),
+  avg_sentiment: z.number().optional(),
+  avg_questionType: z.number().optional(),
+  avg_projectId: z.number().optional(),
+  avg_integrationId: z.number().optional(),
+  avg_firstMessageTime: z.number().optional(),
+  avg_lastMessageTime: z.number().optional(),
+  avg_lastUpdated: z.number().optional(),
+  avg_hasPositiveFeedback: z.number().optional(),
+  avg_hasNegativeFeedback: z.number().optional(),
+  avg_conversationIds: z.number().optional(),
+  avg_areAIAnnotationsVerified: z.number().optional(),
   avg_isInitialQuestionAnswer: z.number().optional(),
+  min_id: z.number().optional(),
+  min_messageIds: z.number().optional(),
+  min_messagesCount: z.number().optional(),
+  min_organizationId: z.number().optional(),
+  min_question: z.number().optional(),
+  min_questionLength: z.number().optional(),
+  min_answer: z.number().optional(),
+  min_isOnTopic: z.number().optional(),
+  min_isClear: z.number().optional(),
+  min_isDocumented: z.number().optional(),
+  min_isFeatureSupported: z.number().optional(),
+  min_isAnswerConfident: z.number().optional(),
+  min_gapSummary: z.number().optional(),
+  min_subject: z.number().optional(),
+  min_category: z.number().optional(),
+  min_languages: z.number().optional(),
+  min_firstPartyEntities: z.number().optional(),
+  min_thirdPartyEntities: z.number().optional(),
+  min_emotion: z.number().optional(),
+  min_sentiment: z.number().optional(),
+  min_questionType: z.number().optional(),
+  min_projectId: z.number().optional(),
+  min_integrationId: z.number().optional(),
+  min_firstMessageTime: z.number().optional(),
+  min_lastMessageTime: z.number().optional(),
+  min_lastUpdated: z.number().optional(),
+  min_hasPositiveFeedback: z.number().optional(),
+  min_hasNegativeFeedback: z.number().optional(),
+  min_conversationIds: z.number().optional(),
+  min_areAIAnnotationsVerified: z.number().optional(),
   min_isInitialQuestionAnswer: z.number().optional(),
+  max_id: z.number().optional(),
+  max_messageIds: z.number().optional(),
+  max_messagesCount: z.number().optional(),
+  max_organizationId: z.number().optional(),
+  max_question: z.number().optional(),
+  max_questionLength: z.number().optional(),
+  max_answer: z.number().optional(),
+  max_isOnTopic: z.number().optional(),
+  max_isClear: z.number().optional(),
+  max_isDocumented: z.number().optional(),
+  max_isFeatureSupported: z.number().optional(),
+  max_isAnswerConfident: z.number().optional(),
+  max_gapSummary: z.number().optional(),
+  max_subject: z.number().optional(),
+  max_category: z.number().optional(),
+  max_languages: z.number().optional(),
+  max_firstPartyEntities: z.number().optional(),
+  max_thirdPartyEntities: z.number().optional(),
+  max_emotion: z.number().optional(),
+  max_sentiment: z.number().optional(),
+  max_questionType: z.number().optional(),
+  max_projectId: z.number().optional(),
+  max_integrationId: z.number().optional(),
+  max_firstMessageTime: z.number().optional(),
+  max_lastMessageTime: z.number().optional(),
+  max_lastUpdated: z.number().optional(),
+  max_hasPositiveFeedback: z.number().optional(),
+  max_hasNegativeFeedback: z.number().optional(),
+  max_conversationIds: z.number().optional(),
+  max_areAIAnnotationsVerified: z.number().optional(),
   max_isInitialQuestionAnswer: z.number().optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -897,159 +895,159 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
     "isInitialQuestionAnswer_week": "isInitialQuestionAnswerWeek",
     "isInitialQuestionAnswer_month": "isInitialQuestionAnswerMonth",
     "sum_id": "sumId",
-    "count_id": "countId",
-    "avg_id": "avgId",
-    "min_id": "minId",
-    "max_id": "maxId",
     "sum_messageIds": "sumMessageIds",
-    "count_messageIds": "countMessageIds",
-    "avg_messageIds": "avgMessageIds",
-    "min_messageIds": "minMessageIds",
-    "max_messageIds": "maxMessageIds",
     "sum_messagesCount": "sumMessagesCount",
-    "count_messagesCount": "countMessagesCount",
-    "avg_messagesCount": "avgMessagesCount",
-    "min_messagesCount": "minMessagesCount",
-    "max_messagesCount": "maxMessagesCount",
     "sum_organizationId": "sumOrganizationId",
-    "count_organizationId": "countOrganizationId",
-    "avg_organizationId": "avgOrganizationId",
-    "min_organizationId": "minOrganizationId",
-    "max_organizationId": "maxOrganizationId",
     "sum_question": "sumQuestion",
-    "count_question": "countQuestion",
-    "avg_question": "avgQuestion",
-    "min_question": "minQuestion",
-    "max_question": "maxQuestion",
     "sum_questionLength": "sumQuestionLength",
-    "count_questionLength": "countQuestionLength",
-    "avg_questionLength": "avgQuestionLength",
-    "min_questionLength": "minQuestionLength",
-    "max_questionLength": "maxQuestionLength",
     "sum_answer": "sumAnswer",
-    "count_answer": "countAnswer",
-    "avg_answer": "avgAnswer",
-    "min_answer": "minAnswer",
-    "max_answer": "maxAnswer",
     "sum_isOnTopic": "sumIsOnTopic",
-    "count_isOnTopic": "countIsOnTopic",
-    "avg_isOnTopic": "avgIsOnTopic",
-    "min_isOnTopic": "minIsOnTopic",
-    "max_isOnTopic": "maxIsOnTopic",
     "sum_isClear": "sumIsClear",
-    "count_isClear": "countIsClear",
-    "avg_isClear": "avgIsClear",
-    "min_isClear": "minIsClear",
-    "max_isClear": "maxIsClear",
     "sum_isDocumented": "sumIsDocumented",
-    "count_isDocumented": "countIsDocumented",
-    "avg_isDocumented": "avgIsDocumented",
-    "min_isDocumented": "minIsDocumented",
-    "max_isDocumented": "maxIsDocumented",
     "sum_isFeatureSupported": "sumIsFeatureSupported",
-    "count_isFeatureSupported": "countIsFeatureSupported",
-    "avg_isFeatureSupported": "avgIsFeatureSupported",
-    "min_isFeatureSupported": "minIsFeatureSupported",
-    "max_isFeatureSupported": "maxIsFeatureSupported",
     "sum_isAnswerConfident": "sumIsAnswerConfident",
-    "count_isAnswerConfident": "countIsAnswerConfident",
-    "avg_isAnswerConfident": "avgIsAnswerConfident",
-    "min_isAnswerConfident": "minIsAnswerConfident",
-    "max_isAnswerConfident": "maxIsAnswerConfident",
     "sum_gapSummary": "sumGapSummary",
-    "count_gapSummary": "countGapSummary",
-    "avg_gapSummary": "avgGapSummary",
-    "min_gapSummary": "minGapSummary",
-    "max_gapSummary": "maxGapSummary",
     "sum_subject": "sumSubject",
-    "count_subject": "countSubject",
-    "avg_subject": "avgSubject",
-    "min_subject": "minSubject",
-    "max_subject": "maxSubject",
     "sum_category": "sumCategory",
-    "count_category": "countCategory",
-    "avg_category": "avgCategory",
-    "min_category": "minCategory",
-    "max_category": "maxCategory",
     "sum_languages": "sumLanguages",
-    "count_languages": "countLanguages",
-    "avg_languages": "avgLanguages",
-    "min_languages": "minLanguages",
-    "max_languages": "maxLanguages",
     "sum_firstPartyEntities": "sumFirstPartyEntities",
-    "count_firstPartyEntities": "countFirstPartyEntities",
-    "avg_firstPartyEntities": "avgFirstPartyEntities",
-    "min_firstPartyEntities": "minFirstPartyEntities",
-    "max_firstPartyEntities": "maxFirstPartyEntities",
     "sum_thirdPartyEntities": "sumThirdPartyEntities",
-    "count_thirdPartyEntities": "countThirdPartyEntities",
-    "avg_thirdPartyEntities": "avgThirdPartyEntities",
-    "min_thirdPartyEntities": "minThirdPartyEntities",
-    "max_thirdPartyEntities": "maxThirdPartyEntities",
     "sum_emotion": "sumEmotion",
-    "count_emotion": "countEmotion",
-    "avg_emotion": "avgEmotion",
-    "min_emotion": "minEmotion",
-    "max_emotion": "maxEmotion",
     "sum_sentiment": "sumSentiment",
-    "count_sentiment": "countSentiment",
-    "avg_sentiment": "avgSentiment",
-    "min_sentiment": "minSentiment",
-    "max_sentiment": "maxSentiment",
     "sum_questionType": "sumQuestionType",
-    "count_questionType": "countQuestionType",
-    "avg_questionType": "avgQuestionType",
-    "min_questionType": "minQuestionType",
-    "max_questionType": "maxQuestionType",
     "sum_projectId": "sumProjectId",
-    "count_projectId": "countProjectId",
-    "avg_projectId": "avgProjectId",
-    "min_projectId": "minProjectId",
-    "max_projectId": "maxProjectId",
     "sum_integrationId": "sumIntegrationId",
-    "count_integrationId": "countIntegrationId",
-    "avg_integrationId": "avgIntegrationId",
-    "min_integrationId": "minIntegrationId",
-    "max_integrationId": "maxIntegrationId",
     "sum_firstMessageTime": "sumFirstMessageTime",
-    "count_firstMessageTime": "countFirstMessageTime",
-    "avg_firstMessageTime": "avgFirstMessageTime",
-    "min_firstMessageTime": "minFirstMessageTime",
-    "max_firstMessageTime": "maxFirstMessageTime",
     "sum_lastMessageTime": "sumLastMessageTime",
-    "count_lastMessageTime": "countLastMessageTime",
-    "avg_lastMessageTime": "avgLastMessageTime",
-    "min_lastMessageTime": "minLastMessageTime",
-    "max_lastMessageTime": "maxLastMessageTime",
     "sum_lastUpdated": "sumLastUpdated",
-    "count_lastUpdated": "countLastUpdated",
-    "avg_lastUpdated": "avgLastUpdated",
-    "min_lastUpdated": "minLastUpdated",
-    "max_lastUpdated": "maxLastUpdated",
     "sum_hasPositiveFeedback": "sumHasPositiveFeedback",
-    "count_hasPositiveFeedback": "countHasPositiveFeedback",
-    "avg_hasPositiveFeedback": "avgHasPositiveFeedback",
-    "min_hasPositiveFeedback": "minHasPositiveFeedback",
-    "max_hasPositiveFeedback": "maxHasPositiveFeedback",
     "sum_hasNegativeFeedback": "sumHasNegativeFeedback",
-    "count_hasNegativeFeedback": "countHasNegativeFeedback",
-    "avg_hasNegativeFeedback": "avgHasNegativeFeedback",
-    "min_hasNegativeFeedback": "minHasNegativeFeedback",
-    "max_hasNegativeFeedback": "maxHasNegativeFeedback",
     "sum_conversationIds": "sumConversationIds",
-    "count_conversationIds": "countConversationIds",
-    "avg_conversationIds": "avgConversationIds",
-    "min_conversationIds": "minConversationIds",
-    "max_conversationIds": "maxConversationIds",
     "sum_areAIAnnotationsVerified": "sumAreAIAnnotationsVerified",
-    "count_areAIAnnotationsVerified": "countAreAIAnnotationsVerified",
-    "avg_areAIAnnotationsVerified": "avgAreAIAnnotationsVerified",
-    "min_areAIAnnotationsVerified": "minAreAIAnnotationsVerified",
-    "max_areAIAnnotationsVerified": "maxAreAIAnnotationsVerified",
     "sum_isInitialQuestionAnswer": "sumIsInitialQuestionAnswer",
+    "count_id": "countId",
+    "count_messageIds": "countMessageIds",
+    "count_messagesCount": "countMessagesCount",
+    "count_organizationId": "countOrganizationId",
+    "count_question": "countQuestion",
+    "count_questionLength": "countQuestionLength",
+    "count_answer": "countAnswer",
+    "count_isOnTopic": "countIsOnTopic",
+    "count_isClear": "countIsClear",
+    "count_isDocumented": "countIsDocumented",
+    "count_isFeatureSupported": "countIsFeatureSupported",
+    "count_isAnswerConfident": "countIsAnswerConfident",
+    "count_gapSummary": "countGapSummary",
+    "count_subject": "countSubject",
+    "count_category": "countCategory",
+    "count_languages": "countLanguages",
+    "count_firstPartyEntities": "countFirstPartyEntities",
+    "count_thirdPartyEntities": "countThirdPartyEntities",
+    "count_emotion": "countEmotion",
+    "count_sentiment": "countSentiment",
+    "count_questionType": "countQuestionType",
+    "count_projectId": "countProjectId",
+    "count_integrationId": "countIntegrationId",
+    "count_firstMessageTime": "countFirstMessageTime",
+    "count_lastMessageTime": "countLastMessageTime",
+    "count_lastUpdated": "countLastUpdated",
+    "count_hasPositiveFeedback": "countHasPositiveFeedback",
+    "count_hasNegativeFeedback": "countHasNegativeFeedback",
+    "count_conversationIds": "countConversationIds",
+    "count_areAIAnnotationsVerified": "countAreAIAnnotationsVerified",
     "count_isInitialQuestionAnswer": "countIsInitialQuestionAnswer",
+    "avg_id": "avgId",
+    "avg_messageIds": "avgMessageIds",
+    "avg_messagesCount": "avgMessagesCount",
+    "avg_organizationId": "avgOrganizationId",
+    "avg_question": "avgQuestion",
+    "avg_questionLength": "avgQuestionLength",
+    "avg_answer": "avgAnswer",
+    "avg_isOnTopic": "avgIsOnTopic",
+    "avg_isClear": "avgIsClear",
+    "avg_isDocumented": "avgIsDocumented",
+    "avg_isFeatureSupported": "avgIsFeatureSupported",
+    "avg_isAnswerConfident": "avgIsAnswerConfident",
+    "avg_gapSummary": "avgGapSummary",
+    "avg_subject": "avgSubject",
+    "avg_category": "avgCategory",
+    "avg_languages": "avgLanguages",
+    "avg_firstPartyEntities": "avgFirstPartyEntities",
+    "avg_thirdPartyEntities": "avgThirdPartyEntities",
+    "avg_emotion": "avgEmotion",
+    "avg_sentiment": "avgSentiment",
+    "avg_questionType": "avgQuestionType",
+    "avg_projectId": "avgProjectId",
+    "avg_integrationId": "avgIntegrationId",
+    "avg_firstMessageTime": "avgFirstMessageTime",
+    "avg_lastMessageTime": "avgLastMessageTime",
+    "avg_lastUpdated": "avgLastUpdated",
+    "avg_hasPositiveFeedback": "avgHasPositiveFeedback",
+    "avg_hasNegativeFeedback": "avgHasNegativeFeedback",
+    "avg_conversationIds": "avgConversationIds",
+    "avg_areAIAnnotationsVerified": "avgAreAIAnnotationsVerified",
     "avg_isInitialQuestionAnswer": "avgIsInitialQuestionAnswer",
+    "min_id": "minId",
+    "min_messageIds": "minMessageIds",
+    "min_messagesCount": "minMessagesCount",
+    "min_organizationId": "minOrganizationId",
+    "min_question": "minQuestion",
+    "min_questionLength": "minQuestionLength",
+    "min_answer": "minAnswer",
+    "min_isOnTopic": "minIsOnTopic",
+    "min_isClear": "minIsClear",
+    "min_isDocumented": "minIsDocumented",
+    "min_isFeatureSupported": "minIsFeatureSupported",
+    "min_isAnswerConfident": "minIsAnswerConfident",
+    "min_gapSummary": "minGapSummary",
+    "min_subject": "minSubject",
+    "min_category": "minCategory",
+    "min_languages": "minLanguages",
+    "min_firstPartyEntities": "minFirstPartyEntities",
+    "min_thirdPartyEntities": "minThirdPartyEntities",
+    "min_emotion": "minEmotion",
+    "min_sentiment": "minSentiment",
+    "min_questionType": "minQuestionType",
+    "min_projectId": "minProjectId",
+    "min_integrationId": "minIntegrationId",
+    "min_firstMessageTime": "minFirstMessageTime",
+    "min_lastMessageTime": "minLastMessageTime",
+    "min_lastUpdated": "minLastUpdated",
+    "min_hasPositiveFeedback": "minHasPositiveFeedback",
+    "min_hasNegativeFeedback": "minHasNegativeFeedback",
+    "min_conversationIds": "minConversationIds",
+    "min_areAIAnnotationsVerified": "minAreAIAnnotationsVerified",
     "min_isInitialQuestionAnswer": "minIsInitialQuestionAnswer",
+    "max_id": "maxId",
+    "max_messageIds": "maxMessageIds",
+    "max_messagesCount": "maxMessagesCount",
+    "max_organizationId": "maxOrganizationId",
+    "max_question": "maxQuestion",
+    "max_questionLength": "maxQuestionLength",
+    "max_answer": "maxAnswer",
+    "max_isOnTopic": "maxIsOnTopic",
+    "max_isClear": "maxIsClear",
+    "max_isDocumented": "maxIsDocumented",
+    "max_isFeatureSupported": "maxIsFeatureSupported",
+    "max_isAnswerConfident": "maxIsAnswerConfident",
+    "max_gapSummary": "maxGapSummary",
+    "max_subject": "maxSubject",
+    "max_category": "maxCategory",
+    "max_languages": "maxLanguages",
+    "max_firstPartyEntities": "maxFirstPartyEntities",
+    "max_thirdPartyEntities": "maxThirdPartyEntities",
+    "max_emotion": "maxEmotion",
+    "max_sentiment": "maxSentiment",
+    "max_questionType": "maxQuestionType",
+    "max_projectId": "maxProjectId",
+    "max_integrationId": "maxIntegrationId",
+    "max_firstMessageTime": "maxFirstMessageTime",
+    "max_lastMessageTime": "maxLastMessageTime",
+    "max_lastUpdated": "maxLastUpdated",
+    "max_hasPositiveFeedback": "maxHasPositiveFeedback",
+    "max_hasNegativeFeedback": "maxHasNegativeFeedback",
+    "max_conversationIds": "maxConversationIds",
+    "max_areAIAnnotationsVerified": "maxAreAIAnnotationsVerified",
     "max_isInitialQuestionAnswer": "maxIsInitialQuestionAnswer",
   });
 });
@@ -1217,159 +1215,159 @@ export type SemanticThreadResultItem$Outbound = {
   isInitialQuestionAnswer_week?: string | undefined;
   isInitialQuestionAnswer_month?: string | undefined;
   sum_id?: number | undefined;
-  count_id?: number | undefined;
-  avg_id?: number | undefined;
-  min_id?: number | undefined;
-  max_id?: number | undefined;
   sum_messageIds?: number | undefined;
-  count_messageIds?: number | undefined;
-  avg_messageIds?: number | undefined;
-  min_messageIds?: number | undefined;
-  max_messageIds?: number | undefined;
   sum_messagesCount?: number | undefined;
-  count_messagesCount?: number | undefined;
-  avg_messagesCount?: number | undefined;
-  min_messagesCount?: number | undefined;
-  max_messagesCount?: number | undefined;
   sum_organizationId?: number | undefined;
-  count_organizationId?: number | undefined;
-  avg_organizationId?: number | undefined;
-  min_organizationId?: number | undefined;
-  max_organizationId?: number | undefined;
   sum_question?: number | undefined;
-  count_question?: number | undefined;
-  avg_question?: number | undefined;
-  min_question?: number | undefined;
-  max_question?: number | undefined;
   sum_questionLength?: number | undefined;
-  count_questionLength?: number | undefined;
-  avg_questionLength?: number | undefined;
-  min_questionLength?: number | undefined;
-  max_questionLength?: number | undefined;
   sum_answer?: number | undefined;
-  count_answer?: number | undefined;
-  avg_answer?: number | undefined;
-  min_answer?: number | undefined;
-  max_answer?: number | undefined;
   sum_isOnTopic?: number | undefined;
-  count_isOnTopic?: number | undefined;
-  avg_isOnTopic?: number | undefined;
-  min_isOnTopic?: number | undefined;
-  max_isOnTopic?: number | undefined;
   sum_isClear?: number | undefined;
-  count_isClear?: number | undefined;
-  avg_isClear?: number | undefined;
-  min_isClear?: number | undefined;
-  max_isClear?: number | undefined;
   sum_isDocumented?: number | undefined;
-  count_isDocumented?: number | undefined;
-  avg_isDocumented?: number | undefined;
-  min_isDocumented?: number | undefined;
-  max_isDocumented?: number | undefined;
   sum_isFeatureSupported?: number | undefined;
-  count_isFeatureSupported?: number | undefined;
-  avg_isFeatureSupported?: number | undefined;
-  min_isFeatureSupported?: number | undefined;
-  max_isFeatureSupported?: number | undefined;
   sum_isAnswerConfident?: number | undefined;
-  count_isAnswerConfident?: number | undefined;
-  avg_isAnswerConfident?: number | undefined;
-  min_isAnswerConfident?: number | undefined;
-  max_isAnswerConfident?: number | undefined;
   sum_gapSummary?: number | undefined;
-  count_gapSummary?: number | undefined;
-  avg_gapSummary?: number | undefined;
-  min_gapSummary?: number | undefined;
-  max_gapSummary?: number | undefined;
   sum_subject?: number | undefined;
-  count_subject?: number | undefined;
-  avg_subject?: number | undefined;
-  min_subject?: number | undefined;
-  max_subject?: number | undefined;
   sum_category?: number | undefined;
-  count_category?: number | undefined;
-  avg_category?: number | undefined;
-  min_category?: number | undefined;
-  max_category?: number | undefined;
   sum_languages?: number | undefined;
-  count_languages?: number | undefined;
-  avg_languages?: number | undefined;
-  min_languages?: number | undefined;
-  max_languages?: number | undefined;
   sum_firstPartyEntities?: number | undefined;
-  count_firstPartyEntities?: number | undefined;
-  avg_firstPartyEntities?: number | undefined;
-  min_firstPartyEntities?: number | undefined;
-  max_firstPartyEntities?: number | undefined;
   sum_thirdPartyEntities?: number | undefined;
-  count_thirdPartyEntities?: number | undefined;
-  avg_thirdPartyEntities?: number | undefined;
-  min_thirdPartyEntities?: number | undefined;
-  max_thirdPartyEntities?: number | undefined;
   sum_emotion?: number | undefined;
-  count_emotion?: number | undefined;
-  avg_emotion?: number | undefined;
-  min_emotion?: number | undefined;
-  max_emotion?: number | undefined;
   sum_sentiment?: number | undefined;
-  count_sentiment?: number | undefined;
-  avg_sentiment?: number | undefined;
-  min_sentiment?: number | undefined;
-  max_sentiment?: number | undefined;
   sum_questionType?: number | undefined;
-  count_questionType?: number | undefined;
-  avg_questionType?: number | undefined;
-  min_questionType?: number | undefined;
-  max_questionType?: number | undefined;
   sum_projectId?: number | undefined;
-  count_projectId?: number | undefined;
-  avg_projectId?: number | undefined;
-  min_projectId?: number | undefined;
-  max_projectId?: number | undefined;
   sum_integrationId?: number | undefined;
-  count_integrationId?: number | undefined;
-  avg_integrationId?: number | undefined;
-  min_integrationId?: number | undefined;
-  max_integrationId?: number | undefined;
   sum_firstMessageTime?: number | undefined;
-  count_firstMessageTime?: number | undefined;
-  avg_firstMessageTime?: number | undefined;
-  min_firstMessageTime?: number | undefined;
-  max_firstMessageTime?: number | undefined;
   sum_lastMessageTime?: number | undefined;
-  count_lastMessageTime?: number | undefined;
-  avg_lastMessageTime?: number | undefined;
-  min_lastMessageTime?: number | undefined;
-  max_lastMessageTime?: number | undefined;
   sum_lastUpdated?: number | undefined;
-  count_lastUpdated?: number | undefined;
-  avg_lastUpdated?: number | undefined;
-  min_lastUpdated?: number | undefined;
-  max_lastUpdated?: number | undefined;
   sum_hasPositiveFeedback?: number | undefined;
-  count_hasPositiveFeedback?: number | undefined;
-  avg_hasPositiveFeedback?: number | undefined;
-  min_hasPositiveFeedback?: number | undefined;
-  max_hasPositiveFeedback?: number | undefined;
   sum_hasNegativeFeedback?: number | undefined;
-  count_hasNegativeFeedback?: number | undefined;
-  avg_hasNegativeFeedback?: number | undefined;
-  min_hasNegativeFeedback?: number | undefined;
-  max_hasNegativeFeedback?: number | undefined;
   sum_conversationIds?: number | undefined;
-  count_conversationIds?: number | undefined;
-  avg_conversationIds?: number | undefined;
-  min_conversationIds?: number | undefined;
-  max_conversationIds?: number | undefined;
   sum_areAIAnnotationsVerified?: number | undefined;
-  count_areAIAnnotationsVerified?: number | undefined;
-  avg_areAIAnnotationsVerified?: number | undefined;
-  min_areAIAnnotationsVerified?: number | undefined;
-  max_areAIAnnotationsVerified?: number | undefined;
   sum_isInitialQuestionAnswer?: number | undefined;
+  count_id?: number | undefined;
+  count_messageIds?: number | undefined;
+  count_messagesCount?: number | undefined;
+  count_organizationId?: number | undefined;
+  count_question?: number | undefined;
+  count_questionLength?: number | undefined;
+  count_answer?: number | undefined;
+  count_isOnTopic?: number | undefined;
+  count_isClear?: number | undefined;
+  count_isDocumented?: number | undefined;
+  count_isFeatureSupported?: number | undefined;
+  count_isAnswerConfident?: number | undefined;
+  count_gapSummary?: number | undefined;
+  count_subject?: number | undefined;
+  count_category?: number | undefined;
+  count_languages?: number | undefined;
+  count_firstPartyEntities?: number | undefined;
+  count_thirdPartyEntities?: number | undefined;
+  count_emotion?: number | undefined;
+  count_sentiment?: number | undefined;
+  count_questionType?: number | undefined;
+  count_projectId?: number | undefined;
+  count_integrationId?: number | undefined;
+  count_firstMessageTime?: number | undefined;
+  count_lastMessageTime?: number | undefined;
+  count_lastUpdated?: number | undefined;
+  count_hasPositiveFeedback?: number | undefined;
+  count_hasNegativeFeedback?: number | undefined;
+  count_conversationIds?: number | undefined;
+  count_areAIAnnotationsVerified?: number | undefined;
   count_isInitialQuestionAnswer?: number | undefined;
+  avg_id?: number | undefined;
+  avg_messageIds?: number | undefined;
+  avg_messagesCount?: number | undefined;
+  avg_organizationId?: number | undefined;
+  avg_question?: number | undefined;
+  avg_questionLength?: number | undefined;
+  avg_answer?: number | undefined;
+  avg_isOnTopic?: number | undefined;
+  avg_isClear?: number | undefined;
+  avg_isDocumented?: number | undefined;
+  avg_isFeatureSupported?: number | undefined;
+  avg_isAnswerConfident?: number | undefined;
+  avg_gapSummary?: number | undefined;
+  avg_subject?: number | undefined;
+  avg_category?: number | undefined;
+  avg_languages?: number | undefined;
+  avg_firstPartyEntities?: number | undefined;
+  avg_thirdPartyEntities?: number | undefined;
+  avg_emotion?: number | undefined;
+  avg_sentiment?: number | undefined;
+  avg_questionType?: number | undefined;
+  avg_projectId?: number | undefined;
+  avg_integrationId?: number | undefined;
+  avg_firstMessageTime?: number | undefined;
+  avg_lastMessageTime?: number | undefined;
+  avg_lastUpdated?: number | undefined;
+  avg_hasPositiveFeedback?: number | undefined;
+  avg_hasNegativeFeedback?: number | undefined;
+  avg_conversationIds?: number | undefined;
+  avg_areAIAnnotationsVerified?: number | undefined;
   avg_isInitialQuestionAnswer?: number | undefined;
+  min_id?: number | undefined;
+  min_messageIds?: number | undefined;
+  min_messagesCount?: number | undefined;
+  min_organizationId?: number | undefined;
+  min_question?: number | undefined;
+  min_questionLength?: number | undefined;
+  min_answer?: number | undefined;
+  min_isOnTopic?: number | undefined;
+  min_isClear?: number | undefined;
+  min_isDocumented?: number | undefined;
+  min_isFeatureSupported?: number | undefined;
+  min_isAnswerConfident?: number | undefined;
+  min_gapSummary?: number | undefined;
+  min_subject?: number | undefined;
+  min_category?: number | undefined;
+  min_languages?: number | undefined;
+  min_firstPartyEntities?: number | undefined;
+  min_thirdPartyEntities?: number | undefined;
+  min_emotion?: number | undefined;
+  min_sentiment?: number | undefined;
+  min_questionType?: number | undefined;
+  min_projectId?: number | undefined;
+  min_integrationId?: number | undefined;
+  min_firstMessageTime?: number | undefined;
+  min_lastMessageTime?: number | undefined;
+  min_lastUpdated?: number | undefined;
+  min_hasPositiveFeedback?: number | undefined;
+  min_hasNegativeFeedback?: number | undefined;
+  min_conversationIds?: number | undefined;
+  min_areAIAnnotationsVerified?: number | undefined;
   min_isInitialQuestionAnswer?: number | undefined;
+  max_id?: number | undefined;
+  max_messageIds?: number | undefined;
+  max_messagesCount?: number | undefined;
+  max_organizationId?: number | undefined;
+  max_question?: number | undefined;
+  max_questionLength?: number | undefined;
+  max_answer?: number | undefined;
+  max_isOnTopic?: number | undefined;
+  max_isClear?: number | undefined;
+  max_isDocumented?: number | undefined;
+  max_isFeatureSupported?: number | undefined;
+  max_isAnswerConfident?: number | undefined;
+  max_gapSummary?: number | undefined;
+  max_subject?: number | undefined;
+  max_category?: number | undefined;
+  max_languages?: number | undefined;
+  max_firstPartyEntities?: number | undefined;
+  max_thirdPartyEntities?: number | undefined;
+  max_emotion?: number | undefined;
+  max_sentiment?: number | undefined;
+  max_questionType?: number | undefined;
+  max_projectId?: number | undefined;
+  max_integrationId?: number | undefined;
+  max_firstMessageTime?: number | undefined;
+  max_lastMessageTime?: number | undefined;
+  max_lastUpdated?: number | undefined;
+  max_hasPositiveFeedback?: number | undefined;
+  max_hasNegativeFeedback?: number | undefined;
+  max_conversationIds?: number | undefined;
+  max_areAIAnnotationsVerified?: number | undefined;
   max_isInitialQuestionAnswer?: number | undefined;
 };
 
@@ -1540,159 +1538,159 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
   isInitialQuestionAnswerWeek: z.string().optional(),
   isInitialQuestionAnswerMonth: z.string().optional(),
   sumId: z.number().optional(),
-  countId: z.number().optional(),
-  avgId: z.number().optional(),
-  minId: z.number().optional(),
-  maxId: z.number().optional(),
   sumMessageIds: z.number().optional(),
-  countMessageIds: z.number().optional(),
-  avgMessageIds: z.number().optional(),
-  minMessageIds: z.number().optional(),
-  maxMessageIds: z.number().optional(),
   sumMessagesCount: z.number().optional(),
-  countMessagesCount: z.number().optional(),
-  avgMessagesCount: z.number().optional(),
-  minMessagesCount: z.number().optional(),
-  maxMessagesCount: z.number().optional(),
   sumOrganizationId: z.number().optional(),
-  countOrganizationId: z.number().optional(),
-  avgOrganizationId: z.number().optional(),
-  minOrganizationId: z.number().optional(),
-  maxOrganizationId: z.number().optional(),
   sumQuestion: z.number().optional(),
-  countQuestion: z.number().optional(),
-  avgQuestion: z.number().optional(),
-  minQuestion: z.number().optional(),
-  maxQuestion: z.number().optional(),
   sumQuestionLength: z.number().optional(),
-  countQuestionLength: z.number().optional(),
-  avgQuestionLength: z.number().optional(),
-  minQuestionLength: z.number().optional(),
-  maxQuestionLength: z.number().optional(),
   sumAnswer: z.number().optional(),
-  countAnswer: z.number().optional(),
-  avgAnswer: z.number().optional(),
-  minAnswer: z.number().optional(),
-  maxAnswer: z.number().optional(),
   sumIsOnTopic: z.number().optional(),
-  countIsOnTopic: z.number().optional(),
-  avgIsOnTopic: z.number().optional(),
-  minIsOnTopic: z.number().optional(),
-  maxIsOnTopic: z.number().optional(),
   sumIsClear: z.number().optional(),
-  countIsClear: z.number().optional(),
-  avgIsClear: z.number().optional(),
-  minIsClear: z.number().optional(),
-  maxIsClear: z.number().optional(),
   sumIsDocumented: z.number().optional(),
-  countIsDocumented: z.number().optional(),
-  avgIsDocumented: z.number().optional(),
-  minIsDocumented: z.number().optional(),
-  maxIsDocumented: z.number().optional(),
   sumIsFeatureSupported: z.number().optional(),
-  countIsFeatureSupported: z.number().optional(),
-  avgIsFeatureSupported: z.number().optional(),
-  minIsFeatureSupported: z.number().optional(),
-  maxIsFeatureSupported: z.number().optional(),
   sumIsAnswerConfident: z.number().optional(),
-  countIsAnswerConfident: z.number().optional(),
-  avgIsAnswerConfident: z.number().optional(),
-  minIsAnswerConfident: z.number().optional(),
-  maxIsAnswerConfident: z.number().optional(),
   sumGapSummary: z.number().optional(),
-  countGapSummary: z.number().optional(),
-  avgGapSummary: z.number().optional(),
-  minGapSummary: z.number().optional(),
-  maxGapSummary: z.number().optional(),
   sumSubject: z.number().optional(),
-  countSubject: z.number().optional(),
-  avgSubject: z.number().optional(),
-  minSubject: z.number().optional(),
-  maxSubject: z.number().optional(),
   sumCategory: z.number().optional(),
-  countCategory: z.number().optional(),
-  avgCategory: z.number().optional(),
-  minCategory: z.number().optional(),
-  maxCategory: z.number().optional(),
   sumLanguages: z.number().optional(),
-  countLanguages: z.number().optional(),
-  avgLanguages: z.number().optional(),
-  minLanguages: z.number().optional(),
-  maxLanguages: z.number().optional(),
   sumFirstPartyEntities: z.number().optional(),
-  countFirstPartyEntities: z.number().optional(),
-  avgFirstPartyEntities: z.number().optional(),
-  minFirstPartyEntities: z.number().optional(),
-  maxFirstPartyEntities: z.number().optional(),
   sumThirdPartyEntities: z.number().optional(),
-  countThirdPartyEntities: z.number().optional(),
-  avgThirdPartyEntities: z.number().optional(),
-  minThirdPartyEntities: z.number().optional(),
-  maxThirdPartyEntities: z.number().optional(),
   sumEmotion: z.number().optional(),
-  countEmotion: z.number().optional(),
-  avgEmotion: z.number().optional(),
-  minEmotion: z.number().optional(),
-  maxEmotion: z.number().optional(),
   sumSentiment: z.number().optional(),
-  countSentiment: z.number().optional(),
-  avgSentiment: z.number().optional(),
-  minSentiment: z.number().optional(),
-  maxSentiment: z.number().optional(),
   sumQuestionType: z.number().optional(),
-  countQuestionType: z.number().optional(),
-  avgQuestionType: z.number().optional(),
-  minQuestionType: z.number().optional(),
-  maxQuestionType: z.number().optional(),
   sumProjectId: z.number().optional(),
-  countProjectId: z.number().optional(),
-  avgProjectId: z.number().optional(),
-  minProjectId: z.number().optional(),
-  maxProjectId: z.number().optional(),
   sumIntegrationId: z.number().optional(),
-  countIntegrationId: z.number().optional(),
-  avgIntegrationId: z.number().optional(),
-  minIntegrationId: z.number().optional(),
-  maxIntegrationId: z.number().optional(),
   sumFirstMessageTime: z.number().optional(),
-  countFirstMessageTime: z.number().optional(),
-  avgFirstMessageTime: z.number().optional(),
-  minFirstMessageTime: z.number().optional(),
-  maxFirstMessageTime: z.number().optional(),
   sumLastMessageTime: z.number().optional(),
-  countLastMessageTime: z.number().optional(),
-  avgLastMessageTime: z.number().optional(),
-  minLastMessageTime: z.number().optional(),
-  maxLastMessageTime: z.number().optional(),
   sumLastUpdated: z.number().optional(),
-  countLastUpdated: z.number().optional(),
-  avgLastUpdated: z.number().optional(),
-  minLastUpdated: z.number().optional(),
-  maxLastUpdated: z.number().optional(),
   sumHasPositiveFeedback: z.number().optional(),
-  countHasPositiveFeedback: z.number().optional(),
-  avgHasPositiveFeedback: z.number().optional(),
-  minHasPositiveFeedback: z.number().optional(),
-  maxHasPositiveFeedback: z.number().optional(),
   sumHasNegativeFeedback: z.number().optional(),
-  countHasNegativeFeedback: z.number().optional(),
-  avgHasNegativeFeedback: z.number().optional(),
-  minHasNegativeFeedback: z.number().optional(),
-  maxHasNegativeFeedback: z.number().optional(),
   sumConversationIds: z.number().optional(),
-  countConversationIds: z.number().optional(),
-  avgConversationIds: z.number().optional(),
-  minConversationIds: z.number().optional(),
-  maxConversationIds: z.number().optional(),
   sumAreAIAnnotationsVerified: z.number().optional(),
-  countAreAIAnnotationsVerified: z.number().optional(),
-  avgAreAIAnnotationsVerified: z.number().optional(),
-  minAreAIAnnotationsVerified: z.number().optional(),
-  maxAreAIAnnotationsVerified: z.number().optional(),
   sumIsInitialQuestionAnswer: z.number().optional(),
+  countId: z.number().optional(),
+  countMessageIds: z.number().optional(),
+  countMessagesCount: z.number().optional(),
+  countOrganizationId: z.number().optional(),
+  countQuestion: z.number().optional(),
+  countQuestionLength: z.number().optional(),
+  countAnswer: z.number().optional(),
+  countIsOnTopic: z.number().optional(),
+  countIsClear: z.number().optional(),
+  countIsDocumented: z.number().optional(),
+  countIsFeatureSupported: z.number().optional(),
+  countIsAnswerConfident: z.number().optional(),
+  countGapSummary: z.number().optional(),
+  countSubject: z.number().optional(),
+  countCategory: z.number().optional(),
+  countLanguages: z.number().optional(),
+  countFirstPartyEntities: z.number().optional(),
+  countThirdPartyEntities: z.number().optional(),
+  countEmotion: z.number().optional(),
+  countSentiment: z.number().optional(),
+  countQuestionType: z.number().optional(),
+  countProjectId: z.number().optional(),
+  countIntegrationId: z.number().optional(),
+  countFirstMessageTime: z.number().optional(),
+  countLastMessageTime: z.number().optional(),
+  countLastUpdated: z.number().optional(),
+  countHasPositiveFeedback: z.number().optional(),
+  countHasNegativeFeedback: z.number().optional(),
+  countConversationIds: z.number().optional(),
+  countAreAIAnnotationsVerified: z.number().optional(),
   countIsInitialQuestionAnswer: z.number().optional(),
+  avgId: z.number().optional(),
+  avgMessageIds: z.number().optional(),
+  avgMessagesCount: z.number().optional(),
+  avgOrganizationId: z.number().optional(),
+  avgQuestion: z.number().optional(),
+  avgQuestionLength: z.number().optional(),
+  avgAnswer: z.number().optional(),
+  avgIsOnTopic: z.number().optional(),
+  avgIsClear: z.number().optional(),
+  avgIsDocumented: z.number().optional(),
+  avgIsFeatureSupported: z.number().optional(),
+  avgIsAnswerConfident: z.number().optional(),
+  avgGapSummary: z.number().optional(),
+  avgSubject: z.number().optional(),
+  avgCategory: z.number().optional(),
+  avgLanguages: z.number().optional(),
+  avgFirstPartyEntities: z.number().optional(),
+  avgThirdPartyEntities: z.number().optional(),
+  avgEmotion: z.number().optional(),
+  avgSentiment: z.number().optional(),
+  avgQuestionType: z.number().optional(),
+  avgProjectId: z.number().optional(),
+  avgIntegrationId: z.number().optional(),
+  avgFirstMessageTime: z.number().optional(),
+  avgLastMessageTime: z.number().optional(),
+  avgLastUpdated: z.number().optional(),
+  avgHasPositiveFeedback: z.number().optional(),
+  avgHasNegativeFeedback: z.number().optional(),
+  avgConversationIds: z.number().optional(),
+  avgAreAIAnnotationsVerified: z.number().optional(),
   avgIsInitialQuestionAnswer: z.number().optional(),
+  minId: z.number().optional(),
+  minMessageIds: z.number().optional(),
+  minMessagesCount: z.number().optional(),
+  minOrganizationId: z.number().optional(),
+  minQuestion: z.number().optional(),
+  minQuestionLength: z.number().optional(),
+  minAnswer: z.number().optional(),
+  minIsOnTopic: z.number().optional(),
+  minIsClear: z.number().optional(),
+  minIsDocumented: z.number().optional(),
+  minIsFeatureSupported: z.number().optional(),
+  minIsAnswerConfident: z.number().optional(),
+  minGapSummary: z.number().optional(),
+  minSubject: z.number().optional(),
+  minCategory: z.number().optional(),
+  minLanguages: z.number().optional(),
+  minFirstPartyEntities: z.number().optional(),
+  minThirdPartyEntities: z.number().optional(),
+  minEmotion: z.number().optional(),
+  minSentiment: z.number().optional(),
+  minQuestionType: z.number().optional(),
+  minProjectId: z.number().optional(),
+  minIntegrationId: z.number().optional(),
+  minFirstMessageTime: z.number().optional(),
+  minLastMessageTime: z.number().optional(),
+  minLastUpdated: z.number().optional(),
+  minHasPositiveFeedback: z.number().optional(),
+  minHasNegativeFeedback: z.number().optional(),
+  minConversationIds: z.number().optional(),
+  minAreAIAnnotationsVerified: z.number().optional(),
   minIsInitialQuestionAnswer: z.number().optional(),
+  maxId: z.number().optional(),
+  maxMessageIds: z.number().optional(),
+  maxMessagesCount: z.number().optional(),
+  maxOrganizationId: z.number().optional(),
+  maxQuestion: z.number().optional(),
+  maxQuestionLength: z.number().optional(),
+  maxAnswer: z.number().optional(),
+  maxIsOnTopic: z.number().optional(),
+  maxIsClear: z.number().optional(),
+  maxIsDocumented: z.number().optional(),
+  maxIsFeatureSupported: z.number().optional(),
+  maxIsAnswerConfident: z.number().optional(),
+  maxGapSummary: z.number().optional(),
+  maxSubject: z.number().optional(),
+  maxCategory: z.number().optional(),
+  maxLanguages: z.number().optional(),
+  maxFirstPartyEntities: z.number().optional(),
+  maxThirdPartyEntities: z.number().optional(),
+  maxEmotion: z.number().optional(),
+  maxSentiment: z.number().optional(),
+  maxQuestionType: z.number().optional(),
+  maxProjectId: z.number().optional(),
+  maxIntegrationId: z.number().optional(),
+  maxFirstMessageTime: z.number().optional(),
+  maxLastMessageTime: z.number().optional(),
+  maxLastUpdated: z.number().optional(),
+  maxHasPositiveFeedback: z.number().optional(),
+  maxHasNegativeFeedback: z.number().optional(),
+  maxConversationIds: z.number().optional(),
+  maxAreAIAnnotationsVerified: z.number().optional(),
   maxIsInitialQuestionAnswer: z.number().optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -1821,159 +1819,159 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
     isInitialQuestionAnswerWeek: "isInitialQuestionAnswer_week",
     isInitialQuestionAnswerMonth: "isInitialQuestionAnswer_month",
     sumId: "sum_id",
-    countId: "count_id",
-    avgId: "avg_id",
-    minId: "min_id",
-    maxId: "max_id",
     sumMessageIds: "sum_messageIds",
-    countMessageIds: "count_messageIds",
-    avgMessageIds: "avg_messageIds",
-    minMessageIds: "min_messageIds",
-    maxMessageIds: "max_messageIds",
     sumMessagesCount: "sum_messagesCount",
-    countMessagesCount: "count_messagesCount",
-    avgMessagesCount: "avg_messagesCount",
-    minMessagesCount: "min_messagesCount",
-    maxMessagesCount: "max_messagesCount",
     sumOrganizationId: "sum_organizationId",
-    countOrganizationId: "count_organizationId",
-    avgOrganizationId: "avg_organizationId",
-    minOrganizationId: "min_organizationId",
-    maxOrganizationId: "max_organizationId",
     sumQuestion: "sum_question",
-    countQuestion: "count_question",
-    avgQuestion: "avg_question",
-    minQuestion: "min_question",
-    maxQuestion: "max_question",
     sumQuestionLength: "sum_questionLength",
-    countQuestionLength: "count_questionLength",
-    avgQuestionLength: "avg_questionLength",
-    minQuestionLength: "min_questionLength",
-    maxQuestionLength: "max_questionLength",
     sumAnswer: "sum_answer",
-    countAnswer: "count_answer",
-    avgAnswer: "avg_answer",
-    minAnswer: "min_answer",
-    maxAnswer: "max_answer",
     sumIsOnTopic: "sum_isOnTopic",
-    countIsOnTopic: "count_isOnTopic",
-    avgIsOnTopic: "avg_isOnTopic",
-    minIsOnTopic: "min_isOnTopic",
-    maxIsOnTopic: "max_isOnTopic",
     sumIsClear: "sum_isClear",
-    countIsClear: "count_isClear",
-    avgIsClear: "avg_isClear",
-    minIsClear: "min_isClear",
-    maxIsClear: "max_isClear",
     sumIsDocumented: "sum_isDocumented",
-    countIsDocumented: "count_isDocumented",
-    avgIsDocumented: "avg_isDocumented",
-    minIsDocumented: "min_isDocumented",
-    maxIsDocumented: "max_isDocumented",
     sumIsFeatureSupported: "sum_isFeatureSupported",
-    countIsFeatureSupported: "count_isFeatureSupported",
-    avgIsFeatureSupported: "avg_isFeatureSupported",
-    minIsFeatureSupported: "min_isFeatureSupported",
-    maxIsFeatureSupported: "max_isFeatureSupported",
     sumIsAnswerConfident: "sum_isAnswerConfident",
-    countIsAnswerConfident: "count_isAnswerConfident",
-    avgIsAnswerConfident: "avg_isAnswerConfident",
-    minIsAnswerConfident: "min_isAnswerConfident",
-    maxIsAnswerConfident: "max_isAnswerConfident",
     sumGapSummary: "sum_gapSummary",
-    countGapSummary: "count_gapSummary",
-    avgGapSummary: "avg_gapSummary",
-    minGapSummary: "min_gapSummary",
-    maxGapSummary: "max_gapSummary",
     sumSubject: "sum_subject",
-    countSubject: "count_subject",
-    avgSubject: "avg_subject",
-    minSubject: "min_subject",
-    maxSubject: "max_subject",
     sumCategory: "sum_category",
-    countCategory: "count_category",
-    avgCategory: "avg_category",
-    minCategory: "min_category",
-    maxCategory: "max_category",
     sumLanguages: "sum_languages",
-    countLanguages: "count_languages",
-    avgLanguages: "avg_languages",
-    minLanguages: "min_languages",
-    maxLanguages: "max_languages",
     sumFirstPartyEntities: "sum_firstPartyEntities",
-    countFirstPartyEntities: "count_firstPartyEntities",
-    avgFirstPartyEntities: "avg_firstPartyEntities",
-    minFirstPartyEntities: "min_firstPartyEntities",
-    maxFirstPartyEntities: "max_firstPartyEntities",
     sumThirdPartyEntities: "sum_thirdPartyEntities",
-    countThirdPartyEntities: "count_thirdPartyEntities",
-    avgThirdPartyEntities: "avg_thirdPartyEntities",
-    minThirdPartyEntities: "min_thirdPartyEntities",
-    maxThirdPartyEntities: "max_thirdPartyEntities",
     sumEmotion: "sum_emotion",
-    countEmotion: "count_emotion",
-    avgEmotion: "avg_emotion",
-    minEmotion: "min_emotion",
-    maxEmotion: "max_emotion",
     sumSentiment: "sum_sentiment",
-    countSentiment: "count_sentiment",
-    avgSentiment: "avg_sentiment",
-    minSentiment: "min_sentiment",
-    maxSentiment: "max_sentiment",
     sumQuestionType: "sum_questionType",
-    countQuestionType: "count_questionType",
-    avgQuestionType: "avg_questionType",
-    minQuestionType: "min_questionType",
-    maxQuestionType: "max_questionType",
     sumProjectId: "sum_projectId",
-    countProjectId: "count_projectId",
-    avgProjectId: "avg_projectId",
-    minProjectId: "min_projectId",
-    maxProjectId: "max_projectId",
     sumIntegrationId: "sum_integrationId",
-    countIntegrationId: "count_integrationId",
-    avgIntegrationId: "avg_integrationId",
-    minIntegrationId: "min_integrationId",
-    maxIntegrationId: "max_integrationId",
     sumFirstMessageTime: "sum_firstMessageTime",
-    countFirstMessageTime: "count_firstMessageTime",
-    avgFirstMessageTime: "avg_firstMessageTime",
-    minFirstMessageTime: "min_firstMessageTime",
-    maxFirstMessageTime: "max_firstMessageTime",
     sumLastMessageTime: "sum_lastMessageTime",
-    countLastMessageTime: "count_lastMessageTime",
-    avgLastMessageTime: "avg_lastMessageTime",
-    minLastMessageTime: "min_lastMessageTime",
-    maxLastMessageTime: "max_lastMessageTime",
     sumLastUpdated: "sum_lastUpdated",
-    countLastUpdated: "count_lastUpdated",
-    avgLastUpdated: "avg_lastUpdated",
-    minLastUpdated: "min_lastUpdated",
-    maxLastUpdated: "max_lastUpdated",
     sumHasPositiveFeedback: "sum_hasPositiveFeedback",
-    countHasPositiveFeedback: "count_hasPositiveFeedback",
-    avgHasPositiveFeedback: "avg_hasPositiveFeedback",
-    minHasPositiveFeedback: "min_hasPositiveFeedback",
-    maxHasPositiveFeedback: "max_hasPositiveFeedback",
     sumHasNegativeFeedback: "sum_hasNegativeFeedback",
-    countHasNegativeFeedback: "count_hasNegativeFeedback",
-    avgHasNegativeFeedback: "avg_hasNegativeFeedback",
-    minHasNegativeFeedback: "min_hasNegativeFeedback",
-    maxHasNegativeFeedback: "max_hasNegativeFeedback",
     sumConversationIds: "sum_conversationIds",
-    countConversationIds: "count_conversationIds",
-    avgConversationIds: "avg_conversationIds",
-    minConversationIds: "min_conversationIds",
-    maxConversationIds: "max_conversationIds",
     sumAreAIAnnotationsVerified: "sum_areAIAnnotationsVerified",
-    countAreAIAnnotationsVerified: "count_areAIAnnotationsVerified",
-    avgAreAIAnnotationsVerified: "avg_areAIAnnotationsVerified",
-    minAreAIAnnotationsVerified: "min_areAIAnnotationsVerified",
-    maxAreAIAnnotationsVerified: "max_areAIAnnotationsVerified",
     sumIsInitialQuestionAnswer: "sum_isInitialQuestionAnswer",
+    countId: "count_id",
+    countMessageIds: "count_messageIds",
+    countMessagesCount: "count_messagesCount",
+    countOrganizationId: "count_organizationId",
+    countQuestion: "count_question",
+    countQuestionLength: "count_questionLength",
+    countAnswer: "count_answer",
+    countIsOnTopic: "count_isOnTopic",
+    countIsClear: "count_isClear",
+    countIsDocumented: "count_isDocumented",
+    countIsFeatureSupported: "count_isFeatureSupported",
+    countIsAnswerConfident: "count_isAnswerConfident",
+    countGapSummary: "count_gapSummary",
+    countSubject: "count_subject",
+    countCategory: "count_category",
+    countLanguages: "count_languages",
+    countFirstPartyEntities: "count_firstPartyEntities",
+    countThirdPartyEntities: "count_thirdPartyEntities",
+    countEmotion: "count_emotion",
+    countSentiment: "count_sentiment",
+    countQuestionType: "count_questionType",
+    countProjectId: "count_projectId",
+    countIntegrationId: "count_integrationId",
+    countFirstMessageTime: "count_firstMessageTime",
+    countLastMessageTime: "count_lastMessageTime",
+    countLastUpdated: "count_lastUpdated",
+    countHasPositiveFeedback: "count_hasPositiveFeedback",
+    countHasNegativeFeedback: "count_hasNegativeFeedback",
+    countConversationIds: "count_conversationIds",
+    countAreAIAnnotationsVerified: "count_areAIAnnotationsVerified",
     countIsInitialQuestionAnswer: "count_isInitialQuestionAnswer",
+    avgId: "avg_id",
+    avgMessageIds: "avg_messageIds",
+    avgMessagesCount: "avg_messagesCount",
+    avgOrganizationId: "avg_organizationId",
+    avgQuestion: "avg_question",
+    avgQuestionLength: "avg_questionLength",
+    avgAnswer: "avg_answer",
+    avgIsOnTopic: "avg_isOnTopic",
+    avgIsClear: "avg_isClear",
+    avgIsDocumented: "avg_isDocumented",
+    avgIsFeatureSupported: "avg_isFeatureSupported",
+    avgIsAnswerConfident: "avg_isAnswerConfident",
+    avgGapSummary: "avg_gapSummary",
+    avgSubject: "avg_subject",
+    avgCategory: "avg_category",
+    avgLanguages: "avg_languages",
+    avgFirstPartyEntities: "avg_firstPartyEntities",
+    avgThirdPartyEntities: "avg_thirdPartyEntities",
+    avgEmotion: "avg_emotion",
+    avgSentiment: "avg_sentiment",
+    avgQuestionType: "avg_questionType",
+    avgProjectId: "avg_projectId",
+    avgIntegrationId: "avg_integrationId",
+    avgFirstMessageTime: "avg_firstMessageTime",
+    avgLastMessageTime: "avg_lastMessageTime",
+    avgLastUpdated: "avg_lastUpdated",
+    avgHasPositiveFeedback: "avg_hasPositiveFeedback",
+    avgHasNegativeFeedback: "avg_hasNegativeFeedback",
+    avgConversationIds: "avg_conversationIds",
+    avgAreAIAnnotationsVerified: "avg_areAIAnnotationsVerified",
     avgIsInitialQuestionAnswer: "avg_isInitialQuestionAnswer",
+    minId: "min_id",
+    minMessageIds: "min_messageIds",
+    minMessagesCount: "min_messagesCount",
+    minOrganizationId: "min_organizationId",
+    minQuestion: "min_question",
+    minQuestionLength: "min_questionLength",
+    minAnswer: "min_answer",
+    minIsOnTopic: "min_isOnTopic",
+    minIsClear: "min_isClear",
+    minIsDocumented: "min_isDocumented",
+    minIsFeatureSupported: "min_isFeatureSupported",
+    minIsAnswerConfident: "min_isAnswerConfident",
+    minGapSummary: "min_gapSummary",
+    minSubject: "min_subject",
+    minCategory: "min_category",
+    minLanguages: "min_languages",
+    minFirstPartyEntities: "min_firstPartyEntities",
+    minThirdPartyEntities: "min_thirdPartyEntities",
+    minEmotion: "min_emotion",
+    minSentiment: "min_sentiment",
+    minQuestionType: "min_questionType",
+    minProjectId: "min_projectId",
+    minIntegrationId: "min_integrationId",
+    minFirstMessageTime: "min_firstMessageTime",
+    minLastMessageTime: "min_lastMessageTime",
+    minLastUpdated: "min_lastUpdated",
+    minHasPositiveFeedback: "min_hasPositiveFeedback",
+    minHasNegativeFeedback: "min_hasNegativeFeedback",
+    minConversationIds: "min_conversationIds",
+    minAreAIAnnotationsVerified: "min_areAIAnnotationsVerified",
     minIsInitialQuestionAnswer: "min_isInitialQuestionAnswer",
+    maxId: "max_id",
+    maxMessageIds: "max_messageIds",
+    maxMessagesCount: "max_messagesCount",
+    maxOrganizationId: "max_organizationId",
+    maxQuestion: "max_question",
+    maxQuestionLength: "max_questionLength",
+    maxAnswer: "max_answer",
+    maxIsOnTopic: "max_isOnTopic",
+    maxIsClear: "max_isClear",
+    maxIsDocumented: "max_isDocumented",
+    maxIsFeatureSupported: "max_isFeatureSupported",
+    maxIsAnswerConfident: "max_isAnswerConfident",
+    maxGapSummary: "max_gapSummary",
+    maxSubject: "max_subject",
+    maxCategory: "max_category",
+    maxLanguages: "max_languages",
+    maxFirstPartyEntities: "max_firstPartyEntities",
+    maxThirdPartyEntities: "max_thirdPartyEntities",
+    maxEmotion: "max_emotion",
+    maxSentiment: "max_sentiment",
+    maxQuestionType: "max_questionType",
+    maxProjectId: "max_projectId",
+    maxIntegrationId: "max_integrationId",
+    maxFirstMessageTime: "max_firstMessageTime",
+    maxLastMessageTime: "max_lastMessageTime",
+    maxLastUpdated: "max_lastUpdated",
+    maxHasPositiveFeedback: "max_hasPositiveFeedback",
+    maxHasNegativeFeedback: "max_hasNegativeFeedback",
+    maxConversationIds: "max_conversationIds",
+    maxAreAIAnnotationsVerified: "max_areAIAnnotationsVerified",
     maxIsInitialQuestionAnswer: "max_isInitialQuestionAnswer",
   });
 });
@@ -2015,18 +2013,14 @@ export const QuerySemanticThreadsData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  totalCount: z.number(),
   result: z.array(z.lazy(() => SemanticThreadResultItem$inboundSchema)),
-  total: z.number(),
-  pageSize: z.number(),
-  count: z.number(),
 });
 
 /** @internal */
 export type QuerySemanticThreadsData$Outbound = {
+  totalCount: number;
   result: Array<SemanticThreadResultItem$Outbound>;
-  total: number;
-  pageSize: number;
-  count: number;
 };
 
 /** @internal */
@@ -2035,10 +2029,8 @@ export const QuerySemanticThreadsData$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   QuerySemanticThreadsData
 > = z.object({
+  totalCount: z.number(),
   result: z.array(z.lazy(() => SemanticThreadResultItem$outboundSchema)),
-  total: z.number(),
-  pageSize: z.number(),
-  count: z.number(),
 });
 
 /**

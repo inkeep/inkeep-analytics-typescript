@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
 export function queryQuerySemanticThreads(
   client: InkeepAnalyticsCore,
   security: operations.QuerySemanticThreadsSecurity,
-  request: components.QuerySemanticThreadsParamsSchema,
+  request: components.QuerySemanticThreadsParams,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -61,7 +61,7 @@ export function queryQuerySemanticThreads(
 async function $do(
   client: InkeepAnalyticsCore,
   security: operations.QuerySemanticThreadsSecurity,
-  request: components.QuerySemanticThreadsParamsSchema,
+  request: components.QuerySemanticThreadsParams,
   options?: RequestOptions,
 ): Promise<
   [
@@ -86,7 +86,7 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      components.QuerySemanticThreadsParamsSchema$outboundSchema.parse(value),
+      components.QuerySemanticThreadsParams$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {

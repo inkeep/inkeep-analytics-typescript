@@ -10,6 +10,7 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { resolveSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
+import * as components from "../models/components/index.js";
 import { APIError } from "../models/errors/apierror.js";
 import {
   ConnectionError,
@@ -30,7 +31,7 @@ import { Result } from "../types/fp.js";
 export function queryConversations(
   client: InkeepAnalyticsCore,
   security: operations.QueryConversationsSecurity,
-  request: operations.QueryConversationsRequestBody,
+  request: components.QueryConversationsParams,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -60,7 +61,7 @@ export function queryConversations(
 async function $do(
   client: InkeepAnalyticsCore,
   security: operations.QueryConversationsSecurity,
-  request: operations.QueryConversationsRequestBody,
+  request: components.QueryConversationsParams,
   options?: RequestOptions,
 ): Promise<
   [
@@ -84,8 +85,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) =>
-      operations.QueryConversationsRequestBody$outboundSchema.parse(value),
+    (value) => components.QueryConversationsParams$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {

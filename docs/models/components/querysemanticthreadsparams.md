@@ -1,0 +1,21 @@
+# QuerySemanticThreadsParams
+
+## Example Usage
+
+```typescript
+import { QuerySemanticThreadsParams } from "@inkeep/inkeep-analytics/models/components";
+
+let value: QuerySemanticThreadsParams = {
+  notes: "Count of chat sessions with documentation gaps by integration",
+};
+```
+
+## Fields
+
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            | Example                                                                                |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `select`                                                                               | *components.SemanticThreadSelection*[]                                                 | :heavy_minus_sign:                                                                     | N/A                                                                                    |                                                                                        |
+| `groupBy`                                                                              | [components.SemanticThreadGroupBy](../../models/components/semanticthreadgroupby.md)[] | :heavy_minus_sign:                                                                     | N/A                                                                                    |                                                                                        |
+| `where`                                                                                | *components.SemanticThreadFilter*                                                      | :heavy_minus_sign:                                                                     | N/A                                                                                    |                                                                                        |
+| `orderBy`                                                                              | [components.SemanticThreadOrderBy](../../models/components/semanticthreadorderby.md)[] | :heavy_minus_sign:                                                                     | N/A                                                                                    |                                                                                        |
+| `notes`                                                                                | *string*                                                                               | :heavy_minus_sign:                                                                     | Notes are not persisted, but may be useful for your debugging purposes                 | Count of chat sessions with documentation gaps by integration                          |

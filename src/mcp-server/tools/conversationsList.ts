@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$conversationsList: ToolDefinition<typeof args> = {
-  name: "conversations_list",
+  name: "conversations-list",
   description: `Get All Conversations`,
   args,
   tool: async (client, args, ctx) => {

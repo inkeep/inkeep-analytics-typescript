@@ -7,20 +7,28 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  And,
-  And$inboundSchema,
-  And$Outbound,
-  And$outboundSchema,
-} from "./and.js";
+  SemanticThreadFilterAND,
+  SemanticThreadFilterAND$inboundSchema,
+  SemanticThreadFilterAND$Outbound,
+  SemanticThreadFilterAND$outboundSchema,
+} from "./semanticthreadfilterand.js";
 import {
-  Conditiion,
-  Conditiion$inboundSchema,
-  Conditiion$Outbound,
-  Conditiion$outboundSchema,
-} from "./conditiion.js";
-import { Or, Or$inboundSchema, Or$Outbound, Or$outboundSchema } from "./or.js";
+  SemanticThreadFilterCondition,
+  SemanticThreadFilterCondition$inboundSchema,
+  SemanticThreadFilterCondition$Outbound,
+  SemanticThreadFilterCondition$outboundSchema,
+} from "./semanticthreadfiltercondition.js";
+import {
+  SemanticThreadFilterOR,
+  SemanticThreadFilterOR$inboundSchema,
+  SemanticThreadFilterOR$Outbound,
+  SemanticThreadFilterOR$outboundSchema,
+} from "./semanticthreadfilteror.js";
 
-export type SemanticThreadFilter = Conditiion | And | Or;
+export type SemanticThreadFilter =
+  | SemanticThreadFilterCondition
+  | SemanticThreadFilterAND
+  | SemanticThreadFilterOR;
 
 /** @internal */
 export const SemanticThreadFilter$inboundSchema: z.ZodType<
@@ -28,16 +36,16 @@ export const SemanticThreadFilter$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  Conditiion$inboundSchema,
-  z.lazy(() => And$inboundSchema),
-  z.lazy(() => Or$inboundSchema),
+  SemanticThreadFilterCondition$inboundSchema,
+  z.lazy(() => SemanticThreadFilterAND$inboundSchema),
+  z.lazy(() => SemanticThreadFilterOR$inboundSchema),
 ]);
 
 /** @internal */
 export type SemanticThreadFilter$Outbound =
-  | Conditiion$Outbound
-  | And$Outbound
-  | Or$Outbound;
+  | SemanticThreadFilterCondition$Outbound
+  | SemanticThreadFilterAND$Outbound
+  | SemanticThreadFilterOR$Outbound;
 
 /** @internal */
 export const SemanticThreadFilter$outboundSchema: z.ZodType<
@@ -45,9 +53,9 @@ export const SemanticThreadFilter$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SemanticThreadFilter
 > = z.union([
-  Conditiion$outboundSchema,
-  z.lazy(() => And$outboundSchema),
-  z.lazy(() => Or$outboundSchema),
+  SemanticThreadFilterCondition$outboundSchema,
+  z.lazy(() => SemanticThreadFilterAND$outboundSchema),
+  z.lazy(() => SemanticThreadFilterOR$outboundSchema),
 ]);
 
 /**

@@ -6,7 +6,7 @@ import * as z from "zod";
 import { ClosedEnum } from "../../types/enums.js";
 
 /**
- * Available Select Operators
+ * Available operators for filtering data
  */
 export const FilterOperator = {
   Eq: "eq",
@@ -20,7 +20,7 @@ export const FilterOperator = {
   ArrayContains: "arrayContains",
 } as const;
 /**
- * Available Select Operators
+ * Available operators for filtering data
  */
 export type FilterOperator = ClosedEnum<typeof FilterOperator>;
 

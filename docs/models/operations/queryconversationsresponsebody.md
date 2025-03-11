@@ -1,6 +1,6 @@
 # QueryConversationsResponseBody
 
-Query results
+Query Conversations Results
 
 ## Example Usage
 
@@ -11,11 +11,19 @@ let value: QueryConversationsResponseBody = {
   status: "ok",
   data: {
     result: [
-      {},
+      {
+        id: "<id>",
+        organizationId: "<id>",
+        projectId: "<id>",
+        integrationId: "<id>",
+        firstMessageTime: "<value>",
+        userMessageCount: 1369,
+        type: "support_copilot",
+      },
     ],
-    total: 3381.59,
-    pageSize: 9615.71,
-    count: 2317.01,
+    total: 1898.48,
+    pageSize: 5113.19,
+    count: 2243.17,
   },
 };
 ```

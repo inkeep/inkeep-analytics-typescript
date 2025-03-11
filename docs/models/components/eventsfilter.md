@@ -3,30 +3,30 @@
 
 ## Supported Types
 
-### `components.EventsFilter1`
+### `components.EventsFilterCondition`
 
 ```typescript
-const value: components.EventsFilter1 = {
+const value: components.EventsFilterCondition = {
   condition: {
-    field: "type",
-    operator: "eq",
-    value: "<value>",
+    field: "conversationId",
+    operator: "gte",
+    value: 8310.49,
   },
 };
 ```
 
-### `components.EventsFilter2`
+### `components.EventsFilterAND`
 
 ```typescript
-const value: components.EventsFilter2 = {
+const value: components.EventsFilterAND = {
   and: [],
 };
 ```
 
-### `components.EventsFilter3`
+### `components.EventsFilterOR`
 
 ```typescript
-const value: components.EventsFilter3 = {
+const value: components.EventsFilterOR = {
   or: [],
 };
 ```

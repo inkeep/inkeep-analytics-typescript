@@ -1,17 +1,19 @@
-# ConversationsFilterOr
+# ConversationsFilterOR
 
+ConversationsFilter OR operator
 
-## Supported Types
-
-### `components.ConversationsFilter`
+## Example Usage
 
 ```typescript
-const value: components.ConversationsFilter = {
-  condition: {
-    field: "id",
-    operator: "notIn",
-    value: "<value>",
-  },
+import { ConversationsFilterOR } from "@inkeep/inkeep-analytics/models/components";
+
+let value: ConversationsFilterOR = {
+  or: [],
 };
 ```
 
+## Fields
+
+| Field                            | Type                             | Required                         | Description                      |
+| -------------------------------- | -------------------------------- | -------------------------------- | -------------------------------- |
+| `or`                             | *components.Or*[]                | :heavy_check_mark:               | ConversationsFilter OR condition |
