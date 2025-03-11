@@ -5,7 +5,7 @@
 ```typescript
 import { SemanticThreadAggregationSelectionAggregation } from "@inkeep/inkeep-analytics/models/components";
 
-let value: SemanticThreadAggregationSelectionAggregation = "max";
+let value: SemanticThreadAggregationSelectionAggregation = "count";
 ```
 
 ## Values

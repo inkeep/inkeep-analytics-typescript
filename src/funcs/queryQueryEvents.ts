@@ -35,7 +35,7 @@ export function queryQueryEvents(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.QueryEventsResponseBody,
+    components.QueryEventsResponseBody,
     | errors.BadRequest
     | errors.Unauthorized
     | errors.Forbidden
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      operations.QueryEventsResponseBody,
+      components.QueryEventsResponseBody,
       | errors.BadRequest
       | errors.Unauthorized
       | errors.Forbidden
@@ -172,7 +172,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.QueryEventsResponseBody,
+    components.QueryEventsResponseBody,
     | errors.BadRequest
     | errors.Unauthorized
     | errors.Forbidden
@@ -186,7 +186,7 @@ async function $do(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.QueryEventsResponseBody$inboundSchema),
+    M.json(200, components.QueryEventsResponseBody$inboundSchema),
     M.jsonErr(400, errors.BadRequest$inboundSchema, {
       ctype: "application/problem+json",
     }),

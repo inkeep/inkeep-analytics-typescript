@@ -8,8 +8,10 @@ import { SemanticThreadFilterCondition } from "@inkeep/inkeep-analytics/models/c
 let value: SemanticThreadFilterCondition = {
   condition: {
     field: "areAIAnnotationsVerified",
-    operator: "in",
-    value: 9037.2,
+    operator: "gt",
+    value: [
+      "<value>",
+    ],
   },
 };
 ```

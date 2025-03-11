@@ -8,9 +8,9 @@
 ```typescript
 const value: components.SemanticThreadFilterCondition = {
   condition: {
-    field: "gapSummary",
-    operator: "lte",
-    value: "<value>",
+    field: "emotion",
+    operator: "eq",
+    value: false,
   },
 };
 ```

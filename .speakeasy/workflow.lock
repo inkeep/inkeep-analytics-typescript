@@ -1,21 +1,21 @@
-speakeasyVersion: 1.516.0
+speakeasyVersion: 1.517.0
 sources:
     Inkeep Analytics API:
         sourceNamespace: inkeep-analytics-api
-        sourceRevisionDigest: sha256:9bc8389396a8ee7eb78f6a0412f8f190c7b7285c76fc014fcee6e671b005d66c
-        sourceBlobDigest: sha256:36f1f25683cd368555be2ee7570827858ac77b0d32d67358720b5a967459551d
+        sourceRevisionDigest: sha256:4b79dfb9a2025f4001cd6cb1b9af97d0eeb2236adc0692f1149388ca61d84e92
+        sourceBlobDigest: sha256:e87f57d51771f5245dee11a35f2b5205e30999cb3e7df1337f910f5cae4b601f
         tags:
             - latest
-            - speakeasy-sdk-regen-1741721496
+            - speakeasy-sdk-regen-1741727828
             - 0.1.1
 targets:
     inkeep-analytics:
         source: Inkeep Analytics API
         sourceNamespace: inkeep-analytics-api
-        sourceRevisionDigest: sha256:9bc8389396a8ee7eb78f6a0412f8f190c7b7285c76fc014fcee6e671b005d66c
-        sourceBlobDigest: sha256:36f1f25683cd368555be2ee7570827858ac77b0d32d67358720b5a967459551d
+        sourceRevisionDigest: sha256:4b79dfb9a2025f4001cd6cb1b9af97d0eeb2236adc0692f1149388ca61d84e92
+        sourceBlobDigest: sha256:e87f57d51771f5245dee11a35f2b5205e30999cb3e7df1337f910f5cae4b601f
         codeSamplesNamespace: inkeep-analytics-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:bbef70409f94f84b1262bf35dfa5344dc43284c8ed30f7d65a6419990ac750b5
+        codeSamplesRevisionDigest: sha256:cc1666b61733f01f6bedb218306872f44022ff32a35a0d2c91c86c989c95ad02
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

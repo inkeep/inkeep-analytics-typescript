@@ -5,7 +5,7 @@
 ```typescript
 import { SemanticThreadOrderByField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: SemanticThreadOrderByField = "messageIds_day";
+let value: SemanticThreadOrderByField = "max_isDocumented";
 ```
 
 ## Values

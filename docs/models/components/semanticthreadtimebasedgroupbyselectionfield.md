@@ -5,7 +5,7 @@
 ```typescript
 import { SemanticThreadTimeBasedGroupBySelectionField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: SemanticThreadTimeBasedGroupBySelectionField = "isClear";
+let value: SemanticThreadTimeBasedGroupBySelectionField = "category";
 ```
 
 ## Values

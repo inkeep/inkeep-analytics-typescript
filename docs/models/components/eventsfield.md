@@ -7,7 +7,7 @@ Available fields for Events
 ```typescript
 import { EventsField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: EventsField = "messageId";
+let value: EventsField = "organizationId";
 ```
 
 ## Values

@@ -35,7 +35,7 @@ export function queryConversations(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.QueryConversationsResponseBody,
+    components.QueryConversationsResponseBody,
     | errors.BadRequest
     | errors.Unauthorized
     | errors.Forbidden
@@ -66,7 +66,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      operations.QueryConversationsResponseBody,
+      components.QueryConversationsResponseBody,
       | errors.BadRequest
       | errors.Unauthorized
       | errors.Forbidden
@@ -173,7 +173,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.QueryConversationsResponseBody,
+    components.QueryConversationsResponseBody,
     | errors.BadRequest
     | errors.Unauthorized
     | errors.Forbidden
@@ -187,7 +187,7 @@ async function $do(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, operations.QueryConversationsResponseBody$inboundSchema),
+    M.json(200, components.QueryConversationsResponseBody$inboundSchema),
     M.jsonErr(400, errors.BadRequest$inboundSchema, {
       ctype: "application/problem+json",
     }),

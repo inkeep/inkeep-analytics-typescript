@@ -7,7 +7,7 @@ import { SemanticThreadTimeBasedGroupBySelection } from "@inkeep/inkeep-analytic
 
 let value: SemanticThreadTimeBasedGroupBySelection = {
   type: "time",
-  timeUnit: "week",
+  timeUnit: "day",
 };
 ```
 

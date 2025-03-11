@@ -9,8 +9,8 @@
 const value: components.ConversationsFilterCondition = {
   condition: {
     field: "projectId",
-    operator: "arrayContains",
-    value: 318.38,
+    operator: "gte",
+    value: "<value>",
   },
 };
 ```
