@@ -10,12 +10,10 @@ import { QuerySemanticThreadsResponseBody } from "@inkeep/inkeep-analytics/model
 let value: QuerySemanticThreadsResponseBody = {
   status: "ok",
   data: {
+    totalCount: 1324.87,
     result: [
       {},
     ],
-    total: 1369,
-    pageSize: 8221.18,
-    count: 1898.48,
   },
 };
 ```

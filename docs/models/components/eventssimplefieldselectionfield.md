@@ -1,77 +1,15 @@
 # EventsSimpleFieldSelectionField
 
-
-## Supported Types
-
-### `components.EventsSimpleFieldSelectionField1`
+## Example Usage
 
 ```typescript
-const value: components.EventsSimpleFieldSelectionField1 = "eventType";
+import { EventsSimpleFieldSelectionField } from "@inkeep/inkeep-analytics/models/components";
+
+let value: EventsSimpleFieldSelectionField = "eventType";
 ```
 
-### `components.EventsSimpleFieldSelectionField2`
+## Values
 
 ```typescript
-const value: components.EventsSimpleFieldSelectionField2 = "id";
+"id" | "organizationId" | "messageId" | "conversationId" | "createdAt" | "projectId" | "integrationId" | "eventType" | "type" | "searchQuery" | "properties" | "userProperties"
 ```
-
-### `components.EventsSimpleFieldSelectionField3`
-
-```typescript
-const value: components.EventsSimpleFieldSelectionField3 = "type";
-```
-
-### `components.EventsSimpleFieldSelectionField4`
-
-```typescript
-const value: components.EventsSimpleFieldSelectionField4 = "createdAt";
-```
-
-### `components.EventsSimpleFieldSelectionField5`
-
-```typescript
-const value: components.EventsSimpleFieldSelectionField5 = "organizationId";
-```
-
-### `components.EventsSimpleFieldSelectionField6`
-
-```typescript
-const value: components.EventsSimpleFieldSelectionField6 = "projectId";
-```
-
-### `components.EventsSimpleFieldSelectionField7`
-
-```typescript
-const value: components.EventsSimpleFieldSelectionField7 = "integrationId";
-```
-
-### `components.EventsSimpleFieldSelectionField8`
-
-```typescript
-const value: components.EventsSimpleFieldSelectionField8 = "properties";
-```
-
-### `components.EventsSimpleFieldSelectionField9`
-
-```typescript
-const value: components.EventsSimpleFieldSelectionField9 = "userProperties";
-```
-
-### `components.EventsSimpleFieldSelectionField10`
-
-```typescript
-const value: components.EventsSimpleFieldSelectionField10 = "messageId";
-```
-
-### `components.EventsSimpleFieldSelectionField11`
-
-```typescript
-const value: components.EventsSimpleFieldSelectionField11 = "conversationId";
-```
-
-### `components.EventsSimpleFieldSelectionField12`
-
-```typescript
-const value: components.EventsSimpleFieldSelectionField12 = "searchQuery";
-```
-

@@ -7,6 +7,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  TimeUnit,
+  TimeUnit$inboundSchema,
+  TimeUnit$outboundSchema,
+} from "./timeunit.js";
 
 export const ConversationsTimeBasedGroupBySelectionType = {
   Time: "time",
@@ -15,62 +20,26 @@ export type ConversationsTimeBasedGroupBySelectionType = ClosedEnum<
   typeof ConversationsTimeBasedGroupBySelectionType
 >;
 
-export const TimeUnit = {
-  Hour: "hour",
-  Day: "day",
-  Week: "week",
-  Month: "month",
-} as const;
-export type TimeUnit = ClosedEnum<typeof TimeUnit>;
-
-export const Field7 = {
+export const ConversationsTimeBasedGroupBySelectionField = {
+  Id: "id",
+  OrganizationId: "organizationId",
+  ProjectId: "projectId",
+  IntegrationId: "integrationId",
+  FirstMessageTime: "firstMessageTime",
+  UserMessageCount: "userMessageCount",
   Type: "type",
 } as const;
-export type Field7 = ClosedEnum<typeof Field7>;
-
-export const Field6 = {
-  FirstMessageTime: "firstMessageTime",
-} as const;
-export type Field6 = ClosedEnum<typeof Field6>;
-
-export const Field5 = {
-  IntegrationId: "integrationId",
-} as const;
-export type Field5 = ClosedEnum<typeof Field5>;
-
-export const Field4 = {
-  ProjectId: "projectId",
-} as const;
-export type Field4 = ClosedEnum<typeof Field4>;
-
-export const Field3 = {
-  OrganizationId: "organizationId",
-} as const;
-export type Field3 = ClosedEnum<typeof Field3>;
-
-export const Field2 = {
-  UserMessageCount: "userMessageCount",
-} as const;
-export type Field2 = ClosedEnum<typeof Field2>;
-
-export const Field1 = {
-  Id: "id",
-} as const;
-export type Field1 = ClosedEnum<typeof Field1>;
-
-export type ConversationsTimeBasedGroupBySelectionField =
-  | Field1
-  | Field2
-  | Field3
-  | Field4
-  | Field5
-  | Field6
-  | Field7;
+export type ConversationsTimeBasedGroupBySelectionField = ClosedEnum<
+  typeof ConversationsTimeBasedGroupBySelectionField
+>;
 
 export type ConversationsTimeBasedGroupBySelection = {
   type: ConversationsTimeBasedGroupBySelectionType;
+  /**
+   * Valid time units for time-based operations
+   */
   timeUnit: TimeUnit;
-  field: Field1 | Field2 | Field3 | Field4 | Field5 | Field6 | Field7;
+  field?: ConversationsTimeBasedGroupBySelectionField | undefined;
 };
 
 /** @internal */
@@ -97,198 +66,14 @@ export namespace ConversationsTimeBasedGroupBySelectionType$ {
 }
 
 /** @internal */
-export const TimeUnit$inboundSchema: z.ZodNativeEnum<typeof TimeUnit> = z
-  .nativeEnum(TimeUnit);
-
-/** @internal */
-export const TimeUnit$outboundSchema: z.ZodNativeEnum<typeof TimeUnit> =
-  TimeUnit$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace TimeUnit$ {
-  /** @deprecated use `TimeUnit$inboundSchema` instead. */
-  export const inboundSchema = TimeUnit$inboundSchema;
-  /** @deprecated use `TimeUnit$outboundSchema` instead. */
-  export const outboundSchema = TimeUnit$outboundSchema;
-}
-
-/** @internal */
-export const Field7$inboundSchema: z.ZodNativeEnum<typeof Field7> = z
-  .nativeEnum(Field7);
-
-/** @internal */
-export const Field7$outboundSchema: z.ZodNativeEnum<typeof Field7> =
-  Field7$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field7$ {
-  /** @deprecated use `Field7$inboundSchema` instead. */
-  export const inboundSchema = Field7$inboundSchema;
-  /** @deprecated use `Field7$outboundSchema` instead. */
-  export const outboundSchema = Field7$outboundSchema;
-}
-
-/** @internal */
-export const Field6$inboundSchema: z.ZodNativeEnum<typeof Field6> = z
-  .nativeEnum(Field6);
-
-/** @internal */
-export const Field6$outboundSchema: z.ZodNativeEnum<typeof Field6> =
-  Field6$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field6$ {
-  /** @deprecated use `Field6$inboundSchema` instead. */
-  export const inboundSchema = Field6$inboundSchema;
-  /** @deprecated use `Field6$outboundSchema` instead. */
-  export const outboundSchema = Field6$outboundSchema;
-}
-
-/** @internal */
-export const Field5$inboundSchema: z.ZodNativeEnum<typeof Field5> = z
-  .nativeEnum(Field5);
-
-/** @internal */
-export const Field5$outboundSchema: z.ZodNativeEnum<typeof Field5> =
-  Field5$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field5$ {
-  /** @deprecated use `Field5$inboundSchema` instead. */
-  export const inboundSchema = Field5$inboundSchema;
-  /** @deprecated use `Field5$outboundSchema` instead. */
-  export const outboundSchema = Field5$outboundSchema;
-}
-
-/** @internal */
-export const Field4$inboundSchema: z.ZodNativeEnum<typeof Field4> = z
-  .nativeEnum(Field4);
-
-/** @internal */
-export const Field4$outboundSchema: z.ZodNativeEnum<typeof Field4> =
-  Field4$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field4$ {
-  /** @deprecated use `Field4$inboundSchema` instead. */
-  export const inboundSchema = Field4$inboundSchema;
-  /** @deprecated use `Field4$outboundSchema` instead. */
-  export const outboundSchema = Field4$outboundSchema;
-}
-
-/** @internal */
-export const Field3$inboundSchema: z.ZodNativeEnum<typeof Field3> = z
-  .nativeEnum(Field3);
-
-/** @internal */
-export const Field3$outboundSchema: z.ZodNativeEnum<typeof Field3> =
-  Field3$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field3$ {
-  /** @deprecated use `Field3$inboundSchema` instead. */
-  export const inboundSchema = Field3$inboundSchema;
-  /** @deprecated use `Field3$outboundSchema` instead. */
-  export const outboundSchema = Field3$outboundSchema;
-}
-
-/** @internal */
-export const Field2$inboundSchema: z.ZodNativeEnum<typeof Field2> = z
-  .nativeEnum(Field2);
-
-/** @internal */
-export const Field2$outboundSchema: z.ZodNativeEnum<typeof Field2> =
-  Field2$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field2$ {
-  /** @deprecated use `Field2$inboundSchema` instead. */
-  export const inboundSchema = Field2$inboundSchema;
-  /** @deprecated use `Field2$outboundSchema` instead. */
-  export const outboundSchema = Field2$outboundSchema;
-}
-
-/** @internal */
-export const Field1$inboundSchema: z.ZodNativeEnum<typeof Field1> = z
-  .nativeEnum(Field1);
-
-/** @internal */
-export const Field1$outboundSchema: z.ZodNativeEnum<typeof Field1> =
-  Field1$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Field1$ {
-  /** @deprecated use `Field1$inboundSchema` instead. */
-  export const inboundSchema = Field1$inboundSchema;
-  /** @deprecated use `Field1$outboundSchema` instead. */
-  export const outboundSchema = Field1$outboundSchema;
-}
-
-/** @internal */
 export const ConversationsTimeBasedGroupBySelectionField$inboundSchema:
-  z.ZodType<
-    ConversationsTimeBasedGroupBySelectionField,
-    z.ZodTypeDef,
-    unknown
-  > = z.union([
-    Field1$inboundSchema,
-    Field2$inboundSchema,
-    Field3$inboundSchema,
-    Field4$inboundSchema,
-    Field5$inboundSchema,
-    Field6$inboundSchema,
-    Field7$inboundSchema,
-  ]);
-
-/** @internal */
-export type ConversationsTimeBasedGroupBySelectionField$Outbound =
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string;
+  z.ZodNativeEnum<typeof ConversationsTimeBasedGroupBySelectionField> = z
+    .nativeEnum(ConversationsTimeBasedGroupBySelectionField);
 
 /** @internal */
 export const ConversationsTimeBasedGroupBySelectionField$outboundSchema:
-  z.ZodType<
-    ConversationsTimeBasedGroupBySelectionField$Outbound,
-    z.ZodTypeDef,
-    ConversationsTimeBasedGroupBySelectionField
-  > = z.union([
-    Field1$outboundSchema,
-    Field2$outboundSchema,
-    Field3$outboundSchema,
-    Field4$outboundSchema,
-    Field5$outboundSchema,
-    Field6$outboundSchema,
-    Field7$outboundSchema,
-  ]);
+  z.ZodNativeEnum<typeof ConversationsTimeBasedGroupBySelectionField> =
+    ConversationsTimeBasedGroupBySelectionField$inboundSchema;
 
 /**
  * @internal
@@ -301,35 +86,6 @@ export namespace ConversationsTimeBasedGroupBySelectionField$ {
   /** @deprecated use `ConversationsTimeBasedGroupBySelectionField$outboundSchema` instead. */
   export const outboundSchema =
     ConversationsTimeBasedGroupBySelectionField$outboundSchema;
-  /** @deprecated use `ConversationsTimeBasedGroupBySelectionField$Outbound` instead. */
-  export type Outbound = ConversationsTimeBasedGroupBySelectionField$Outbound;
-}
-
-export function conversationsTimeBasedGroupBySelectionFieldToJSON(
-  conversationsTimeBasedGroupBySelectionField:
-    ConversationsTimeBasedGroupBySelectionField,
-): string {
-  return JSON.stringify(
-    ConversationsTimeBasedGroupBySelectionField$outboundSchema.parse(
-      conversationsTimeBasedGroupBySelectionField,
-    ),
-  );
-}
-
-export function conversationsTimeBasedGroupBySelectionFieldFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  ConversationsTimeBasedGroupBySelectionField,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      ConversationsTimeBasedGroupBySelectionField$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'ConversationsTimeBasedGroupBySelectionField' from JSON`,
-  );
 }
 
 /** @internal */
@@ -340,22 +96,14 @@ export const ConversationsTimeBasedGroupBySelection$inboundSchema: z.ZodType<
 > = z.object({
   type: ConversationsTimeBasedGroupBySelectionType$inboundSchema,
   timeUnit: TimeUnit$inboundSchema,
-  field: z.union([
-    Field1$inboundSchema,
-    Field2$inboundSchema,
-    Field3$inboundSchema,
-    Field4$inboundSchema,
-    Field5$inboundSchema,
-    Field6$inboundSchema,
-    Field7$inboundSchema,
-  ]),
+  field: ConversationsTimeBasedGroupBySelectionField$inboundSchema.optional(),
 });
 
 /** @internal */
 export type ConversationsTimeBasedGroupBySelection$Outbound = {
   type: string;
   timeUnit: string;
-  field: string | string | string | string | string | string | string;
+  field?: string | undefined;
 };
 
 /** @internal */
@@ -366,15 +114,7 @@ export const ConversationsTimeBasedGroupBySelection$outboundSchema: z.ZodType<
 > = z.object({
   type: ConversationsTimeBasedGroupBySelectionType$outboundSchema,
   timeUnit: TimeUnit$outboundSchema,
-  field: z.union([
-    Field1$outboundSchema,
-    Field2$outboundSchema,
-    Field3$outboundSchema,
-    Field4$outboundSchema,
-    Field5$outboundSchema,
-    Field6$outboundSchema,
-    Field7$outboundSchema,
-  ]),
+  field: ConversationsTimeBasedGroupBySelectionField$outboundSchema.optional(),
 });
 
 /**

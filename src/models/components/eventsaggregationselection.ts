@@ -26,111 +26,28 @@ export type EventsAggregationSelectionAggregation = ClosedEnum<
   typeof EventsAggregationSelectionAggregation
 >;
 
-export const Twelve = {
-  SearchQuery: "searchQuery",
-} as const;
-export type Twelve = ClosedEnum<typeof Twelve>;
-
-export const Eleven = {
-  ConversationId: "conversationId",
-} as const;
-export type Eleven = ClosedEnum<typeof Eleven>;
-
-export const Ten = {
+export const EventsAggregationSelectionField = {
+  Id: "id",
+  OrganizationId: "organizationId",
   MessageId: "messageId",
-} as const;
-export type Ten = ClosedEnum<typeof Ten>;
-
-export const Nine = {
+  ConversationId: "conversationId",
+  CreatedAt: "createdAt",
+  ProjectId: "projectId",
+  IntegrationId: "integrationId",
+  EventType: "eventType",
+  Type: "type",
+  SearchQuery: "searchQuery",
+  Properties: "properties",
   UserProperties: "userProperties",
 } as const;
-export type Nine = ClosedEnum<typeof Nine>;
-
-export const Eight = {
-  Properties: "properties",
-} as const;
-export type Eight = ClosedEnum<typeof Eight>;
-
-export const EventsAggregationSelectionField7 = {
-  IntegrationId: "integrationId",
-} as const;
-export type EventsAggregationSelectionField7 = ClosedEnum<
-  typeof EventsAggregationSelectionField7
+export type EventsAggregationSelectionField = ClosedEnum<
+  typeof EventsAggregationSelectionField
 >;
-
-export const EventsAggregationSelectionField6 = {
-  ProjectId: "projectId",
-} as const;
-export type EventsAggregationSelectionField6 = ClosedEnum<
-  typeof EventsAggregationSelectionField6
->;
-
-export const EventsAggregationSelectionField5 = {
-  OrganizationId: "organizationId",
-} as const;
-export type EventsAggregationSelectionField5 = ClosedEnum<
-  typeof EventsAggregationSelectionField5
->;
-
-export const EventsAggregationSelectionField4 = {
-  CreatedAt: "createdAt",
-} as const;
-export type EventsAggregationSelectionField4 = ClosedEnum<
-  typeof EventsAggregationSelectionField4
->;
-
-export const EventsAggregationSelectionField3 = {
-  Type: "type",
-} as const;
-export type EventsAggregationSelectionField3 = ClosedEnum<
-  typeof EventsAggregationSelectionField3
->;
-
-export const EventsAggregationSelectionField2 = {
-  Id: "id",
-} as const;
-export type EventsAggregationSelectionField2 = ClosedEnum<
-  typeof EventsAggregationSelectionField2
->;
-
-export const EventsAggregationSelectionField1 = {
-  EventType: "eventType",
-} as const;
-export type EventsAggregationSelectionField1 = ClosedEnum<
-  typeof EventsAggregationSelectionField1
->;
-
-export type EventsAggregationSelectionField =
-  | EventsAggregationSelectionField1
-  | EventsAggregationSelectionField2
-  | EventsAggregationSelectionField3
-  | EventsAggregationSelectionField4
-  | EventsAggregationSelectionField5
-  | EventsAggregationSelectionField6
-  | EventsAggregationSelectionField7
-  | Eight
-  | Nine
-  | Ten
-  | Eleven
-  | Twelve;
 
 export type EventsAggregationSelection = {
   type: EventsAggregationSelectionType;
   aggregation: EventsAggregationSelectionAggregation;
-  field?:
-    | EventsAggregationSelectionField1
-    | EventsAggregationSelectionField2
-    | EventsAggregationSelectionField3
-    | EventsAggregationSelectionField4
-    | EventsAggregationSelectionField5
-    | EventsAggregationSelectionField6
-    | EventsAggregationSelectionField7
-    | Eight
-    | Nine
-    | Ten
-    | Eleven
-    | Twelve
-    | undefined;
+  field?: EventsAggregationSelectionField | undefined;
 };
 
 /** @internal */
@@ -179,302 +96,14 @@ export namespace EventsAggregationSelectionAggregation$ {
 }
 
 /** @internal */
-export const Twelve$inboundSchema: z.ZodNativeEnum<typeof Twelve> = z
-  .nativeEnum(Twelve);
+export const EventsAggregationSelectionField$inboundSchema: z.ZodNativeEnum<
+  typeof EventsAggregationSelectionField
+> = z.nativeEnum(EventsAggregationSelectionField);
 
 /** @internal */
-export const Twelve$outboundSchema: z.ZodNativeEnum<typeof Twelve> =
-  Twelve$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Twelve$ {
-  /** @deprecated use `Twelve$inboundSchema` instead. */
-  export const inboundSchema = Twelve$inboundSchema;
-  /** @deprecated use `Twelve$outboundSchema` instead. */
-  export const outboundSchema = Twelve$outboundSchema;
-}
-
-/** @internal */
-export const Eleven$inboundSchema: z.ZodNativeEnum<typeof Eleven> = z
-  .nativeEnum(Eleven);
-
-/** @internal */
-export const Eleven$outboundSchema: z.ZodNativeEnum<typeof Eleven> =
-  Eleven$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Eleven$ {
-  /** @deprecated use `Eleven$inboundSchema` instead. */
-  export const inboundSchema = Eleven$inboundSchema;
-  /** @deprecated use `Eleven$outboundSchema` instead. */
-  export const outboundSchema = Eleven$outboundSchema;
-}
-
-/** @internal */
-export const Ten$inboundSchema: z.ZodNativeEnum<typeof Ten> = z.nativeEnum(Ten);
-
-/** @internal */
-export const Ten$outboundSchema: z.ZodNativeEnum<typeof Ten> =
-  Ten$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Ten$ {
-  /** @deprecated use `Ten$inboundSchema` instead. */
-  export const inboundSchema = Ten$inboundSchema;
-  /** @deprecated use `Ten$outboundSchema` instead. */
-  export const outboundSchema = Ten$outboundSchema;
-}
-
-/** @internal */
-export const Nine$inboundSchema: z.ZodNativeEnum<typeof Nine> = z.nativeEnum(
-  Nine,
-);
-
-/** @internal */
-export const Nine$outboundSchema: z.ZodNativeEnum<typeof Nine> =
-  Nine$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Nine$ {
-  /** @deprecated use `Nine$inboundSchema` instead. */
-  export const inboundSchema = Nine$inboundSchema;
-  /** @deprecated use `Nine$outboundSchema` instead. */
-  export const outboundSchema = Nine$outboundSchema;
-}
-
-/** @internal */
-export const Eight$inboundSchema: z.ZodNativeEnum<typeof Eight> = z.nativeEnum(
-  Eight,
-);
-
-/** @internal */
-export const Eight$outboundSchema: z.ZodNativeEnum<typeof Eight> =
-  Eight$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Eight$ {
-  /** @deprecated use `Eight$inboundSchema` instead. */
-  export const inboundSchema = Eight$inboundSchema;
-  /** @deprecated use `Eight$outboundSchema` instead. */
-  export const outboundSchema = Eight$outboundSchema;
-}
-
-/** @internal */
-export const EventsAggregationSelectionField7$inboundSchema: z.ZodNativeEnum<
-  typeof EventsAggregationSelectionField7
-> = z.nativeEnum(EventsAggregationSelectionField7);
-
-/** @internal */
-export const EventsAggregationSelectionField7$outboundSchema: z.ZodNativeEnum<
-  typeof EventsAggregationSelectionField7
-> = EventsAggregationSelectionField7$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsAggregationSelectionField7$ {
-  /** @deprecated use `EventsAggregationSelectionField7$inboundSchema` instead. */
-  export const inboundSchema = EventsAggregationSelectionField7$inboundSchema;
-  /** @deprecated use `EventsAggregationSelectionField7$outboundSchema` instead. */
-  export const outboundSchema = EventsAggregationSelectionField7$outboundSchema;
-}
-
-/** @internal */
-export const EventsAggregationSelectionField6$inboundSchema: z.ZodNativeEnum<
-  typeof EventsAggregationSelectionField6
-> = z.nativeEnum(EventsAggregationSelectionField6);
-
-/** @internal */
-export const EventsAggregationSelectionField6$outboundSchema: z.ZodNativeEnum<
-  typeof EventsAggregationSelectionField6
-> = EventsAggregationSelectionField6$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsAggregationSelectionField6$ {
-  /** @deprecated use `EventsAggregationSelectionField6$inboundSchema` instead. */
-  export const inboundSchema = EventsAggregationSelectionField6$inboundSchema;
-  /** @deprecated use `EventsAggregationSelectionField6$outboundSchema` instead. */
-  export const outboundSchema = EventsAggregationSelectionField6$outboundSchema;
-}
-
-/** @internal */
-export const EventsAggregationSelectionField5$inboundSchema: z.ZodNativeEnum<
-  typeof EventsAggregationSelectionField5
-> = z.nativeEnum(EventsAggregationSelectionField5);
-
-/** @internal */
-export const EventsAggregationSelectionField5$outboundSchema: z.ZodNativeEnum<
-  typeof EventsAggregationSelectionField5
-> = EventsAggregationSelectionField5$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsAggregationSelectionField5$ {
-  /** @deprecated use `EventsAggregationSelectionField5$inboundSchema` instead. */
-  export const inboundSchema = EventsAggregationSelectionField5$inboundSchema;
-  /** @deprecated use `EventsAggregationSelectionField5$outboundSchema` instead. */
-  export const outboundSchema = EventsAggregationSelectionField5$outboundSchema;
-}
-
-/** @internal */
-export const EventsAggregationSelectionField4$inboundSchema: z.ZodNativeEnum<
-  typeof EventsAggregationSelectionField4
-> = z.nativeEnum(EventsAggregationSelectionField4);
-
-/** @internal */
-export const EventsAggregationSelectionField4$outboundSchema: z.ZodNativeEnum<
-  typeof EventsAggregationSelectionField4
-> = EventsAggregationSelectionField4$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsAggregationSelectionField4$ {
-  /** @deprecated use `EventsAggregationSelectionField4$inboundSchema` instead. */
-  export const inboundSchema = EventsAggregationSelectionField4$inboundSchema;
-  /** @deprecated use `EventsAggregationSelectionField4$outboundSchema` instead. */
-  export const outboundSchema = EventsAggregationSelectionField4$outboundSchema;
-}
-
-/** @internal */
-export const EventsAggregationSelectionField3$inboundSchema: z.ZodNativeEnum<
-  typeof EventsAggregationSelectionField3
-> = z.nativeEnum(EventsAggregationSelectionField3);
-
-/** @internal */
-export const EventsAggregationSelectionField3$outboundSchema: z.ZodNativeEnum<
-  typeof EventsAggregationSelectionField3
-> = EventsAggregationSelectionField3$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsAggregationSelectionField3$ {
-  /** @deprecated use `EventsAggregationSelectionField3$inboundSchema` instead. */
-  export const inboundSchema = EventsAggregationSelectionField3$inboundSchema;
-  /** @deprecated use `EventsAggregationSelectionField3$outboundSchema` instead. */
-  export const outboundSchema = EventsAggregationSelectionField3$outboundSchema;
-}
-
-/** @internal */
-export const EventsAggregationSelectionField2$inboundSchema: z.ZodNativeEnum<
-  typeof EventsAggregationSelectionField2
-> = z.nativeEnum(EventsAggregationSelectionField2);
-
-/** @internal */
-export const EventsAggregationSelectionField2$outboundSchema: z.ZodNativeEnum<
-  typeof EventsAggregationSelectionField2
-> = EventsAggregationSelectionField2$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsAggregationSelectionField2$ {
-  /** @deprecated use `EventsAggregationSelectionField2$inboundSchema` instead. */
-  export const inboundSchema = EventsAggregationSelectionField2$inboundSchema;
-  /** @deprecated use `EventsAggregationSelectionField2$outboundSchema` instead. */
-  export const outboundSchema = EventsAggregationSelectionField2$outboundSchema;
-}
-
-/** @internal */
-export const EventsAggregationSelectionField1$inboundSchema: z.ZodNativeEnum<
-  typeof EventsAggregationSelectionField1
-> = z.nativeEnum(EventsAggregationSelectionField1);
-
-/** @internal */
-export const EventsAggregationSelectionField1$outboundSchema: z.ZodNativeEnum<
-  typeof EventsAggregationSelectionField1
-> = EventsAggregationSelectionField1$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsAggregationSelectionField1$ {
-  /** @deprecated use `EventsAggregationSelectionField1$inboundSchema` instead. */
-  export const inboundSchema = EventsAggregationSelectionField1$inboundSchema;
-  /** @deprecated use `EventsAggregationSelectionField1$outboundSchema` instead. */
-  export const outboundSchema = EventsAggregationSelectionField1$outboundSchema;
-}
-
-/** @internal */
-export const EventsAggregationSelectionField$inboundSchema: z.ZodType<
-  EventsAggregationSelectionField,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  EventsAggregationSelectionField1$inboundSchema,
-  EventsAggregationSelectionField2$inboundSchema,
-  EventsAggregationSelectionField3$inboundSchema,
-  EventsAggregationSelectionField4$inboundSchema,
-  EventsAggregationSelectionField5$inboundSchema,
-  EventsAggregationSelectionField6$inboundSchema,
-  EventsAggregationSelectionField7$inboundSchema,
-  Eight$inboundSchema,
-  Nine$inboundSchema,
-  Ten$inboundSchema,
-  Eleven$inboundSchema,
-  Twelve$inboundSchema,
-]);
-
-/** @internal */
-export type EventsAggregationSelectionField$Outbound =
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string
-  | string;
-
-/** @internal */
-export const EventsAggregationSelectionField$outboundSchema: z.ZodType<
-  EventsAggregationSelectionField$Outbound,
-  z.ZodTypeDef,
-  EventsAggregationSelectionField
-> = z.union([
-  EventsAggregationSelectionField1$outboundSchema,
-  EventsAggregationSelectionField2$outboundSchema,
-  EventsAggregationSelectionField3$outboundSchema,
-  EventsAggregationSelectionField4$outboundSchema,
-  EventsAggregationSelectionField5$outboundSchema,
-  EventsAggregationSelectionField6$outboundSchema,
-  EventsAggregationSelectionField7$outboundSchema,
-  Eight$outboundSchema,
-  Nine$outboundSchema,
-  Ten$outboundSchema,
-  Eleven$outboundSchema,
-  Twelve$outboundSchema,
-]);
+export const EventsAggregationSelectionField$outboundSchema: z.ZodNativeEnum<
+  typeof EventsAggregationSelectionField
+> = EventsAggregationSelectionField$inboundSchema;
 
 /**
  * @internal
@@ -485,28 +114,6 @@ export namespace EventsAggregationSelectionField$ {
   export const inboundSchema = EventsAggregationSelectionField$inboundSchema;
   /** @deprecated use `EventsAggregationSelectionField$outboundSchema` instead. */
   export const outboundSchema = EventsAggregationSelectionField$outboundSchema;
-  /** @deprecated use `EventsAggregationSelectionField$Outbound` instead. */
-  export type Outbound = EventsAggregationSelectionField$Outbound;
-}
-
-export function eventsAggregationSelectionFieldToJSON(
-  eventsAggregationSelectionField: EventsAggregationSelectionField,
-): string {
-  return JSON.stringify(
-    EventsAggregationSelectionField$outboundSchema.parse(
-      eventsAggregationSelectionField,
-    ),
-  );
-}
-
-export function eventsAggregationSelectionFieldFromJSON(
-  jsonString: string,
-): SafeParseResult<EventsAggregationSelectionField, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EventsAggregationSelectionField$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EventsAggregationSelectionField' from JSON`,
-  );
 }
 
 /** @internal */
@@ -517,40 +124,14 @@ export const EventsAggregationSelection$inboundSchema: z.ZodType<
 > = z.object({
   type: EventsAggregationSelectionType$inboundSchema,
   aggregation: EventsAggregationSelectionAggregation$inboundSchema,
-  field: z.union([
-    EventsAggregationSelectionField1$inboundSchema,
-    EventsAggregationSelectionField2$inboundSchema,
-    EventsAggregationSelectionField3$inboundSchema,
-    EventsAggregationSelectionField4$inboundSchema,
-    EventsAggregationSelectionField5$inboundSchema,
-    EventsAggregationSelectionField6$inboundSchema,
-    EventsAggregationSelectionField7$inboundSchema,
-    Eight$inboundSchema,
-    Nine$inboundSchema,
-    Ten$inboundSchema,
-    Eleven$inboundSchema,
-    Twelve$inboundSchema,
-  ]).optional(),
+  field: EventsAggregationSelectionField$inboundSchema.optional(),
 });
 
 /** @internal */
 export type EventsAggregationSelection$Outbound = {
   type: string;
   aggregation: string;
-  field?:
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | string
-    | undefined;
+  field?: string | undefined;
 };
 
 /** @internal */
@@ -561,20 +142,7 @@ export const EventsAggregationSelection$outboundSchema: z.ZodType<
 > = z.object({
   type: EventsAggregationSelectionType$outboundSchema,
   aggregation: EventsAggregationSelectionAggregation$outboundSchema,
-  field: z.union([
-    EventsAggregationSelectionField1$outboundSchema,
-    EventsAggregationSelectionField2$outboundSchema,
-    EventsAggregationSelectionField3$outboundSchema,
-    EventsAggregationSelectionField4$outboundSchema,
-    EventsAggregationSelectionField5$outboundSchema,
-    EventsAggregationSelectionField6$outboundSchema,
-    EventsAggregationSelectionField7$outboundSchema,
-    Eight$outboundSchema,
-    Nine$outboundSchema,
-    Ten$outboundSchema,
-    Eleven$outboundSchema,
-    Twelve$outboundSchema,
-  ]).optional(),
+  field: EventsAggregationSelectionField$outboundSchema.optional(),
 });
 
 /**

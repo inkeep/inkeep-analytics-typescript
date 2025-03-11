@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 63a2136d-3fa3-4a0b-a766-1ddb2460cc12
 management:
-  docChecksum: 895ebb9d8f03ab3585953a8e2b476a53
+  docChecksum: 22a2d996b5216695512980ca4088ce5e
   docVersion: 0.1.1
-  speakeasyVersion: 1.509.0
-  generationVersion: 2.539.0
-  releaseVersion: 0.2.4-alpha
-  configChecksum: a18567f526f6437a82ff91281495de89
+  speakeasyVersion: 1.516.0
+  generationVersion: 2.547.2
+  releaseVersion: 0.2.4-alpha.1
+  configChecksum: 67411fb0c83e9b0abb8594cbd3b1c06c
   repoURL: https://github.com/inkeep/inkeep-analytics-typescript.git
   installationURL: https://github.com/inkeep/inkeep-analytics-typescript
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.21.3
+    core: 3.21.4
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     downloadStreams: 0.1.1
@@ -25,7 +25,7 @@ features:
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.4
     groups: 2.81.2
-    mcpServer: 0.4.1
+    mcpServer: 0.7.0
     methodSecurity: 2.82.6
     nameOverrides: 2.81.2
     nullables: 0.1.1
@@ -44,45 +44,24 @@ generatedFiles:
   - USAGE.md
   - docs/lib/utils/retryconfig.md
   - docs/models/components/aggregation.md
-  - docs/models/components/aggregationselection.md
-  - docs/models/components/aggregationselectionaggregation.md
-  - docs/models/components/aggregationselectionfield.md
-  - docs/models/components/aggregationselectiontype.md
   - docs/models/components/and.md
-  - docs/models/components/andand.md
-  - docs/models/components/conditiion.md
-  - docs/models/components/conditiionfield.md
   - docs/models/components/condition.md
-  - docs/models/components/conditionvalue.md
   - docs/models/components/content.md
   - docs/models/components/conversation.md
   - docs/models/components/conversationsaggregationselection.md
   - docs/models/components/conversationsaggregationselectiontype.md
+  - docs/models/components/conversationsfield.md
   - docs/models/components/conversationsfilter.md
-  - docs/models/components/conversationsfilter1.md
-  - docs/models/components/conversationsfilter2.md
-  - docs/models/components/conversationsfilter3.md
   - docs/models/components/conversationsfilterand.md
   - docs/models/components/conversationsfiltercondition.md
-  - docs/models/components/conversationsfilterfield.md
-  - docs/models/components/conversationsfilterfield1.md
-  - docs/models/components/conversationsfilterfield2.md
-  - docs/models/components/conversationsfilterfield3.md
-  - docs/models/components/conversationsfilterfield4.md
-  - docs/models/components/conversationsfilterfield5.md
-  - docs/models/components/conversationsfilterfield6.md
-  - docs/models/components/conversationsfilterfield7.md
+  - docs/models/components/conversationsfilterconditionvalue.md
   - docs/models/components/conversationsfilteror.md
-  - docs/models/components/conversationsfiltervalue.md
+  - docs/models/components/conversationsgroupby.md
+  - docs/models/components/conversationsorderby.md
+  - docs/models/components/conversationsorderbyfield.md
+  - docs/models/components/conversationsselection.md
   - docs/models/components/conversationssimplefieldselection.md
   - docs/models/components/conversationssimplefieldselectionfield.md
-  - docs/models/components/conversationssimplefieldselectionfield1.md
-  - docs/models/components/conversationssimplefieldselectionfield2.md
-  - docs/models/components/conversationssimplefieldselectionfield3.md
-  - docs/models/components/conversationssimplefieldselectionfield4.md
-  - docs/models/components/conversationssimplefieldselectionfield5.md
-  - docs/models/components/conversationssimplefieldselectionfield6.md
-  - docs/models/components/conversationssimplefieldselectionfield7.md
   - docs/models/components/conversationssimplefieldselectiontype.md
   - docs/models/components/conversationstimebasedgroupbyselection.md
   - docs/models/components/conversationstimebasedgroupbyselectionfield.md
@@ -120,90 +99,39 @@ generatedFiles:
   - docs/models/components/createsupportticketconversationvisibility.md
   - docs/models/components/detail.md
   - docs/models/components/direction.md
-  - docs/models/components/eight.md
-  - docs/models/components/eleven.md
   - docs/models/components/entitytype.md
   - docs/models/components/eventsaggregationselection.md
   - docs/models/components/eventsaggregationselectionaggregation.md
   - docs/models/components/eventsaggregationselectionfield.md
-  - docs/models/components/eventsaggregationselectionfield1.md
-  - docs/models/components/eventsaggregationselectionfield2.md
-  - docs/models/components/eventsaggregationselectionfield3.md
-  - docs/models/components/eventsaggregationselectionfield4.md
-  - docs/models/components/eventsaggregationselectionfield5.md
-  - docs/models/components/eventsaggregationselectionfield6.md
-  - docs/models/components/eventsaggregationselectionfield7.md
   - docs/models/components/eventsaggregationselectiontype.md
-  - docs/models/components/eventscondition.md
-  - docs/models/components/eventsconditionfield.md
-  - docs/models/components/eventsconditionfield1.md
-  - docs/models/components/eventsconditionfield10.md
-  - docs/models/components/eventsconditionfield11.md
-  - docs/models/components/eventsconditionfield12.md
-  - docs/models/components/eventsconditionfield2.md
-  - docs/models/components/eventsconditionfield3.md
-  - docs/models/components/eventsconditionfield4.md
-  - docs/models/components/eventsconditionfield5.md
-  - docs/models/components/eventsconditionfield6.md
-  - docs/models/components/eventsconditionfield7.md
-  - docs/models/components/eventsconditionfield8.md
-  - docs/models/components/eventsconditionfield9.md
+  - docs/models/components/eventsfield.md
   - docs/models/components/eventsfilter.md
-  - docs/models/components/eventsfilter1.md
-  - docs/models/components/eventsfilter2.md
-  - docs/models/components/eventsfilter3.md
   - docs/models/components/eventsfilterand.md
+  - docs/models/components/eventsfilterandand.md
+  - docs/models/components/eventsfiltercondition.md
+  - docs/models/components/eventsfilterconditioncondition.md
+  - docs/models/components/eventsfilterconditionvalue.md
   - docs/models/components/eventsfilteror.md
+  - docs/models/components/eventsfilteroror.md
+  - docs/models/components/eventsgroupby.md
+  - docs/models/components/eventsorderby.md
+  - docs/models/components/eventsorderbydirection.md
+  - docs/models/components/eventsorderbyfield.md
+  - docs/models/components/eventsselection.md
   - docs/models/components/eventssimplefieldselection.md
   - docs/models/components/eventssimplefieldselectionfield.md
-  - docs/models/components/eventssimplefieldselectionfield1.md
-  - docs/models/components/eventssimplefieldselectionfield10.md
-  - docs/models/components/eventssimplefieldselectionfield11.md
-  - docs/models/components/eventssimplefieldselectionfield12.md
-  - docs/models/components/eventssimplefieldselectionfield2.md
-  - docs/models/components/eventssimplefieldselectionfield3.md
-  - docs/models/components/eventssimplefieldselectionfield4.md
-  - docs/models/components/eventssimplefieldselectionfield5.md
-  - docs/models/components/eventssimplefieldselectionfield6.md
-  - docs/models/components/eventssimplefieldselectionfield7.md
-  - docs/models/components/eventssimplefieldselectionfield8.md
-  - docs/models/components/eventssimplefieldselectionfield9.md
   - docs/models/components/eventssimplefieldselectiontype.md
   - docs/models/components/eventstimebasedgroupbyselection.md
   - docs/models/components/eventstimebasedgroupbyselectionfield.md
-  - docs/models/components/eventstimebasedgroupbyselectionfield1.md
-  - docs/models/components/eventstimebasedgroupbyselectionfield2.md
-  - docs/models/components/eventstimebasedgroupbyselectionfield3.md
-  - docs/models/components/eventstimebasedgroupbyselectionfield4.md
-  - docs/models/components/eventstimebasedgroupbyselectionfield5.md
-  - docs/models/components/eventstimebasedgroupbyselectionfield6.md
-  - docs/models/components/eventstimebasedgroupbyselectionfield7.md
-  - docs/models/components/eventstimebasedgroupbyselectiontimeunit.md
   - docs/models/components/eventstimebasedgroupbyselectiontype.md
   - docs/models/components/field.md
-  - docs/models/components/field1.md
-  - docs/models/components/field10.md
-  - docs/models/components/field11.md
-  - docs/models/components/field12.md
-  - docs/models/components/field2.md
-  - docs/models/components/field3.md
-  - docs/models/components/field4.md
-  - docs/models/components/field5.md
-  - docs/models/components/field6.md
-  - docs/models/components/field7.md
-  - docs/models/components/field8.md
-  - docs/models/components/field9.md
   - docs/models/components/filteroperator.md
-  - docs/models/components/five.md
-  - docs/models/components/four.md
   - docs/models/components/getallfeedbackresponse.md
   - docs/models/components/getallfeedbackresponsenegativefeedbacktype.md
   - docs/models/components/getallfeedbackresponsenegativefeedbackuserproperties.md
   - docs/models/components/getallfeedbackresponsereasons.md
   - docs/models/components/getallfeedbackresponsetype.md
   - docs/models/components/getallfeedbackresponseuserproperties.md
-  - docs/models/components/groupbyitemschema.md
-  - docs/models/components/groupbyitemschemafield.md
   - docs/models/components/insertconversationevent.md
   - docs/models/components/insertconversationevententitytype.md
   - docs/models/components/insertconversationeventproperties.md
@@ -220,7 +148,6 @@ generatedFiles:
   - docs/models/components/message.md
   - docs/models/components/messages.md
   - docs/models/components/negativefeedback.md
-  - docs/models/components/nine.md
   - docs/models/components/one.md
   - docs/models/components/openaichatcompletionmessage.md
   - docs/models/components/openaichatcompletionmessagecontent.md
@@ -236,19 +163,17 @@ generatedFiles:
   - docs/models/components/openaiextendedmessagelinkstype.md
   - docs/models/components/openaiextendedmessageproperties.md
   - docs/models/components/openaiextendedmessagetype.md
-  - docs/models/components/openaiextendedmessagetype1.md
   - docs/models/components/openaiextendedmessageuserproperties.md
   - docs/models/components/openaiimageurlobject.md
   - docs/models/components/openaitoolcall.md
   - docs/models/components/openaitoolcallfunction.md
   - docs/models/components/openaitoolcalltype.md
   - docs/models/components/or.md
-  - docs/models/components/orderbyschema.md
-  - docs/models/components/orderbyschemafield.md
-  - docs/models/components/oror.md
   - docs/models/components/positivefeedback.md
   - docs/models/components/properties.md
-  - docs/models/components/querysemanticthreadsparamsschema.md
+  - docs/models/components/queryconversationsparams.md
+  - docs/models/components/queryeventsparams.md
+  - docs/models/components/querysemanticthreadsparams.md
   - docs/models/components/reasons.md
   - docs/models/components/role.md
   - docs/models/components/security.md
@@ -257,7 +182,6 @@ generatedFiles:
   - docs/models/components/selectconversationeventproperties.md
   - docs/models/components/selectconversationeventuserproperties.md
   - docs/models/components/selectevent.md
-  - docs/models/components/selectionschema.md
   - docs/models/components/selectmessageevent.md
   - docs/models/components/selectmessageevententitytype.md
   - docs/models/components/selectmessageeventproperties.md
@@ -266,12 +190,30 @@ generatedFiles:
   - docs/models/components/selectsearchevententitytype.md
   - docs/models/components/selectsearcheventproperties.md
   - docs/models/components/selectsearcheventuserproperties.md
+  - docs/models/components/semanticthreadaggregationselection.md
+  - docs/models/components/semanticthreadaggregationselectionaggregation.md
+  - docs/models/components/semanticthreadaggregationselectionfield.md
+  - docs/models/components/semanticthreadaggregationselectiontype.md
+  - docs/models/components/semanticthreadfield.md
   - docs/models/components/semanticthreadfilter.md
-  - docs/models/components/seven.md
-  - docs/models/components/simplefieldselection.md
-  - docs/models/components/simplefieldselectionfield.md
-  - docs/models/components/simplefieldselectiontype.md
-  - docs/models/components/six.md
+  - docs/models/components/semanticthreadfilterand.md
+  - docs/models/components/semanticthreadfilterandand.md
+  - docs/models/components/semanticthreadfiltercondition.md
+  - docs/models/components/semanticthreadfilterconditioncondition.md
+  - docs/models/components/semanticthreadfilterconditionvalue.md
+  - docs/models/components/semanticthreadfilteror.md
+  - docs/models/components/semanticthreadfilteroror.md
+  - docs/models/components/semanticthreadgroupby.md
+  - docs/models/components/semanticthreadorderby.md
+  - docs/models/components/semanticthreadorderbydirection.md
+  - docs/models/components/semanticthreadorderbyfield.md
+  - docs/models/components/semanticthreadselection.md
+  - docs/models/components/semanticthreadsimplefieldselection.md
+  - docs/models/components/semanticthreadsimplefieldselectionfield.md
+  - docs/models/components/semanticthreadsimplefieldselectiontype.md
+  - docs/models/components/semanticthreadtimebasedgroupbyselection.md
+  - docs/models/components/semanticthreadtimebasedgroupbyselectionfield.md
+  - docs/models/components/semanticthreadtimebasedgroupbyselectiontype.md
   - docs/models/components/supportcopilotconversation.md
   - docs/models/components/supportcopilotconversationproperties.md
   - docs/models/components/supportcopilotconversationtype.md
@@ -295,19 +237,10 @@ generatedFiles:
   - docs/models/components/supportticketmessageproperties.md
   - docs/models/components/supportticketmessagetype.md
   - docs/models/components/supportticketmessageuserproperties.md
-  - docs/models/components/ten.md
-  - docs/models/components/three.md
-  - docs/models/components/timebasedgroupbyselection.md
-  - docs/models/components/timebasedgroupbyselectionfield.md
-  - docs/models/components/timebasedgroupbyselectiontimeunit.md
-  - docs/models/components/timebasedgroupbyselectiontype.md
   - docs/models/components/timeunit.md
-  - docs/models/components/twelve.md
-  - docs/models/components/two.md
   - docs/models/components/type.md
   - docs/models/components/type1.md
   - docs/models/components/userproperties.md
-  - docs/models/components/value.md
   - docs/models/components/visibility.md
   - docs/models/errors/badrequest.md
   - docs/models/errors/badrequestcode.md
@@ -333,200 +266,25 @@ generatedFiles:
   - docs/models/errors/unprocessableentitycode.md
   - docs/models/errors/unprocessableentityerror.md
   - docs/models/errors/unprocessableentityerrorcode.md
+  - docs/models/operations/conversationsresultitem.md
   - docs/models/operations/data.md
   - docs/models/operations/deleteconversationrequest.md
   - docs/models/operations/deleteconversationresponsebody.md
   - docs/models/operations/deleteconversationsecurity.md
-  - docs/models/operations/direction.md
-  - docs/models/operations/direction1.md
-  - docs/models/operations/direction2.md
-  - docs/models/operations/eight.md
-  - docs/models/operations/eighteen.md
-  - docs/models/operations/eighty.md
-  - docs/models/operations/eightyeight.md
-  - docs/models/operations/eightyfive.md
-  - docs/models/operations/eightyfour.md
-  - docs/models/operations/eightynine.md
-  - docs/models/operations/eightyone.md
-  - docs/models/operations/eightyseven.md
-  - docs/models/operations/eightysix.md
-  - docs/models/operations/eightythree.md
-  - docs/models/operations/eightytwo.md
-  - docs/models/operations/eleven.md
-  - docs/models/operations/eventsselection.md
-  - docs/models/operations/field.md
-  - docs/models/operations/field1.md
-  - docs/models/operations/field10.md
-  - docs/models/operations/field11.md
-  - docs/models/operations/field12.md
-  - docs/models/operations/field13.md
-  - docs/models/operations/field14.md
-  - docs/models/operations/field15.md
-  - docs/models/operations/field16.md
-  - docs/models/operations/field17.md
-  - docs/models/operations/field18.md
-  - docs/models/operations/field19.md
-  - docs/models/operations/field2.md
-  - docs/models/operations/field20.md
-  - docs/models/operations/field21.md
-  - docs/models/operations/field22.md
-  - docs/models/operations/field23.md
-  - docs/models/operations/field24.md
-  - docs/models/operations/field25.md
-  - docs/models/operations/field26.md
-  - docs/models/operations/field27.md
-  - docs/models/operations/field28.md
-  - docs/models/operations/field29.md
-  - docs/models/operations/field3.md
-  - docs/models/operations/field30.md
-  - docs/models/operations/field31.md
-  - docs/models/operations/field32.md
-  - docs/models/operations/field33.md
-  - docs/models/operations/field34.md
-  - docs/models/operations/field35.md
-  - docs/models/operations/field36.md
-  - docs/models/operations/field37.md
-  - docs/models/operations/field38.md
-  - docs/models/operations/field39.md
-  - docs/models/operations/field4.md
-  - docs/models/operations/field40.md
-  - docs/models/operations/field41.md
-  - docs/models/operations/field42.md
-  - docs/models/operations/field43.md
-  - docs/models/operations/field44.md
-  - docs/models/operations/field45.md
-  - docs/models/operations/field46.md
-  - docs/models/operations/field47.md
-  - docs/models/operations/field48.md
-  - docs/models/operations/field49.md
-  - docs/models/operations/field5.md
-  - docs/models/operations/field50.md
-  - docs/models/operations/field51.md
-  - docs/models/operations/field52.md
-  - docs/models/operations/field53.md
-  - docs/models/operations/field54.md
-  - docs/models/operations/field55.md
-  - docs/models/operations/field56.md
-  - docs/models/operations/field57.md
-  - docs/models/operations/field58.md
-  - docs/models/operations/field59.md
-  - docs/models/operations/field6.md
-  - docs/models/operations/field60.md
-  - docs/models/operations/field61.md
-  - docs/models/operations/field62.md
-  - docs/models/operations/field63.md
-  - docs/models/operations/field64.md
-  - docs/models/operations/field65.md
-  - docs/models/operations/field66.md
-  - docs/models/operations/field67.md
-  - docs/models/operations/field68.md
-  - docs/models/operations/field69.md
-  - docs/models/operations/field7.md
-  - docs/models/operations/field70.md
-  - docs/models/operations/field8.md
-  - docs/models/operations/field9.md
-  - docs/models/operations/fifteen.md
-  - docs/models/operations/fifty.md
-  - docs/models/operations/fiftyeight.md
-  - docs/models/operations/fiftyfive.md
-  - docs/models/operations/fiftyfour.md
-  - docs/models/operations/fiftynine.md
-  - docs/models/operations/fiftyone.md
-  - docs/models/operations/fiftyseven.md
-  - docs/models/operations/fiftysix.md
-  - docs/models/operations/fiftythree.md
-  - docs/models/operations/fiftytwo.md
-  - docs/models/operations/five.md
-  - docs/models/operations/forty.md
-  - docs/models/operations/fortyeight.md
-  - docs/models/operations/fortyfive.md
-  - docs/models/operations/fortyfour.md
-  - docs/models/operations/fortynine.md
-  - docs/models/operations/fortyone.md
-  - docs/models/operations/fortyseven.md
-  - docs/models/operations/fortysix.md
-  - docs/models/operations/fortythree.md
-  - docs/models/operations/fortytwo.md
-  - docs/models/operations/four.md
-  - docs/models/operations/fourteen.md
+  - docs/models/operations/eventsresultitem.md
   - docs/models/operations/getallconversationrequest.md
   - docs/models/operations/getallconversationresponsebody.md
   - docs/models/operations/getallfeedbacksecurity.md
   - docs/models/operations/getconversationbyexternalidrequest.md
   - docs/models/operations/getconversationrequest.md
   - docs/models/operations/getconversationsecurity.md
-  - docs/models/operations/groupby.md
   - docs/models/operations/logconversationsecurity.md
   - docs/models/operations/logeventsecurity.md
-  - docs/models/operations/nine.md
-  - docs/models/operations/nineteen.md
-  - docs/models/operations/ninety.md
-  - docs/models/operations/ninetyeight.md
-  - docs/models/operations/ninetyfive.md
-  - docs/models/operations/ninetyfour.md
-  - docs/models/operations/ninetynine.md
-  - docs/models/operations/ninetyone.md
-  - docs/models/operations/ninetyseven.md
-  - docs/models/operations/ninetysix.md
-  - docs/models/operations/ninetythree.md
-  - docs/models/operations/ninetytwo.md
-  - docs/models/operations/one.md
-  - docs/models/operations/onehundred.md
-  - docs/models/operations/onehundredandeight.md
-  - docs/models/operations/onehundredandeighteen.md
-  - docs/models/operations/onehundredandeleven.md
-  - docs/models/operations/onehundredandfifteen.md
-  - docs/models/operations/onehundredandfive.md
-  - docs/models/operations/onehundredandfour.md
-  - docs/models/operations/onehundredandfourteen.md
-  - docs/models/operations/onehundredandnine.md
-  - docs/models/operations/onehundredandnineteen.md
-  - docs/models/operations/onehundredandone.md
-  - docs/models/operations/onehundredandseven.md
-  - docs/models/operations/onehundredandseventeen.md
-  - docs/models/operations/onehundredandsix.md
-  - docs/models/operations/onehundredandsixteen.md
-  - docs/models/operations/onehundredandten.md
-  - docs/models/operations/onehundredandthirteen.md
-  - docs/models/operations/onehundredandthree.md
-  - docs/models/operations/onehundredandtwelve.md
-  - docs/models/operations/onehundredandtwenty.md
-  - docs/models/operations/onehundredandtwo.md
-  - docs/models/operations/orderby.md
-  - docs/models/operations/queryconversationsfield.md
-  - docs/models/operations/queryconversationsrequestbody.md
   - docs/models/operations/queryconversationsresponsebody.md
   - docs/models/operations/queryconversationssecurity.md
+  - docs/models/operations/queryconversationstype.md
   - docs/models/operations/queryeventsdata.md
-  - docs/models/operations/queryeventsdirection.md
-  - docs/models/operations/queryeventsdirection1.md
-  - docs/models/operations/queryeventsdirection2.md
-  - docs/models/operations/queryeventsfield.md
-  - docs/models/operations/queryeventsfield1.md
-  - docs/models/operations/queryeventsfield10.md
-  - docs/models/operations/queryeventsfield11.md
-  - docs/models/operations/queryeventsfield12.md
-  - docs/models/operations/queryeventsfield2.md
-  - docs/models/operations/queryeventsfield3.md
-  - docs/models/operations/queryeventsfield4.md
-  - docs/models/operations/queryeventsfield5.md
-  - docs/models/operations/queryeventsfield6.md
-  - docs/models/operations/queryeventsfield7.md
-  - docs/models/operations/queryeventsfield8.md
-  - docs/models/operations/queryeventsfield9.md
-  - docs/models/operations/queryeventsfieldquery1.md
-  - docs/models/operations/queryeventsfieldquery2.md
-  - docs/models/operations/queryeventsfieldquery3.md
-  - docs/models/operations/queryeventsfieldquery4.md
-  - docs/models/operations/queryeventsfieldquery5.md
-  - docs/models/operations/queryeventsfieldquery6.md
-  - docs/models/operations/queryeventsfieldquery7.md
-  - docs/models/operations/queryeventsgroupby.md
-  - docs/models/operations/queryeventsorderby.md
-  - docs/models/operations/queryeventsqueryfield.md
-  - docs/models/operations/queryeventsrequestbody.md
   - docs/models/operations/queryeventsresponsebody.md
-  - docs/models/operations/queryeventsresult.md
   - docs/models/operations/queryeventssecurity.md
   - docs/models/operations/queryeventsstatus.md
   - docs/models/operations/querysemanticthreadsdata.md
@@ -534,64 +292,13 @@ generatedFiles:
   - docs/models/operations/querysemanticthreadssecurity.md
   - docs/models/operations/querysemanticthreadsstatus.md
   - docs/models/operations/reasons.md
-  - docs/models/operations/result.md
-  - docs/models/operations/selectionschema.md
   - docs/models/operations/semanticthreadresultitem.md
-  - docs/models/operations/seven.md
-  - docs/models/operations/seventeen.md
-  - docs/models/operations/seventy.md
-  - docs/models/operations/seventyeight.md
-  - docs/models/operations/seventyfive.md
-  - docs/models/operations/seventyfour.md
-  - docs/models/operations/seventynine.md
-  - docs/models/operations/seventyone.md
-  - docs/models/operations/seventyseven.md
-  - docs/models/operations/seventysix.md
-  - docs/models/operations/seventythree.md
-  - docs/models/operations/seventytwo.md
-  - docs/models/operations/six.md
-  - docs/models/operations/sixteen.md
-  - docs/models/operations/sixty.md
-  - docs/models/operations/sixtyeight.md
-  - docs/models/operations/sixtyfive.md
-  - docs/models/operations/sixtyfour.md
-  - docs/models/operations/sixtynine.md
-  - docs/models/operations/sixtyone.md
-  - docs/models/operations/sixtyseven.md
-  - docs/models/operations/sixtysix.md
-  - docs/models/operations/sixtythree.md
-  - docs/models/operations/sixtytwo.md
   - docs/models/operations/status.md
   - docs/models/operations/submitfeedbackreasons.md
   - docs/models/operations/submitfeedbackrequestbody.md
   - docs/models/operations/submitfeedbackresponsebody.md
   - docs/models/operations/submitfeedbacktype.md
   - docs/models/operations/submitfeedbackuserproperties.md
-  - docs/models/operations/ten.md
-  - docs/models/operations/thirteen.md
-  - docs/models/operations/thirty.md
-  - docs/models/operations/thirtyeight.md
-  - docs/models/operations/thirtyfive.md
-  - docs/models/operations/thirtyfour.md
-  - docs/models/operations/thirtynine.md
-  - docs/models/operations/thirtyone.md
-  - docs/models/operations/thirtyseven.md
-  - docs/models/operations/thirtysix.md
-  - docs/models/operations/thirtythree.md
-  - docs/models/operations/thirtytwo.md
-  - docs/models/operations/three.md
-  - docs/models/operations/twelve.md
-  - docs/models/operations/twenty.md
-  - docs/models/operations/twentyeight.md
-  - docs/models/operations/twentyfive.md
-  - docs/models/operations/twentyfour.md
-  - docs/models/operations/twentynine.md
-  - docs/models/operations/twentyone.md
-  - docs/models/operations/twentyseven.md
-  - docs/models/operations/twentysix.md
-  - docs/models/operations/twentythree.md
-  - docs/models/operations/twentytwo.md
-  - docs/models/operations/two.md
   - docs/models/operations/type.md
   - docs/models/operations/userproperties.md
   - docs/sdks/conversation/README.md
@@ -641,6 +348,7 @@ generatedFiles:
   - src/mcp-server/cli/start/command.ts
   - src/mcp-server/cli/start/impl.ts
   - src/mcp-server/console-logger.ts
+  - src/mcp-server/extensions.ts
   - src/mcp-server/mcp-server.ts
   - src/mcp-server/resources.ts
   - src/mcp-server/scopes.ts
@@ -651,13 +359,17 @@ generatedFiles:
   - src/mcp-server/tools/conversationsList.ts
   - src/mcp-server/tools/feedbackSubmit.ts
   - src/mcp-server/tools/queryExportSemanticThreadsQueryResults.ts
-  - src/models/components/aggregationselection.ts
-  - src/models/components/and.ts
-  - src/models/components/conditiion.ts
-  - src/models/components/conditionvalue.ts
   - src/models/components/conversation.ts
   - src/models/components/conversationsaggregationselection.ts
+  - src/models/components/conversationsfield.ts
   - src/models/components/conversationsfilter.ts
+  - src/models/components/conversationsfilterand.ts
+  - src/models/components/conversationsfiltercondition.ts
+  - src/models/components/conversationsfilterconditionvalue.ts
+  - src/models/components/conversationsfilteror.ts
+  - src/models/components/conversationsgroupby.ts
+  - src/models/components/conversationsorderby.ts
+  - src/models/components/conversationsselection.ts
   - src/models/components/conversationssimplefieldselection.ts
   - src/models/components/conversationstimebasedgroupbyselection.ts
   - src/models/components/createconversation.ts
@@ -665,13 +377,19 @@ generatedFiles:
   - src/models/components/createsupportcopilotconversation.ts
   - src/models/components/createsupportticketconversation.ts
   - src/models/components/eventsaggregationselection.ts
-  - src/models/components/eventscondition.ts
+  - src/models/components/eventsfield.ts
   - src/models/components/eventsfilter.ts
+  - src/models/components/eventsfilterand.ts
+  - src/models/components/eventsfiltercondition.ts
+  - src/models/components/eventsfilterconditionvalue.ts
+  - src/models/components/eventsfilteror.ts
+  - src/models/components/eventsgroupby.ts
+  - src/models/components/eventsorderby.ts
+  - src/models/components/eventsselection.ts
   - src/models/components/eventssimplefieldselection.ts
   - src/models/components/eventstimebasedgroupbyselection.ts
   - src/models/components/filteroperator.ts
   - src/models/components/getallfeedbackresponse.ts
-  - src/models/components/groupbyitemschema.ts
   - src/models/components/index.ts
   - src/models/components/insertconversationevent.ts
   - src/models/components/insertevent.ts
@@ -685,21 +403,31 @@ generatedFiles:
   - src/models/components/openaiimageurlobject.ts
   - src/models/components/openaitoolcall.ts
   - src/models/components/openaitoolcallfunction.ts
-  - src/models/components/or.ts
-  - src/models/components/orderbyschema.ts
-  - src/models/components/querysemanticthreadsparamsschema.ts
+  - src/models/components/queryconversationsparams.ts
+  - src/models/components/queryeventsparams.ts
+  - src/models/components/querysemanticthreadsparams.ts
   - src/models/components/security.ts
   - src/models/components/selectconversationevent.ts
   - src/models/components/selectevent.ts
   - src/models/components/selectmessageevent.ts
   - src/models/components/selectsearchevent.ts
+  - src/models/components/semanticthreadaggregationselection.ts
+  - src/models/components/semanticthreadfield.ts
   - src/models/components/semanticthreadfilter.ts
-  - src/models/components/simplefieldselection.ts
+  - src/models/components/semanticthreadfilterand.ts
+  - src/models/components/semanticthreadfiltercondition.ts
+  - src/models/components/semanticthreadfilterconditionvalue.ts
+  - src/models/components/semanticthreadfilteror.ts
+  - src/models/components/semanticthreadgroupby.ts
+  - src/models/components/semanticthreadorderby.ts
+  - src/models/components/semanticthreadselection.ts
+  - src/models/components/semanticthreadsimplefieldselection.ts
+  - src/models/components/semanticthreadtimebasedgroupbyselection.ts
   - src/models/components/supportcopilotconversation.ts
   - src/models/components/supportcopilotmessage.ts
   - src/models/components/supportticketconversation.ts
   - src/models/components/supportticketmessage.ts
-  - src/models/components/timebasedgroupbyselection.ts
+  - src/models/components/timeunit.ts
   - src/models/errors/apierror.ts
   - src/models/errors/badrequest.ts
   - src/models/errors/forbidden.ts
@@ -1020,7 +748,7 @@ examples:
         application/json: {}
       responses:
         "200":
-          application/json: {"status": "ok", "data": {"result": [{}], "total": 3002.48, "pageSize": 7650.29, "count": 7736.62}}
+          application/json: {"status": "ok", "data": {"totalCount": 4200.27, "result": [{}]}}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":

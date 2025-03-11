@@ -11,11 +11,28 @@ let value: QueryEventsResponseBody = {
   status: "ok",
   data: {
     result: [
-      {},
+      {
+        id: "<id>",
+        organizationId: "<id>",
+        messageId: "<id>",
+        conversationId: "<id>",
+        createdAt: "1734591219957",
+        projectId: "<id>",
+        integrationId: "<id>",
+        eventType: "<value>",
+        type: "<value>",
+        searchQuery: "<value>",
+        properties: {
+          "key": "<value>",
+        },
+        userProperties: {
+          "key": "<value>",
+        },
+      },
     ],
-    total: 1481.41,
-    pageSize: 9818.3,
-    count: 4783.7,
+    total: 3331.45,
+    pageSize: 811.01,
+    count: 4072.41,
   },
 };
 ```

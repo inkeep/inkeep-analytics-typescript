@@ -5,7 +5,7 @@
 ```typescript
 import { EventsAggregationSelectionAggregation } from "@inkeep/inkeep-analytics/models/components";
 
-let value: EventsAggregationSelectionAggregation = "max";
+let value: EventsAggregationSelectionAggregation = "count";
 ```
 
 ## Values

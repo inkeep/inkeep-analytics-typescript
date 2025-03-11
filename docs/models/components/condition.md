@@ -6,16 +6,16 @@
 import { Condition } from "@inkeep/inkeep-analytics/models/components";
 
 let value: Condition = {
-  field: "integrationId",
-  operator: "gt",
-  value: "<value>",
+  field: "organizationId",
+  operator: "lte",
+  value: 2378.93,
 };
 ```
 
 ## Fields
 
-| Field                                                                    | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `field`                                                                  | [components.ConditiionField](../../models/components/conditiionfield.md) | :heavy_check_mark:                                                       | N/A                                                                      |
-| `operator`                                                               | [components.FilterOperator](../../models/components/filteroperator.md)   | :heavy_check_mark:                                                       | Available Select Operators                                               |
-| `value`                                                                  | *components.ConditionValue*                                              | :heavy_check_mark:                                                       | The value to compare the field against                                   |
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `field`                                                                        | [components.ConversationsField](../../models/components/conversationsfield.md) | :heavy_check_mark:                                                             | Available fields for Conversations                                             |
+| `operator`                                                                     | [components.FilterOperator](../../models/components/filteroperator.md)         | :heavy_check_mark:                                                             | Available operators for filtering data                                         |
+| `value`                                                                        | *components.ConversationsFilterConditionValue*                                 | :heavy_check_mark:                                                             | The value to compare the field against                                         |

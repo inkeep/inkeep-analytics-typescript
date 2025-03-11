@@ -13,7 +13,7 @@ const args = {
 export const tool$conversationGetConversationByExternalId: ToolDefinition<
   typeof args
 > = {
-  name: "conversation_get-conversation-by-external-id",
+  name: "conversation-get-conversation-by-external-id",
   description: `Get Conversation by External ID`,
   args,
   tool: async (client, args, ctx) => {

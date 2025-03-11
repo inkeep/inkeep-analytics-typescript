@@ -1,13 +1,13 @@
 # FilterOperator
 
-Available Select Operators
+Available operators for filtering data
 
 ## Example Usage
 
 ```typescript
 import { FilterOperator } from "@inkeep/inkeep-analytics/models/components";
 
-let value: FilterOperator = "in";
+let value: FilterOperator = "gt";
 ```
 
 ## Values

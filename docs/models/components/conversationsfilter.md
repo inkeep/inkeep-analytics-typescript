@@ -3,30 +3,30 @@
 
 ## Supported Types
 
-### `components.ConversationsFilter1`
+### `components.ConversationsFilterCondition`
 
 ```typescript
-const value: components.ConversationsFilter1 = {
+const value: components.ConversationsFilterCondition = {
   condition: {
-    field: "type",
-    operator: "lte",
-    value: 5899.1,
+    field: "projectId",
+    operator: "arrayContains",
+    value: 318.38,
   },
 };
 ```
 
-### `components.ConversationsFilter2`
+### `components.ConversationsFilterAND`
 
 ```typescript
-const value: components.ConversationsFilter2 = {
+const value: components.ConversationsFilterAND = {
   and: [],
 };
 ```
 
-### `components.ConversationsFilter3`
+### `components.ConversationsFilterOR`
 
 ```typescript
-const value: components.ConversationsFilter3 = {
+const value: components.ConversationsFilterOR = {
   or: [],
 };
 ```

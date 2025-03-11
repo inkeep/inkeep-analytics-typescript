@@ -1,13 +1,19 @@
-# ConversationsFilterAnd
+# ConversationsFilterAND
 
+ConversationsFilter AND operator
 
-## Supported Types
-
-### `components.ConversationsFilter`
+## Example Usage
 
 ```typescript
-const value: components.ConversationsFilter = {
+import { ConversationsFilterAND } from "@inkeep/inkeep-analytics/models/components";
+
+let value: ConversationsFilterAND = {
   and: [],
 };
 ```
 
+## Fields
+
+| Field                             | Type                              | Required                          | Description                       |
+| --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- |
+| `and`                             | *components.And*[]                | :heavy_check_mark:                | ConversationsFilter AND condition |

@@ -7,7 +7,7 @@ import { ConversationsAggregationSelection } from "@inkeep/inkeep-analytics/mode
 
 let value: ConversationsAggregationSelection = {
   type: "aggregation",
-  aggregation: "count",
+  aggregation: "min",
 };
 ```
 
@@ -17,4 +17,4 @@ let value: ConversationsAggregationSelection = {
 | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | `type`                                                                                                               | [components.ConversationsAggregationSelectionType](../../models/components/conversationsaggregationselectiontype.md) | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `aggregation`                                                                                                        | [components.Aggregation](../../models/components/aggregation.md)                                                     | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
-| `field`                                                                                                              | *components.Field*                                                                                                   | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `field`                                                                                                              | [components.Field](../../models/components/field.md)                                                                 | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |

@@ -1,47 +1,15 @@
 # Field
 
-
-## Supported Types
-
-### `components.One`
+## Example Usage
 
 ```typescript
-const value: components.One = "id";
+import { Field } from "@inkeep/inkeep-analytics/models/components";
+
+let value: Field = "id";
 ```
 
-### `components.Two`
+## Values
 
 ```typescript
-const value: components.Two = "userMessageCount";
+"id" | "organizationId" | "projectId" | "integrationId" | "firstMessageTime" | "userMessageCount" | "type"
 ```
-
-### `components.Three`
-
-```typescript
-const value: components.Three = "organizationId";
-```
-
-### `components.Four`
-
-```typescript
-const value: components.Four = "projectId";
-```
-
-### `components.Five`
-
-```typescript
-const value: components.Five = "integrationId";
-```
-
-### `components.Six`
-
-```typescript
-const value: components.Six = "firstMessageTime";
-```
-
-### `components.Seven`
-
-```typescript
-const value: components.Seven = "type";
-```
-

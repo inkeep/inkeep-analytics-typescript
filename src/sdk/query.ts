@@ -17,7 +17,7 @@ export class Query extends ClientSDK {
    */
   async conversations(
     security: operations.QueryConversationsSecurity,
-    request: operations.QueryConversationsRequestBody,
+    request: components.QueryConversationsParams,
     options?: RequestOptions,
   ): Promise<operations.QueryConversationsResponseBody> {
     return unwrapAsync(queryConversations(
@@ -33,7 +33,7 @@ export class Query extends ClientSDK {
    */
   async queryEvents(
     security: operations.QueryEventsSecurity,
-    request: operations.QueryEventsRequestBody,
+    request: components.QueryEventsParams,
     options?: RequestOptions,
   ): Promise<operations.QueryEventsResponseBody> {
     return unwrapAsync(queryQueryEvents(
@@ -49,7 +49,7 @@ export class Query extends ClientSDK {
    */
   async querySemanticThreads(
     security: operations.QuerySemanticThreadsSecurity,
-    request: components.QuerySemanticThreadsParamsSchema,
+    request: components.QuerySemanticThreadsParams,
     options?: RequestOptions,
   ): Promise<operations.QuerySemanticThreadsResponseBody> {
     return unwrapAsync(queryQuerySemanticThreads(
@@ -64,7 +64,7 @@ export class Query extends ClientSDK {
    * Export Semantic Threads Query Results
    */
   async exportSemanticThreadsQueryResults(
-    request: components.QuerySemanticThreadsParamsSchema,
+    request: components.QuerySemanticThreadsParams,
     options?: RequestOptions,
   ): Promise<ReadableStream<Uint8Array>> {
     return unwrapAsync(queryExportSemanticThreadsQueryResults(

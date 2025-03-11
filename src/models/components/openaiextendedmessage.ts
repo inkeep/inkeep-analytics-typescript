@@ -37,7 +37,7 @@ export type Role = ClosedEnum<typeof Role>;
 
 export type Content = string | Array<OpenAIContentItem>;
 
-export const OpenAIExtendedMessageType1 = {
+export const One = {
   Documentation: "documentation",
   Site: "site",
   DiscoursePost: "discourse_post",
@@ -48,20 +48,16 @@ export const OpenAIExtendedMessageType1 = {
   DiscordMessage: "discord_message",
   CustomQuestionAnswer: "custom_question_answer",
 } as const;
-export type OpenAIExtendedMessageType1 = ClosedEnum<
-  typeof OpenAIExtendedMessageType1
->;
+export type One = ClosedEnum<typeof One>;
 
-export type OpenAIExtendedMessageLinksType =
-  | OpenAIExtendedMessageType1
-  | string;
+export type OpenAIExtendedMessageLinksType = One | string;
 
 export type Links = {
   label?: string | null | undefined;
   url: string;
   title?: string | null | undefined;
   description?: string | null | undefined;
-  type?: OpenAIExtendedMessageType1 | string | null | undefined;
+  type?: One | string | null | undefined;
   breadcrumbs?: Array<string> | null | undefined;
 };
 
@@ -172,24 +168,21 @@ export function contentFromJSON(
 }
 
 /** @internal */
-export const OpenAIExtendedMessageType1$inboundSchema: z.ZodNativeEnum<
-  typeof OpenAIExtendedMessageType1
-> = z.nativeEnum(OpenAIExtendedMessageType1);
+export const One$inboundSchema: z.ZodNativeEnum<typeof One> = z.nativeEnum(One);
 
 /** @internal */
-export const OpenAIExtendedMessageType1$outboundSchema: z.ZodNativeEnum<
-  typeof OpenAIExtendedMessageType1
-> = OpenAIExtendedMessageType1$inboundSchema;
+export const One$outboundSchema: z.ZodNativeEnum<typeof One> =
+  One$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace OpenAIExtendedMessageType1$ {
-  /** @deprecated use `OpenAIExtendedMessageType1$inboundSchema` instead. */
-  export const inboundSchema = OpenAIExtendedMessageType1$inboundSchema;
-  /** @deprecated use `OpenAIExtendedMessageType1$outboundSchema` instead. */
-  export const outboundSchema = OpenAIExtendedMessageType1$outboundSchema;
+export namespace One$ {
+  /** @deprecated use `One$inboundSchema` instead. */
+  export const inboundSchema = One$inboundSchema;
+  /** @deprecated use `One$outboundSchema` instead. */
+  export const outboundSchema = One$outboundSchema;
 }
 
 /** @internal */
@@ -197,7 +190,7 @@ export const OpenAIExtendedMessageLinksType$inboundSchema: z.ZodType<
   OpenAIExtendedMessageLinksType,
   z.ZodTypeDef,
   unknown
-> = z.union([OpenAIExtendedMessageType1$inboundSchema, z.string()]);
+> = z.union([One$inboundSchema, z.string()]);
 
 /** @internal */
 export type OpenAIExtendedMessageLinksType$Outbound = string | string;
@@ -207,7 +200,7 @@ export const OpenAIExtendedMessageLinksType$outboundSchema: z.ZodType<
   OpenAIExtendedMessageLinksType$Outbound,
   z.ZodTypeDef,
   OpenAIExtendedMessageLinksType
-> = z.union([OpenAIExtendedMessageType1$outboundSchema, z.string()]);
+> = z.union([One$outboundSchema, z.string()]);
 
 /**
  * @internal
@@ -249,9 +242,7 @@ export const Links$inboundSchema: z.ZodType<Links, z.ZodTypeDef, unknown> = z
     url: z.string(),
     title: z.nullable(z.string()).optional(),
     description: z.nullable(z.string()).optional(),
-    type: z.nullable(
-      z.union([OpenAIExtendedMessageType1$inboundSchema, z.string()]),
-    ).optional(),
+    type: z.nullable(z.union([One$inboundSchema, z.string()])).optional(),
     breadcrumbs: z.nullable(z.array(z.string())).optional(),
   });
 
@@ -275,9 +266,7 @@ export const Links$outboundSchema: z.ZodType<
   url: z.string(),
   title: z.nullable(z.string()).optional(),
   description: z.nullable(z.string()).optional(),
-  type: z.nullable(
-    z.union([OpenAIExtendedMessageType1$outboundSchema, z.string()]),
-  ).optional(),
+  type: z.nullable(z.union([One$outboundSchema, z.string()])).optional(),
   breadcrumbs: z.nullable(z.array(z.string())).optional(),
 });
 

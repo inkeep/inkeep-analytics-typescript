@@ -7,13 +7,13 @@ import * as components from "../../models/components/index.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
-  request: components.QuerySemanticThreadsParamsSchema$inboundSchema,
+  request: components.QuerySemanticThreadsParams$inboundSchema,
 };
 
 export const tool$queryExportSemanticThreadsQueryResults: ToolDefinition<
   typeof args
 > = {
-  name: "query_export-semantic-threads-query-results",
+  name: "query-export-semantic-threads-query-results",
   description: `Export Semantic Threads Query Results`,
   args,
   tool: async (client, args, ctx) => {
