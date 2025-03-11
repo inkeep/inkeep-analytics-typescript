@@ -37,15 +37,6 @@ actions:
       created_at: 1738802640154
       reviewed_at: 1738803068103
       type: method-name
-  - target: $["paths"]["/query/{table}/export"]["post"]
-    update:
-      x-speakeasy-name-override: export
-    x-speakeasy-metadata:
-      after: sdk.query.export()
-      before: sdk.query.exportQuery()
-      created_at: 1738802640154
-      reviewed_at: 1738803068103
-      type: method-name
   - target: $["paths"]["/feedback"]["post"]
     update:
       x-speakeasy-name-override: submit
