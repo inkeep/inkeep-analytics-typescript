@@ -31,7 +31,10 @@ import {
   EventsSelection$outboundSchema,
 } from "./eventsselection.js";
 
-export type QueryEventsParams = {
+/**
+ * Query Events Params
+ */
+export type QueryEventsRequestBody = {
   select?: Array<EventsSelection> | undefined;
   groupBy?: Array<EventsGroupBy> | undefined;
   where?: EventsFilter | undefined;
@@ -43,8 +46,8 @@ export type QueryEventsParams = {
 };
 
 /** @internal */
-export const QueryEventsParams$inboundSchema: z.ZodType<
-  QueryEventsParams,
+export const QueryEventsRequestBody$inboundSchema: z.ZodType<
+  QueryEventsRequestBody,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -56,7 +59,7 @@ export const QueryEventsParams$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type QueryEventsParams$Outbound = {
+export type QueryEventsRequestBody$Outbound = {
   select?: Array<EventsSelection$Outbound> | undefined;
   groupBy?: Array<EventsGroupBy$Outbound> | undefined;
   where?: EventsFilter$Outbound | undefined;
@@ -65,10 +68,10 @@ export type QueryEventsParams$Outbound = {
 };
 
 /** @internal */
-export const QueryEventsParams$outboundSchema: z.ZodType<
-  QueryEventsParams$Outbound,
+export const QueryEventsRequestBody$outboundSchema: z.ZodType<
+  QueryEventsRequestBody$Outbound,
   z.ZodTypeDef,
-  QueryEventsParams
+  QueryEventsRequestBody
 > = z.object({
   select: z.array(EventsSelection$outboundSchema).optional(),
   groupBy: z.array(EventsGroupBy$outboundSchema).optional(),
@@ -81,29 +84,29 @@ export const QueryEventsParams$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QueryEventsParams$ {
-  /** @deprecated use `QueryEventsParams$inboundSchema` instead. */
-  export const inboundSchema = QueryEventsParams$inboundSchema;
-  /** @deprecated use `QueryEventsParams$outboundSchema` instead. */
-  export const outboundSchema = QueryEventsParams$outboundSchema;
-  /** @deprecated use `QueryEventsParams$Outbound` instead. */
-  export type Outbound = QueryEventsParams$Outbound;
+export namespace QueryEventsRequestBody$ {
+  /** @deprecated use `QueryEventsRequestBody$inboundSchema` instead. */
+  export const inboundSchema = QueryEventsRequestBody$inboundSchema;
+  /** @deprecated use `QueryEventsRequestBody$outboundSchema` instead. */
+  export const outboundSchema = QueryEventsRequestBody$outboundSchema;
+  /** @deprecated use `QueryEventsRequestBody$Outbound` instead. */
+  export type Outbound = QueryEventsRequestBody$Outbound;
 }
 
-export function queryEventsParamsToJSON(
-  queryEventsParams: QueryEventsParams,
+export function queryEventsRequestBodyToJSON(
+  queryEventsRequestBody: QueryEventsRequestBody,
 ): string {
   return JSON.stringify(
-    QueryEventsParams$outboundSchema.parse(queryEventsParams),
+    QueryEventsRequestBody$outboundSchema.parse(queryEventsRequestBody),
   );
 }
 
-export function queryEventsParamsFromJSON(
+export function queryEventsRequestBodyFromJSON(
   jsonString: string,
-): SafeParseResult<QueryEventsParams, SDKValidationError> {
+): SafeParseResult<QueryEventsRequestBody, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => QueryEventsParams$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryEventsParams' from JSON`,
+    (x) => QueryEventsRequestBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryEventsRequestBody' from JSON`,
   );
 }

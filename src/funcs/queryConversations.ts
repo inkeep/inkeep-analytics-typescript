@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
 export function queryConversations(
   client: InkeepAnalyticsCore,
   security: operations.QueryConversationsSecurity,
-  request: components.QueryConversationsParams,
+  request: components.QueryConversationsRequestBody,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -61,7 +61,7 @@ export function queryConversations(
 async function $do(
   client: InkeepAnalyticsCore,
   security: operations.QueryConversationsSecurity,
-  request: components.QueryConversationsParams,
+  request: components.QueryConversationsRequestBody,
   options?: RequestOptions,
 ): Promise<
   [
@@ -85,7 +85,8 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => components.QueryConversationsParams$outboundSchema.parse(value),
+    (value) =>
+      components.QueryConversationsRequestBody$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {

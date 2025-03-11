@@ -1,11 +1,13 @@
-# QuerySemanticThreadsParams
+# QuerySemanticThreadsRequestBody
+
+Query Semantic Threads Params
 
 ## Example Usage
 
 ```typescript
-import { QuerySemanticThreadsParams } from "@inkeep/inkeep-analytics/models/components";
+import { QuerySemanticThreadsRequestBody } from "@inkeep/inkeep-analytics/models/components";
 
-let value: QuerySemanticThreadsParams = {
+let value: QuerySemanticThreadsRequestBody = {
   notes: "Count of chat sessions with documentation gaps by integration",
 };
 ```

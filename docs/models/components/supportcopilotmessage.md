@@ -9,8 +9,8 @@ let value: SupportCopilotMessage = {
   id: "<id>",
   type: "support_copilot",
   conversationId: "<id>",
-  createdAt: "1733494278885",
-  updatedAt: "1741633849170",
+  createdAt: "1733498927051",
+  updatedAt: "1741638497336",
   role: "<value>",
 };
 ```

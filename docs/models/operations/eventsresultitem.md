@@ -10,7 +10,7 @@ let value: EventsResultItem = {
   organizationId: "<id>",
   messageId: "<id>",
   conversationId: "<id>",
-  createdAt: "1713266487585",
+  createdAt: "1713271135760",
   projectId: "<id>",
   integrationId: "<id>",
   eventType: "<value>",
