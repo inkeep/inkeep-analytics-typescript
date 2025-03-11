@@ -8,7 +8,7 @@ Specifies how to order SemanticThread query results by field and direction
 import { SemanticThreadOrderBy } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SemanticThreadOrderBy = {
-  field: "avg_hasPositiveFeedback",
+  field: "id_hour",
   direction: "asc",
 };
 ```

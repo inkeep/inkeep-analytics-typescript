@@ -7,7 +7,7 @@ Available operators for filtering data
 ```typescript
 import { FilterOperator } from "@inkeep/inkeep-analytics/models/components";
 
-let value: FilterOperator = "gt";
+let value: FilterOperator = "in";
 ```
 
 ## Values

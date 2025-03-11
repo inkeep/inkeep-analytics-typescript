@@ -11,8 +11,8 @@ let value: OpenAIExtendedMessage = {
   id: "<id>",
   type: "openai",
   conversationId: "<id>",
-  createdAt: "1716826468817",
-  updatedAt: "1741652583685",
+  createdAt: "1716832264631",
+  updatedAt: "1741658379499",
   role: "system",
   content: "<value>",
 };

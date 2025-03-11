@@ -6,9 +6,9 @@
 import { EventsFilterConditionCondition } from "@inkeep/inkeep-analytics/models/components";
 
 let value: EventsFilterConditionCondition = {
-  field: "createdAt",
-  operator: "lt",
-  value: false,
+  field: "type",
+  operator: "gt",
+  value: "<value>",
 };
 ```
 

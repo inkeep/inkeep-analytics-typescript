@@ -9,19 +9,11 @@ import { QueryConversationsResponseData } from "@inkeep/inkeep-analytics/models/
 
 let value: QueryConversationsResponseData = {
   result: [
-    {
-      id: "<id>",
-      organizationId: "<id>",
-      projectId: "<id>",
-      integrationId: "<id>",
-      firstMessageTime: "<value>",
-      userMessageCount: 1646.94,
-      type: "support_ticket",
-    },
+    {},
   ],
-  total: 5772.29,
-  pageSize: 2378.93,
-  count: 9342.14,
+  total: 3453.52,
+  pageSize: 9280.82,
+  count: 7044.15,
 };
 ```
 

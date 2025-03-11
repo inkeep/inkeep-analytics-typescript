@@ -8,7 +8,7 @@ Group by options for semantic threads
 import { SemanticThreadGroupBy } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SemanticThreadGroupBy = {
-  field: "isDocumented",
+  field: "hasNegativeFeedback",
 };
 ```
 

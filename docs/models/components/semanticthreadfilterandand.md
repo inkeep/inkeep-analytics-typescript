@@ -7,7 +7,13 @@
 
 ```typescript
 const value: components.SemanticThreadFilter = {
-  and: [],
+  condition: {
+    field: "areAIAnnotationsVerified",
+    operator: "arrayContains",
+    value: [
+      "<value>",
+    ],
+  },
 };
 ```
 

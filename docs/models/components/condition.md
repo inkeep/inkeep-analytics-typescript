@@ -6,9 +6,9 @@
 import { Condition } from "@inkeep/inkeep-analytics/models/components";
 
 let value: Condition = {
-  field: "organizationId",
-  operator: "arrayContains",
-  value: 4904.59,
+  field: "firstMessageTime",
+  operator: "in",
+  value: false,
 };
 ```
 

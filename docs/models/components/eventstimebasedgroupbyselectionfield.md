@@ -5,7 +5,7 @@
 ```typescript
 import { EventsTimeBasedGroupBySelectionField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: EventsTimeBasedGroupBySelectionField = "type";
+let value: EventsTimeBasedGroupBySelectionField = "projectId";
 ```
 
 ## Values

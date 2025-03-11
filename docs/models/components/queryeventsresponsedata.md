@@ -9,28 +9,11 @@ import { QueryEventsResponseData } from "@inkeep/inkeep-analytics/models/compone
 
 let value: QueryEventsResponseData = {
   result: [
-    {
-      id: "<id>",
-      organizationId: "<id>",
-      messageId: "<id>",
-      conversationId: "<id>",
-      createdAt: "1740239081803",
-      projectId: "<id>",
-      integrationId: "<id>",
-      eventType: "<value>",
-      type: "<value>",
-      searchQuery: "<value>",
-      properties: {
-        "key": "<value>",
-      },
-      userProperties: {
-        "key": "<value>",
-      },
-    },
+    {},
   ],
-  total: 6874.88,
-  pageSize: 2155.07,
-  count: 9473.71,
+  total: 8310.49,
+  pageSize: 6289.82,
+  count: 8726.51,
 };
 ```
 

@@ -5,7 +5,7 @@
 ```typescript
 import { Direction } from "@inkeep/inkeep-analytics/models/components";
 
-let value: Direction = "desc";
+let value: Direction = "asc";
 ```
 
 ## Values

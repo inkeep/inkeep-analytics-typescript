@@ -7,8 +7,8 @@ import { ConversationsFilterCondition } from "@inkeep/inkeep-analytics/models/co
 
 let value: ConversationsFilterCondition = {
   condition: {
-    field: "organizationId",
-    operator: "gt",
+    field: "projectId",
+    operator: "neq",
     value: "<value>",
   },
 };

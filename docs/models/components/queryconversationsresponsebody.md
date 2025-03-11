@@ -11,19 +11,11 @@ let value: QueryConversationsResponseBody = {
   status: "ok",
   data: {
     result: [
-      {
-        id: "<id>",
-        organizationId: "<id>",
-        projectId: "<id>",
-        integrationId: "<id>",
-        firstMessageTime: "<value>",
-        userMessageCount: 1999.96,
-        type: "openai",
-      },
+      {},
     ],
-    total: 7936.98,
-    pageSize: 2239.24,
-    count: 3453.52,
+    total: 1999.96,
+    pageSize: 185.21,
+    count: 7936.98,
   },
 };
 ```

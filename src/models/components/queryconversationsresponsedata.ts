@@ -19,13 +19,13 @@ export type QueryConversationsResponseDataType = ClosedEnum<
 >;
 
 export type ConversationsResultItem = {
-  id: string;
-  organizationId: string | null;
-  projectId: string | null;
-  integrationId: string | null;
-  firstMessageTime: string;
-  userMessageCount: number;
-  type: QueryConversationsResponseDataType | null;
+  id?: string | undefined;
+  organizationId?: string | null | undefined;
+  projectId?: string | null | undefined;
+  integrationId?: string | null | undefined;
+  firstMessageTime?: string | undefined;
+  userMessageCount?: number | undefined;
+  type?: QueryConversationsResponseDataType | null | undefined;
   sum?: number | undefined;
   count?: number | undefined;
   avg?: number | undefined;
@@ -143,13 +143,13 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string(),
-  organizationId: z.nullable(z.string()),
-  projectId: z.nullable(z.string()),
-  integrationId: z.nullable(z.string()),
-  firstMessageTime: z.string(),
-  userMessageCount: z.number(),
-  type: z.nullable(QueryConversationsResponseDataType$inboundSchema),
+  id: z.string().optional(),
+  organizationId: z.nullable(z.string()).optional(),
+  projectId: z.nullable(z.string()).optional(),
+  integrationId: z.nullable(z.string()).optional(),
+  firstMessageTime: z.string().optional(),
+  userMessageCount: z.number().optional(),
+  type: z.nullable(QueryConversationsResponseDataType$inboundSchema).optional(),
   sum: z.number().optional(),
   count: z.number().optional(),
   avg: z.number().optional(),
@@ -288,13 +288,13 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
 
 /** @internal */
 export type ConversationsResultItem$Outbound = {
-  id: string;
-  organizationId: string | null;
-  projectId: string | null;
-  integrationId: string | null;
-  firstMessageTime: string;
-  userMessageCount: number;
-  type: string | null;
+  id?: string | undefined;
+  organizationId?: string | null | undefined;
+  projectId?: string | null | undefined;
+  integrationId?: string | null | undefined;
+  firstMessageTime?: string | undefined;
+  userMessageCount?: number | undefined;
+  type?: string | null | undefined;
   sum?: number | undefined;
   count?: number | undefined;
   avg?: number | undefined;
@@ -371,13 +371,14 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ConversationsResultItem
 > = z.object({
-  id: z.string(),
-  organizationId: z.nullable(z.string()),
-  projectId: z.nullable(z.string()),
-  integrationId: z.nullable(z.string()),
-  firstMessageTime: z.string(),
-  userMessageCount: z.number(),
-  type: z.nullable(QueryConversationsResponseDataType$outboundSchema),
+  id: z.string().optional(),
+  organizationId: z.nullable(z.string()).optional(),
+  projectId: z.nullable(z.string()).optional(),
+  integrationId: z.nullable(z.string()).optional(),
+  firstMessageTime: z.string().optional(),
+  userMessageCount: z.number().optional(),
+  type: z.nullable(QueryConversationsResponseDataType$outboundSchema)
+    .optional(),
   sum: z.number().optional(),
   count: z.number().optional(),
   avg: z.number().optional(),

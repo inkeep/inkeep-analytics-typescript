@@ -7,7 +7,7 @@ import { EventsAggregationSelection } from "@inkeep/inkeep-analytics/models/comp
 
 let value: EventsAggregationSelection = {
   type: "aggregation",
-  aggregation: "min",
+  aggregation: "sum",
 };
 ```
 
