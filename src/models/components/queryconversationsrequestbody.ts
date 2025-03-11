@@ -31,7 +31,10 @@ import {
   ConversationsSelection$outboundSchema,
 } from "./conversationsselection.js";
 
-export type QueryConversationsParams = {
+/**
+ * Query Conversations Params
+ */
+export type QueryConversationsRequestBody = {
   select?: Array<ConversationsSelection> | undefined;
   groupBy?: Array<ConversationsGroupBy> | undefined;
   where?: ConversationsFilter | undefined;
@@ -43,8 +46,8 @@ export type QueryConversationsParams = {
 };
 
 /** @internal */
-export const QueryConversationsParams$inboundSchema: z.ZodType<
-  QueryConversationsParams,
+export const QueryConversationsRequestBody$inboundSchema: z.ZodType<
+  QueryConversationsRequestBody,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -56,7 +59,7 @@ export const QueryConversationsParams$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type QueryConversationsParams$Outbound = {
+export type QueryConversationsRequestBody$Outbound = {
   select?: Array<ConversationsSelection$Outbound> | undefined;
   groupBy?: Array<ConversationsGroupBy$Outbound> | undefined;
   where?: ConversationsFilter$Outbound | undefined;
@@ -65,10 +68,10 @@ export type QueryConversationsParams$Outbound = {
 };
 
 /** @internal */
-export const QueryConversationsParams$outboundSchema: z.ZodType<
-  QueryConversationsParams$Outbound,
+export const QueryConversationsRequestBody$outboundSchema: z.ZodType<
+  QueryConversationsRequestBody$Outbound,
   z.ZodTypeDef,
-  QueryConversationsParams
+  QueryConversationsRequestBody
 > = z.object({
   select: z.array(ConversationsSelection$outboundSchema).optional(),
   groupBy: z.array(ConversationsGroupBy$outboundSchema).optional(),
@@ -81,29 +84,31 @@ export const QueryConversationsParams$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QueryConversationsParams$ {
-  /** @deprecated use `QueryConversationsParams$inboundSchema` instead. */
-  export const inboundSchema = QueryConversationsParams$inboundSchema;
-  /** @deprecated use `QueryConversationsParams$outboundSchema` instead. */
-  export const outboundSchema = QueryConversationsParams$outboundSchema;
-  /** @deprecated use `QueryConversationsParams$Outbound` instead. */
-  export type Outbound = QueryConversationsParams$Outbound;
+export namespace QueryConversationsRequestBody$ {
+  /** @deprecated use `QueryConversationsRequestBody$inboundSchema` instead. */
+  export const inboundSchema = QueryConversationsRequestBody$inboundSchema;
+  /** @deprecated use `QueryConversationsRequestBody$outboundSchema` instead. */
+  export const outboundSchema = QueryConversationsRequestBody$outboundSchema;
+  /** @deprecated use `QueryConversationsRequestBody$Outbound` instead. */
+  export type Outbound = QueryConversationsRequestBody$Outbound;
 }
 
-export function queryConversationsParamsToJSON(
-  queryConversationsParams: QueryConversationsParams,
+export function queryConversationsRequestBodyToJSON(
+  queryConversationsRequestBody: QueryConversationsRequestBody,
 ): string {
   return JSON.stringify(
-    QueryConversationsParams$outboundSchema.parse(queryConversationsParams),
+    QueryConversationsRequestBody$outboundSchema.parse(
+      queryConversationsRequestBody,
+    ),
   );
 }
 
-export function queryConversationsParamsFromJSON(
+export function queryConversationsRequestBodyFromJSON(
   jsonString: string,
-): SafeParseResult<QueryConversationsParams, SDKValidationError> {
+): SafeParseResult<QueryConversationsRequestBody, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => QueryConversationsParams$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QueryConversationsParams' from JSON`,
+    (x) => QueryConversationsRequestBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryConversationsRequestBody' from JSON`,
   );
 }

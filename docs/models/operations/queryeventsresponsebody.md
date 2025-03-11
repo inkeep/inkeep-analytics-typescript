@@ -16,7 +16,7 @@ let value: QueryEventsResponseBody = {
         organizationId: "<id>",
         messageId: "<id>",
         conversationId: "<id>",
-        createdAt: "1734591219957",
+        createdAt: "1734595868132",
         projectId: "<id>",
         integrationId: "<id>",
         eventType: "<value>",

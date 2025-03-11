@@ -1,11 +1,13 @@
-# QueryConversationsParams
+# QueryConversationsRequestBody
+
+Query Conversations Params
 
 ## Example Usage
 
 ```typescript
-import { QueryConversationsParams } from "@inkeep/inkeep-analytics/models/components";
+import { QueryConversationsRequestBody } from "@inkeep/inkeep-analytics/models/components";
 
-let value: QueryConversationsParams = {
+let value: QueryConversationsRequestBody = {
   notes: "Count of support ticket conversations by integration",
 };
 ```

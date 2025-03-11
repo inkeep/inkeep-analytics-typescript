@@ -31,7 +31,10 @@ import {
   SemanticThreadSelection$outboundSchema,
 } from "./semanticthreadselection.js";
 
-export type QuerySemanticThreadsParams = {
+/**
+ * Query Semantic Threads Params
+ */
+export type QuerySemanticThreadsRequestBody = {
   select?: Array<SemanticThreadSelection> | undefined;
   groupBy?: Array<SemanticThreadGroupBy> | undefined;
   where?: SemanticThreadFilter | undefined;
@@ -43,8 +46,8 @@ export type QuerySemanticThreadsParams = {
 };
 
 /** @internal */
-export const QuerySemanticThreadsParams$inboundSchema: z.ZodType<
-  QuerySemanticThreadsParams,
+export const QuerySemanticThreadsRequestBody$inboundSchema: z.ZodType<
+  QuerySemanticThreadsRequestBody,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -56,7 +59,7 @@ export const QuerySemanticThreadsParams$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type QuerySemanticThreadsParams$Outbound = {
+export type QuerySemanticThreadsRequestBody$Outbound = {
   select?: Array<SemanticThreadSelection$Outbound> | undefined;
   groupBy?: Array<SemanticThreadGroupBy$Outbound> | undefined;
   where?: SemanticThreadFilter$Outbound | undefined;
@@ -65,10 +68,10 @@ export type QuerySemanticThreadsParams$Outbound = {
 };
 
 /** @internal */
-export const QuerySemanticThreadsParams$outboundSchema: z.ZodType<
-  QuerySemanticThreadsParams$Outbound,
+export const QuerySemanticThreadsRequestBody$outboundSchema: z.ZodType<
+  QuerySemanticThreadsRequestBody$Outbound,
   z.ZodTypeDef,
-  QuerySemanticThreadsParams
+  QuerySemanticThreadsRequestBody
 > = z.object({
   select: z.array(SemanticThreadSelection$outboundSchema).optional(),
   groupBy: z.array(SemanticThreadGroupBy$outboundSchema).optional(),
@@ -81,29 +84,31 @@ export const QuerySemanticThreadsParams$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace QuerySemanticThreadsParams$ {
-  /** @deprecated use `QuerySemanticThreadsParams$inboundSchema` instead. */
-  export const inboundSchema = QuerySemanticThreadsParams$inboundSchema;
-  /** @deprecated use `QuerySemanticThreadsParams$outboundSchema` instead. */
-  export const outboundSchema = QuerySemanticThreadsParams$outboundSchema;
-  /** @deprecated use `QuerySemanticThreadsParams$Outbound` instead. */
-  export type Outbound = QuerySemanticThreadsParams$Outbound;
+export namespace QuerySemanticThreadsRequestBody$ {
+  /** @deprecated use `QuerySemanticThreadsRequestBody$inboundSchema` instead. */
+  export const inboundSchema = QuerySemanticThreadsRequestBody$inboundSchema;
+  /** @deprecated use `QuerySemanticThreadsRequestBody$outboundSchema` instead. */
+  export const outboundSchema = QuerySemanticThreadsRequestBody$outboundSchema;
+  /** @deprecated use `QuerySemanticThreadsRequestBody$Outbound` instead. */
+  export type Outbound = QuerySemanticThreadsRequestBody$Outbound;
 }
 
-export function querySemanticThreadsParamsToJSON(
-  querySemanticThreadsParams: QuerySemanticThreadsParams,
+export function querySemanticThreadsRequestBodyToJSON(
+  querySemanticThreadsRequestBody: QuerySemanticThreadsRequestBody,
 ): string {
   return JSON.stringify(
-    QuerySemanticThreadsParams$outboundSchema.parse(querySemanticThreadsParams),
+    QuerySemanticThreadsRequestBody$outboundSchema.parse(
+      querySemanticThreadsRequestBody,
+    ),
   );
 }
 
-export function querySemanticThreadsParamsFromJSON(
+export function querySemanticThreadsRequestBodyFromJSON(
   jsonString: string,
-): SafeParseResult<QuerySemanticThreadsParams, SDKValidationError> {
+): SafeParseResult<QuerySemanticThreadsRequestBody, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => QuerySemanticThreadsParams$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'QuerySemanticThreadsParams' from JSON`,
+    (x) => QuerySemanticThreadsRequestBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QuerySemanticThreadsRequestBody' from JSON`,
   );
 }

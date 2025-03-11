@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 63a2136d-3fa3-4a0b-a766-1ddb2460cc12
 management:
-  docChecksum: 22a2d996b5216695512980ca4088ce5e
+  docChecksum: 9c62f1cd451709c0d1c9fd5feffb1636
   docVersion: 0.1.1
   speakeasyVersion: 1.516.0
   generationVersion: 2.547.2
-  releaseVersion: 0.2.4-alpha.1
-  configChecksum: 67411fb0c83e9b0abb8594cbd3b1c06c
+  releaseVersion: 0.2.4-alpha.2
+  configChecksum: dc8834b46fa879c621778d6f28b44301
   repoURL: https://github.com/inkeep/inkeep-analytics-typescript.git
   installationURL: https://github.com/inkeep/inkeep-analytics-typescript
   published: true
@@ -171,9 +171,9 @@ generatedFiles:
   - docs/models/components/or.md
   - docs/models/components/positivefeedback.md
   - docs/models/components/properties.md
-  - docs/models/components/queryconversationsparams.md
-  - docs/models/components/queryeventsparams.md
-  - docs/models/components/querysemanticthreadsparams.md
+  - docs/models/components/queryconversationsrequestbody.md
+  - docs/models/components/queryeventsrequestbody.md
+  - docs/models/components/querysemanticthreadsrequestbody.md
   - docs/models/components/reasons.md
   - docs/models/components/role.md
   - docs/models/components/security.md
@@ -403,9 +403,9 @@ generatedFiles:
   - src/models/components/openaiimageurlobject.ts
   - src/models/components/openaitoolcall.ts
   - src/models/components/openaitoolcallfunction.ts
-  - src/models/components/queryconversationsparams.ts
-  - src/models/components/queryeventsparams.ts
-  - src/models/components/querysemanticthreadsparams.ts
+  - src/models/components/queryconversationsrequestbody.ts
+  - src/models/components/queryeventsrequestbody.ts
+  - src/models/components/querysemanticthreadsrequestbody.ts
   - src/models/components/security.ts
   - src/models/components/selectconversationevent.ts
   - src/models/components/selectevent.ts

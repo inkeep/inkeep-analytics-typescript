@@ -12,7 +12,7 @@ let value: QueryEventsData = {
       organizationId: "<id>",
       messageId: "<id>",
       conversationId: "<id>",
-      createdAt: "1737370934869",
+      createdAt: "1737375583045",
       projectId: "<id>",
       integrationId: "<id>",
       eventType: "<value>",

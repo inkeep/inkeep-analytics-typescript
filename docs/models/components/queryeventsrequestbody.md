@@ -1,11 +1,13 @@
-# QueryEventsParams
+# QueryEventsRequestBody
+
+Query Events Params
 
 ## Example Usage
 
 ```typescript
-import { QueryEventsParams } from "@inkeep/inkeep-analytics/models/components";
+import { QueryEventsRequestBody } from "@inkeep/inkeep-analytics/models/components";
 
-let value: QueryEventsParams = {
+let value: QueryEventsRequestBody = {
   notes: "Count of events by type",
 };
 ```

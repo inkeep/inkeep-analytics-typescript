@@ -12,8 +12,8 @@ let value: GetAllConversationResponseBody = {
     {
       id: "<id>",
       type: "support_copilot",
-      createdAt: "1737822332479",
-      updatedAt: "1741659680534",
+      createdAt: "1737826980634",
+      updatedAt: "1741664328689",
       tags: [
         "<value>",
       ],
@@ -22,8 +22,8 @@ let value: GetAllConversationResponseBody = {
           id: "<id>",
           type: "support_copilot",
           conversationId: "<id>",
-          createdAt: "1740504939373",
-          updatedAt: "1741650482729",
+          createdAt: "1740509587528",
+          updatedAt: "1741655130884",
           role: "<value>",
         },
       ],

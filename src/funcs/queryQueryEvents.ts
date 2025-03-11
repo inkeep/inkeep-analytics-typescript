@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
 export function queryQueryEvents(
   client: InkeepAnalyticsCore,
   security: operations.QueryEventsSecurity,
-  request: components.QueryEventsParams,
+  request: components.QueryEventsRequestBody,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -61,7 +61,7 @@ export function queryQueryEvents(
 async function $do(
   client: InkeepAnalyticsCore,
   security: operations.QueryEventsSecurity,
-  request: components.QueryEventsParams,
+  request: components.QueryEventsRequestBody,
   options?: RequestOptions,
 ): Promise<
   [
@@ -85,7 +85,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => components.QueryEventsParams$outboundSchema.parse(value),
+    (value) => components.QueryEventsRequestBody$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
