@@ -19,7 +19,7 @@ const value: components.EventsAggregationSelection = {
 ```typescript
 const value: components.EventsTimeBasedGroupBySelection = {
   type: "time",
-  timeUnit: "hour",
+  timeUnit: "week",
 };
 ```
 
@@ -28,7 +28,7 @@ const value: components.EventsTimeBasedGroupBySelection = {
 ```typescript
 const value: components.EventsSimpleFieldSelection = {
   type: "field",
-  field: "projectId",
+  field: "createdAt",
 };
 ```
 

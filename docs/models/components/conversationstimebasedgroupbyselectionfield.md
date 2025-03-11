@@ -5,7 +5,7 @@
 ```typescript
 import { ConversationsTimeBasedGroupBySelectionField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: ConversationsTimeBasedGroupBySelectionField = "userMessageCount";
+let value: ConversationsTimeBasedGroupBySelectionField = "organizationId";
 ```
 
 ## Values

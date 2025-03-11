@@ -7,7 +7,11 @@
 
 ```typescript
 const value: components.EventsFilter = {
-  and: [],
+  condition: {
+    field: "eventType",
+    operator: "notIn",
+    value: "<value>",
+  },
 };
 ```
 

@@ -8,9 +8,11 @@
 ```typescript
 const value: components.EventsFilterCondition = {
   condition: {
-    field: "id",
+    field: "type",
     operator: "neq",
-    value: false,
+    value: [
+      "<value>",
+    ],
   },
 };
 ```

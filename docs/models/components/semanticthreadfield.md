@@ -7,7 +7,7 @@ Available fields for SemanticThread
 ```typescript
 import { SemanticThreadField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: SemanticThreadField = "lastMessageTime";
+let value: SemanticThreadField = "areAIAnnotationsVerified";
 ```
 
 ## Values

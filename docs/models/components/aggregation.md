@@ -5,7 +5,7 @@
 ```typescript
 import { Aggregation } from "@inkeep/inkeep-analytics/models/components";
 
-let value: Aggregation = "min";
+let value: Aggregation = "avg";
 ```
 
 ## Values

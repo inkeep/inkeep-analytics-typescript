@@ -6,9 +6,9 @@
 import { SemanticThreadFilterConditionCondition } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SemanticThreadFilterConditionCondition = {
-  field: "isInitialQuestionAnswer",
-  operator: "notIn",
-  value: false,
+  field: "isClear",
+  operator: "lte",
+  value: "<value>",
 };
 ```
 

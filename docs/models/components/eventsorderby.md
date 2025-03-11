@@ -8,7 +8,7 @@ Specifies how to order Events query results by field and direction
 import { EventsOrderBy } from "@inkeep/inkeep-analytics/models/components";
 
 let value: EventsOrderBy = {
-  field: "conversationId_day",
+  field: "messageId_week",
   direction: "desc",
 };
 ```

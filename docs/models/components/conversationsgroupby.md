@@ -8,7 +8,7 @@ Group by options for conversations
 import { ConversationsGroupBy } from "@inkeep/inkeep-analytics/models/components";
 
 let value: ConversationsGroupBy = {
-  field: "integrationId",
+  field: "id",
 };
 ```
 

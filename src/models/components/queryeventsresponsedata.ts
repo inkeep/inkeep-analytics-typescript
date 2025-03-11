@@ -9,18 +9,18 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type EventsResultItem = {
-  id: string;
-  organizationId: string;
-  messageId: string;
-  conversationId: string;
-  createdAt: string;
-  projectId: string | null;
-  integrationId: string | null;
-  eventType: string;
-  type: string;
-  searchQuery: string;
-  properties: { [k: string]: string } | null;
-  userProperties: { [k: string]: string } | null;
+  id?: string | undefined;
+  organizationId?: string | undefined;
+  messageId?: string | undefined;
+  conversationId?: string | undefined;
+  createdAt?: string | undefined;
+  projectId?: string | null | undefined;
+  integrationId?: string | null | undefined;
+  eventType?: string | undefined;
+  type?: string | undefined;
+  searchQuery?: string | undefined;
+  properties?: { [k: string]: string } | null | undefined;
+  userProperties?: { [k: string]: string } | null | undefined;
   sum?: number | undefined;
   count?: number | undefined;
   avg?: number | undefined;
@@ -161,18 +161,18 @@ export const EventsResultItem$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string(),
-  organizationId: z.string(),
-  messageId: z.string(),
-  conversationId: z.string(),
-  createdAt: z.string(),
-  projectId: z.nullable(z.string()),
-  integrationId: z.nullable(z.string()),
-  eventType: z.string(),
-  type: z.string(),
-  searchQuery: z.string(),
-  properties: z.nullable(z.record(z.string())),
-  userProperties: z.nullable(z.record(z.string())),
+  id: z.string().optional(),
+  organizationId: z.string().optional(),
+  messageId: z.string().optional(),
+  conversationId: z.string().optional(),
+  createdAt: z.string().optional(),
+  projectId: z.nullable(z.string()).optional(),
+  integrationId: z.nullable(z.string()).optional(),
+  eventType: z.string().optional(),
+  type: z.string().optional(),
+  searchQuery: z.string().optional(),
+  properties: z.nullable(z.record(z.string())).optional(),
+  userProperties: z.nullable(z.record(z.string())).optional(),
   sum: z.number().optional(),
   count: z.number().optional(),
   avg: z.number().optional(),
@@ -401,18 +401,18 @@ export const EventsResultItem$inboundSchema: z.ZodType<
 
 /** @internal */
 export type EventsResultItem$Outbound = {
-  id: string;
-  organizationId: string;
-  messageId: string;
-  conversationId: string;
-  createdAt: string;
-  projectId: string | null;
-  integrationId: string | null;
-  eventType: string;
-  type: string;
-  searchQuery: string;
-  properties: { [k: string]: string } | null;
-  userProperties: { [k: string]: string } | null;
+  id?: string | undefined;
+  organizationId?: string | undefined;
+  messageId?: string | undefined;
+  conversationId?: string | undefined;
+  createdAt?: string | undefined;
+  projectId?: string | null | undefined;
+  integrationId?: string | null | undefined;
+  eventType?: string | undefined;
+  type?: string | undefined;
+  searchQuery?: string | undefined;
+  properties?: { [k: string]: string } | null | undefined;
+  userProperties?: { [k: string]: string } | null | undefined;
   sum?: number | undefined;
   count?: number | undefined;
   avg?: number | undefined;
@@ -534,18 +534,18 @@ export const EventsResultItem$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EventsResultItem
 > = z.object({
-  id: z.string(),
-  organizationId: z.string(),
-  messageId: z.string(),
-  conversationId: z.string(),
-  createdAt: z.string(),
-  projectId: z.nullable(z.string()),
-  integrationId: z.nullable(z.string()),
-  eventType: z.string(),
-  type: z.string(),
-  searchQuery: z.string(),
-  properties: z.nullable(z.record(z.string())),
-  userProperties: z.nullable(z.record(z.string())),
+  id: z.string().optional(),
+  organizationId: z.string().optional(),
+  messageId: z.string().optional(),
+  conversationId: z.string().optional(),
+  createdAt: z.string().optional(),
+  projectId: z.nullable(z.string()).optional(),
+  integrationId: z.nullable(z.string()).optional(),
+  eventType: z.string().optional(),
+  type: z.string().optional(),
+  searchQuery: z.string().optional(),
+  properties: z.nullable(z.record(z.string())).optional(),
+  userProperties: z.nullable(z.record(z.string())).optional(),
   sum: z.number().optional(),
   count: z.number().optional(),
   avg: z.number().optional(),

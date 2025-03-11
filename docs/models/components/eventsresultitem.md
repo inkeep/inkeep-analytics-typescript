@@ -5,42 +5,25 @@
 ```typescript
 import { EventsResultItem } from "@inkeep/inkeep-analytics/models/components";
 
-let value: EventsResultItem = {
-  id: "<id>",
-  organizationId: "<id>",
-  messageId: "<id>",
-  conversationId: "<id>",
-  createdAt: "1716046059997",
-  projectId: "<id>",
-  integrationId: "<id>",
-  eventType: "<value>",
-  type: "<value>",
-  searchQuery: "<value>",
-  properties: {
-    "key": "<value>",
-  },
-  userProperties: {
-    "key": "<value>",
-  },
-};
+let value: EventsResultItem = {};
 ```
 
 ## Fields
 
 | Field                    | Type                     | Required                 | Description              |
 | ------------------------ | ------------------------ | ------------------------ | ------------------------ |
-| `id`                     | *string*                 | :heavy_check_mark:       | N/A                      |
-| `organizationId`         | *string*                 | :heavy_check_mark:       | N/A                      |
-| `messageId`              | *string*                 | :heavy_check_mark:       | N/A                      |
-| `conversationId`         | *string*                 | :heavy_check_mark:       | N/A                      |
-| `createdAt`              | *string*                 | :heavy_check_mark:       | N/A                      |
-| `projectId`              | *string*                 | :heavy_check_mark:       | N/A                      |
-| `integrationId`          | *string*                 | :heavy_check_mark:       | N/A                      |
-| `eventType`              | *string*                 | :heavy_check_mark:       | N/A                      |
-| `type`                   | *string*                 | :heavy_check_mark:       | N/A                      |
-| `searchQuery`            | *string*                 | :heavy_check_mark:       | N/A                      |
-| `properties`             | Record<string, *string*> | :heavy_check_mark:       | N/A                      |
-| `userProperties`         | Record<string, *string*> | :heavy_check_mark:       | N/A                      |
+| `id`                     | *string*                 | :heavy_minus_sign:       | N/A                      |
+| `organizationId`         | *string*                 | :heavy_minus_sign:       | N/A                      |
+| `messageId`              | *string*                 | :heavy_minus_sign:       | N/A                      |
+| `conversationId`         | *string*                 | :heavy_minus_sign:       | N/A                      |
+| `createdAt`              | *string*                 | :heavy_minus_sign:       | N/A                      |
+| `projectId`              | *string*                 | :heavy_minus_sign:       | N/A                      |
+| `integrationId`          | *string*                 | :heavy_minus_sign:       | N/A                      |
+| `eventType`              | *string*                 | :heavy_minus_sign:       | N/A                      |
+| `type`                   | *string*                 | :heavy_minus_sign:       | N/A                      |
+| `searchQuery`            | *string*                 | :heavy_minus_sign:       | N/A                      |
+| `properties`             | Record<string, *string*> | :heavy_minus_sign:       | N/A                      |
+| `userProperties`         | Record<string, *string*> | :heavy_minus_sign:       | N/A                      |
 | `sum`                    | *number*                 | :heavy_minus_sign:       | N/A                      |
 | `count`                  | *number*                 | :heavy_minus_sign:       | N/A                      |
 | `avg`                    | *number*                 | :heavy_minus_sign:       | N/A                      |

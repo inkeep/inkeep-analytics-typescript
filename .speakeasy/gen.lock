@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 63a2136d-3fa3-4a0b-a766-1ddb2460cc12
 management:
-  docChecksum: ba4a1bd613fc7cff0cd6653018fd5f24
+  docChecksum: fa2eb675e959bf3156ba1865d6f163d2
   docVersion: 0.1.1
   speakeasyVersion: 1.517.0
   generationVersion: 2.548.1
-  releaseVersion: 0.2.4-alpha.3
-  configChecksum: 92c47ed66ac68120cf868111793cf38e
+  releaseVersion: 0.2.4-alpha.4
+  configChecksum: f0efec975e6654256a74f9a41243a1a2
   repoURL: https://github.com/inkeep/inkeep-analytics-typescript.git
   installationURL: https://github.com/inkeep/inkeep-analytics-typescript
   published: true
