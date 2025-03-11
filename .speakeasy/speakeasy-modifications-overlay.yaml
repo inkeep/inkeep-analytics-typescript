@@ -75,15 +75,6 @@ actions:
       created_at: 1738802640154
       reviewed_at: 1738803068103
       type: method-name
-  - target: $["paths"]["/query/{table}"]["post"]
-    update:
-      x-speakeasy-name-override: table
-    x-speakeasy-metadata:
-      after: sdk.query.table()
-      before: sdk.query.queryTable()
-      created_at: 1738802640154
-      reviewed_at: 1738803068103
-      type: method-name
   - target: $["paths"]["/conversations"]["post"]
     update:
       x-speakeasy-group: conversations
