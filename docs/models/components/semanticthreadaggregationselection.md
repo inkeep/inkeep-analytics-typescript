@@ -7,7 +7,7 @@ import { SemanticThreadAggregationSelection } from "@inkeep/inkeep-analytics/mod
 
 let value: SemanticThreadAggregationSelection = {
   type: "aggregation",
-  aggregation: "min",
+  aggregation: "max",
 };
 ```
 

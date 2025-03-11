@@ -10,8 +10,8 @@ const value: components.OpenAIExtendedMessage = {
   id: "<id>",
   type: "openai",
   conversationId: "<id>",
-  createdAt: "1723026443789",
-  updatedAt: "1741641087694",
+  createdAt: "1723032776898",
+  updatedAt: "1741647420803",
   role: "assistant",
   content: "<value>",
 };
@@ -24,8 +24,8 @@ const value: components.SupportTicketMessage = {
   id: "<id>",
   type: "support_ticket",
   conversationId: "<id>",
-  createdAt: "1732956256399",
-  updatedAt: "1741709966303",
+  createdAt: "1732962589508",
+  updatedAt: "1741716299412",
   role: "<value>",
 };
 ```
@@ -37,8 +37,8 @@ const value: components.SupportCopilotMessage = {
   id: "<id>",
   type: "support_copilot",
   conversationId: "<id>",
-  createdAt: "1740949556944",
-  updatedAt: "1741709052290",
+  createdAt: "1740955890053",
+  updatedAt: "1741715385399",
   role: "<value>",
 };
 ```

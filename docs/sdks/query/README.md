@@ -75,7 +75,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.QueryConversationsResponseBody](../../models/operations/queryconversationsresponsebody.md)\>**
+**Promise\<[components.QueryConversationsResponseBody](../../models/components/queryconversationsresponsebody.md)\>**
 
 ### Errors
 
@@ -153,7 +153,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.QueryEventsResponseBody](../../models/operations/queryeventsresponsebody.md)\>**
+**Promise\<[components.QueryEventsResponseBody](../../models/components/queryeventsresponsebody.md)\>**
 
 ### Errors
 
@@ -231,7 +231,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.QuerySemanticThreadsResponseBody](../../models/operations/querysemanticthreadsresponsebody.md)\>**
+**Promise\<[components.QuerySemanticThreadsResponseBody](../../models/components/querysemanticthreadsresponsebody.md)\>**
 
 ### Errors
 

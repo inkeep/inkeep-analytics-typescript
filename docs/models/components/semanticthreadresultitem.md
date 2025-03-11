@@ -3,7 +3,7 @@
 ## Example Usage
 
 ```typescript
-import { SemanticThreadResultItem } from "@inkeep/inkeep-analytics/models/operations";
+import { SemanticThreadResultItem } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SemanticThreadResultItem = {};
 ```

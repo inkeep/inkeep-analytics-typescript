@@ -3,14 +3,14 @@
 ## Example Usage
 
 ```typescript
-import { EventsResultItem } from "@inkeep/inkeep-analytics/models/operations";
+import { EventsResultItem } from "@inkeep/inkeep-analytics/models/components";
 
 let value: EventsResultItem = {
   id: "<id>",
   organizationId: "<id>",
   messageId: "<id>",
   conversationId: "<id>",
-  createdAt: "1713271135760",
+  createdAt: "1716046059997",
   projectId: "<id>",
   integrationId: "<id>",
   eventType: "<value>",

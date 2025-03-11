@@ -11,27 +11,42 @@ let value: GetAllConversationResponseBody = {
   conversations: [
     {
       id: "<id>",
-      type: "support_copilot",
-      createdAt: "1737826980634",
-      updatedAt: "1741664328689",
+      type: "openai",
+      createdAt: "1736118149393",
+      updatedAt: "1741657848050",
       tags: [
         "<value>",
       ],
       messages: [
         {
           id: "<id>",
-          type: "support_copilot",
+          type: "openai",
           conversationId: "<id>",
-          createdAt: "1740509587528",
-          updatedAt: "1741655130884",
-          role: "<value>",
+          createdAt: "1726316800305",
+          updatedAt: "1741660826150",
+          role: "system",
+          content: [
+            {
+              type: "image_url",
+            },
+          ],
+        },
+      ],
+      messagesOpenAIFormat: [
+        {
+          role: "assistant",
+          content: [
+            {
+              type: "image_url",
+            },
+          ],
         },
       ],
     },
   ],
-  total: 9493.19,
-  pageSize: 9413.78,
-  count: 7992.03,
+  total: 3331.45,
+  pageSize: 811.01,
+  count: 4072.41,
 };
 ```
 

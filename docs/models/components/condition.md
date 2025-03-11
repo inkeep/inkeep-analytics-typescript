@@ -7,8 +7,8 @@ import { Condition } from "@inkeep/inkeep-analytics/models/components";
 
 let value: Condition = {
   field: "organizationId",
-  operator: "lte",
-  value: 2378.93,
+  operator: "arrayContains",
+  value: 4904.59,
 };
 ```
 
