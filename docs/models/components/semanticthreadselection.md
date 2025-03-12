@@ -10,7 +10,7 @@ Fields to select from semantic threads
 ```typescript
 const value: components.SemanticThreadAggregationSelection = {
   type: "aggregation",
-  aggregation: "count",
+  aggregation: "avg",
 };
 ```
 
@@ -19,7 +19,7 @@ const value: components.SemanticThreadAggregationSelection = {
 ```typescript
 const value: components.SemanticThreadTimeBasedGroupBySelection = {
   type: "time",
-  timeUnit: "month",
+  timeUnit: "hour",
 };
 ```
 

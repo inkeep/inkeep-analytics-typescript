@@ -5,7 +5,7 @@
 ```typescript
 import { CreateOpenAIConversationRole } from "@inkeep/inkeep-analytics/models/components";
 
-let value: CreateOpenAIConversationRole = "system";
+let value: CreateOpenAIConversationRole = "assistant";
 ```
 
 ## Values

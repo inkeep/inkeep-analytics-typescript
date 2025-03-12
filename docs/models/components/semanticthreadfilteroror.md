@@ -7,7 +7,11 @@
 
 ```typescript
 const value: components.SemanticThreadFilter = {
-  and: [],
+  condition: {
+    field: "id",
+    operator: "neq",
+    value: 9742.57,
+  },
 };
 ```
 

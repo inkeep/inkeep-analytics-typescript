@@ -7,11 +7,9 @@ import { SemanticThreadFilterCondition } from "@inkeep/inkeep-analytics/models/c
 
 let value: SemanticThreadFilterCondition = {
   condition: {
-    field: "languages",
-    operator: "arrayContains",
-    value: [
-      "<value>",
-    ],
+    field: "isFeatureSupported",
+    operator: "gt",
+    value: 330.74,
   },
 };
 ```

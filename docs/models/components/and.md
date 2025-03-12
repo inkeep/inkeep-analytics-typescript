@@ -7,11 +7,7 @@
 
 ```typescript
 const value: components.ConversationsFilter = {
-  condition: {
-    field: "organizationId",
-    operator: "eq",
-    value: false,
-  },
+  and: [],
 };
 ```
 

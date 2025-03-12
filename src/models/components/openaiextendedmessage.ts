@@ -61,18 +61,14 @@ export type Links = {
   breadcrumbs?: Array<string> | null | undefined;
 };
 
-export type OpenAIExtendedMessageProperties = {};
-
-export type OpenAIExtendedMessageUserProperties = {};
-
 /**
  * A message that includes the OpenAI chat completion details.
  */
 export type OpenAIExtendedMessage = {
   id: string;
   type: OpenAIExtendedMessageType;
-  externalId?: string | null | undefined;
-  externalUrl?: string | null | undefined;
+  externalId: string | null;
+  externalUrl: string | null;
   conversationId: string;
   createdAt: string;
   updatedAt: string;
@@ -80,8 +76,14 @@ export type OpenAIExtendedMessage = {
   content: string | Array<OpenAIContentItem>;
   name?: string | null | undefined;
   links?: Array<Links> | null | undefined;
-  properties?: OpenAIExtendedMessageProperties | null | undefined;
-  userProperties?: OpenAIExtendedMessageUserProperties | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  userProperties?: { [k: string]: any } | null | undefined;
   toolCalls?: Array<OpenAIToolCall> | null | undefined;
 };
 
@@ -298,109 +300,6 @@ export function linksFromJSON(
 }
 
 /** @internal */
-export const OpenAIExtendedMessageProperties$inboundSchema: z.ZodType<
-  OpenAIExtendedMessageProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type OpenAIExtendedMessageProperties$Outbound = {};
-
-/** @internal */
-export const OpenAIExtendedMessageProperties$outboundSchema: z.ZodType<
-  OpenAIExtendedMessageProperties$Outbound,
-  z.ZodTypeDef,
-  OpenAIExtendedMessageProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OpenAIExtendedMessageProperties$ {
-  /** @deprecated use `OpenAIExtendedMessageProperties$inboundSchema` instead. */
-  export const inboundSchema = OpenAIExtendedMessageProperties$inboundSchema;
-  /** @deprecated use `OpenAIExtendedMessageProperties$outboundSchema` instead. */
-  export const outboundSchema = OpenAIExtendedMessageProperties$outboundSchema;
-  /** @deprecated use `OpenAIExtendedMessageProperties$Outbound` instead. */
-  export type Outbound = OpenAIExtendedMessageProperties$Outbound;
-}
-
-export function openAIExtendedMessagePropertiesToJSON(
-  openAIExtendedMessageProperties: OpenAIExtendedMessageProperties,
-): string {
-  return JSON.stringify(
-    OpenAIExtendedMessageProperties$outboundSchema.parse(
-      openAIExtendedMessageProperties,
-    ),
-  );
-}
-
-export function openAIExtendedMessagePropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<OpenAIExtendedMessageProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OpenAIExtendedMessageProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OpenAIExtendedMessageProperties' from JSON`,
-  );
-}
-
-/** @internal */
-export const OpenAIExtendedMessageUserProperties$inboundSchema: z.ZodType<
-  OpenAIExtendedMessageUserProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type OpenAIExtendedMessageUserProperties$Outbound = {};
-
-/** @internal */
-export const OpenAIExtendedMessageUserProperties$outboundSchema: z.ZodType<
-  OpenAIExtendedMessageUserProperties$Outbound,
-  z.ZodTypeDef,
-  OpenAIExtendedMessageUserProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OpenAIExtendedMessageUserProperties$ {
-  /** @deprecated use `OpenAIExtendedMessageUserProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    OpenAIExtendedMessageUserProperties$inboundSchema;
-  /** @deprecated use `OpenAIExtendedMessageUserProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    OpenAIExtendedMessageUserProperties$outboundSchema;
-  /** @deprecated use `OpenAIExtendedMessageUserProperties$Outbound` instead. */
-  export type Outbound = OpenAIExtendedMessageUserProperties$Outbound;
-}
-
-export function openAIExtendedMessageUserPropertiesToJSON(
-  openAIExtendedMessageUserProperties: OpenAIExtendedMessageUserProperties,
-): string {
-  return JSON.stringify(
-    OpenAIExtendedMessageUserProperties$outboundSchema.parse(
-      openAIExtendedMessageUserProperties,
-    ),
-  );
-}
-
-export function openAIExtendedMessageUserPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<OpenAIExtendedMessageUserProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      OpenAIExtendedMessageUserProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OpenAIExtendedMessageUserProperties' from JSON`,
-  );
-}
-
-/** @internal */
 export const OpenAIExtendedMessage$inboundSchema: z.ZodType<
   OpenAIExtendedMessage,
   z.ZodTypeDef,
@@ -408,8 +307,8 @@ export const OpenAIExtendedMessage$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   type: OpenAIExtendedMessageType$inboundSchema,
-  externalId: z.nullable(z.string()).optional(),
-  externalUrl: z.nullable(z.string()).optional(),
+  externalId: z.nullable(z.string()),
+  externalUrl: z.nullable(z.string()),
   conversationId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
@@ -417,12 +316,8 @@ export const OpenAIExtendedMessage$inboundSchema: z.ZodType<
   content: z.union([z.string(), z.array(OpenAIContentItem$inboundSchema)]),
   name: z.nullable(z.string()).optional(),
   links: z.nullable(z.array(z.lazy(() => Links$inboundSchema))).optional(),
-  properties: z.nullable(
-    z.lazy(() => OpenAIExtendedMessageProperties$inboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => OpenAIExtendedMessageUserProperties$inboundSchema),
-  ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
   tool_calls: z.nullable(z.array(OpenAIToolCall$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -434,8 +329,8 @@ export const OpenAIExtendedMessage$inboundSchema: z.ZodType<
 export type OpenAIExtendedMessage$Outbound = {
   id: string;
   type: string;
-  externalId?: string | null | undefined;
-  externalUrl?: string | null | undefined;
+  externalId: string | null;
+  externalUrl: string | null;
   conversationId: string;
   createdAt: string;
   updatedAt: string;
@@ -443,11 +338,8 @@ export type OpenAIExtendedMessage$Outbound = {
   content: string | Array<OpenAIContentItem$Outbound>;
   name?: string | null | undefined;
   links?: Array<Links$Outbound> | null | undefined;
-  properties?: OpenAIExtendedMessageProperties$Outbound | null | undefined;
-  userProperties?:
-    | OpenAIExtendedMessageUserProperties$Outbound
-    | null
-    | undefined;
+  properties?: { [k: string]: any } | null | undefined;
+  userProperties?: { [k: string]: any } | null | undefined;
   tool_calls?: Array<OpenAIToolCall$Outbound> | null | undefined;
 };
 
@@ -459,8 +351,8 @@ export const OpenAIExtendedMessage$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   type: OpenAIExtendedMessageType$outboundSchema,
-  externalId: z.nullable(z.string()).optional(),
-  externalUrl: z.nullable(z.string()).optional(),
+  externalId: z.nullable(z.string()),
+  externalUrl: z.nullable(z.string()),
   conversationId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
@@ -468,12 +360,8 @@ export const OpenAIExtendedMessage$outboundSchema: z.ZodType<
   content: z.union([z.string(), z.array(OpenAIContentItem$outboundSchema)]),
   name: z.nullable(z.string()).optional(),
   links: z.nullable(z.array(z.lazy(() => Links$outboundSchema))).optional(),
-  properties: z.nullable(
-    z.lazy(() => OpenAIExtendedMessageProperties$outboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => OpenAIExtendedMessageUserProperties$outboundSchema),
-  ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
   toolCalls: z.nullable(z.array(OpenAIToolCall$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {

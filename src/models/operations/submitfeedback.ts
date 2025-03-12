@@ -19,18 +19,22 @@ export type Reasons = {
   details: string;
 };
 
-export type UserProperties = {};
-
 /**
  * Note: The maximum size of the request body is 2 MB.
  */
 export type SubmitFeedbackRequestBody = {
-  id?: string | null | undefined;
+  id?: string | undefined;
   type: Type;
   messageId: string;
+  /**
+   * A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.
+   */
   createdAt?: Date | null | undefined;
   reasons?: Array<Reasons> | null | undefined;
-  userProperties?: UserProperties | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  userProperties?: { [k: string]: any } | null | undefined;
 };
 
 export const SubmitFeedbackType = {
@@ -44,8 +48,6 @@ export type SubmitFeedbackReasons = {
   details: string;
 };
 
-export type SubmitFeedbackUserProperties = {};
-
 /**
  * Feedback provided successfully
  */
@@ -55,7 +57,10 @@ export type SubmitFeedbackResponseBody = {
   messageId: string;
   createdAt: string;
   reasons?: Array<SubmitFeedbackReasons> | null | undefined;
-  userProperties?: SubmitFeedbackUserProperties | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  userProperties?: { [k: string]: any } | null | undefined;
 };
 
 /** @internal */
@@ -129,74 +134,29 @@ export function reasonsFromJSON(
 }
 
 /** @internal */
-export const UserProperties$inboundSchema: z.ZodType<
-  UserProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type UserProperties$Outbound = {};
-
-/** @internal */
-export const UserProperties$outboundSchema: z.ZodType<
-  UserProperties$Outbound,
-  z.ZodTypeDef,
-  UserProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UserProperties$ {
-  /** @deprecated use `UserProperties$inboundSchema` instead. */
-  export const inboundSchema = UserProperties$inboundSchema;
-  /** @deprecated use `UserProperties$outboundSchema` instead. */
-  export const outboundSchema = UserProperties$outboundSchema;
-  /** @deprecated use `UserProperties$Outbound` instead. */
-  export type Outbound = UserProperties$Outbound;
-}
-
-export function userPropertiesToJSON(userProperties: UserProperties): string {
-  return JSON.stringify(UserProperties$outboundSchema.parse(userProperties));
-}
-
-export function userPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<UserProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => UserProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'UserProperties' from JSON`,
-  );
-}
-
-/** @internal */
 export const SubmitFeedbackRequestBody$inboundSchema: z.ZodType<
   SubmitFeedbackRequestBody,
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.nullable(z.string()).optional(),
+  id: z.string().optional(),
   type: Type$inboundSchema,
   messageId: z.string(),
   createdAt: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$inboundSchema))).optional(),
-  userProperties: z.nullable(z.lazy(() => UserProperties$inboundSchema))
-    .optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
 });
 
 /** @internal */
 export type SubmitFeedbackRequestBody$Outbound = {
-  id?: string | null | undefined;
+  id?: string | undefined;
   type: string;
   messageId: string;
   createdAt?: string | null | undefined;
   reasons?: Array<Reasons$Outbound> | null | undefined;
-  userProperties?: UserProperties$Outbound | null | undefined;
+  userProperties?: { [k: string]: any } | null | undefined;
 };
 
 /** @internal */
@@ -205,13 +165,12 @@ export const SubmitFeedbackRequestBody$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SubmitFeedbackRequestBody
 > = z.object({
-  id: z.nullable(z.string()).optional(),
+  id: z.string().optional(),
   type: Type$outboundSchema,
   messageId: z.string(),
   createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$outboundSchema))).optional(),
-  userProperties: z.nullable(z.lazy(() => UserProperties$outboundSchema))
-    .optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
 });
 
 /**
@@ -324,56 +283,6 @@ export function submitFeedbackReasonsFromJSON(
 }
 
 /** @internal */
-export const SubmitFeedbackUserProperties$inboundSchema: z.ZodType<
-  SubmitFeedbackUserProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type SubmitFeedbackUserProperties$Outbound = {};
-
-/** @internal */
-export const SubmitFeedbackUserProperties$outboundSchema: z.ZodType<
-  SubmitFeedbackUserProperties$Outbound,
-  z.ZodTypeDef,
-  SubmitFeedbackUserProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SubmitFeedbackUserProperties$ {
-  /** @deprecated use `SubmitFeedbackUserProperties$inboundSchema` instead. */
-  export const inboundSchema = SubmitFeedbackUserProperties$inboundSchema;
-  /** @deprecated use `SubmitFeedbackUserProperties$outboundSchema` instead. */
-  export const outboundSchema = SubmitFeedbackUserProperties$outboundSchema;
-  /** @deprecated use `SubmitFeedbackUserProperties$Outbound` instead. */
-  export type Outbound = SubmitFeedbackUserProperties$Outbound;
-}
-
-export function submitFeedbackUserPropertiesToJSON(
-  submitFeedbackUserProperties: SubmitFeedbackUserProperties,
-): string {
-  return JSON.stringify(
-    SubmitFeedbackUserProperties$outboundSchema.parse(
-      submitFeedbackUserProperties,
-    ),
-  );
-}
-
-export function submitFeedbackUserPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<SubmitFeedbackUserProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SubmitFeedbackUserProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SubmitFeedbackUserProperties' from JSON`,
-  );
-}
-
-/** @internal */
 export const SubmitFeedbackResponseBody$inboundSchema: z.ZodType<
   SubmitFeedbackResponseBody,
   z.ZodTypeDef,
@@ -386,9 +295,7 @@ export const SubmitFeedbackResponseBody$inboundSchema: z.ZodType<
   reasons: z.nullable(
     z.array(z.lazy(() => SubmitFeedbackReasons$inboundSchema)),
   ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => SubmitFeedbackUserProperties$inboundSchema),
-  ).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
 });
 
 /** @internal */
@@ -398,7 +305,7 @@ export type SubmitFeedbackResponseBody$Outbound = {
   messageId: string;
   createdAt: string;
   reasons?: Array<SubmitFeedbackReasons$Outbound> | null | undefined;
-  userProperties?: SubmitFeedbackUserProperties$Outbound | null | undefined;
+  userProperties?: { [k: string]: any } | null | undefined;
 };
 
 /** @internal */
@@ -414,9 +321,7 @@ export const SubmitFeedbackResponseBody$outboundSchema: z.ZodType<
   reasons: z.nullable(
     z.array(z.lazy(() => SubmitFeedbackReasons$outboundSchema)),
   ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => SubmitFeedbackUserProperties$outboundSchema),
-  ).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
 });
 
 /**

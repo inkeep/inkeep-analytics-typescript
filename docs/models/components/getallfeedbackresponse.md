@@ -6,71 +6,105 @@
 import { GetAllFeedbackResponse } from "@inkeep/inkeep-analytics/models/components";
 
 let value: GetAllFeedbackResponse = {
-  positiveFeedbackCount: 1354.74,
-  negativeFeedbackCount: 2982.82,
+  positiveFeedbackCount: 2539.41,
+  negativeFeedbackCount: 2133.12,
   positiveFeedback: [
     {
       id: "<id>",
       type: "negative",
       messageId: "<id>",
-      createdAt: "1728831403448",
+      createdAt: "1711082188115",
       conversation: {
         id: "<id>",
-        type: "support_ticket",
-        createdAt: "1730796981043",
-        updatedAt: "1741703581712",
-        tags: [
-          "<value>",
-        ],
-        messages: [
-          {
-            id: "<id>",
-            type: "support_ticket",
-            conversationId: "<id>",
-            createdAt: "1723802851990",
-            updatedAt: "1741724701372",
-            role: "<value>",
-          },
-        ],
-      },
-      message: {
-        id: "<id>",
-        type: "support_ticket",
-        conversationId: "<id>",
-        createdAt: "1723943076489",
-        updatedAt: "1741724301928",
-        role: "<value>",
-      },
-    },
-  ],
-  negativeFeedback: [
-    {
-      id: "<id>",
-      type: "negative",
-      messageId: "<id>",
-      createdAt: "1732395470314",
-      conversation: {
-        id: "<id>",
+        externalId: "<id>",
+        externalUrl: "https://hospitable-information.biz/",
         type: "openai",
-        createdAt: "1739194443435",
-        updatedAt: "1741708950381",
+        supportTicketConversationId: "<id>",
+        createdAt: "1728777719230",
+        updatedAt: "1741797124928",
+        projectId: "<id>",
+        integrationId: "<id>",
         tags: [
           "<value>",
         ],
+        visibility: "private",
         messages: [
           {
             id: "<id>",
             type: "openai",
+            externalId: "<id>",
+            externalUrl: "https://complete-provision.info",
             conversationId: "<id>",
-            createdAt: "1741697278849",
-            updatedAt: "1741660152832",
-            role: "assistant",
+            createdAt: "1728104014594",
+            updatedAt: "1741738323863",
+            role: "system",
             content: "<value>",
           },
         ],
         messagesOpenAIFormat: [
           {
             role: "user",
+            content: [
+              {
+                type: "image_url",
+              },
+            ],
+          },
+        ],
+      },
+      message: {
+        id: "<id>",
+        type: "support_copilot",
+        externalId: "<id>",
+        externalUrl: "https://bouncy-marketplace.name",
+        conversationId: "<id>",
+        createdAt: "1740608513344",
+        updatedAt: "1741747729926",
+        role: "<value>",
+        content: "<value>",
+      },
+    },
+  ],
+  negativeFeedback: [
+    {
+      id: "<id>",
+      type: "positive",
+      messageId: "<id>",
+      createdAt: "1713435758340",
+      conversation: {
+        id: "<id>",
+        externalId: "<id>",
+        externalUrl: "https://reasonable-schnitzel.biz",
+        type: "openai",
+        supportTicketConversationId: "<id>",
+        createdAt: "1728765919093",
+        updatedAt: "1741728014349",
+        projectId: "<id>",
+        integrationId: "<id>",
+        tags: [
+          "<value>",
+        ],
+        visibility: "private",
+        messages: [
+          {
+            id: "<id>",
+            type: "openai",
+            externalId: "<id>",
+            externalUrl: "https://ugly-flame.org",
+            conversationId: "<id>",
+            createdAt: "1717579830941",
+            updatedAt: "1741804508878",
+            role: "assistant",
+            content: [
+              {
+                type: "image_url",
+              },
+            ],
+          },
+        ],
+        messagesOpenAIFormat: [
+          {
+            role: "assistant",
             content: "<value>",
           },
         ],
@@ -78,10 +112,13 @@ let value: GetAllFeedbackResponse = {
       message: {
         id: "<id>",
         type: "support_copilot",
+        externalId: "<id>",
+        externalUrl: "https://afraid-folklore.com",
         conversationId: "<id>",
-        createdAt: "1735657250525",
-        updatedAt: "1741696410385",
+        createdAt: "1741235859340",
+        updatedAt: "1741763819400",
         role: "<value>",
+        content: "<value>",
       },
     },
   ],

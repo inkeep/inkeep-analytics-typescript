@@ -7,7 +7,7 @@ import { EventsTimeBasedGroupBySelection } from "@inkeep/inkeep-analytics/models
 
 let value: EventsTimeBasedGroupBySelection = {
   type: "time",
-  timeUnit: "day",
+  timeUnit: "hour",
 };
 ```
 

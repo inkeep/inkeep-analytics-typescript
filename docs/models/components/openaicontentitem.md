@@ -6,7 +6,7 @@
 import { OpenAIContentItem } from "@inkeep/inkeep-analytics/models/components";
 
 let value: OpenAIContentItem = {
-  type: "text",
+  type: "image_url",
 };
 ```
 

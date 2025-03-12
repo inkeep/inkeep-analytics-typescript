@@ -6,7 +6,7 @@
 import { OpenAIChatCompletionMessage } from "@inkeep/inkeep-analytics/models/components";
 
 let value: OpenAIChatCompletionMessage = {
-  role: "user",
+  role: "system",
   content: "<value>",
 };
 ```

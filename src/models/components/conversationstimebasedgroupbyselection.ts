@@ -22,11 +22,11 @@ export type ConversationsTimeBasedGroupBySelectionType = ClosedEnum<
 
 export const ConversationsTimeBasedGroupBySelectionField = {
   Id: "id",
+  UserMessageCount: "userMessageCount",
   OrganizationId: "organizationId",
   ProjectId: "projectId",
   IntegrationId: "integrationId",
   FirstMessageTime: "firstMessageTime",
-  UserMessageCount: "userMessageCount",
   Type: "type",
 } as const;
 export type ConversationsTimeBasedGroupBySelectionField = ClosedEnum<

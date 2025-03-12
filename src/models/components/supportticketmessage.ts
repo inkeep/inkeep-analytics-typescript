@@ -39,24 +39,26 @@ export type SupportTicketMessageLinks = {
   breadcrumbs?: Array<string> | null | undefined;
 };
 
-export type SupportTicketMessageProperties = {};
-
-export type SupportTicketMessageUserProperties = {};
-
 export type SupportTicketMessage = {
   id: string;
   type: SupportTicketMessageType;
-  externalId?: string | null | undefined;
-  externalUrl?: string | null | undefined;
+  externalId: string | null;
+  externalUrl: string | null;
   conversationId: string;
   createdAt: string;
   updatedAt: string;
   role: string;
-  content?: string | null | undefined;
+  content: string | null;
   name?: string | null | undefined;
   links?: Array<SupportTicketMessageLinks> | null | undefined;
-  properties?: SupportTicketMessageProperties | null | undefined;
-  userProperties?: SupportTicketMessageUserProperties | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  userProperties?: { [k: string]: any } | null | undefined;
 };
 
 /** @internal */
@@ -220,108 +222,6 @@ export function supportTicketMessageLinksFromJSON(
 }
 
 /** @internal */
-export const SupportTicketMessageProperties$inboundSchema: z.ZodType<
-  SupportTicketMessageProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type SupportTicketMessageProperties$Outbound = {};
-
-/** @internal */
-export const SupportTicketMessageProperties$outboundSchema: z.ZodType<
-  SupportTicketMessageProperties$Outbound,
-  z.ZodTypeDef,
-  SupportTicketMessageProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SupportTicketMessageProperties$ {
-  /** @deprecated use `SupportTicketMessageProperties$inboundSchema` instead. */
-  export const inboundSchema = SupportTicketMessageProperties$inboundSchema;
-  /** @deprecated use `SupportTicketMessageProperties$outboundSchema` instead. */
-  export const outboundSchema = SupportTicketMessageProperties$outboundSchema;
-  /** @deprecated use `SupportTicketMessageProperties$Outbound` instead. */
-  export type Outbound = SupportTicketMessageProperties$Outbound;
-}
-
-export function supportTicketMessagePropertiesToJSON(
-  supportTicketMessageProperties: SupportTicketMessageProperties,
-): string {
-  return JSON.stringify(
-    SupportTicketMessageProperties$outboundSchema.parse(
-      supportTicketMessageProperties,
-    ),
-  );
-}
-
-export function supportTicketMessagePropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<SupportTicketMessageProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SupportTicketMessageProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SupportTicketMessageProperties' from JSON`,
-  );
-}
-
-/** @internal */
-export const SupportTicketMessageUserProperties$inboundSchema: z.ZodType<
-  SupportTicketMessageUserProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type SupportTicketMessageUserProperties$Outbound = {};
-
-/** @internal */
-export const SupportTicketMessageUserProperties$outboundSchema: z.ZodType<
-  SupportTicketMessageUserProperties$Outbound,
-  z.ZodTypeDef,
-  SupportTicketMessageUserProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SupportTicketMessageUserProperties$ {
-  /** @deprecated use `SupportTicketMessageUserProperties$inboundSchema` instead. */
-  export const inboundSchema = SupportTicketMessageUserProperties$inboundSchema;
-  /** @deprecated use `SupportTicketMessageUserProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    SupportTicketMessageUserProperties$outboundSchema;
-  /** @deprecated use `SupportTicketMessageUserProperties$Outbound` instead. */
-  export type Outbound = SupportTicketMessageUserProperties$Outbound;
-}
-
-export function supportTicketMessageUserPropertiesToJSON(
-  supportTicketMessageUserProperties: SupportTicketMessageUserProperties,
-): string {
-  return JSON.stringify(
-    SupportTicketMessageUserProperties$outboundSchema.parse(
-      supportTicketMessageUserProperties,
-    ),
-  );
-}
-
-export function supportTicketMessageUserPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<SupportTicketMessageUserProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      SupportTicketMessageUserProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SupportTicketMessageUserProperties' from JSON`,
-  );
-}
-
-/** @internal */
 export const SupportTicketMessage$inboundSchema: z.ZodType<
   SupportTicketMessage,
   z.ZodTypeDef,
@@ -329,43 +229,36 @@ export const SupportTicketMessage$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   type: SupportTicketMessageType$inboundSchema,
-  externalId: z.nullable(z.string()).optional(),
-  externalUrl: z.nullable(z.string()).optional(),
+  externalId: z.nullable(z.string()),
+  externalUrl: z.nullable(z.string()),
   conversationId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   role: z.string(),
-  content: z.nullable(z.string()).optional(),
+  content: z.nullable(z.string()),
   name: z.nullable(z.string()).optional(),
   links: z.nullable(
     z.array(z.lazy(() => SupportTicketMessageLinks$inboundSchema)),
   ).optional(),
-  properties: z.nullable(
-    z.lazy(() => SupportTicketMessageProperties$inboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => SupportTicketMessageUserProperties$inboundSchema),
-  ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
 });
 
 /** @internal */
 export type SupportTicketMessage$Outbound = {
   id: string;
   type: string;
-  externalId?: string | null | undefined;
-  externalUrl?: string | null | undefined;
+  externalId: string | null;
+  externalUrl: string | null;
   conversationId: string;
   createdAt: string;
   updatedAt: string;
   role: string;
-  content?: string | null | undefined;
+  content: string | null;
   name?: string | null | undefined;
   links?: Array<SupportTicketMessageLinks$Outbound> | null | undefined;
-  properties?: SupportTicketMessageProperties$Outbound | null | undefined;
-  userProperties?:
-    | SupportTicketMessageUserProperties$Outbound
-    | null
-    | undefined;
+  properties?: { [k: string]: any } | null | undefined;
+  userProperties?: { [k: string]: any } | null | undefined;
 };
 
 /** @internal */
@@ -376,23 +269,19 @@ export const SupportTicketMessage$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   type: SupportTicketMessageType$outboundSchema,
-  externalId: z.nullable(z.string()).optional(),
-  externalUrl: z.nullable(z.string()).optional(),
+  externalId: z.nullable(z.string()),
+  externalUrl: z.nullable(z.string()),
   conversationId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   role: z.string(),
-  content: z.nullable(z.string()).optional(),
+  content: z.nullable(z.string()),
   name: z.nullable(z.string()).optional(),
   links: z.nullable(
     z.array(z.lazy(() => SupportTicketMessageLinks$outboundSchema)),
   ).optional(),
-  properties: z.nullable(
-    z.lazy(() => SupportTicketMessageProperties$outboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => SupportTicketMessageUserProperties$outboundSchema),
-  ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
 });
 
 /**

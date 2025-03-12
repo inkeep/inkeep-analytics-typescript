@@ -8,10 +8,6 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type SelectSearchEventProperties = {};
-
-export type SelectSearchEventUserProperties = {};
-
 export const SelectSearchEventEntityType = {
   Search: "search",
 } as const;
@@ -24,112 +20,18 @@ export type SelectSearchEvent = {
   type: string;
   searchQuery: string;
   createdAt: string;
-  projectId?: string | null | undefined;
-  integrationId?: string | null | undefined;
-  properties?: SelectSearchEventProperties | null | undefined;
-  userProperties?: SelectSearchEventUserProperties | null | undefined;
+  projectId: string | null;
+  integrationId: string | null;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  userProperties?: { [k: string]: any } | null | undefined;
   entityType: SelectSearchEventEntityType;
 };
-
-/** @internal */
-export const SelectSearchEventProperties$inboundSchema: z.ZodType<
-  SelectSearchEventProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type SelectSearchEventProperties$Outbound = {};
-
-/** @internal */
-export const SelectSearchEventProperties$outboundSchema: z.ZodType<
-  SelectSearchEventProperties$Outbound,
-  z.ZodTypeDef,
-  SelectSearchEventProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SelectSearchEventProperties$ {
-  /** @deprecated use `SelectSearchEventProperties$inboundSchema` instead. */
-  export const inboundSchema = SelectSearchEventProperties$inboundSchema;
-  /** @deprecated use `SelectSearchEventProperties$outboundSchema` instead. */
-  export const outboundSchema = SelectSearchEventProperties$outboundSchema;
-  /** @deprecated use `SelectSearchEventProperties$Outbound` instead. */
-  export type Outbound = SelectSearchEventProperties$Outbound;
-}
-
-export function selectSearchEventPropertiesToJSON(
-  selectSearchEventProperties: SelectSearchEventProperties,
-): string {
-  return JSON.stringify(
-    SelectSearchEventProperties$outboundSchema.parse(
-      selectSearchEventProperties,
-    ),
-  );
-}
-
-export function selectSearchEventPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<SelectSearchEventProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SelectSearchEventProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SelectSearchEventProperties' from JSON`,
-  );
-}
-
-/** @internal */
-export const SelectSearchEventUserProperties$inboundSchema: z.ZodType<
-  SelectSearchEventUserProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type SelectSearchEventUserProperties$Outbound = {};
-
-/** @internal */
-export const SelectSearchEventUserProperties$outboundSchema: z.ZodType<
-  SelectSearchEventUserProperties$Outbound,
-  z.ZodTypeDef,
-  SelectSearchEventUserProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SelectSearchEventUserProperties$ {
-  /** @deprecated use `SelectSearchEventUserProperties$inboundSchema` instead. */
-  export const inboundSchema = SelectSearchEventUserProperties$inboundSchema;
-  /** @deprecated use `SelectSearchEventUserProperties$outboundSchema` instead. */
-  export const outboundSchema = SelectSearchEventUserProperties$outboundSchema;
-  /** @deprecated use `SelectSearchEventUserProperties$Outbound` instead. */
-  export type Outbound = SelectSearchEventUserProperties$Outbound;
-}
-
-export function selectSearchEventUserPropertiesToJSON(
-  selectSearchEventUserProperties: SelectSearchEventUserProperties,
-): string {
-  return JSON.stringify(
-    SelectSearchEventUserProperties$outboundSchema.parse(
-      selectSearchEventUserProperties,
-    ),
-  );
-}
-
-export function selectSearchEventUserPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<SelectSearchEventUserProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SelectSearchEventUserProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SelectSearchEventUserProperties' from JSON`,
-  );
-}
 
 /** @internal */
 export const SelectSearchEventEntityType$inboundSchema: z.ZodNativeEnum<
@@ -162,14 +64,10 @@ export const SelectSearchEvent$inboundSchema: z.ZodType<
   type: z.string(),
   searchQuery: z.string(),
   createdAt: z.string(),
-  projectId: z.nullable(z.string()).optional(),
-  integrationId: z.nullable(z.string()).optional(),
-  properties: z.nullable(
-    z.lazy(() => SelectSearchEventProperties$inboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => SelectSearchEventUserProperties$inboundSchema),
-  ).optional(),
+  projectId: z.nullable(z.string()),
+  integrationId: z.nullable(z.string()),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
   entityType: SelectSearchEventEntityType$inboundSchema,
 });
 
@@ -179,10 +77,10 @@ export type SelectSearchEvent$Outbound = {
   type: string;
   searchQuery: string;
   createdAt: string;
-  projectId?: string | null | undefined;
-  integrationId?: string | null | undefined;
-  properties?: SelectSearchEventProperties$Outbound | null | undefined;
-  userProperties?: SelectSearchEventUserProperties$Outbound | null | undefined;
+  projectId: string | null;
+  integrationId: string | null;
+  properties?: { [k: string]: any } | null | undefined;
+  userProperties?: { [k: string]: any } | null | undefined;
   entityType: string;
 };
 
@@ -196,14 +94,10 @@ export const SelectSearchEvent$outboundSchema: z.ZodType<
   type: z.string(),
   searchQuery: z.string(),
   createdAt: z.string(),
-  projectId: z.nullable(z.string()).optional(),
-  integrationId: z.nullable(z.string()).optional(),
-  properties: z.nullable(
-    z.lazy(() => SelectSearchEventProperties$outboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => SelectSearchEventUserProperties$outboundSchema),
-  ).optional(),
+  projectId: z.nullable(z.string()),
+  integrationId: z.nullable(z.string()),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
   entityType: SelectSearchEventEntityType$outboundSchema,
 });
 

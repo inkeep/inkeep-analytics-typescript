@@ -8,11 +8,9 @@
 ```typescript
 const value: components.SemanticThreadFilter = {
   condition: {
-    field: "areAIAnnotationsVerified",
-    operator: "arrayContains",
-    value: [
-      "<value>",
-    ],
+    field: "isOnTopic",
+    operator: "neq",
+    value: false,
   },
 };
 ```

@@ -6,7 +6,7 @@
 import { CreateSupportTicketConversationLinks } from "@inkeep/inkeep-analytics/models/components";
 
 let value: CreateSupportTicketConversationLinks = {
-  url: "https://ajar-solvency.com",
+  url: "https://black-and-white-postbox.info/",
 };
 ```
 

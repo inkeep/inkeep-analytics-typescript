@@ -6,7 +6,7 @@
 import { CreateSupportCopilotConversationLinks } from "@inkeep/inkeep-analytics/models/components";
 
 let value: CreateSupportCopilotConversationLinks = {
-  url: "https://expert-minor.name",
+  url: "https://advanced-fort.net",
 };
 ```
 

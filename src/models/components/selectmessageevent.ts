@@ -8,10 +8,6 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type SelectMessageEventProperties = {};
-
-export type SelectMessageEventUserProperties = {};
-
 export const SelectMessageEventEntityType = {
   Message: "message",
 } as const;
@@ -24,112 +20,18 @@ export type SelectMessageEvent = {
   type: string;
   messageId: string;
   createdAt: string;
-  projectId?: string | null | undefined;
-  integrationId?: string | null | undefined;
-  properties?: SelectMessageEventProperties | null | undefined;
-  userProperties?: SelectMessageEventUserProperties | null | undefined;
+  projectId: string | null;
+  integrationId: string | null;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  userProperties?: { [k: string]: any } | null | undefined;
   entityType: SelectMessageEventEntityType;
 };
-
-/** @internal */
-export const SelectMessageEventProperties$inboundSchema: z.ZodType<
-  SelectMessageEventProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type SelectMessageEventProperties$Outbound = {};
-
-/** @internal */
-export const SelectMessageEventProperties$outboundSchema: z.ZodType<
-  SelectMessageEventProperties$Outbound,
-  z.ZodTypeDef,
-  SelectMessageEventProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SelectMessageEventProperties$ {
-  /** @deprecated use `SelectMessageEventProperties$inboundSchema` instead. */
-  export const inboundSchema = SelectMessageEventProperties$inboundSchema;
-  /** @deprecated use `SelectMessageEventProperties$outboundSchema` instead. */
-  export const outboundSchema = SelectMessageEventProperties$outboundSchema;
-  /** @deprecated use `SelectMessageEventProperties$Outbound` instead. */
-  export type Outbound = SelectMessageEventProperties$Outbound;
-}
-
-export function selectMessageEventPropertiesToJSON(
-  selectMessageEventProperties: SelectMessageEventProperties,
-): string {
-  return JSON.stringify(
-    SelectMessageEventProperties$outboundSchema.parse(
-      selectMessageEventProperties,
-    ),
-  );
-}
-
-export function selectMessageEventPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<SelectMessageEventProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SelectMessageEventProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SelectMessageEventProperties' from JSON`,
-  );
-}
-
-/** @internal */
-export const SelectMessageEventUserProperties$inboundSchema: z.ZodType<
-  SelectMessageEventUserProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type SelectMessageEventUserProperties$Outbound = {};
-
-/** @internal */
-export const SelectMessageEventUserProperties$outboundSchema: z.ZodType<
-  SelectMessageEventUserProperties$Outbound,
-  z.ZodTypeDef,
-  SelectMessageEventUserProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SelectMessageEventUserProperties$ {
-  /** @deprecated use `SelectMessageEventUserProperties$inboundSchema` instead. */
-  export const inboundSchema = SelectMessageEventUserProperties$inboundSchema;
-  /** @deprecated use `SelectMessageEventUserProperties$outboundSchema` instead. */
-  export const outboundSchema = SelectMessageEventUserProperties$outboundSchema;
-  /** @deprecated use `SelectMessageEventUserProperties$Outbound` instead. */
-  export type Outbound = SelectMessageEventUserProperties$Outbound;
-}
-
-export function selectMessageEventUserPropertiesToJSON(
-  selectMessageEventUserProperties: SelectMessageEventUserProperties,
-): string {
-  return JSON.stringify(
-    SelectMessageEventUserProperties$outboundSchema.parse(
-      selectMessageEventUserProperties,
-    ),
-  );
-}
-
-export function selectMessageEventUserPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<SelectMessageEventUserProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SelectMessageEventUserProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SelectMessageEventUserProperties' from JSON`,
-  );
-}
 
 /** @internal */
 export const SelectMessageEventEntityType$inboundSchema: z.ZodNativeEnum<
@@ -162,14 +64,10 @@ export const SelectMessageEvent$inboundSchema: z.ZodType<
   type: z.string(),
   messageId: z.string(),
   createdAt: z.string(),
-  projectId: z.nullable(z.string()).optional(),
-  integrationId: z.nullable(z.string()).optional(),
-  properties: z.nullable(
-    z.lazy(() => SelectMessageEventProperties$inboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => SelectMessageEventUserProperties$inboundSchema),
-  ).optional(),
+  projectId: z.nullable(z.string()),
+  integrationId: z.nullable(z.string()),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
   entityType: SelectMessageEventEntityType$inboundSchema,
 });
 
@@ -179,10 +77,10 @@ export type SelectMessageEvent$Outbound = {
   type: string;
   messageId: string;
   createdAt: string;
-  projectId?: string | null | undefined;
-  integrationId?: string | null | undefined;
-  properties?: SelectMessageEventProperties$Outbound | null | undefined;
-  userProperties?: SelectMessageEventUserProperties$Outbound | null | undefined;
+  projectId: string | null;
+  integrationId: string | null;
+  properties?: { [k: string]: any } | null | undefined;
+  userProperties?: { [k: string]: any } | null | undefined;
   entityType: string;
 };
 
@@ -196,14 +94,10 @@ export const SelectMessageEvent$outboundSchema: z.ZodType<
   type: z.string(),
   messageId: z.string(),
   createdAt: z.string(),
-  projectId: z.nullable(z.string()).optional(),
-  integrationId: z.nullable(z.string()).optional(),
-  properties: z.nullable(
-    z.lazy(() => SelectMessageEventProperties$outboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => SelectMessageEventUserProperties$outboundSchema),
-  ).optional(),
+  projectId: z.nullable(z.string()),
+  integrationId: z.nullable(z.string()),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
   entityType: SelectMessageEventEntityType$outboundSchema,
 });
 

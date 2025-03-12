@@ -6,7 +6,7 @@
 import { SupportCopilotMessageLinks } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SupportCopilotMessageLinks = {
-  url: "https://likely-wallaby.name",
+  url: "https://interesting-chairperson.biz",
 };
 ```
 

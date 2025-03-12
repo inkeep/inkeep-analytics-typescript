@@ -6,9 +6,11 @@
 import { Condition } from "@inkeep/inkeep-analytics/models/components";
 
 let value: Condition = {
-  field: "firstMessageTime",
-  operator: "in",
-  value: false,
+  field: "organizationId",
+  operator: "neq",
+  value: [
+    "<value>",
+  ],
 };
 ```
 

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 63a2136d-3fa3-4a0b-a766-1ddb2460cc12
 management:
-  docChecksum: fa2eb675e959bf3156ba1865d6f163d2
+  docChecksum: a5808406a57ed7a1a1143aa0eab006e0
   docVersion: 0.1.1
   speakeasyVersion: 1.517.0
   generationVersion: 2.548.1
-  releaseVersion: 0.2.4-alpha.4
-  configChecksum: f0efec975e6654256a74f9a41243a1a2
+  releaseVersion: 0.2.4-alpha.5
+  configChecksum: 74b7b1d3c1045d0c16acb106ff253188
   repoURL: https://github.com/inkeep/inkeep-analytics-typescript.git
   installationURL: https://github.com/inkeep/inkeep-analytics-typescript
   published: true
@@ -71,32 +71,22 @@ generatedFiles:
   - docs/models/components/createopenaiconversation.md
   - docs/models/components/createopenaiconversationcontent.md
   - docs/models/components/createopenaiconversationlinks.md
-  - docs/models/components/createopenaiconversationproperties.md
   - docs/models/components/createopenaiconversationrole.md
   - docs/models/components/createopenaiconversationtype.md
   - docs/models/components/createopenaiconversationtype1.md
-  - docs/models/components/createopenaiconversationuserproperties.md
   - docs/models/components/createsupportcopilotconversation.md
   - docs/models/components/createsupportcopilotconversationlinks.md
   - docs/models/components/createsupportcopilotconversationmessages.md
-  - docs/models/components/createsupportcopilotconversationmessagesproperties.md
   - docs/models/components/createsupportcopilotconversationmessagestype.md
-  - docs/models/components/createsupportcopilotconversationmessagesuserproperties.md
-  - docs/models/components/createsupportcopilotconversationproperties.md
   - docs/models/components/createsupportcopilotconversationtype.md
   - docs/models/components/createsupportcopilotconversationtype1.md
-  - docs/models/components/createsupportcopilotconversationuserproperties.md
   - docs/models/components/createsupportcopilotconversationvisibility.md
   - docs/models/components/createsupportticketconversation.md
   - docs/models/components/createsupportticketconversationlinks.md
   - docs/models/components/createsupportticketconversationmessages.md
-  - docs/models/components/createsupportticketconversationmessagesproperties.md
   - docs/models/components/createsupportticketconversationmessagestype.md
-  - docs/models/components/createsupportticketconversationmessagesuserproperties.md
-  - docs/models/components/createsupportticketconversationproperties.md
   - docs/models/components/createsupportticketconversationtype.md
   - docs/models/components/createsupportticketconversationtype1.md
-  - docs/models/components/createsupportticketconversationuserproperties.md
   - docs/models/components/createsupportticketconversationvisibility.md
   - docs/models/components/detail.md
   - docs/models/components/direction.md
@@ -130,22 +120,14 @@ generatedFiles:
   - docs/models/components/filteroperator.md
   - docs/models/components/getallfeedbackresponse.md
   - docs/models/components/getallfeedbackresponsenegativefeedbacktype.md
-  - docs/models/components/getallfeedbackresponsenegativefeedbackuserproperties.md
   - docs/models/components/getallfeedbackresponsereasons.md
   - docs/models/components/getallfeedbackresponsetype.md
-  - docs/models/components/getallfeedbackresponseuserproperties.md
   - docs/models/components/insertconversationevent.md
   - docs/models/components/insertconversationevententitytype.md
-  - docs/models/components/insertconversationeventproperties.md
-  - docs/models/components/insertconversationeventuserproperties.md
   - docs/models/components/insertevent.md
   - docs/models/components/insertmessageevent.md
-  - docs/models/components/insertmessageeventproperties.md
-  - docs/models/components/insertmessageeventuserproperties.md
   - docs/models/components/insertsearchevent.md
   - docs/models/components/insertsearchevententitytype.md
-  - docs/models/components/insertsearcheventproperties.md
-  - docs/models/components/insertsearcheventuserproperties.md
   - docs/models/components/links.md
   - docs/models/components/message.md
   - docs/models/components/messages.md
@@ -157,22 +139,17 @@ generatedFiles:
   - docs/models/components/openaicontentitem.md
   - docs/models/components/openaicontentitemtype.md
   - docs/models/components/openaiconversation.md
-  - docs/models/components/openaiconversationproperties.md
   - docs/models/components/openaiconversationtype.md
-  - docs/models/components/openaiconversationuserproperties.md
   - docs/models/components/openaiconversationvisibility.md
   - docs/models/components/openaiextendedmessage.md
   - docs/models/components/openaiextendedmessagelinkstype.md
-  - docs/models/components/openaiextendedmessageproperties.md
   - docs/models/components/openaiextendedmessagetype.md
-  - docs/models/components/openaiextendedmessageuserproperties.md
   - docs/models/components/openaiimageurlobject.md
   - docs/models/components/openaitoolcall.md
   - docs/models/components/openaitoolcallfunction.md
   - docs/models/components/openaitoolcalltype.md
   - docs/models/components/or.md
   - docs/models/components/positivefeedback.md
-  - docs/models/components/properties.md
   - docs/models/components/queryconversationsrequestbody.md
   - docs/models/components/queryconversationsresponsebody.md
   - docs/models/components/queryconversationsresponsedata.md
@@ -190,17 +167,11 @@ generatedFiles:
   - docs/models/components/security.md
   - docs/models/components/selectconversationevent.md
   - docs/models/components/selectconversationevententitytype.md
-  - docs/models/components/selectconversationeventproperties.md
-  - docs/models/components/selectconversationeventuserproperties.md
   - docs/models/components/selectevent.md
   - docs/models/components/selectmessageevent.md
   - docs/models/components/selectmessageevententitytype.md
-  - docs/models/components/selectmessageeventproperties.md
-  - docs/models/components/selectmessageeventuserproperties.md
   - docs/models/components/selectsearchevent.md
   - docs/models/components/selectsearchevententitytype.md
-  - docs/models/components/selectsearcheventproperties.md
-  - docs/models/components/selectsearcheventuserproperties.md
   - docs/models/components/semanticthreadaggregationselection.md
   - docs/models/components/semanticthreadaggregationselectionaggregation.md
   - docs/models/components/semanticthreadaggregationselectionfield.md
@@ -228,32 +199,23 @@ generatedFiles:
   - docs/models/components/semanticthreadtimebasedgroupbyselectiontype.md
   - docs/models/components/status.md
   - docs/models/components/supportcopilotconversation.md
-  - docs/models/components/supportcopilotconversationproperties.md
   - docs/models/components/supportcopilotconversationtype.md
-  - docs/models/components/supportcopilotconversationuserproperties.md
   - docs/models/components/supportcopilotconversationvisibility.md
   - docs/models/components/supportcopilotmessage.md
   - docs/models/components/supportcopilotmessagelinks.md
   - docs/models/components/supportcopilotmessagelinkstype.md
-  - docs/models/components/supportcopilotmessageproperties.md
   - docs/models/components/supportcopilotmessagetype.md
   - docs/models/components/supportcopilotmessagetype1.md
-  - docs/models/components/supportcopilotmessageuserproperties.md
   - docs/models/components/supportticketconversation.md
-  - docs/models/components/supportticketconversationproperties.md
   - docs/models/components/supportticketconversationtype.md
-  - docs/models/components/supportticketconversationuserproperties.md
   - docs/models/components/supportticketconversationvisibility.md
   - docs/models/components/supportticketmessage.md
   - docs/models/components/supportticketmessagelinks.md
   - docs/models/components/supportticketmessagelinkstype.md
-  - docs/models/components/supportticketmessageproperties.md
   - docs/models/components/supportticketmessagetype.md
-  - docs/models/components/supportticketmessageuserproperties.md
   - docs/models/components/timeunit.md
   - docs/models/components/type.md
   - docs/models/components/type1.md
-  - docs/models/components/userproperties.md
   - docs/models/components/visibility.md
   - docs/models/errors/badrequest.md
   - docs/models/errors/badrequestcode.md
@@ -298,9 +260,7 @@ generatedFiles:
   - docs/models/operations/submitfeedbackrequestbody.md
   - docs/models/operations/submitfeedbackresponsebody.md
   - docs/models/operations/submitfeedbacktype.md
-  - docs/models/operations/submitfeedbackuserproperties.md
   - docs/models/operations/type.md
-  - docs/models/operations/userproperties.md
   - docs/sdks/conversation/README.md
   - docs/sdks/conversations/README.md
   - docs/sdks/events/README.md
@@ -480,7 +440,7 @@ examples:
         application/json: {"type": "support_ticket", "messages": [{"role": "<value>"}]}
       responses:
         "200":
-          application/json: {"id": "<id>", "type": "support_ticket", "createdAt": "1733847902032", "updatedAt": "1738782547049", "tags": ["<value>", "<value>"], "messages": [{"id": "<id>", "type": "support_ticket", "conversationId": "<id>", "createdAt": "1708069757418", "updatedAt": "1738719286500", "role": "<value>"}, {"id": "<id>", "type": "support_ticket", "conversationId": "<id>", "createdAt": "1715130712707", "updatedAt": "1738776315766", "role": "<value>"}]}
+          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://nervous-prohibition.biz", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1733847902032", "updatedAt": "1738782547049", "projectId": "<id>", "integrationId": "<id>", "tags": ["<value>", "<value>"], "visibility": "public", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://sniveling-formamide.com", "conversationId": "<id>", "createdAt": "1708069757418", "updatedAt": "1738719286500", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://present-breastplate.info", "conversationId": "<id>", "createdAt": "1715130712707", "updatedAt": "1738776315766", "role": "<value>", "content": "<value>"}]}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
@@ -526,7 +486,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"id": "<id>", "type": "support_ticket", "createdAt": "1735928719588", "updatedAt": "1738802376242", "tags": ["<value>"], "messages": [{"id": "<id>", "type": "support_ticket", "conversationId": "<id>", "createdAt": "1718049138803", "updatedAt": "1738746959508", "role": "<value>"}, {"id": "<id>", "type": "support_ticket", "conversationId": "<id>", "createdAt": "1716851894842", "updatedAt": "1738768541226", "role": "<value>"}, {"id": "<id>", "type": "support_ticket", "conversationId": "<id>", "createdAt": "1737557749612", "updatedAt": "1738748037494", "role": "<value>"}]}
+          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://normal-making.name", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1735928719588", "updatedAt": "1738802376242", "projectId": "<id>", "integrationId": "<id>", "tags": ["<value>"], "visibility": "public", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://knowledgeable-diversity.biz/", "conversationId": "<id>", "createdAt": "1718049138803", "updatedAt": "1738746959508", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://jittery-sermon.com", "conversationId": "<id>", "createdAt": "1716851894842", "updatedAt": "1738768541226", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://genuine-bowler.name/", "conversationId": "<id>", "createdAt": "1737557749612", "updatedAt": "1738748037494", "role": "<value>", "content": "<value>"}]}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
@@ -597,7 +557,7 @@ examples:
     speakeasy-default-get-all-feedback:
       responses:
         "200":
-          application/json: {"positiveFeedbackCount": 1726.62, "negativeFeedbackCount": 2246.6, "positiveFeedback": [], "negativeFeedback": [{"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1731204221605", "conversation": {"id": "<id>", "type": "openai", "createdAt": "1727769494062", "updatedAt": "1738752877975", "tags": [], "messages": [], "messagesOpenAIFormat": [{"role": "system", "content": "<value>"}]}, "message": {"id": "<id>", "type": "support_ticket", "conversationId": "<id>", "createdAt": "1731361160099", "updatedAt": "1738761736066", "role": "<value>"}}]}
+          application/json: {"positiveFeedbackCount": 1726.62, "negativeFeedbackCount": 2246.6, "positiveFeedback": [], "negativeFeedback": [{"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1731204221605", "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://neglected-plastic.biz", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1727769494062", "updatedAt": "1738752877975", "projectId": "<id>", "integrationId": "<id>", "tags": [], "visibility": "private", "messages": [], "messagesOpenAIFormat": [{"role": "system", "content": "<value>"}]}, "message": {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://primary-paintwork.com/", "conversationId": "<id>", "createdAt": "1731361160099", "updatedAt": "1738761736066", "role": "<value>", "content": "<value>"}}]}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
@@ -622,7 +582,7 @@ examples:
         application/json: {"type": "<value>", "searchQuery": "<value>", "entityType": "search"}
       responses:
         "200":
-          application/json: {"id": "<id>", "type": "<value>", "conversationId": "<id>", "createdAt": "1738279517326", "entityType": "conversation"}
+          application/json: {"id": "<id>", "type": "<value>", "conversationId": "<id>", "createdAt": "1738279517326", "projectId": "<id>", "integrationId": "<id>", "entityType": "conversation"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
@@ -725,7 +685,7 @@ examples:
           application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
           application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "type": "https://docs.inkeep.com/analytics-api/errors#internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
         "200":
-          application/json: {"id": "<id>", "type": "support_ticket", "createdAt": "1722130271543", "updatedAt": "1741022613469", "tags": ["<value>", "<value>"], "messages": []}
+          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://impolite-riser.net", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1722130271543", "updatedAt": "1741022613469", "projectId": "<id>", "integrationId": "<id>", "tags": ["<value>", "<value>"], "visibility": "private", "messages": []}
   queryEvents:
     speakeasy-default-query-events:
       requestBody:

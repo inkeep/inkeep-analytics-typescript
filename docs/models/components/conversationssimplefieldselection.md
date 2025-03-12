@@ -7,7 +7,7 @@ import { ConversationsSimpleFieldSelection } from "@inkeep/inkeep-analytics/mode
 
 let value: ConversationsSimpleFieldSelection = {
   type: "field",
-  field: "userMessageCount",
+  field: "projectId",
 };
 ```
 
