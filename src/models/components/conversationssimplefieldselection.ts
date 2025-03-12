@@ -17,11 +17,11 @@ export type ConversationsSimpleFieldSelectionType = ClosedEnum<
 
 export const ConversationsSimpleFieldSelectionField = {
   Id: "id",
+  UserMessageCount: "userMessageCount",
   OrganizationId: "organizationId",
   ProjectId: "projectId",
   IntegrationId: "integrationId",
   FirstMessageTime: "firstMessageTime",
-  UserMessageCount: "userMessageCount",
   Type: "type",
 } as const;
 export type ConversationsSimpleFieldSelectionField = ClosedEnum<

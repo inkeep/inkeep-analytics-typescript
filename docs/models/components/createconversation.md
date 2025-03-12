@@ -10,7 +10,7 @@ const value: components.CreateOpenAIConversation = {
   type: "openai",
   messages: [
     {
-      role: "system",
+      role: "assistant",
       content: "<value>",
     },
   ],

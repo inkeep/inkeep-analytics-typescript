@@ -5,7 +5,7 @@
 ```typescript
 import { OpenAIConversationVisibility } from "@inkeep/inkeep-analytics/models/components";
 
-let value: OpenAIConversationVisibility = "public";
+let value: OpenAIConversationVisibility = "private";
 ```
 
 ## Values

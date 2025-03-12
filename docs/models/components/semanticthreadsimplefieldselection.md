@@ -7,7 +7,7 @@ import { SemanticThreadSimpleFieldSelection } from "@inkeep/inkeep-analytics/mod
 
 let value: SemanticThreadSimpleFieldSelection = {
   type: "field",
-  field: "sentiment",
+  field: "questionType",
 };
 ```
 

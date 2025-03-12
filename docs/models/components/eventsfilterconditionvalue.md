@@ -20,7 +20,7 @@ const value: boolean = false;
 ### `number`
 
 ```typescript
-const value: number = 4246.85;
+const value: number = 1605.38;
 ```
 
 ### `string[]`

@@ -43,24 +43,26 @@ export type SupportCopilotMessageLinks = {
   breadcrumbs?: Array<string> | null | undefined;
 };
 
-export type SupportCopilotMessageProperties = {};
-
-export type SupportCopilotMessageUserProperties = {};
-
 export type SupportCopilotMessage = {
   id: string;
   type: SupportCopilotMessageType;
-  externalId?: string | null | undefined;
-  externalUrl?: string | null | undefined;
+  externalId: string | null;
+  externalUrl: string | null;
   conversationId: string;
   createdAt: string;
   updatedAt: string;
   role: string;
-  content?: string | null | undefined;
+  content: string | null;
   name?: string | null | undefined;
   links?: Array<SupportCopilotMessageLinks> | null | undefined;
-  properties?: SupportCopilotMessageProperties | null | undefined;
-  userProperties?: SupportCopilotMessageUserProperties | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  userProperties?: { [k: string]: any } | null | undefined;
 };
 
 /** @internal */
@@ -229,109 +231,6 @@ export function supportCopilotMessageLinksFromJSON(
 }
 
 /** @internal */
-export const SupportCopilotMessageProperties$inboundSchema: z.ZodType<
-  SupportCopilotMessageProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type SupportCopilotMessageProperties$Outbound = {};
-
-/** @internal */
-export const SupportCopilotMessageProperties$outboundSchema: z.ZodType<
-  SupportCopilotMessageProperties$Outbound,
-  z.ZodTypeDef,
-  SupportCopilotMessageProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SupportCopilotMessageProperties$ {
-  /** @deprecated use `SupportCopilotMessageProperties$inboundSchema` instead. */
-  export const inboundSchema = SupportCopilotMessageProperties$inboundSchema;
-  /** @deprecated use `SupportCopilotMessageProperties$outboundSchema` instead. */
-  export const outboundSchema = SupportCopilotMessageProperties$outboundSchema;
-  /** @deprecated use `SupportCopilotMessageProperties$Outbound` instead. */
-  export type Outbound = SupportCopilotMessageProperties$Outbound;
-}
-
-export function supportCopilotMessagePropertiesToJSON(
-  supportCopilotMessageProperties: SupportCopilotMessageProperties,
-): string {
-  return JSON.stringify(
-    SupportCopilotMessageProperties$outboundSchema.parse(
-      supportCopilotMessageProperties,
-    ),
-  );
-}
-
-export function supportCopilotMessagePropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<SupportCopilotMessageProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SupportCopilotMessageProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SupportCopilotMessageProperties' from JSON`,
-  );
-}
-
-/** @internal */
-export const SupportCopilotMessageUserProperties$inboundSchema: z.ZodType<
-  SupportCopilotMessageUserProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type SupportCopilotMessageUserProperties$Outbound = {};
-
-/** @internal */
-export const SupportCopilotMessageUserProperties$outboundSchema: z.ZodType<
-  SupportCopilotMessageUserProperties$Outbound,
-  z.ZodTypeDef,
-  SupportCopilotMessageUserProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SupportCopilotMessageUserProperties$ {
-  /** @deprecated use `SupportCopilotMessageUserProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    SupportCopilotMessageUserProperties$inboundSchema;
-  /** @deprecated use `SupportCopilotMessageUserProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    SupportCopilotMessageUserProperties$outboundSchema;
-  /** @deprecated use `SupportCopilotMessageUserProperties$Outbound` instead. */
-  export type Outbound = SupportCopilotMessageUserProperties$Outbound;
-}
-
-export function supportCopilotMessageUserPropertiesToJSON(
-  supportCopilotMessageUserProperties: SupportCopilotMessageUserProperties,
-): string {
-  return JSON.stringify(
-    SupportCopilotMessageUserProperties$outboundSchema.parse(
-      supportCopilotMessageUserProperties,
-    ),
-  );
-}
-
-export function supportCopilotMessageUserPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<SupportCopilotMessageUserProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      SupportCopilotMessageUserProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SupportCopilotMessageUserProperties' from JSON`,
-  );
-}
-
-/** @internal */
 export const SupportCopilotMessage$inboundSchema: z.ZodType<
   SupportCopilotMessage,
   z.ZodTypeDef,
@@ -339,43 +238,36 @@ export const SupportCopilotMessage$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   type: SupportCopilotMessageType$inboundSchema,
-  externalId: z.nullable(z.string()).optional(),
-  externalUrl: z.nullable(z.string()).optional(),
+  externalId: z.nullable(z.string()),
+  externalUrl: z.nullable(z.string()),
   conversationId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   role: z.string(),
-  content: z.nullable(z.string()).optional(),
+  content: z.nullable(z.string()),
   name: z.nullable(z.string()).optional(),
   links: z.nullable(
     z.array(z.lazy(() => SupportCopilotMessageLinks$inboundSchema)),
   ).optional(),
-  properties: z.nullable(
-    z.lazy(() => SupportCopilotMessageProperties$inboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => SupportCopilotMessageUserProperties$inboundSchema),
-  ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
 });
 
 /** @internal */
 export type SupportCopilotMessage$Outbound = {
   id: string;
   type: string;
-  externalId?: string | null | undefined;
-  externalUrl?: string | null | undefined;
+  externalId: string | null;
+  externalUrl: string | null;
   conversationId: string;
   createdAt: string;
   updatedAt: string;
   role: string;
-  content?: string | null | undefined;
+  content: string | null;
   name?: string | null | undefined;
   links?: Array<SupportCopilotMessageLinks$Outbound> | null | undefined;
-  properties?: SupportCopilotMessageProperties$Outbound | null | undefined;
-  userProperties?:
-    | SupportCopilotMessageUserProperties$Outbound
-    | null
-    | undefined;
+  properties?: { [k: string]: any } | null | undefined;
+  userProperties?: { [k: string]: any } | null | undefined;
 };
 
 /** @internal */
@@ -386,23 +278,19 @@ export const SupportCopilotMessage$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   type: SupportCopilotMessageType$outboundSchema,
-  externalId: z.nullable(z.string()).optional(),
-  externalUrl: z.nullable(z.string()).optional(),
+  externalId: z.nullable(z.string()),
+  externalUrl: z.nullable(z.string()),
   conversationId: z.string(),
   createdAt: z.string(),
   updatedAt: z.string(),
   role: z.string(),
-  content: z.nullable(z.string()).optional(),
+  content: z.nullable(z.string()),
   name: z.nullable(z.string()).optional(),
   links: z.nullable(
     z.array(z.lazy(() => SupportCopilotMessageLinks$outboundSchema)),
   ).optional(),
-  properties: z.nullable(
-    z.lazy(() => SupportCopilotMessageProperties$outboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => SupportCopilotMessageUserProperties$outboundSchema),
-  ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
 });
 
 /**

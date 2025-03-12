@@ -8,10 +8,6 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type InsertConversationEventProperties = {};
-
-export type InsertConversationEventUserProperties = {};
-
 export const InsertConversationEventEntityType = {
   Conversation: "conversation",
 } as const;
@@ -23,117 +19,22 @@ export type InsertConversationEvent = {
   id?: string | undefined;
   type: string;
   conversationId: string;
+  /**
+   * A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.
+   */
   createdAt?: Date | null | undefined;
   projectId?: string | null | undefined;
   integrationId?: string | null | undefined;
-  properties?: InsertConversationEventProperties | null | undefined;
-  userProperties?: InsertConversationEventUserProperties | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  userProperties?: { [k: string]: any } | null | undefined;
   entityType: InsertConversationEventEntityType;
 };
-
-/** @internal */
-export const InsertConversationEventProperties$inboundSchema: z.ZodType<
-  InsertConversationEventProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type InsertConversationEventProperties$Outbound = {};
-
-/** @internal */
-export const InsertConversationEventProperties$outboundSchema: z.ZodType<
-  InsertConversationEventProperties$Outbound,
-  z.ZodTypeDef,
-  InsertConversationEventProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace InsertConversationEventProperties$ {
-  /** @deprecated use `InsertConversationEventProperties$inboundSchema` instead. */
-  export const inboundSchema = InsertConversationEventProperties$inboundSchema;
-  /** @deprecated use `InsertConversationEventProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    InsertConversationEventProperties$outboundSchema;
-  /** @deprecated use `InsertConversationEventProperties$Outbound` instead. */
-  export type Outbound = InsertConversationEventProperties$Outbound;
-}
-
-export function insertConversationEventPropertiesToJSON(
-  insertConversationEventProperties: InsertConversationEventProperties,
-): string {
-  return JSON.stringify(
-    InsertConversationEventProperties$outboundSchema.parse(
-      insertConversationEventProperties,
-    ),
-  );
-}
-
-export function insertConversationEventPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<InsertConversationEventProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => InsertConversationEventProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'InsertConversationEventProperties' from JSON`,
-  );
-}
-
-/** @internal */
-export const InsertConversationEventUserProperties$inboundSchema: z.ZodType<
-  InsertConversationEventUserProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type InsertConversationEventUserProperties$Outbound = {};
-
-/** @internal */
-export const InsertConversationEventUserProperties$outboundSchema: z.ZodType<
-  InsertConversationEventUserProperties$Outbound,
-  z.ZodTypeDef,
-  InsertConversationEventUserProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace InsertConversationEventUserProperties$ {
-  /** @deprecated use `InsertConversationEventUserProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    InsertConversationEventUserProperties$inboundSchema;
-  /** @deprecated use `InsertConversationEventUserProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    InsertConversationEventUserProperties$outboundSchema;
-  /** @deprecated use `InsertConversationEventUserProperties$Outbound` instead. */
-  export type Outbound = InsertConversationEventUserProperties$Outbound;
-}
-
-export function insertConversationEventUserPropertiesToJSON(
-  insertConversationEventUserProperties: InsertConversationEventUserProperties,
-): string {
-  return JSON.stringify(
-    InsertConversationEventUserProperties$outboundSchema.parse(
-      insertConversationEventUserProperties,
-    ),
-  );
-}
-
-export function insertConversationEventUserPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<InsertConversationEventUserProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      InsertConversationEventUserProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'InsertConversationEventUserProperties' from JSON`,
-  );
-}
 
 /** @internal */
 export const InsertConversationEventEntityType$inboundSchema: z.ZodNativeEnum<
@@ -171,12 +72,8 @@ export const InsertConversationEvent$inboundSchema: z.ZodType<
   ).optional(),
   projectId: z.nullable(z.string()).optional(),
   integrationId: z.nullable(z.string()).optional(),
-  properties: z.nullable(
-    z.lazy(() => InsertConversationEventProperties$inboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => InsertConversationEventUserProperties$inboundSchema),
-  ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
   entityType: InsertConversationEventEntityType$inboundSchema,
 });
 
@@ -188,11 +85,8 @@ export type InsertConversationEvent$Outbound = {
   createdAt?: string | null | undefined;
   projectId?: string | null | undefined;
   integrationId?: string | null | undefined;
-  properties?: InsertConversationEventProperties$Outbound | null | undefined;
-  userProperties?:
-    | InsertConversationEventUserProperties$Outbound
-    | null
-    | undefined;
+  properties?: { [k: string]: any } | null | undefined;
+  userProperties?: { [k: string]: any } | null | undefined;
   entityType: string;
 };
 
@@ -208,12 +102,8 @@ export const InsertConversationEvent$outboundSchema: z.ZodType<
   createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   projectId: z.nullable(z.string()).optional(),
   integrationId: z.nullable(z.string()).optional(),
-  properties: z.nullable(
-    z.lazy(() => InsertConversationEventProperties$outboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => InsertConversationEventUserProperties$outboundSchema),
-  ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
   entityType: InsertConversationEventEntityType$outboundSchema,
 });
 

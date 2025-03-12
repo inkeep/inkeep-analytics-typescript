@@ -15,10 +15,6 @@ export type CreateSupportTicketConversationType = ClosedEnum<
   typeof CreateSupportTicketConversationType
 >;
 
-export type CreateSupportTicketConversationProperties = {};
-
-export type CreateSupportTicketConversationUserProperties = {};
-
 export const CreateSupportTicketConversationVisibility = {
   Private: "private",
   Public: "public",
@@ -55,46 +51,57 @@ export type CreateSupportTicketConversationLinks = {
   breadcrumbs?: Array<string> | null | undefined;
 };
 
-export type CreateSupportTicketConversationMessagesProperties = {};
-
-export type CreateSupportTicketConversationMessagesUserProperties = {};
-
 export type CreateSupportTicketConversationMessages = {
   id?: string | undefined;
   externalId?: string | null | undefined;
   externalUrl?: string | null | undefined;
+  /**
+   * A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.
+   */
   createdAt?: Date | null | undefined;
+  /**
+   * A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.
+   */
   updatedAt?: Date | null | undefined;
   role: string;
   content?: string | null | undefined;
   name?: string | null | undefined;
   links?: Array<CreateSupportTicketConversationLinks> | null | undefined;
-  properties?:
-    | CreateSupportTicketConversationMessagesProperties
-    | null
-    | undefined;
-  userProperties?:
-    | CreateSupportTicketConversationMessagesUserProperties
-    | null
-    | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  userProperties?: { [k: string]: any } | null | undefined;
 };
 
 export type CreateSupportTicketConversation = {
-  id?: string | null | undefined;
+  id?: string | undefined;
   externalId?: string | null | undefined;
   externalUrl?: string | null | undefined;
   type: CreateSupportTicketConversationType;
   supportTicketConversationId?: string | null | undefined;
+  /**
+   * A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.
+   */
   createdAt?: Date | null | undefined;
+  /**
+   * A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.
+   */
   updatedAt?: Date | null | undefined;
   projectId?: string | null | undefined;
   integrationId?: string | null | undefined;
-  properties?: CreateSupportTicketConversationProperties | null | undefined;
-  userProperties?:
-    | CreateSupportTicketConversationUserProperties
-    | null
-    | undefined;
-  tags?: Array<string> | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  userProperties?: { [k: string]: any } | null | undefined;
+  tags?: Array<string> | undefined;
   visibility?: CreateSupportTicketConversationVisibility | null | undefined;
   messages: Array<CreateSupportTicketConversationMessages>;
 };
@@ -120,127 +127,6 @@ export namespace CreateSupportTicketConversationType$ {
   /** @deprecated use `CreateSupportTicketConversationType$outboundSchema` instead. */
   export const outboundSchema =
     CreateSupportTicketConversationType$outboundSchema;
-}
-
-/** @internal */
-export const CreateSupportTicketConversationProperties$inboundSchema: z.ZodType<
-  CreateSupportTicketConversationProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type CreateSupportTicketConversationProperties$Outbound = {};
-
-/** @internal */
-export const CreateSupportTicketConversationProperties$outboundSchema:
-  z.ZodType<
-    CreateSupportTicketConversationProperties$Outbound,
-    z.ZodTypeDef,
-    CreateSupportTicketConversationProperties
-  > = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSupportTicketConversationProperties$ {
-  /** @deprecated use `CreateSupportTicketConversationProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateSupportTicketConversationProperties$inboundSchema;
-  /** @deprecated use `CreateSupportTicketConversationProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateSupportTicketConversationProperties$outboundSchema;
-  /** @deprecated use `CreateSupportTicketConversationProperties$Outbound` instead. */
-  export type Outbound = CreateSupportTicketConversationProperties$Outbound;
-}
-
-export function createSupportTicketConversationPropertiesToJSON(
-  createSupportTicketConversationProperties:
-    CreateSupportTicketConversationProperties,
-): string {
-  return JSON.stringify(
-    CreateSupportTicketConversationProperties$outboundSchema.parse(
-      createSupportTicketConversationProperties,
-    ),
-  );
-}
-
-export function createSupportTicketConversationPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CreateSupportTicketConversationProperties,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CreateSupportTicketConversationProperties$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CreateSupportTicketConversationProperties' from JSON`,
-  );
-}
-
-/** @internal */
-export const CreateSupportTicketConversationUserProperties$inboundSchema:
-  z.ZodType<
-    CreateSupportTicketConversationUserProperties,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({});
-
-/** @internal */
-export type CreateSupportTicketConversationUserProperties$Outbound = {};
-
-/** @internal */
-export const CreateSupportTicketConversationUserProperties$outboundSchema:
-  z.ZodType<
-    CreateSupportTicketConversationUserProperties$Outbound,
-    z.ZodTypeDef,
-    CreateSupportTicketConversationUserProperties
-  > = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSupportTicketConversationUserProperties$ {
-  /** @deprecated use `CreateSupportTicketConversationUserProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateSupportTicketConversationUserProperties$inboundSchema;
-  /** @deprecated use `CreateSupportTicketConversationUserProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateSupportTicketConversationUserProperties$outboundSchema;
-  /** @deprecated use `CreateSupportTicketConversationUserProperties$Outbound` instead. */
-  export type Outbound = CreateSupportTicketConversationUserProperties$Outbound;
-}
-
-export function createSupportTicketConversationUserPropertiesToJSON(
-  createSupportTicketConversationUserProperties:
-    CreateSupportTicketConversationUserProperties,
-): string {
-  return JSON.stringify(
-    CreateSupportTicketConversationUserProperties$outboundSchema.parse(
-      createSupportTicketConversationUserProperties,
-    ),
-  );
-}
-
-export function createSupportTicketConversationUserPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CreateSupportTicketConversationUserProperties,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CreateSupportTicketConversationUserProperties$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CreateSupportTicketConversationUserProperties' from JSON`,
-  );
 }
 
 /** @internal */
@@ -435,130 +321,6 @@ export function createSupportTicketConversationLinksFromJSON(
 }
 
 /** @internal */
-export const CreateSupportTicketConversationMessagesProperties$inboundSchema:
-  z.ZodType<
-    CreateSupportTicketConversationMessagesProperties,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({});
-
-/** @internal */
-export type CreateSupportTicketConversationMessagesProperties$Outbound = {};
-
-/** @internal */
-export const CreateSupportTicketConversationMessagesProperties$outboundSchema:
-  z.ZodType<
-    CreateSupportTicketConversationMessagesProperties$Outbound,
-    z.ZodTypeDef,
-    CreateSupportTicketConversationMessagesProperties
-  > = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSupportTicketConversationMessagesProperties$ {
-  /** @deprecated use `CreateSupportTicketConversationMessagesProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateSupportTicketConversationMessagesProperties$inboundSchema;
-  /** @deprecated use `CreateSupportTicketConversationMessagesProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateSupportTicketConversationMessagesProperties$outboundSchema;
-  /** @deprecated use `CreateSupportTicketConversationMessagesProperties$Outbound` instead. */
-  export type Outbound =
-    CreateSupportTicketConversationMessagesProperties$Outbound;
-}
-
-export function createSupportTicketConversationMessagesPropertiesToJSON(
-  createSupportTicketConversationMessagesProperties:
-    CreateSupportTicketConversationMessagesProperties,
-): string {
-  return JSON.stringify(
-    CreateSupportTicketConversationMessagesProperties$outboundSchema.parse(
-      createSupportTicketConversationMessagesProperties,
-    ),
-  );
-}
-
-export function createSupportTicketConversationMessagesPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CreateSupportTicketConversationMessagesProperties,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CreateSupportTicketConversationMessagesProperties$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CreateSupportTicketConversationMessagesProperties' from JSON`,
-  );
-}
-
-/** @internal */
-export const CreateSupportTicketConversationMessagesUserProperties$inboundSchema:
-  z.ZodType<
-    CreateSupportTicketConversationMessagesUserProperties,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({});
-
-/** @internal */
-export type CreateSupportTicketConversationMessagesUserProperties$Outbound = {};
-
-/** @internal */
-export const CreateSupportTicketConversationMessagesUserProperties$outboundSchema:
-  z.ZodType<
-    CreateSupportTicketConversationMessagesUserProperties$Outbound,
-    z.ZodTypeDef,
-    CreateSupportTicketConversationMessagesUserProperties
-  > = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSupportTicketConversationMessagesUserProperties$ {
-  /** @deprecated use `CreateSupportTicketConversationMessagesUserProperties$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateSupportTicketConversationMessagesUserProperties$inboundSchema;
-  /** @deprecated use `CreateSupportTicketConversationMessagesUserProperties$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateSupportTicketConversationMessagesUserProperties$outboundSchema;
-  /** @deprecated use `CreateSupportTicketConversationMessagesUserProperties$Outbound` instead. */
-  export type Outbound =
-    CreateSupportTicketConversationMessagesUserProperties$Outbound;
-}
-
-export function createSupportTicketConversationMessagesUserPropertiesToJSON(
-  createSupportTicketConversationMessagesUserProperties:
-    CreateSupportTicketConversationMessagesUserProperties,
-): string {
-  return JSON.stringify(
-    CreateSupportTicketConversationMessagesUserProperties$outboundSchema.parse(
-      createSupportTicketConversationMessagesUserProperties,
-    ),
-  );
-}
-
-export function createSupportTicketConversationMessagesUserPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  CreateSupportTicketConversationMessagesUserProperties,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      CreateSupportTicketConversationMessagesUserProperties$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'CreateSupportTicketConversationMessagesUserProperties' from JSON`,
-  );
-}
-
-/** @internal */
 export const CreateSupportTicketConversationMessages$inboundSchema: z.ZodType<
   CreateSupportTicketConversationMessages,
   z.ZodTypeDef,
@@ -579,16 +341,8 @@ export const CreateSupportTicketConversationMessages$inboundSchema: z.ZodType<
   links: z.nullable(
     z.array(z.lazy(() => CreateSupportTicketConversationLinks$inboundSchema)),
   ).optional(),
-  properties: z.nullable(
-    z.lazy(() =>
-      CreateSupportTicketConversationMessagesProperties$inboundSchema
-    ),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() =>
-      CreateSupportTicketConversationMessagesUserProperties$inboundSchema
-    ),
-  ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
 });
 
 /** @internal */
@@ -605,14 +359,8 @@ export type CreateSupportTicketConversationMessages$Outbound = {
     | Array<CreateSupportTicketConversationLinks$Outbound>
     | null
     | undefined;
-  properties?:
-    | CreateSupportTicketConversationMessagesProperties$Outbound
-    | null
-    | undefined;
-  userProperties?:
-    | CreateSupportTicketConversationMessagesUserProperties$Outbound
-    | null
-    | undefined;
+  properties?: { [k: string]: any } | null | undefined;
+  userProperties?: { [k: string]: any } | null | undefined;
 };
 
 /** @internal */
@@ -632,16 +380,8 @@ export const CreateSupportTicketConversationMessages$outboundSchema: z.ZodType<
   links: z.nullable(
     z.array(z.lazy(() => CreateSupportTicketConversationLinks$outboundSchema)),
   ).optional(),
-  properties: z.nullable(
-    z.lazy(() =>
-      CreateSupportTicketConversationMessagesProperties$outboundSchema
-    ),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() =>
-      CreateSupportTicketConversationMessagesUserProperties$outboundSchema
-    ),
-  ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
 });
 
 /**
@@ -692,7 +432,7 @@ export const CreateSupportTicketConversation$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.nullable(z.string()).optional(),
+  id: z.string().optional(),
   externalId: z.nullable(z.string()).optional(),
   externalUrl: z.nullable(z.string()).optional(),
   type: CreateSupportTicketConversationType$inboundSchema,
@@ -705,13 +445,9 @@ export const CreateSupportTicketConversation$inboundSchema: z.ZodType<
   ).optional(),
   projectId: z.nullable(z.string()).optional(),
   integrationId: z.nullable(z.string()).optional(),
-  properties: z.nullable(
-    z.lazy(() => CreateSupportTicketConversationProperties$inboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => CreateSupportTicketConversationUserProperties$inboundSchema),
-  ).optional(),
-  tags: z.nullable(z.array(z.string())).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
+  tags: z.array(z.string()).optional(),
   visibility: z.nullable(
     CreateSupportTicketConversationVisibility$inboundSchema,
   ).optional(),
@@ -722,7 +458,7 @@ export const CreateSupportTicketConversation$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CreateSupportTicketConversation$Outbound = {
-  id?: string | null | undefined;
+  id?: string | undefined;
   externalId?: string | null | undefined;
   externalUrl?: string | null | undefined;
   type: string;
@@ -731,15 +467,9 @@ export type CreateSupportTicketConversation$Outbound = {
   updatedAt?: string | null | undefined;
   projectId?: string | null | undefined;
   integrationId?: string | null | undefined;
-  properties?:
-    | CreateSupportTicketConversationProperties$Outbound
-    | null
-    | undefined;
-  userProperties?:
-    | CreateSupportTicketConversationUserProperties$Outbound
-    | null
-    | undefined;
-  tags?: Array<string> | null | undefined;
+  properties?: { [k: string]: any } | null | undefined;
+  userProperties?: { [k: string]: any } | null | undefined;
+  tags?: Array<string> | undefined;
   visibility?: string | null | undefined;
   messages: Array<CreateSupportTicketConversationMessages$Outbound>;
 };
@@ -750,7 +480,7 @@ export const CreateSupportTicketConversation$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CreateSupportTicketConversation
 > = z.object({
-  id: z.nullable(z.string()).optional(),
+  id: z.string().optional(),
   externalId: z.nullable(z.string()).optional(),
   externalUrl: z.nullable(z.string()).optional(),
   type: CreateSupportTicketConversationType$outboundSchema,
@@ -759,13 +489,9 @@ export const CreateSupportTicketConversation$outboundSchema: z.ZodType<
   updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   projectId: z.nullable(z.string()).optional(),
   integrationId: z.nullable(z.string()).optional(),
-  properties: z.nullable(
-    z.lazy(() => CreateSupportTicketConversationProperties$outboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => CreateSupportTicketConversationUserProperties$outboundSchema),
-  ).optional(),
-  tags: z.nullable(z.array(z.string())).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
+  tags: z.array(z.string()).optional(),
   visibility: z.nullable(
     CreateSupportTicketConversationVisibility$outboundSchema,
   ).optional(),

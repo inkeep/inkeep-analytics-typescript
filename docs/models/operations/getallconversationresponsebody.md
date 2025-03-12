@@ -11,27 +11,46 @@ let value: GetAllConversationResponseBody = {
   conversations: [
     {
       id: "<id>",
-      type: "support_ticket",
-      createdAt: "1714514928002",
-      updatedAt: "1741718271321",
+      externalId: "<id>",
+      externalUrl: "https://minor-hippodrome.name",
+      type: "openai",
+      supportTicketConversationId: "<id>",
+      createdAt: "1719325345646",
+      updatedAt: "1741783536549",
+      projectId: "<id>",
+      integrationId: "<id>",
       tags: [
         "<value>",
       ],
+      visibility: "private",
       messages: [
         {
           id: "<id>",
-          type: "support_ticket",
+          type: "openai",
+          externalId: "<id>",
+          externalUrl: "https://surprised-traffic.com/",
           conversationId: "<id>",
-          createdAt: "1716184684732",
-          updatedAt: "1741691418621",
-          role: "<value>",
+          createdAt: "1717609013817",
+          updatedAt: "1741752600929",
+          role: "assistant",
+          content: [
+            {
+              type: "image_url",
+            },
+          ],
+        },
+      ],
+      messagesOpenAIFormat: [
+        {
+          role: "assistant",
+          content: "<value>",
         },
       ],
     },
   ],
-  total: 2243.17,
-  pageSize: 978.44,
-  count: 8621.92,
+  total: 9920.12,
+  pageSize: 2494.2,
+  count: 1059.06,
 };
 ```
 

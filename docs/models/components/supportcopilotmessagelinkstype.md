@@ -6,7 +6,7 @@
 ### `components.SupportCopilotMessageType1`
 
 ```typescript
-const value: components.SupportCopilotMessageType1 = "documentation";
+const value: components.SupportCopilotMessageType1 = "discourse_post";
 ```
 
 ### `string`

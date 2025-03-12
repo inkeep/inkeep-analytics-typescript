@@ -5,7 +5,7 @@
 ```typescript
 import { Type1 } from "@inkeep/inkeep-analytics/models/components";
 
-let value: Type1 = "site";
+let value: Type1 = "discord_forum_post";
 ```
 
 ## Values

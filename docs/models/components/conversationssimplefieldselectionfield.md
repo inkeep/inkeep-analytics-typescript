@@ -5,11 +5,11 @@
 ```typescript
 import { ConversationsSimpleFieldSelectionField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: ConversationsSimpleFieldSelectionField = "id";
+let value: ConversationsSimpleFieldSelectionField = "projectId";
 ```
 
 ## Values
 
 ```typescript
-"id" | "organizationId" | "projectId" | "integrationId" | "firstMessageTime" | "userMessageCount" | "type"
+"id" | "userMessageCount" | "organizationId" | "projectId" | "integrationId" | "firstMessageTime" | "type"
 ```

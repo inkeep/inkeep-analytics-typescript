@@ -8,7 +8,7 @@ Group by options for events
 import { EventsGroupBy } from "@inkeep/inkeep-analytics/models/components";
 
 let value: EventsGroupBy = {
-  field: "integrationId",
+  field: "eventType",
 };
 ```
 

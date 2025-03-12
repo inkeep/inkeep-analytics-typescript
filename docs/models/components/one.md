@@ -5,7 +5,7 @@
 ```typescript
 import { One } from "@inkeep/inkeep-analytics/models/components";
 
-let value: One = "github_issue";
+let value: One = "discord_forum_post";
 ```
 
 ## Values

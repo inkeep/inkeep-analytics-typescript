@@ -6,7 +6,8 @@
 ### `components.CreateSupportTicketConversationType1`
 
 ```typescript
-const value: components.CreateSupportTicketConversationType1 = "site";
+const value: components.CreateSupportTicketConversationType1 =
+  "stackoverflow_question";
 ```
 
 ### `string`

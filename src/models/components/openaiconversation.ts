@@ -25,10 +25,6 @@ export const OpenAIConversationType = {
 } as const;
 export type OpenAIConversationType = ClosedEnum<typeof OpenAIConversationType>;
 
-export type OpenAIConversationProperties = {};
-
-export type OpenAIConversationUserProperties = {};
-
 export const OpenAIConversationVisibility = {
   Private: "private",
   Public: "public",
@@ -39,18 +35,24 @@ export type OpenAIConversationVisibility = ClosedEnum<
 
 export type OpenAIConversation = {
   id: string;
-  externalId?: string | null | undefined;
-  externalUrl?: string | null | undefined;
+  externalId: string | null;
+  externalUrl: string | null;
   type: OpenAIConversationType;
-  supportTicketConversationId?: string | null | undefined;
+  supportTicketConversationId: string | null;
   createdAt: string;
   updatedAt: string;
-  projectId?: string | null | undefined;
-  integrationId?: string | null | undefined;
-  properties?: OpenAIConversationProperties | null | undefined;
-  userProperties?: OpenAIConversationUserProperties | null | undefined;
+  projectId: string | null;
+  integrationId: string | null;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  userProperties?: { [k: string]: any } | null | undefined;
   tags: Array<string>;
-  visibility?: OpenAIConversationVisibility | null | undefined;
+  visibility: OpenAIConversationVisibility | null;
   /**
    * The messages in the conversation. Must be at least one message.
    */
@@ -77,106 +79,6 @@ export namespace OpenAIConversationType$ {
   export const inboundSchema = OpenAIConversationType$inboundSchema;
   /** @deprecated use `OpenAIConversationType$outboundSchema` instead. */
   export const outboundSchema = OpenAIConversationType$outboundSchema;
-}
-
-/** @internal */
-export const OpenAIConversationProperties$inboundSchema: z.ZodType<
-  OpenAIConversationProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type OpenAIConversationProperties$Outbound = {};
-
-/** @internal */
-export const OpenAIConversationProperties$outboundSchema: z.ZodType<
-  OpenAIConversationProperties$Outbound,
-  z.ZodTypeDef,
-  OpenAIConversationProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OpenAIConversationProperties$ {
-  /** @deprecated use `OpenAIConversationProperties$inboundSchema` instead. */
-  export const inboundSchema = OpenAIConversationProperties$inboundSchema;
-  /** @deprecated use `OpenAIConversationProperties$outboundSchema` instead. */
-  export const outboundSchema = OpenAIConversationProperties$outboundSchema;
-  /** @deprecated use `OpenAIConversationProperties$Outbound` instead. */
-  export type Outbound = OpenAIConversationProperties$Outbound;
-}
-
-export function openAIConversationPropertiesToJSON(
-  openAIConversationProperties: OpenAIConversationProperties,
-): string {
-  return JSON.stringify(
-    OpenAIConversationProperties$outboundSchema.parse(
-      openAIConversationProperties,
-    ),
-  );
-}
-
-export function openAIConversationPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<OpenAIConversationProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OpenAIConversationProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OpenAIConversationProperties' from JSON`,
-  );
-}
-
-/** @internal */
-export const OpenAIConversationUserProperties$inboundSchema: z.ZodType<
-  OpenAIConversationUserProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type OpenAIConversationUserProperties$Outbound = {};
-
-/** @internal */
-export const OpenAIConversationUserProperties$outboundSchema: z.ZodType<
-  OpenAIConversationUserProperties$Outbound,
-  z.ZodTypeDef,
-  OpenAIConversationUserProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OpenAIConversationUserProperties$ {
-  /** @deprecated use `OpenAIConversationUserProperties$inboundSchema` instead. */
-  export const inboundSchema = OpenAIConversationUserProperties$inboundSchema;
-  /** @deprecated use `OpenAIConversationUserProperties$outboundSchema` instead. */
-  export const outboundSchema = OpenAIConversationUserProperties$outboundSchema;
-  /** @deprecated use `OpenAIConversationUserProperties$Outbound` instead. */
-  export type Outbound = OpenAIConversationUserProperties$Outbound;
-}
-
-export function openAIConversationUserPropertiesToJSON(
-  openAIConversationUserProperties: OpenAIConversationUserProperties,
-): string {
-  return JSON.stringify(
-    OpenAIConversationUserProperties$outboundSchema.parse(
-      openAIConversationUserProperties,
-    ),
-  );
-}
-
-export function openAIConversationUserPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<OpenAIConversationUserProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => OpenAIConversationUserProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'OpenAIConversationUserProperties' from JSON`,
-  );
 }
 
 /** @internal */
@@ -207,22 +109,18 @@ export const OpenAIConversation$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string(),
-  externalId: z.nullable(z.string()).optional(),
-  externalUrl: z.nullable(z.string()).optional(),
+  externalId: z.nullable(z.string()),
+  externalUrl: z.nullable(z.string()),
   type: OpenAIConversationType$inboundSchema,
-  supportTicketConversationId: z.nullable(z.string()).optional(),
+  supportTicketConversationId: z.nullable(z.string()),
   createdAt: z.string(),
   updatedAt: z.string(),
-  projectId: z.nullable(z.string()).optional(),
-  integrationId: z.nullable(z.string()).optional(),
-  properties: z.nullable(
-    z.lazy(() => OpenAIConversationProperties$inboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => OpenAIConversationUserProperties$inboundSchema),
-  ).optional(),
+  projectId: z.nullable(z.string()),
+  integrationId: z.nullable(z.string()),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
   tags: z.array(z.string()),
-  visibility: z.nullable(OpenAIConversationVisibility$inboundSchema).optional(),
+  visibility: z.nullable(OpenAIConversationVisibility$inboundSchema),
   messages: z.array(OpenAIExtendedMessage$inboundSchema),
   messagesOpenAIFormat: z.array(OpenAIChatCompletionMessage$inboundSchema),
 });
@@ -230,18 +128,18 @@ export const OpenAIConversation$inboundSchema: z.ZodType<
 /** @internal */
 export type OpenAIConversation$Outbound = {
   id: string;
-  externalId?: string | null | undefined;
-  externalUrl?: string | null | undefined;
+  externalId: string | null;
+  externalUrl: string | null;
   type: string;
-  supportTicketConversationId?: string | null | undefined;
+  supportTicketConversationId: string | null;
   createdAt: string;
   updatedAt: string;
-  projectId?: string | null | undefined;
-  integrationId?: string | null | undefined;
-  properties?: OpenAIConversationProperties$Outbound | null | undefined;
-  userProperties?: OpenAIConversationUserProperties$Outbound | null | undefined;
+  projectId: string | null;
+  integrationId: string | null;
+  properties?: { [k: string]: any } | null | undefined;
+  userProperties?: { [k: string]: any } | null | undefined;
   tags: Array<string>;
-  visibility?: string | null | undefined;
+  visibility: string | null;
   messages: Array<OpenAIExtendedMessage$Outbound>;
   messagesOpenAIFormat: Array<OpenAIChatCompletionMessage$Outbound>;
 };
@@ -253,23 +151,18 @@ export const OpenAIConversation$outboundSchema: z.ZodType<
   OpenAIConversation
 > = z.object({
   id: z.string(),
-  externalId: z.nullable(z.string()).optional(),
-  externalUrl: z.nullable(z.string()).optional(),
+  externalId: z.nullable(z.string()),
+  externalUrl: z.nullable(z.string()),
   type: OpenAIConversationType$outboundSchema,
-  supportTicketConversationId: z.nullable(z.string()).optional(),
+  supportTicketConversationId: z.nullable(z.string()),
   createdAt: z.string(),
   updatedAt: z.string(),
-  projectId: z.nullable(z.string()).optional(),
-  integrationId: z.nullable(z.string()).optional(),
-  properties: z.nullable(
-    z.lazy(() => OpenAIConversationProperties$outboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => OpenAIConversationUserProperties$outboundSchema),
-  ).optional(),
+  projectId: z.nullable(z.string()),
+  integrationId: z.nullable(z.string()),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
   tags: z.array(z.string()),
-  visibility: z.nullable(OpenAIConversationVisibility$outboundSchema)
-    .optional(),
+  visibility: z.nullable(OpenAIConversationVisibility$outboundSchema),
   messages: z.array(OpenAIExtendedMessage$outboundSchema),
   messagesOpenAIFormat: z.array(OpenAIChatCompletionMessage$outboundSchema),
 });

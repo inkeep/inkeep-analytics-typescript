@@ -8,10 +8,6 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type InsertMessageEventProperties = {};
-
-export type InsertMessageEventUserProperties = {};
-
 export const EntityType = {
   Message: "message",
 } as const;
@@ -21,113 +17,22 @@ export type InsertMessageEvent = {
   id?: string | undefined;
   type: string;
   messageId: string;
+  /**
+   * A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.
+   */
   createdAt?: Date | null | undefined;
   projectId?: string | null | undefined;
   integrationId?: string | null | undefined;
-  properties?: InsertMessageEventProperties | null | undefined;
-  userProperties?: InsertMessageEventUserProperties | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  userProperties?: { [k: string]: any } | null | undefined;
   entityType: EntityType;
 };
-
-/** @internal */
-export const InsertMessageEventProperties$inboundSchema: z.ZodType<
-  InsertMessageEventProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type InsertMessageEventProperties$Outbound = {};
-
-/** @internal */
-export const InsertMessageEventProperties$outboundSchema: z.ZodType<
-  InsertMessageEventProperties$Outbound,
-  z.ZodTypeDef,
-  InsertMessageEventProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace InsertMessageEventProperties$ {
-  /** @deprecated use `InsertMessageEventProperties$inboundSchema` instead. */
-  export const inboundSchema = InsertMessageEventProperties$inboundSchema;
-  /** @deprecated use `InsertMessageEventProperties$outboundSchema` instead. */
-  export const outboundSchema = InsertMessageEventProperties$outboundSchema;
-  /** @deprecated use `InsertMessageEventProperties$Outbound` instead. */
-  export type Outbound = InsertMessageEventProperties$Outbound;
-}
-
-export function insertMessageEventPropertiesToJSON(
-  insertMessageEventProperties: InsertMessageEventProperties,
-): string {
-  return JSON.stringify(
-    InsertMessageEventProperties$outboundSchema.parse(
-      insertMessageEventProperties,
-    ),
-  );
-}
-
-export function insertMessageEventPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<InsertMessageEventProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => InsertMessageEventProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'InsertMessageEventProperties' from JSON`,
-  );
-}
-
-/** @internal */
-export const InsertMessageEventUserProperties$inboundSchema: z.ZodType<
-  InsertMessageEventUserProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type InsertMessageEventUserProperties$Outbound = {};
-
-/** @internal */
-export const InsertMessageEventUserProperties$outboundSchema: z.ZodType<
-  InsertMessageEventUserProperties$Outbound,
-  z.ZodTypeDef,
-  InsertMessageEventUserProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace InsertMessageEventUserProperties$ {
-  /** @deprecated use `InsertMessageEventUserProperties$inboundSchema` instead. */
-  export const inboundSchema = InsertMessageEventUserProperties$inboundSchema;
-  /** @deprecated use `InsertMessageEventUserProperties$outboundSchema` instead. */
-  export const outboundSchema = InsertMessageEventUserProperties$outboundSchema;
-  /** @deprecated use `InsertMessageEventUserProperties$Outbound` instead. */
-  export type Outbound = InsertMessageEventUserProperties$Outbound;
-}
-
-export function insertMessageEventUserPropertiesToJSON(
-  insertMessageEventUserProperties: InsertMessageEventUserProperties,
-): string {
-  return JSON.stringify(
-    InsertMessageEventUserProperties$outboundSchema.parse(
-      insertMessageEventUserProperties,
-    ),
-  );
-}
-
-export function insertMessageEventUserPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<InsertMessageEventUserProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => InsertMessageEventUserProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'InsertMessageEventUserProperties' from JSON`,
-  );
-}
 
 /** @internal */
 export const EntityType$inboundSchema: z.ZodNativeEnum<typeof EntityType> = z
@@ -162,12 +67,8 @@ export const InsertMessageEvent$inboundSchema: z.ZodType<
   ).optional(),
   projectId: z.nullable(z.string()).optional(),
   integrationId: z.nullable(z.string()).optional(),
-  properties: z.nullable(
-    z.lazy(() => InsertMessageEventProperties$inboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => InsertMessageEventUserProperties$inboundSchema),
-  ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
   entityType: EntityType$inboundSchema,
 });
 
@@ -179,8 +80,8 @@ export type InsertMessageEvent$Outbound = {
   createdAt?: string | null | undefined;
   projectId?: string | null | undefined;
   integrationId?: string | null | undefined;
-  properties?: InsertMessageEventProperties$Outbound | null | undefined;
-  userProperties?: InsertMessageEventUserProperties$Outbound | null | undefined;
+  properties?: { [k: string]: any } | null | undefined;
+  userProperties?: { [k: string]: any } | null | undefined;
   entityType: string;
 };
 
@@ -196,12 +97,8 @@ export const InsertMessageEvent$outboundSchema: z.ZodType<
   createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   projectId: z.nullable(z.string()).optional(),
   integrationId: z.nullable(z.string()).optional(),
-  properties: z.nullable(
-    z.lazy(() => InsertMessageEventProperties$outboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => InsertMessageEventUserProperties$outboundSchema),
-  ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
   entityType: EntityType$outboundSchema,
 });
 

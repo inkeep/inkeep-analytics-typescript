@@ -10,11 +10,11 @@ import { ClosedEnum } from "../../types/enums.js";
  */
 export const ConversationsField = {
   Id: "id",
+  UserMessageCount: "userMessageCount",
   OrganizationId: "organizationId",
   ProjectId: "projectId",
   IntegrationId: "integrationId",
   FirstMessageTime: "firstMessageTime",
-  UserMessageCount: "userMessageCount",
   Type: "type",
 } as const;
 /**

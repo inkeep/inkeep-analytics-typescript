@@ -8,9 +8,9 @@
 ```typescript
 const value: components.ConversationsFilterCondition = {
   condition: {
-    field: "organizationId",
-    operator: "arrayContains",
-    value: 5356.33,
+    field: "projectId",
+    operator: "in",
+    value: 2835.19,
   },
 };
 ```

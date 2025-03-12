@@ -5,7 +5,7 @@
 ```typescript
 import { SupportCopilotMessageType1 } from "@inkeep/inkeep-analytics/models/components";
 
-let value: SupportCopilotMessageType1 = "discord_message";
+let value: SupportCopilotMessageType1 = "stackoverflow_question";
 ```
 
 ## Values

@@ -10,7 +10,7 @@ Fields to select from conversations
 ```typescript
 const value: components.ConversationsAggregationSelection = {
   type: "aggregation",
-  aggregation: "sum",
+  aggregation: "min",
 };
 ```
 
@@ -19,7 +19,7 @@ const value: components.ConversationsAggregationSelection = {
 ```typescript
 const value: components.ConversationsTimeBasedGroupBySelection = {
   type: "time",
-  timeUnit: "week",
+  timeUnit: "hour",
 };
 ```
 
@@ -28,7 +28,7 @@ const value: components.ConversationsTimeBasedGroupBySelection = {
 ```typescript
 const value: components.ConversationsSimpleFieldSelection = {
   type: "field",
-  field: "integrationId",
+  field: "projectId",
 };
 ```
 

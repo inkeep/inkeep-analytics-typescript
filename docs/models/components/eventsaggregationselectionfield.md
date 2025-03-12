@@ -5,7 +5,7 @@
 ```typescript
 import { EventsAggregationSelectionField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: EventsAggregationSelectionField = "messageId";
+let value: EventsAggregationSelectionField = "searchQuery";
 ```
 
 ## Values

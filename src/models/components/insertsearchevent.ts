@@ -8,10 +8,6 @@ import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type InsertSearchEventProperties = {};
-
-export type InsertSearchEventUserProperties = {};
-
 export const InsertSearchEventEntityType = {
   Search: "search",
 } as const;
@@ -23,113 +19,22 @@ export type InsertSearchEvent = {
   id?: string | undefined;
   type: string;
   searchQuery: string;
+  /**
+   * A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.
+   */
   createdAt?: Date | null | undefined;
   projectId?: string | null | undefined;
   integrationId?: string | null | undefined;
-  properties?: InsertSearchEventProperties | null | undefined;
-  userProperties?: InsertSearchEventUserProperties | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  userProperties?: { [k: string]: any } | null | undefined;
   entityType: InsertSearchEventEntityType;
 };
-
-/** @internal */
-export const InsertSearchEventProperties$inboundSchema: z.ZodType<
-  InsertSearchEventProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type InsertSearchEventProperties$Outbound = {};
-
-/** @internal */
-export const InsertSearchEventProperties$outboundSchema: z.ZodType<
-  InsertSearchEventProperties$Outbound,
-  z.ZodTypeDef,
-  InsertSearchEventProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace InsertSearchEventProperties$ {
-  /** @deprecated use `InsertSearchEventProperties$inboundSchema` instead. */
-  export const inboundSchema = InsertSearchEventProperties$inboundSchema;
-  /** @deprecated use `InsertSearchEventProperties$outboundSchema` instead. */
-  export const outboundSchema = InsertSearchEventProperties$outboundSchema;
-  /** @deprecated use `InsertSearchEventProperties$Outbound` instead. */
-  export type Outbound = InsertSearchEventProperties$Outbound;
-}
-
-export function insertSearchEventPropertiesToJSON(
-  insertSearchEventProperties: InsertSearchEventProperties,
-): string {
-  return JSON.stringify(
-    InsertSearchEventProperties$outboundSchema.parse(
-      insertSearchEventProperties,
-    ),
-  );
-}
-
-export function insertSearchEventPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<InsertSearchEventProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => InsertSearchEventProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'InsertSearchEventProperties' from JSON`,
-  );
-}
-
-/** @internal */
-export const InsertSearchEventUserProperties$inboundSchema: z.ZodType<
-  InsertSearchEventUserProperties,
-  z.ZodTypeDef,
-  unknown
-> = z.object({});
-
-/** @internal */
-export type InsertSearchEventUserProperties$Outbound = {};
-
-/** @internal */
-export const InsertSearchEventUserProperties$outboundSchema: z.ZodType<
-  InsertSearchEventUserProperties$Outbound,
-  z.ZodTypeDef,
-  InsertSearchEventUserProperties
-> = z.object({});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace InsertSearchEventUserProperties$ {
-  /** @deprecated use `InsertSearchEventUserProperties$inboundSchema` instead. */
-  export const inboundSchema = InsertSearchEventUserProperties$inboundSchema;
-  /** @deprecated use `InsertSearchEventUserProperties$outboundSchema` instead. */
-  export const outboundSchema = InsertSearchEventUserProperties$outboundSchema;
-  /** @deprecated use `InsertSearchEventUserProperties$Outbound` instead. */
-  export type Outbound = InsertSearchEventUserProperties$Outbound;
-}
-
-export function insertSearchEventUserPropertiesToJSON(
-  insertSearchEventUserProperties: InsertSearchEventUserProperties,
-): string {
-  return JSON.stringify(
-    InsertSearchEventUserProperties$outboundSchema.parse(
-      insertSearchEventUserProperties,
-    ),
-  );
-}
-
-export function insertSearchEventUserPropertiesFromJSON(
-  jsonString: string,
-): SafeParseResult<InsertSearchEventUserProperties, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => InsertSearchEventUserProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'InsertSearchEventUserProperties' from JSON`,
-  );
-}
 
 /** @internal */
 export const InsertSearchEventEntityType$inboundSchema: z.ZodNativeEnum<
@@ -166,12 +71,8 @@ export const InsertSearchEvent$inboundSchema: z.ZodType<
   ).optional(),
   projectId: z.nullable(z.string()).optional(),
   integrationId: z.nullable(z.string()).optional(),
-  properties: z.nullable(
-    z.lazy(() => InsertSearchEventProperties$inboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => InsertSearchEventUserProperties$inboundSchema),
-  ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
   entityType: InsertSearchEventEntityType$inboundSchema,
 });
 
@@ -183,8 +84,8 @@ export type InsertSearchEvent$Outbound = {
   createdAt?: string | null | undefined;
   projectId?: string | null | undefined;
   integrationId?: string | null | undefined;
-  properties?: InsertSearchEventProperties$Outbound | null | undefined;
-  userProperties?: InsertSearchEventUserProperties$Outbound | null | undefined;
+  properties?: { [k: string]: any } | null | undefined;
+  userProperties?: { [k: string]: any } | null | undefined;
   entityType: string;
 };
 
@@ -200,12 +101,8 @@ export const InsertSearchEvent$outboundSchema: z.ZodType<
   createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   projectId: z.nullable(z.string()).optional(),
   integrationId: z.nullable(z.string()).optional(),
-  properties: z.nullable(
-    z.lazy(() => InsertSearchEventProperties$outboundSchema),
-  ).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => InsertSearchEventUserProperties$outboundSchema),
-  ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
   entityType: InsertSearchEventEntityType$outboundSchema,
 });
 

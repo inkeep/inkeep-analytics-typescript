@@ -7,26 +7,34 @@ import { OpenAIConversation } from "@inkeep/inkeep-analytics/models/components";
 
 let value: OpenAIConversation = {
   id: "<id>",
+  externalId: "<id>",
+  externalUrl: "https://recent-cuckoo.com",
   type: "openai",
-  createdAt: "1737634342582",
-  updatedAt: "1741731791992",
+  supportTicketConversationId: "<id>",
+  createdAt: "1720220236555",
+  updatedAt: "1741753912643",
+  projectId: "<id>",
+  integrationId: "<id>",
   tags: [
     "<value>",
   ],
+  visibility: "public",
   messages: [
     {
       id: "<id>",
       type: "openai",
+      externalId: "<id>",
+      externalUrl: "https://writhing-brochure.biz/",
       conversationId: "<id>",
-      createdAt: "1735399904028",
-      updatedAt: "1741687111701",
-      role: "assistant",
+      createdAt: "1715359945192",
+      updatedAt: "1741778916304",
+      role: "system",
       content: "<value>",
     },
   ],
   messagesOpenAIFormat: [
     {
-      role: "user",
+      role: "system",
       content: "<value>",
     },
   ],
@@ -35,20 +43,20 @@ let value: OpenAIConversation = {
 
 ## Fields
 
-| Field                                                                                                      | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `id`                                                                                                       | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `externalId`                                                                                               | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
-| `externalUrl`                                                                                              | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
-| `type`                                                                                                     | [components.OpenAIConversationType](../../models/components/openaiconversationtype.md)                     | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `supportTicketConversationId`                                                                              | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
-| `createdAt`                                                                                                | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `updatedAt`                                                                                                | *string*                                                                                                   | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `projectId`                                                                                                | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
-| `integrationId`                                                                                            | *string*                                                                                                   | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
-| `properties`                                                                                               | [components.OpenAIConversationProperties](../../models/components/openaiconversationproperties.md)         | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
-| `userProperties`                                                                                           | [components.OpenAIConversationUserProperties](../../models/components/openaiconversationuserproperties.md) | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
-| `tags`                                                                                                     | *string*[]                                                                                                 | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
-| `visibility`                                                                                               | [components.OpenAIConversationVisibility](../../models/components/openaiconversationvisibility.md)         | :heavy_minus_sign:                                                                                         | N/A                                                                                                        |
-| `messages`                                                                                                 | [components.OpenAIExtendedMessage](../../models/components/openaiextendedmessage.md)[]                     | :heavy_check_mark:                                                                                         | The messages in the conversation. Must be at least one message.                                            |
-| `messagesOpenAIFormat`                                                                                     | [components.OpenAIChatCompletionMessage](../../models/components/openaichatcompletionmessage.md)[]         | :heavy_check_mark:                                                                                         | N/A                                                                                                        |
+| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `id`                                                                                               | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `externalId`                                                                                       | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `externalUrl`                                                                                      | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `type`                                                                                             | [components.OpenAIConversationType](../../models/components/openaiconversationtype.md)             | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `supportTicketConversationId`                                                                      | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `createdAt`                                                                                        | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `updatedAt`                                                                                        | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `projectId`                                                                                        | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `integrationId`                                                                                    | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `properties`                                                                                       | Record<string, *any*>                                                                              | :heavy_minus_sign:                                                                                 | A customizable collection of custom properties or attributes.                                      |
+| `userProperties`                                                                                   | Record<string, *any*>                                                                              | :heavy_minus_sign:                                                                                 | A customizable collection of custom properties or attributes.                                      |
+| `tags`                                                                                             | *string*[]                                                                                         | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `visibility`                                                                                       | [components.OpenAIConversationVisibility](../../models/components/openaiconversationvisibility.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `messages`                                                                                         | [components.OpenAIExtendedMessage](../../models/components/openaiextendedmessage.md)[]             | :heavy_check_mark:                                                                                 | The messages in the conversation. Must be at least one message.                                    |
+| `messagesOpenAIFormat`                                                                             | [components.OpenAIChatCompletionMessage](../../models/components/openaichatcompletionmessage.md)[] | :heavy_check_mark:                                                                                 | N/A                                                                                                |

@@ -8,35 +8,35 @@
 ```typescript
 const value: components.OpenAIConversation = {
   id: "<id>",
+  externalId: "<id>",
+  externalUrl: "https://second-newsletter.name",
   type: "openai",
-  createdAt: "1727505022421",
-  updatedAt: "1741709031959",
+  supportTicketConversationId: "<id>",
+  createdAt: "1723633265701",
+  updatedAt: "1741778292979",
+  projectId: "<id>",
+  integrationId: "<id>",
   tags: [
     "<value>",
   ],
+  visibility: "private",
   messages: [
     {
       id: "<id>",
       type: "openai",
+      externalId: "<id>",
+      externalUrl: "https://whole-godparent.net",
       conversationId: "<id>",
-      createdAt: "1729206385541",
-      updatedAt: "1741694317678",
-      role: "user",
-      content: [
-        {
-          type: "text",
-        },
-      ],
+      createdAt: "1726952118035",
+      updatedAt: "1741771566858",
+      role: "assistant",
+      content: "<value>",
     },
   ],
   messagesOpenAIFormat: [
     {
-      role: "assistant",
-      content: [
-        {
-          type: "text",
-        },
-      ],
+      role: "system",
+      content: "<value>",
     },
   ],
 };
@@ -47,20 +47,29 @@ const value: components.OpenAIConversation = {
 ```typescript
 const value: components.SupportTicketConversation = {
   id: "<id>",
+  externalId: "<id>",
+  externalUrl: "https://spanish-sunbeam.org",
   type: "support_ticket",
-  createdAt: "1735165480332",
-  updatedAt: "1741692936315",
+  supportTicketConversationId: "<id>",
+  createdAt: "1735475152061",
+  updatedAt: "1741762359734",
+  projectId: "<id>",
+  integrationId: "<id>",
   tags: [
     "<value>",
   ],
+  visibility: "public",
   messages: [
     {
       id: "<id>",
       type: "support_ticket",
+      externalId: "<id>",
+      externalUrl: "https://productive-charm.org/",
       conversationId: "<id>",
-      createdAt: "1728111493036",
-      updatedAt: "1741727210949",
+      createdAt: "1726729896534",
+      updatedAt: "1741758314758",
       role: "<value>",
+      content: "<value>",
     },
   ],
 };
@@ -71,20 +80,29 @@ const value: components.SupportTicketConversation = {
 ```typescript
 const value: components.SupportCopilotConversation = {
   id: "<id>",
+  externalId: "<id>",
+  externalUrl: "https://sorrowful-import.name/",
   type: "support_copilot",
-  createdAt: "1712437833387",
-  updatedAt: "1741654768212",
+  supportTicketConversationId: "<id>",
+  createdAt: "1710865443510",
+  updatedAt: "1741775851473",
+  projectId: "<id>",
+  integrationId: "<id>",
   tags: [
     "<value>",
   ],
+  visibility: "public",
   messages: [
     {
       id: "<id>",
       type: "support_copilot",
+      externalId: "<id>",
+      externalUrl: "https://wavy-pleasure.info",
       conversationId: "<id>",
-      createdAt: "1710835247691",
-      updatedAt: "1741719177852",
+      createdAt: "1724055127644",
+      updatedAt: "1741782763024",
       role: "<value>",
+      content: "<value>",
     },
   ],
 };
