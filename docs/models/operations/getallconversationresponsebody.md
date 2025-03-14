@@ -15,13 +15,10 @@ let value: GetAllConversationResponseBody = {
       externalUrl: "https://minor-hippodrome.name",
       type: "openai",
       supportTicketConversationId: "<id>",
-      createdAt: "1719325345646",
-      updatedAt: "1741783536549",
+      createdAt: "1719491254370",
+      updatedAt: "1741949445273",
       projectId: "<id>",
       integrationId: "<id>",
-      tags: [
-        "<value>",
-      ],
       visibility: "private",
       messages: [
         {
@@ -30,8 +27,8 @@ let value: GetAllConversationResponseBody = {
           externalId: "<id>",
           externalUrl: "https://surprised-traffic.com/",
           conversationId: "<id>",
-          createdAt: "1717609013817",
-          updatedAt: "1741752600929",
+          createdAt: "1717774922542",
+          updatedAt: "1741918509654",
           role: "assistant",
           content: [
             {

@@ -47,7 +47,7 @@ export type SupportTicketConversation = {
    * A customizable collection of custom properties or attributes.
    */
   userProperties?: { [k: string]: any } | null | undefined;
-  tags: Array<string>;
+  tags?: Array<string> | null | undefined;
   visibility: SupportTicketConversationVisibility | null;
   /**
    * The messages in the conversation. Must be at least one message.
@@ -116,7 +116,7 @@ export const SupportTicketConversation$inboundSchema: z.ZodType<
   integrationId: z.nullable(z.string()),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(z.record(z.any())).optional(),
-  tags: z.array(z.string()),
+  tags: z.nullable(z.array(z.string())).optional(),
   visibility: z.nullable(SupportTicketConversationVisibility$inboundSchema),
   messages: z.array(SupportTicketMessage$inboundSchema),
 });
@@ -134,7 +134,7 @@ export type SupportTicketConversation$Outbound = {
   integrationId: string | null;
   properties?: { [k: string]: any } | null | undefined;
   userProperties?: { [k: string]: any } | null | undefined;
-  tags: Array<string>;
+  tags?: Array<string> | null | undefined;
   visibility: string | null;
   messages: Array<SupportTicketMessage$Outbound>;
 };
@@ -156,7 +156,7 @@ export const SupportTicketConversation$outboundSchema: z.ZodType<
   integrationId: z.nullable(z.string()),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(z.record(z.any())).optional(),
-  tags: z.array(z.string()),
+  tags: z.nullable(z.array(z.string())).optional(),
   visibility: z.nullable(SupportTicketConversationVisibility$outboundSchema),
   messages: z.array(SupportTicketMessage$outboundSchema),
 });

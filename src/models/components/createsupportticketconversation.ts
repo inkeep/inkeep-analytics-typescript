@@ -101,7 +101,7 @@ export type CreateSupportTicketConversation = {
    * A customizable collection of custom properties or attributes.
    */
   userProperties?: { [k: string]: any } | null | undefined;
-  tags?: Array<string> | undefined;
+  tags?: Array<string> | null | undefined;
   visibility?: CreateSupportTicketConversationVisibility | null | undefined;
   messages: Array<CreateSupportTicketConversationMessages>;
 };
@@ -447,7 +447,7 @@ export const CreateSupportTicketConversation$inboundSchema: z.ZodType<
   integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(z.record(z.any())).optional(),
-  tags: z.array(z.string()).optional(),
+  tags: z.nullable(z.array(z.string())).optional(),
   visibility: z.nullable(
     CreateSupportTicketConversationVisibility$inboundSchema,
   ).optional(),
@@ -469,7 +469,7 @@ export type CreateSupportTicketConversation$Outbound = {
   integrationId?: string | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
   userProperties?: { [k: string]: any } | null | undefined;
-  tags?: Array<string> | undefined;
+  tags?: Array<string> | null | undefined;
   visibility?: string | null | undefined;
   messages: Array<CreateSupportTicketConversationMessages$Outbound>;
 };
@@ -491,7 +491,7 @@ export const CreateSupportTicketConversation$outboundSchema: z.ZodType<
   integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(z.record(z.any())).optional(),
-  tags: z.array(z.string()).optional(),
+  tags: z.nullable(z.array(z.string())).optional(),
   visibility: z.nullable(
     CreateSupportTicketConversationVisibility$outboundSchema,
   ).optional(),

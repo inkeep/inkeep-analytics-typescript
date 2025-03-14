@@ -70,10 +70,6 @@ export type UnauthorizedData = {
    */
   code: UnauthorizedCode;
   /**
-   * A URI reference that identifies the problem type.
-   */
-  type: string;
-  /**
    * Legacy error format for backward compatibility.
    */
   error: UnauthorizedError;
@@ -105,10 +101,6 @@ export class Unauthorized extends Error {
    */
   code: UnauthorizedCode;
   /**
-   * A URI reference that identifies the problem type.
-   */
-  type: string;
-  /**
    * Legacy error format for backward compatibility.
    */
   error: UnauthorizedError;
@@ -129,7 +121,6 @@ export class Unauthorized extends Error {
     if (err.instance != null) this.instance = err.instance;
     if (err.requestId != null) this.requestId = err.requestId;
     this.code = err.code;
-    this.type = err.type;
     this.error = err.error;
 
     this.name = "Unauthorized";
@@ -247,7 +238,6 @@ export const Unauthorized$inboundSchema: z.ZodType<
   instance: z.string().optional(),
   requestId: z.string().optional(),
   code: UnauthorizedCode$inboundSchema,
-  type: z.string(),
   error: z.lazy(() => UnauthorizedError$inboundSchema),
 })
   .transform((v) => {
@@ -262,7 +252,6 @@ export type Unauthorized$Outbound = {
   instance?: string | undefined;
   requestId?: string | undefined;
   code: string;
-  type: string;
   error: UnauthorizedError$Outbound;
 };
 
@@ -280,7 +269,6 @@ export const Unauthorized$outboundSchema: z.ZodType<
     instance: z.string().optional(),
     requestId: z.string().optional(),
     code: UnauthorizedCode$outboundSchema,
-    type: z.string(),
     error: z.lazy(() => UnauthorizedError$outboundSchema),
   }));
 

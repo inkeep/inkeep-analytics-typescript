@@ -11,13 +11,10 @@ let value: SupportCopilotConversation = {
   externalUrl: "https://unconscious-mom.org/",
   type: "support_copilot",
   supportTicketConversationId: "<id>",
-  createdAt: "1732112564016",
-  updatedAt: "1741785149729",
+  createdAt: "1732278472738",
+  updatedAt: "1741951058451",
   projectId: "<id>",
   integrationId: "<id>",
-  tags: [
-    "<value>",
-  ],
   visibility: "public",
   messages: [
     {
@@ -26,8 +23,8 @@ let value: SupportCopilotConversation = {
       externalId: "<id>",
       externalUrl: "https://proud-hierarchy.name",
       conversationId: "<id>",
-      createdAt: "1710878165168",
-      updatedAt: "1741748544249",
+      createdAt: "1711044073890",
+      updatedAt: "1741914452970",
       role: "<value>",
       content: "<value>",
     },
@@ -50,6 +47,6 @@ let value: SupportCopilotConversation = {
 | `integrationId`                                                                                                    | *string*                                                                                                           | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
 | `properties`                                                                                                       | Record<string, *any*>                                                                                              | :heavy_minus_sign:                                                                                                 | A customizable collection of custom properties or attributes.                                                      |
 | `userProperties`                                                                                                   | Record<string, *any*>                                                                                              | :heavy_minus_sign:                                                                                                 | A customizable collection of custom properties or attributes.                                                      |
-| `tags`                                                                                                             | *string*[]                                                                                                         | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
+| `tags`                                                                                                             | *string*[]                                                                                                         | :heavy_minus_sign:                                                                                                 | N/A                                                                                                                |
 | `visibility`                                                                                                       | [components.SupportCopilotConversationVisibility](../../models/components/supportcopilotconversationvisibility.md) | :heavy_check_mark:                                                                                                 | N/A                                                                                                                |
 | `messages`                                                                                                         | [components.SupportCopilotMessage](../../models/components/supportcopilotmessage.md)[]                             | :heavy_check_mark:                                                                                                 | The messages in the conversation. Must be at least one message.                                                    |

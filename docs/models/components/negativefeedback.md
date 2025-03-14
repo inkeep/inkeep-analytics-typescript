@@ -9,20 +9,17 @@ let value: NegativeFeedback = {
   id: "<id>",
   type: "negative",
   messageId: "<id>",
-  createdAt: "1722185670268",
+  createdAt: "1722351578987",
   conversation: {
     id: "<id>",
     externalId: "<id>",
     externalUrl: "https://bitter-platter.info/",
     type: "openai",
     supportTicketConversationId: "<id>",
-    createdAt: "1727194450109",
-    updatedAt: "1741799960147",
+    createdAt: "1727360358828",
+    updatedAt: "1741965868866",
     projectId: "<id>",
     integrationId: "<id>",
-    tags: [
-      "<value>",
-    ],
     visibility: "public",
     messages: [
       {
@@ -31,8 +28,8 @@ let value: NegativeFeedback = {
         externalId: "<id>",
         externalUrl: "https://radiant-dividend.com/",
         conversationId: "<id>",
-        createdAt: "1734189117115",
-        updatedAt: "1741750137808",
+        createdAt: "1734355025834",
+        updatedAt: "1741916046527",
         role: "user",
         content: [
           {
@@ -58,8 +55,8 @@ let value: NegativeFeedback = {
     externalId: "<id>",
     externalUrl: "https://well-groomed-poetry.biz/",
     conversationId: "<id>",
-    createdAt: "1740149166645",
-    updatedAt: "1741785633861",
+    createdAt: "1740315075364",
+    updatedAt: "1741951542580",
     role: "<value>",
     content: "<value>",
   },

@@ -51,7 +51,7 @@ export type OpenAIConversation = {
    * A customizable collection of custom properties or attributes.
    */
   userProperties?: { [k: string]: any } | null | undefined;
-  tags: Array<string>;
+  tags?: Array<string> | null | undefined;
   visibility: OpenAIConversationVisibility | null;
   /**
    * The messages in the conversation. Must be at least one message.
@@ -119,7 +119,7 @@ export const OpenAIConversation$inboundSchema: z.ZodType<
   integrationId: z.nullable(z.string()),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(z.record(z.any())).optional(),
-  tags: z.array(z.string()),
+  tags: z.nullable(z.array(z.string())).optional(),
   visibility: z.nullable(OpenAIConversationVisibility$inboundSchema),
   messages: z.array(OpenAIExtendedMessage$inboundSchema),
   messagesOpenAIFormat: z.array(OpenAIChatCompletionMessage$inboundSchema),
@@ -138,7 +138,7 @@ export type OpenAIConversation$Outbound = {
   integrationId: string | null;
   properties?: { [k: string]: any } | null | undefined;
   userProperties?: { [k: string]: any } | null | undefined;
-  tags: Array<string>;
+  tags?: Array<string> | null | undefined;
   visibility: string | null;
   messages: Array<OpenAIExtendedMessage$Outbound>;
   messagesOpenAIFormat: Array<OpenAIChatCompletionMessage$Outbound>;
@@ -161,7 +161,7 @@ export const OpenAIConversation$outboundSchema: z.ZodType<
   integrationId: z.nullable(z.string()),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(z.record(z.any())).optional(),
-  tags: z.array(z.string()),
+  tags: z.nullable(z.array(z.string())).optional(),
   visibility: z.nullable(OpenAIConversationVisibility$outboundSchema),
   messages: z.array(OpenAIExtendedMessage$outboundSchema),
   messagesOpenAIFormat: z.array(OpenAIChatCompletionMessage$outboundSchema),

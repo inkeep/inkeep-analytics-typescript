@@ -70,10 +70,6 @@ export type NotFoundData = {
    */
   code: NotFoundCode;
   /**
-   * A URI reference that identifies the problem type.
-   */
-  type: string;
-  /**
    * Legacy error format for backward compatibility.
    */
   error: NotFoundError;
@@ -105,10 +101,6 @@ export class NotFound extends Error {
    */
   code: NotFoundCode;
   /**
-   * A URI reference that identifies the problem type.
-   */
-  type: string;
-  /**
    * Legacy error format for backward compatibility.
    */
   error: NotFoundError;
@@ -129,7 +121,6 @@ export class NotFound extends Error {
     if (err.instance != null) this.instance = err.instance;
     if (err.requestId != null) this.requestId = err.requestId;
     this.code = err.code;
-    this.type = err.type;
     this.error = err.error;
 
     this.name = "NotFound";
@@ -241,7 +232,6 @@ export const NotFound$inboundSchema: z.ZodType<
   instance: z.string().optional(),
   requestId: z.string().optional(),
   code: NotFoundCode$inboundSchema,
-  type: z.string(),
   error: z.lazy(() => NotFoundError$inboundSchema),
 })
   .transform((v) => {
@@ -256,7 +246,6 @@ export type NotFound$Outbound = {
   instance?: string | undefined;
   requestId?: string | undefined;
   code: string;
-  type: string;
   error: NotFoundError$Outbound;
 };
 
@@ -274,7 +263,6 @@ export const NotFound$outboundSchema: z.ZodType<
     instance: z.string().optional(),
     requestId: z.string().optional(),
     code: NotFoundCode$outboundSchema,
-    type: z.string(),
     error: z.lazy(() => NotFoundError$outboundSchema),
   }));
 

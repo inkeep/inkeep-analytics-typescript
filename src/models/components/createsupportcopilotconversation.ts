@@ -101,7 +101,7 @@ export type CreateSupportCopilotConversation = {
    * A customizable collection of custom properties or attributes.
    */
   userProperties?: { [k: string]: any } | null | undefined;
-  tags?: Array<string> | undefined;
+  tags?: Array<string> | null | undefined;
   visibility?: CreateSupportCopilotConversationVisibility | null | undefined;
   messages: Array<CreateSupportCopilotConversationMessages>;
 };
@@ -451,7 +451,7 @@ export const CreateSupportCopilotConversation$inboundSchema: z.ZodType<
   integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(z.record(z.any())).optional(),
-  tags: z.array(z.string()).optional(),
+  tags: z.nullable(z.array(z.string())).optional(),
   visibility: z.nullable(
     CreateSupportCopilotConversationVisibility$inboundSchema,
   ).optional(),
@@ -473,7 +473,7 @@ export type CreateSupportCopilotConversation$Outbound = {
   integrationId?: string | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
   userProperties?: { [k: string]: any } | null | undefined;
-  tags?: Array<string> | undefined;
+  tags?: Array<string> | null | undefined;
   visibility?: string | null | undefined;
   messages: Array<CreateSupportCopilotConversationMessages$Outbound>;
 };
@@ -495,7 +495,7 @@ export const CreateSupportCopilotConversation$outboundSchema: z.ZodType<
   integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(z.record(z.any())).optional(),
-  tags: z.array(z.string()).optional(),
+  tags: z.nullable(z.array(z.string())).optional(),
   visibility: z.nullable(
     CreateSupportCopilotConversationVisibility$outboundSchema,
   ).optional(),

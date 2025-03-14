@@ -74,10 +74,6 @@ export type UnprocessableEntityData = {
    */
   code: UnprocessableEntityCode;
   /**
-   * A URI reference that identifies the problem type.
-   */
-  type: string;
-  /**
    * Legacy error format for backward compatibility.
    */
   error: UnprocessableEntityError;
@@ -109,10 +105,6 @@ export class UnprocessableEntity extends Error {
    */
   code: UnprocessableEntityCode;
   /**
-   * A URI reference that identifies the problem type.
-   */
-  type: string;
-  /**
    * Legacy error format for backward compatibility.
    */
   error: UnprocessableEntityError;
@@ -133,7 +125,6 @@ export class UnprocessableEntity extends Error {
     if (err.instance != null) this.instance = err.instance;
     if (err.requestId != null) this.requestId = err.requestId;
     this.code = err.code;
-    this.type = err.type;
     this.error = err.error;
 
     this.name = "UnprocessableEntity";
@@ -251,7 +242,6 @@ export const UnprocessableEntity$inboundSchema: z.ZodType<
   instance: z.string().optional(),
   requestId: z.string().optional(),
   code: UnprocessableEntityCode$inboundSchema,
-  type: z.string(),
   error: z.lazy(() => UnprocessableEntityError$inboundSchema),
 })
   .transform((v) => {
@@ -266,7 +256,6 @@ export type UnprocessableEntity$Outbound = {
   instance?: string | undefined;
   requestId?: string | undefined;
   code: string;
-  type: string;
   error: UnprocessableEntityError$Outbound;
 };
 
@@ -284,7 +273,6 @@ export const UnprocessableEntity$outboundSchema: z.ZodType<
     instance: z.string().optional(),
     requestId: z.string().optional(),
     code: UnprocessableEntityCode$outboundSchema,
-    type: z.string(),
     error: z.lazy(() => UnprocessableEntityError$outboundSchema),
   }));
 
