@@ -11,13 +11,10 @@ let value: SupportTicketConversation = {
   externalUrl: "https://glass-pigpen.com",
   type: "support_ticket",
   supportTicketConversationId: "<id>",
-  createdAt: "1732862982448",
-  updatedAt: "1741747492852",
+  createdAt: "1733028891170",
+  updatedAt: "1741913401574",
   projectId: "<id>",
   integrationId: "<id>",
-  tags: [
-    "<value>",
-  ],
   visibility: "private",
   messages: [
     {
@@ -26,8 +23,8 @@ let value: SupportTicketConversation = {
       externalId: "<id>",
       externalUrl: "https://ajar-solvency.com",
       conversationId: "<id>",
-      createdAt: "1731648510085",
-      updatedAt: "1741745816877",
+      createdAt: "1731814418806",
+      updatedAt: "1741911725598",
       role: "<value>",
       content: "<value>",
     },
@@ -50,6 +47,6 @@ let value: SupportTicketConversation = {
 | `integrationId`                                                                                                  | *string*                                                                                                         | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `properties`                                                                                                     | Record<string, *any*>                                                                                            | :heavy_minus_sign:                                                                                               | A customizable collection of custom properties or attributes.                                                    |
 | `userProperties`                                                                                                 | Record<string, *any*>                                                                                            | :heavy_minus_sign:                                                                                               | A customizable collection of custom properties or attributes.                                                    |
-| `tags`                                                                                                           | *string*[]                                                                                                       | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
+| `tags`                                                                                                           | *string*[]                                                                                                       | :heavy_minus_sign:                                                                                               | N/A                                                                                                              |
 | `visibility`                                                                                                     | [components.SupportTicketConversationVisibility](../../models/components/supportticketconversationvisibility.md) | :heavy_check_mark:                                                                                               | N/A                                                                                                              |
 | `messages`                                                                                                       | [components.SupportTicketMessage](../../models/components/supportticketmessage.md)[]                             | :heavy_check_mark:                                                                                               | The messages in the conversation. Must be at least one message.                                                  |

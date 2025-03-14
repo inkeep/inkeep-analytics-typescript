@@ -11,8 +11,8 @@ let value: SupportCopilotMessage = {
   externalId: "<id>",
   externalUrl: "https://overdue-minion.name",
   conversationId: "<id>",
-  createdAt: "1730837616598",
-  updatedAt: "1741759762649",
+  createdAt: "1731003525310",
+  updatedAt: "1741925671360",
   role: "<value>",
   content: "<value>",
 };

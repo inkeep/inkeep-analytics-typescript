@@ -70,10 +70,6 @@ export type BadRequestData = {
    */
   code: Code;
   /**
-   * A URI reference that identifies the problem type.
-   */
-  type: string;
-  /**
    * Legacy error format for backward compatibility.
    */
   error: ErrorT;
@@ -105,10 +101,6 @@ export class BadRequest extends Error {
    */
   code: Code;
   /**
-   * A URI reference that identifies the problem type.
-   */
-  type: string;
-  /**
    * Legacy error format for backward compatibility.
    */
   error: ErrorT;
@@ -129,7 +121,6 @@ export class BadRequest extends Error {
     if (err.instance != null) this.instance = err.instance;
     if (err.requestId != null) this.requestId = err.requestId;
     this.code = err.code;
-    this.type = err.type;
     this.error = err.error;
 
     this.name = "BadRequest";
@@ -239,7 +230,6 @@ export const BadRequest$inboundSchema: z.ZodType<
   instance: z.string().optional(),
   requestId: z.string().optional(),
   code: Code$inboundSchema,
-  type: z.string(),
   error: z.lazy(() => ErrorT$inboundSchema),
 })
   .transform((v) => {
@@ -254,7 +244,6 @@ export type BadRequest$Outbound = {
   instance?: string | undefined;
   requestId?: string | undefined;
   code: string;
-  type: string;
   error: ErrorT$Outbound;
 };
 
@@ -272,7 +261,6 @@ export const BadRequest$outboundSchema: z.ZodType<
     instance: z.string().optional(),
     requestId: z.string().optional(),
     code: Code$outboundSchema,
-    type: z.string(),
     error: z.lazy(() => ErrorT$outboundSchema),
   }));
 

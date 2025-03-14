@@ -11,13 +11,10 @@ let value: OpenAIConversation = {
   externalUrl: "https://recent-cuckoo.com",
   type: "openai",
   supportTicketConversationId: "<id>",
-  createdAt: "1720220236555",
-  updatedAt: "1741753912643",
+  createdAt: "1720386145276",
+  updatedAt: "1741919821364",
   projectId: "<id>",
   integrationId: "<id>",
-  tags: [
-    "<value>",
-  ],
   visibility: "public",
   messages: [
     {
@@ -26,8 +23,8 @@ let value: OpenAIConversation = {
       externalId: "<id>",
       externalUrl: "https://writhing-brochure.biz/",
       conversationId: "<id>",
-      createdAt: "1715359945192",
-      updatedAt: "1741778916304",
+      createdAt: "1715525853913",
+      updatedAt: "1741944825025",
       role: "system",
       content: "<value>",
     },
@@ -56,7 +53,7 @@ let value: OpenAIConversation = {
 | `integrationId`                                                                                    | *string*                                                                                           | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `properties`                                                                                       | Record<string, *any*>                                                                              | :heavy_minus_sign:                                                                                 | A customizable collection of custom properties or attributes.                                      |
 | `userProperties`                                                                                   | Record<string, *any*>                                                                              | :heavy_minus_sign:                                                                                 | A customizable collection of custom properties or attributes.                                      |
-| `tags`                                                                                             | *string*[]                                                                                         | :heavy_check_mark:                                                                                 | N/A                                                                                                |
+| `tags`                                                                                             | *string*[]                                                                                         | :heavy_minus_sign:                                                                                 | N/A                                                                                                |
 | `visibility`                                                                                       | [components.OpenAIConversationVisibility](../../models/components/openaiconversationvisibility.md) | :heavy_check_mark:                                                                                 | N/A                                                                                                |
 | `messages`                                                                                         | [components.OpenAIExtendedMessage](../../models/components/openaiextendedmessage.md)[]             | :heavy_check_mark:                                                                                 | The messages in the conversation. Must be at least one message.                                    |
 | `messagesOpenAIFormat`                                                                             | [components.OpenAIChatCompletionMessage](../../models/components/openaichatcompletionmessage.md)[] | :heavy_check_mark:                                                                                 | N/A                                                                                                |

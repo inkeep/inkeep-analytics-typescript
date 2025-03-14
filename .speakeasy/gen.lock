@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 63a2136d-3fa3-4a0b-a766-1ddb2460cc12
 management:
-  docChecksum: a5808406a57ed7a1a1143aa0eab006e0
+  docChecksum: 1a0d57bcc9c9926d711df4240e93fa5e
   docVersion: 0.1.1
-  speakeasyVersion: 1.517.0
-  generationVersion: 2.548.1
-  releaseVersion: 0.2.4-alpha.5
-  configChecksum: 74b7b1d3c1045d0c16acb106ff253188
+  speakeasyVersion: 1.517.3
+  generationVersion: 2.548.6
+  releaseVersion: 0.2.4-alpha.6
+  configChecksum: a4fbf4898d538b9245fb3ea907ebcc4b
   repoURL: https://github.com/inkeep/inkeep-analytics-typescript.git
   installationURL: https://github.com/inkeep/inkeep-analytics-typescript
   published: true
@@ -443,19 +443,19 @@ examples:
           application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://nervous-prohibition.biz", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1733847902032", "updatedAt": "1738782547049", "projectId": "<id>", "integrationId": "<id>", "tags": ["<value>", "<value>"], "visibility": "public", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://sniveling-formamide.com", "conversationId": "<id>", "createdAt": "1708069757418", "updatedAt": "1738719286500", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://present-breastplate.info", "conversationId": "<id>", "createdAt": "1715130712707", "updatedAt": "1738776315766", "role": "<value>", "content": "<value>"}]}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
           application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "type": "https://docs.inkeep.com/analytics-api/errors#unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
           application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "type": "https://docs.inkeep.com/analytics-api/errors#forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "422":
           application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "type": "https://docs.inkeep.com/analytics-api/errors#unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "type": "https://docs.inkeep.com/analytics-api/errors#internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   getAllConversation:
     speakeasy-default-get-all-conversation:
       responses:
@@ -463,22 +463,22 @@ examples:
           application/json: {"conversations": [], "total": 4577.99, "pageSize": 1601.72, "count": 400.21}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
           application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "type": "https://docs.inkeep.com/analytics-api/errors#unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
           application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "type": "https://docs.inkeep.com/analytics-api/errors#forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "404":
           application/json: {"error": {"code": "not_found", "message": "Not Found"}}
-          application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "type": "https://docs.inkeep.com/analytics-api/errors#not_found", "error": {"code": "not_found", "message": "Not Found"}}
+          application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "error": {"code": "not_found", "message": "Not Found"}}
         "422":
           application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "type": "https://docs.inkeep.com/analytics-api/errors#unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "type": "https://docs.inkeep.com/analytics-api/errors#internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   getConversation:
     speakeasy-default-get-conversation:
       parameters:
@@ -489,22 +489,22 @@ examples:
           application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://normal-making.name", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1735928719588", "updatedAt": "1738802376242", "projectId": "<id>", "integrationId": "<id>", "tags": ["<value>"], "visibility": "public", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://knowledgeable-diversity.biz/", "conversationId": "<id>", "createdAt": "1718049138803", "updatedAt": "1738746959508", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://jittery-sermon.com", "conversationId": "<id>", "createdAt": "1716851894842", "updatedAt": "1738768541226", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://genuine-bowler.name/", "conversationId": "<id>", "createdAt": "1737557749612", "updatedAt": "1738748037494", "role": "<value>", "content": "<value>"}]}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
           application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "type": "https://docs.inkeep.com/analytics-api/errors#unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
           application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "type": "https://docs.inkeep.com/analytics-api/errors#forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "404":
           application/json: {"error": {"code": "not_found", "message": "Not Found"}}
-          application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "type": "https://docs.inkeep.com/analytics-api/errors#not_found", "error": {"code": "not_found", "message": "Not Found"}}
+          application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "error": {"code": "not_found", "message": "Not Found"}}
         "422":
           application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "type": "https://docs.inkeep.com/analytics-api/errors#unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "type": "https://docs.inkeep.com/analytics-api/errors#internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   deleteConversation:
     speakeasy-default-delete-conversation:
       parameters:
@@ -515,22 +515,22 @@ examples:
           application/json: {"success": false, "message": "<value>"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
           application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "type": "https://docs.inkeep.com/analytics-api/errors#unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
           application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "type": "https://docs.inkeep.com/analytics-api/errors#forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "404":
           application/json: {"error": {"code": "not_found", "message": "Not Found"}}
-          application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "type": "https://docs.inkeep.com/analytics-api/errors#not_found", "error": {"code": "not_found", "message": "Not Found"}}
+          application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "error": {"code": "not_found", "message": "Not Found"}}
         "422":
           application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "type": "https://docs.inkeep.com/analytics-api/errors#unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "type": "https://docs.inkeep.com/analytics-api/errors#internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   submitFeedback:
     speakeasy-default-submit-feedback:
       requestBody:
@@ -540,19 +540,19 @@ examples:
           application/json: {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1721987829810"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
           application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "type": "https://docs.inkeep.com/analytics-api/errors#unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
           application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "type": "https://docs.inkeep.com/analytics-api/errors#forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "422":
           application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "type": "https://docs.inkeep.com/analytics-api/errors#unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "type": "https://docs.inkeep.com/analytics-api/errors#internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   getAllFeedback:
     speakeasy-default-get-all-feedback:
       responses:
@@ -560,22 +560,22 @@ examples:
           application/json: {"positiveFeedbackCount": 1726.62, "negativeFeedbackCount": 2246.6, "positiveFeedback": [], "negativeFeedback": [{"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1731204221605", "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://neglected-plastic.biz", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1727769494062", "updatedAt": "1738752877975", "projectId": "<id>", "integrationId": "<id>", "tags": [], "visibility": "private", "messages": [], "messagesOpenAIFormat": [{"role": "system", "content": "<value>"}]}, "message": {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://primary-paintwork.com/", "conversationId": "<id>", "createdAt": "1731361160099", "updatedAt": "1738761736066", "role": "<value>", "content": "<value>"}}]}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
           application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "type": "https://docs.inkeep.com/analytics-api/errors#unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
           application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "type": "https://docs.inkeep.com/analytics-api/errors#forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "404":
           application/json: {"error": {"code": "not_found", "message": "Not Found"}}
-          application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "type": "https://docs.inkeep.com/analytics-api/errors#not_found", "error": {"code": "not_found", "message": "Not Found"}}
+          application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "error": {"code": "not_found", "message": "Not Found"}}
         "422":
           application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "type": "https://docs.inkeep.com/analytics-api/errors#unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "type": "https://docs.inkeep.com/analytics-api/errors#internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   logEvent:
     speakeasy-default-log-event:
       requestBody:
@@ -585,19 +585,19 @@ examples:
           application/json: {"id": "<id>", "type": "<value>", "conversationId": "<id>", "createdAt": "1738279517326", "projectId": "<id>", "integrationId": "<id>", "entityType": "conversation"}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
           application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "type": "https://docs.inkeep.com/analytics-api/errors#unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
           application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "type": "https://docs.inkeep.com/analytics-api/errors#forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "422":
           application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "type": "https://docs.inkeep.com/analytics-api/errors#unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "type": "https://docs.inkeep.com/analytics-api/errors#internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   queryConversations:
     speakeasy-default-query-conversations:
       requestBody:
@@ -607,19 +607,19 @@ examples:
           application/json: {"status": "ok", "data": {"result": [{}, {}, {}], "total": 6276.48, "pageSize": 9233.28, "count": 6854.56}}
         "400":
           application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
           application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "type": "https://docs.inkeep.com/analytics-api/errors#unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
           application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "type": "https://docs.inkeep.com/analytics-api/errors#forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "422":
           application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "type": "https://docs.inkeep.com/analytics-api/errors#unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "type": "https://docs.inkeep.com/analytics-api/errors#internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   queryTable:
     speakeasy-default-query-table:
       parameters:
@@ -668,22 +668,22 @@ examples:
       responses:
         "400":
           application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
           application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "type": "https://docs.inkeep.com/analytics-api/errors#unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
           application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "type": "https://docs.inkeep.com/analytics-api/errors#forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "404":
           application/json: {"error": {"code": "not_found", "message": "Not Found"}}
-          application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "type": "https://docs.inkeep.com/analytics-api/errors#not_found", "error": {"code": "not_found", "message": "Not Found"}}
+          application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "error": {"code": "not_found", "message": "Not Found"}}
         "422":
           application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "type": "https://docs.inkeep.com/analytics-api/errors#unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "type": "https://docs.inkeep.com/analytics-api/errors#internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
         "200":
           application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://impolite-riser.net", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1722130271543", "updatedAt": "1741022613469", "projectId": "<id>", "integrationId": "<id>", "tags": ["<value>", "<value>"], "visibility": "private", "messages": []}
   queryEvents:
@@ -693,19 +693,19 @@ examples:
       responses:
         "400":
           application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
           application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "type": "https://docs.inkeep.com/analytics-api/errors#unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
           application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "type": "https://docs.inkeep.com/analytics-api/errors#forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "422":
           application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "type": "https://docs.inkeep.com/analytics-api/errors#unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
           application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "type": "https://docs.inkeep.com/analytics-api/errors#internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
         "200":
           application/json: {"status": "ok", "data": {"result": [], "total": 4443.48, "pageSize": 6184.78, "count": 9797.71}}
   querySemanticThreads:
@@ -716,15 +716,15 @@ examples:
         "200":
           application/json: {"status": "ok", "data": {"result": [{}], "total": 4200.27, "pageSize": 3002.48, "count": 7650.29}}
         "400":
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "type": "https://docs.inkeep.com/analytics-api/errors#unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "type": "https://docs.inkeep.com/analytics-api/errors#forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "422":
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "type": "https://docs.inkeep.com/analytics-api/errors#unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "type": "https://docs.inkeep.com/analytics-api/errors#internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   exportSemanticThreadsQueryResults:
     speakeasy-default-export-semantic-threads-query-results:
       requestBody:
@@ -733,14 +733,14 @@ examples:
         "200":
           text/csv: "x-file: example.file"
         "400":
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "type": "https://docs.inkeep.com/analytics-api/errors#bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "type": "https://docs.inkeep.com/analytics-api/errors#unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "type": "https://docs.inkeep.com/analytics-api/errors#forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "422":
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "type": "https://docs.inkeep.com/analytics-api/errors#unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "type": "https://docs.inkeep.com/analytics-api/errors#internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
 examplesVersion: 1.0.0
 generatedTests: {}

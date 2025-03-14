@@ -74,10 +74,6 @@ export type InternalServerErrorData = {
    */
   code: InternalServerErrorCode;
   /**
-   * A URI reference that identifies the problem type.
-   */
-  type: string;
-  /**
    * Legacy error format for backward compatibility.
    */
   error: InternalServerErrorError;
@@ -109,10 +105,6 @@ export class InternalServerError extends Error {
    */
   code: InternalServerErrorCode;
   /**
-   * A URI reference that identifies the problem type.
-   */
-  type: string;
-  /**
    * Legacy error format for backward compatibility.
    */
   error: InternalServerErrorError;
@@ -133,7 +125,6 @@ export class InternalServerError extends Error {
     if (err.instance != null) this.instance = err.instance;
     if (err.requestId != null) this.requestId = err.requestId;
     this.code = err.code;
-    this.type = err.type;
     this.error = err.error;
 
     this.name = "InternalServerError";
@@ -251,7 +242,6 @@ export const InternalServerError$inboundSchema: z.ZodType<
   instance: z.string().optional(),
   requestId: z.string().optional(),
   code: InternalServerErrorCode$inboundSchema,
-  type: z.string(),
   error: z.lazy(() => InternalServerErrorError$inboundSchema),
 })
   .transform((v) => {
@@ -266,7 +256,6 @@ export type InternalServerError$Outbound = {
   instance?: string | undefined;
   requestId?: string | undefined;
   code: string;
-  type: string;
   error: InternalServerErrorError$Outbound;
 };
 
@@ -284,7 +273,6 @@ export const InternalServerError$outboundSchema: z.ZodType<
     instance: z.string().optional(),
     requestId: z.string().optional(),
     code: InternalServerErrorCode$outboundSchema,
-    type: z.string(),
     error: z.lazy(() => InternalServerErrorError$outboundSchema),
   }));
 
