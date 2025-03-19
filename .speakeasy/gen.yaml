@@ -29,7 +29,7 @@ typescript:
   defaultErrorName: APIError
   enableCustomCodeRegions: false
   enableMCPServer: true
-  enableReactQuery: false
+  enableReactQuery: true
   enumFormat: union
   envVarPrefix: INKEEPANALYTICS
   flattenGlobalSecurity: true
