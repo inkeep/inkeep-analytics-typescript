@@ -32,6 +32,8 @@ export const Field = {
   IntegrationId: "integrationId",
   FirstMessageTime: "firstMessageTime",
   Type: "type",
+  Properties: "properties",
+  UserProperties: "userProperties",
 } as const;
 export type Field = ClosedEnum<typeof Field>;
 

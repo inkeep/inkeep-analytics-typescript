@@ -7,35 +7,230 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+export type Four = string | number | boolean;
+
+export type Value =
+  | string
+  | number
+  | boolean
+  | Array<string | number | boolean | null>;
+
+export type Six = {
+  path: Array<string>;
+  value:
+    | string
+    | number
+    | boolean
+    | Array<string | number | boolean | null>
+    | null;
+};
+
 /**
- * The value to compare the field against
+ * The value to compare the field against. For JSON fields, can be either a JSON object or a {path, value} pair.
  */
 export type ConversationsFilterConditionValue =
+  | Six
   | string
   | boolean
   | number
-  | Array<string>;
+  | Array<string>
+  | { [k: string]: any };
+
+/** @internal */
+export const Four$inboundSchema: z.ZodType<Four, z.ZodTypeDef, unknown> = z
+  .union([z.string(), z.number(), z.boolean()]);
+
+/** @internal */
+export type Four$Outbound = string | number | boolean;
+
+/** @internal */
+export const Four$outboundSchema: z.ZodType<Four$Outbound, z.ZodTypeDef, Four> =
+  z.union([z.string(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Four$ {
+  /** @deprecated use `Four$inboundSchema` instead. */
+  export const inboundSchema = Four$inboundSchema;
+  /** @deprecated use `Four$outboundSchema` instead. */
+  export const outboundSchema = Four$outboundSchema;
+  /** @deprecated use `Four$Outbound` instead. */
+  export type Outbound = Four$Outbound;
+}
+
+export function fourToJSON(four: Four): string {
+  return JSON.stringify(Four$outboundSchema.parse(four));
+}
+
+export function fourFromJSON(
+  jsonString: string,
+): SafeParseResult<Four, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Four$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Four' from JSON`,
+  );
+}
+
+/** @internal */
+export const Value$inboundSchema: z.ZodType<Value, z.ZodTypeDef, unknown> = z
+  .union([
+    z.string(),
+    z.number(),
+    z.boolean(),
+    z.array(z.nullable(z.union([z.string(), z.number(), z.boolean()]))),
+  ]);
+
+/** @internal */
+export type Value$Outbound =
+  | string
+  | number
+  | boolean
+  | Array<string | number | boolean | null>;
+
+/** @internal */
+export const Value$outboundSchema: z.ZodType<
+  Value$Outbound,
+  z.ZodTypeDef,
+  Value
+> = z.union([
+  z.string(),
+  z.number(),
+  z.boolean(),
+  z.array(z.nullable(z.union([z.string(), z.number(), z.boolean()]))),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Value$ {
+  /** @deprecated use `Value$inboundSchema` instead. */
+  export const inboundSchema = Value$inboundSchema;
+  /** @deprecated use `Value$outboundSchema` instead. */
+  export const outboundSchema = Value$outboundSchema;
+  /** @deprecated use `Value$Outbound` instead. */
+  export type Outbound = Value$Outbound;
+}
+
+export function valueToJSON(value: Value): string {
+  return JSON.stringify(Value$outboundSchema.parse(value));
+}
+
+export function valueFromJSON(
+  jsonString: string,
+): SafeParseResult<Value, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Value$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Value' from JSON`,
+  );
+}
+
+/** @internal */
+export const Six$inboundSchema: z.ZodType<Six, z.ZodTypeDef, unknown> = z
+  .object({
+    path: z.array(z.string()),
+    value: z.nullable(
+      z.union([
+        z.string(),
+        z.number(),
+        z.boolean(),
+        z.array(z.nullable(z.union([z.string(), z.number(), z.boolean()]))),
+      ]),
+    ),
+  });
+
+/** @internal */
+export type Six$Outbound = {
+  path: Array<string>;
+  value:
+    | string
+    | number
+    | boolean
+    | Array<string | number | boolean | null>
+    | null;
+};
+
+/** @internal */
+export const Six$outboundSchema: z.ZodType<Six$Outbound, z.ZodTypeDef, Six> = z
+  .object({
+    path: z.array(z.string()),
+    value: z.nullable(
+      z.union([
+        z.string(),
+        z.number(),
+        z.boolean(),
+        z.array(z.nullable(z.union([z.string(), z.number(), z.boolean()]))),
+      ]),
+    ),
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Six$ {
+  /** @deprecated use `Six$inboundSchema` instead. */
+  export const inboundSchema = Six$inboundSchema;
+  /** @deprecated use `Six$outboundSchema` instead. */
+  export const outboundSchema = Six$outboundSchema;
+  /** @deprecated use `Six$Outbound` instead. */
+  export type Outbound = Six$Outbound;
+}
+
+export function sixToJSON(six: Six): string {
+  return JSON.stringify(Six$outboundSchema.parse(six));
+}
+
+export function sixFromJSON(
+  jsonString: string,
+): SafeParseResult<Six, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Six$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Six' from JSON`,
+  );
+}
 
 /** @internal */
 export const ConversationsFilterConditionValue$inboundSchema: z.ZodType<
   ConversationsFilterConditionValue,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.boolean(), z.number(), z.array(z.string())]);
+> = z.union([
+  z.lazy(() => Six$inboundSchema),
+  z.string(),
+  z.boolean(),
+  z.number(),
+  z.array(z.string()),
+  z.record(z.any()),
+]);
 
 /** @internal */
 export type ConversationsFilterConditionValue$Outbound =
+  | Six$Outbound
   | string
   | boolean
   | number
-  | Array<string>;
+  | Array<string>
+  | { [k: string]: any };
 
 /** @internal */
 export const ConversationsFilterConditionValue$outboundSchema: z.ZodType<
   ConversationsFilterConditionValue$Outbound,
   z.ZodTypeDef,
   ConversationsFilterConditionValue
-> = z.union([z.string(), z.boolean(), z.number(), z.array(z.string())]);
+> = z.union([
+  z.lazy(() => Six$outboundSchema),
+  z.string(),
+  z.boolean(),
+  z.number(),
+  z.array(z.string()),
+  z.record(z.any()),
+]);
 
 /**
  * @internal

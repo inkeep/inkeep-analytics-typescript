@@ -9,7 +9,7 @@ let value: SelectConversationEvent = {
   id: "<id>",
   type: "<value>",
   conversationId: "<id>",
-  createdAt: "1712946605745",
+  createdAt: "1713400206752",
   projectId: "<id>",
   integrationId: "<id>",
   entityType: "conversation",

@@ -33,7 +33,7 @@ export type EventsFilterConditionCondition = {
    */
   operator: FilterOperator;
   /**
-   * The value to compare the field against
+   * The value to compare the field against. For JSON fields, can be either a JSON object or a {path, value} pair.
    */
   value: EventsFilterConditionValue;
 };

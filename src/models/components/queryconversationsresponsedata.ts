@@ -26,6 +26,14 @@ export type ConversationsResultItem = {
   integrationId?: string | null | undefined;
   firstMessageTime?: Date | undefined;
   type?: QueryConversationsResponseDataType | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  userProperties?: { [k: string]: any } | null | undefined;
   sum?: number | undefined;
   count?: number | undefined;
   avg?: number | undefined;
@@ -59,6 +67,14 @@ export type ConversationsResultItem = {
   typeDay?: string | undefined;
   typeWeek?: string | undefined;
   typeMonth?: string | undefined;
+  propertiesHour?: string | undefined;
+  propertiesDay?: string | undefined;
+  propertiesWeek?: string | undefined;
+  propertiesMonth?: string | undefined;
+  userPropertiesHour?: string | undefined;
+  userPropertiesDay?: string | undefined;
+  userPropertiesWeek?: string | undefined;
+  userPropertiesMonth?: string | undefined;
   sumId?: number | undefined;
   sumUserMessageCount?: number | undefined;
   sumOrganizationId?: number | undefined;
@@ -66,6 +82,8 @@ export type ConversationsResultItem = {
   sumIntegrationId?: number | undefined;
   sumFirstMessageTime?: number | undefined;
   sumType?: number | undefined;
+  sumProperties?: number | undefined;
+  sumUserProperties?: number | undefined;
   countId?: number | undefined;
   countUserMessageCount?: number | undefined;
   countOrganizationId?: number | undefined;
@@ -73,6 +91,8 @@ export type ConversationsResultItem = {
   countIntegrationId?: number | undefined;
   countFirstMessageTime?: number | undefined;
   countType?: number | undefined;
+  countProperties?: number | undefined;
+  countUserProperties?: number | undefined;
   avgId?: number | undefined;
   avgUserMessageCount?: number | undefined;
   avgOrganizationId?: number | undefined;
@@ -80,6 +100,8 @@ export type ConversationsResultItem = {
   avgIntegrationId?: number | undefined;
   avgFirstMessageTime?: number | undefined;
   avgType?: number | undefined;
+  avgProperties?: number | undefined;
+  avgUserProperties?: number | undefined;
   minId?: number | undefined;
   minUserMessageCount?: number | undefined;
   minOrganizationId?: number | undefined;
@@ -87,6 +109,8 @@ export type ConversationsResultItem = {
   minIntegrationId?: number | undefined;
   minFirstMessageTime?: number | undefined;
   minType?: number | undefined;
+  minProperties?: number | undefined;
+  minUserProperties?: number | undefined;
   maxId?: number | undefined;
   maxUserMessageCount?: number | undefined;
   maxOrganizationId?: number | undefined;
@@ -94,6 +118,8 @@ export type ConversationsResultItem = {
   maxIntegrationId?: number | undefined;
   maxFirstMessageTime?: number | undefined;
   maxType?: number | undefined;
+  maxProperties?: number | undefined;
+  maxUserProperties?: number | undefined;
 };
 
 /**
@@ -152,6 +178,8 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
     new Date(v)
   ).optional(),
   type: z.nullable(QueryConversationsResponseDataType$inboundSchema).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
   sum: z.number().optional(),
   count: z.number().optional(),
   avg: z.number().optional(),
@@ -185,6 +213,14 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
   type_day: z.string().optional(),
   type_week: z.string().optional(),
   type_month: z.string().optional(),
+  properties_hour: z.string().optional(),
+  properties_day: z.string().optional(),
+  properties_week: z.string().optional(),
+  properties_month: z.string().optional(),
+  userProperties_hour: z.string().optional(),
+  userProperties_day: z.string().optional(),
+  userProperties_week: z.string().optional(),
+  userProperties_month: z.string().optional(),
   sum_id: z.number().optional(),
   sum_userMessageCount: z.number().optional(),
   sum_organizationId: z.number().optional(),
@@ -192,6 +228,8 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
   sum_integrationId: z.number().optional(),
   sum_firstMessageTime: z.number().optional(),
   sum_type: z.number().optional(),
+  sum_properties: z.number().optional(),
+  sum_userProperties: z.number().optional(),
   count_id: z.number().optional(),
   count_userMessageCount: z.number().optional(),
   count_organizationId: z.number().optional(),
@@ -199,6 +237,8 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
   count_integrationId: z.number().optional(),
   count_firstMessageTime: z.number().optional(),
   count_type: z.number().optional(),
+  count_properties: z.number().optional(),
+  count_userProperties: z.number().optional(),
   avg_id: z.number().optional(),
   avg_userMessageCount: z.number().optional(),
   avg_organizationId: z.number().optional(),
@@ -206,6 +246,8 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
   avg_integrationId: z.number().optional(),
   avg_firstMessageTime: z.number().optional(),
   avg_type: z.number().optional(),
+  avg_properties: z.number().optional(),
+  avg_userProperties: z.number().optional(),
   min_id: z.number().optional(),
   min_userMessageCount: z.number().optional(),
   min_organizationId: z.number().optional(),
@@ -213,6 +255,8 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
   min_integrationId: z.number().optional(),
   min_firstMessageTime: z.number().optional(),
   min_type: z.number().optional(),
+  min_properties: z.number().optional(),
+  min_userProperties: z.number().optional(),
   max_id: z.number().optional(),
   max_userMessageCount: z.number().optional(),
   max_organizationId: z.number().optional(),
@@ -220,6 +264,8 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
   max_integrationId: z.number().optional(),
   max_firstMessageTime: z.number().optional(),
   max_type: z.number().optional(),
+  max_properties: z.number().optional(),
+  max_userProperties: z.number().optional(),
 }).transform((v) => {
   return remap$(v, {
     "id_hour": "idHour",
@@ -250,6 +296,14 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
     "type_day": "typeDay",
     "type_week": "typeWeek",
     "type_month": "typeMonth",
+    "properties_hour": "propertiesHour",
+    "properties_day": "propertiesDay",
+    "properties_week": "propertiesWeek",
+    "properties_month": "propertiesMonth",
+    "userProperties_hour": "userPropertiesHour",
+    "userProperties_day": "userPropertiesDay",
+    "userProperties_week": "userPropertiesWeek",
+    "userProperties_month": "userPropertiesMonth",
     "sum_id": "sumId",
     "sum_userMessageCount": "sumUserMessageCount",
     "sum_organizationId": "sumOrganizationId",
@@ -257,6 +311,8 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
     "sum_integrationId": "sumIntegrationId",
     "sum_firstMessageTime": "sumFirstMessageTime",
     "sum_type": "sumType",
+    "sum_properties": "sumProperties",
+    "sum_userProperties": "sumUserProperties",
     "count_id": "countId",
     "count_userMessageCount": "countUserMessageCount",
     "count_organizationId": "countOrganizationId",
@@ -264,6 +320,8 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
     "count_integrationId": "countIntegrationId",
     "count_firstMessageTime": "countFirstMessageTime",
     "count_type": "countType",
+    "count_properties": "countProperties",
+    "count_userProperties": "countUserProperties",
     "avg_id": "avgId",
     "avg_userMessageCount": "avgUserMessageCount",
     "avg_organizationId": "avgOrganizationId",
@@ -271,6 +329,8 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
     "avg_integrationId": "avgIntegrationId",
     "avg_firstMessageTime": "avgFirstMessageTime",
     "avg_type": "avgType",
+    "avg_properties": "avgProperties",
+    "avg_userProperties": "avgUserProperties",
     "min_id": "minId",
     "min_userMessageCount": "minUserMessageCount",
     "min_organizationId": "minOrganizationId",
@@ -278,6 +338,8 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
     "min_integrationId": "minIntegrationId",
     "min_firstMessageTime": "minFirstMessageTime",
     "min_type": "minType",
+    "min_properties": "minProperties",
+    "min_userProperties": "minUserProperties",
     "max_id": "maxId",
     "max_userMessageCount": "maxUserMessageCount",
     "max_organizationId": "maxOrganizationId",
@@ -285,6 +347,8 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
     "max_integrationId": "maxIntegrationId",
     "max_firstMessageTime": "maxFirstMessageTime",
     "max_type": "maxType",
+    "max_properties": "maxProperties",
+    "max_userProperties": "maxUserProperties",
   });
 });
 
@@ -297,6 +361,8 @@ export type ConversationsResultItem$Outbound = {
   integrationId?: string | null | undefined;
   firstMessageTime?: string | undefined;
   type?: string | null | undefined;
+  properties?: { [k: string]: any } | null | undefined;
+  userProperties?: { [k: string]: any } | null | undefined;
   sum?: number | undefined;
   count?: number | undefined;
   avg?: number | undefined;
@@ -330,6 +396,14 @@ export type ConversationsResultItem$Outbound = {
   type_day?: string | undefined;
   type_week?: string | undefined;
   type_month?: string | undefined;
+  properties_hour?: string | undefined;
+  properties_day?: string | undefined;
+  properties_week?: string | undefined;
+  properties_month?: string | undefined;
+  userProperties_hour?: string | undefined;
+  userProperties_day?: string | undefined;
+  userProperties_week?: string | undefined;
+  userProperties_month?: string | undefined;
   sum_id?: number | undefined;
   sum_userMessageCount?: number | undefined;
   sum_organizationId?: number | undefined;
@@ -337,6 +411,8 @@ export type ConversationsResultItem$Outbound = {
   sum_integrationId?: number | undefined;
   sum_firstMessageTime?: number | undefined;
   sum_type?: number | undefined;
+  sum_properties?: number | undefined;
+  sum_userProperties?: number | undefined;
   count_id?: number | undefined;
   count_userMessageCount?: number | undefined;
   count_organizationId?: number | undefined;
@@ -344,6 +420,8 @@ export type ConversationsResultItem$Outbound = {
   count_integrationId?: number | undefined;
   count_firstMessageTime?: number | undefined;
   count_type?: number | undefined;
+  count_properties?: number | undefined;
+  count_userProperties?: number | undefined;
   avg_id?: number | undefined;
   avg_userMessageCount?: number | undefined;
   avg_organizationId?: number | undefined;
@@ -351,6 +429,8 @@ export type ConversationsResultItem$Outbound = {
   avg_integrationId?: number | undefined;
   avg_firstMessageTime?: number | undefined;
   avg_type?: number | undefined;
+  avg_properties?: number | undefined;
+  avg_userProperties?: number | undefined;
   min_id?: number | undefined;
   min_userMessageCount?: number | undefined;
   min_organizationId?: number | undefined;
@@ -358,6 +438,8 @@ export type ConversationsResultItem$Outbound = {
   min_integrationId?: number | undefined;
   min_firstMessageTime?: number | undefined;
   min_type?: number | undefined;
+  min_properties?: number | undefined;
+  min_userProperties?: number | undefined;
   max_id?: number | undefined;
   max_userMessageCount?: number | undefined;
   max_organizationId?: number | undefined;
@@ -365,6 +447,8 @@ export type ConversationsResultItem$Outbound = {
   max_integrationId?: number | undefined;
   max_firstMessageTime?: number | undefined;
   max_type?: number | undefined;
+  max_properties?: number | undefined;
+  max_userProperties?: number | undefined;
 };
 
 /** @internal */
@@ -381,6 +465,8 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
   firstMessageTime: z.date().transform(v => v.toISOString()).optional(),
   type: z.nullable(QueryConversationsResponseDataType$outboundSchema)
     .optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.record(z.any())).optional(),
   sum: z.number().optional(),
   count: z.number().optional(),
   avg: z.number().optional(),
@@ -414,6 +500,14 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
   typeDay: z.string().optional(),
   typeWeek: z.string().optional(),
   typeMonth: z.string().optional(),
+  propertiesHour: z.string().optional(),
+  propertiesDay: z.string().optional(),
+  propertiesWeek: z.string().optional(),
+  propertiesMonth: z.string().optional(),
+  userPropertiesHour: z.string().optional(),
+  userPropertiesDay: z.string().optional(),
+  userPropertiesWeek: z.string().optional(),
+  userPropertiesMonth: z.string().optional(),
   sumId: z.number().optional(),
   sumUserMessageCount: z.number().optional(),
   sumOrganizationId: z.number().optional(),
@@ -421,6 +515,8 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
   sumIntegrationId: z.number().optional(),
   sumFirstMessageTime: z.number().optional(),
   sumType: z.number().optional(),
+  sumProperties: z.number().optional(),
+  sumUserProperties: z.number().optional(),
   countId: z.number().optional(),
   countUserMessageCount: z.number().optional(),
   countOrganizationId: z.number().optional(),
@@ -428,6 +524,8 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
   countIntegrationId: z.number().optional(),
   countFirstMessageTime: z.number().optional(),
   countType: z.number().optional(),
+  countProperties: z.number().optional(),
+  countUserProperties: z.number().optional(),
   avgId: z.number().optional(),
   avgUserMessageCount: z.number().optional(),
   avgOrganizationId: z.number().optional(),
@@ -435,6 +533,8 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
   avgIntegrationId: z.number().optional(),
   avgFirstMessageTime: z.number().optional(),
   avgType: z.number().optional(),
+  avgProperties: z.number().optional(),
+  avgUserProperties: z.number().optional(),
   minId: z.number().optional(),
   minUserMessageCount: z.number().optional(),
   minOrganizationId: z.number().optional(),
@@ -442,6 +542,8 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
   minIntegrationId: z.number().optional(),
   minFirstMessageTime: z.number().optional(),
   minType: z.number().optional(),
+  minProperties: z.number().optional(),
+  minUserProperties: z.number().optional(),
   maxId: z.number().optional(),
   maxUserMessageCount: z.number().optional(),
   maxOrganizationId: z.number().optional(),
@@ -449,6 +551,8 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
   maxIntegrationId: z.number().optional(),
   maxFirstMessageTime: z.number().optional(),
   maxType: z.number().optional(),
+  maxProperties: z.number().optional(),
+  maxUserProperties: z.number().optional(),
 }).transform((v) => {
   return remap$(v, {
     idHour: "id_hour",
@@ -479,6 +583,14 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
     typeDay: "type_day",
     typeWeek: "type_week",
     typeMonth: "type_month",
+    propertiesHour: "properties_hour",
+    propertiesDay: "properties_day",
+    propertiesWeek: "properties_week",
+    propertiesMonth: "properties_month",
+    userPropertiesHour: "userProperties_hour",
+    userPropertiesDay: "userProperties_day",
+    userPropertiesWeek: "userProperties_week",
+    userPropertiesMonth: "userProperties_month",
     sumId: "sum_id",
     sumUserMessageCount: "sum_userMessageCount",
     sumOrganizationId: "sum_organizationId",
@@ -486,6 +598,8 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
     sumIntegrationId: "sum_integrationId",
     sumFirstMessageTime: "sum_firstMessageTime",
     sumType: "sum_type",
+    sumProperties: "sum_properties",
+    sumUserProperties: "sum_userProperties",
     countId: "count_id",
     countUserMessageCount: "count_userMessageCount",
     countOrganizationId: "count_organizationId",
@@ -493,6 +607,8 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
     countIntegrationId: "count_integrationId",
     countFirstMessageTime: "count_firstMessageTime",
     countType: "count_type",
+    countProperties: "count_properties",
+    countUserProperties: "count_userProperties",
     avgId: "avg_id",
     avgUserMessageCount: "avg_userMessageCount",
     avgOrganizationId: "avg_organizationId",
@@ -500,6 +616,8 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
     avgIntegrationId: "avg_integrationId",
     avgFirstMessageTime: "avg_firstMessageTime",
     avgType: "avg_type",
+    avgProperties: "avg_properties",
+    avgUserProperties: "avg_userProperties",
     minId: "min_id",
     minUserMessageCount: "min_userMessageCount",
     minOrganizationId: "min_organizationId",
@@ -507,6 +625,8 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
     minIntegrationId: "min_integrationId",
     minFirstMessageTime: "min_firstMessageTime",
     minType: "min_type",
+    minProperties: "min_properties",
+    minUserProperties: "min_userProperties",
     maxId: "max_id",
     maxUserMessageCount: "max_userMessageCount",
     maxOrganizationId: "max_organizationId",
@@ -514,6 +634,8 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
     maxIntegrationId: "max_integrationId",
     maxFirstMessageTime: "max_firstMessageTime",
     maxType: "max_type",
+    maxProperties: "max_properties",
+    maxUserProperties: "max_userProperties",
   });
 });
 

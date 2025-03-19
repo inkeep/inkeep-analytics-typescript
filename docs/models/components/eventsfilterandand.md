@@ -7,7 +7,18 @@
 
 ```typescript
 const value: components.EventsFilter = {
-  or: [],
+  condition: {
+    field: "projectId",
+    operator: "gte",
+    value: {
+      path: [
+        "/bin",
+      ],
+      value: [
+        3567.07,
+      ],
+    },
+  },
 };
 ```
 

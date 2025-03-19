@@ -10,7 +10,7 @@ Fields to select from events
 ```typescript
 const value: components.EventsAggregationSelection = {
   type: "aggregation",
-  aggregation: "max",
+  aggregation: "count",
 };
 ```
 
@@ -19,7 +19,7 @@ const value: components.EventsAggregationSelection = {
 ```typescript
 const value: components.EventsTimeBasedGroupBySelection = {
   type: "time",
-  timeUnit: "day",
+  timeUnit: "hour",
 };
 ```
 
@@ -28,7 +28,7 @@ const value: components.EventsTimeBasedGroupBySelection = {
 ```typescript
 const value: components.EventsSimpleFieldSelection = {
   type: "field",
-  field: "userProperties",
+  field: "eventType",
 };
 ```
 

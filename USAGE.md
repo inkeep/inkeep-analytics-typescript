@@ -5,14 +5,13 @@ import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 const inkeepAnalytics = new InkeepAnalytics();
 
 async function run() {
-  const result = await inkeepAnalytics.conversations.log({
+  const result = await inkeepAnalytics.postQueryPropertyKeys({
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
-    type: "support_ticket",
-    messages: [
-      {
-        role: "<value>",
-      },
+    field: "properties",
+    search: "theme",
+    views: [
+      "events_view",
     ],
   });
 

@@ -16,6 +16,8 @@ export const ConversationsField = {
   IntegrationId: "integrationId",
   FirstMessageTime: "firstMessageTime",
   Type: "type",
+  Properties: "properties",
+  UserProperties: "userProperties",
 } as const;
 /**
  * Available fields for Conversations
