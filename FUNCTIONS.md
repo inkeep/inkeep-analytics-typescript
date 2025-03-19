@@ -20,7 +20,7 @@ specific category of applications.
 
 ```typescript
 import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
-import { conversationsLog } from "@inkeep/inkeep-analytics/funcs/conversationsLog.js";
+import { postQueryPropertyKeys } from "@inkeep/inkeep-analytics/funcs/postQueryPropertyKeys.js";
 import { SDKValidationError } from "@inkeep/inkeep-analytics/models/errors/sdkvalidationerror.js";
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
@@ -28,14 +28,13 @@ import { SDKValidationError } from "@inkeep/inkeep-analytics/models/errors/sdkva
 const inkeepAnalytics = new InkeepAnalyticsCore();
 
 async function run() {
-  const res = await conversationsLog(inkeepAnalytics, {
+  const res = await postQueryPropertyKeys(inkeepAnalytics, {
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
-    type: "support_ticket",
-    messages: [
-      {
-        role: "<value>",
-      },
+    field: "properties",
+    search: "theme",
+    views: [
+      "events_view",
     ],
   });
 

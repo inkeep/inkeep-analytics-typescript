@@ -7,35 +7,290 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
+export type SemanticThreadFilterConditionValueValue4 =
+  | string
+  | number
+  | boolean;
+
+export type SemanticThreadFilterConditionValueValue =
+  | string
+  | number
+  | boolean
+  | Array<string | number | boolean | null>;
+
+export type SemanticThreadFilterConditionValue6 = {
+  path: Array<string>;
+  value:
+    | string
+    | number
+    | boolean
+    | Array<string | number | boolean | null>
+    | null;
+};
+
 /**
- * The value to compare the field against
+ * The value to compare the field against. For JSON fields, can be either a JSON object or a {path, value} pair.
  */
 export type SemanticThreadFilterConditionValue =
+  | SemanticThreadFilterConditionValue6
   | string
   | boolean
   | number
-  | Array<string>;
+  | Array<string>
+  | { [k: string]: any };
+
+/** @internal */
+export const SemanticThreadFilterConditionValueValue4$inboundSchema: z.ZodType<
+  SemanticThreadFilterConditionValueValue4,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number(), z.boolean()]);
+
+/** @internal */
+export type SemanticThreadFilterConditionValueValue4$Outbound =
+  | string
+  | number
+  | boolean;
+
+/** @internal */
+export const SemanticThreadFilterConditionValueValue4$outboundSchema: z.ZodType<
+  SemanticThreadFilterConditionValueValue4$Outbound,
+  z.ZodTypeDef,
+  SemanticThreadFilterConditionValueValue4
+> = z.union([z.string(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SemanticThreadFilterConditionValueValue4$ {
+  /** @deprecated use `SemanticThreadFilterConditionValueValue4$inboundSchema` instead. */
+  export const inboundSchema =
+    SemanticThreadFilterConditionValueValue4$inboundSchema;
+  /** @deprecated use `SemanticThreadFilterConditionValueValue4$outboundSchema` instead. */
+  export const outboundSchema =
+    SemanticThreadFilterConditionValueValue4$outboundSchema;
+  /** @deprecated use `SemanticThreadFilterConditionValueValue4$Outbound` instead. */
+  export type Outbound = SemanticThreadFilterConditionValueValue4$Outbound;
+}
+
+export function semanticThreadFilterConditionValueValue4ToJSON(
+  semanticThreadFilterConditionValueValue4:
+    SemanticThreadFilterConditionValueValue4,
+): string {
+  return JSON.stringify(
+    SemanticThreadFilterConditionValueValue4$outboundSchema.parse(
+      semanticThreadFilterConditionValueValue4,
+    ),
+  );
+}
+
+export function semanticThreadFilterConditionValueValue4FromJSON(
+  jsonString: string,
+): SafeParseResult<
+  SemanticThreadFilterConditionValueValue4,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      SemanticThreadFilterConditionValueValue4$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'SemanticThreadFilterConditionValueValue4' from JSON`,
+  );
+}
+
+/** @internal */
+export const SemanticThreadFilterConditionValueValue$inboundSchema: z.ZodType<
+  SemanticThreadFilterConditionValueValue,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.string(),
+  z.number(),
+  z.boolean(),
+  z.array(z.nullable(z.union([z.string(), z.number(), z.boolean()]))),
+]);
+
+/** @internal */
+export type SemanticThreadFilterConditionValueValue$Outbound =
+  | string
+  | number
+  | boolean
+  | Array<string | number | boolean | null>;
+
+/** @internal */
+export const SemanticThreadFilterConditionValueValue$outboundSchema: z.ZodType<
+  SemanticThreadFilterConditionValueValue$Outbound,
+  z.ZodTypeDef,
+  SemanticThreadFilterConditionValueValue
+> = z.union([
+  z.string(),
+  z.number(),
+  z.boolean(),
+  z.array(z.nullable(z.union([z.string(), z.number(), z.boolean()]))),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SemanticThreadFilterConditionValueValue$ {
+  /** @deprecated use `SemanticThreadFilterConditionValueValue$inboundSchema` instead. */
+  export const inboundSchema =
+    SemanticThreadFilterConditionValueValue$inboundSchema;
+  /** @deprecated use `SemanticThreadFilterConditionValueValue$outboundSchema` instead. */
+  export const outboundSchema =
+    SemanticThreadFilterConditionValueValue$outboundSchema;
+  /** @deprecated use `SemanticThreadFilterConditionValueValue$Outbound` instead. */
+  export type Outbound = SemanticThreadFilterConditionValueValue$Outbound;
+}
+
+export function semanticThreadFilterConditionValueValueToJSON(
+  semanticThreadFilterConditionValueValue:
+    SemanticThreadFilterConditionValueValue,
+): string {
+  return JSON.stringify(
+    SemanticThreadFilterConditionValueValue$outboundSchema.parse(
+      semanticThreadFilterConditionValueValue,
+    ),
+  );
+}
+
+export function semanticThreadFilterConditionValueValueFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  SemanticThreadFilterConditionValueValue,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      SemanticThreadFilterConditionValueValue$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'SemanticThreadFilterConditionValueValue' from JSON`,
+  );
+}
+
+/** @internal */
+export const SemanticThreadFilterConditionValue6$inboundSchema: z.ZodType<
+  SemanticThreadFilterConditionValue6,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  path: z.array(z.string()),
+  value: z.nullable(
+    z.union([
+      z.string(),
+      z.number(),
+      z.boolean(),
+      z.array(z.nullable(z.union([z.string(), z.number(), z.boolean()]))),
+    ]),
+  ),
+});
+
+/** @internal */
+export type SemanticThreadFilterConditionValue6$Outbound = {
+  path: Array<string>;
+  value:
+    | string
+    | number
+    | boolean
+    | Array<string | number | boolean | null>
+    | null;
+};
+
+/** @internal */
+export const SemanticThreadFilterConditionValue6$outboundSchema: z.ZodType<
+  SemanticThreadFilterConditionValue6$Outbound,
+  z.ZodTypeDef,
+  SemanticThreadFilterConditionValue6
+> = z.object({
+  path: z.array(z.string()),
+  value: z.nullable(
+    z.union([
+      z.string(),
+      z.number(),
+      z.boolean(),
+      z.array(z.nullable(z.union([z.string(), z.number(), z.boolean()]))),
+    ]),
+  ),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SemanticThreadFilterConditionValue6$ {
+  /** @deprecated use `SemanticThreadFilterConditionValue6$inboundSchema` instead. */
+  export const inboundSchema =
+    SemanticThreadFilterConditionValue6$inboundSchema;
+  /** @deprecated use `SemanticThreadFilterConditionValue6$outboundSchema` instead. */
+  export const outboundSchema =
+    SemanticThreadFilterConditionValue6$outboundSchema;
+  /** @deprecated use `SemanticThreadFilterConditionValue6$Outbound` instead. */
+  export type Outbound = SemanticThreadFilterConditionValue6$Outbound;
+}
+
+export function semanticThreadFilterConditionValue6ToJSON(
+  semanticThreadFilterConditionValue6: SemanticThreadFilterConditionValue6,
+): string {
+  return JSON.stringify(
+    SemanticThreadFilterConditionValue6$outboundSchema.parse(
+      semanticThreadFilterConditionValue6,
+    ),
+  );
+}
+
+export function semanticThreadFilterConditionValue6FromJSON(
+  jsonString: string,
+): SafeParseResult<SemanticThreadFilterConditionValue6, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      SemanticThreadFilterConditionValue6$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SemanticThreadFilterConditionValue6' from JSON`,
+  );
+}
 
 /** @internal */
 export const SemanticThreadFilterConditionValue$inboundSchema: z.ZodType<
   SemanticThreadFilterConditionValue,
   z.ZodTypeDef,
   unknown
-> = z.union([z.string(), z.boolean(), z.number(), z.array(z.string())]);
+> = z.union([
+  z.lazy(() => SemanticThreadFilterConditionValue6$inboundSchema),
+  z.string(),
+  z.boolean(),
+  z.number(),
+  z.array(z.string()),
+  z.record(z.any()),
+]);
 
 /** @internal */
 export type SemanticThreadFilterConditionValue$Outbound =
+  | SemanticThreadFilterConditionValue6$Outbound
   | string
   | boolean
   | number
-  | Array<string>;
+  | Array<string>
+  | { [k: string]: any };
 
 /** @internal */
 export const SemanticThreadFilterConditionValue$outboundSchema: z.ZodType<
   SemanticThreadFilterConditionValue$Outbound,
   z.ZodTypeDef,
   SemanticThreadFilterConditionValue
-> = z.union([z.string(), z.boolean(), z.number(), z.array(z.string())]);
+> = z.union([
+  z.lazy(() => SemanticThreadFilterConditionValue6$outboundSchema),
+  z.string(),
+  z.boolean(),
+  z.number(),
+  z.array(z.string()),
+  z.record(z.any()),
+]);
 
 /**
  * @internal

@@ -7,9 +7,11 @@ import { SemanticThreadFilterCondition } from "@inkeep/inkeep-analytics/models/c
 
 let value: SemanticThreadFilterCondition = {
   condition: {
-    field: "isFeatureSupported",
-    operator: "gt",
-    value: 330.74,
+    field: "isOnTopic",
+    operator: "jsonContains",
+    value: [
+      "<value>",
+    ],
   },
 };
 ```

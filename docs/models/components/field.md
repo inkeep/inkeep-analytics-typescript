@@ -11,5 +11,5 @@ let value: Field = "integrationId";
 ## Values
 
 ```typescript
-"id" | "userMessageCount" | "organizationId" | "projectId" | "integrationId" | "firstMessageTime" | "type"
+"id" | "userMessageCount" | "organizationId" | "projectId" | "integrationId" | "firstMessageTime" | "type" | "properties" | "userProperties"
 ```

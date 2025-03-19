@@ -30,6 +30,7 @@ Inkeep Analytics API: The Inkeep Analytics API provides endpoints for managing c
   * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Standalone functions](#standalone-functions)
+  * [React hooks with TanStack Query](#react-hooks-with-tanstack-query)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
@@ -50,24 +51,32 @@ The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https
 
 ```bash
 npm add @inkeep/inkeep-analytics
+# Install optional peer dependencies if you plan to use React hooks
+npm add @tanstack/react-query react react-dom
 ```
 
 ### PNPM
 
 ```bash
 pnpm add @inkeep/inkeep-analytics
+# Install optional peer dependencies if you plan to use React hooks
+pnpm add @tanstack/react-query react react-dom
 ```
 
 ### Bun
 
 ```bash
 bun add @inkeep/inkeep-analytics
+# Install optional peer dependencies if you plan to use React hooks
+bun add @tanstack/react-query react react-dom
 ```
 
 ### Yarn
 
 ```bash
 yarn add @inkeep/inkeep-analytics zod
+# Install optional peer dependencies if you plan to use React hooks
+yarn add @tanstack/react-query react react-dom
 
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
@@ -82,7 +91,7 @@ yarn add @inkeep/inkeep-analytics zod
 This SDK is also an installable MCP server where the various SDK methods are
 exposed as tools that can be invoked by AI applications.
 
-> Node.js v20 or greater is required to run the MCP server.
+> Node.js v20 or greater is required to run the MCP server from npm.
 
 <details>
 <summary>Claude installation steps</summary>
@@ -110,16 +119,49 @@ Add the following server definition to your `claude_desktop_config.json` file:
 <details>
 <summary>Cursor installation steps</summary>
 
-Go to `Cursor Settings > Features > MCP Servers > Add new MCP server` and use the following settings:
+Create a `.cursor/mcp.json` file in your project root with the following content:
 
-- Name: InkeepAnalytics
-- Type: `command`
-- Command:
-```sh
-npx -y --package @inkeep/inkeep-analytics -- mcp start --api-integration-key ... 
+```json
+{
+  "mcpServers": {
+    "InkeepAnalytics": {
+      "command": "npx",
+      "args": [
+        "-y", "--package", "@inkeep/inkeep-analytics",
+        "--",
+        "mcp", "start",
+        "--api-integration-key", "..."
+      ]
+    }
+  }
+}
 ```
 
 </details>
+
+You can also run MCP servers as a standalone binary with no additional dependencies. You must pull these binaries from available Github releases:
+
+```bash
+curl -L -o mcp-server \
+    https://github.com/{org}/{repo}/releases/download/{tag}/mcp-server-bun-darwin-arm64 && \
+chmod +x mcp-server
+```
+
+If the repo is a private repo you must add your Github PAT to download a release `-H "Authorization: Bearer {GITHUB_PAT}"`.
+
+
+```json
+{
+  "mcpServers": {
+    "Todos": {
+      "command": "./DOWNLOAD/PATH/mcp-server",
+      "args": [
+        "start"
+      ]
+    }
+  }
+}
+```
 
 For a full list of server arguments, run:
 
@@ -145,14 +187,13 @@ import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 const inkeepAnalytics = new InkeepAnalytics();
 
 async function run() {
-  const result = await inkeepAnalytics.conversations.log({
+  const result = await inkeepAnalytics.postQueryPropertyKeys({
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
-    type: "support_ticket",
-    messages: [
-      {
-        role: "<value>",
-      },
+    field: "properties",
+    search: "theme",
+    views: [
+      "events_view",
     ],
   });
 
@@ -204,12 +245,11 @@ import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 const inkeepAnalytics = new InkeepAnalytics();
 
 async function run() {
-  const result = await inkeepAnalytics.conversations.log({}, {
-    type: "support_ticket",
-    messages: [
-      {
-        role: "<value>",
-      },
+  const result = await inkeepAnalytics.postQueryPropertyKeys({}, {
+    field: "properties",
+    search: "theme",
+    views: [
+      "events_view",
     ],
   });
 
@@ -248,6 +288,9 @@ run();
 * [submit](docs/sdks/feedback/README.md#submit) - Submit Feedback
 * [list](docs/sdks/feedback/README.md#list) - Get All Feedback
 
+### [InkeepAnalytics SDK](docs/sdks/inkeepanalytics/README.md)
+
+* [postQueryPropertyKeys](docs/sdks/inkeepanalytics/README.md#postquerypropertykeys)
 
 ### [query](docs/sdks/query/README.md)
 
@@ -282,6 +325,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`eventsLog`](docs/sdks/events/README.md#log) - Log Event
 - [`feedbackList`](docs/sdks/feedback/README.md#list) - Get All Feedback
 - [`feedbackSubmit`](docs/sdks/feedback/README.md#submit) - Submit Feedback
+- [`postQueryPropertyKeys`](docs/sdks/inkeepanalytics/README.md#postquerypropertykeys)
 - [`queryConversations`](docs/sdks/query/README.md#conversations) - Query Conversations
 - [`queryExportSemanticThreadsQueryResults`](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 - [`queryQueryEvents`](docs/sdks/query/README.md#queryevents) - Query Events
@@ -289,6 +333,45 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
+
+<!-- Start React hooks with TanStack Query [react-query] -->
+## React hooks with TanStack Query
+
+React hooks built on [TanStack Query][tanstack-query] are included in this SDK.
+These hooks and the utility functions provided alongside them can be used to
+build rich applications that pull data from the API using one of the most
+popular asynchronous state management library.
+
+[tanstack-query]: https://tanstack.com/query/v5/docs/framework/react/overview
+
+To learn about this feature and how to get started, check
+[REACT_QUERY.md](./REACT_QUERY.md).
+
+> [!WARNING]
+>
+> This feature is currently in **preview** and is subject to breaking changes
+> within the current major version of the SDK as we gather user feedback on it.
+
+<details>
+
+<summary>Available React hooks</summary>
+
+- [`useConversationGetConversationByExternalId`](docs/sdks/conversation/README.md#getconversationbyexternalid) - Get Conversation by External ID
+- [`useConversationsDeleteMutation`](docs/sdks/conversations/README.md#delete) - Delete Conversation
+- [`useConversationsGet`](docs/sdks/conversations/README.md#get) - Get Conversation
+- [`useConversationsList`](docs/sdks/conversations/README.md#list) - Get All Conversations
+- [`useConversationsLogMutation`](docs/sdks/conversations/README.md#log) - Log Conversation
+- [`useEventsLogMutation`](docs/sdks/events/README.md#log) - Log Event
+- [`useFeedbackList`](docs/sdks/feedback/README.md#list) - Get All Feedback
+- [`useFeedbackSubmitMutation`](docs/sdks/feedback/README.md#submit) - Submit Feedback
+- [`usePostQueryPropertyKeysMutation`](docs/sdks/inkeepanalytics/README.md#postquerypropertykeys)
+- [`useQueryConversationsMutation`](docs/sdks/query/README.md#conversations) - Query Conversations
+- [`useQueryExportSemanticThreadsQueryResultsMutation`](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
+- [`useQueryQueryEventsMutation`](docs/sdks/query/README.md#queryevents) - Query Events
+- [`useQueryQuerySemanticThreadsMutation`](docs/sdks/query/README.md#querysemanticthreads) - Query Semantic Threads
+
+</details>
+<!-- End React hooks with TanStack Query [react-query] -->
 
 <!-- Start Retries [retries] -->
 ## Retries
@@ -302,14 +385,13 @@ import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 const inkeepAnalytics = new InkeepAnalytics();
 
 async function run() {
-  const result = await inkeepAnalytics.conversations.log({
+  const result = await inkeepAnalytics.postQueryPropertyKeys({
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
-    type: "support_ticket",
-    messages: [
-      {
-        role: "<value>",
-      },
+    field: "properties",
+    search: "theme",
+    views: [
+      "events_view",
     ],
   }, {
     retries: {
@@ -350,14 +432,13 @@ const inkeepAnalytics = new InkeepAnalytics({
 });
 
 async function run() {
-  const result = await inkeepAnalytics.conversations.log({
+  const result = await inkeepAnalytics.postQueryPropertyKeys({
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
-    type: "support_ticket",
-    messages: [
-      {
-        role: "<value>",
-      },
+    field: "properties",
+    search: "theme",
+    views: [
+      "events_view",
     ],
   });
 
@@ -373,7 +454,7 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `log` method may throw the following errors:
+Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `postQueryPropertyKeys` method may throw the following errors:
 
 | Error Type                 | Status Code | Content Type             |
 | -------------------------- | ----------- | ------------------------ |
@@ -402,15 +483,14 @@ const inkeepAnalytics = new InkeepAnalytics();
 async function run() {
   let result;
   try {
-    result = await inkeepAnalytics.conversations.log({
+    result = await inkeepAnalytics.postQueryPropertyKeys({
       webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"]
         ?? "",
     }, {
-      type: "support_ticket",
-      messages: [
-        {
-          role: "<value>",
-        },
+      field: "properties",
+      search: "theme",
+      views: [
+        "events_view",
       ],
     });
 
@@ -490,14 +570,13 @@ const inkeepAnalytics = new InkeepAnalytics({
 });
 
 async function run() {
-  const result = await inkeepAnalytics.conversations.log({
+  const result = await inkeepAnalytics.postQueryPropertyKeys({
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
-    type: "support_ticket",
-    messages: [
-      {
-        role: "<value>",
-      },
+    field: "properties",
+    search: "theme",
+    views: [
+      "events_view",
     ],
   });
 

@@ -9,6 +9,7 @@ export * from "./getconversation.js";
 export * from "./getconversationbyexternalid.js";
 export * from "./logconversation.js";
 export * from "./logevent.js";
+export * from "./postquerypropertykeys.js";
 export * from "./queryconversations.js";
 export * from "./queryevents.js";
 export * from "./querysemanticthreads.js";

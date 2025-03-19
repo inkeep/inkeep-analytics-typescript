@@ -7,9 +7,11 @@ import { EventsFilterCondition } from "@inkeep/inkeep-analytics/models/component
 
 let value: EventsFilterCondition = {
   condition: {
-    field: "searchQuery",
-    operator: "lte",
-    value: "<value>",
+    field: "userProperties",
+    operator: "in",
+    value: [
+      "<value>",
+    ],
   },
 };
 ```

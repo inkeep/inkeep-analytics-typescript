@@ -28,6 +28,8 @@ export const ConversationsTimeBasedGroupBySelectionField = {
   IntegrationId: "integrationId",
   FirstMessageTime: "firstMessageTime",
   Type: "type",
+  Properties: "properties",
+  UserProperties: "userProperties",
 } as const;
 export type ConversationsTimeBasedGroupBySelectionField = ClosedEnum<
   typeof ConversationsTimeBasedGroupBySelectionField

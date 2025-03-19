@@ -5,7 +5,8 @@
 ```typescript
 import { SemanticThreadTimeBasedGroupBySelectionField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: SemanticThreadTimeBasedGroupBySelectionField = "lastMessageTime";
+let value: SemanticThreadTimeBasedGroupBySelectionField =
+  "areAIAnnotationsVerified";
 ```
 
 ## Values

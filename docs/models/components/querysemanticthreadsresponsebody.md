@@ -13,9 +13,9 @@ let value: QuerySemanticThreadsResponseBody = {
     result: [
       {},
     ],
-    total: 627.13,
-    pageSize: 4240.32,
-    count: 2586.84,
+    total: 1310.55,
+    pageSize: 120.36,
+    count: 1154.84,
   },
 };
 ```

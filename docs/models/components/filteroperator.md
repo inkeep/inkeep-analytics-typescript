@@ -7,11 +7,11 @@ Available operators for filtering data
 ```typescript
 import { FilterOperator } from "@inkeep/inkeep-analytics/models/components";
 
-let value: FilterOperator = "gt";
+let value: FilterOperator = "in";
 ```
 
 ## Values
 
 ```typescript
-"eq" | "neq" | "gt" | "gte" | "lt" | "lte" | "in" | "notIn" | "arrayContains"
+"eq" | "neq" | "gt" | "gte" | "lt" | "lte" | "in" | "notIn" | "arrayContains" | "jsonContains" | "jsonContainedBy" | "jsonHasKey" | "jsonHasAnyKey" | "jsonHasAllKeys"
 ```

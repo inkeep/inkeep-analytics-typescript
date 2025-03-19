@@ -18,6 +18,11 @@ export const FilterOperator = {
   In: "in",
   NotIn: "notIn",
   ArrayContains: "arrayContains",
+  JsonContains: "jsonContains",
+  JsonContainedBy: "jsonContainedBy",
+  JsonHasKey: "jsonHasKey",
+  JsonHasAnyKey: "jsonHasAnyKey",
+  JsonHasAllKeys: "jsonHasAllKeys",
 } as const;
 /**
  * Available operators for filtering data

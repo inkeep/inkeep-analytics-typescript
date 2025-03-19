@@ -8,9 +8,11 @@
 ```typescript
 const value: components.ConversationsFilter = {
   condition: {
-    field: "organizationId",
-    operator: "neq",
-    value: false,
+    field: "integrationId",
+    operator: "lt",
+    value: [
+      "<value>",
+    ],
   },
 };
 ```

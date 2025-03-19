@@ -7,7 +7,18 @@
 
 ```typescript
 const value: components.EventsFilter = {
-  and: [],
+  condition: {
+    field: "messageId",
+    operator: "lte",
+    value: {
+      path: [
+        "/etc",
+      ],
+      value: [
+        false,
+      ],
+    },
+  },
 };
 ```
 

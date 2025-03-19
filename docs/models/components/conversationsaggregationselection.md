@@ -7,7 +7,7 @@ import { ConversationsAggregationSelection } from "@inkeep/inkeep-analytics/mode
 
 let value: ConversationsAggregationSelection = {
   type: "aggregation",
-  aggregation: "max",
+  aggregation: "min",
 };
 ```
 

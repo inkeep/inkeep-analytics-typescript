@@ -23,6 +23,8 @@ export const ConversationsSimpleFieldSelectionField = {
   IntegrationId: "integrationId",
   FirstMessageTime: "firstMessageTime",
   Type: "type",
+  Properties: "properties",
+  UserProperties: "userProperties",
 } as const;
 export type ConversationsSimpleFieldSelectionField = ClosedEnum<
   typeof ConversationsSimpleFieldSelectionField

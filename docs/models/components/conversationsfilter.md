@@ -8,9 +8,11 @@
 ```typescript
 const value: components.ConversationsFilterCondition = {
   condition: {
-    field: "projectId",
-    operator: "in",
-    value: 2835.19,
+    field: "integrationId",
+    operator: "jsonContains",
+    value: {
+      "key": "<value>",
+    },
   },
 };
 ```
