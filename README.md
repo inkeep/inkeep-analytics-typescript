@@ -298,6 +298,7 @@ run();
 * [querySemanticThreads](docs/sdks/query/README.md#querysemanticthreads) - Query Semantic Threads
 * [exportSemanticThreadsQueryResults](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 * [queryPropertyKeys](docs/sdks/query/README.md#querypropertykeys) - Query Property Keys
+* [queryPropertyValues](docs/sdks/query/README.md#querypropertyvalues) - Query Property Values
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -329,6 +330,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`queryExportSemanticThreadsQueryResults`](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 - [`queryQueryEvents`](docs/sdks/query/README.md#queryevents) - Query Events
 - [`queryQueryPropertyKeys`](docs/sdks/query/README.md#querypropertykeys) - Query Property Keys
+- [`queryQueryPropertyValues`](docs/sdks/query/README.md#querypropertyvalues) - Query Property Values
 - [`queryQuerySemanticThreads`](docs/sdks/query/README.md#querysemanticthreads) - Query Semantic Threads
 
 </details>
@@ -368,6 +370,7 @@ To learn about this feature and how to get started, check
 - [`useQueryExportSemanticThreadsQueryResultsMutation`](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 - [`useQueryQueryEventsMutation`](docs/sdks/query/README.md#queryevents) - Query Events
 - [`useQueryQueryPropertyKeysMutation`](docs/sdks/query/README.md#querypropertykeys) - Query Property Keys
+- [`useQueryQueryPropertyValuesMutation`](docs/sdks/query/README.md#querypropertyvalues) - Query Property Values
 - [`useQueryQuerySemanticThreadsMutation`](docs/sdks/query/README.md#querysemanticthreads) - Query Semantic Threads
 
 </details>
