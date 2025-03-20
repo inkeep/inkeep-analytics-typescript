@@ -8,14 +8,14 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
-export type PostQueryPropertyKeysSecurity = {
+export type QueryPropertyKeysSecurity = {
   webIntegrationKey?: string | undefined;
   apiIntegrationKey?: string | undefined;
 };
 
 /** @internal */
-export const PostQueryPropertyKeysSecurity$inboundSchema: z.ZodType<
-  PostQueryPropertyKeysSecurity,
+export const QueryPropertyKeysSecurity$inboundSchema: z.ZodType<
+  QueryPropertyKeysSecurity,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -29,16 +29,16 @@ export const PostQueryPropertyKeysSecurity$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type PostQueryPropertyKeysSecurity$Outbound = {
+export type QueryPropertyKeysSecurity$Outbound = {
   WebIntegrationKey?: string | undefined;
   ApiIntegrationKey?: string | undefined;
 };
 
 /** @internal */
-export const PostQueryPropertyKeysSecurity$outboundSchema: z.ZodType<
-  PostQueryPropertyKeysSecurity$Outbound,
+export const QueryPropertyKeysSecurity$outboundSchema: z.ZodType<
+  QueryPropertyKeysSecurity$Outbound,
   z.ZodTypeDef,
-  PostQueryPropertyKeysSecurity
+  QueryPropertyKeysSecurity
 > = z.object({
   webIntegrationKey: z.string().optional(),
   apiIntegrationKey: z.string().optional(),
@@ -53,31 +53,29 @@ export const PostQueryPropertyKeysSecurity$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace PostQueryPropertyKeysSecurity$ {
-  /** @deprecated use `PostQueryPropertyKeysSecurity$inboundSchema` instead. */
-  export const inboundSchema = PostQueryPropertyKeysSecurity$inboundSchema;
-  /** @deprecated use `PostQueryPropertyKeysSecurity$outboundSchema` instead. */
-  export const outboundSchema = PostQueryPropertyKeysSecurity$outboundSchema;
-  /** @deprecated use `PostQueryPropertyKeysSecurity$Outbound` instead. */
-  export type Outbound = PostQueryPropertyKeysSecurity$Outbound;
+export namespace QueryPropertyKeysSecurity$ {
+  /** @deprecated use `QueryPropertyKeysSecurity$inboundSchema` instead. */
+  export const inboundSchema = QueryPropertyKeysSecurity$inboundSchema;
+  /** @deprecated use `QueryPropertyKeysSecurity$outboundSchema` instead. */
+  export const outboundSchema = QueryPropertyKeysSecurity$outboundSchema;
+  /** @deprecated use `QueryPropertyKeysSecurity$Outbound` instead. */
+  export type Outbound = QueryPropertyKeysSecurity$Outbound;
 }
 
-export function postQueryPropertyKeysSecurityToJSON(
-  postQueryPropertyKeysSecurity: PostQueryPropertyKeysSecurity,
+export function queryPropertyKeysSecurityToJSON(
+  queryPropertyKeysSecurity: QueryPropertyKeysSecurity,
 ): string {
   return JSON.stringify(
-    PostQueryPropertyKeysSecurity$outboundSchema.parse(
-      postQueryPropertyKeysSecurity,
-    ),
+    QueryPropertyKeysSecurity$outboundSchema.parse(queryPropertyKeysSecurity),
   );
 }
 
-export function postQueryPropertyKeysSecurityFromJSON(
+export function queryPropertyKeysSecurityFromJSON(
   jsonString: string,
-): SafeParseResult<PostQueryPropertyKeysSecurity, SDKValidationError> {
+): SafeParseResult<QueryPropertyKeysSecurity, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => PostQueryPropertyKeysSecurity$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'PostQueryPropertyKeysSecurity' from JSON`,
+    (x) => QueryPropertyKeysSecurity$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryPropertyKeysSecurity' from JSON`,
   );
 }

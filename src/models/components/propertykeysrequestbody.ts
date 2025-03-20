@@ -27,6 +27,9 @@ export const Views = {
 } as const;
 export type Views = ClosedEnum<typeof Views>;
 
+/**
+ * Query Property Keys Params
+ */
 export type PropertyKeysRequestBody = {
   /**
    * Which JSON field to query keys from

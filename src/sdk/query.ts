@@ -5,6 +5,7 @@
 import { queryConversations } from "../funcs/queryConversations.js";
 import { queryExportSemanticThreadsQueryResults } from "../funcs/queryExportSemanticThreadsQueryResults.js";
 import { queryQueryEvents } from "../funcs/queryQueryEvents.js";
+import { queryQueryPropertyKeys } from "../funcs/queryQueryPropertyKeys.js";
 import { queryQuerySemanticThreads } from "../funcs/queryQuerySemanticThreads.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
@@ -69,6 +70,22 @@ export class Query extends ClientSDK {
   ): Promise<ReadableStream<Uint8Array>> {
     return unwrapAsync(queryExportSemanticThreadsQueryResults(
       this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Query Property Keys
+   */
+  async queryPropertyKeys(
+    security: operations.QueryPropertyKeysSecurity,
+    request?: components.PropertyKeysRequestBody | undefined,
+    options?: RequestOptions,
+  ): Promise<components.PropertyKeysResponseBody> {
+    return unwrapAsync(queryQueryPropertyKeys(
+      this,
+      security,
       request,
       options,
     ));
