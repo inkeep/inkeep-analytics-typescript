@@ -11,8 +11,8 @@ let value: SupportTicketMessage = {
   externalId: "<id>",
   externalUrl: "https://well-groomed-hyena.org/",
   conversationId: "<id>",
-  createdAt: "1732984731044",
-  updatedAt: "1742401251572",
+  createdAt: "1732985478931",
+  updatedAt: "1742401999459",
   role: "<value>",
   content: "<value>",
 };

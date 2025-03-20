@@ -11,7 +11,7 @@ export type PropertyValueResult = {
   /**
    * Property value
    */
-  value: string;
+  value?: string | undefined;
   /**
    * Number of times this value appears
    */
@@ -24,13 +24,13 @@ export const PropertyValueResult$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  value: z.string(),
+  value: z.string().optional(),
   count: z.number(),
 });
 
 /** @internal */
 export type PropertyValueResult$Outbound = {
-  value: string;
+  value?: string | undefined;
   count: number;
 };
 
@@ -40,7 +40,7 @@ export const PropertyValueResult$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   PropertyValueResult
 > = z.object({
-  value: z.string(),
+  value: z.string().optional(),
   count: z.number(),
 });
 

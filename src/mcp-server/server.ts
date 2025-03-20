@@ -28,7 +28,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "InkeepAnalytics",
-    version: "0.2.4-alpha.9",
+    version: "0.2.4-alpha.10",
   });
 
   const client = new InkeepAnalyticsCore({
