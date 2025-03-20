@@ -15,5 +15,5 @@ let value: PropertyValueResult = {
 
 | Field                              | Type                               | Required                           | Description                        | Example                            |
 | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| `value`                            | *string*                           | :heavy_minus_sign:                 | Property value                     | dark                               |
+| `value`                            | *string*                           | :heavy_check_mark:                 | Property value                     | dark                               |
 | `count`                            | *number*                           | :heavy_check_mark:                 | Number of times this value appears | 42                                 |
