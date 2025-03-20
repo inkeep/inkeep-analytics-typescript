@@ -20,4 +20,5 @@ export * from "./queryConversations.js";
 export * from "./queryExportSemanticThreadsQueryResults.js";
 export * from "./queryQueryEvents.js";
 export * from "./queryQueryPropertyKeys.js";
+export * from "./queryQueryPropertyValues.js";
 export * from "./queryQuerySemanticThreads.js";

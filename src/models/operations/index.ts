@@ -12,5 +12,6 @@ export * from "./logevent.js";
 export * from "./queryconversations.js";
 export * from "./queryevents.js";
 export * from "./querypropertykeys.js";
+export * from "./querypropertyvalues.js";
 export * from "./querysemanticthreads.js";
 export * from "./submitfeedback.js";
