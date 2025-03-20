@@ -25,9 +25,12 @@ import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
-export function postQueryPropertyKeys(
+/**
+ * Query Property Keys
+ */
+export function queryQueryPropertyKeys(
   client: InkeepAnalyticsCore,
-  security: operations.PostQueryPropertyKeysSecurity,
+  security: operations.QueryPropertyKeysSecurity,
   request?: components.PropertyKeysRequestBody | undefined,
   options?: RequestOptions,
 ): APIPromise<
@@ -57,7 +60,7 @@ export function postQueryPropertyKeys(
 
 async function $do(
   client: InkeepAnalyticsCore,
-  security: operations.PostQueryPropertyKeysSecurity,
+  security: operations.QueryPropertyKeysSecurity,
   request?: components.PropertyKeysRequestBody | undefined,
   options?: RequestOptions,
 ): Promise<
@@ -120,7 +123,7 @@ async function $do(
 
   const context = {
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "post_/query/property-keys",
+    operationID: "queryPropertyKeys",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,

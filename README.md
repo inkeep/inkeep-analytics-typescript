@@ -187,13 +187,14 @@ import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 const inkeepAnalytics = new InkeepAnalytics();
 
 async function run() {
-  const result = await inkeepAnalytics.postQueryPropertyKeys({
+  const result = await inkeepAnalytics.conversations.log({
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
-    field: "properties",
-    search: "theme",
-    views: [
-      "events_view",
+    type: "support_ticket",
+    messages: [
+      {
+        role: "<value>",
+      },
     ],
   });
 
@@ -245,11 +246,12 @@ import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 const inkeepAnalytics = new InkeepAnalytics();
 
 async function run() {
-  const result = await inkeepAnalytics.postQueryPropertyKeys({}, {
-    field: "properties",
-    search: "theme",
-    views: [
-      "events_view",
+  const result = await inkeepAnalytics.conversations.log({}, {
+    type: "support_ticket",
+    messages: [
+      {
+        role: "<value>",
+      },
     ],
   });
 
@@ -288,9 +290,6 @@ run();
 * [submit](docs/sdks/feedback/README.md#submit) - Submit Feedback
 * [list](docs/sdks/feedback/README.md#list) - Get All Feedback
 
-### [InkeepAnalytics SDK](docs/sdks/inkeepanalytics/README.md)
-
-* [postQueryPropertyKeys](docs/sdks/inkeepanalytics/README.md#postquerypropertykeys)
 
 ### [query](docs/sdks/query/README.md)
 
@@ -298,6 +297,7 @@ run();
 * [queryEvents](docs/sdks/query/README.md#queryevents) - Query Events
 * [querySemanticThreads](docs/sdks/query/README.md#querysemanticthreads) - Query Semantic Threads
 * [exportSemanticThreadsQueryResults](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
+* [queryPropertyKeys](docs/sdks/query/README.md#querypropertykeys) - Query Property Keys
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -325,10 +325,10 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`eventsLog`](docs/sdks/events/README.md#log) - Log Event
 - [`feedbackList`](docs/sdks/feedback/README.md#list) - Get All Feedback
 - [`feedbackSubmit`](docs/sdks/feedback/README.md#submit) - Submit Feedback
-- [`postQueryPropertyKeys`](docs/sdks/inkeepanalytics/README.md#postquerypropertykeys)
 - [`queryConversations`](docs/sdks/query/README.md#conversations) - Query Conversations
 - [`queryExportSemanticThreadsQueryResults`](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 - [`queryQueryEvents`](docs/sdks/query/README.md#queryevents) - Query Events
+- [`queryQueryPropertyKeys`](docs/sdks/query/README.md#querypropertykeys) - Query Property Keys
 - [`queryQuerySemanticThreads`](docs/sdks/query/README.md#querysemanticthreads) - Query Semantic Threads
 
 </details>
@@ -364,10 +364,10 @@ To learn about this feature and how to get started, check
 - [`useEventsLogMutation`](docs/sdks/events/README.md#log) - Log Event
 - [`useFeedbackList`](docs/sdks/feedback/README.md#list) - Get All Feedback
 - [`useFeedbackSubmitMutation`](docs/sdks/feedback/README.md#submit) - Submit Feedback
-- [`usePostQueryPropertyKeysMutation`](docs/sdks/inkeepanalytics/README.md#postquerypropertykeys)
 - [`useQueryConversationsMutation`](docs/sdks/query/README.md#conversations) - Query Conversations
 - [`useQueryExportSemanticThreadsQueryResultsMutation`](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 - [`useQueryQueryEventsMutation`](docs/sdks/query/README.md#queryevents) - Query Events
+- [`useQueryQueryPropertyKeysMutation`](docs/sdks/query/README.md#querypropertykeys) - Query Property Keys
 - [`useQueryQuerySemanticThreadsMutation`](docs/sdks/query/README.md#querysemanticthreads) - Query Semantic Threads
 
 </details>
@@ -385,13 +385,14 @@ import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 const inkeepAnalytics = new InkeepAnalytics();
 
 async function run() {
-  const result = await inkeepAnalytics.postQueryPropertyKeys({
+  const result = await inkeepAnalytics.conversations.log({
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
-    field: "properties",
-    search: "theme",
-    views: [
-      "events_view",
+    type: "support_ticket",
+    messages: [
+      {
+        role: "<value>",
+      },
     ],
   }, {
     retries: {
@@ -432,13 +433,14 @@ const inkeepAnalytics = new InkeepAnalytics({
 });
 
 async function run() {
-  const result = await inkeepAnalytics.postQueryPropertyKeys({
+  const result = await inkeepAnalytics.conversations.log({
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
-    field: "properties",
-    search: "theme",
-    views: [
-      "events_view",
+    type: "support_ticket",
+    messages: [
+      {
+        role: "<value>",
+      },
     ],
   });
 
@@ -454,7 +456,7 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `postQueryPropertyKeys` method may throw the following errors:
+Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `log` method may throw the following errors:
 
 | Error Type                 | Status Code | Content Type             |
 | -------------------------- | ----------- | ------------------------ |
@@ -483,14 +485,15 @@ const inkeepAnalytics = new InkeepAnalytics();
 async function run() {
   let result;
   try {
-    result = await inkeepAnalytics.postQueryPropertyKeys({
+    result = await inkeepAnalytics.conversations.log({
       webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"]
         ?? "",
     }, {
-      field: "properties",
-      search: "theme",
-      views: [
-        "events_view",
+      type: "support_ticket",
+      messages: [
+        {
+          role: "<value>",
+        },
       ],
     });
 
@@ -570,13 +573,14 @@ const inkeepAnalytics = new InkeepAnalytics({
 });
 
 async function run() {
-  const result = await inkeepAnalytics.postQueryPropertyKeys({
+  const result = await inkeepAnalytics.conversations.log({
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
-    field: "properties",
-    search: "theme",
-    views: [
-      "events_view",
+    type: "support_ticket",
+    messages: [
+      {
+        role: "<value>",
+      },
     ],
   });
 

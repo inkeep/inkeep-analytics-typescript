@@ -108,10 +108,10 @@ Query.
 [use-mutation]: https://tanstack.com/query/v5/docs/framework/react/reference/useMutation
 
 ```tsx
-import { usePostQueryPropertyKeysMutation } from "@inkeep/inkeep-analytics/react-query/postQueryPropertyKeys.js";
+import { useConversationsLogMutation } from "@inkeep/inkeep-analytics/react-query/conversationsLog.js";
 
 export function Example() {
-  const { mutate, status } = usePostQueryPropertyKeysMutation();
+  const { mutate, status } = useConversationsLogMutation();
 
   return (
     <form
@@ -123,10 +123,11 @@ export function Example() {
         mutate({
           webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
         }, {
-          field: "properties",
-          search: "theme",
-          views: [
-            "events_view",
+          type: "support_ticket",
+          messages: [
+            {
+              role: "<value>",
+            },
           ],
         });
       }}
@@ -144,10 +145,10 @@ Since the underlying SDK handles request timeouts and retries, there are a few
 more options provided by the mutation hooks to control these behaviors.
 
 ```tsx
-import { usePostQueryPropertyKeysMutation } from "@inkeep/inkeep-analytics/react-query/postQueryPropertyKeys.js";
+import { useConversationsLogMutation } from "@inkeep/inkeep-analytics/react-query/conversationsLog.js";
 
 export function ExampleWithOptions() {
-  const { mutate, status } = usePostQueryPropertyKeysMutation({
+  const { mutate, status } = useConversationsLogMutation({
     // TanStack Query options:
     networkMode: "online",
     gcTime: 5 * 60 * 1000, // 5 minutes

@@ -1,11 +1,11 @@
-# PostQueryPropertyKeysSecurity
+# QueryPropertyKeysSecurity
 
 ## Example Usage
 
 ```typescript
-import { PostQueryPropertyKeysSecurity } from "@inkeep/inkeep-analytics/models/operations";
+import { QueryPropertyKeysSecurity } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: PostQueryPropertyKeysSecurity = {};
+let value: QueryPropertyKeysSecurity = {};
 ```
 
 ## Fields

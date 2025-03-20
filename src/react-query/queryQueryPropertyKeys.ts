@@ -8,7 +8,7 @@ import {
   UseMutationResult,
 } from "@tanstack/react-query";
 import { InkeepAnalyticsCore } from "../core.js";
-import { postQueryPropertyKeys } from "../funcs/postQueryPropertyKeys.js";
+import { queryQueryPropertyKeys } from "../funcs/queryQueryPropertyKeys.js";
 import { combineSignals } from "../lib/primitives.js";
 import { RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
@@ -17,53 +17,56 @@ import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
 import { MutationHookOptions } from "./_types.js";
 
-export type PostQueryPropertyKeysMutationVariables = {
-  security: operations.PostQueryPropertyKeysSecurity;
+export type QueryQueryPropertyKeysMutationVariables = {
+  security: operations.QueryPropertyKeysSecurity;
   request?: components.PropertyKeysRequestBody | undefined;
   options?: RequestOptions;
 };
 
-export type PostQueryPropertyKeysMutationData =
+export type QueryQueryPropertyKeysMutationData =
   components.PropertyKeysResponseBody;
 
-export function usePostQueryPropertyKeysMutation(
+/**
+ * Query Property Keys
+ */
+export function useQueryQueryPropertyKeysMutation(
   options?: MutationHookOptions<
-    PostQueryPropertyKeysMutationData,
+    QueryQueryPropertyKeysMutationData,
     Error,
-    PostQueryPropertyKeysMutationVariables
+    QueryQueryPropertyKeysMutationVariables
   >,
 ): UseMutationResult<
-  PostQueryPropertyKeysMutationData,
+  QueryQueryPropertyKeysMutationData,
   Error,
-  PostQueryPropertyKeysMutationVariables
+  QueryQueryPropertyKeysMutationVariables
 > {
   const client = useInkeepAnalyticsContext();
   return useMutation({
-    ...buildPostQueryPropertyKeysMutation(client, options),
+    ...buildQueryQueryPropertyKeysMutation(client, options),
     ...options,
   });
 }
 
-export function mutationKeyPostQueryPropertyKeys(): MutationKey {
-  return ["@inkeep/inkeep-analytics", "postQueryPropertyKeys"];
+export function mutationKeyQueryQueryPropertyKeys(): MutationKey {
+  return ["@inkeep/inkeep-analytics", "Query", "queryPropertyKeys"];
 }
 
-export function buildPostQueryPropertyKeysMutation(
+export function buildQueryQueryPropertyKeysMutation(
   client$: InkeepAnalyticsCore,
   hookOptions?: RequestOptions,
 ): {
   mutationKey: MutationKey;
   mutationFn: (
-    variables: PostQueryPropertyKeysMutationVariables,
-  ) => Promise<PostQueryPropertyKeysMutationData>;
+    variables: QueryQueryPropertyKeysMutationVariables,
+  ) => Promise<QueryQueryPropertyKeysMutationData>;
 } {
   return {
-    mutationKey: mutationKeyPostQueryPropertyKeys(),
-    mutationFn: function postQueryPropertyKeysMutationFn({
+    mutationKey: mutationKeyQueryQueryPropertyKeys(),
+    mutationFn: function queryQueryPropertyKeysMutationFn({
       security,
       request,
       options,
-    }): Promise<PostQueryPropertyKeysMutationData> {
+    }): Promise<QueryQueryPropertyKeysMutationData> {
       const mergedOptions = {
         ...hookOptions,
         ...options,
@@ -76,7 +79,7 @@ export function buildPostQueryPropertyKeysMutation(
           ),
         },
       };
-      return unwrapAsync(postQueryPropertyKeys(
+      return unwrapAsync(queryQueryPropertyKeys(
         client$,
         security,
         request,
