@@ -7,42 +7,107 @@ import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  ConversationsFilterAND,
+  ConversationsFilterAND$inboundSchema,
+  ConversationsFilterAND$Outbound,
+  ConversationsFilterAND$outboundSchema,
+} from "./conversationsfilterand.js";
+import {
+  ConversationsFilterCondition,
+  ConversationsFilterCondition$inboundSchema,
+  ConversationsFilterCondition$Outbound,
+  ConversationsFilterCondition$outboundSchema,
+} from "./conversationsfiltercondition.js";
+import {
+  ConversationsFilterOR,
+  ConversationsFilterOR$inboundSchema,
+  ConversationsFilterOR$Outbound,
+  ConversationsFilterOR$outboundSchema,
+} from "./conversationsfilteror.js";
+import {
+  EventsFilterAND,
+  EventsFilterAND$inboundSchema,
+  EventsFilterAND$Outbound,
+  EventsFilterAND$outboundSchema,
+} from "./eventsfilterand.js";
+import {
+  EventsFilterCondition,
+  EventsFilterCondition$inboundSchema,
+  EventsFilterCondition$Outbound,
+  EventsFilterCondition$outboundSchema,
+} from "./eventsfiltercondition.js";
+import {
+  EventsFilterOR,
+  EventsFilterOR$inboundSchema,
+  EventsFilterOR$Outbound,
+  EventsFilterOR$outboundSchema,
+} from "./eventsfilteror.js";
+import {
+  SemanticThreadFilterAND,
+  SemanticThreadFilterAND$inboundSchema,
+  SemanticThreadFilterAND$Outbound,
+  SemanticThreadFilterAND$outboundSchema,
+} from "./semanticthreadfilterand.js";
+import {
+  SemanticThreadFilterCondition,
+  SemanticThreadFilterCondition$inboundSchema,
+  SemanticThreadFilterCondition$Outbound,
+  SemanticThreadFilterCondition$outboundSchema,
+} from "./semanticthreadfiltercondition.js";
+import {
+  SemanticThreadFilterOR,
+  SemanticThreadFilterOR$inboundSchema,
+  SemanticThreadFilterOR$Outbound,
+  SemanticThreadFilterOR$outboundSchema,
+} from "./semanticthreadfilteror.js";
 
-/**
- * Which JSON field to query keys from
- */
 export const PropertyKeysRequestBodyField = {
   Properties: "properties",
   UserProperties: "userProperties",
 } as const;
-/**
- * Which JSON field to query keys from
- */
 export type PropertyKeysRequestBodyField = ClosedEnum<
   typeof PropertyKeysRequestBodyField
 >;
 
 export const Views = {
   EventsView: "events_view",
+  ConversationsView: "conversations_view",
+  SemanticThreadsView: "semantic_threads_view",
 } as const;
 export type Views = ClosedEnum<typeof Views>;
+
+export type Where =
+  | EventsFilterCondition
+  | EventsFilterAND
+  | EventsFilterOR
+  | ConversationsFilterCondition
+  | ConversationsFilterAND
+  | ConversationsFilterOR
+  | SemanticThreadFilterCondition
+  | SemanticThreadFilterAND
+  | SemanticThreadFilterOR;
 
 /**
  * Query Property Keys Params
  */
 export type PropertyKeysRequestBody = {
-  /**
-   * Which JSON field to query keys from
-   */
   field: PropertyKeysRequestBodyField;
-  /**
-   * Optional search term to filter keys
-   */
-  search?: string | undefined;
   /**
    * Optional list of views to query (defaults to all views)
    */
   views?: Array<Views> | undefined;
+  where?:
+    | EventsFilterCondition
+    | EventsFilterAND
+    | EventsFilterOR
+    | ConversationsFilterCondition
+    | ConversationsFilterAND
+    | ConversationsFilterOR
+    | SemanticThreadFilterCondition
+    | SemanticThreadFilterAND
+    | SemanticThreadFilterOR
+    | undefined;
 };
 
 /** @internal */
@@ -87,21 +152,111 @@ export namespace Views$ {
 }
 
 /** @internal */
+export const Where$inboundSchema: z.ZodType<Where, z.ZodTypeDef, unknown> = z
+  .union([
+    EventsFilterCondition$inboundSchema,
+    EventsFilterAND$inboundSchema,
+    EventsFilterOR$inboundSchema,
+    ConversationsFilterCondition$inboundSchema,
+    ConversationsFilterAND$inboundSchema,
+    ConversationsFilterOR$inboundSchema,
+    SemanticThreadFilterCondition$inboundSchema,
+    SemanticThreadFilterAND$inboundSchema,
+    SemanticThreadFilterOR$inboundSchema,
+  ]);
+
+/** @internal */
+export type Where$Outbound =
+  | EventsFilterCondition$Outbound
+  | EventsFilterAND$Outbound
+  | EventsFilterOR$Outbound
+  | ConversationsFilterCondition$Outbound
+  | ConversationsFilterAND$Outbound
+  | ConversationsFilterOR$Outbound
+  | SemanticThreadFilterCondition$Outbound
+  | SemanticThreadFilterAND$Outbound
+  | SemanticThreadFilterOR$Outbound;
+
+/** @internal */
+export const Where$outboundSchema: z.ZodType<
+  Where$Outbound,
+  z.ZodTypeDef,
+  Where
+> = z.union([
+  EventsFilterCondition$outboundSchema,
+  EventsFilterAND$outboundSchema,
+  EventsFilterOR$outboundSchema,
+  ConversationsFilterCondition$outboundSchema,
+  ConversationsFilterAND$outboundSchema,
+  ConversationsFilterOR$outboundSchema,
+  SemanticThreadFilterCondition$outboundSchema,
+  SemanticThreadFilterAND$outboundSchema,
+  SemanticThreadFilterOR$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Where$ {
+  /** @deprecated use `Where$inboundSchema` instead. */
+  export const inboundSchema = Where$inboundSchema;
+  /** @deprecated use `Where$outboundSchema` instead. */
+  export const outboundSchema = Where$outboundSchema;
+  /** @deprecated use `Where$Outbound` instead. */
+  export type Outbound = Where$Outbound;
+}
+
+export function whereToJSON(where: Where): string {
+  return JSON.stringify(Where$outboundSchema.parse(where));
+}
+
+export function whereFromJSON(
+  jsonString: string,
+): SafeParseResult<Where, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Where$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Where' from JSON`,
+  );
+}
+
+/** @internal */
 export const PropertyKeysRequestBody$inboundSchema: z.ZodType<
   PropertyKeysRequestBody,
   z.ZodTypeDef,
   unknown
 > = z.object({
   field: PropertyKeysRequestBodyField$inboundSchema,
-  search: z.string().optional(),
   views: z.array(Views$inboundSchema).optional(),
+  where: z.union([
+    EventsFilterCondition$inboundSchema,
+    EventsFilterAND$inboundSchema,
+    EventsFilterOR$inboundSchema,
+    ConversationsFilterCondition$inboundSchema,
+    ConversationsFilterAND$inboundSchema,
+    ConversationsFilterOR$inboundSchema,
+    SemanticThreadFilterCondition$inboundSchema,
+    SemanticThreadFilterAND$inboundSchema,
+    SemanticThreadFilterOR$inboundSchema,
+  ]).optional(),
 });
 
 /** @internal */
 export type PropertyKeysRequestBody$Outbound = {
   field: string;
-  search?: string | undefined;
   views?: Array<string> | undefined;
+  where?:
+    | EventsFilterCondition$Outbound
+    | EventsFilterAND$Outbound
+    | EventsFilterOR$Outbound
+    | ConversationsFilterCondition$Outbound
+    | ConversationsFilterAND$Outbound
+    | ConversationsFilterOR$Outbound
+    | SemanticThreadFilterCondition$Outbound
+    | SemanticThreadFilterAND$Outbound
+    | SemanticThreadFilterOR$Outbound
+    | undefined;
 };
 
 /** @internal */
@@ -111,8 +266,18 @@ export const PropertyKeysRequestBody$outboundSchema: z.ZodType<
   PropertyKeysRequestBody
 > = z.object({
   field: PropertyKeysRequestBodyField$outboundSchema,
-  search: z.string().optional(),
   views: z.array(Views$outboundSchema).optional(),
+  where: z.union([
+    EventsFilterCondition$outboundSchema,
+    EventsFilterAND$outboundSchema,
+    EventsFilterOR$outboundSchema,
+    ConversationsFilterCondition$outboundSchema,
+    ConversationsFilterAND$outboundSchema,
+    ConversationsFilterOR$outboundSchema,
+    SemanticThreadFilterCondition$outboundSchema,
+    SemanticThreadFilterAND$outboundSchema,
+    SemanticThreadFilterOR$outboundSchema,
+  ]).optional(),
 });
 
 /**

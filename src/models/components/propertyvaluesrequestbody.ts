@@ -24,6 +24,8 @@ export type PropertyValuesRequestBodyField = ClosedEnum<
 
 export const PropertyValuesRequestBodyViews = {
   EventsView: "events_view",
+  ConversationsView: "conversations_view",
+  SemanticThreadsView: "semantic_threads_view",
 } as const;
 export type PropertyValuesRequestBodyViews = ClosedEnum<
   typeof PropertyValuesRequestBodyViews
@@ -41,10 +43,6 @@ export type PropertyValuesRequestBody = {
    * The property key to get values for
    */
   key: string;
-  /**
-   * Optional search term to filter values
-   */
-  search?: string | undefined;
   /**
    * Optional list of views to query (defaults to all views)
    */
@@ -105,7 +103,6 @@ export const PropertyValuesRequestBody$inboundSchema: z.ZodType<
 > = z.object({
   field: PropertyValuesRequestBodyField$inboundSchema,
   key: z.string(),
-  search: z.string().optional(),
   views: z.array(PropertyValuesRequestBodyViews$inboundSchema).optional(),
   limit: z.number().default(100),
 });
@@ -114,7 +111,6 @@ export const PropertyValuesRequestBody$inboundSchema: z.ZodType<
 export type PropertyValuesRequestBody$Outbound = {
   field: string;
   key: string;
-  search?: string | undefined;
   views?: Array<string> | undefined;
   limit: number;
 };
@@ -127,7 +123,6 @@ export const PropertyValuesRequestBody$outboundSchema: z.ZodType<
 > = z.object({
   field: PropertyValuesRequestBodyField$outboundSchema,
   key: z.string(),
-  search: z.string().optional(),
   views: z.array(PropertyValuesRequestBodyViews$outboundSchema).optional(),
   limit: z.number().default(100),
 });

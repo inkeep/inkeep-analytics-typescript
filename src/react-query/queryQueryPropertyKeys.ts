@@ -12,13 +12,11 @@ import { queryQueryPropertyKeys } from "../funcs/queryQueryPropertyKeys.js";
 import { combineSignals } from "../lib/primitives.js";
 import { RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
 import { MutationHookOptions } from "./_types.js";
 
 export type QueryQueryPropertyKeysMutationVariables = {
-  security: operations.QueryPropertyKeysSecurity;
   request?: components.PropertyKeysRequestBody | undefined;
   options?: RequestOptions;
 };
@@ -63,7 +61,6 @@ export function buildQueryQueryPropertyKeysMutation(
   return {
     mutationKey: mutationKeyQueryQueryPropertyKeys(),
     mutationFn: function queryQueryPropertyKeysMutationFn({
-      security,
       request,
       options,
     }): Promise<QueryQueryPropertyKeysMutationData> {
@@ -81,7 +78,6 @@ export function buildQueryQueryPropertyKeysMutation(
       };
       return unwrapAsync(queryQueryPropertyKeys(
         client$,
-        security,
         request,
         mergedOptions,
       ));

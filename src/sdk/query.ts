@@ -80,13 +80,11 @@ export class Query extends ClientSDK {
    * Query Property Keys
    */
   async queryPropertyKeys(
-    security: operations.QueryPropertyKeysSecurity,
     request?: components.PropertyKeysRequestBody | undefined,
     options?: RequestOptions,
   ): Promise<components.PropertyKeysResponseBody> {
     return unwrapAsync(queryQueryPropertyKeys(
       this,
-      security,
       request,
       options,
     ));
@@ -96,13 +94,11 @@ export class Query extends ClientSDK {
    * Query Property Values
    */
   async queryPropertyValues(
-    security: operations.QueryPropertyValuesSecurity,
     request?: components.PropertyValuesRequestBody | undefined,
     options?: RequestOptions,
   ): Promise<components.PropertyValuesResponseBody> {
     return unwrapAsync(queryQueryPropertyValues(
       this,
-      security,
       request,
       options,
     ));

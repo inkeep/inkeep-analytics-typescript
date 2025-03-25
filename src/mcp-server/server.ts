@@ -15,8 +15,11 @@ import { MCPScope, mcpScopes } from "./scopes.js";
 import { createRegisterTool } from "./tools.js";
 import { tool$conversationGetConversationByExternalId } from "./tools/conversationGetConversationByExternalId.js";
 import { tool$conversationsList } from "./tools/conversationsList.js";
+import { tool$feedbackList } from "./tools/feedbackList.js";
 import { tool$feedbackSubmit } from "./tools/feedbackSubmit.js";
 import { tool$queryExportSemanticThreadsQueryResults } from "./tools/queryExportSemanticThreadsQueryResults.js";
+import { tool$queryQueryPropertyKeys } from "./tools/queryQueryPropertyKeys.js";
+import { tool$queryQueryPropertyValues } from "./tools/queryQueryPropertyValues.js";
 
 export function createMCPServer(deps: {
   logger: ConsoleLogger;
@@ -28,7 +31,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "InkeepAnalytics",
-    version: "0.2.4-alpha.11",
+    version: "0.2.4-alpha.12",
   });
 
   const client = new InkeepAnalyticsCore({
@@ -61,7 +64,10 @@ export function createMCPServer(deps: {
   tool(tool$conversationsList);
   tool(tool$conversationGetConversationByExternalId);
   tool(tool$feedbackSubmit);
+  tool(tool$feedbackList);
   tool(tool$queryExportSemanticThreadsQueryResults);
+  tool(tool$queryQueryPropertyKeys);
+  tool(tool$queryQueryPropertyValues);
 
   return server;
 }

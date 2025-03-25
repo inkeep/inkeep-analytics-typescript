@@ -119,12 +119,12 @@ Get All Feedback
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
-const inkeepAnalytics = new InkeepAnalytics();
+const inkeepAnalytics = new InkeepAnalytics({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
-  const result = await inkeepAnalytics.feedback.list({
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  });
+  const result = await inkeepAnalytics.feedback.list();
 
   // Handle the result
   console.log(result);
@@ -143,12 +143,12 @@ import { feedbackList } from "@inkeep/inkeep-analytics/funcs/feedbackList.js";
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const inkeepAnalytics = new InkeepAnalyticsCore();
+const inkeepAnalytics = new InkeepAnalyticsCore({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
-  const res = await feedbackList(inkeepAnalytics, {
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  });
+  const res = await feedbackList(inkeepAnalytics);
 
   if (!res.ok) {
     throw res.error;
@@ -194,7 +194,6 @@ import {
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `security`                                                                                                                                                                     | [operations.GetAllFeedbackSecurity](../../models/operations/getallfeedbacksecurity.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
