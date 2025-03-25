@@ -28,12 +28,10 @@ export class Feedback extends ClientSDK {
    * Get All Feedback
    */
   async list(
-    security: operations.GetAllFeedbackSecurity,
     options?: RequestOptions,
   ): Promise<components.GetAllFeedbackResponse> {
     return unwrapAsync(feedbackList(
       this,
-      security,
       options,
     ));
   }

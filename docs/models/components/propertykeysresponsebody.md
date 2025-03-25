@@ -7,16 +7,13 @@ import { PropertyKeysResponseBody } from "@inkeep/inkeep-analytics/models/compon
 
 let value: PropertyKeysResponseBody = {
   results: [
-    {
-      key: "theme",
-      count: 42,
-    },
+    "theme",
   ],
 };
 ```
 
 ## Fields
 
-| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `results`                                                                      | [components.PropertyKeyResult](../../models/components/propertykeyresult.md)[] | :heavy_check_mark:                                                             | N/A                                                                            |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `results`          | *string*[]         | :heavy_check_mark: | N/A                |

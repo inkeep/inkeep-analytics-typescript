@@ -17,7 +17,6 @@ import { feedbackList } from "../funcs/feedbackList.js";
 import { combineSignals } from "../lib/primitives.js";
 import { RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
 import { QueryHookOptions, SuspenseQueryHookOptions } from "./_types.js";
@@ -28,14 +27,12 @@ export type FeedbackListQueryData = components.GetAllFeedbackResponse;
  * Get All Feedback
  */
 export function useFeedbackList(
-  security: operations.GetAllFeedbackSecurity,
   options?: QueryHookOptions<FeedbackListQueryData>,
 ): UseQueryResult<FeedbackListQueryData, Error> {
   const client = useInkeepAnalyticsContext();
   return useQuery({
     ...buildFeedbackListQuery(
       client,
-      security,
       options,
     ),
     ...options,
@@ -46,14 +43,12 @@ export function useFeedbackList(
  * Get All Feedback
  */
 export function useFeedbackListSuspense(
-  security: operations.GetAllFeedbackSecurity,
   options?: SuspenseQueryHookOptions<FeedbackListQueryData>,
 ): UseSuspenseQueryResult<FeedbackListQueryData, Error> {
   const client = useInkeepAnalyticsContext();
   return useSuspenseQuery({
     ...buildFeedbackListQuery(
       client,
-      security,
       options,
     ),
     ...options,
@@ -63,12 +58,10 @@ export function useFeedbackListSuspense(
 export function prefetchFeedbackList(
   queryClient: QueryClient,
   client$: InkeepAnalyticsCore,
-  security: operations.GetAllFeedbackSecurity,
 ): Promise<void> {
   return queryClient.prefetchQuery({
     ...buildFeedbackListQuery(
       client$,
-      security,
     ),
   });
 }
@@ -94,7 +87,6 @@ export function invalidateAllFeedbackList(
 
 export function buildFeedbackListQuery(
   client$: InkeepAnalyticsCore,
-  security: operations.GetAllFeedbackSecurity,
   options?: RequestOptions,
 ): {
   queryKey: QueryKey;
@@ -113,7 +105,6 @@ export function buildFeedbackListQuery(
 
       return unwrapAsync(feedbackList(
         client$,
-        security,
         mergedOptions,
       ));
     },

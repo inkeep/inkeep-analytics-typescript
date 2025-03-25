@@ -400,16 +400,17 @@ Query Property Keys
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
-const inkeepAnalytics = new InkeepAnalytics();
+const inkeepAnalytics = new InkeepAnalytics({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
   const result = await inkeepAnalytics.query.queryPropertyKeys({
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
     field: "properties",
-    search: "theme",
     views: [
       "events_view",
+      "conversations_view",
+      "semantic_threads_view",
     ],
   });
 
@@ -430,16 +431,17 @@ import { queryQueryPropertyKeys } from "@inkeep/inkeep-analytics/funcs/queryQuer
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const inkeepAnalytics = new InkeepAnalyticsCore();
+const inkeepAnalytics = new InkeepAnalyticsCore({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
   const res = await queryQueryPropertyKeys(inkeepAnalytics, {
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
     field: "properties",
-    search: "theme",
     views: [
       "events_view",
+      "conversations_view",
+      "semantic_threads_view",
     ],
   });
 
@@ -478,7 +480,6 @@ import {
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [components.PropertyKeysRequestBody](../../models/components/propertykeysrequestbody.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.QueryPropertyKeysSecurity](../../models/operations/querypropertykeyssecurity.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -507,17 +508,18 @@ Query Property Values
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
-const inkeepAnalytics = new InkeepAnalytics();
+const inkeepAnalytics = new InkeepAnalytics({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
   const result = await inkeepAnalytics.query.queryPropertyValues({
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
     field: "properties",
     key: "theme",
-    search: "dark",
     views: [
       "events_view",
+      "conversations_view",
+      "semantic_threads_view",
     ],
   });
 
@@ -538,17 +540,18 @@ import { queryQueryPropertyValues } from "@inkeep/inkeep-analytics/funcs/queryQu
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const inkeepAnalytics = new InkeepAnalyticsCore();
+const inkeepAnalytics = new InkeepAnalyticsCore({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
   const res = await queryQueryPropertyValues(inkeepAnalytics, {
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
     field: "properties",
     key: "theme",
-    search: "dark",
     views: [
       "events_view",
+      "conversations_view",
+      "semantic_threads_view",
     ],
   });
 
@@ -587,7 +590,6 @@ import {
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [components.PropertyValuesRequestBody](../../models/components/propertyvaluesrequestbody.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.QueryPropertyValuesSecurity](../../models/operations/querypropertyvaluessecurity.md)                                                                               | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |

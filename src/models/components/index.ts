@@ -45,7 +45,6 @@ export * from "./openaiextendedmessage.js";
 export * from "./openaiimageurlobject.js";
 export * from "./openaitoolcall.js";
 export * from "./openaitoolcallfunction.js";
-export * from "./propertykeyresult.js";
 export * from "./propertykeysrequestbody.js";
 export * from "./propertykeysresponsebody.js";
 export * from "./propertyvalueresult.js";
