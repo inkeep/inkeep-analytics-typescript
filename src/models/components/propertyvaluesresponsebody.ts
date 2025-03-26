@@ -6,15 +6,9 @@ import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  PropertyValueResult,
-  PropertyValueResult$inboundSchema,
-  PropertyValueResult$Outbound,
-  PropertyValueResult$outboundSchema,
-} from "./propertyvalueresult.js";
 
 export type PropertyValuesResponseBody = {
-  results: Array<PropertyValueResult>;
+  results: Array<string>;
 };
 
 /** @internal */
@@ -23,12 +17,12 @@ export const PropertyValuesResponseBody$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  results: z.array(PropertyValueResult$inboundSchema),
+  results: z.array(z.string()),
 });
 
 /** @internal */
 export type PropertyValuesResponseBody$Outbound = {
-  results: Array<PropertyValueResult$Outbound>;
+  results: Array<string>;
 };
 
 /** @internal */
@@ -37,7 +31,7 @@ export const PropertyValuesResponseBody$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   PropertyValuesResponseBody
 > = z.object({
-  results: z.array(PropertyValueResult$outboundSchema),
+  results: z.array(z.string()),
 });
 
 /**

@@ -7,16 +7,13 @@ import { PropertyValuesResponseBody } from "@inkeep/inkeep-analytics/models/comp
 
 let value: PropertyValuesResponseBody = {
   results: [
-    {
-      value: "dark",
-      count: 42,
-    },
+    "dark",
   ],
 };
 ```
 
 ## Fields
 
-| Field                                                                              | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `results`                                                                          | [components.PropertyValueResult](../../models/components/propertyvalueresult.md)[] | :heavy_check_mark:                                                                 | N/A                                                                                |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `results`          | *string*[]         | :heavy_check_mark: | N/A                |

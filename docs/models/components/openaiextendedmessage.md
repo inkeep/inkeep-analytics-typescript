@@ -13,8 +13,8 @@ let value: OpenAIExtendedMessage = {
   externalId: "<id>",
   externalUrl: "https://inexperienced-barracks.net/",
   conversationId: "<id>",
-  createdAt: "1729276623783",
-  updatedAt: "1742880810276",
+  createdAt: "1729309693750",
+  updatedAt: "1742913880243",
   role: "user",
   content: "<value>",
 };

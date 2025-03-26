@@ -47,7 +47,6 @@ export * from "./openaitoolcall.js";
 export * from "./openaitoolcallfunction.js";
 export * from "./propertykeysrequestbody.js";
 export * from "./propertykeysresponsebody.js";
-export * from "./propertyvalueresult.js";
 export * from "./propertyvaluesrequestbody.js";
 export * from "./propertyvaluesresponsebody.js";
 export * from "./queryconversationsrequestbody.js";
