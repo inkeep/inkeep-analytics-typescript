@@ -35,6 +35,7 @@ import {
  * Query Semantic Threads Params
  */
 export type QuerySemanticThreadsRequestBody = {
+  query?: string | undefined;
   select?: Array<SemanticThreadSelection> | undefined;
   groupBy?: Array<SemanticThreadGroupBy> | undefined;
   where?: SemanticThreadFilter | undefined;
@@ -51,6 +52,7 @@ export const QuerySemanticThreadsRequestBody$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  query: z.string().optional(),
   select: z.array(SemanticThreadSelection$inboundSchema).optional(),
   groupBy: z.array(SemanticThreadGroupBy$inboundSchema).optional(),
   where: SemanticThreadFilter$inboundSchema.optional(),
@@ -60,6 +62,7 @@ export const QuerySemanticThreadsRequestBody$inboundSchema: z.ZodType<
 
 /** @internal */
 export type QuerySemanticThreadsRequestBody$Outbound = {
+  query?: string | undefined;
   select?: Array<SemanticThreadSelection$Outbound> | undefined;
   groupBy?: Array<SemanticThreadGroupBy$Outbound> | undefined;
   where?: SemanticThreadFilter$Outbound | undefined;
@@ -73,6 +76,7 @@ export const QuerySemanticThreadsRequestBody$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   QuerySemanticThreadsRequestBody
 > = z.object({
+  query: z.string().optional(),
   select: z.array(SemanticThreadSelection$outboundSchema).optional(),
   groupBy: z.array(SemanticThreadGroupBy$outboundSchema).optional(),
   where: SemanticThreadFilter$outboundSchema.optional(),
