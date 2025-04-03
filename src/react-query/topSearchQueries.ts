@@ -78,7 +78,9 @@ export function prefetchTopSearchQueries(
 
 export function setTopSearchQueriesData(
   client: QueryClient,
-  queryKeyBase: [parameters: { after?: string | undefined }],
+  queryKeyBase: [
+    parameters: { after?: string | undefined; projectId?: string | undefined },
+  ],
   data: TopSearchQueriesQueryData,
 ): TopSearchQueriesQueryData | undefined {
   const key = queryKeyTopSearchQueries(...queryKeyBase);
@@ -88,7 +90,9 @@ export function setTopSearchQueriesData(
 
 export function invalidateTopSearchQueries(
   client: QueryClient,
-  queryKeyBase: TupleToPrefixes<[parameters: { after?: string | undefined }]>,
+  queryKeyBase: TupleToPrefixes<
+    [parameters: { after?: string | undefined; projectId?: string | undefined }]
+  >,
   filters?: Omit<InvalidateQueryFilters, "queryKey" | "predicate" | "exact">,
 ): Promise<void> {
   return client.invalidateQueries({
@@ -118,7 +122,10 @@ export function buildTopSearchQueriesQuery(
   ) => Promise<TopSearchQueriesQueryData>;
 } {
   return {
-    queryKey: queryKeyTopSearchQueries({ after: request.after }),
+    queryKey: queryKeyTopSearchQueries({
+      after: request.after,
+      projectId: request.projectId,
+    }),
     queryFn: async function topSearchQueriesQueryFn(
       ctx,
     ): Promise<TopSearchQueriesQueryData> {
@@ -138,7 +145,7 @@ export function buildTopSearchQueriesQuery(
 }
 
 export function queryKeyTopSearchQueries(
-  parameters: { after?: string | undefined },
+  parameters: { after?: string | undefined; projectId?: string | undefined },
 ): QueryKey {
   return ["@inkeep/inkeep-analytics", "topSearchQueries", parameters];
 }

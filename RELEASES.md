@@ -199,3 +199,13 @@ Based on:
 - [typescript v0.2.4-alpha.15] .
 ### Releases
 - [NPM v0.2.4-alpha.15] https://www.npmjs.com/package/@inkeep/inkeep-analytics/v/0.2.4-alpha.15 - .
+
+## 2025-04-03 10:00:08
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.528.1 (2.565.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.2.4-alpha.16] .
+### Releases
+- [NPM v0.2.4-alpha.16] https://www.npmjs.com/package/@inkeep/inkeep-analytics/v/0.2.4-alpha.16 - .
