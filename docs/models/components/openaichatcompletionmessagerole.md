@@ -5,7 +5,7 @@
 ```typescript
 import { OpenAIChatCompletionMessageRole } from "@inkeep/inkeep-analytics/models/components";
 
-let value: OpenAIChatCompletionMessageRole = "system";
+let value: OpenAIChatCompletionMessageRole = "user";
 ```
 
 ## Values

@@ -9,10 +9,10 @@ let value: SupportCopilotMessage = {
   id: "<id>",
   type: "support_copilot",
   externalId: "<id>",
-  externalUrl: "https://overdue-minion.name",
+  externalUrl: "https://tricky-waist.org",
   conversationId: "<id>",
-  createdAt: "1732574271607",
-  updatedAt: "1743496417657",
+  createdAt: "1712503430648",
+  updatedAt: "1743614717046",
   role: "<value>",
   content: "<value>",
 };

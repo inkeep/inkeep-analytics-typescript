@@ -5,7 +5,7 @@
 ```typescript
 import { CreateSupportCopilotConversationVisibility } from "@inkeep/inkeep-analytics/models/components";
 
-let value: CreateSupportCopilotConversationVisibility = "public";
+let value: CreateSupportCopilotConversationVisibility = "private";
 ```
 
 ## Values

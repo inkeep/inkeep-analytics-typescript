@@ -6,7 +6,7 @@
 import { SupportTicketMessageLinks } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SupportTicketMessageLinks = {
-  url: "https://orange-mozzarella.name/",
+  url: "https://frightened-metal.name/",
 };
 ```
 

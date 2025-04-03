@@ -10,12 +10,16 @@ const value: components.OpenAIExtendedMessage = {
   id: "<id>",
   type: "openai",
   externalId: "<id>",
-  externalUrl: "https://productive-fundraising.com/",
+  externalUrl: "https://eminent-brace.org",
   conversationId: "<id>",
-  createdAt: "1737935847719",
-  updatedAt: "1743475546376",
-  role: "user",
-  content: "<value>",
+  createdAt: "1742816003504",
+  updatedAt: "1743666630625",
+  role: "assistant",
+  content: [
+    {
+      type: "text",
+    },
+  ],
 };
 ```
 
@@ -26,10 +30,10 @@ const value: components.SupportTicketMessage = {
   id: "<id>",
   type: "support_ticket",
   externalId: "<id>",
-  externalUrl: "https://tough-vol.org/",
+  externalUrl: "https://impure-department.com/",
   conversationId: "<id>",
-  createdAt: "1740598677026",
-  updatedAt: "1743526020625",
+  createdAt: "1713818895025",
+  updatedAt: "1743646306102",
   role: "<value>",
   content: "<value>",
 };
@@ -42,10 +46,10 @@ const value: components.SupportCopilotMessage = {
   id: "<id>",
   type: "support_copilot",
   externalId: "<id>",
-  externalUrl: "https://bossy-hamburger.biz/",
+  externalUrl: "https://somber-cheetah.com/",
   conversationId: "<id>",
-  createdAt: "1716187673628",
-  updatedAt: "1743463759766",
+  createdAt: "1714959736675",
+  updatedAt: "1743641679736",
   role: "<value>",
   content: "<value>",
 };

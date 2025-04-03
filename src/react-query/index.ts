@@ -22,3 +22,5 @@ export * from "./queryQueryEvents.js";
 export * from "./queryQueryPropertyKeys.js";
 export * from "./queryQueryPropertyValues.js";
 export * from "./queryQuerySemanticThreads.js";
+export * from "./topSearchQueries.js";
+export * from "./weeklySearchUsers.js";

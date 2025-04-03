@@ -7,7 +7,7 @@ import { Six } from "@inkeep/inkeep-analytics/models/components";
 
 let value: Six = {
   path: [
-    "/opt/bin",
+    "/dev",
   ],
   value: false,
 };

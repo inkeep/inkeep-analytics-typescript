@@ -20,7 +20,7 @@ const value: boolean = false;
 ### `number`
 
 ```typescript
-const value: number = 2728.22;
+const value: number = 3068.1;
 ```
 
 ### `string[]`
@@ -44,9 +44,11 @@ const value: { [k: string]: any } = {
 ```typescript
 const value: components.Six = {
   path: [
-    "/opt/bin",
+    "/selinux",
   ],
-  value: "<value>",
+  value: [
+    353.62,
+  ],
 };
 ```
 

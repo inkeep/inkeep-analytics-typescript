@@ -8,7 +8,7 @@
 ```typescript
 const value: components.ConversationsFilterCondition = {
   condition: {
-    field: "integrationId",
+    field: "id",
     operator: "jsonContains",
     value: {
       "key": "<value>",

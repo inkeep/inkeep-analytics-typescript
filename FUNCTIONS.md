@@ -20,24 +20,17 @@ specific category of applications.
 
 ```typescript
 import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
-import { conversationsLog } from "@inkeep/inkeep-analytics/funcs/conversationsLog.js";
+import { topSearchQueries } from "@inkeep/inkeep-analytics/funcs/topSearchQueries.js";
 import { SDKValidationError } from "@inkeep/inkeep-analytics/models/errors/sdkvalidationerror.js";
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const inkeepAnalytics = new InkeepAnalyticsCore();
+const inkeepAnalytics = new InkeepAnalyticsCore({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
-  const res = await conversationsLog(inkeepAnalytics, {
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
-    type: "support_ticket",
-    messages: [
-      {
-        role: "<value>",
-      },
-    ],
-  });
+  const res = await topSearchQueries(inkeepAnalytics, {});
 
   switch (true) {
     case res.ok:

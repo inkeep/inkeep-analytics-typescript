@@ -8,7 +8,7 @@ Specifies how to order Events query results by field and direction
 import { EventsOrderBy } from "@inkeep/inkeep-analytics/models/components";
 
 let value: EventsOrderBy = {
-  field: "count_properties",
+  field: "avg_userProperties",
   direction: "desc",
 };
 ```

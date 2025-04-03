@@ -11,11 +11,11 @@ let value: OpenAIExtendedMessage = {
   id: "<id>",
   type: "openai",
   externalId: "<id>",
-  externalUrl: "https://inexperienced-barracks.net/",
+  externalUrl: "https://well-groomed-hyena.org/",
   conversationId: "<id>",
-  createdAt: "1729877886373",
-  updatedAt: "1743482072866",
-  role: "user",
+  createdAt: "1734192792957",
+  updatedAt: "1743609313485",
+  role: "assistant",
   content: "<value>",
 };
 ```

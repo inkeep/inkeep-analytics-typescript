@@ -5,7 +5,7 @@
 ```typescript
 import { CreateOpenAIConversationType1 } from "@inkeep/inkeep-analytics/models/components";
 
-let value: CreateOpenAIConversationType1 = "discord_forum_post";
+let value: CreateOpenAIConversationType1 = "documentation";
 ```
 
 ## Values

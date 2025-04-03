@@ -6,7 +6,7 @@
 import { Messages } from "@inkeep/inkeep-analytics/models/components";
 
 let value: Messages = {
-  role: "assistant",
+  role: "system",
   content: "<value>",
 };
 ```

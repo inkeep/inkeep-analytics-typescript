@@ -10,7 +10,11 @@ let value: CreateOpenAIConversation = {
   messages: [
     {
       role: "user",
-      content: "<value>",
+      content: [
+        {
+          type: "text",
+        },
+      ],
     },
   ],
 };

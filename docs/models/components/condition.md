@@ -6,9 +6,9 @@
 import { Condition } from "@inkeep/inkeep-analytics/models/components";
 
 let value: Condition = {
-  field: "organizationId",
-  operator: "lte",
-  value: false,
+  field: "type",
+  operator: "gte",
+  value: 5876,
 };
 ```
 
