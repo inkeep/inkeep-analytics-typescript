@@ -5,7 +5,7 @@
 ```typescript
 import { Field } from "@inkeep/inkeep-analytics/models/components";
 
-let value: Field = "integrationId";
+let value: Field = "userProperties";
 ```
 
 ## Values

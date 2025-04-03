@@ -50,10 +50,10 @@ from TanStack Query.
 [use-query]: https://tanstack.com/query/v5/docs/framework/react/reference/useQuery
 
 ```tsx
-import { useConversationsList } from "@inkeep/inkeep-analytics/react-query/conversationsList.js";
+import { useTopSearchQueries } from "@inkeep/inkeep-analytics/react-query/topSearchQueries.js";
 
 export function Example() {
-  const { data, error, status } = useConversationsList({});
+  const { data, error, status } = useTopSearchQueries({});
 
   // Render the UI here...
 }
@@ -66,11 +66,11 @@ more options provided by the query hooks to control these behaviors.
 
 ```tsx
 import { useState } from "react";
-import { useConversationsList } from "@inkeep/inkeep-analytics/react-query/conversationsList.js";
+import { useTopSearchQueries } from "@inkeep/inkeep-analytics/react-query/topSearchQueries.js";
 
 export function ExampleWithOptions() {
   const [enabled, setEnabled] = useState(true);
-  const { data, error, status } = useConversationsList(
+  const { data, error, status } = useTopSearchQueries(
     {},
     {
       // TanStack Query options:
@@ -180,7 +180,7 @@ query hook there are two functions that help invalidate cached data:
 
 ```tsx
 import { useQueryClient } from "@tanstack/react-query";
-import { invalidateConversationsList, invalidateAllConversationsList } from "@inkeep/inkeep-analytics/react-query/conversationsList.js";
+import { invalidateTopSearchQueries, invalidateAllTopSearchQueries } from "@inkeep/inkeep-analytics/react-query/topSearchQueries.js";
 // Replace this with a real mutation
 import { useExampleMutation } from "@inkeep/inkeep-analytics/react-query/example.js";
 
@@ -198,9 +198,9 @@ export function Example() {
         mutate(formData, {
           onSuccess: () => {
             // Invalidate a single cache entry:
-            invalidateConversationsList(queryClient, /* ... arguments ... */);
+            invalidateTopSearchQueries(queryClient, /* ... arguments ... */);
             // OR, invalidate all cache entries for the query targets:
-            invalidateAllConversationsList(queryClient);
+            invalidateAllTopSearchQueries(queryClient);
           },
         });
       }}
@@ -228,7 +228,7 @@ import { ErrorBoundary } from "react-error-boundary";
 
 import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics";
 import { InkeepAnalyticsProvider } from "@inkeep/inkeep-analytics/react-query";
-import { useConversationsListSuspense } from "@inkeep/inkeep-analytics/react-query/conversationsList.js";
+import { useTopSearchQueriesSuspense } from "@inkeep/inkeep-analytics/react-query/topSearchQueries.js";
 
 const queryClient = new QueryClient();
 const inkeepAnalytics = new InkeepAnalyticsCore({
@@ -263,7 +263,7 @@ export function App() {
 }
 
 function Example() {
-  const { data } = useConversationsListSuspense({});
+  const { data } = useTopSearchQueriesSuspense({});
 
   // Render the UI here...
 }
@@ -283,7 +283,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics";
-import { prefetchConversationsList } from "@inkeep/inkeep-analytics/react-query/conversationsList.js";
+import { prefetchTopSearchQueries } from "@inkeep/inkeep-analytics/react-query/topSearchQueries.js";
 
 export default async function Page() {
   const queryClient = new QueryClient();
@@ -291,7 +291,7 @@ export default async function Page() {
     apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
   });
 
-  await prefetchConversationsList(queryClient, inkeepAnalytics, {});
+  await prefetchTopSearchQueries(queryClient, inkeepAnalytics, {});
 
   return (
     // HydrationBoundary is a Client Component, so hydration will happen there.

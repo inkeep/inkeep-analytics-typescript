@@ -184,19 +184,12 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
-const inkeepAnalytics = new InkeepAnalytics();
+const inkeepAnalytics = new InkeepAnalytics({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
-  const result = await inkeepAnalytics.conversations.log({
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
-    type: "support_ticket",
-    messages: [
-      {
-        role: "<value>",
-      },
-    ],
-  });
+  const result = await inkeepAnalytics.topSearchQueries({});
 
   // Handle the result
   console.log(result);
@@ -227,7 +220,7 @@ const inkeepAnalytics = new InkeepAnalytics({
 });
 
 async function run() {
-  const result = await inkeepAnalytics.conversations.list({});
+  const result = await inkeepAnalytics.topSearchQueries({});
 
   // Handle the result
   console.log(result);
@@ -290,6 +283,10 @@ run();
 * [submit](docs/sdks/feedback/README.md#submit) - Submit Feedback
 * [list](docs/sdks/feedback/README.md#list) - Get All Feedback
 
+### [InkeepAnalytics SDK](docs/sdks/inkeepanalytics/README.md)
+
+* [topSearchQueries](docs/sdks/inkeepanalytics/README.md#topsearchqueries) - Top Search Queries
+* [weeklySearchUsers](docs/sdks/inkeepanalytics/README.md#weeklysearchusers) - Weekly Search Users
 
 ### [query](docs/sdks/query/README.md)
 
@@ -332,6 +329,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`queryQueryPropertyKeys`](docs/sdks/query/README.md#querypropertykeys) - Query Property Keys
 - [`queryQueryPropertyValues`](docs/sdks/query/README.md#querypropertyvalues) - Query Property Values
 - [`queryQuerySemanticThreads`](docs/sdks/query/README.md#querysemanticthreads) - Query Semantic Threads
+- [`topSearchQueries`](docs/sdks/inkeepanalytics/README.md#topsearchqueries) - Top Search Queries
+- [`weeklySearchUsers`](docs/sdks/inkeepanalytics/README.md#weeklysearchusers) - Weekly Search Users
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -372,6 +371,8 @@ To learn about this feature and how to get started, check
 - [`useQueryQueryPropertyKeysMutation`](docs/sdks/query/README.md#querypropertykeys) - Query Property Keys
 - [`useQueryQueryPropertyValuesMutation`](docs/sdks/query/README.md#querypropertyvalues) - Query Property Values
 - [`useQueryQuerySemanticThreadsMutation`](docs/sdks/query/README.md#querysemanticthreads) - Query Semantic Threads
+- [`useTopSearchQueries`](docs/sdks/inkeepanalytics/README.md#topsearchqueries) - Top Search Queries
+- [`useWeeklySearchUsers`](docs/sdks/inkeepanalytics/README.md#weeklysearchusers) - Weekly Search Users
 
 </details>
 <!-- End React hooks with TanStack Query [react-query] -->
@@ -385,19 +386,12 @@ To change the default retry strategy for a single API call, simply provide a ret
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
-const inkeepAnalytics = new InkeepAnalytics();
+const inkeepAnalytics = new InkeepAnalytics({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
-  const result = await inkeepAnalytics.conversations.log({
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
-    type: "support_ticket",
-    messages: [
-      {
-        role: "<value>",
-      },
-    ],
-  }, {
+  const result = await inkeepAnalytics.topSearchQueries({}, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -433,19 +427,11 @@ const inkeepAnalytics = new InkeepAnalytics({
     },
     retryConnectionErrors: false,
   },
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await inkeepAnalytics.conversations.log({
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
-    type: "support_ticket",
-    messages: [
-      {
-        role: "<value>",
-      },
-    ],
-  });
+  const result = await inkeepAnalytics.topSearchQueries({});
 
   // Handle the result
   console.log(result);
@@ -459,7 +445,7 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `log` method may throw the following errors:
+Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `topSearchQueries` method may throw the following errors:
 
 | Error Type                 | Status Code | Content Type             |
 | -------------------------- | ----------- | ------------------------ |
@@ -483,22 +469,14 @@ import {
   UnprocessableEntity,
 } from "@inkeep/inkeep-analytics/models/errors";
 
-const inkeepAnalytics = new InkeepAnalytics();
+const inkeepAnalytics = new InkeepAnalytics({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
   let result;
   try {
-    result = await inkeepAnalytics.conversations.log({
-      webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"]
-        ?? "",
-    }, {
-      type: "support_ticket",
-      messages: [
-        {
-          role: "<value>",
-        },
-      ],
-    });
+    result = await inkeepAnalytics.topSearchQueries({});
 
     // Handle the result
     console.log(result);
@@ -573,19 +551,11 @@ import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
 const inkeepAnalytics = new InkeepAnalytics({
   serverURL: "https://api.analytics.inkeep.com",
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
 });
 
 async function run() {
-  const result = await inkeepAnalytics.conversations.log({
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
-    type: "support_ticket",
-    messages: [
-      {
-        role: "<value>",
-      },
-    ],
-  });
+  const result = await inkeepAnalytics.topSearchQueries({});
 
   // Handle the result
   console.log(result);

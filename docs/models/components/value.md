@@ -12,7 +12,7 @@ const value: string = "<value>";
 ### `number`
 
 ```typescript
-const value: number = 7774.08;
+const value: number = 446.12;
 ```
 
 ### `boolean`
@@ -25,7 +25,7 @@ const value: boolean = false;
 
 ```typescript
 const value: components.Four[] = [
-  "<value>",
+  false,
 ];
 ```
 

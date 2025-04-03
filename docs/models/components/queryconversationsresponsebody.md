@@ -13,9 +13,9 @@ let value: QueryConversationsResponseBody = {
     result: [
       {},
     ],
-    total: 6720.48,
-    pageSize: 2453.67,
-    count: 4205.39,
+    total: 1314.82,
+    pageSize: 553.74,
+    count: 3015.98,
   },
 };
 ```

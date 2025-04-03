@@ -7,7 +7,7 @@ import { ConversationsTimeBasedGroupBySelection } from "@inkeep/inkeep-analytics
 
 let value: ConversationsTimeBasedGroupBySelection = {
   type: "time",
-  timeUnit: "hour",
+  timeUnit: "month",
 };
 ```
 

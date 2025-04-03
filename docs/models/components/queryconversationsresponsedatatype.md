@@ -5,7 +5,7 @@
 ```typescript
 import { QueryConversationsResponseDataType } from "@inkeep/inkeep-analytics/models/components";
 
-let value: QueryConversationsResponseDataType = "support_ticket";
+let value: QueryConversationsResponseDataType = "openai";
 ```
 
 ## Values

@@ -5,7 +5,7 @@
 ```typescript
 import { Visibility } from "@inkeep/inkeep-analytics/models/components";
 
-let value: Visibility = "private";
+let value: Visibility = "public";
 ```
 
 ## Values

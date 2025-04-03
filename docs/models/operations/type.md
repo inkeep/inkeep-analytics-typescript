@@ -5,7 +5,7 @@
 ```typescript
 import { Type } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: Type = "positive";
+let value: Type = "negative";
 ```
 
 ## Values

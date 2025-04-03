@@ -7,7 +7,7 @@
 
 ```typescript
 const value: components.CreateSupportTicketConversationType1 =
-  "stackoverflow_question";
+  "github_discussion";
 ```
 
 ### `string`

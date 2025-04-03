@@ -7,10 +7,10 @@ import { EventsFilterConditionValue6 } from "@inkeep/inkeep-analytics/models/com
 
 let value: EventsFilterConditionValue6 = {
   path: [
-    "/selinux",
+    "/bin",
   ],
   value: [
-    false,
+    3567.07,
   ],
 };
 ```

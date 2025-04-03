@@ -5,7 +5,7 @@
 ```typescript
 import { ConversationsOrderByField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: ConversationsOrderByField = "id_week";
+let value: ConversationsOrderByField = "integrationId_hour";
 ```
 
 ## Values

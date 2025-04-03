@@ -5,7 +5,7 @@
 ```typescript
 import { EventsOrderByField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: EventsOrderByField = "type_month";
+let value: EventsOrderByField = "createdAt_hour";
 ```
 
 ## Values

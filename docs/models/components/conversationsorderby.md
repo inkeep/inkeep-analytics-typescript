@@ -8,8 +8,8 @@ Specifies how to order Conversations query results by field and direction
 import { ConversationsOrderBy } from "@inkeep/inkeep-analytics/models/components";
 
 let value: ConversationsOrderBy = {
-  field: "integrationId_week",
-  direction: "asc",
+  field: "userMessageCount_month",
+  direction: "desc",
 };
 ```
 

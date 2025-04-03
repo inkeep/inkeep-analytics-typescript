@@ -6,7 +6,7 @@
 import { Links } from "@inkeep/inkeep-analytics/models/components";
 
 let value: Links = {
-  url: "https://cloudy-entry.com/",
+  url: "https://orange-mozzarella.name/",
 };
 ```
 

@@ -8,11 +8,16 @@
 ```typescript
 const value: components.EventsFilterCondition = {
   condition: {
-    field: "conversationId",
-    operator: "jsonContainedBy",
-    value: [
-      "<value>",
-    ],
+    field: "projectId",
+    operator: "arrayContains",
+    value: {
+      path: [
+        "/private",
+      ],
+      value: [
+        8207.67,
+      ],
+    },
   },
 };
 ```

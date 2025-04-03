@@ -11,9 +11,9 @@ let value: QueryConversationsResponseData = {
   result: [
     {},
   ],
-  total: 8605.52,
-  pageSize: 7270.44,
-  count: 2703.28,
+  total: 4561.41,
+  pageSize: 6832.82,
+  count: 6956.26,
 };
 ```
 
