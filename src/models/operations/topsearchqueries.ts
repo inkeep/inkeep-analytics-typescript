@@ -10,6 +10,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type TopSearchQueriesRequest = {
   after?: string | undefined;
+  projectId?: string | undefined;
 };
 
 export type Result = {
@@ -36,11 +37,17 @@ export const TopSearchQueriesRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   after: z.string().optional(),
+  project_id: z.string().optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "project_id": "projectId",
+  });
 });
 
 /** @internal */
 export type TopSearchQueriesRequest$Outbound = {
   after?: string | undefined;
+  project_id?: string | undefined;
 };
 
 /** @internal */
@@ -50,6 +57,11 @@ export const TopSearchQueriesRequest$outboundSchema: z.ZodType<
   TopSearchQueriesRequest
 > = z.object({
   after: z.string().optional(),
+  projectId: z.string().optional(),
+}).transform((v) => {
+  return remap$(v, {
+    projectId: "project_id",
+  });
 });
 
 /**

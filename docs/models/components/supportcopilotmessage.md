@@ -11,8 +11,8 @@ let value: SupportCopilotMessage = {
   externalId: "<id>",
   externalUrl: "https://tricky-waist.org",
   conversationId: "<id>",
-  createdAt: "1712503430648",
-  updatedAt: "1743614717046",
+  createdAt: "1712507858950",
+  updatedAt: "1743619145348",
   role: "<value>",
   content: "<value>",
 };

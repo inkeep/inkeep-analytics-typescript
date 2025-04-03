@@ -79,7 +79,9 @@ export function prefetchWeeklySearchUsers(
 
 export function setWeeklySearchUsersData(
   client: QueryClient,
-  queryKeyBase: [parameters: { after?: string | undefined }],
+  queryKeyBase: [
+    parameters: { after?: string | undefined; projectId?: string | undefined },
+  ],
   data: WeeklySearchUsersQueryData,
 ): WeeklySearchUsersQueryData | undefined {
   const key = queryKeyWeeklySearchUsers(...queryKeyBase);
@@ -89,7 +91,9 @@ export function setWeeklySearchUsersData(
 
 export function invalidateWeeklySearchUsers(
   client: QueryClient,
-  queryKeyBase: TupleToPrefixes<[parameters: { after?: string | undefined }]>,
+  queryKeyBase: TupleToPrefixes<
+    [parameters: { after?: string | undefined; projectId?: string | undefined }]
+  >,
   filters?: Omit<InvalidateQueryFilters, "queryKey" | "predicate" | "exact">,
 ): Promise<void> {
   return client.invalidateQueries({
@@ -123,7 +127,10 @@ export function buildWeeklySearchUsersQuery(
   ) => Promise<WeeklySearchUsersQueryData>;
 } {
   return {
-    queryKey: queryKeyWeeklySearchUsers({ after: request.after }),
+    queryKey: queryKeyWeeklySearchUsers({
+      after: request.after,
+      projectId: request.projectId,
+    }),
     queryFn: async function weeklySearchUsersQueryFn(
       ctx,
     ): Promise<WeeklySearchUsersQueryData> {
@@ -143,7 +150,7 @@ export function buildWeeklySearchUsersQuery(
 }
 
 export function queryKeyWeeklySearchUsers(
-  parameters: { after?: string | undefined },
+  parameters: { after?: string | undefined; projectId?: string | undefined },
 ): QueryKey {
   return ["@inkeep/inkeep-analytics", "weeklySearchUsers", parameters];
 }
