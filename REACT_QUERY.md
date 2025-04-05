@@ -128,6 +128,9 @@ export function Example() {
             {
               role: "<value>",
             },
+            {
+              role: "<value>",
+            },
           ],
         });
       }}

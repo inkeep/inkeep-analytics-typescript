@@ -8,9 +8,11 @@
 ```typescript
 const value: components.EventsFilterCondition = {
   condition: {
-    field: "conversationId",
-    operator: "lte",
-    value: 7487.89,
+    field: "createdAt",
+    operator: "notIn",
+    value: {
+      "key": "<value>",
+    },
   },
 };
 ```
@@ -36,9 +38,11 @@ const value: components.EventsFilterOR = {
 ```typescript
 const value: components.ConversationsFilterCondition = {
   condition: {
-    field: "organizationId",
-    operator: "gt",
-    value: 3044.68,
+    field: "userMessageCount",
+    operator: "notIn",
+    value: [
+      "<value>",
+    ],
   },
 };
 ```
@@ -64,11 +68,9 @@ const value: components.ConversationsFilterOR = {
 ```typescript
 const value: components.SemanticThreadFilterCondition = {
   condition: {
-    field: "hasPositiveFeedback",
+    field: "isAnswerConfident",
     operator: "gte",
-    value: [
-      "<value>",
-    ],
+    value: "<value>",
   },
 };
 ```

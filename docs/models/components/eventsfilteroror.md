@@ -7,7 +7,7 @@
 
 ```typescript
 const value: components.EventsFilter = {
-  or: [],
+  and: [],
 };
 ```
 

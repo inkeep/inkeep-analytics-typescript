@@ -6,7 +6,7 @@
 import { CreateOpenAIConversationLinks } from "@inkeep/inkeep-analytics/models/components";
 
 let value: CreateOpenAIConversationLinks = {
-  url: "https://grubby-trash.net/",
+  url: "https://total-finer.com",
 };
 ```
 

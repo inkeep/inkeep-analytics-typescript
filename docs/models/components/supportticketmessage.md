@@ -9,10 +9,10 @@ let value: SupportTicketMessage = {
   id: "<id>",
   type: "support_ticket",
   externalId: "<id>",
-  externalUrl: "https://quarrelsome-pecan.info",
+  externalUrl: "https://frightened-comestible.name/",
   conversationId: "<id>",
-  createdAt: "1740411936126",
-  updatedAt: "1743619800553",
+  createdAt: "1715371739069",
+  updatedAt: "1743777272170",
   role: "<value>",
   content: "<value>",
 };

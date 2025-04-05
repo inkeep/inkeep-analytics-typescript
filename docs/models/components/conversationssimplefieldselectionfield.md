@@ -5,7 +5,7 @@
 ```typescript
 import { ConversationsSimpleFieldSelectionField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: ConversationsSimpleFieldSelectionField = "type";
+let value: ConversationsSimpleFieldSelectionField = "firstMessageTime";
 ```
 
 ## Values

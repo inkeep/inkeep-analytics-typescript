@@ -6,9 +6,11 @@
 import { EventsFilterConditionCondition } from "@inkeep/inkeep-analytics/models/components";
 
 let value: EventsFilterConditionCondition = {
-  field: "properties",
-  operator: "jsonHasKey",
-  value: "<value>",
+  field: "eventType",
+  operator: "eq",
+  value: [
+    "<value>",
+  ],
 };
 ```
 

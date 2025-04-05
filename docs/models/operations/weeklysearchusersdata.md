@@ -12,7 +12,7 @@ let value: WeeklySearchUsersData = {
       uniqueUsers: "<value>",
     },
   ],
-  total: 6027.63,
+  total: 4949.54,
 };
 ```
 

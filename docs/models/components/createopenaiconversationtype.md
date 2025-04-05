@@ -6,7 +6,8 @@
 ### `components.CreateOpenAIConversationType1`
 
 ```typescript
-const value: components.CreateOpenAIConversationType1 = "discord_message";
+const value: components.CreateOpenAIConversationType1 =
+  "stackoverflow_question";
 ```
 
 ### `string`

@@ -3,14 +3,21 @@
  */
 
 import { feedbackList } from "../../funcs/feedbackList.js";
+import * as operations from "../../models/operations/index.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
-export const tool$feedbackList: ToolDefinition = {
+const args = {
+  request: operations.GetAllFeedbackRequest$inboundSchema,
+};
+
+export const tool$feedbackList: ToolDefinition<typeof args> = {
   name: "feedback-list",
   description: `Get All Feedback`,
-  tool: async (client, ctx) => {
+  args,
+  tool: async (client, args, ctx) => {
     const [result, apiCall] = await feedbackList(
       client,
+      args.request,
       { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 

@@ -3,8 +3,10 @@
  */
 
 import { InkeepAnalyticsCore } from "../core.js";
+import { encodeFormQuery } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
+import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
@@ -19,6 +21,7 @@ import {
 } from "../models/errors/httpclienterrors.js";
 import * as errors from "../models/errors/index.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
+import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
@@ -27,6 +30,7 @@ import { Result } from "../types/fp.js";
  */
 export function feedbackList(
   client: InkeepAnalyticsCore,
+  request: operations.GetAllFeedbackRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -48,12 +52,14 @@ export function feedbackList(
 > {
   return new APIPromise($do(
     client,
+    request,
     options,
   ));
 }
 
 async function $do(
   client: InkeepAnalyticsCore,
+  request: operations.GetAllFeedbackRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -76,7 +82,23 @@ async function $do(
     APICall,
   ]
 > {
+  const parsed = safeParse(
+    request,
+    (value) => operations.GetAllFeedbackRequest$outboundSchema.parse(value),
+    "Input validation failed",
+  );
+  if (!parsed.ok) {
+    return [parsed, { status: "invalid" }];
+  }
+  const payload = parsed.value;
+  const body = null;
+
   const path = pathToFunc("/feedback")();
+
+  const query = encodeFormQuery({
+    "limit": payload.limit,
+    "offset": payload.offset,
+  });
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
@@ -118,6 +140,8 @@ async function $do(
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
+    query: query,
+    body: body,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {

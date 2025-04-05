@@ -5,7 +5,7 @@
 ```typescript
 import { SemanticThreadOrderByField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: SemanticThreadOrderByField = "firstMessageTime_month";
+let value: SemanticThreadOrderByField = "isAnswerConfident_day";
 ```
 
 ## Values

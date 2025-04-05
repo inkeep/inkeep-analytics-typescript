@@ -245,6 +245,9 @@ async function run() {
       {
         role: "<value>",
       },
+      {
+        role: "<value>",
+      },
     ],
   });
 

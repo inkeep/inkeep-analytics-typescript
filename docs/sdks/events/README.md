@@ -25,8 +25,8 @@ async function run() {
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
     type: "<value>",
-    searchQuery: "<value>",
-    entityType: "search",
+    conversationId: "<id>",
+    entityType: "conversation",
   });
 
   // Handle the result
@@ -53,8 +53,8 @@ async function run() {
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
     type: "<value>",
-    searchQuery: "<value>",
-    entityType: "search",
+    conversationId: "<id>",
+    entityType: "conversation",
   });
 
   if (!res.ok) {

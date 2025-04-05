@@ -8,15 +8,10 @@
 ```typescript
 const value: components.EventsFilterCondition = {
   condition: {
-    field: "projectId",
-    operator: "arrayContains",
+    field: "createdAt",
+    operator: "notIn",
     value: {
-      path: [
-        "/private",
-      ],
-      value: [
-        8207.67,
-      ],
+      "key": "<value>",
     },
   },
 };

@@ -5,7 +5,7 @@
 ```typescript
 import { Detail } from "@inkeep/inkeep-analytics/models/components";
 
-let value: Detail = "auto";
+let value: Detail = "low";
 ```
 
 ## Values

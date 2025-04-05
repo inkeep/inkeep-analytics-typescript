@@ -7,7 +7,7 @@ Available fields for Conversations
 ```typescript
 import { ConversationsField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: ConversationsField = "integrationId";
+let value: ConversationsField = "id";
 ```
 
 ## Values

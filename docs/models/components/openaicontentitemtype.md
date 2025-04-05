@@ -5,7 +5,7 @@
 ```typescript
 import { OpenAIContentItemType } from "@inkeep/inkeep-analytics/models/components";
 
-let value: OpenAIContentItemType = "image_url";
+let value: OpenAIContentItemType = "text";
 ```
 
 ## Values
