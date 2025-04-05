@@ -5,7 +5,7 @@
 ```typescript
 import { SemanticThreadSimpleFieldSelectionField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: SemanticThreadSimpleFieldSelectionField = "projectId";
+let value: SemanticThreadSimpleFieldSelectionField = "languages";
 ```
 
 ## Values

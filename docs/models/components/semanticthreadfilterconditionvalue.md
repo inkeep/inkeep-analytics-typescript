@@ -20,7 +20,7 @@ const value: boolean = false;
 ### `number`
 
 ```typescript
-const value: number = 8286.57;
+const value: number = 1284.03;
 ```
 
 ### `string[]`
@@ -44,9 +44,11 @@ const value: { [k: string]: any } = {
 ```typescript
 const value: components.SemanticThreadFilterConditionValue6 = {
   path: [
-    "/var/log",
+    "/usr/src",
   ],
-  value: "<value>",
+  value: [
+    2986.52,
+  ],
 };
 ```
 

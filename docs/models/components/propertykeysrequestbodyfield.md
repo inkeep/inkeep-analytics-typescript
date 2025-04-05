@@ -5,7 +5,7 @@
 ```typescript
 import { PropertyKeysRequestBodyField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: PropertyKeysRequestBodyField = "userProperties";
+let value: PropertyKeysRequestBodyField = "properties";
 ```
 
 ## Values

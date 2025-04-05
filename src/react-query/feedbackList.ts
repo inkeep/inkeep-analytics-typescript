@@ -17,9 +17,14 @@ import { feedbackList } from "../funcs/feedbackList.js";
 import { combineSignals } from "../lib/primitives.js";
 import { RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
+import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
-import { QueryHookOptions, SuspenseQueryHookOptions } from "./_types.js";
+import {
+  QueryHookOptions,
+  SuspenseQueryHookOptions,
+  TupleToPrefixes,
+} from "./_types.js";
 
 export type FeedbackListQueryData = components.GetAllFeedbackResponse;
 
@@ -27,12 +32,14 @@ export type FeedbackListQueryData = components.GetAllFeedbackResponse;
  * Get All Feedback
  */
 export function useFeedbackList(
+  request: operations.GetAllFeedbackRequest,
   options?: QueryHookOptions<FeedbackListQueryData>,
 ): UseQueryResult<FeedbackListQueryData, Error> {
   const client = useInkeepAnalyticsContext();
   return useQuery({
     ...buildFeedbackListQuery(
       client,
+      request,
       options,
     ),
     ...options,
@@ -43,12 +50,14 @@ export function useFeedbackList(
  * Get All Feedback
  */
 export function useFeedbackListSuspense(
+  request: operations.GetAllFeedbackRequest,
   options?: SuspenseQueryHookOptions<FeedbackListQueryData>,
 ): UseSuspenseQueryResult<FeedbackListQueryData, Error> {
   const client = useInkeepAnalyticsContext();
   return useSuspenseQuery({
     ...buildFeedbackListQuery(
       client,
+      request,
       options,
     ),
     ...options,
@@ -58,21 +67,45 @@ export function useFeedbackListSuspense(
 export function prefetchFeedbackList(
   queryClient: QueryClient,
   client$: InkeepAnalyticsCore,
+  request: operations.GetAllFeedbackRequest,
 ): Promise<void> {
   return queryClient.prefetchQuery({
     ...buildFeedbackListQuery(
       client$,
+      request,
     ),
   });
 }
 
 export function setFeedbackListData(
   client: QueryClient,
+  queryKeyBase: [
+    parameters: {
+      limit?: number | null | undefined;
+      offset?: number | null | undefined;
+    },
+  ],
   data: FeedbackListQueryData,
 ): FeedbackListQueryData | undefined {
-  const key = queryKeyFeedbackList();
+  const key = queryKeyFeedbackList(...queryKeyBase);
 
   return client.setQueryData<FeedbackListQueryData>(key, data);
+}
+
+export function invalidateFeedbackList(
+  client: QueryClient,
+  queryKeyBase: TupleToPrefixes<
+    [parameters: {
+      limit?: number | null | undefined;
+      offset?: number | null | undefined;
+    }]
+  >,
+  filters?: Omit<InvalidateQueryFilters, "queryKey" | "predicate" | "exact">,
+): Promise<void> {
+  return client.invalidateQueries({
+    ...filters,
+    queryKey: ["@inkeep/inkeep-analytics", "feedback", "list", ...queryKeyBase],
+  });
 }
 
 export function invalidateAllFeedbackList(
@@ -87,13 +120,17 @@ export function invalidateAllFeedbackList(
 
 export function buildFeedbackListQuery(
   client$: InkeepAnalyticsCore,
+  request: operations.GetAllFeedbackRequest,
   options?: RequestOptions,
 ): {
   queryKey: QueryKey;
   queryFn: (context: QueryFunctionContext) => Promise<FeedbackListQueryData>;
 } {
   return {
-    queryKey: queryKeyFeedbackList(),
+    queryKey: queryKeyFeedbackList({
+      limit: request.limit,
+      offset: request.offset,
+    }),
     queryFn: async function feedbackListQueryFn(
       ctx,
     ): Promise<FeedbackListQueryData> {
@@ -105,12 +142,18 @@ export function buildFeedbackListQuery(
 
       return unwrapAsync(feedbackList(
         client$,
+        request,
         mergedOptions,
       ));
     },
   };
 }
 
-export function queryKeyFeedbackList(): QueryKey {
-  return ["@inkeep/inkeep-analytics", "feedback", "list"];
+export function queryKeyFeedbackList(
+  parameters: {
+    limit?: number | null | undefined;
+    offset?: number | null | undefined;
+  },
+): QueryKey {
+  return ["@inkeep/inkeep-analytics", "feedback", "list", parameters];
 }

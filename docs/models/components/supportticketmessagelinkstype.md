@@ -6,7 +6,7 @@
 ### `components.Type1`
 
 ```typescript
-const value: components.Type1 = "github_issue";
+const value: components.Type1 = "github_discussion";
 ```
 
 ### `string`

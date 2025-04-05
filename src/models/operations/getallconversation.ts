@@ -9,8 +9,8 @@ import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAllConversationRequest = {
-  limit?: string | undefined;
-  offset?: string | undefined;
+  limit?: number | null | undefined;
+  offset?: number | null | undefined;
 };
 
 /**
@@ -29,14 +29,14 @@ export const GetAllConversationRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  limit: z.string().optional(),
-  offset: z.string().optional(),
+  limit: z.nullable(z.number().int().default(20)),
+  offset: z.nullable(z.number().int().default(0)),
 });
 
 /** @internal */
 export type GetAllConversationRequest$Outbound = {
-  limit?: string | undefined;
-  offset?: string | undefined;
+  limit: number | null;
+  offset: number | null;
 };
 
 /** @internal */
@@ -45,8 +45,8 @@ export const GetAllConversationRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetAllConversationRequest
 > = z.object({
-  limit: z.string().optional(),
-  offset: z.string().optional(),
+  limit: z.nullable(z.number().int().default(20)),
+  offset: z.nullable(z.number().int().default(0)),
 });
 
 /**

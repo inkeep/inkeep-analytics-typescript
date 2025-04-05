@@ -7,7 +7,7 @@
 
 ```typescript
 const value: components.CreateSupportCopilotConversationType1 =
-  "custom_question_answer";
+  "github_discussion";
 ```
 
 ### `string`

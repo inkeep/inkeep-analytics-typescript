@@ -5,7 +5,7 @@
 ```typescript
 import { Type1 } from "@inkeep/inkeep-analytics/models/components";
 
-let value: Type1 = "stackoverflow_question";
+let value: Type1 = "documentation";
 ```
 
 ## Values

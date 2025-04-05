@@ -7,9 +7,9 @@ import { SemanticThreadFilterConditionValue6 } from "@inkeep/inkeep-analytics/mo
 
 let value: SemanticThreadFilterConditionValue6 = {
   path: [
-    "/usr/bin",
+    "/usr/local/bin",
   ],
-  value: 3605.45,
+  value: 9107.64,
 };
 ```
 

@@ -32,6 +32,9 @@ async function run() {
       {
         role: "<value>",
       },
+      {
+        role: "<value>",
+      },
     ],
   });
 
@@ -60,6 +63,9 @@ async function run() {
   }, {
     type: "support_ticket",
     messages: [
+      {
+        role: "<value>",
+      },
       {
         role: "<value>",
       },

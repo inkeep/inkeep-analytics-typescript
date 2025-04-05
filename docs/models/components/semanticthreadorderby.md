@@ -8,8 +8,8 @@ Specifies how to order SemanticThread query results by field and direction
 import { SemanticThreadOrderBy } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SemanticThreadOrderBy = {
-  field: "count_gapSummary",
-  direction: "asc",
+  field: "count_isOnTopic",
+  direction: "desc",
 };
 ```
 
