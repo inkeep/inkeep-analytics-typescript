@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 63a2136d-3fa3-4a0b-a766-1ddb2460cc12
 management:
-  docChecksum: 914ebb7a4267b26343f1ee65d5776df0
+  docChecksum: d3a91ba6b0a884b2e061f406fe07a472
   docVersion: 0.1.1
-  speakeasyVersion: 1.528.1
-  generationVersion: 2.565.1
-  releaseVersion: 0.2.4-alpha.16
-  configChecksum: 6cf5ed0b97cfe54ffc5733860bcb8e93
+  speakeasyVersion: 1.531.0
+  generationVersion: 2.568.2
+  releaseVersion: 0.2.4-alpha.17
+  configChecksum: ab2a54bc285c15b3e4d7794a97695356
   repoURL: https://github.com/inkeep/inkeep-analytics-typescript.git
   installationURL: https://github.com/inkeep/inkeep-analytics-typescript
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.21.4
+    core: 3.21.5
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     downloadStreams: 0.1.1
@@ -25,7 +25,7 @@ features:
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.4
     groups: 2.81.2
-    mcpServer: 0.9.0
+    mcpServer: 0.9.1
     methodSecurity: 2.82.6
     nameOverrides: 2.81.2
     nullables: 0.1.1
@@ -267,6 +267,7 @@ generatedFiles:
   - docs/models/operations/deleteconversationsecurity.md
   - docs/models/operations/getallconversationrequest.md
   - docs/models/operations/getallconversationresponsebody.md
+  - docs/models/operations/getallfeedbackrequest.md
   - docs/models/operations/getconversationbyexternalidrequest.md
   - docs/models/operations/getconversationrequest.md
   - docs/models/operations/getconversationsecurity.md
@@ -447,6 +448,7 @@ generatedFiles:
   - src/models/errors/unprocessableentity.ts
   - src/models/operations/deleteconversation.ts
   - src/models/operations/getallconversation.ts
+  - src/models/operations/getallfeedback.ts
   - src/models/operations/getconversation.ts
   - src/models/operations/getconversationbyexternalid.ts
   - src/models/operations/index.ts
@@ -495,50 +497,73 @@ generatedFiles:
   - src/types/streams.ts
   - tsconfig.json
 examples:
+  topSearchQueries:
+    speakeasy-default-top-search-queries:
+      responses:
+        "200":
+          application/json: {"data": {"result": [], "total": 3412.78}}
+        "400":
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+        "422":
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+  weeklySearchUsers:
+    speakeasy-default-weekly-search-users:
+      responses:
+        "200":
+          application/json: {"data": {"result": [{"week": "<value>", "unique_users": "<value>"}, {"week": "<value>", "unique_users": "<value>"}], "total": 4462.8}}
+        "400":
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+        "422":
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   logConversation:
     speakeasy-default-log-conversation:
       requestBody:
-        application/json: {"type": "support_ticket", "messages": [{"role": "<value>"}]}
+        application/json: {"type": "support_ticket", "messages": [{"role": "<value>"}, {"role": "<value>"}]}
       responses:
         "200":
-          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://nervous-prohibition.biz", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1733847902032", "updatedAt": "1738782547049", "projectId": "<id>", "integrationId": "<id>", "tags": ["<value>", "<value>"], "visibility": "public", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://sniveling-formamide.com", "conversationId": "<id>", "createdAt": "1708069757418", "updatedAt": "1738719286500", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://present-breastplate.info", "conversationId": "<id>", "createdAt": "1715130712707", "updatedAt": "1738776315766", "role": "<value>", "content": "<value>"}]}
+          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://well-made-tennis.net/", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1723857709508", "updatedAt": "1744074977129", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": [{"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://handy-testing.name/", "conversationId": "<id>", "createdAt": "1725397674857", "updatedAt": "1744113486542", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://esteemed-patroller.name/", "conversationId": "<id>", "createdAt": "1726587008426", "updatedAt": "1744085601588", "role": "<value>", "content": "<value>"}]}
         "400":
-          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
-          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
           application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
-          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
           application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "422":
-          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
           application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
-          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
           application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   getAllConversation:
     speakeasy-default-get-all-conversation:
+      parameters:
+        query:
+          limit: 20
+          offset: 0
       responses:
         "200":
-          application/json: {"conversations": [], "total": 4577.99, "pageSize": 1601.72, "count": 400.21}
+          application/json: {"conversations": [{"id": "<id>", "externalId": "<id>", "externalUrl": "https://definite-deer.com", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1732658637587", "updatedAt": "1744121334822", "projectId": "<id>", "integrationId": "<id>", "visibility": "private", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://black-poetry.name/", "conversationId": "<id>", "createdAt": "1732607503281", "updatedAt": "1744066737695", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://hidden-jet.com/", "conversationId": "<id>", "createdAt": "1741981683428", "updatedAt": "1744115119130", "role": "<value>", "content": "<value>"}]}, {"id": "<id>", "externalId": "<id>", "externalUrl": "https://average-fedora.org/", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1713192928021", "updatedAt": "1744143609244", "projectId": "<id>", "integrationId": "<id>", "visibility": "private", "messages": [{"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://blue-technologist.com/", "conversationId": "<id>", "createdAt": "1727131765054", "updatedAt": "1744102840909", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://lonely-brook.name/", "conversationId": "<id>", "createdAt": "1739139232607", "updatedAt": "1744101533886", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://funny-grandson.com", "conversationId": "<id>", "createdAt": "1718328253783", "updatedAt": "1744145048291", "role": "<value>", "content": "<value>"}]}, {"id": "<id>", "externalId": "<id>", "externalUrl": "https://vivid-tool.com", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1734468339551", "updatedAt": "1744115141265", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": [{"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://bossy-coliseum.com", "conversationId": "<id>", "createdAt": "1739005420086", "updatedAt": "1744133245639", "role": "system", "content": [{"type": "image_url"}]}, {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://biodegradable-bandwidth.biz", "conversationId": "<id>", "createdAt": "1743941333700", "updatedAt": "1744130681105", "role": "system", "content": "<value>"}, {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://remorseful-hydrolyse.com/", "conversationId": "<id>", "createdAt": "1738184921657", "updatedAt": "1744148772713", "role": "assistant", "content": [{"type": "image_url"}, {"type": "text"}, {"type": "text"}]}], "messagesOpenAIFormat": [{"role": "assistant", "content": [{"type": "text"}]}, {"role": "user", "content": [{"type": "text"}, {"type": "text"}]}, {"role": "assistant", "content": "<value>"}]}], "total": 4063.91, "pageSize": 791.69, "count": 1173.86}
         "400":
-          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
-          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
           application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
-          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
           application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "404":
-          application/json: {"error": {"code": "not_found", "message": "Not Found"}}
           application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "error": {"code": "not_found", "message": "Not Found"}}
         "422":
-          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
           application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
-          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
           application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   getConversation:
     speakeasy-default-get-conversation:
@@ -547,24 +572,18 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://normal-making.name", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1735928719588", "updatedAt": "1738802376242", "projectId": "<id>", "integrationId": "<id>", "tags": ["<value>"], "visibility": "public", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://knowledgeable-diversity.biz/", "conversationId": "<id>", "createdAt": "1718049138803", "updatedAt": "1738746959508", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://jittery-sermon.com", "conversationId": "<id>", "createdAt": "1716851894842", "updatedAt": "1738768541226", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://genuine-bowler.name/", "conversationId": "<id>", "createdAt": "1737557749612", "updatedAt": "1738748037494", "role": "<value>", "content": "<value>"}]}
+          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://necessary-lender.org", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1727061540976", "updatedAt": "1744105043250", "projectId": "<id>", "integrationId": "<id>", "visibility": "private", "messages": []}
         "400":
-          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
-          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
           application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
-          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
           application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "404":
-          application/json: {"error": {"code": "not_found", "message": "Not Found"}}
           application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "error": {"code": "not_found", "message": "Not Found"}}
         "422":
-          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
           application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
-          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
           application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   deleteConversation:
     speakeasy-default-delete-conversation:
@@ -575,22 +594,36 @@ examples:
         "200":
           application/json: {"success": false, "message": "<value>"}
         "400":
-          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
-          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
           application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
-          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
           application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "404":
-          application/json: {"error": {"code": "not_found", "message": "Not Found"}}
           application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "error": {"code": "not_found", "message": "Not Found"}}
         "422":
-          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
           application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
-          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+  getConversationByExternalId:
+    speakeasy-default-get-conversation-by-external-id:
+      parameters:
+        path:
+          externalId: "<id>"
+      responses:
+        "200":
+          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://smug-railway.biz/", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1741560860450", "updatedAt": "1744093559797", "projectId": "<id>", "integrationId": "<id>", "visibility": "private", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://heavy-incandescence.name/", "conversationId": "<id>", "createdAt": "1726697165411", "updatedAt": "1744131660846", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://shameless-cheetah.info", "conversationId": "<id>", "createdAt": "1737281901956", "updatedAt": "1744147919019", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://inferior-gallery.org/", "conversationId": "<id>", "createdAt": "1728870013139", "updatedAt": "1744141287781", "role": "<value>", "content": "<value>"}]}
+        "400":
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+        "404":
+          application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "error": {"code": "not_found", "message": "Not Found"}}
+        "422":
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
           application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   submitFeedback:
     speakeasy-default-submit-feedback:
@@ -598,184 +631,96 @@ examples:
         application/json: {"type": "negative", "messageId": "<id>"}
       responses:
         "200":
-          application/json: {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1721987829810"}
+          application/json: {"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1724157561766"}
         "400":
-          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
-          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
           application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
-          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
           application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "422":
-          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
           application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
-          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
           application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   getAllFeedback:
     speakeasy-default-get-all-feedback:
+      parameters:
+        query:
+          limit: 10
+          offset: 0
       responses:
         "200":
-          application/json: {"positiveFeedbackCount": 1726.62, "negativeFeedbackCount": 2246.6, "positiveFeedback": [], "negativeFeedback": [{"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1731204221605", "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://neglected-plastic.biz", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1727769494062", "updatedAt": "1738752877975", "projectId": "<id>", "integrationId": "<id>", "tags": [], "visibility": "private", "messages": [], "messagesOpenAIFormat": [{"role": "system", "content": "<value>"}]}, "message": {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://primary-paintwork.com/", "conversationId": "<id>", "createdAt": "1731361160099", "updatedAt": "1738761736066", "role": "<value>", "content": "<value>"}}]}
+          application/json: {"positiveFeedbackCount": 7685.78, "negativeFeedbackCount": 5472.72, "positiveFeedback": [{"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1719860839502", "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://productive-affect.net", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1715333004342", "updatedAt": "1744072011337", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": [{"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://acidic-avalanche.info", "conversationId": "<id>", "createdAt": "1727934440326", "updatedAt": "1744072419395", "role": "assistant", "content": [{"type": "text"}, {"type": "text"}, {"type": "text"}]}, {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://agitated-technologist.info", "conversationId": "<id>", "createdAt": "1741423525062", "updatedAt": "1744081047460", "role": "system", "content": []}], "messagesOpenAIFormat": [{"role": "user", "content": "<value>"}]}, "message": {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://moist-sprinkles.info/", "conversationId": "<id>", "createdAt": "1739846737758", "updatedAt": "1744092650782", "role": "<value>", "content": "<value>"}}, {"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1716195389596", "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://animated-ostrich.org", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1741584224480", "updatedAt": "1744073366440", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": [{"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://substantial-yin.com", "conversationId": "<id>", "createdAt": "1717818833276", "updatedAt": "1744072483816", "role": "assistant", "content": []}, {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://fond-scale.name", "conversationId": "<id>", "createdAt": "1714729201833", "updatedAt": "1744071351597", "role": "system", "content": [{"type": "text"}, {"type": "text"}]}], "messagesOpenAIFormat": []}, "message": {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://accurate-siege.org/", "conversationId": "<id>", "createdAt": "1737133754989", "updatedAt": "1744109791332", "role": "<value>", "content": "<value>"}}], "negativeFeedback": [{"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1713266611397", "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://severe-ruin.info", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1713539476221", "updatedAt": "1744122452887", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://arid-someplace.biz/", "conversationId": "<id>", "createdAt": "1725432426997", "updatedAt": "1744072932776", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://wavy-window.info/", "conversationId": "<id>", "createdAt": "1724294064931", "updatedAt": "1744105615144", "role": "<value>", "content": "<value>"}]}, "message": {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://avaricious-optimal.info", "conversationId": "<id>", "createdAt": "1718463076788", "updatedAt": "1744084016226", "role": "system", "content": "<value>"}}, {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1739071907406", "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://actual-joy.net", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1736317771162", "updatedAt": "1744090070342", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": []}, "message": {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://calculating-guide.name", "conversationId": "<id>", "createdAt": "1724768181127", "updatedAt": "1744146776631", "role": "<value>", "content": "<value>"}}, {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1740024274952", "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://gaseous-programme.info/", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1739044833466", "updatedAt": "1744110780018", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": []}, "message": {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://ill-teammate.com/", "conversationId": "<id>", "createdAt": "1729115044778", "updatedAt": "1744093298692", "role": "user", "content": "<value>"}}]}
         "400":
-          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
-          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
           application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
-          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
           application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "404":
-          application/json: {"error": {"code": "not_found", "message": "Not Found"}}
           application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "error": {"code": "not_found", "message": "Not Found"}}
         "422":
-          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
           application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
-          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
           application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   logEvent:
     speakeasy-default-log-event:
       requestBody:
-        application/json: {"type": "<value>", "searchQuery": "<value>", "entityType": "search"}
+        application/json: {"type": "<value>", "conversationId": "<id>", "entityType": "conversation"}
       responses:
         "200":
-          application/json: {"id": "<id>", "type": "<value>", "conversationId": "<id>", "createdAt": "1738279517326", "projectId": "<id>", "integrationId": "<id>", "entityType": "conversation"}
+          application/json: {"id": "<id>", "type": "<value>", "conversationId": "<id>", "createdAt": "1735048203405", "projectId": "<id>", "integrationId": "<id>", "entityType": "conversation"}
         "400":
-          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
-          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
           application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
-          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
           application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "422":
-          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
           application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
-          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
           application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   queryConversations:
     speakeasy-default-query-conversations:
       requestBody:
-        application/json: {}
+        application/json: {"notes": "Count of support ticket conversations by integration"}
       responses:
         "200":
-          application/json: {"status": "ok", "data": {"result": [{}, {}, {}], "total": 6276.48, "pageSize": 9233.28, "count": 6854.56}}
+          application/json: {"status": "ok", "data": {"result": [{}, {}], "total": 8747.83, "pageSize": 7204.01, "count": 1266.74}}
         "400":
-          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
-          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
           application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
-          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
           application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
         "422":
-          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
           application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
-          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
           application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-  queryTable:
-    speakeasy-default-query-table:
-      parameters:
-        path:
-          table: "semantic_threads_view"
-      requestBody:
-        application/json: {}
-      responses:
-        "200":
-          application/json: {"status": "ok", "data": {"result": [], "total": 8462.98, "pageSize": 7689.4, "count": 7218.2}}
-        "400":
-          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
-        "401":
-          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
-        "403":
-          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
-        "422":
-          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-        "500":
-          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-  exportQuery:
-    speakeasy-default-export-query:
-      parameters:
-        path:
-          table: "semantic_threads_view"
-      requestBody:
-        application/json: {}
-      responses:
-        "200":
-          text/csv: "x-file: example.file"
-        "400":
-          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
-        "401":
-          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
-        "403":
-          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
-        "422":
-          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-        "500":
-          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-  getConversationByExternalId:
-    speakeasy-default-get-conversation-by-external-id:
-      parameters:
-        path:
-          externalId: "<id>"
-      responses:
-        "400":
-          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
-        "401":
-          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
-        "403":
-          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
-        "404":
-          application/json: {"error": {"code": "not_found", "message": "Not Found"}}
-          application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "error": {"code": "not_found", "message": "Not Found"}}
-        "422":
-          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-        "500":
-          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-        "200":
-          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://impolite-riser.net", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1722130271543", "updatedAt": "1741022613469", "projectId": "<id>", "integrationId": "<id>", "tags": ["<value>", "<value>"], "visibility": "private", "messages": []}
   queryEvents:
     speakeasy-default-query-events:
       requestBody:
-        application/json: {}
+        application/json: {"notes": "Count of events by type"}
       responses:
-        "400":
-          application/json: {"error": {"code": "bad_request", "message": "Bad Request"}}
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
-        "401":
-          application/json: {"error": {"code": "unauthorized", "message": "Unauthorized"}}
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
-        "403":
-          application/json: {"error": {"code": "forbidden", "message": "Forbidden"}}
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
-        "422":
-          application/json: {"error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-        "500":
-          application/json: {"error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
         "200":
           application/json: {"status": "ok", "data": {"result": [], "total": 4443.48, "pageSize": 6184.78, "count": 9797.71}}
+        "400":
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+        "422":
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
   querySemanticThreads:
     speakeasy-default-query-semantic-threads:
       requestBody:
-        application/json: {}
+        application/json: {"notes": "Count of chat sessions with documentation gaps by integration"}
       responses:
         "200":
-          application/json: {"status": "ok", "data": {"result": [{}], "total": 4200.27, "pageSize": 3002.48, "count": 7650.29}}
+          application/json: {"status": "ok", "data": {"result": [{}], "total": 3002.48, "pageSize": 7650.29, "count": 7736.62}}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -789,27 +734,10 @@ examples:
   exportSemanticThreadsQueryResults:
     speakeasy-default-export-semantic-threads-query-results:
       requestBody:
-        application/json: {}
+        application/json: {"notes": "Count of chat sessions with documentation gaps by integration"}
       responses:
         "200":
           text/csv: "x-file: example.file"
-        "400":
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
-        "401":
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
-        "403":
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
-        "422":
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-        "500":
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-  post_/query/property-keys:
-    speakeasy-default-post-/query/property-keys:
-      requestBody:
-        application/json: {"field": "properties", "search": "theme", "views": ["events_view"]}
-      responses:
-        "200":
-          application/json: {"results": [{"key": "theme", "count": 42}, {"key": "theme", "count": 42}, {"key": "theme", "count": 42}]}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -854,35 +782,5 @@ examples:
           application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
           application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-  topSearchQueries:
-    speakeasy-default-top-search-queries:
-      responses:
-        "200":
-          application/json: {"data": {"result": [], "total": 3412.78}}
-        "400":
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
-        "401":
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
-        "403":
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
-        "422":
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-        "500":
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-  weeklySearchUsers:
-    speakeasy-default-weekly-search-users:
-      responses:
-        "200":
-          application/json: {"data": {"result": [{"week": "<value>", "unique_users": "<value>"}, {"week": "<value>", "unique_users": "<value>"}], "total": 4462.8}}
-        "400":
-          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
-        "401":
-          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
-        "403":
-          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
-        "422":
-          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
-        "500":
-          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-examplesVersion: 1.0.0
+examplesVersion: 1.0.1
 generatedTests: {}

@@ -8,7 +8,7 @@ Specifies how to order Conversations query results by field and direction
 import { ConversationsOrderBy } from "@inkeep/inkeep-analytics/models/components";
 
 let value: ConversationsOrderBy = {
-  field: "userMessageCount_month",
+  field: "count_properties",
   direction: "desc",
 };
 ```

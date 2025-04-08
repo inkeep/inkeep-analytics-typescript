@@ -36,6 +36,7 @@ export type EventsSimpleFieldSelectionField = ClosedEnum<
 export type EventsSimpleFieldSelection = {
   type: EventsSimpleFieldSelectionType;
   field: EventsSimpleFieldSelectionField;
+  path?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -88,12 +89,14 @@ export const EventsSimpleFieldSelection$inboundSchema: z.ZodType<
 > = z.object({
   type: EventsSimpleFieldSelectionType$inboundSchema,
   field: EventsSimpleFieldSelectionField$inboundSchema,
+  path: z.array(z.string()).optional(),
 });
 
 /** @internal */
 export type EventsSimpleFieldSelection$Outbound = {
   type: string;
   field: string;
+  path?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -104,6 +107,7 @@ export const EventsSimpleFieldSelection$outboundSchema: z.ZodType<
 > = z.object({
   type: EventsSimpleFieldSelectionType$outboundSchema,
   field: EventsSimpleFieldSelectionField$outboundSchema,
+  path: z.array(z.string()).optional(),
 });
 
 /**

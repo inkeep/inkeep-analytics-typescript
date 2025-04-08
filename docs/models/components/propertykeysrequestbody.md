@@ -8,7 +8,7 @@ Query Property Keys Params
 import { PropertyKeysRequestBody } from "@inkeep/inkeep-analytics/models/components";
 
 let value: PropertyKeysRequestBody = {
-  field: "userProperties",
+  field: "properties",
   views: [
     "events_view",
     "conversations_view",

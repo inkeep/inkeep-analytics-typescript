@@ -7,7 +7,7 @@ import { ConversationsAggregationSelection } from "@inkeep/inkeep-analytics/mode
 
 let value: ConversationsAggregationSelection = {
   type: "aggregation",
-  aggregation: "avg",
+  aggregation: "countDistinct",
 };
 ```
 
@@ -18,3 +18,4 @@ let value: ConversationsAggregationSelection = {
 | `type`                                                                                                               | [components.ConversationsAggregationSelectionType](../../models/components/conversationsaggregationselectiontype.md) | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `aggregation`                                                                                                        | [components.Aggregation](../../models/components/aggregation.md)                                                     | :heavy_check_mark:                                                                                                   | N/A                                                                                                                  |
 | `field`                                                                                                              | [components.Field](../../models/components/field.md)                                                                 | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |
+| `path`                                                                                                               | *string*[]                                                                                                           | :heavy_minus_sign:                                                                                                   | N/A                                                                                                                  |

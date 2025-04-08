@@ -10,7 +10,7 @@ Fields to select from events
 ```typescript
 const value: components.EventsAggregationSelection = {
   type: "aggregation",
-  aggregation: "count",
+  aggregation: "countDistinct",
 };
 ```
 
@@ -19,7 +19,7 @@ const value: components.EventsAggregationSelection = {
 ```typescript
 const value: components.EventsTimeBasedGroupBySelection = {
   type: "time",
-  timeUnit: "hour",
+  timeUnit: "day",
 };
 ```
 

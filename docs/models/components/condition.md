@@ -6,9 +6,14 @@
 import { Condition } from "@inkeep/inkeep-analytics/models/components";
 
 let value: Condition = {
-  field: "type",
-  operator: "gte",
-  value: 5876,
+  field: "id",
+  operator: "lte",
+  value: {
+    path: [
+      "/usr/src",
+    ],
+    value: false,
+  },
 };
 ```
 

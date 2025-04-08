@@ -20,6 +20,7 @@ export type ConversationsGroupBy = {
    * Available fields for Conversations
    */
   field: ConversationsField;
+  path?: Array<string> | undefined;
   includeInSelect?: boolean | undefined;
 };
 
@@ -30,12 +31,14 @@ export const ConversationsGroupBy$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   field: ConversationsField$inboundSchema,
+  path: z.array(z.string()).optional(),
   includeInSelect: z.boolean().default(true),
 });
 
 /** @internal */
 export type ConversationsGroupBy$Outbound = {
   field: string;
+  path?: Array<string> | undefined;
   includeInSelect: boolean;
 };
 
@@ -46,6 +49,7 @@ export const ConversationsGroupBy$outboundSchema: z.ZodType<
   ConversationsGroupBy
 > = z.object({
   field: ConversationsField$outboundSchema,
+  path: z.array(z.string()).optional(),
   includeInSelect: z.boolean().default(true),
 });
 

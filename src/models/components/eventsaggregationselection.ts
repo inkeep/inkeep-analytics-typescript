@@ -18,6 +18,7 @@ export type EventsAggregationSelectionType = ClosedEnum<
 export const EventsAggregationSelectionAggregation = {
   Sum: "sum",
   Count: "count",
+  CountDistinct: "countDistinct",
   Avg: "avg",
   Min: "min",
   Max: "max",
@@ -48,6 +49,7 @@ export type EventsAggregationSelection = {
   type: EventsAggregationSelectionType;
   aggregation: EventsAggregationSelectionAggregation;
   field?: EventsAggregationSelectionField | undefined;
+  path?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -125,6 +127,7 @@ export const EventsAggregationSelection$inboundSchema: z.ZodType<
   type: EventsAggregationSelectionType$inboundSchema,
   aggregation: EventsAggregationSelectionAggregation$inboundSchema,
   field: EventsAggregationSelectionField$inboundSchema.optional(),
+  path: z.array(z.string()).optional(),
 });
 
 /** @internal */
@@ -132,6 +135,7 @@ export type EventsAggregationSelection$Outbound = {
   type: string;
   aggregation: string;
   field?: string | undefined;
+  path?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -143,6 +147,7 @@ export const EventsAggregationSelection$outboundSchema: z.ZodType<
   type: EventsAggregationSelectionType$outboundSchema,
   aggregation: EventsAggregationSelectionAggregation$outboundSchema,
   field: EventsAggregationSelectionField$outboundSchema.optional(),
+  path: z.array(z.string()).optional(),
 });
 
 /**

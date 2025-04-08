@@ -1,11 +1,11 @@
-# GetAllConversationRequest
+# GetAllFeedbackRequest
 
 ## Example Usage
 
 ```typescript
-import { GetAllConversationRequest } from "@inkeep/inkeep-analytics/models/operations";
+import { GetAllFeedbackRequest } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: GetAllConversationRequest = {};
+let value: GetAllFeedbackRequest = {};
 ```
 
 ## Fields

@@ -12,32 +12,42 @@ let value: GetAllConversationResponseBody = {
     {
       id: "<id>",
       externalId: "<id>",
-      externalUrl: "https://jealous-tapioca.org",
-      type: "support_ticket",
+      externalUrl: "https://untimely-hovercraft.info/",
+      type: "openai",
       supportTicketConversationId: "<id>",
-      createdAt: "1724230654708",
-      updatedAt: "1743656447606",
+      createdAt: "1721806429978",
+      updatedAt: "1744103541516",
       projectId: "<id>",
       integrationId: "<id>",
-      visibility: "public",
+      visibility: "private",
       messages: [
         {
           id: "<id>",
-          type: "support_ticket",
+          type: "openai",
           externalId: "<id>",
-          externalUrl: "https://valuable-behest.com",
+          externalUrl: "https://respectful-peony.biz",
           conversationId: "<id>",
-          createdAt: "1712776050717",
-          updatedAt: "1743659980878",
-          role: "<value>",
+          createdAt: "1733853646881",
+          updatedAt: "1744150428698",
+          role: "user",
           content: "<value>",
+        },
+      ],
+      messagesOpenAIFormat: [
+        {
+          role: "system",
+          content: [
+            {
+              type: "text",
+            },
+          ],
         },
       ],
     },
   ],
-  total: 7781.57,
-  pageSize: 8700.13,
-  count: 9786.19,
+  total: 2862.73,
+  pageSize: 8242.31,
+  count: 4475.85,
 };
 ```
 

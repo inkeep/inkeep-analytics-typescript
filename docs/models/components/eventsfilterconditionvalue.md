@@ -20,7 +20,7 @@ const value: boolean = false;
 ### `number`
 
 ```typescript
-const value: number = 163.28;
+const value: number = 1284.03;
 ```
 
 ### `string[]`
@@ -44,9 +44,9 @@ const value: { [k: string]: any } = {
 ```typescript
 const value: components.EventsFilterConditionValue6 = {
   path: [
-    "/home",
+    "/sys",
   ],
-  value: 9292.92,
+  value: "<value>",
 };
 ```
 

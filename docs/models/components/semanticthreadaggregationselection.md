@@ -7,7 +7,7 @@ import { SemanticThreadAggregationSelection } from "@inkeep/inkeep-analytics/mod
 
 let value: SemanticThreadAggregationSelection = {
   type: "aggregation",
-  aggregation: "sum",
+  aggregation: "count",
 };
 ```
 
@@ -18,3 +18,4 @@ let value: SemanticThreadAggregationSelection = {
 | `type`                                                                                                                               | [components.SemanticThreadAggregationSelectionType](../../models/components/semanticthreadaggregationselectiontype.md)               | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
 | `aggregation`                                                                                                                        | [components.SemanticThreadAggregationSelectionAggregation](../../models/components/semanticthreadaggregationselectionaggregation.md) | :heavy_check_mark:                                                                                                                   | N/A                                                                                                                                  |
 | `field`                                                                                                                              | [components.SemanticThreadAggregationSelectionField](../../models/components/semanticthreadaggregationselectionfield.md)             | :heavy_minus_sign:                                                                                                                   | N/A                                                                                                                                  |
+| `path`                                                                                                                               | *string*[]                                                                                                                           | :heavy_minus_sign:                                                                                                                   | N/A                                                                                                                                  |

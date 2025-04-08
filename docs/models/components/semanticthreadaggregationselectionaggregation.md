@@ -5,11 +5,11 @@
 ```typescript
 import { SemanticThreadAggregationSelectionAggregation } from "@inkeep/inkeep-analytics/models/components";
 
-let value: SemanticThreadAggregationSelectionAggregation = "max";
+let value: SemanticThreadAggregationSelectionAggregation = "avg";
 ```
 
 ## Values
 
 ```typescript
-"sum" | "count" | "avg" | "min" | "max"
+"sum" | "count" | "countDistinct" | "avg" | "min" | "max"
 ```

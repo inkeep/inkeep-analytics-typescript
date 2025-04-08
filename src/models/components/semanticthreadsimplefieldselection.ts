@@ -55,6 +55,7 @@ export type SemanticThreadSimpleFieldSelectionField = ClosedEnum<
 export type SemanticThreadSimpleFieldSelection = {
   type: SemanticThreadSimpleFieldSelectionType;
   field: SemanticThreadSimpleFieldSelectionField;
+  path?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -112,12 +113,14 @@ export const SemanticThreadSimpleFieldSelection$inboundSchema: z.ZodType<
 > = z.object({
   type: SemanticThreadSimpleFieldSelectionType$inboundSchema,
   field: SemanticThreadSimpleFieldSelectionField$inboundSchema,
+  path: z.array(z.string()).optional(),
 });
 
 /** @internal */
 export type SemanticThreadSimpleFieldSelection$Outbound = {
   type: string;
   field: string;
+  path?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -128,6 +131,7 @@ export const SemanticThreadSimpleFieldSelection$outboundSchema: z.ZodType<
 > = z.object({
   type: SemanticThreadSimpleFieldSelectionType$outboundSchema,
   field: SemanticThreadSimpleFieldSelectionField$outboundSchema,
+  path: z.array(z.string()).optional(),
 });
 
 /**

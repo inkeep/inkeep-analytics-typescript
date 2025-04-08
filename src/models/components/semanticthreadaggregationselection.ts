@@ -18,6 +18,7 @@ export type SemanticThreadAggregationSelectionType = ClosedEnum<
 export const SemanticThreadAggregationSelectionAggregation = {
   Sum: "sum",
   Count: "count",
+  CountDistinct: "countDistinct",
   Avg: "avg",
   Min: "min",
   Max: "max",
@@ -67,6 +68,7 @@ export type SemanticThreadAggregationSelection = {
   type: SemanticThreadAggregationSelectionType;
   aggregation: SemanticThreadAggregationSelectionAggregation;
   field?: SemanticThreadAggregationSelectionField | undefined;
+  path?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -148,6 +150,7 @@ export const SemanticThreadAggregationSelection$inboundSchema: z.ZodType<
   type: SemanticThreadAggregationSelectionType$inboundSchema,
   aggregation: SemanticThreadAggregationSelectionAggregation$inboundSchema,
   field: SemanticThreadAggregationSelectionField$inboundSchema.optional(),
+  path: z.array(z.string()).optional(),
 });
 
 /** @internal */
@@ -155,6 +158,7 @@ export type SemanticThreadAggregationSelection$Outbound = {
   type: string;
   aggregation: string;
   field?: string | undefined;
+  path?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -166,6 +170,7 @@ export const SemanticThreadAggregationSelection$outboundSchema: z.ZodType<
   type: SemanticThreadAggregationSelectionType$outboundSchema,
   aggregation: SemanticThreadAggregationSelectionAggregation$outboundSchema,
   field: SemanticThreadAggregationSelectionField$outboundSchema.optional(),
+  path: z.array(z.string()).optional(),
 });
 
 /**

@@ -5,7 +5,7 @@
 ```typescript
 import { PropertyValuesRequestBodyViews } from "@inkeep/inkeep-analytics/models/components";
 
-let value: PropertyValuesRequestBodyViews = "conversations_view";
+let value: PropertyValuesRequestBodyViews = "semantic_threads_view";
 ```
 
 ## Values

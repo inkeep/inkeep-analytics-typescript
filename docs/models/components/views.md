@@ -5,7 +5,7 @@
 ```typescript
 import { Views } from "@inkeep/inkeep-analytics/models/components";
 
-let value: Views = "semantic_threads_view";
+let value: Views = "conversations_view";
 ```
 
 ## Values

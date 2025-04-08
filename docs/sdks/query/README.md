@@ -26,7 +26,9 @@ const inkeepAnalytics = new InkeepAnalytics();
 async function run() {
   const result = await inkeepAnalytics.query.conversations({
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {});
+  }, {
+    notes: "Count of support ticket conversations by integration",
+  });
 
   // Handle the result
   console.log(result);
@@ -50,7 +52,9 @@ const inkeepAnalytics = new InkeepAnalyticsCore();
 async function run() {
   const res = await queryConversations(inkeepAnalytics, {
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {});
+  }, {
+    notes: "Count of support ticket conversations by integration",
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -121,7 +125,9 @@ const inkeepAnalytics = new InkeepAnalytics();
 async function run() {
   const result = await inkeepAnalytics.query.queryEvents({
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {});
+  }, {
+    notes: "Count of events by type",
+  });
 
   // Handle the result
   console.log(result);
@@ -145,7 +151,9 @@ const inkeepAnalytics = new InkeepAnalyticsCore();
 async function run() {
   const res = await queryQueryEvents(inkeepAnalytics, {
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {});
+  }, {
+    notes: "Count of events by type",
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -216,7 +224,9 @@ const inkeepAnalytics = new InkeepAnalytics();
 async function run() {
   const result = await inkeepAnalytics.query.querySemanticThreads({
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {});
+  }, {
+    notes: "Count of chat sessions with documentation gaps by integration",
+  });
 
   // Handle the result
   console.log(result);
@@ -240,7 +250,9 @@ const inkeepAnalytics = new InkeepAnalyticsCore();
 async function run() {
   const res = await queryQuerySemanticThreads(inkeepAnalytics, {
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {});
+  }, {
+    notes: "Count of chat sessions with documentation gaps by integration",
+  });
 
   if (!res.ok) {
     throw res.error;
@@ -311,7 +323,9 @@ const inkeepAnalytics = new InkeepAnalytics({
 });
 
 async function run() {
-  const result = await inkeepAnalytics.query.exportSemanticThreadsQueryResults({});
+  const result = await inkeepAnalytics.query.exportSemanticThreadsQueryResults({
+    notes: "Count of chat sessions with documentation gaps by integration",
+  });
 
   // Handle the result
   console.log(result);
@@ -335,7 +349,9 @@ const inkeepAnalytics = new InkeepAnalyticsCore({
 });
 
 async function run() {
-  const res = await queryExportSemanticThreadsQueryResults(inkeepAnalytics, {});
+  const res = await queryExportSemanticThreadsQueryResults(inkeepAnalytics, {
+    notes: "Count of chat sessions with documentation gaps by integration",
+  });
 
   if (!res.ok) {
     throw res.error;

@@ -7,7 +7,7 @@ import { ConversationsSimpleFieldSelection } from "@inkeep/inkeep-analytics/mode
 
 let value: ConversationsSimpleFieldSelection = {
   type: "field",
-  field: "projectId",
+  field: "firstMessageTime",
 };
 ```
 
@@ -17,3 +17,4 @@ let value: ConversationsSimpleFieldSelection = {
 | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | `type`                                                                                                                 | [components.ConversationsSimpleFieldSelectionType](../../models/components/conversationssimplefieldselectiontype.md)   | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
 | `field`                                                                                                                | [components.ConversationsSimpleFieldSelectionField](../../models/components/conversationssimplefieldselectionfield.md) | :heavy_check_mark:                                                                                                     | N/A                                                                                                                    |
+| `path`                                                                                                                 | *string*[]                                                                                                             | :heavy_minus_sign:                                                                                                     | N/A                                                                                                                    |
