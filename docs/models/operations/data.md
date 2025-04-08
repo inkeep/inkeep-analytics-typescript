@@ -12,7 +12,7 @@ let value: Data = {
       count: "<value>",
     },
   ],
-  total: 5488.14,
+  total: 5830.08,
 };
 ```
 

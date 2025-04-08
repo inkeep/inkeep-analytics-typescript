@@ -7,7 +7,7 @@ import { SemanticThreadSimpleFieldSelection } from "@inkeep/inkeep-analytics/mod
 
 let value: SemanticThreadSimpleFieldSelection = {
   type: "field",
-  field: "messageIds",
+  field: "isFeatureSupported",
 };
 ```
 
@@ -17,3 +17,4 @@ let value: SemanticThreadSimpleFieldSelection = {
 | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
 | `type`                                                                                                                   | [components.SemanticThreadSimpleFieldSelectionType](../../models/components/semanticthreadsimplefieldselectiontype.md)   | :heavy_check_mark:                                                                                                       | N/A                                                                                                                      |
 | `field`                                                                                                                  | [components.SemanticThreadSimpleFieldSelectionField](../../models/components/semanticthreadsimplefieldselectionfield.md) | :heavy_check_mark:                                                                                                       | N/A                                                                                                                      |
+| `path`                                                                                                                   | *string*[]                                                                                                               | :heavy_minus_sign:                                                                                                       | N/A                                                                                                                      |

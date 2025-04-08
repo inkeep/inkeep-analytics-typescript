@@ -7,9 +7,9 @@ import { Six } from "@inkeep/inkeep-analytics/models/components";
 
 let value: Six = {
   path: [
-    "/dev",
+    "/var/yp",
   ],
-  value: false,
+  value: 8809.51,
 };
 ```
 

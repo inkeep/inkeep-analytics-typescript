@@ -33,6 +33,7 @@ export type ConversationsSimpleFieldSelectionField = ClosedEnum<
 export type ConversationsSimpleFieldSelection = {
   type: ConversationsSimpleFieldSelectionType;
   field: ConversationsSimpleFieldSelectionField;
+  path?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -91,12 +92,14 @@ export const ConversationsSimpleFieldSelection$inboundSchema: z.ZodType<
 > = z.object({
   type: ConversationsSimpleFieldSelectionType$inboundSchema,
   field: ConversationsSimpleFieldSelectionField$inboundSchema,
+  path: z.array(z.string()).optional(),
 });
 
 /** @internal */
 export type ConversationsSimpleFieldSelection$Outbound = {
   type: string;
   field: string;
+  path?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -107,6 +110,7 @@ export const ConversationsSimpleFieldSelection$outboundSchema: z.ZodType<
 > = z.object({
   type: ConversationsSimpleFieldSelectionType$outboundSchema,
   field: ConversationsSimpleFieldSelectionField$outboundSchema,
+  path: z.array(z.string()).optional(),
 });
 
 /**

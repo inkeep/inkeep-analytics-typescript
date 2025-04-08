@@ -29,9 +29,9 @@ import {
  * Fields to select from events
  */
 export type EventsSelection =
+  | (EventsTimeBasedGroupBySelection & { type: "time" })
   | (EventsSimpleFieldSelection & { type: "field" })
-  | (EventsAggregationSelection & { type: "aggregation" })
-  | (EventsTimeBasedGroupBySelection & { type: "time" });
+  | (EventsAggregationSelection & { type: "aggregation" });
 
 /** @internal */
 export const EventsSelection$inboundSchema: z.ZodType<
@@ -39,6 +39,9 @@ export const EventsSelection$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  EventsTimeBasedGroupBySelection$inboundSchema.and(
+    z.object({ type: z.literal("time") }).transform((v) => ({ type: v.type })),
+  ),
   EventsSimpleFieldSelection$inboundSchema.and(
     z.object({ type: z.literal("field") }).transform((v) => ({ type: v.type })),
   ),
@@ -47,16 +50,13 @@ export const EventsSelection$inboundSchema: z.ZodType<
       type: v.type,
     })),
   ),
-  EventsTimeBasedGroupBySelection$inboundSchema.and(
-    z.object({ type: z.literal("time") }).transform((v) => ({ type: v.type })),
-  ),
 ]);
 
 /** @internal */
 export type EventsSelection$Outbound =
+  | (EventsTimeBasedGroupBySelection$Outbound & { type: "time" })
   | (EventsSimpleFieldSelection$Outbound & { type: "field" })
-  | (EventsAggregationSelection$Outbound & { type: "aggregation" })
-  | (EventsTimeBasedGroupBySelection$Outbound & { type: "time" });
+  | (EventsAggregationSelection$Outbound & { type: "aggregation" });
 
 /** @internal */
 export const EventsSelection$outboundSchema: z.ZodType<
@@ -64,6 +64,9 @@ export const EventsSelection$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   EventsSelection
 > = z.union([
+  EventsTimeBasedGroupBySelection$outboundSchema.and(
+    z.object({ type: z.literal("time") }).transform((v) => ({ type: v.type })),
+  ),
   EventsSimpleFieldSelection$outboundSchema.and(
     z.object({ type: z.literal("field") }).transform((v) => ({ type: v.type })),
   ),
@@ -71,9 +74,6 @@ export const EventsSelection$outboundSchema: z.ZodType<
     z.object({ type: z.literal("aggregation") }).transform((v) => ({
       type: v.type,
     })),
-  ),
-  EventsTimeBasedGroupBySelection$outboundSchema.and(
-    z.object({ type: z.literal("time") }).transform((v) => ({ type: v.type })),
   ),
 ]);
 

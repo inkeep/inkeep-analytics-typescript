@@ -8,31 +8,39 @@ import { OpenAIConversation } from "@inkeep/inkeep-analytics/models/components";
 let value: OpenAIConversation = {
   id: "<id>",
   externalId: "<id>",
-  externalUrl: "https://wobbly-newsstand.net/",
+  externalUrl: "https://illiterate-tenant.info",
   type: "openai",
   supportTicketConversationId: "<id>",
-  createdAt: "1713374269660",
-  updatedAt: "1743612477722",
+  createdAt: "1718204251069",
+  updatedAt: "1744142180740",
   projectId: "<id>",
   integrationId: "<id>",
-  visibility: "private",
+  visibility: "public",
   messages: [
     {
       id: "<id>",
       type: "openai",
       externalId: "<id>",
-      externalUrl: "https://close-farm.info/",
+      externalUrl: "https://mean-nougat.org/",
       conversationId: "<id>",
-      createdAt: "1714161398865",
-      updatedAt: "1743647872384",
-      role: "user",
-      content: "<value>",
+      createdAt: "1713410630935",
+      updatedAt: "1744087410621",
+      role: "assistant",
+      content: [
+        {
+          type: "text",
+        },
+      ],
     },
   ],
   messagesOpenAIFormat: [
     {
-      role: "user",
-      content: "<value>",
+      role: "assistant",
+      content: [
+        {
+          type: "image_url",
+        },
+      ],
     },
   ],
 };

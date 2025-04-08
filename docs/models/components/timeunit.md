@@ -7,7 +7,7 @@ Valid time units for time-based operations
 ```typescript
 import { TimeUnit } from "@inkeep/inkeep-analytics/models/components";
 
-let value: TimeUnit = "day";
+let value: TimeUnit = "hour";
 ```
 
 ## Values

@@ -5,7 +5,7 @@
 ```typescript
 import { Role } from "@inkeep/inkeep-analytics/models/components";
 
-let value: Role = "assistant";
+let value: Role = "system";
 ```
 
 ## Values

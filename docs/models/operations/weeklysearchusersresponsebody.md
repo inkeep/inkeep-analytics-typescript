@@ -15,7 +15,7 @@ let value: WeeklySearchUsersResponseBody = {
         uniqueUsers: "<value>",
       },
     ],
-    total: 5448.83,
+    total: 950.72,
   },
 };
 ```

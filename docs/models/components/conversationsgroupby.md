@@ -8,7 +8,7 @@ Group by options for conversations
 import { ConversationsGroupBy } from "@inkeep/inkeep-analytics/models/components";
 
 let value: ConversationsGroupBy = {
-  field: "organizationId",
+  field: "type",
 };
 ```
 
@@ -17,4 +17,5 @@ let value: ConversationsGroupBy = {
 | Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
 | `field`                                                                        | [components.ConversationsField](../../models/components/conversationsfield.md) | :heavy_check_mark:                                                             | Available fields for Conversations                                             |
+| `path`                                                                         | *string*[]                                                                     | :heavy_minus_sign:                                                             | N/A                                                                            |
 | `includeInSelect`                                                              | *boolean*                                                                      | :heavy_minus_sign:                                                             | N/A                                                                            |

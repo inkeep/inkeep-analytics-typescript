@@ -15,7 +15,7 @@ let value: TopSearchQueriesResponseBody = {
         count: "<value>",
       },
     ],
-    total: 7151.9,
+    total: 2185.23,
   },
 };
 ```

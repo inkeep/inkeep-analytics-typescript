@@ -20,6 +20,7 @@ export type EventsGroupBy = {
    * Available fields for Events
    */
   field: EventsField;
+  path?: Array<string> | undefined;
   includeInSelect?: boolean | undefined;
 };
 
@@ -30,12 +31,14 @@ export const EventsGroupBy$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   field: EventsField$inboundSchema,
+  path: z.array(z.string()).optional(),
   includeInSelect: z.boolean().default(true),
 });
 
 /** @internal */
 export type EventsGroupBy$Outbound = {
   field: string;
+  path?: Array<string> | undefined;
   includeInSelect: boolean;
 };
 
@@ -46,6 +49,7 @@ export const EventsGroupBy$outboundSchema: z.ZodType<
   EventsGroupBy
 > = z.object({
   field: EventsField$outboundSchema,
+  path: z.array(z.string()).optional(),
   includeInSelect: z.boolean().default(true),
 });
 

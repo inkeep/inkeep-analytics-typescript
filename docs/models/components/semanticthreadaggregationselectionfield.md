@@ -5,7 +5,7 @@
 ```typescript
 import { SemanticThreadAggregationSelectionField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: SemanticThreadAggregationSelectionField = "isOnTopic";
+let value: SemanticThreadAggregationSelectionField = "questionLength";
 ```
 
 ## Values

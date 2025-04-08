@@ -8,11 +8,11 @@
 ```typescript
 const value: components.ConversationsFilterCondition = {
   condition: {
-    field: "id",
-    operator: "jsonContains",
-    value: {
-      "key": "<value>",
-    },
+    field: "userMessageCount",
+    operator: "notIn",
+    value: [
+      "<value>",
+    ],
   },
 };
 ```

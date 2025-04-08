@@ -14,7 +14,7 @@ const value: string = "<value>";
 ```typescript
 const value: components.OpenAIContentItem[] = [
   {
-    type: "image_url",
+    type: "text",
   },
 ];
 ```

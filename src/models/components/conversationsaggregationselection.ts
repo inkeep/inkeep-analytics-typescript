@@ -18,6 +18,7 @@ export type ConversationsAggregationSelectionType = ClosedEnum<
 export const Aggregation = {
   Sum: "sum",
   Count: "count",
+  CountDistinct: "countDistinct",
   Avg: "avg",
   Min: "min",
   Max: "max",
@@ -41,6 +42,7 @@ export type ConversationsAggregationSelection = {
   type: ConversationsAggregationSelectionType;
   aggregation: Aggregation;
   field?: Field | undefined;
+  path?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -115,6 +117,7 @@ export const ConversationsAggregationSelection$inboundSchema: z.ZodType<
   type: ConversationsAggregationSelectionType$inboundSchema,
   aggregation: Aggregation$inboundSchema,
   field: Field$inboundSchema.optional(),
+  path: z.array(z.string()).optional(),
 });
 
 /** @internal */
@@ -122,6 +125,7 @@ export type ConversationsAggregationSelection$Outbound = {
   type: string;
   aggregation: string;
   field?: string | undefined;
+  path?: Array<string> | undefined;
 };
 
 /** @internal */
@@ -133,6 +137,7 @@ export const ConversationsAggregationSelection$outboundSchema: z.ZodType<
   type: ConversationsAggregationSelectionType$outboundSchema,
   aggregation: Aggregation$outboundSchema,
   field: Field$outboundSchema.optional(),
+  path: z.array(z.string()).optional(),
 });
 
 /**

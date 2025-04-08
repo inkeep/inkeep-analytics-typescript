@@ -5,7 +5,7 @@
 ```typescript
 import { CreateSupportCopilotConversationType1 } from "@inkeep/inkeep-analytics/models/components";
 
-let value: CreateSupportCopilotConversationType1 = "site";
+let value: CreateSupportCopilotConversationType1 = "stackoverflow_question";
 ```
 
 ## Values

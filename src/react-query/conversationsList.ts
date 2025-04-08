@@ -80,7 +80,10 @@ export function prefetchConversationsList(
 export function setConversationsListData(
   client: QueryClient,
   queryKeyBase: [
-    parameters: { limit?: string | undefined; offset?: string | undefined },
+    parameters: {
+      limit?: number | null | undefined;
+      offset?: number | null | undefined;
+    },
   ],
   data: ConversationsListQueryData,
 ): ConversationsListQueryData | undefined {
@@ -92,7 +95,10 @@ export function setConversationsListData(
 export function invalidateConversationsList(
   client: QueryClient,
   queryKeyBase: TupleToPrefixes<
-    [parameters: { limit?: string | undefined; offset?: string | undefined }]
+    [parameters: {
+      limit?: number | null | undefined;
+      offset?: number | null | undefined;
+    }]
   >,
   filters?: Omit<InvalidateQueryFilters, "queryKey" | "predicate" | "exact">,
 ): Promise<void> {
@@ -151,7 +157,10 @@ export function buildConversationsListQuery(
 }
 
 export function queryKeyConversationsList(
-  parameters: { limit?: string | undefined; offset?: string | undefined },
+  parameters: {
+    limit?: number | null | undefined;
+    offset?: number | null | undefined;
+  },
 ): QueryKey {
   return ["@inkeep/inkeep-analytics", "conversations", "list", parameters];
 }

@@ -5,7 +5,7 @@
 ```typescript
 import { SemanticThreadOrderByDirection } from "@inkeep/inkeep-analytics/models/components";
 
-let value: SemanticThreadOrderByDirection = "asc";
+let value: SemanticThreadOrderByDirection = "desc";
 ```
 
 ## Values

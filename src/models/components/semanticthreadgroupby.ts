@@ -20,6 +20,7 @@ export type SemanticThreadGroupBy = {
    * Available fields for SemanticThread
    */
   field: SemanticThreadField;
+  path?: Array<string> | undefined;
   includeInSelect?: boolean | undefined;
 };
 
@@ -30,12 +31,14 @@ export const SemanticThreadGroupBy$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   field: SemanticThreadField$inboundSchema,
+  path: z.array(z.string()).optional(),
   includeInSelect: z.boolean().default(true),
 });
 
 /** @internal */
 export type SemanticThreadGroupBy$Outbound = {
   field: string;
+  path?: Array<string> | undefined;
   includeInSelect: boolean;
 };
 
@@ -46,6 +49,7 @@ export const SemanticThreadGroupBy$outboundSchema: z.ZodType<
   SemanticThreadGroupBy
 > = z.object({
   field: SemanticThreadField$outboundSchema,
+  path: z.array(z.string()).optional(),
   includeInSelect: z.boolean().default(true),
 });
 
