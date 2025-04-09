@@ -9,7 +9,7 @@
 const value: components.EventsFilterCondition = {
   condition: {
     field: "createdAt",
-    operator: "notIn",
+    operator: "arrayContains",
     value: {
       "key": "<value>",
     },
@@ -39,7 +39,7 @@ const value: components.EventsFilterOR = {
 const value: components.ConversationsFilterCondition = {
   condition: {
     field: "userMessageCount",
-    operator: "notIn",
+    operator: "arrayContains",
     value: [
       "<value>",
     ],
@@ -69,7 +69,7 @@ const value: components.ConversationsFilterOR = {
 const value: components.SemanticThreadFilterCondition = {
   condition: {
     field: "isAnswerConfident",
-    operator: "gte",
+    operator: "lt",
     value: "<value>",
   },
 };

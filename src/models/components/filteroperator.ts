@@ -23,6 +23,8 @@ export const FilterOperator = {
   JsonHasKey: "jsonHasKey",
   JsonHasAnyKey: "jsonHasAnyKey",
   JsonHasAllKeys: "jsonHasAllKeys",
+  IsNull: "isNull",
+  IsNotNull: "isNotNull",
 } as const;
 /**
  * Available operators for filtering data

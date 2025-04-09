@@ -7,7 +7,7 @@ import { Condition } from "@inkeep/inkeep-analytics/models/components";
 
 let value: Condition = {
   field: "id",
-  operator: "lte",
+  operator: "in",
   value: {
     path: [
       "/usr/src",

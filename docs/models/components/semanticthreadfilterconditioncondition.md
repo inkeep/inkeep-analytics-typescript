@@ -7,7 +7,7 @@ import { SemanticThreadFilterConditionCondition } from "@inkeep/inkeep-analytics
 
 let value: SemanticThreadFilterConditionCondition = {
   field: "projectId",
-  operator: "arrayContains",
+  operator: "jsonContains",
   value: 1761.69,
 };
 ```

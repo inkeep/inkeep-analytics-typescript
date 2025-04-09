@@ -11,8 +11,8 @@ let value: OpenAIConversation = {
   externalUrl: "https://illiterate-tenant.info",
   type: "openai",
   supportTicketConversationId: "<id>",
-  createdAt: "1718215300733",
-  updatedAt: "1744153230404",
+  createdAt: "1718230389644",
+  updatedAt: "1744168319315",
   projectId: "<id>",
   integrationId: "<id>",
   visibility: "public",
@@ -23,8 +23,8 @@ let value: OpenAIConversation = {
       externalId: "<id>",
       externalUrl: "https://mean-nougat.org/",
       conversationId: "<id>",
-      createdAt: "1713421680599",
-      updatedAt: "1744098460285",
+      createdAt: "1713436769510",
+      updatedAt: "1744113549196",
       role: "assistant",
       content: [
         {

@@ -9,7 +9,7 @@
 const value: components.EventsFilterCondition = {
   condition: {
     field: "createdAt",
-    operator: "notIn",
+    operator: "arrayContains",
     value: {
       "key": "<value>",
     },

@@ -9,7 +9,7 @@
 const value: components.SemanticThreadFilterCondition = {
   condition: {
     field: "isAnswerConfident",
-    operator: "gte",
+    operator: "lt",
     value: "<value>",
   },
 };

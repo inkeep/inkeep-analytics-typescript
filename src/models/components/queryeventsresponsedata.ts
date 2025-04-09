@@ -158,10 +158,10 @@ export type EventsResultItem = {
   maxPropertiesSupportAgentName?: number | undefined;
   maxUserPropertiesUserId?: number | undefined;
   maxUserPropertiesSupportAgentName?: number | undefined;
-  propertiesUserId?: string | undefined;
-  propertiesSupportAgentName?: string | undefined;
-  userPropertiesUserId?: string | undefined;
-  userPropertiesSupportAgentName?: string | undefined;
+  propertiesUserId?: string | null | undefined;
+  propertiesSupportAgentName?: string | null | undefined;
+  userPropertiesUserId?: string | null | undefined;
+  userPropertiesSupportAgentName?: string | null | undefined;
 };
 
 /**
@@ -338,10 +338,10 @@ export const EventsResultItem$inboundSchema: z.ZodType<
   "max_properties.supportAgentName": z.number().optional(),
   "max_userProperties.userId": z.number().optional(),
   "max_userProperties.supportAgentName": z.number().optional(),
-  "properties.userId": z.string().optional(),
-  "properties.supportAgentName": z.string().optional(),
-  "userProperties.userId": z.string().optional(),
-  "userProperties.supportAgentName": z.string().optional(),
+  "properties.userId": z.nullable(z.string()).optional(),
+  "properties.supportAgentName": z.nullable(z.string()).optional(),
+  "userProperties.userId": z.nullable(z.string()).optional(),
+  "userProperties.supportAgentName": z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "id_hour": "idHour",
@@ -637,10 +637,10 @@ export type EventsResultItem$Outbound = {
   "max_properties.supportAgentName"?: number | undefined;
   "max_userProperties.userId"?: number | undefined;
   "max_userProperties.supportAgentName"?: number | undefined;
-  "properties.userId"?: string | undefined;
-  "properties.supportAgentName"?: string | undefined;
-  "userProperties.userId"?: string | undefined;
-  "userProperties.supportAgentName"?: string | undefined;
+  "properties.userId"?: string | null | undefined;
+  "properties.supportAgentName"?: string | null | undefined;
+  "userProperties.userId"?: string | null | undefined;
+  "userProperties.supportAgentName"?: string | null | undefined;
 };
 
 /** @internal */
@@ -798,10 +798,10 @@ export const EventsResultItem$outboundSchema: z.ZodType<
   maxPropertiesSupportAgentName: z.number().optional(),
   maxUserPropertiesUserId: z.number().optional(),
   maxUserPropertiesSupportAgentName: z.number().optional(),
-  propertiesUserId: z.string().optional(),
-  propertiesSupportAgentName: z.string().optional(),
-  userPropertiesUserId: z.string().optional(),
-  userPropertiesSupportAgentName: z.string().optional(),
+  propertiesUserId: z.nullable(z.string()).optional(),
+  propertiesSupportAgentName: z.nullable(z.string()).optional(),
+  userPropertiesUserId: z.nullable(z.string()).optional(),
+  userPropertiesSupportAgentName: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     idHour: "id_hour",
