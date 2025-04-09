@@ -161,3 +161,7 @@ let value: EventsResultItem = {};
 | `maxPropertiesSupportAgentName`               | *number*                                      | :heavy_minus_sign:                            | N/A                                           |
 | `maxUserPropertiesUserId`                     | *number*                                      | :heavy_minus_sign:                            | N/A                                           |
 | `maxUserPropertiesSupportAgentName`           | *number*                                      | :heavy_minus_sign:                            | N/A                                           |
+| `propertiesUserId`                            | *string*                                      | :heavy_minus_sign:                            | N/A                                           |
+| `propertiesSupportAgentName`                  | *string*                                      | :heavy_minus_sign:                            | N/A                                           |
+| `userPropertiesUserId`                        | *string*                                      | :heavy_minus_sign:                            | N/A                                           |
+| `userPropertiesSupportAgentName`              | *string*                                      | :heavy_minus_sign:                            | N/A                                           |
