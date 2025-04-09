@@ -158,6 +158,10 @@ export type EventsResultItem = {
   maxPropertiesSupportAgentName?: number | undefined;
   maxUserPropertiesUserId?: number | undefined;
   maxUserPropertiesSupportAgentName?: number | undefined;
+  propertiesUserId?: string | undefined;
+  propertiesSupportAgentName?: string | undefined;
+  userPropertiesUserId?: string | undefined;
+  userPropertiesSupportAgentName?: string | undefined;
 };
 
 /**
@@ -334,6 +338,10 @@ export const EventsResultItem$inboundSchema: z.ZodType<
   "max_properties.supportAgentName": z.number().optional(),
   "max_userProperties.userId": z.number().optional(),
   "max_userProperties.supportAgentName": z.number().optional(),
+  "properties.userId": z.string().optional(),
+  "properties.supportAgentName": z.string().optional(),
+  "userProperties.userId": z.string().optional(),
+  "userProperties.supportAgentName": z.string().optional(),
 }).transform((v) => {
   return remap$(v, {
     "id_hour": "idHour",
@@ -471,6 +479,10 @@ export const EventsResultItem$inboundSchema: z.ZodType<
     "max_properties.supportAgentName": "maxPropertiesSupportAgentName",
     "max_userProperties.userId": "maxUserPropertiesUserId",
     "max_userProperties.supportAgentName": "maxUserPropertiesSupportAgentName",
+    "properties.userId": "propertiesUserId",
+    "properties.supportAgentName": "propertiesSupportAgentName",
+    "userProperties.userId": "userPropertiesUserId",
+    "userProperties.supportAgentName": "userPropertiesSupportAgentName",
   });
 });
 
@@ -625,6 +637,10 @@ export type EventsResultItem$Outbound = {
   "max_properties.supportAgentName"?: number | undefined;
   "max_userProperties.userId"?: number | undefined;
   "max_userProperties.supportAgentName"?: number | undefined;
+  "properties.userId"?: string | undefined;
+  "properties.supportAgentName"?: string | undefined;
+  "userProperties.userId"?: string | undefined;
+  "userProperties.supportAgentName"?: string | undefined;
 };
 
 /** @internal */
@@ -782,6 +798,10 @@ export const EventsResultItem$outboundSchema: z.ZodType<
   maxPropertiesSupportAgentName: z.number().optional(),
   maxUserPropertiesUserId: z.number().optional(),
   maxUserPropertiesSupportAgentName: z.number().optional(),
+  propertiesUserId: z.string().optional(),
+  propertiesSupportAgentName: z.string().optional(),
+  userPropertiesUserId: z.string().optional(),
+  userPropertiesSupportAgentName: z.string().optional(),
 }).transform((v) => {
   return remap$(v, {
     idHour: "id_hour",
@@ -919,6 +939,10 @@ export const EventsResultItem$outboundSchema: z.ZodType<
     maxPropertiesSupportAgentName: "max_properties.supportAgentName",
     maxUserPropertiesUserId: "max_userProperties.userId",
     maxUserPropertiesSupportAgentName: "max_userProperties.supportAgentName",
+    propertiesUserId: "properties.userId",
+    propertiesSupportAgentName: "properties.supportAgentName",
+    userPropertiesUserId: "userProperties.userId",
+    userPropertiesSupportAgentName: "userProperties.supportAgentName",
   });
 });
 

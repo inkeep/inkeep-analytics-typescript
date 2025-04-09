@@ -11,8 +11,8 @@ let value: SupportCopilotMessage = {
   externalId: "<id>",
   externalUrl: "https://essential-countess.net/",
   conversationId: "<id>",
-  createdAt: "1722336901936",
-  updatedAt: "1744159279807",
+  createdAt: "1722339423764",
+  updatedAt: "1744161801634",
   role: "<value>",
   content: "<value>",
 };
