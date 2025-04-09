@@ -134,6 +134,30 @@ export type EventsResultItem = {
   maxSearchQuery?: number | undefined;
   maxProperties?: number | undefined;
   maxUserProperties?: number | undefined;
+  sumPropertiesUserId?: number | undefined;
+  sumPropertiesSupportAgentName?: number | undefined;
+  sumUserPropertiesUserId?: number | undefined;
+  sumUserPropertiesSupportAgentName?: number | undefined;
+  countPropertiesUserId?: number | undefined;
+  countPropertiesSupportAgentName?: number | undefined;
+  countUserPropertiesUserId?: number | undefined;
+  countUserPropertiesSupportAgentName?: number | undefined;
+  countDistinctPropertiesUserId?: number | undefined;
+  countDistinctPropertiesSupportAgentName?: number | undefined;
+  countDistinctUserPropertiesUserId?: number | undefined;
+  countDistinctUserPropertiesSupportAgentName?: number | undefined;
+  avgPropertiesUserId?: number | undefined;
+  avgPropertiesSupportAgentName?: number | undefined;
+  avgUserPropertiesUserId?: number | undefined;
+  avgUserPropertiesSupportAgentName?: number | undefined;
+  minPropertiesUserId?: number | undefined;
+  minPropertiesSupportAgentName?: number | undefined;
+  minUserPropertiesUserId?: number | undefined;
+  minUserPropertiesSupportAgentName?: number | undefined;
+  maxPropertiesUserId?: number | undefined;
+  maxPropertiesSupportAgentName?: number | undefined;
+  maxUserPropertiesUserId?: number | undefined;
+  maxUserPropertiesSupportAgentName?: number | undefined;
 };
 
 /**
@@ -286,6 +310,30 @@ export const EventsResultItem$inboundSchema: z.ZodType<
   max_searchQuery: z.number().optional(),
   max_properties: z.number().optional(),
   max_userProperties: z.number().optional(),
+  "sum_properties.userId": z.number().optional(),
+  "sum_properties.supportAgentName": z.number().optional(),
+  "sum_userProperties.userId": z.number().optional(),
+  "sum_userProperties.supportAgentName": z.number().optional(),
+  "count_properties.userId": z.number().optional(),
+  "count_properties.supportAgentName": z.number().optional(),
+  "count_userProperties.userId": z.number().optional(),
+  "count_userProperties.supportAgentName": z.number().optional(),
+  "countDistinct_properties.userId": z.number().optional(),
+  "countDistinct_properties.supportAgentName": z.number().optional(),
+  "countDistinct_userProperties.userId": z.number().optional(),
+  "countDistinct_userProperties.supportAgentName": z.number().optional(),
+  "avg_properties.userId": z.number().optional(),
+  "avg_properties.supportAgentName": z.number().optional(),
+  "avg_userProperties.userId": z.number().optional(),
+  "avg_userProperties.supportAgentName": z.number().optional(),
+  "min_properties.userId": z.number().optional(),
+  "min_properties.supportAgentName": z.number().optional(),
+  "min_userProperties.userId": z.number().optional(),
+  "min_userProperties.supportAgentName": z.number().optional(),
+  "max_properties.userId": z.number().optional(),
+  "max_properties.supportAgentName": z.number().optional(),
+  "max_userProperties.userId": z.number().optional(),
+  "max_userProperties.supportAgentName": z.number().optional(),
 }).transform((v) => {
   return remap$(v, {
     "id_hour": "idHour",
@@ -396,6 +444,33 @@ export const EventsResultItem$inboundSchema: z.ZodType<
     "max_searchQuery": "maxSearchQuery",
     "max_properties": "maxProperties",
     "max_userProperties": "maxUserProperties",
+    "sum_properties.userId": "sumPropertiesUserId",
+    "sum_properties.supportAgentName": "sumPropertiesSupportAgentName",
+    "sum_userProperties.userId": "sumUserPropertiesUserId",
+    "sum_userProperties.supportAgentName": "sumUserPropertiesSupportAgentName",
+    "count_properties.userId": "countPropertiesUserId",
+    "count_properties.supportAgentName": "countPropertiesSupportAgentName",
+    "count_userProperties.userId": "countUserPropertiesUserId",
+    "count_userProperties.supportAgentName":
+      "countUserPropertiesSupportAgentName",
+    "countDistinct_properties.userId": "countDistinctPropertiesUserId",
+    "countDistinct_properties.supportAgentName":
+      "countDistinctPropertiesSupportAgentName",
+    "countDistinct_userProperties.userId": "countDistinctUserPropertiesUserId",
+    "countDistinct_userProperties.supportAgentName":
+      "countDistinctUserPropertiesSupportAgentName",
+    "avg_properties.userId": "avgPropertiesUserId",
+    "avg_properties.supportAgentName": "avgPropertiesSupportAgentName",
+    "avg_userProperties.userId": "avgUserPropertiesUserId",
+    "avg_userProperties.supportAgentName": "avgUserPropertiesSupportAgentName",
+    "min_properties.userId": "minPropertiesUserId",
+    "min_properties.supportAgentName": "minPropertiesSupportAgentName",
+    "min_userProperties.userId": "minUserPropertiesUserId",
+    "min_userProperties.supportAgentName": "minUserPropertiesSupportAgentName",
+    "max_properties.userId": "maxPropertiesUserId",
+    "max_properties.supportAgentName": "maxPropertiesSupportAgentName",
+    "max_userProperties.userId": "maxUserPropertiesUserId",
+    "max_userProperties.supportAgentName": "maxUserPropertiesSupportAgentName",
   });
 });
 
@@ -526,6 +601,30 @@ export type EventsResultItem$Outbound = {
   max_searchQuery?: number | undefined;
   max_properties?: number | undefined;
   max_userProperties?: number | undefined;
+  "sum_properties.userId"?: number | undefined;
+  "sum_properties.supportAgentName"?: number | undefined;
+  "sum_userProperties.userId"?: number | undefined;
+  "sum_userProperties.supportAgentName"?: number | undefined;
+  "count_properties.userId"?: number | undefined;
+  "count_properties.supportAgentName"?: number | undefined;
+  "count_userProperties.userId"?: number | undefined;
+  "count_userProperties.supportAgentName"?: number | undefined;
+  "countDistinct_properties.userId"?: number | undefined;
+  "countDistinct_properties.supportAgentName"?: number | undefined;
+  "countDistinct_userProperties.userId"?: number | undefined;
+  "countDistinct_userProperties.supportAgentName"?: number | undefined;
+  "avg_properties.userId"?: number | undefined;
+  "avg_properties.supportAgentName"?: number | undefined;
+  "avg_userProperties.userId"?: number | undefined;
+  "avg_userProperties.supportAgentName"?: number | undefined;
+  "min_properties.userId"?: number | undefined;
+  "min_properties.supportAgentName"?: number | undefined;
+  "min_userProperties.userId"?: number | undefined;
+  "min_userProperties.supportAgentName"?: number | undefined;
+  "max_properties.userId"?: number | undefined;
+  "max_properties.supportAgentName"?: number | undefined;
+  "max_userProperties.userId"?: number | undefined;
+  "max_userProperties.supportAgentName"?: number | undefined;
 };
 
 /** @internal */
@@ -659,6 +758,30 @@ export const EventsResultItem$outboundSchema: z.ZodType<
   maxSearchQuery: z.number().optional(),
   maxProperties: z.number().optional(),
   maxUserProperties: z.number().optional(),
+  sumPropertiesUserId: z.number().optional(),
+  sumPropertiesSupportAgentName: z.number().optional(),
+  sumUserPropertiesUserId: z.number().optional(),
+  sumUserPropertiesSupportAgentName: z.number().optional(),
+  countPropertiesUserId: z.number().optional(),
+  countPropertiesSupportAgentName: z.number().optional(),
+  countUserPropertiesUserId: z.number().optional(),
+  countUserPropertiesSupportAgentName: z.number().optional(),
+  countDistinctPropertiesUserId: z.number().optional(),
+  countDistinctPropertiesSupportAgentName: z.number().optional(),
+  countDistinctUserPropertiesUserId: z.number().optional(),
+  countDistinctUserPropertiesSupportAgentName: z.number().optional(),
+  avgPropertiesUserId: z.number().optional(),
+  avgPropertiesSupportAgentName: z.number().optional(),
+  avgUserPropertiesUserId: z.number().optional(),
+  avgUserPropertiesSupportAgentName: z.number().optional(),
+  minPropertiesUserId: z.number().optional(),
+  minPropertiesSupportAgentName: z.number().optional(),
+  minUserPropertiesUserId: z.number().optional(),
+  minUserPropertiesSupportAgentName: z.number().optional(),
+  maxPropertiesUserId: z.number().optional(),
+  maxPropertiesSupportAgentName: z.number().optional(),
+  maxUserPropertiesUserId: z.number().optional(),
+  maxUserPropertiesSupportAgentName: z.number().optional(),
 }).transform((v) => {
   return remap$(v, {
     idHour: "id_hour",
@@ -769,6 +892,33 @@ export const EventsResultItem$outboundSchema: z.ZodType<
     maxSearchQuery: "max_searchQuery",
     maxProperties: "max_properties",
     maxUserProperties: "max_userProperties",
+    sumPropertiesUserId: "sum_properties.userId",
+    sumPropertiesSupportAgentName: "sum_properties.supportAgentName",
+    sumUserPropertiesUserId: "sum_userProperties.userId",
+    sumUserPropertiesSupportAgentName: "sum_userProperties.supportAgentName",
+    countPropertiesUserId: "count_properties.userId",
+    countPropertiesSupportAgentName: "count_properties.supportAgentName",
+    countUserPropertiesUserId: "count_userProperties.userId",
+    countUserPropertiesSupportAgentName:
+      "count_userProperties.supportAgentName",
+    countDistinctPropertiesUserId: "countDistinct_properties.userId",
+    countDistinctPropertiesSupportAgentName:
+      "countDistinct_properties.supportAgentName",
+    countDistinctUserPropertiesUserId: "countDistinct_userProperties.userId",
+    countDistinctUserPropertiesSupportAgentName:
+      "countDistinct_userProperties.supportAgentName",
+    avgPropertiesUserId: "avg_properties.userId",
+    avgPropertiesSupportAgentName: "avg_properties.supportAgentName",
+    avgUserPropertiesUserId: "avg_userProperties.userId",
+    avgUserPropertiesSupportAgentName: "avg_userProperties.supportAgentName",
+    minPropertiesUserId: "min_properties.userId",
+    minPropertiesSupportAgentName: "min_properties.supportAgentName",
+    minUserPropertiesUserId: "min_userProperties.userId",
+    minUserPropertiesSupportAgentName: "min_userProperties.supportAgentName",
+    maxPropertiesUserId: "max_properties.userId",
+    maxPropertiesSupportAgentName: "max_properties.supportAgentName",
+    maxUserPropertiesUserId: "max_userProperties.userId",
+    maxUserPropertiesSupportAgentName: "max_userProperties.supportAgentName",
   });
 });
 

@@ -12,8 +12,8 @@ const value: components.OpenAIExtendedMessage = {
   externalId: "<id>",
   externalUrl: "https://responsible-pocket-watch.info/",
   conversationId: "<id>",
-  createdAt: "1738093307318",
-  updatedAt: "1744104469177",
+  createdAt: "1738099955554",
+  updatedAt: "1744111117413",
   role: "user",
   content: "<value>",
 };
@@ -28,8 +28,8 @@ const value: components.SupportTicketMessage = {
   externalId: "<id>",
   externalUrl: "https://peaceful-vibraphone.info/",
   conversationId: "<id>",
-  createdAt: "1739391613831",
-  updatedAt: "1744117348330",
+  createdAt: "1739398262073",
+  updatedAt: "1744123996572",
   role: "<value>",
   content: "<value>",
 };
@@ -44,8 +44,8 @@ const value: components.SupportCopilotMessage = {
   externalId: "<id>",
   externalUrl: "https://ill-fated-hovercraft.org",
   conversationId: "<id>",
-  createdAt: "1734471656385",
-  updatedAt: "1744122525285",
+  createdAt: "1734478304631",
+  updatedAt: "1744129173531",
   role: "<value>",
   content: "<value>",
 };
