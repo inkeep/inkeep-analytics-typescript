@@ -8,7 +8,7 @@ import { ConversationsFilterCondition } from "@inkeep/inkeep-analytics/models/co
 let value: ConversationsFilterCondition = {
   condition: {
     field: "integrationId",
-    operator: "jsonHasKey",
+    operator: "jsonHasAllKeys",
     value: [
       "<value>",
     ],
