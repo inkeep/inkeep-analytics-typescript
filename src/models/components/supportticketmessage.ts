@@ -3,7 +3,11 @@
  */
 
 import * as z from "zod";
-import { safeParse } from "../../lib/schemas.js";
+import { remap as remap$ } from "../../lib/primitives.js";
+import {
+  collectExtraKeys as collectExtraKeys$,
+  safeParse,
+} from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -39,6 +43,39 @@ export type SupportTicketMessageLinks = {
   breadcrumbs?: Array<string> | null | undefined;
 };
 
+/**
+ * The unique identifier for the user. This value is sent by the inkeep widget.
+ */
+export type SupportTicketMessageId = string | number;
+
+/**
+ * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type SupportTicketMessageUserId = string | number;
+
+/**
+ * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
+ */
+export type SupportTicketMessageUserProperties = {
+  /**
+   * The unique identifier for the user. This value is sent by the inkeep widget.
+   */
+  id?: string | number | null | undefined;
+  /**
+   * The type of identification for the user. This value is sent by the inkeep widget.
+   */
+  identificationType?: string | null | undefined;
+  /**
+   * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userId?: string | number | null | undefined;
+  /**
+   * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  supportAgentName?: string | null | undefined;
+  additionalProperties?: { [k: string]: any };
+};
+
 export type SupportTicketMessage = {
   id: string;
   type: SupportTicketMessageType;
@@ -56,9 +93,9 @@ export type SupportTicketMessage = {
    */
   properties?: { [k: string]: any } | null | undefined;
   /**
-   * A customizable collection of custom properties or attributes.
+   * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
    */
-  userProperties?: { [k: string]: any } | null | undefined;
+  userProperties?: SupportTicketMessageUserProperties | null | undefined;
 };
 
 /** @internal */
@@ -222,6 +259,182 @@ export function supportTicketMessageLinksFromJSON(
 }
 
 /** @internal */
+export const SupportTicketMessageId$inboundSchema: z.ZodType<
+  SupportTicketMessageId,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number()]);
+
+/** @internal */
+export type SupportTicketMessageId$Outbound = string | number;
+
+/** @internal */
+export const SupportTicketMessageId$outboundSchema: z.ZodType<
+  SupportTicketMessageId$Outbound,
+  z.ZodTypeDef,
+  SupportTicketMessageId
+> = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SupportTicketMessageId$ {
+  /** @deprecated use `SupportTicketMessageId$inboundSchema` instead. */
+  export const inboundSchema = SupportTicketMessageId$inboundSchema;
+  /** @deprecated use `SupportTicketMessageId$outboundSchema` instead. */
+  export const outboundSchema = SupportTicketMessageId$outboundSchema;
+  /** @deprecated use `SupportTicketMessageId$Outbound` instead. */
+  export type Outbound = SupportTicketMessageId$Outbound;
+}
+
+export function supportTicketMessageIdToJSON(
+  supportTicketMessageId: SupportTicketMessageId,
+): string {
+  return JSON.stringify(
+    SupportTicketMessageId$outboundSchema.parse(supportTicketMessageId),
+  );
+}
+
+export function supportTicketMessageIdFromJSON(
+  jsonString: string,
+): SafeParseResult<SupportTicketMessageId, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SupportTicketMessageId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SupportTicketMessageId' from JSON`,
+  );
+}
+
+/** @internal */
+export const SupportTicketMessageUserId$inboundSchema: z.ZodType<
+  SupportTicketMessageUserId,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number()]);
+
+/** @internal */
+export type SupportTicketMessageUserId$Outbound = string | number;
+
+/** @internal */
+export const SupportTicketMessageUserId$outboundSchema: z.ZodType<
+  SupportTicketMessageUserId$Outbound,
+  z.ZodTypeDef,
+  SupportTicketMessageUserId
+> = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SupportTicketMessageUserId$ {
+  /** @deprecated use `SupportTicketMessageUserId$inboundSchema` instead. */
+  export const inboundSchema = SupportTicketMessageUserId$inboundSchema;
+  /** @deprecated use `SupportTicketMessageUserId$outboundSchema` instead. */
+  export const outboundSchema = SupportTicketMessageUserId$outboundSchema;
+  /** @deprecated use `SupportTicketMessageUserId$Outbound` instead. */
+  export type Outbound = SupportTicketMessageUserId$Outbound;
+}
+
+export function supportTicketMessageUserIdToJSON(
+  supportTicketMessageUserId: SupportTicketMessageUserId,
+): string {
+  return JSON.stringify(
+    SupportTicketMessageUserId$outboundSchema.parse(supportTicketMessageUserId),
+  );
+}
+
+export function supportTicketMessageUserIdFromJSON(
+  jsonString: string,
+): SafeParseResult<SupportTicketMessageUserId, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SupportTicketMessageUserId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SupportTicketMessageUserId' from JSON`,
+  );
+}
+
+/** @internal */
+export const SupportTicketMessageUserProperties$inboundSchema: z.ZodType<
+  SupportTicketMessageUserProperties,
+  z.ZodTypeDef,
+  unknown
+> = collectExtraKeys$(
+  z.object({
+    id: z.nullable(z.union([z.string(), z.number()])).optional(),
+    identificationType: z.nullable(z.string()).optional(),
+    userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+    supportAgentName: z.nullable(z.string()).optional(),
+  }).catchall(z.any()),
+  "additionalProperties",
+  true,
+);
+
+/** @internal */
+export type SupportTicketMessageUserProperties$Outbound = {
+  id?: string | number | null | undefined;
+  identificationType?: string | null | undefined;
+  userId?: string | number | null | undefined;
+  supportAgentName?: string | null | undefined;
+  [additionalProperties: string]: unknown;
+};
+
+/** @internal */
+export const SupportTicketMessageUserProperties$outboundSchema: z.ZodType<
+  SupportTicketMessageUserProperties$Outbound,
+  z.ZodTypeDef,
+  SupportTicketMessageUserProperties
+> = z.object({
+  id: z.nullable(z.union([z.string(), z.number()])).optional(),
+  identificationType: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+  supportAgentName: z.nullable(z.string()).optional(),
+  additionalProperties: z.record(z.any()),
+}).transform((v) => {
+  return {
+    ...v.additionalProperties,
+    ...remap$(v, {
+      additionalProperties: null,
+    }),
+  };
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SupportTicketMessageUserProperties$ {
+  /** @deprecated use `SupportTicketMessageUserProperties$inboundSchema` instead. */
+  export const inboundSchema = SupportTicketMessageUserProperties$inboundSchema;
+  /** @deprecated use `SupportTicketMessageUserProperties$outboundSchema` instead. */
+  export const outboundSchema =
+    SupportTicketMessageUserProperties$outboundSchema;
+  /** @deprecated use `SupportTicketMessageUserProperties$Outbound` instead. */
+  export type Outbound = SupportTicketMessageUserProperties$Outbound;
+}
+
+export function supportTicketMessageUserPropertiesToJSON(
+  supportTicketMessageUserProperties: SupportTicketMessageUserProperties,
+): string {
+  return JSON.stringify(
+    SupportTicketMessageUserProperties$outboundSchema.parse(
+      supportTicketMessageUserProperties,
+    ),
+  );
+}
+
+export function supportTicketMessageUserPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<SupportTicketMessageUserProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      SupportTicketMessageUserProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SupportTicketMessageUserProperties' from JSON`,
+  );
+}
+
+/** @internal */
 export const SupportTicketMessage$inboundSchema: z.ZodType<
   SupportTicketMessage,
   z.ZodTypeDef,
@@ -241,7 +454,9 @@ export const SupportTicketMessage$inboundSchema: z.ZodType<
     z.array(z.lazy(() => SupportTicketMessageLinks$inboundSchema)),
   ).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
-  userProperties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(
+    z.lazy(() => SupportTicketMessageUserProperties$inboundSchema),
+  ).optional(),
 });
 
 /** @internal */
@@ -258,7 +473,10 @@ export type SupportTicketMessage$Outbound = {
   name?: string | null | undefined;
   links?: Array<SupportTicketMessageLinks$Outbound> | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
-  userProperties?: { [k: string]: any } | null | undefined;
+  userProperties?:
+    | SupportTicketMessageUserProperties$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -281,7 +499,9 @@ export const SupportTicketMessage$outboundSchema: z.ZodType<
     z.array(z.lazy(() => SupportTicketMessageLinks$outboundSchema)),
   ).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
-  userProperties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(
+    z.lazy(() => SupportTicketMessageUserProperties$outboundSchema),
+  ).optional(),
 });
 
 /**

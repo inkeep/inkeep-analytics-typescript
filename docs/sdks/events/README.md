@@ -26,6 +26,9 @@ async function run() {
   }, {
     type: "<value>",
     conversationId: "<id>",
+    userProperties: {
+      identificationType: "COOKIED",
+    },
     entityType: "conversation",
   });
 
@@ -54,6 +57,9 @@ async function run() {
   }, {
     type: "<value>",
     conversationId: "<id>",
+    userProperties: {
+      identificationType: "COOKIED",
+    },
     entityType: "conversation",
   });
 

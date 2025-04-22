@@ -15,10 +15,13 @@ let value: GetAllConversationResponseBody = {
       externalUrl: "https://untimely-hovercraft.info/",
       type: "openai",
       supportTicketConversationId: "<id>",
-      createdAt: "1721832570715",
-      updatedAt: "1744129682253",
+      createdAt: "1722949833678",
+      updatedAt: "1745246945216",
       projectId: "<id>",
       integrationId: "<id>",
+      userProperties: {
+        identificationType: "COOKIED",
+      },
       visibility: "private",
       messages: [
         {
@@ -27,10 +30,13 @@ let value: GetAllConversationResponseBody = {
           externalId: "<id>",
           externalUrl: "https://respectful-peony.biz",
           conversationId: "<id>",
-          createdAt: "1733879787618",
-          updatedAt: "1744176569435",
+          createdAt: "1734997050580",
+          updatedAt: "1745293832397",
           role: "user",
           content: "<value>",
+          userProperties: {
+            identificationType: "COOKIED",
+          },
         },
       ],
       messagesOpenAIFormat: [

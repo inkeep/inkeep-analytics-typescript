@@ -12,10 +12,13 @@ const value: components.OpenAIConversation = {
   externalUrl: "https://turbulent-charm.net/",
   type: "openai",
   supportTicketConversationId: "<id>",
-  createdAt: "1724708346643",
-  updatedAt: "1744108697213",
+  createdAt: "1725825611214",
+  updatedAt: "1745225961784",
   projectId: "<id>",
   integrationId: "<id>",
+  userProperties: {
+    identificationType: "COOKIED",
+  },
   visibility: "public",
   messages: [
     {
@@ -24,10 +27,13 @@ const value: components.OpenAIConversation = {
       externalId: "<id>",
       externalUrl: "https://yummy-jet.net/",
       conversationId: "<id>",
-      createdAt: "1730598281196",
-      updatedAt: "1744143591651",
+      createdAt: "1731715545765",
+      updatedAt: "1745260856220",
       role: "user",
       content: "<value>",
+      userProperties: {
+        identificationType: "COOKIED",
+      },
     },
   ],
   messagesOpenAIFormat: [
@@ -52,10 +58,13 @@ const value: components.SupportTicketConversation = {
   externalUrl: "https://swift-soup.org/",
   type: "support_ticket",
   supportTicketConversationId: "<id>",
-  createdAt: "1728602698287",
-  updatedAt: "1744130016025",
+  createdAt: "1729719962839",
+  updatedAt: "1745247280576",
   projectId: "<id>",
   integrationId: "<id>",
+  userProperties: {
+    identificationType: "COOKIED",
+  },
   visibility: "private",
   messages: [
     {
@@ -64,10 +73,13 @@ const value: components.SupportTicketConversation = {
       externalId: "<id>",
       externalUrl: "https://beloved-ceramic.org/",
       conversationId: "<id>",
-      createdAt: "1720544257485",
-      updatedAt: "1744145633412",
+      createdAt: "1721661522034",
+      updatedAt: "1745262897960",
       role: "<value>",
       content: "<value>",
+      userProperties: {
+        identificationType: "COOKIED",
+      },
     },
   ],
 };
@@ -82,10 +94,13 @@ const value: components.SupportCopilotConversation = {
   externalUrl: "https://tame-advertisement.org",
   type: "support_copilot",
   supportTicketConversationId: "<id>",
-  createdAt: "1715723366663",
-  updatedAt: "1744149426977",
+  createdAt: "1716840631171",
+  updatedAt: "1745266691484",
   projectId: "<id>",
   integrationId: "<id>",
+  userProperties: {
+    identificationType: "COOKIED",
+  },
   visibility: "private",
   messages: [
     {
@@ -94,10 +109,13 @@ const value: components.SupportCopilotConversation = {
       externalId: "<id>",
       externalUrl: "https://gripping-meander.biz",
       conversationId: "<id>",
-      createdAt: "1733690900154",
-      updatedAt: "1744166481374",
+      createdAt: "1734808164658",
+      updatedAt: "1745283745878",
       role: "<value>",
       content: "<value>",
+      userProperties: {
+        identificationType: "COOKIED",
+      },
     },
   ],
 };

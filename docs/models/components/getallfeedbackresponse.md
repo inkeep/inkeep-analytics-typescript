@@ -13,17 +13,23 @@ let value: GetAllFeedbackResponse = {
       id: "<id>",
       type: "negative",
       messageId: "<id>",
-      createdAt: "1726426364190",
+      createdAt: "1727543628949",
+      userProperties: {
+        identificationType: "COOKIED",
+      },
       conversation: {
         id: "<id>",
         externalId: "<id>",
         externalUrl: "https://tragic-fundraising.biz/",
         type: "support_ticket",
         supportTicketConversationId: "<id>",
-        createdAt: "1743025765438",
-        updatedAt: "1744127542213",
+        createdAt: "1744143030193",
+        updatedAt: "1745244806968",
         projectId: "<id>",
         integrationId: "<id>",
+        userProperties: {
+          identificationType: "COOKIED",
+        },
         visibility: "public",
         messages: [
           {
@@ -32,10 +38,13 @@ let value: GetAllFeedbackResponse = {
             externalId: "<id>",
             externalUrl: "https://meager-ferret.org",
             conversationId: "<id>",
-            createdAt: "1738736883557",
-            updatedAt: "1744153971415",
+            createdAt: "1739854148308",
+            updatedAt: "1745271236165",
             role: "<value>",
             content: "<value>",
+            userProperties: {
+              identificationType: "COOKIED",
+            },
           },
         ],
       },
@@ -45,14 +54,17 @@ let value: GetAllFeedbackResponse = {
         externalId: "<id>",
         externalUrl: "https://dirty-distinction.name/",
         conversationId: "<id>",
-        createdAt: "1717837415825",
-        updatedAt: "1744175889988",
+        createdAt: "1718954680573",
+        updatedAt: "1745293154735",
         role: "user",
         content: [
           {
             type: "text",
           },
         ],
+        userProperties: {
+          identificationType: "COOKIED",
+        },
       },
     },
   ],
@@ -61,17 +73,23 @@ let value: GetAllFeedbackResponse = {
       id: "<id>",
       type: "positive",
       messageId: "<id>",
-      createdAt: "1734050099428",
+      createdAt: "1735167364164",
+      userProperties: {
+        identificationType: "COOKIED",
+      },
       conversation: {
         id: "<id>",
         externalId: "<id>",
         externalUrl: "https://lazy-bowling.name",
         type: "openai",
         supportTicketConversationId: "<id>",
-        createdAt: "1727291204771",
-        updatedAt: "1744156474320",
+        createdAt: "1728408469505",
+        updatedAt: "1745273739053",
         projectId: "<id>",
         integrationId: "<id>",
+        userProperties: {
+          identificationType: "COOKIED",
+        },
         visibility: "private",
         messages: [
           {
@@ -80,14 +98,17 @@ let value: GetAllFeedbackResponse = {
             externalId: "<id>",
             externalUrl: "https://harmful-airbus.com",
             conversationId: "<id>",
-            createdAt: "1734478151450",
-            updatedAt: "1744119662547",
+            createdAt: "1735595416180",
+            updatedAt: "1745236927277",
             role: "system",
             content: [
               {
                 type: "image_url",
               },
             ],
+            userProperties: {
+              identificationType: "COOKIED",
+            },
           },
         ],
         messagesOpenAIFormat: [
@@ -103,10 +124,13 @@ let value: GetAllFeedbackResponse = {
         externalId: "<id>",
         externalUrl: "https://cheerful-quit.biz/",
         conversationId: "<id>",
-        createdAt: "1738180912463",
-        updatedAt: "1744093554938",
+        createdAt: "1739298177187",
+        updatedAt: "1745210819662",
         role: "<value>",
         content: "<value>",
+        userProperties: {
+          identificationType: "COOKIED",
+        },
       },
     },
   ],

@@ -12,10 +12,13 @@ const value: components.OpenAIExtendedMessage = {
   externalId: "<id>",
   externalUrl: "https://responsible-pocket-watch.info/",
   conversationId: "<id>",
-  createdAt: "1738119447967",
-  updatedAt: "1744130609826",
+  createdAt: "1739236712141",
+  updatedAt: "1745247874001",
   role: "user",
   content: "<value>",
+  userProperties: {
+    identificationType: "COOKIED",
+  },
 };
 ```
 
@@ -28,10 +31,13 @@ const value: components.SupportTicketMessage = {
   externalId: "<id>",
   externalUrl: "https://peaceful-vibraphone.info/",
   conversationId: "<id>",
-  createdAt: "1739417754477",
-  updatedAt: "1744143488976",
+  createdAt: "1740535018649",
+  updatedAt: "1745260753148",
   role: "<value>",
   content: "<value>",
+  userProperties: {
+    identificationType: "COOKIED",
+  },
 };
 ```
 
@@ -44,10 +50,13 @@ const value: components.SupportCopilotMessage = {
   externalId: "<id>",
   externalUrl: "https://ill-fated-hovercraft.org",
   conversationId: "<id>",
-  createdAt: "1734497797021",
-  updatedAt: "1744148665922",
+  createdAt: "1735615061192",
+  updatedAt: "1745265930093",
   role: "<value>",
   content: "<value>",
+  userProperties: {
+    identificationType: "COOKIED",
+  },
 };
 ```
 

@@ -7,7 +7,7 @@ import { SemanticThreadFilterCondition } from "@inkeep/inkeep-analytics/models/c
 
 let value: SemanticThreadFilterCondition = {
   condition: {
-    field: "thirdPartyEntities",
+    field: "emotion",
     operator: "lt",
     value: {
       "key": "<value>",

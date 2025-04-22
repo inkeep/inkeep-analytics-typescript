@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import {
+  collectExtraKeys as collectExtraKeys$,
+  safeParse,
+} from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -17,6 +20,39 @@ export const QueryConversationsResponseDataType = {
 export type QueryConversationsResponseDataType = ClosedEnum<
   typeof QueryConversationsResponseDataType
 >;
+
+/**
+ * The unique identifier for the user. This value is sent by the inkeep widget.
+ */
+export type QueryConversationsResponseDataId = string | number;
+
+/**
+ * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type QueryConversationsResponseDataUserId = string | number;
+
+/**
+ * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
+ */
+export type QueryConversationsResponseDataUserProperties = {
+  /**
+   * The unique identifier for the user. This value is sent by the inkeep widget.
+   */
+  id?: string | number | null | undefined;
+  /**
+   * The type of identification for the user. This value is sent by the inkeep widget.
+   */
+  identificationType?: string | null | undefined;
+  /**
+   * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userId?: string | number | null | undefined;
+  /**
+   * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  supportAgentName?: string | null | undefined;
+  additionalProperties?: { [k: string]: any };
+};
 
 export type ConversationsResultItem = {
   id?: string | undefined;
@@ -31,9 +67,12 @@ export type ConversationsResultItem = {
    */
   properties?: { [k: string]: any } | null | undefined;
   /**
-   * A customizable collection of custom properties or attributes.
+   * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
    */
-  userProperties?: { [k: string]: any } | null | undefined;
+  userProperties?:
+    | QueryConversationsResponseDataUserProperties
+    | null
+    | undefined;
   sum?: number | undefined;
   count?: number | undefined;
   avg?: number | undefined;
@@ -192,6 +231,198 @@ export namespace QueryConversationsResponseDataType$ {
 }
 
 /** @internal */
+export const QueryConversationsResponseDataId$inboundSchema: z.ZodType<
+  QueryConversationsResponseDataId,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number()]);
+
+/** @internal */
+export type QueryConversationsResponseDataId$Outbound = string | number;
+
+/** @internal */
+export const QueryConversationsResponseDataId$outboundSchema: z.ZodType<
+  QueryConversationsResponseDataId$Outbound,
+  z.ZodTypeDef,
+  QueryConversationsResponseDataId
+> = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace QueryConversationsResponseDataId$ {
+  /** @deprecated use `QueryConversationsResponseDataId$inboundSchema` instead. */
+  export const inboundSchema = QueryConversationsResponseDataId$inboundSchema;
+  /** @deprecated use `QueryConversationsResponseDataId$outboundSchema` instead. */
+  export const outboundSchema = QueryConversationsResponseDataId$outboundSchema;
+  /** @deprecated use `QueryConversationsResponseDataId$Outbound` instead. */
+  export type Outbound = QueryConversationsResponseDataId$Outbound;
+}
+
+export function queryConversationsResponseDataIdToJSON(
+  queryConversationsResponseDataId: QueryConversationsResponseDataId,
+): string {
+  return JSON.stringify(
+    QueryConversationsResponseDataId$outboundSchema.parse(
+      queryConversationsResponseDataId,
+    ),
+  );
+}
+
+export function queryConversationsResponseDataIdFromJSON(
+  jsonString: string,
+): SafeParseResult<QueryConversationsResponseDataId, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => QueryConversationsResponseDataId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryConversationsResponseDataId' from JSON`,
+  );
+}
+
+/** @internal */
+export const QueryConversationsResponseDataUserId$inboundSchema: z.ZodType<
+  QueryConversationsResponseDataUserId,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number()]);
+
+/** @internal */
+export type QueryConversationsResponseDataUserId$Outbound = string | number;
+
+/** @internal */
+export const QueryConversationsResponseDataUserId$outboundSchema: z.ZodType<
+  QueryConversationsResponseDataUserId$Outbound,
+  z.ZodTypeDef,
+  QueryConversationsResponseDataUserId
+> = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace QueryConversationsResponseDataUserId$ {
+  /** @deprecated use `QueryConversationsResponseDataUserId$inboundSchema` instead. */
+  export const inboundSchema =
+    QueryConversationsResponseDataUserId$inboundSchema;
+  /** @deprecated use `QueryConversationsResponseDataUserId$outboundSchema` instead. */
+  export const outboundSchema =
+    QueryConversationsResponseDataUserId$outboundSchema;
+  /** @deprecated use `QueryConversationsResponseDataUserId$Outbound` instead. */
+  export type Outbound = QueryConversationsResponseDataUserId$Outbound;
+}
+
+export function queryConversationsResponseDataUserIdToJSON(
+  queryConversationsResponseDataUserId: QueryConversationsResponseDataUserId,
+): string {
+  return JSON.stringify(
+    QueryConversationsResponseDataUserId$outboundSchema.parse(
+      queryConversationsResponseDataUserId,
+    ),
+  );
+}
+
+export function queryConversationsResponseDataUserIdFromJSON(
+  jsonString: string,
+): SafeParseResult<QueryConversationsResponseDataUserId, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      QueryConversationsResponseDataUserId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryConversationsResponseDataUserId' from JSON`,
+  );
+}
+
+/** @internal */
+export const QueryConversationsResponseDataUserProperties$inboundSchema:
+  z.ZodType<
+    QueryConversationsResponseDataUserProperties,
+    z.ZodTypeDef,
+    unknown
+  > = collectExtraKeys$(
+    z.object({
+      id: z.nullable(z.union([z.string(), z.number()])).optional(),
+      identificationType: z.nullable(z.string()).optional(),
+      userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+      supportAgentName: z.nullable(z.string()).optional(),
+    }).catchall(z.any()),
+    "additionalProperties",
+    true,
+  );
+
+/** @internal */
+export type QueryConversationsResponseDataUserProperties$Outbound = {
+  id?: string | number | null | undefined;
+  identificationType?: string | null | undefined;
+  userId?: string | number | null | undefined;
+  supportAgentName?: string | null | undefined;
+  [additionalProperties: string]: unknown;
+};
+
+/** @internal */
+export const QueryConversationsResponseDataUserProperties$outboundSchema:
+  z.ZodType<
+    QueryConversationsResponseDataUserProperties$Outbound,
+    z.ZodTypeDef,
+    QueryConversationsResponseDataUserProperties
+  > = z.object({
+    id: z.nullable(z.union([z.string(), z.number()])).optional(),
+    identificationType: z.nullable(z.string()).optional(),
+    userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+    supportAgentName: z.nullable(z.string()).optional(),
+    additionalProperties: z.record(z.any()),
+  }).transform((v) => {
+    return {
+      ...v.additionalProperties,
+      ...remap$(v, {
+        additionalProperties: null,
+      }),
+    };
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace QueryConversationsResponseDataUserProperties$ {
+  /** @deprecated use `QueryConversationsResponseDataUserProperties$inboundSchema` instead. */
+  export const inboundSchema =
+    QueryConversationsResponseDataUserProperties$inboundSchema;
+  /** @deprecated use `QueryConversationsResponseDataUserProperties$outboundSchema` instead. */
+  export const outboundSchema =
+    QueryConversationsResponseDataUserProperties$outboundSchema;
+  /** @deprecated use `QueryConversationsResponseDataUserProperties$Outbound` instead. */
+  export type Outbound = QueryConversationsResponseDataUserProperties$Outbound;
+}
+
+export function queryConversationsResponseDataUserPropertiesToJSON(
+  queryConversationsResponseDataUserProperties:
+    QueryConversationsResponseDataUserProperties,
+): string {
+  return JSON.stringify(
+    QueryConversationsResponseDataUserProperties$outboundSchema.parse(
+      queryConversationsResponseDataUserProperties,
+    ),
+  );
+}
+
+export function queryConversationsResponseDataUserPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  QueryConversationsResponseDataUserProperties,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      QueryConversationsResponseDataUserProperties$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'QueryConversationsResponseDataUserProperties' from JSON`,
+  );
+}
+
+/** @internal */
 export const ConversationsResultItem$inboundSchema: z.ZodType<
   ConversationsResultItem,
   z.ZodTypeDef,
@@ -207,7 +438,9 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
   ).optional(),
   type: z.nullable(QueryConversationsResponseDataType$inboundSchema).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
-  userProperties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(
+    z.lazy(() => QueryConversationsResponseDataUserProperties$inboundSchema),
+  ).optional(),
   sum: z.number().optional(),
   count: z.number().optional(),
   avg: z.number().optional(),
@@ -449,7 +682,10 @@ export type ConversationsResultItem$Outbound = {
   firstMessageTime?: string | undefined;
   type?: string | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
-  userProperties?: { [k: string]: any } | null | undefined;
+  userProperties?:
+    | QueryConversationsResponseDataUserProperties$Outbound
+    | null
+    | undefined;
   sum?: number | undefined;
   count?: number | undefined;
   avg?: number | undefined;
@@ -581,7 +817,9 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
   type: z.nullable(QueryConversationsResponseDataType$outboundSchema)
     .optional(),
   properties: z.nullable(z.record(z.any())).optional(),
-  userProperties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(
+    z.lazy(() => QueryConversationsResponseDataUserProperties$outboundSchema),
+  ).optional(),
   sum: z.number().optional(),
   count: z.number().optional(),
   avg: z.number().optional(),

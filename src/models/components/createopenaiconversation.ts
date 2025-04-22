@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import {
+  collectExtraKeys as collectExtraKeys$,
+  safeParse,
+} from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -25,6 +28,39 @@ export const Type = {
   Openai: "openai",
 } as const;
 export type Type = ClosedEnum<typeof Type>;
+
+/**
+ * The unique identifier for the user. This value is sent by the inkeep widget.
+ */
+export type Id = string | number;
+
+/**
+ * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type UserId = string | number;
+
+/**
+ * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
+ */
+export type UserProperties = {
+  /**
+   * The unique identifier for the user. This value is sent by the inkeep widget.
+   */
+  id?: string | number | null | undefined;
+  /**
+   * The type of identification for the user. This value is sent by the inkeep widget.
+   */
+  identificationType?: string | null | undefined;
+  /**
+   * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userId?: string | number | null | undefined;
+  /**
+   * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  supportAgentName?: string | null | undefined;
+  additionalProperties?: { [k: string]: any };
+};
 
 export const Visibility = {
   Private: "private",
@@ -71,6 +107,39 @@ export type CreateOpenAIConversationLinks = {
   breadcrumbs?: Array<string> | null | undefined;
 };
 
+/**
+ * The unique identifier for the user. This value is sent by the inkeep widget.
+ */
+export type CreateOpenAIConversationId = string | number;
+
+/**
+ * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type CreateOpenAIConversationUserId = string | number;
+
+/**
+ * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
+ */
+export type CreateOpenAIConversationUserProperties = {
+  /**
+   * The unique identifier for the user. This value is sent by the inkeep widget.
+   */
+  id?: string | number | null | undefined;
+  /**
+   * The type of identification for the user. This value is sent by the inkeep widget.
+   */
+  identificationType?: string | null | undefined;
+  /**
+   * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userId?: string | number | null | undefined;
+  /**
+   * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  supportAgentName?: string | null | undefined;
+  additionalProperties?: { [k: string]: any };
+};
+
 export type Messages = {
   id?: string | undefined;
   externalId?: string | null | undefined;
@@ -92,9 +161,9 @@ export type Messages = {
    */
   properties?: { [k: string]: any } | null | undefined;
   /**
-   * A customizable collection of custom properties or attributes.
+   * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
    */
-  userProperties?: { [k: string]: any } | null | undefined;
+  userProperties?: CreateOpenAIConversationUserProperties | null | undefined;
   toolCalls?: Array<OpenAIToolCall> | null | undefined;
 };
 
@@ -119,9 +188,9 @@ export type CreateOpenAIConversation = {
    */
   properties?: { [k: string]: any } | null | undefined;
   /**
-   * A customizable collection of custom properties or attributes.
+   * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
    */
-  userProperties?: { [k: string]: any } | null | undefined;
+  userProperties?: UserProperties | null | undefined;
   tags?: Array<string> | null | undefined;
   visibility?: Visibility | null | undefined;
   /**
@@ -148,6 +217,159 @@ export namespace Type$ {
   export const inboundSchema = Type$inboundSchema;
   /** @deprecated use `Type$outboundSchema` instead. */
   export const outboundSchema = Type$outboundSchema;
+}
+
+/** @internal */
+export const Id$inboundSchema: z.ZodType<Id, z.ZodTypeDef, unknown> = z.union([
+  z.string(),
+  z.number(),
+]);
+
+/** @internal */
+export type Id$Outbound = string | number;
+
+/** @internal */
+export const Id$outboundSchema: z.ZodType<Id$Outbound, z.ZodTypeDef, Id> = z
+  .union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Id$ {
+  /** @deprecated use `Id$inboundSchema` instead. */
+  export const inboundSchema = Id$inboundSchema;
+  /** @deprecated use `Id$outboundSchema` instead. */
+  export const outboundSchema = Id$outboundSchema;
+  /** @deprecated use `Id$Outbound` instead. */
+  export type Outbound = Id$Outbound;
+}
+
+export function idToJSON(id: Id): string {
+  return JSON.stringify(Id$outboundSchema.parse(id));
+}
+
+export function idFromJSON(
+  jsonString: string,
+): SafeParseResult<Id, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Id$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Id' from JSON`,
+  );
+}
+
+/** @internal */
+export const UserId$inboundSchema: z.ZodType<UserId, z.ZodTypeDef, unknown> = z
+  .union([z.string(), z.number()]);
+
+/** @internal */
+export type UserId$Outbound = string | number;
+
+/** @internal */
+export const UserId$outboundSchema: z.ZodType<
+  UserId$Outbound,
+  z.ZodTypeDef,
+  UserId
+> = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace UserId$ {
+  /** @deprecated use `UserId$inboundSchema` instead. */
+  export const inboundSchema = UserId$inboundSchema;
+  /** @deprecated use `UserId$outboundSchema` instead. */
+  export const outboundSchema = UserId$outboundSchema;
+  /** @deprecated use `UserId$Outbound` instead. */
+  export type Outbound = UserId$Outbound;
+}
+
+export function userIdToJSON(userId: UserId): string {
+  return JSON.stringify(UserId$outboundSchema.parse(userId));
+}
+
+export function userIdFromJSON(
+  jsonString: string,
+): SafeParseResult<UserId, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UserId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UserId' from JSON`,
+  );
+}
+
+/** @internal */
+export const UserProperties$inboundSchema: z.ZodType<
+  UserProperties,
+  z.ZodTypeDef,
+  unknown
+> = collectExtraKeys$(
+  z.object({
+    id: z.nullable(z.union([z.string(), z.number()])).optional(),
+    identificationType: z.nullable(z.string()).optional(),
+    userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+    supportAgentName: z.nullable(z.string()).optional(),
+  }).catchall(z.any()),
+  "additionalProperties",
+  true,
+);
+
+/** @internal */
+export type UserProperties$Outbound = {
+  id?: string | number | null | undefined;
+  identificationType?: string | null | undefined;
+  userId?: string | number | null | undefined;
+  supportAgentName?: string | null | undefined;
+  [additionalProperties: string]: unknown;
+};
+
+/** @internal */
+export const UserProperties$outboundSchema: z.ZodType<
+  UserProperties$Outbound,
+  z.ZodTypeDef,
+  UserProperties
+> = z.object({
+  id: z.nullable(z.union([z.string(), z.number()])).optional(),
+  identificationType: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+  supportAgentName: z.nullable(z.string()).optional(),
+  additionalProperties: z.record(z.any()),
+}).transform((v) => {
+  return {
+    ...v.additionalProperties,
+    ...remap$(v, {
+      additionalProperties: null,
+    }),
+  };
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace UserProperties$ {
+  /** @deprecated use `UserProperties$inboundSchema` instead. */
+  export const inboundSchema = UserProperties$inboundSchema;
+  /** @deprecated use `UserProperties$outboundSchema` instead. */
+  export const outboundSchema = UserProperties$outboundSchema;
+  /** @deprecated use `UserProperties$Outbound` instead. */
+  export type Outbound = UserProperties$Outbound;
+}
+
+export function userPropertiesToJSON(userProperties: UserProperties): string {
+  return JSON.stringify(UserProperties$outboundSchema.parse(userProperties));
+}
+
+export function userPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<UserProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UserProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UserProperties' from JSON`,
+  );
 }
 
 /** @internal */
@@ -389,6 +611,186 @@ export function createOpenAIConversationLinksFromJSON(
 }
 
 /** @internal */
+export const CreateOpenAIConversationId$inboundSchema: z.ZodType<
+  CreateOpenAIConversationId,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number()]);
+
+/** @internal */
+export type CreateOpenAIConversationId$Outbound = string | number;
+
+/** @internal */
+export const CreateOpenAIConversationId$outboundSchema: z.ZodType<
+  CreateOpenAIConversationId$Outbound,
+  z.ZodTypeDef,
+  CreateOpenAIConversationId
+> = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateOpenAIConversationId$ {
+  /** @deprecated use `CreateOpenAIConversationId$inboundSchema` instead. */
+  export const inboundSchema = CreateOpenAIConversationId$inboundSchema;
+  /** @deprecated use `CreateOpenAIConversationId$outboundSchema` instead. */
+  export const outboundSchema = CreateOpenAIConversationId$outboundSchema;
+  /** @deprecated use `CreateOpenAIConversationId$Outbound` instead. */
+  export type Outbound = CreateOpenAIConversationId$Outbound;
+}
+
+export function createOpenAIConversationIdToJSON(
+  createOpenAIConversationId: CreateOpenAIConversationId,
+): string {
+  return JSON.stringify(
+    CreateOpenAIConversationId$outboundSchema.parse(createOpenAIConversationId),
+  );
+}
+
+export function createOpenAIConversationIdFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateOpenAIConversationId, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateOpenAIConversationId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateOpenAIConversationId' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateOpenAIConversationUserId$inboundSchema: z.ZodType<
+  CreateOpenAIConversationUserId,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number()]);
+
+/** @internal */
+export type CreateOpenAIConversationUserId$Outbound = string | number;
+
+/** @internal */
+export const CreateOpenAIConversationUserId$outboundSchema: z.ZodType<
+  CreateOpenAIConversationUserId$Outbound,
+  z.ZodTypeDef,
+  CreateOpenAIConversationUserId
+> = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateOpenAIConversationUserId$ {
+  /** @deprecated use `CreateOpenAIConversationUserId$inboundSchema` instead. */
+  export const inboundSchema = CreateOpenAIConversationUserId$inboundSchema;
+  /** @deprecated use `CreateOpenAIConversationUserId$outboundSchema` instead. */
+  export const outboundSchema = CreateOpenAIConversationUserId$outboundSchema;
+  /** @deprecated use `CreateOpenAIConversationUserId$Outbound` instead. */
+  export type Outbound = CreateOpenAIConversationUserId$Outbound;
+}
+
+export function createOpenAIConversationUserIdToJSON(
+  createOpenAIConversationUserId: CreateOpenAIConversationUserId,
+): string {
+  return JSON.stringify(
+    CreateOpenAIConversationUserId$outboundSchema.parse(
+      createOpenAIConversationUserId,
+    ),
+  );
+}
+
+export function createOpenAIConversationUserIdFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateOpenAIConversationUserId, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateOpenAIConversationUserId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateOpenAIConversationUserId' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateOpenAIConversationUserProperties$inboundSchema: z.ZodType<
+  CreateOpenAIConversationUserProperties,
+  z.ZodTypeDef,
+  unknown
+> = collectExtraKeys$(
+  z.object({
+    id: z.nullable(z.union([z.string(), z.number()])).optional(),
+    identificationType: z.nullable(z.string()).optional(),
+    userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+    supportAgentName: z.nullable(z.string()).optional(),
+  }).catchall(z.any()),
+  "additionalProperties",
+  true,
+);
+
+/** @internal */
+export type CreateOpenAIConversationUserProperties$Outbound = {
+  id?: string | number | null | undefined;
+  identificationType?: string | null | undefined;
+  userId?: string | number | null | undefined;
+  supportAgentName?: string | null | undefined;
+  [additionalProperties: string]: unknown;
+};
+
+/** @internal */
+export const CreateOpenAIConversationUserProperties$outboundSchema: z.ZodType<
+  CreateOpenAIConversationUserProperties$Outbound,
+  z.ZodTypeDef,
+  CreateOpenAIConversationUserProperties
+> = z.object({
+  id: z.nullable(z.union([z.string(), z.number()])).optional(),
+  identificationType: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+  supportAgentName: z.nullable(z.string()).optional(),
+  additionalProperties: z.record(z.any()),
+}).transform((v) => {
+  return {
+    ...v.additionalProperties,
+    ...remap$(v, {
+      additionalProperties: null,
+    }),
+  };
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateOpenAIConversationUserProperties$ {
+  /** @deprecated use `CreateOpenAIConversationUserProperties$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateOpenAIConversationUserProperties$inboundSchema;
+  /** @deprecated use `CreateOpenAIConversationUserProperties$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateOpenAIConversationUserProperties$outboundSchema;
+  /** @deprecated use `CreateOpenAIConversationUserProperties$Outbound` instead. */
+  export type Outbound = CreateOpenAIConversationUserProperties$Outbound;
+}
+
+export function createOpenAIConversationUserPropertiesToJSON(
+  createOpenAIConversationUserProperties:
+    CreateOpenAIConversationUserProperties,
+): string {
+  return JSON.stringify(
+    CreateOpenAIConversationUserProperties$outboundSchema.parse(
+      createOpenAIConversationUserProperties,
+    ),
+  );
+}
+
+export function createOpenAIConversationUserPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateOpenAIConversationUserProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateOpenAIConversationUserProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateOpenAIConversationUserProperties' from JSON`,
+  );
+}
+
+/** @internal */
 export const Messages$inboundSchema: z.ZodType<
   Messages,
   z.ZodTypeDef,
@@ -410,7 +812,9 @@ export const Messages$inboundSchema: z.ZodType<
     z.array(z.lazy(() => CreateOpenAIConversationLinks$inboundSchema)),
   ).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
-  userProperties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(
+    z.lazy(() => CreateOpenAIConversationUserProperties$inboundSchema),
+  ).optional(),
   tool_calls: z.nullable(z.array(OpenAIToolCall$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -430,7 +834,10 @@ export type Messages$Outbound = {
   name?: string | null | undefined;
   links?: Array<CreateOpenAIConversationLinks$Outbound> | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
-  userProperties?: { [k: string]: any } | null | undefined;
+  userProperties?:
+    | CreateOpenAIConversationUserProperties$Outbound
+    | null
+    | undefined;
   tool_calls?: Array<OpenAIToolCall$Outbound> | null | undefined;
 };
 
@@ -452,7 +859,9 @@ export const Messages$outboundSchema: z.ZodType<
     z.array(z.lazy(() => CreateOpenAIConversationLinks$outboundSchema)),
   ).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
-  userProperties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(
+    z.lazy(() => CreateOpenAIConversationUserProperties$outboundSchema),
+  ).optional(),
   toolCalls: z.nullable(z.array(OpenAIToolCall$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -507,7 +916,8 @@ export const CreateOpenAIConversation$inboundSchema: z.ZodType<
   projectId: z.nullable(z.string()).optional(),
   integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
-  userProperties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.lazy(() => UserProperties$inboundSchema))
+    .optional(),
   tags: z.nullable(z.array(z.string())).optional(),
   visibility: z.nullable(Visibility$inboundSchema).optional(),
   messages: z.array(z.lazy(() => Messages$inboundSchema)),
@@ -525,7 +935,7 @@ export type CreateOpenAIConversation$Outbound = {
   projectId?: string | null | undefined;
   integrationId?: string | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
-  userProperties?: { [k: string]: any } | null | undefined;
+  userProperties?: UserProperties$Outbound | null | undefined;
   tags?: Array<string> | null | undefined;
   visibility?: string | null | undefined;
   messages: Array<Messages$Outbound>;
@@ -547,7 +957,8 @@ export const CreateOpenAIConversation$outboundSchema: z.ZodType<
   projectId: z.nullable(z.string()).optional(),
   integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
-  userProperties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(z.lazy(() => UserProperties$outboundSchema))
+    .optional(),
   tags: z.nullable(z.array(z.string())).optional(),
   visibility: z.nullable(Visibility$outboundSchema).optional(),
   messages: z.array(z.lazy(() => Messages$outboundSchema)),

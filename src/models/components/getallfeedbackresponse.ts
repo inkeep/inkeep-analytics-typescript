@@ -3,7 +3,11 @@
  */
 
 import * as z from "zod";
-import { safeParse } from "../../lib/schemas.js";
+import { remap as remap$ } from "../../lib/primitives.js";
+import {
+  collectExtraKeys as collectExtraKeys$,
+  safeParse,
+} from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -33,6 +37,39 @@ export type Reasons = {
   details: string;
 };
 
+/**
+ * The unique identifier for the user. This value is sent by the inkeep widget.
+ */
+export type GetAllFeedbackResponseId = string | number;
+
+/**
+ * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type GetAllFeedbackResponseUserId = string | number;
+
+/**
+ * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
+ */
+export type GetAllFeedbackResponseUserProperties = {
+  /**
+   * The unique identifier for the user. This value is sent by the inkeep widget.
+   */
+  id?: string | number | null | undefined;
+  /**
+   * The type of identification for the user. This value is sent by the inkeep widget.
+   */
+  identificationType?: string | null | undefined;
+  /**
+   * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userId?: string | number | null | undefined;
+  /**
+   * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  supportAgentName?: string | null | undefined;
+  additionalProperties?: { [k: string]: any };
+};
+
 export type PositiveFeedback = {
   id: string;
   type: GetAllFeedbackResponseType;
@@ -40,9 +77,9 @@ export type PositiveFeedback = {
   createdAt: string;
   reasons?: Array<Reasons> | null | undefined;
   /**
-   * A customizable collection of custom properties or attributes.
+   * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
    */
-  userProperties?: { [k: string]: any } | null | undefined;
+  userProperties?: GetAllFeedbackResponseUserProperties | null | undefined;
   conversation: Conversation;
   message: Message;
 };
@@ -60,6 +97,39 @@ export type GetAllFeedbackResponseReasons = {
   details: string;
 };
 
+/**
+ * The unique identifier for the user. This value is sent by the inkeep widget.
+ */
+export type GetAllFeedbackResponseNegativeFeedbackId = string | number;
+
+/**
+ * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type GetAllFeedbackResponseNegativeFeedbackUserId = string | number;
+
+/**
+ * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
+ */
+export type GetAllFeedbackResponseNegativeFeedbackUserProperties = {
+  /**
+   * The unique identifier for the user. This value is sent by the inkeep widget.
+   */
+  id?: string | number | null | undefined;
+  /**
+   * The type of identification for the user. This value is sent by the inkeep widget.
+   */
+  identificationType?: string | null | undefined;
+  /**
+   * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userId?: string | number | null | undefined;
+  /**
+   * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  supportAgentName?: string | null | undefined;
+  additionalProperties?: { [k: string]: any };
+};
+
 export type NegativeFeedback = {
   id: string;
   type: GetAllFeedbackResponseNegativeFeedbackType;
@@ -67,9 +137,12 @@ export type NegativeFeedback = {
   createdAt: string;
   reasons?: Array<GetAllFeedbackResponseReasons> | null | undefined;
   /**
-   * A customizable collection of custom properties or attributes.
+   * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
    */
-  userProperties?: { [k: string]: any } | null | undefined;
+  userProperties?:
+    | GetAllFeedbackResponseNegativeFeedbackUserProperties
+    | null
+    | undefined;
   conversation: Conversation;
   message: Message;
 };
@@ -153,6 +226,185 @@ export function reasonsFromJSON(
 }
 
 /** @internal */
+export const GetAllFeedbackResponseId$inboundSchema: z.ZodType<
+  GetAllFeedbackResponseId,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number()]);
+
+/** @internal */
+export type GetAllFeedbackResponseId$Outbound = string | number;
+
+/** @internal */
+export const GetAllFeedbackResponseId$outboundSchema: z.ZodType<
+  GetAllFeedbackResponseId$Outbound,
+  z.ZodTypeDef,
+  GetAllFeedbackResponseId
+> = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetAllFeedbackResponseId$ {
+  /** @deprecated use `GetAllFeedbackResponseId$inboundSchema` instead. */
+  export const inboundSchema = GetAllFeedbackResponseId$inboundSchema;
+  /** @deprecated use `GetAllFeedbackResponseId$outboundSchema` instead. */
+  export const outboundSchema = GetAllFeedbackResponseId$outboundSchema;
+  /** @deprecated use `GetAllFeedbackResponseId$Outbound` instead. */
+  export type Outbound = GetAllFeedbackResponseId$Outbound;
+}
+
+export function getAllFeedbackResponseIdToJSON(
+  getAllFeedbackResponseId: GetAllFeedbackResponseId,
+): string {
+  return JSON.stringify(
+    GetAllFeedbackResponseId$outboundSchema.parse(getAllFeedbackResponseId),
+  );
+}
+
+export function getAllFeedbackResponseIdFromJSON(
+  jsonString: string,
+): SafeParseResult<GetAllFeedbackResponseId, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetAllFeedbackResponseId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetAllFeedbackResponseId' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetAllFeedbackResponseUserId$inboundSchema: z.ZodType<
+  GetAllFeedbackResponseUserId,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number()]);
+
+/** @internal */
+export type GetAllFeedbackResponseUserId$Outbound = string | number;
+
+/** @internal */
+export const GetAllFeedbackResponseUserId$outboundSchema: z.ZodType<
+  GetAllFeedbackResponseUserId$Outbound,
+  z.ZodTypeDef,
+  GetAllFeedbackResponseUserId
+> = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetAllFeedbackResponseUserId$ {
+  /** @deprecated use `GetAllFeedbackResponseUserId$inboundSchema` instead. */
+  export const inboundSchema = GetAllFeedbackResponseUserId$inboundSchema;
+  /** @deprecated use `GetAllFeedbackResponseUserId$outboundSchema` instead. */
+  export const outboundSchema = GetAllFeedbackResponseUserId$outboundSchema;
+  /** @deprecated use `GetAllFeedbackResponseUserId$Outbound` instead. */
+  export type Outbound = GetAllFeedbackResponseUserId$Outbound;
+}
+
+export function getAllFeedbackResponseUserIdToJSON(
+  getAllFeedbackResponseUserId: GetAllFeedbackResponseUserId,
+): string {
+  return JSON.stringify(
+    GetAllFeedbackResponseUserId$outboundSchema.parse(
+      getAllFeedbackResponseUserId,
+    ),
+  );
+}
+
+export function getAllFeedbackResponseUserIdFromJSON(
+  jsonString: string,
+): SafeParseResult<GetAllFeedbackResponseUserId, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetAllFeedbackResponseUserId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetAllFeedbackResponseUserId' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetAllFeedbackResponseUserProperties$inboundSchema: z.ZodType<
+  GetAllFeedbackResponseUserProperties,
+  z.ZodTypeDef,
+  unknown
+> = collectExtraKeys$(
+  z.object({
+    id: z.nullable(z.union([z.string(), z.number()])).optional(),
+    identificationType: z.nullable(z.string()).optional(),
+    userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+    supportAgentName: z.nullable(z.string()).optional(),
+  }).catchall(z.any()),
+  "additionalProperties",
+  true,
+);
+
+/** @internal */
+export type GetAllFeedbackResponseUserProperties$Outbound = {
+  id?: string | number | null | undefined;
+  identificationType?: string | null | undefined;
+  userId?: string | number | null | undefined;
+  supportAgentName?: string | null | undefined;
+  [additionalProperties: string]: unknown;
+};
+
+/** @internal */
+export const GetAllFeedbackResponseUserProperties$outboundSchema: z.ZodType<
+  GetAllFeedbackResponseUserProperties$Outbound,
+  z.ZodTypeDef,
+  GetAllFeedbackResponseUserProperties
+> = z.object({
+  id: z.nullable(z.union([z.string(), z.number()])).optional(),
+  identificationType: z.nullable(z.string()).optional(),
+  userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+  supportAgentName: z.nullable(z.string()).optional(),
+  additionalProperties: z.record(z.any()),
+}).transform((v) => {
+  return {
+    ...v.additionalProperties,
+    ...remap$(v, {
+      additionalProperties: null,
+    }),
+  };
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetAllFeedbackResponseUserProperties$ {
+  /** @deprecated use `GetAllFeedbackResponseUserProperties$inboundSchema` instead. */
+  export const inboundSchema =
+    GetAllFeedbackResponseUserProperties$inboundSchema;
+  /** @deprecated use `GetAllFeedbackResponseUserProperties$outboundSchema` instead. */
+  export const outboundSchema =
+    GetAllFeedbackResponseUserProperties$outboundSchema;
+  /** @deprecated use `GetAllFeedbackResponseUserProperties$Outbound` instead. */
+  export type Outbound = GetAllFeedbackResponseUserProperties$Outbound;
+}
+
+export function getAllFeedbackResponseUserPropertiesToJSON(
+  getAllFeedbackResponseUserProperties: GetAllFeedbackResponseUserProperties,
+): string {
+  return JSON.stringify(
+    GetAllFeedbackResponseUserProperties$outboundSchema.parse(
+      getAllFeedbackResponseUserProperties,
+    ),
+  );
+}
+
+export function getAllFeedbackResponseUserPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<GetAllFeedbackResponseUserProperties, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetAllFeedbackResponseUserProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetAllFeedbackResponseUserProperties' from JSON`,
+  );
+}
+
+/** @internal */
 export const PositiveFeedback$inboundSchema: z.ZodType<
   PositiveFeedback,
   z.ZodTypeDef,
@@ -163,7 +415,9 @@ export const PositiveFeedback$inboundSchema: z.ZodType<
   messageId: z.string(),
   createdAt: z.string(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$inboundSchema))).optional(),
-  userProperties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(
+    z.lazy(() => GetAllFeedbackResponseUserProperties$inboundSchema),
+  ).optional(),
   conversation: Conversation$inboundSchema,
   message: Message$inboundSchema,
 });
@@ -175,7 +429,10 @@ export type PositiveFeedback$Outbound = {
   messageId: string;
   createdAt: string;
   reasons?: Array<Reasons$Outbound> | null | undefined;
-  userProperties?: { [k: string]: any } | null | undefined;
+  userProperties?:
+    | GetAllFeedbackResponseUserProperties$Outbound
+    | null
+    | undefined;
   conversation: Conversation$Outbound;
   message: Message$Outbound;
 };
@@ -191,7 +448,9 @@ export const PositiveFeedback$outboundSchema: z.ZodType<
   messageId: z.string(),
   createdAt: z.string(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$outboundSchema))).optional(),
-  userProperties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(
+    z.lazy(() => GetAllFeedbackResponseUserProperties$outboundSchema),
+  ).optional(),
   conversation: Conversation$outboundSchema,
   message: Message$outboundSchema,
 });
@@ -310,6 +569,218 @@ export function getAllFeedbackResponseReasonsFromJSON(
 }
 
 /** @internal */
+export const GetAllFeedbackResponseNegativeFeedbackId$inboundSchema: z.ZodType<
+  GetAllFeedbackResponseNegativeFeedbackId,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number()]);
+
+/** @internal */
+export type GetAllFeedbackResponseNegativeFeedbackId$Outbound = string | number;
+
+/** @internal */
+export const GetAllFeedbackResponseNegativeFeedbackId$outboundSchema: z.ZodType<
+  GetAllFeedbackResponseNegativeFeedbackId$Outbound,
+  z.ZodTypeDef,
+  GetAllFeedbackResponseNegativeFeedbackId
+> = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetAllFeedbackResponseNegativeFeedbackId$ {
+  /** @deprecated use `GetAllFeedbackResponseNegativeFeedbackId$inboundSchema` instead. */
+  export const inboundSchema =
+    GetAllFeedbackResponseNegativeFeedbackId$inboundSchema;
+  /** @deprecated use `GetAllFeedbackResponseNegativeFeedbackId$outboundSchema` instead. */
+  export const outboundSchema =
+    GetAllFeedbackResponseNegativeFeedbackId$outboundSchema;
+  /** @deprecated use `GetAllFeedbackResponseNegativeFeedbackId$Outbound` instead. */
+  export type Outbound = GetAllFeedbackResponseNegativeFeedbackId$Outbound;
+}
+
+export function getAllFeedbackResponseNegativeFeedbackIdToJSON(
+  getAllFeedbackResponseNegativeFeedbackId:
+    GetAllFeedbackResponseNegativeFeedbackId,
+): string {
+  return JSON.stringify(
+    GetAllFeedbackResponseNegativeFeedbackId$outboundSchema.parse(
+      getAllFeedbackResponseNegativeFeedbackId,
+    ),
+  );
+}
+
+export function getAllFeedbackResponseNegativeFeedbackIdFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  GetAllFeedbackResponseNegativeFeedbackId,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetAllFeedbackResponseNegativeFeedbackId$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'GetAllFeedbackResponseNegativeFeedbackId' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetAllFeedbackResponseNegativeFeedbackUserId$inboundSchema:
+  z.ZodType<
+    GetAllFeedbackResponseNegativeFeedbackUserId,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([z.string(), z.number()]);
+
+/** @internal */
+export type GetAllFeedbackResponseNegativeFeedbackUserId$Outbound =
+  | string
+  | number;
+
+/** @internal */
+export const GetAllFeedbackResponseNegativeFeedbackUserId$outboundSchema:
+  z.ZodType<
+    GetAllFeedbackResponseNegativeFeedbackUserId$Outbound,
+    z.ZodTypeDef,
+    GetAllFeedbackResponseNegativeFeedbackUserId
+  > = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetAllFeedbackResponseNegativeFeedbackUserId$ {
+  /** @deprecated use `GetAllFeedbackResponseNegativeFeedbackUserId$inboundSchema` instead. */
+  export const inboundSchema =
+    GetAllFeedbackResponseNegativeFeedbackUserId$inboundSchema;
+  /** @deprecated use `GetAllFeedbackResponseNegativeFeedbackUserId$outboundSchema` instead. */
+  export const outboundSchema =
+    GetAllFeedbackResponseNegativeFeedbackUserId$outboundSchema;
+  /** @deprecated use `GetAllFeedbackResponseNegativeFeedbackUserId$Outbound` instead. */
+  export type Outbound = GetAllFeedbackResponseNegativeFeedbackUserId$Outbound;
+}
+
+export function getAllFeedbackResponseNegativeFeedbackUserIdToJSON(
+  getAllFeedbackResponseNegativeFeedbackUserId:
+    GetAllFeedbackResponseNegativeFeedbackUserId,
+): string {
+  return JSON.stringify(
+    GetAllFeedbackResponseNegativeFeedbackUserId$outboundSchema.parse(
+      getAllFeedbackResponseNegativeFeedbackUserId,
+    ),
+  );
+}
+
+export function getAllFeedbackResponseNegativeFeedbackUserIdFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  GetAllFeedbackResponseNegativeFeedbackUserId,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetAllFeedbackResponseNegativeFeedbackUserId$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'GetAllFeedbackResponseNegativeFeedbackUserId' from JSON`,
+  );
+}
+
+/** @internal */
+export const GetAllFeedbackResponseNegativeFeedbackUserProperties$inboundSchema:
+  z.ZodType<
+    GetAllFeedbackResponseNegativeFeedbackUserProperties,
+    z.ZodTypeDef,
+    unknown
+  > = collectExtraKeys$(
+    z.object({
+      id: z.nullable(z.union([z.string(), z.number()])).optional(),
+      identificationType: z.nullable(z.string()).optional(),
+      userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+      supportAgentName: z.nullable(z.string()).optional(),
+    }).catchall(z.any()),
+    "additionalProperties",
+    true,
+  );
+
+/** @internal */
+export type GetAllFeedbackResponseNegativeFeedbackUserProperties$Outbound = {
+  id?: string | number | null | undefined;
+  identificationType?: string | null | undefined;
+  userId?: string | number | null | undefined;
+  supportAgentName?: string | null | undefined;
+  [additionalProperties: string]: unknown;
+};
+
+/** @internal */
+export const GetAllFeedbackResponseNegativeFeedbackUserProperties$outboundSchema:
+  z.ZodType<
+    GetAllFeedbackResponseNegativeFeedbackUserProperties$Outbound,
+    z.ZodTypeDef,
+    GetAllFeedbackResponseNegativeFeedbackUserProperties
+  > = z.object({
+    id: z.nullable(z.union([z.string(), z.number()])).optional(),
+    identificationType: z.nullable(z.string()).optional(),
+    userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+    supportAgentName: z.nullable(z.string()).optional(),
+    additionalProperties: z.record(z.any()),
+  }).transform((v) => {
+    return {
+      ...v.additionalProperties,
+      ...remap$(v, {
+        additionalProperties: null,
+      }),
+    };
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetAllFeedbackResponseNegativeFeedbackUserProperties$ {
+  /** @deprecated use `GetAllFeedbackResponseNegativeFeedbackUserProperties$inboundSchema` instead. */
+  export const inboundSchema =
+    GetAllFeedbackResponseNegativeFeedbackUserProperties$inboundSchema;
+  /** @deprecated use `GetAllFeedbackResponseNegativeFeedbackUserProperties$outboundSchema` instead. */
+  export const outboundSchema =
+    GetAllFeedbackResponseNegativeFeedbackUserProperties$outboundSchema;
+  /** @deprecated use `GetAllFeedbackResponseNegativeFeedbackUserProperties$Outbound` instead. */
+  export type Outbound =
+    GetAllFeedbackResponseNegativeFeedbackUserProperties$Outbound;
+}
+
+export function getAllFeedbackResponseNegativeFeedbackUserPropertiesToJSON(
+  getAllFeedbackResponseNegativeFeedbackUserProperties:
+    GetAllFeedbackResponseNegativeFeedbackUserProperties,
+): string {
+  return JSON.stringify(
+    GetAllFeedbackResponseNegativeFeedbackUserProperties$outboundSchema.parse(
+      getAllFeedbackResponseNegativeFeedbackUserProperties,
+    ),
+  );
+}
+
+export function getAllFeedbackResponseNegativeFeedbackUserPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  GetAllFeedbackResponseNegativeFeedbackUserProperties,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetAllFeedbackResponseNegativeFeedbackUserProperties$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'GetAllFeedbackResponseNegativeFeedbackUserProperties' from JSON`,
+  );
+}
+
+/** @internal */
 export const NegativeFeedback$inboundSchema: z.ZodType<
   NegativeFeedback,
   z.ZodTypeDef,
@@ -322,7 +793,11 @@ export const NegativeFeedback$inboundSchema: z.ZodType<
   reasons: z.nullable(
     z.array(z.lazy(() => GetAllFeedbackResponseReasons$inboundSchema)),
   ).optional(),
-  userProperties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(
+    z.lazy(() =>
+      GetAllFeedbackResponseNegativeFeedbackUserProperties$inboundSchema
+    ),
+  ).optional(),
   conversation: Conversation$inboundSchema,
   message: Message$inboundSchema,
 });
@@ -334,7 +809,10 @@ export type NegativeFeedback$Outbound = {
   messageId: string;
   createdAt: string;
   reasons?: Array<GetAllFeedbackResponseReasons$Outbound> | null | undefined;
-  userProperties?: { [k: string]: any } | null | undefined;
+  userProperties?:
+    | GetAllFeedbackResponseNegativeFeedbackUserProperties$Outbound
+    | null
+    | undefined;
   conversation: Conversation$Outbound;
   message: Message$Outbound;
 };
@@ -352,7 +830,11 @@ export const NegativeFeedback$outboundSchema: z.ZodType<
   reasons: z.nullable(
     z.array(z.lazy(() => GetAllFeedbackResponseReasons$outboundSchema)),
   ).optional(),
-  userProperties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(
+    z.lazy(() =>
+      GetAllFeedbackResponseNegativeFeedbackUserProperties$outboundSchema
+    ),
+  ).optional(),
   conversation: Conversation$outboundSchema,
   message: Message$outboundSchema,
 });

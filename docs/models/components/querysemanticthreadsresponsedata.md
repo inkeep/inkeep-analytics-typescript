@@ -9,7 +9,11 @@ import { QuerySemanticThreadsResponseData } from "@inkeep/inkeep-analytics/model
 
 let value: QuerySemanticThreadsResponseData = {
   result: [
-    {},
+    {
+      userProperties: {
+        identificationType: "COOKIED",
+      },
+    },
   ],
   total: 3226.28,
   pageSize: 3107.52,

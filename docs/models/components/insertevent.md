@@ -9,6 +9,9 @@
 const value: components.InsertMessageEvent = {
   type: "<value>",
   messageId: "<id>",
+  userProperties: {
+    identificationType: "COOKIED",
+  },
   entityType: "message",
 };
 ```
@@ -19,6 +22,9 @@ const value: components.InsertMessageEvent = {
 const value: components.InsertConversationEvent = {
   type: "<value>",
   conversationId: "<id>",
+  userProperties: {
+    identificationType: "COOKIED",
+  },
   entityType: "conversation",
 };
 ```
@@ -29,6 +35,9 @@ const value: components.InsertConversationEvent = {
 const value: components.InsertSearchEvent = {
   type: "<value>",
   searchQuery: "<value>",
+  userProperties: {
+    identificationType: "COOKIED",
+  },
   entityType: "search",
 };
 ```
