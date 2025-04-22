@@ -39,6 +39,8 @@ export const SemanticThreadSimpleFieldSelectionField = {
   QuestionType: "questionType",
   ProjectId: "projectId",
   IntegrationId: "integrationId",
+  Properties: "properties",
+  UserProperties: "userProperties",
   FirstMessageTime: "firstMessageTime",
   LastMessageTime: "lastMessageTime",
   LastUpdated: "lastUpdated",

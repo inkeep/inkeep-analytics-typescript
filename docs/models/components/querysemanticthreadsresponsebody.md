@@ -11,7 +11,11 @@ let value: QuerySemanticThreadsResponseBody = {
   status: "ok",
   data: {
     result: [
-      {},
+      {
+        userProperties: {
+          identificationType: "COOKIED",
+        },
+      },
     ],
     total: 9068.77,
     pageSize: 4692.16,

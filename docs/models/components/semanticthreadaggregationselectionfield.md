@@ -11,5 +11,5 @@ let value: SemanticThreadAggregationSelectionField = "questionLength";
 ## Values
 
 ```typescript
-"id" | "messageIds" | "messagesCount" | "organizationId" | "question" | "questionLength" | "answer" | "isOnTopic" | "isClear" | "isDocumented" | "isFeatureSupported" | "isAnswerConfident" | "gapSummary" | "subject" | "category" | "languages" | "firstPartyEntities" | "thirdPartyEntities" | "emotion" | "sentiment" | "questionType" | "projectId" | "integrationId" | "firstMessageTime" | "lastMessageTime" | "lastUpdated" | "hasPositiveFeedback" | "hasNegativeFeedback" | "conversationIds" | "areAIAnnotationsVerified" | "isInitialQuestionAnswer"
+"id" | "messageIds" | "messagesCount" | "organizationId" | "question" | "questionLength" | "answer" | "isOnTopic" | "isClear" | "isDocumented" | "isFeatureSupported" | "isAnswerConfident" | "gapSummary" | "subject" | "category" | "languages" | "firstPartyEntities" | "thirdPartyEntities" | "emotion" | "sentiment" | "questionType" | "projectId" | "integrationId" | "properties" | "userProperties" | "firstMessageTime" | "lastMessageTime" | "lastUpdated" | "hasPositiveFeedback" | "hasNegativeFeedback" | "conversationIds" | "areAIAnnotationsVerified" | "isInitialQuestionAnswer"
 ```

@@ -1,20 +1,21 @@
 lockVersion: 2.0.0
 id: 63a2136d-3fa3-4a0b-a766-1ddb2460cc12
 management:
-  docChecksum: 3df5b911a8a585f333b34f39fc828183
+  docChecksum: 14ecf06c4b04eb0769c6688bb0efa3f3
   docVersion: 0.1.1
-  speakeasyVersion: 1.531.0
-  generationVersion: 2.568.2
-  releaseVersion: 0.2.4-alpha.21
-  configChecksum: 41c6225412986cc2a25fea0dc57011d0
+  speakeasyVersion: 1.537.0
+  generationVersion: 2.588.0
+  releaseVersion: 0.2.4-alpha.22
+  configChecksum: 559b7de3ef948c549d08dc2e84ac1874
   repoURL: https://github.com/inkeep/inkeep-analytics-typescript.git
   installationURL: https://github.com/inkeep/inkeep-analytics-typescript
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
+    additionalProperties: 0.1.1
     constsAndDefaults: 0.1.11
-    core: 3.21.5
+    core: 3.21.6
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     downloadStreams: 0.1.1
@@ -25,7 +26,7 @@ features:
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.4
     groups: 2.81.2
-    mcpServer: 0.9.1
+    mcpServer: 0.9.2
     methodSecurity: 2.82.6
     nameOverrides: 2.81.2
     nullables: 0.1.1
@@ -72,23 +73,38 @@ generatedFiles:
   - docs/models/components/createconversation.md
   - docs/models/components/createopenaiconversation.md
   - docs/models/components/createopenaiconversationcontent.md
+  - docs/models/components/createopenaiconversationid.md
   - docs/models/components/createopenaiconversationlinks.md
   - docs/models/components/createopenaiconversationrole.md
   - docs/models/components/createopenaiconversationtype.md
   - docs/models/components/createopenaiconversationtype1.md
+  - docs/models/components/createopenaiconversationuserid.md
+  - docs/models/components/createopenaiconversationuserproperties.md
   - docs/models/components/createsupportcopilotconversation.md
+  - docs/models/components/createsupportcopilotconversationid.md
   - docs/models/components/createsupportcopilotconversationlinks.md
   - docs/models/components/createsupportcopilotconversationmessages.md
+  - docs/models/components/createsupportcopilotconversationmessagesid.md
   - docs/models/components/createsupportcopilotconversationmessagestype.md
+  - docs/models/components/createsupportcopilotconversationmessagesuserid.md
+  - docs/models/components/createsupportcopilotconversationmessagesuserproperties.md
   - docs/models/components/createsupportcopilotconversationtype.md
   - docs/models/components/createsupportcopilotconversationtype1.md
+  - docs/models/components/createsupportcopilotconversationuserid.md
+  - docs/models/components/createsupportcopilotconversationuserproperties.md
   - docs/models/components/createsupportcopilotconversationvisibility.md
   - docs/models/components/createsupportticketconversation.md
+  - docs/models/components/createsupportticketconversationid.md
   - docs/models/components/createsupportticketconversationlinks.md
   - docs/models/components/createsupportticketconversationmessages.md
+  - docs/models/components/createsupportticketconversationmessagesid.md
   - docs/models/components/createsupportticketconversationmessagestype.md
+  - docs/models/components/createsupportticketconversationmessagesuserid.md
+  - docs/models/components/createsupportticketconversationmessagesuserproperties.md
   - docs/models/components/createsupportticketconversationtype.md
   - docs/models/components/createsupportticketconversationtype1.md
+  - docs/models/components/createsupportticketconversationuserid.md
+  - docs/models/components/createsupportticketconversationuserproperties.md
   - docs/models/components/createsupportticketconversationvisibility.md
   - docs/models/components/detail.md
   - docs/models/components/direction.md
@@ -124,15 +140,31 @@ generatedFiles:
   - docs/models/components/filteroperator.md
   - docs/models/components/four.md
   - docs/models/components/getallfeedbackresponse.md
+  - docs/models/components/getallfeedbackresponseid.md
+  - docs/models/components/getallfeedbackresponsenegativefeedbackid.md
   - docs/models/components/getallfeedbackresponsenegativefeedbacktype.md
+  - docs/models/components/getallfeedbackresponsenegativefeedbackuserid.md
+  - docs/models/components/getallfeedbackresponsenegativefeedbackuserproperties.md
   - docs/models/components/getallfeedbackresponsereasons.md
   - docs/models/components/getallfeedbackresponsetype.md
+  - docs/models/components/getallfeedbackresponseuserid.md
+  - docs/models/components/getallfeedbackresponseuserproperties.md
+  - docs/models/components/id.md
   - docs/models/components/insertconversationevent.md
   - docs/models/components/insertconversationevententitytype.md
+  - docs/models/components/insertconversationeventid.md
+  - docs/models/components/insertconversationeventuserid.md
+  - docs/models/components/insertconversationeventuserproperties.md
   - docs/models/components/insertevent.md
   - docs/models/components/insertmessageevent.md
+  - docs/models/components/insertmessageeventid.md
+  - docs/models/components/insertmessageeventuserid.md
+  - docs/models/components/insertmessageeventuserproperties.md
   - docs/models/components/insertsearchevent.md
   - docs/models/components/insertsearchevententitytype.md
+  - docs/models/components/insertsearcheventid.md
+  - docs/models/components/insertsearcheventuserid.md
+  - docs/models/components/insertsearcheventuserproperties.md
   - docs/models/components/links.md
   - docs/models/components/message.md
   - docs/models/components/messages.md
@@ -144,11 +176,17 @@ generatedFiles:
   - docs/models/components/openaicontentitem.md
   - docs/models/components/openaicontentitemtype.md
   - docs/models/components/openaiconversation.md
+  - docs/models/components/openaiconversationid.md
   - docs/models/components/openaiconversationtype.md
+  - docs/models/components/openaiconversationuserid.md
+  - docs/models/components/openaiconversationuserproperties.md
   - docs/models/components/openaiconversationvisibility.md
   - docs/models/components/openaiextendedmessage.md
+  - docs/models/components/openaiextendedmessageid.md
   - docs/models/components/openaiextendedmessagelinkstype.md
   - docs/models/components/openaiextendedmessagetype.md
+  - docs/models/components/openaiextendedmessageuserid.md
+  - docs/models/components/openaiextendedmessageuserproperties.md
   - docs/models/components/openaiimageurlobject.md
   - docs/models/components/openaitoolcall.md
   - docs/models/components/openaitoolcallfunction.md
@@ -165,7 +203,10 @@ generatedFiles:
   - docs/models/components/queryconversationsrequestbody.md
   - docs/models/components/queryconversationsresponsebody.md
   - docs/models/components/queryconversationsresponsedata.md
+  - docs/models/components/queryconversationsresponsedataid.md
   - docs/models/components/queryconversationsresponsedatatype.md
+  - docs/models/components/queryconversationsresponsedatauserid.md
+  - docs/models/components/queryconversationsresponsedatauserproperties.md
   - docs/models/components/queryeventsrequestbody.md
   - docs/models/components/queryeventsresponsebody.md
   - docs/models/components/queryeventsresponsebodystatus.md
@@ -174,16 +215,28 @@ generatedFiles:
   - docs/models/components/querysemanticthreadsresponsebody.md
   - docs/models/components/querysemanticthreadsresponsebodystatus.md
   - docs/models/components/querysemanticthreadsresponsedata.md
+  - docs/models/components/querysemanticthreadsresponsedataid.md
+  - docs/models/components/querysemanticthreadsresponsedatauserid.md
+  - docs/models/components/querysemanticthreadsresponsedatauserproperties.md
   - docs/models/components/reasons.md
   - docs/models/components/role.md
   - docs/models/components/security.md
   - docs/models/components/selectconversationevent.md
   - docs/models/components/selectconversationevententitytype.md
+  - docs/models/components/selectconversationeventid.md
+  - docs/models/components/selectconversationeventuserid.md
+  - docs/models/components/selectconversationeventuserproperties.md
   - docs/models/components/selectevent.md
   - docs/models/components/selectmessageevent.md
   - docs/models/components/selectmessageevententitytype.md
+  - docs/models/components/selectmessageeventid.md
+  - docs/models/components/selectmessageeventuserid.md
+  - docs/models/components/selectmessageeventuserproperties.md
   - docs/models/components/selectsearchevent.md
   - docs/models/components/selectsearchevententitytype.md
+  - docs/models/components/selectsearcheventid.md
+  - docs/models/components/selectsearcheventuserid.md
+  - docs/models/components/selectsearcheventuserproperties.md
   - docs/models/components/semanticthreadaggregationselection.md
   - docs/models/components/semanticthreadaggregationselectionaggregation.md
   - docs/models/components/semanticthreadaggregationselectionfield.md
@@ -215,23 +268,37 @@ generatedFiles:
   - docs/models/components/six.md
   - docs/models/components/status.md
   - docs/models/components/supportcopilotconversation.md
+  - docs/models/components/supportcopilotconversationid.md
   - docs/models/components/supportcopilotconversationtype.md
+  - docs/models/components/supportcopilotconversationuserid.md
+  - docs/models/components/supportcopilotconversationuserproperties.md
   - docs/models/components/supportcopilotconversationvisibility.md
   - docs/models/components/supportcopilotmessage.md
+  - docs/models/components/supportcopilotmessageid.md
   - docs/models/components/supportcopilotmessagelinks.md
   - docs/models/components/supportcopilotmessagelinkstype.md
   - docs/models/components/supportcopilotmessagetype.md
   - docs/models/components/supportcopilotmessagetype1.md
+  - docs/models/components/supportcopilotmessageuserid.md
+  - docs/models/components/supportcopilotmessageuserproperties.md
   - docs/models/components/supportticketconversation.md
+  - docs/models/components/supportticketconversationid.md
   - docs/models/components/supportticketconversationtype.md
+  - docs/models/components/supportticketconversationuserid.md
+  - docs/models/components/supportticketconversationuserproperties.md
   - docs/models/components/supportticketconversationvisibility.md
   - docs/models/components/supportticketmessage.md
+  - docs/models/components/supportticketmessageid.md
   - docs/models/components/supportticketmessagelinks.md
   - docs/models/components/supportticketmessagelinkstype.md
   - docs/models/components/supportticketmessagetype.md
+  - docs/models/components/supportticketmessageuserid.md
+  - docs/models/components/supportticketmessageuserproperties.md
   - docs/models/components/timeunit.md
   - docs/models/components/type.md
   - docs/models/components/type1.md
+  - docs/models/components/userid.md
+  - docs/models/components/userproperties.md
   - docs/models/components/value.md
   - docs/models/components/value4.md
   - docs/models/components/views.md
@@ -271,6 +338,7 @@ generatedFiles:
   - docs/models/operations/getconversationbyexternalidrequest.md
   - docs/models/operations/getconversationrequest.md
   - docs/models/operations/getconversationsecurity.md
+  - docs/models/operations/id.md
   - docs/models/operations/logconversationsecurity.md
   - docs/models/operations/logeventsecurity.md
   - docs/models/operations/queryconversationssecurity.md
@@ -278,13 +346,18 @@ generatedFiles:
   - docs/models/operations/querysemanticthreadssecurity.md
   - docs/models/operations/reasons.md
   - docs/models/operations/result.md
+  - docs/models/operations/submitfeedbackid.md
   - docs/models/operations/submitfeedbackreasons.md
   - docs/models/operations/submitfeedbackrequestbody.md
   - docs/models/operations/submitfeedbackresponsebody.md
   - docs/models/operations/submitfeedbacktype.md
+  - docs/models/operations/submitfeedbackuserid.md
+  - docs/models/operations/submitfeedbackuserproperties.md
   - docs/models/operations/topsearchqueriesrequest.md
   - docs/models/operations/topsearchqueriesresponsebody.md
   - docs/models/operations/type.md
+  - docs/models/operations/userid.md
+  - docs/models/operations/userproperties.md
   - docs/models/operations/weeklysearchusersdata.md
   - docs/models/operations/weeklysearchusersrequest.md
   - docs/models/operations/weeklysearchusersresponsebody.md
@@ -530,10 +603,10 @@ examples:
   logConversation:
     speakeasy-default-log-conversation:
       requestBody:
-        application/json: {"type": "support_ticket", "messages": [{"role": "<value>"}, {"role": "<value>"}]}
+        application/json: {"type": "support_ticket", "userProperties": {"identificationType": "COOKIED"}, "messages": [{"role": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"role": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}
       responses:
         "200":
-          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://well-made-tennis.net/", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1723857709508", "updatedAt": "1744074977129", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": [{"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://handy-testing.name/", "conversationId": "<id>", "createdAt": "1725397674857", "updatedAt": "1744113486542", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://esteemed-patroller.name/", "conversationId": "<id>", "createdAt": "1726587008426", "updatedAt": "1744085601588", "role": "<value>", "content": "<value>"}]}
+          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://well-made-tennis.net/", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1723857709508", "updatedAt": "1744074977129", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "public", "messages": [{"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://handy-testing.name/", "conversationId": "<id>", "createdAt": "1725397674857", "updatedAt": "1744113486542", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://esteemed-patroller.name/", "conversationId": "<id>", "createdAt": "1726587008426", "updatedAt": "1744085601588", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -552,7 +625,7 @@ examples:
           offset: 0
       responses:
         "200":
-          application/json: {"conversations": [{"id": "<id>", "externalId": "<id>", "externalUrl": "https://definite-deer.com", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1732658637587", "updatedAt": "1744121334822", "projectId": "<id>", "integrationId": "<id>", "visibility": "private", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://black-poetry.name/", "conversationId": "<id>", "createdAt": "1732607503281", "updatedAt": "1744066737695", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://hidden-jet.com/", "conversationId": "<id>", "createdAt": "1741981683428", "updatedAt": "1744115119130", "role": "<value>", "content": "<value>"}]}, {"id": "<id>", "externalId": "<id>", "externalUrl": "https://average-fedora.org/", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1713192928021", "updatedAt": "1744143609244", "projectId": "<id>", "integrationId": "<id>", "visibility": "private", "messages": [{"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://blue-technologist.com/", "conversationId": "<id>", "createdAt": "1727131765054", "updatedAt": "1744102840909", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://lonely-brook.name/", "conversationId": "<id>", "createdAt": "1739139232607", "updatedAt": "1744101533886", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://funny-grandson.com", "conversationId": "<id>", "createdAt": "1718328253783", "updatedAt": "1744145048291", "role": "<value>", "content": "<value>"}]}, {"id": "<id>", "externalId": "<id>", "externalUrl": "https://vivid-tool.com", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1734468339551", "updatedAt": "1744115141265", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": [{"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://bossy-coliseum.com", "conversationId": "<id>", "createdAt": "1739005420086", "updatedAt": "1744133245639", "role": "system", "content": [{"type": "image_url"}]}, {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://biodegradable-bandwidth.biz", "conversationId": "<id>", "createdAt": "1743941333700", "updatedAt": "1744130681105", "role": "system", "content": "<value>"}, {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://remorseful-hydrolyse.com/", "conversationId": "<id>", "createdAt": "1738184921657", "updatedAt": "1744148772713", "role": "assistant", "content": [{"type": "image_url"}, {"type": "text"}, {"type": "text"}]}], "messagesOpenAIFormat": [{"role": "assistant", "content": [{"type": "text"}]}, {"role": "user", "content": [{"type": "text"}, {"type": "text"}]}, {"role": "assistant", "content": "<value>"}]}], "total": 4063.91, "pageSize": 791.69, "count": 1173.86}
+          application/json: {"conversations": [{"id": "<id>", "externalId": "<id>", "externalUrl": "https://definite-deer.com", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1732658637587", "updatedAt": "1744121334822", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "private", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://black-poetry.name/", "conversationId": "<id>", "createdAt": "1732607503281", "updatedAt": "1744066737695", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://hidden-jet.com/", "conversationId": "<id>", "createdAt": "1741981683428", "updatedAt": "1744115119130", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}, {"id": "<id>", "externalId": "<id>", "externalUrl": "https://average-fedora.org/", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1713192928021", "updatedAt": "1744143609244", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "private", "messages": [{"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://blue-technologist.com/", "conversationId": "<id>", "createdAt": "1727131765054", "updatedAt": "1744102840909", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://lonely-brook.name/", "conversationId": "<id>", "createdAt": "1739139232607", "updatedAt": "1744101533886", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://funny-grandson.com", "conversationId": "<id>", "createdAt": "1718328253783", "updatedAt": "1744145048291", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}, {"id": "<id>", "externalId": "<id>", "externalUrl": "https://vivid-tool.com", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1734468339551", "updatedAt": "1744115141265", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "public", "messages": [{"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://bossy-coliseum.com", "conversationId": "<id>", "createdAt": "1739005420086", "updatedAt": "1744133245639", "role": "system", "content": [{"type": "image_url"}], "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://biodegradable-bandwidth.biz", "conversationId": "<id>", "createdAt": "1743941333700", "updatedAt": "1744130681105", "role": "system", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://remorseful-hydrolyse.com/", "conversationId": "<id>", "createdAt": "1738184921657", "updatedAt": "1744148772713", "role": "assistant", "content": [{"type": "image_url"}, {"type": "text"}, {"type": "text"}], "userProperties": {"identificationType": "COOKIED"}}], "messagesOpenAIFormat": [{"role": "assistant", "content": [{"type": "text"}]}, {"role": "user", "content": [{"type": "text"}, {"type": "text"}]}, {"role": "assistant", "content": "<value>"}]}], "total": 4063.91, "pageSize": 791.69, "count": 1173.86}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -572,7 +645,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://necessary-lender.org", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1727061540976", "updatedAt": "1744105043250", "projectId": "<id>", "integrationId": "<id>", "visibility": "private", "messages": []}
+          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://necessary-lender.org", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1727061540976", "updatedAt": "1744105043250", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "private", "messages": []}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -612,7 +685,7 @@ examples:
           externalId: "<id>"
       responses:
         "200":
-          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://smug-railway.biz/", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1741560860450", "updatedAt": "1744093559797", "projectId": "<id>", "integrationId": "<id>", "visibility": "private", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://heavy-incandescence.name/", "conversationId": "<id>", "createdAt": "1726697165411", "updatedAt": "1744131660846", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://shameless-cheetah.info", "conversationId": "<id>", "createdAt": "1737281901956", "updatedAt": "1744147919019", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://inferior-gallery.org/", "conversationId": "<id>", "createdAt": "1728870013139", "updatedAt": "1744141287781", "role": "<value>", "content": "<value>"}]}
+          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://smug-railway.biz/", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1741560860450", "updatedAt": "1744093559797", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "private", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://heavy-incandescence.name/", "conversationId": "<id>", "createdAt": "1726697165411", "updatedAt": "1744131660846", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://shameless-cheetah.info", "conversationId": "<id>", "createdAt": "1737281901956", "updatedAt": "1744147919019", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://inferior-gallery.org/", "conversationId": "<id>", "createdAt": "1728870013139", "updatedAt": "1744141287781", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -628,10 +701,10 @@ examples:
   submitFeedback:
     speakeasy-default-submit-feedback:
       requestBody:
-        application/json: {"type": "negative", "messageId": "<id>"}
+        application/json: {"type": "negative", "messageId": "<id>", "userProperties": {"identificationType": "COOKIED"}}
       responses:
         "200":
-          application/json: {"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1724157561766"}
+          application/json: {"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1724157561766", "userProperties": {"identificationType": "COOKIED"}}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -650,7 +723,7 @@ examples:
           offset: 0
       responses:
         "200":
-          application/json: {"positiveFeedbackCount": 7685.78, "negativeFeedbackCount": 5472.72, "positiveFeedback": [{"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1719860839502", "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://productive-affect.net", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1715333004342", "updatedAt": "1744072011337", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": [{"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://acidic-avalanche.info", "conversationId": "<id>", "createdAt": "1727934440326", "updatedAt": "1744072419395", "role": "assistant", "content": [{"type": "text"}, {"type": "text"}, {"type": "text"}]}, {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://agitated-technologist.info", "conversationId": "<id>", "createdAt": "1741423525062", "updatedAt": "1744081047460", "role": "system", "content": []}], "messagesOpenAIFormat": [{"role": "user", "content": "<value>"}]}, "message": {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://moist-sprinkles.info/", "conversationId": "<id>", "createdAt": "1739846737758", "updatedAt": "1744092650782", "role": "<value>", "content": "<value>"}}, {"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1716195389596", "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://animated-ostrich.org", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1741584224480", "updatedAt": "1744073366440", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": [{"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://substantial-yin.com", "conversationId": "<id>", "createdAt": "1717818833276", "updatedAt": "1744072483816", "role": "assistant", "content": []}, {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://fond-scale.name", "conversationId": "<id>", "createdAt": "1714729201833", "updatedAt": "1744071351597", "role": "system", "content": [{"type": "text"}, {"type": "text"}]}], "messagesOpenAIFormat": []}, "message": {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://accurate-siege.org/", "conversationId": "<id>", "createdAt": "1737133754989", "updatedAt": "1744109791332", "role": "<value>", "content": "<value>"}}], "negativeFeedback": [{"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1713266611397", "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://severe-ruin.info", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1713539476221", "updatedAt": "1744122452887", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://arid-someplace.biz/", "conversationId": "<id>", "createdAt": "1725432426997", "updatedAt": "1744072932776", "role": "<value>", "content": "<value>"}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://wavy-window.info/", "conversationId": "<id>", "createdAt": "1724294064931", "updatedAt": "1744105615144", "role": "<value>", "content": "<value>"}]}, "message": {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://avaricious-optimal.info", "conversationId": "<id>", "createdAt": "1718463076788", "updatedAt": "1744084016226", "role": "system", "content": "<value>"}}, {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1739071907406", "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://actual-joy.net", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1736317771162", "updatedAt": "1744090070342", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": []}, "message": {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://calculating-guide.name", "conversationId": "<id>", "createdAt": "1724768181127", "updatedAt": "1744146776631", "role": "<value>", "content": "<value>"}}, {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1740024274952", "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://gaseous-programme.info/", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1739044833466", "updatedAt": "1744110780018", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": []}, "message": {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://ill-teammate.com/", "conversationId": "<id>", "createdAt": "1729115044778", "updatedAt": "1744093298692", "role": "user", "content": "<value>"}}]}
+          application/json: {"positiveFeedbackCount": 7685.78, "negativeFeedbackCount": 5472.72, "positiveFeedback": [{"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1719860839502", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://productive-affect.net", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1715333004342", "updatedAt": "1744072011337", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "public", "messages": [{"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://acidic-avalanche.info", "conversationId": "<id>", "createdAt": "1727934440326", "updatedAt": "1744072419395", "role": "assistant", "content": [{"type": "text"}, {"type": "text"}, {"type": "text"}], "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://agitated-technologist.info", "conversationId": "<id>", "createdAt": "1741423525062", "updatedAt": "1744081047460", "role": "system", "content": [], "userProperties": {"identificationType": "COOKIED"}}], "messagesOpenAIFormat": [{"role": "user", "content": "<value>"}]}, "message": {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://moist-sprinkles.info/", "conversationId": "<id>", "createdAt": "1739846737758", "updatedAt": "1744092650782", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}}, {"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1716195389596", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://animated-ostrich.org", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1741584224480", "updatedAt": "1744073366440", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "public", "messages": [{"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://substantial-yin.com", "conversationId": "<id>", "createdAt": "1717818833276", "updatedAt": "1744072483816", "role": "assistant", "content": [], "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://fond-scale.name", "conversationId": "<id>", "createdAt": "1714729201833", "updatedAt": "1744071351597", "role": "system", "content": [{"type": "text"}, {"type": "text"}], "userProperties": {"identificationType": "COOKIED"}}], "messagesOpenAIFormat": []}, "message": {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://accurate-siege.org/", "conversationId": "<id>", "createdAt": "1737133754989", "updatedAt": "1744109791332", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}}], "negativeFeedback": [{"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1713266611397", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://severe-ruin.info", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1713539476221", "updatedAt": "1744122452887", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "public", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://arid-someplace.biz/", "conversationId": "<id>", "createdAt": "1725432426997", "updatedAt": "1744072932776", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://wavy-window.info/", "conversationId": "<id>", "createdAt": "1724294064931", "updatedAt": "1744105615144", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}, "message": {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://avaricious-optimal.info", "conversationId": "<id>", "createdAt": "1718463076788", "updatedAt": "1744084016226", "role": "system", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}}, {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1739071907406", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://actual-joy.net", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1736317771162", "updatedAt": "1744090070342", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "public", "messages": []}, "message": {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://calculating-guide.name", "conversationId": "<id>", "createdAt": "1724768181127", "updatedAt": "1744146776631", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}}, {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1740024274952", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://gaseous-programme.info/", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1739044833466", "updatedAt": "1744110780018", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "public", "messages": []}, "message": {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://ill-teammate.com/", "conversationId": "<id>", "createdAt": "1729115044778", "updatedAt": "1744093298692", "role": "user", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}}]}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -666,10 +739,10 @@ examples:
   logEvent:
     speakeasy-default-log-event:
       requestBody:
-        application/json: {"type": "<value>", "conversationId": "<id>", "entityType": "conversation"}
+        application/json: {"type": "<value>", "conversationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "entityType": "conversation"}
       responses:
         "200":
-          application/json: {"id": "<id>", "type": "<value>", "conversationId": "<id>", "createdAt": "1735048203405", "projectId": "<id>", "integrationId": "<id>", "entityType": "conversation"}
+          application/json: {"id": "<id>", "type": "<value>", "conversationId": "<id>", "createdAt": "1735048203405", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "entityType": "conversation"}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":

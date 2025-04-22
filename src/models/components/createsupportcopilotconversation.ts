@@ -3,7 +3,11 @@
  */
 
 import * as z from "zod";
-import { safeParse } from "../../lib/schemas.js";
+import { remap as remap$ } from "../../lib/primitives.js";
+import {
+  collectExtraKeys as collectExtraKeys$,
+  safeParse,
+} from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -14,6 +18,39 @@ export const CreateSupportCopilotConversationType = {
 export type CreateSupportCopilotConversationType = ClosedEnum<
   typeof CreateSupportCopilotConversationType
 >;
+
+/**
+ * The unique identifier for the user. This value is sent by the inkeep widget.
+ */
+export type CreateSupportCopilotConversationId = string | number;
+
+/**
+ * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type CreateSupportCopilotConversationUserId = string | number;
+
+/**
+ * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
+ */
+export type CreateSupportCopilotConversationUserProperties = {
+  /**
+   * The unique identifier for the user. This value is sent by the inkeep widget.
+   */
+  id?: string | number | null | undefined;
+  /**
+   * The type of identification for the user. This value is sent by the inkeep widget.
+   */
+  identificationType?: string | null | undefined;
+  /**
+   * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userId?: string | number | null | undefined;
+  /**
+   * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  supportAgentName?: string | null | undefined;
+  additionalProperties?: { [k: string]: any };
+};
 
 export const CreateSupportCopilotConversationVisibility = {
   Private: "private",
@@ -51,6 +88,39 @@ export type CreateSupportCopilotConversationLinks = {
   breadcrumbs?: Array<string> | null | undefined;
 };
 
+/**
+ * The unique identifier for the user. This value is sent by the inkeep widget.
+ */
+export type CreateSupportCopilotConversationMessagesId = string | number;
+
+/**
+ * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type CreateSupportCopilotConversationMessagesUserId = string | number;
+
+/**
+ * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
+ */
+export type CreateSupportCopilotConversationMessagesUserProperties = {
+  /**
+   * The unique identifier for the user. This value is sent by the inkeep widget.
+   */
+  id?: string | number | null | undefined;
+  /**
+   * The type of identification for the user. This value is sent by the inkeep widget.
+   */
+  identificationType?: string | null | undefined;
+  /**
+   * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userId?: string | number | null | undefined;
+  /**
+   * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  supportAgentName?: string | null | undefined;
+  additionalProperties?: { [k: string]: any };
+};
+
 export type CreateSupportCopilotConversationMessages = {
   id?: string | undefined;
   externalId?: string | null | undefined;
@@ -72,9 +142,12 @@ export type CreateSupportCopilotConversationMessages = {
    */
   properties?: { [k: string]: any } | null | undefined;
   /**
-   * A customizable collection of custom properties or attributes.
+   * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
    */
-  userProperties?: { [k: string]: any } | null | undefined;
+  userProperties?:
+    | CreateSupportCopilotConversationMessagesUserProperties
+    | null
+    | undefined;
 };
 
 export type CreateSupportCopilotConversation = {
@@ -98,9 +171,12 @@ export type CreateSupportCopilotConversation = {
    */
   properties?: { [k: string]: any } | null | undefined;
   /**
-   * A customizable collection of custom properties or attributes.
+   * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
    */
-  userProperties?: { [k: string]: any } | null | undefined;
+  userProperties?:
+    | CreateSupportCopilotConversationUserProperties
+    | null
+    | undefined;
   tags?: Array<string> | null | undefined;
   visibility?: CreateSupportCopilotConversationVisibility | null | undefined;
   messages: Array<CreateSupportCopilotConversationMessages>;
@@ -128,6 +204,202 @@ export namespace CreateSupportCopilotConversationType$ {
   /** @deprecated use `CreateSupportCopilotConversationType$outboundSchema` instead. */
   export const outboundSchema =
     CreateSupportCopilotConversationType$outboundSchema;
+}
+
+/** @internal */
+export const CreateSupportCopilotConversationId$inboundSchema: z.ZodType<
+  CreateSupportCopilotConversationId,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number()]);
+
+/** @internal */
+export type CreateSupportCopilotConversationId$Outbound = string | number;
+
+/** @internal */
+export const CreateSupportCopilotConversationId$outboundSchema: z.ZodType<
+  CreateSupportCopilotConversationId$Outbound,
+  z.ZodTypeDef,
+  CreateSupportCopilotConversationId
+> = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSupportCopilotConversationId$ {
+  /** @deprecated use `CreateSupportCopilotConversationId$inboundSchema` instead. */
+  export const inboundSchema = CreateSupportCopilotConversationId$inboundSchema;
+  /** @deprecated use `CreateSupportCopilotConversationId$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateSupportCopilotConversationId$outboundSchema;
+  /** @deprecated use `CreateSupportCopilotConversationId$Outbound` instead. */
+  export type Outbound = CreateSupportCopilotConversationId$Outbound;
+}
+
+export function createSupportCopilotConversationIdToJSON(
+  createSupportCopilotConversationId: CreateSupportCopilotConversationId,
+): string {
+  return JSON.stringify(
+    CreateSupportCopilotConversationId$outboundSchema.parse(
+      createSupportCopilotConversationId,
+    ),
+  );
+}
+
+export function createSupportCopilotConversationIdFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateSupportCopilotConversationId, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateSupportCopilotConversationId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateSupportCopilotConversationId' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateSupportCopilotConversationUserId$inboundSchema: z.ZodType<
+  CreateSupportCopilotConversationUserId,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number()]);
+
+/** @internal */
+export type CreateSupportCopilotConversationUserId$Outbound = string | number;
+
+/** @internal */
+export const CreateSupportCopilotConversationUserId$outboundSchema: z.ZodType<
+  CreateSupportCopilotConversationUserId$Outbound,
+  z.ZodTypeDef,
+  CreateSupportCopilotConversationUserId
+> = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSupportCopilotConversationUserId$ {
+  /** @deprecated use `CreateSupportCopilotConversationUserId$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateSupportCopilotConversationUserId$inboundSchema;
+  /** @deprecated use `CreateSupportCopilotConversationUserId$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateSupportCopilotConversationUserId$outboundSchema;
+  /** @deprecated use `CreateSupportCopilotConversationUserId$Outbound` instead. */
+  export type Outbound = CreateSupportCopilotConversationUserId$Outbound;
+}
+
+export function createSupportCopilotConversationUserIdToJSON(
+  createSupportCopilotConversationUserId:
+    CreateSupportCopilotConversationUserId,
+): string {
+  return JSON.stringify(
+    CreateSupportCopilotConversationUserId$outboundSchema.parse(
+      createSupportCopilotConversationUserId,
+    ),
+  );
+}
+
+export function createSupportCopilotConversationUserIdFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateSupportCopilotConversationUserId, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateSupportCopilotConversationUserId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateSupportCopilotConversationUserId' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateSupportCopilotConversationUserProperties$inboundSchema:
+  z.ZodType<
+    CreateSupportCopilotConversationUserProperties,
+    z.ZodTypeDef,
+    unknown
+  > = collectExtraKeys$(
+    z.object({
+      id: z.nullable(z.union([z.string(), z.number()])).optional(),
+      identificationType: z.nullable(z.string()).optional(),
+      userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+      supportAgentName: z.nullable(z.string()).optional(),
+    }).catchall(z.any()),
+    "additionalProperties",
+    true,
+  );
+
+/** @internal */
+export type CreateSupportCopilotConversationUserProperties$Outbound = {
+  id?: string | number | null | undefined;
+  identificationType?: string | null | undefined;
+  userId?: string | number | null | undefined;
+  supportAgentName?: string | null | undefined;
+  [additionalProperties: string]: unknown;
+};
+
+/** @internal */
+export const CreateSupportCopilotConversationUserProperties$outboundSchema:
+  z.ZodType<
+    CreateSupportCopilotConversationUserProperties$Outbound,
+    z.ZodTypeDef,
+    CreateSupportCopilotConversationUserProperties
+  > = z.object({
+    id: z.nullable(z.union([z.string(), z.number()])).optional(),
+    identificationType: z.nullable(z.string()).optional(),
+    userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+    supportAgentName: z.nullable(z.string()).optional(),
+    additionalProperties: z.record(z.any()),
+  }).transform((v) => {
+    return {
+      ...v.additionalProperties,
+      ...remap$(v, {
+        additionalProperties: null,
+      }),
+    };
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSupportCopilotConversationUserProperties$ {
+  /** @deprecated use `CreateSupportCopilotConversationUserProperties$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateSupportCopilotConversationUserProperties$inboundSchema;
+  /** @deprecated use `CreateSupportCopilotConversationUserProperties$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateSupportCopilotConversationUserProperties$outboundSchema;
+  /** @deprecated use `CreateSupportCopilotConversationUserProperties$Outbound` instead. */
+  export type Outbound =
+    CreateSupportCopilotConversationUserProperties$Outbound;
+}
+
+export function createSupportCopilotConversationUserPropertiesToJSON(
+  createSupportCopilotConversationUserProperties:
+    CreateSupportCopilotConversationUserProperties,
+): string {
+  return JSON.stringify(
+    CreateSupportCopilotConversationUserProperties$outboundSchema.parse(
+      createSupportCopilotConversationUserProperties,
+    ),
+  );
+}
+
+export function createSupportCopilotConversationUserPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CreateSupportCopilotConversationUserProperties,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateSupportCopilotConversationUserProperties$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CreateSupportCopilotConversationUserProperties' from JSON`,
+  );
 }
 
 /** @internal */
@@ -325,6 +597,219 @@ export function createSupportCopilotConversationLinksFromJSON(
 }
 
 /** @internal */
+export const CreateSupportCopilotConversationMessagesId$inboundSchema:
+  z.ZodType<CreateSupportCopilotConversationMessagesId, z.ZodTypeDef, unknown> =
+    z.union([z.string(), z.number()]);
+
+/** @internal */
+export type CreateSupportCopilotConversationMessagesId$Outbound =
+  | string
+  | number;
+
+/** @internal */
+export const CreateSupportCopilotConversationMessagesId$outboundSchema:
+  z.ZodType<
+    CreateSupportCopilotConversationMessagesId$Outbound,
+    z.ZodTypeDef,
+    CreateSupportCopilotConversationMessagesId
+  > = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSupportCopilotConversationMessagesId$ {
+  /** @deprecated use `CreateSupportCopilotConversationMessagesId$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateSupportCopilotConversationMessagesId$inboundSchema;
+  /** @deprecated use `CreateSupportCopilotConversationMessagesId$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateSupportCopilotConversationMessagesId$outboundSchema;
+  /** @deprecated use `CreateSupportCopilotConversationMessagesId$Outbound` instead. */
+  export type Outbound = CreateSupportCopilotConversationMessagesId$Outbound;
+}
+
+export function createSupportCopilotConversationMessagesIdToJSON(
+  createSupportCopilotConversationMessagesId:
+    CreateSupportCopilotConversationMessagesId,
+): string {
+  return JSON.stringify(
+    CreateSupportCopilotConversationMessagesId$outboundSchema.parse(
+      createSupportCopilotConversationMessagesId,
+    ),
+  );
+}
+
+export function createSupportCopilotConversationMessagesIdFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CreateSupportCopilotConversationMessagesId,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateSupportCopilotConversationMessagesId$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CreateSupportCopilotConversationMessagesId' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateSupportCopilotConversationMessagesUserId$inboundSchema:
+  z.ZodType<
+    CreateSupportCopilotConversationMessagesUserId,
+    z.ZodTypeDef,
+    unknown
+  > = z.union([z.string(), z.number()]);
+
+/** @internal */
+export type CreateSupportCopilotConversationMessagesUserId$Outbound =
+  | string
+  | number;
+
+/** @internal */
+export const CreateSupportCopilotConversationMessagesUserId$outboundSchema:
+  z.ZodType<
+    CreateSupportCopilotConversationMessagesUserId$Outbound,
+    z.ZodTypeDef,
+    CreateSupportCopilotConversationMessagesUserId
+  > = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSupportCopilotConversationMessagesUserId$ {
+  /** @deprecated use `CreateSupportCopilotConversationMessagesUserId$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateSupportCopilotConversationMessagesUserId$inboundSchema;
+  /** @deprecated use `CreateSupportCopilotConversationMessagesUserId$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateSupportCopilotConversationMessagesUserId$outboundSchema;
+  /** @deprecated use `CreateSupportCopilotConversationMessagesUserId$Outbound` instead. */
+  export type Outbound =
+    CreateSupportCopilotConversationMessagesUserId$Outbound;
+}
+
+export function createSupportCopilotConversationMessagesUserIdToJSON(
+  createSupportCopilotConversationMessagesUserId:
+    CreateSupportCopilotConversationMessagesUserId,
+): string {
+  return JSON.stringify(
+    CreateSupportCopilotConversationMessagesUserId$outboundSchema.parse(
+      createSupportCopilotConversationMessagesUserId,
+    ),
+  );
+}
+
+export function createSupportCopilotConversationMessagesUserIdFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CreateSupportCopilotConversationMessagesUserId,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateSupportCopilotConversationMessagesUserId$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'CreateSupportCopilotConversationMessagesUserId' from JSON`,
+  );
+}
+
+/** @internal */
+export const CreateSupportCopilotConversationMessagesUserProperties$inboundSchema:
+  z.ZodType<
+    CreateSupportCopilotConversationMessagesUserProperties,
+    z.ZodTypeDef,
+    unknown
+  > = collectExtraKeys$(
+    z.object({
+      id: z.nullable(z.union([z.string(), z.number()])).optional(),
+      identificationType: z.nullable(z.string()).optional(),
+      userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+      supportAgentName: z.nullable(z.string()).optional(),
+    }).catchall(z.any()),
+    "additionalProperties",
+    true,
+  );
+
+/** @internal */
+export type CreateSupportCopilotConversationMessagesUserProperties$Outbound = {
+  id?: string | number | null | undefined;
+  identificationType?: string | null | undefined;
+  userId?: string | number | null | undefined;
+  supportAgentName?: string | null | undefined;
+  [additionalProperties: string]: unknown;
+};
+
+/** @internal */
+export const CreateSupportCopilotConversationMessagesUserProperties$outboundSchema:
+  z.ZodType<
+    CreateSupportCopilotConversationMessagesUserProperties$Outbound,
+    z.ZodTypeDef,
+    CreateSupportCopilotConversationMessagesUserProperties
+  > = z.object({
+    id: z.nullable(z.union([z.string(), z.number()])).optional(),
+    identificationType: z.nullable(z.string()).optional(),
+    userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+    supportAgentName: z.nullable(z.string()).optional(),
+    additionalProperties: z.record(z.any()),
+  }).transform((v) => {
+    return {
+      ...v.additionalProperties,
+      ...remap$(v, {
+        additionalProperties: null,
+      }),
+    };
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSupportCopilotConversationMessagesUserProperties$ {
+  /** @deprecated use `CreateSupportCopilotConversationMessagesUserProperties$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateSupportCopilotConversationMessagesUserProperties$inboundSchema;
+  /** @deprecated use `CreateSupportCopilotConversationMessagesUserProperties$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateSupportCopilotConversationMessagesUserProperties$outboundSchema;
+  /** @deprecated use `CreateSupportCopilotConversationMessagesUserProperties$Outbound` instead. */
+  export type Outbound =
+    CreateSupportCopilotConversationMessagesUserProperties$Outbound;
+}
+
+export function createSupportCopilotConversationMessagesUserPropertiesToJSON(
+  createSupportCopilotConversationMessagesUserProperties:
+    CreateSupportCopilotConversationMessagesUserProperties,
+): string {
+  return JSON.stringify(
+    CreateSupportCopilotConversationMessagesUserProperties$outboundSchema.parse(
+      createSupportCopilotConversationMessagesUserProperties,
+    ),
+  );
+}
+
+export function createSupportCopilotConversationMessagesUserPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  CreateSupportCopilotConversationMessagesUserProperties,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      CreateSupportCopilotConversationMessagesUserProperties$inboundSchema
+        .parse(JSON.parse(x)),
+    `Failed to parse 'CreateSupportCopilotConversationMessagesUserProperties' from JSON`,
+  );
+}
+
+/** @internal */
 export const CreateSupportCopilotConversationMessages$inboundSchema: z.ZodType<
   CreateSupportCopilotConversationMessages,
   z.ZodTypeDef,
@@ -346,7 +831,11 @@ export const CreateSupportCopilotConversationMessages$inboundSchema: z.ZodType<
     z.array(z.lazy(() => CreateSupportCopilotConversationLinks$inboundSchema)),
   ).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
-  userProperties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(
+    z.lazy(() =>
+      CreateSupportCopilotConversationMessagesUserProperties$inboundSchema
+    ),
+  ).optional(),
 });
 
 /** @internal */
@@ -364,7 +853,10 @@ export type CreateSupportCopilotConversationMessages$Outbound = {
     | null
     | undefined;
   properties?: { [k: string]: any } | null | undefined;
-  userProperties?: { [k: string]: any } | null | undefined;
+  userProperties?:
+    | CreateSupportCopilotConversationMessagesUserProperties$Outbound
+    | null
+    | undefined;
 };
 
 /** @internal */
@@ -385,7 +877,11 @@ export const CreateSupportCopilotConversationMessages$outboundSchema: z.ZodType<
     z.array(z.lazy(() => CreateSupportCopilotConversationLinks$outboundSchema)),
   ).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
-  userProperties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(
+    z.lazy(() =>
+      CreateSupportCopilotConversationMessagesUserProperties$outboundSchema
+    ),
+  ).optional(),
 });
 
 /**
@@ -450,7 +946,9 @@ export const CreateSupportCopilotConversation$inboundSchema: z.ZodType<
   projectId: z.nullable(z.string()).optional(),
   integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
-  userProperties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(
+    z.lazy(() => CreateSupportCopilotConversationUserProperties$inboundSchema),
+  ).optional(),
   tags: z.nullable(z.array(z.string())).optional(),
   visibility: z.nullable(
     CreateSupportCopilotConversationVisibility$inboundSchema,
@@ -472,7 +970,10 @@ export type CreateSupportCopilotConversation$Outbound = {
   projectId?: string | null | undefined;
   integrationId?: string | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
-  userProperties?: { [k: string]: any } | null | undefined;
+  userProperties?:
+    | CreateSupportCopilotConversationUserProperties$Outbound
+    | null
+    | undefined;
   tags?: Array<string> | null | undefined;
   visibility?: string | null | undefined;
   messages: Array<CreateSupportCopilotConversationMessages$Outbound>;
@@ -494,7 +995,9 @@ export const CreateSupportCopilotConversation$outboundSchema: z.ZodType<
   projectId: z.nullable(z.string()).optional(),
   integrationId: z.nullable(z.string()).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
-  userProperties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(
+    z.lazy(() => CreateSupportCopilotConversationUserProperties$outboundSchema),
+  ).optional(),
   tags: z.nullable(z.array(z.string())).optional(),
   visibility: z.nullable(
     CreateSupportCopilotConversationVisibility$outboundSchema,

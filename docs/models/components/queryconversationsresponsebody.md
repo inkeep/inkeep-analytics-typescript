@@ -11,7 +11,11 @@ let value: QueryConversationsResponseBody = {
   status: "ok",
   data: {
     result: [
-      {},
+      {
+        userProperties: {
+          identificationType: "COOKIED",
+        },
+      },
     ],
     total: 9595.58,
     pageSize: 6109.02,

@@ -124,12 +124,21 @@ export function Example() {
           webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
         }, {
           type: "support_ticket",
+          userProperties: {
+            identificationType: "COOKIED",
+          },
           messages: [
             {
               role: "<value>",
+              userProperties: {
+                identificationType: "COOKIED",
+              },
             },
             {
               role: "<value>",
+              userProperties: {
+                identificationType: "COOKIED",
+              },
             },
           ],
         });

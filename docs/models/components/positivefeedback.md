@@ -9,17 +9,23 @@ let value: PositiveFeedback = {
   id: "<id>",
   type: "positive",
   messageId: "<id>",
-  createdAt: "1731834366912",
+  createdAt: "1732951633916",
+  userProperties: {
+    identificationType: "COOKIED",
+  },
   conversation: {
     id: "<id>",
     externalId: "<id>",
     externalUrl: "https://content-mom.info",
     type: "support_ticket",
     supportTicketConversationId: "<id>",
-    createdAt: "1716872389254",
-    updatedAt: "1744133044907",
+    createdAt: "1717989656258",
+    updatedAt: "1745250311911",
     projectId: "<id>",
     integrationId: "<id>",
+    userProperties: {
+      identificationType: "COOKIED",
+    },
     visibility: "public",
     messages: [
       {
@@ -28,10 +34,13 @@ let value: PositiveFeedback = {
         externalId: "<id>",
         externalUrl: "https://legal-impostor.com",
         conversationId: "<id>",
-        createdAt: "1738269933255",
-        updatedAt: "1744098701592",
+        createdAt: "1739387200259",
+        updatedAt: "1745215968596",
         role: "<value>",
         content: "<value>",
+        userProperties: {
+          identificationType: "COOKIED",
+        },
       },
     ],
   },
@@ -41,23 +50,26 @@ let value: PositiveFeedback = {
     externalId: "<id>",
     externalUrl: "https://unsightly-airport.net",
     conversationId: "<id>",
-    createdAt: "1716261577664",
-    updatedAt: "1744138549672",
+    createdAt: "1717378844668",
+    updatedAt: "1745255816676",
     role: "<value>",
     content: "<value>",
+    userProperties: {
+      identificationType: "COOKIED",
+    },
   },
 };
 ```
 
 ## Fields
 
-| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `id`                                                                                           | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `type`                                                                                         | [components.GetAllFeedbackResponseType](../../models/components/getallfeedbackresponsetype.md) | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `messageId`                                                                                    | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `createdAt`                                                                                    | *string*                                                                                       | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `reasons`                                                                                      | [components.Reasons](../../models/components/reasons.md)[]                                     | :heavy_minus_sign:                                                                             | N/A                                                                                            |
-| `userProperties`                                                                               | Record<string, *any*>                                                                          | :heavy_minus_sign:                                                                             | A customizable collection of custom properties or attributes.                                  |
-| `conversation`                                                                                 | *components.Conversation*                                                                      | :heavy_check_mark:                                                                             | N/A                                                                                            |
-| `message`                                                                                      | *components.Message*                                                                           | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| Field                                                                                                                                                                    | Type                                                                                                                                                                     | Required                                                                                                                                                                 | Description                                                                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
+| `type`                                                                                                                                                                   | [components.GetAllFeedbackResponseType](../../models/components/getallfeedbackresponsetype.md)                                                                           | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
+| `messageId`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
+| `createdAt`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
+| `reasons`                                                                                                                                                                | [components.Reasons](../../models/components/reasons.md)[]                                                                                                               | :heavy_minus_sign:                                                                                                                                                       | N/A                                                                                                                                                                      |
+| `userProperties`                                                                                                                                                         | [components.GetAllFeedbackResponseUserProperties](../../models/components/getallfeedbackresponseuserproperties.md)                                                       | :heavy_minus_sign:                                                                                                                                                       | A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description. |
+| `conversation`                                                                                                                                                           | *components.Conversation*                                                                                                                                                | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
+| `message`                                                                                                                                                                | *components.Message*                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |

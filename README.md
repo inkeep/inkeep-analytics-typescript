@@ -241,12 +241,21 @@ const inkeepAnalytics = new InkeepAnalytics();
 async function run() {
   const result = await inkeepAnalytics.conversations.log({}, {
     type: "support_ticket",
+    userProperties: {
+      identificationType: "COOKIED",
+    },
     messages: [
       {
         role: "<value>",
+        userProperties: {
+          identificationType: "COOKIED",
+        },
       },
       {
         role: "<value>",
+        userProperties: {
+          identificationType: "COOKIED",
+        },
       },
     ],
   });

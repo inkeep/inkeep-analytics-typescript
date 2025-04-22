@@ -9,7 +9,11 @@ import { QueryConversationsResponseData } from "@inkeep/inkeep-analytics/models/
 
 let value: QueryConversationsResponseData = {
   result: [
-    {},
+    {
+      userProperties: {
+        identificationType: "COOKIED",
+      },
+    },
   ],
   total: 529.71,
   pageSize: 9651.27,

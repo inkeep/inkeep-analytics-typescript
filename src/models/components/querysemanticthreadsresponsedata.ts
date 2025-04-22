@@ -4,9 +4,45 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import {
+  collectExtraKeys as collectExtraKeys$,
+  safeParse,
+} from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+
+/**
+ * The unique identifier for the user. This value is sent by the inkeep widget.
+ */
+export type QuerySemanticThreadsResponseDataId = string | number;
+
+/**
+ * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type QuerySemanticThreadsResponseDataUserId = string | number;
+
+/**
+ * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
+ */
+export type QuerySemanticThreadsResponseDataUserProperties = {
+  /**
+   * The unique identifier for the user. This value is sent by the inkeep widget.
+   */
+  id?: string | number | null | undefined;
+  /**
+   * The type of identification for the user. This value is sent by the inkeep widget.
+   */
+  identificationType?: string | null | undefined;
+  /**
+   * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userId?: string | number | null | undefined;
+  /**
+   * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  supportAgentName?: string | null | undefined;
+  additionalProperties?: { [k: string]: any };
+};
 
 export type SemanticThreadResultItem = {
   id?: string | undefined;
@@ -32,6 +68,17 @@ export type SemanticThreadResultItem = {
   questionType?: any | undefined;
   projectId?: string | undefined;
   integrationId?: string | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
+   */
+  userProperties?:
+    | QuerySemanticThreadsResponseDataUserProperties
+    | null
+    | undefined;
   firstMessageTime?: Date | undefined;
   lastMessageTime?: Date | undefined;
   lastUpdated?: Date | undefined;
@@ -137,6 +184,14 @@ export type SemanticThreadResultItem = {
   integrationIdDay?: string | undefined;
   integrationIdWeek?: string | undefined;
   integrationIdMonth?: string | undefined;
+  propertiesHour?: string | undefined;
+  propertiesDay?: string | undefined;
+  propertiesWeek?: string | undefined;
+  propertiesMonth?: string | undefined;
+  userPropertiesHour?: string | undefined;
+  userPropertiesDay?: string | undefined;
+  userPropertiesWeek?: string | undefined;
+  userPropertiesMonth?: string | undefined;
   firstMessageTimeHour?: string | undefined;
   firstMessageTimeDay?: string | undefined;
   firstMessageTimeWeek?: string | undefined;
@@ -192,6 +247,8 @@ export type SemanticThreadResultItem = {
   sumQuestionType?: number | undefined;
   sumProjectId?: number | undefined;
   sumIntegrationId?: number | undefined;
+  sumProperties?: number | undefined;
+  sumUserProperties?: number | undefined;
   sumFirstMessageTime?: number | undefined;
   sumLastMessageTime?: number | undefined;
   sumLastUpdated?: number | undefined;
@@ -223,6 +280,8 @@ export type SemanticThreadResultItem = {
   countQuestionType?: number | undefined;
   countProjectId?: number | undefined;
   countIntegrationId?: number | undefined;
+  countProperties?: number | undefined;
+  countUserProperties?: number | undefined;
   countFirstMessageTime?: number | undefined;
   countLastMessageTime?: number | undefined;
   countLastUpdated?: number | undefined;
@@ -254,6 +313,8 @@ export type SemanticThreadResultItem = {
   avgQuestionType?: number | undefined;
   avgProjectId?: number | undefined;
   avgIntegrationId?: number | undefined;
+  avgProperties?: number | undefined;
+  avgUserProperties?: number | undefined;
   avgFirstMessageTime?: number | undefined;
   avgLastMessageTime?: number | undefined;
   avgLastUpdated?: number | undefined;
@@ -285,6 +346,8 @@ export type SemanticThreadResultItem = {
   minQuestionType?: number | undefined;
   minProjectId?: number | undefined;
   minIntegrationId?: number | undefined;
+  minProperties?: number | undefined;
+  minUserProperties?: number | undefined;
   minFirstMessageTime?: number | undefined;
   minLastMessageTime?: number | undefined;
   minLastUpdated?: number | undefined;
@@ -316,6 +379,8 @@ export type SemanticThreadResultItem = {
   maxQuestionType?: number | undefined;
   maxProjectId?: number | undefined;
   maxIntegrationId?: number | undefined;
+  maxProperties?: number | undefined;
+  maxUserProperties?: number | undefined;
   maxFirstMessageTime?: number | undefined;
   maxLastMessageTime?: number | undefined;
   maxLastUpdated?: number | undefined;
@@ -346,6 +411,202 @@ export type QuerySemanticThreadsResponseData = {
 };
 
 /** @internal */
+export const QuerySemanticThreadsResponseDataId$inboundSchema: z.ZodType<
+  QuerySemanticThreadsResponseDataId,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number()]);
+
+/** @internal */
+export type QuerySemanticThreadsResponseDataId$Outbound = string | number;
+
+/** @internal */
+export const QuerySemanticThreadsResponseDataId$outboundSchema: z.ZodType<
+  QuerySemanticThreadsResponseDataId$Outbound,
+  z.ZodTypeDef,
+  QuerySemanticThreadsResponseDataId
+> = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace QuerySemanticThreadsResponseDataId$ {
+  /** @deprecated use `QuerySemanticThreadsResponseDataId$inboundSchema` instead. */
+  export const inboundSchema = QuerySemanticThreadsResponseDataId$inboundSchema;
+  /** @deprecated use `QuerySemanticThreadsResponseDataId$outboundSchema` instead. */
+  export const outboundSchema =
+    QuerySemanticThreadsResponseDataId$outboundSchema;
+  /** @deprecated use `QuerySemanticThreadsResponseDataId$Outbound` instead. */
+  export type Outbound = QuerySemanticThreadsResponseDataId$Outbound;
+}
+
+export function querySemanticThreadsResponseDataIdToJSON(
+  querySemanticThreadsResponseDataId: QuerySemanticThreadsResponseDataId,
+): string {
+  return JSON.stringify(
+    QuerySemanticThreadsResponseDataId$outboundSchema.parse(
+      querySemanticThreadsResponseDataId,
+    ),
+  );
+}
+
+export function querySemanticThreadsResponseDataIdFromJSON(
+  jsonString: string,
+): SafeParseResult<QuerySemanticThreadsResponseDataId, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      QuerySemanticThreadsResponseDataId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QuerySemanticThreadsResponseDataId' from JSON`,
+  );
+}
+
+/** @internal */
+export const QuerySemanticThreadsResponseDataUserId$inboundSchema: z.ZodType<
+  QuerySemanticThreadsResponseDataUserId,
+  z.ZodTypeDef,
+  unknown
+> = z.union([z.string(), z.number()]);
+
+/** @internal */
+export type QuerySemanticThreadsResponseDataUserId$Outbound = string | number;
+
+/** @internal */
+export const QuerySemanticThreadsResponseDataUserId$outboundSchema: z.ZodType<
+  QuerySemanticThreadsResponseDataUserId$Outbound,
+  z.ZodTypeDef,
+  QuerySemanticThreadsResponseDataUserId
+> = z.union([z.string(), z.number()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace QuerySemanticThreadsResponseDataUserId$ {
+  /** @deprecated use `QuerySemanticThreadsResponseDataUserId$inboundSchema` instead. */
+  export const inboundSchema =
+    QuerySemanticThreadsResponseDataUserId$inboundSchema;
+  /** @deprecated use `QuerySemanticThreadsResponseDataUserId$outboundSchema` instead. */
+  export const outboundSchema =
+    QuerySemanticThreadsResponseDataUserId$outboundSchema;
+  /** @deprecated use `QuerySemanticThreadsResponseDataUserId$Outbound` instead. */
+  export type Outbound = QuerySemanticThreadsResponseDataUserId$Outbound;
+}
+
+export function querySemanticThreadsResponseDataUserIdToJSON(
+  querySemanticThreadsResponseDataUserId:
+    QuerySemanticThreadsResponseDataUserId,
+): string {
+  return JSON.stringify(
+    QuerySemanticThreadsResponseDataUserId$outboundSchema.parse(
+      querySemanticThreadsResponseDataUserId,
+    ),
+  );
+}
+
+export function querySemanticThreadsResponseDataUserIdFromJSON(
+  jsonString: string,
+): SafeParseResult<QuerySemanticThreadsResponseDataUserId, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      QuerySemanticThreadsResponseDataUserId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QuerySemanticThreadsResponseDataUserId' from JSON`,
+  );
+}
+
+/** @internal */
+export const QuerySemanticThreadsResponseDataUserProperties$inboundSchema:
+  z.ZodType<
+    QuerySemanticThreadsResponseDataUserProperties,
+    z.ZodTypeDef,
+    unknown
+  > = collectExtraKeys$(
+    z.object({
+      id: z.nullable(z.union([z.string(), z.number()])).optional(),
+      identificationType: z.nullable(z.string()).optional(),
+      userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+      supportAgentName: z.nullable(z.string()).optional(),
+    }).catchall(z.any()),
+    "additionalProperties",
+    true,
+  );
+
+/** @internal */
+export type QuerySemanticThreadsResponseDataUserProperties$Outbound = {
+  id?: string | number | null | undefined;
+  identificationType?: string | null | undefined;
+  userId?: string | number | null | undefined;
+  supportAgentName?: string | null | undefined;
+  [additionalProperties: string]: unknown;
+};
+
+/** @internal */
+export const QuerySemanticThreadsResponseDataUserProperties$outboundSchema:
+  z.ZodType<
+    QuerySemanticThreadsResponseDataUserProperties$Outbound,
+    z.ZodTypeDef,
+    QuerySemanticThreadsResponseDataUserProperties
+  > = z.object({
+    id: z.nullable(z.union([z.string(), z.number()])).optional(),
+    identificationType: z.nullable(z.string()).optional(),
+    userId: z.nullable(z.union([z.string(), z.number()])).optional(),
+    supportAgentName: z.nullable(z.string()).optional(),
+    additionalProperties: z.record(z.any()),
+  }).transform((v) => {
+    return {
+      ...v.additionalProperties,
+      ...remap$(v, {
+        additionalProperties: null,
+      }),
+    };
+  });
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace QuerySemanticThreadsResponseDataUserProperties$ {
+  /** @deprecated use `QuerySemanticThreadsResponseDataUserProperties$inboundSchema` instead. */
+  export const inboundSchema =
+    QuerySemanticThreadsResponseDataUserProperties$inboundSchema;
+  /** @deprecated use `QuerySemanticThreadsResponseDataUserProperties$outboundSchema` instead. */
+  export const outboundSchema =
+    QuerySemanticThreadsResponseDataUserProperties$outboundSchema;
+  /** @deprecated use `QuerySemanticThreadsResponseDataUserProperties$Outbound` instead. */
+  export type Outbound =
+    QuerySemanticThreadsResponseDataUserProperties$Outbound;
+}
+
+export function querySemanticThreadsResponseDataUserPropertiesToJSON(
+  querySemanticThreadsResponseDataUserProperties:
+    QuerySemanticThreadsResponseDataUserProperties,
+): string {
+  return JSON.stringify(
+    QuerySemanticThreadsResponseDataUserProperties$outboundSchema.parse(
+      querySemanticThreadsResponseDataUserProperties,
+    ),
+  );
+}
+
+export function querySemanticThreadsResponseDataUserPropertiesFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  QuerySemanticThreadsResponseDataUserProperties,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      QuerySemanticThreadsResponseDataUserProperties$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'QuerySemanticThreadsResponseDataUserProperties' from JSON`,
+  );
+}
+
+/** @internal */
 export const SemanticThreadResultItem$inboundSchema: z.ZodType<
   SemanticThreadResultItem,
   z.ZodTypeDef,
@@ -374,6 +635,10 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
   questionType: z.any().optional(),
   projectId: z.string().optional(),
   integrationId: z.string().optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(
+    z.lazy(() => QuerySemanticThreadsResponseDataUserProperties$inboundSchema),
+  ).optional(),
   firstMessageTime: z.string().datetime({ offset: true }).transform(v =>
     new Date(v)
   ).optional(),
@@ -484,6 +749,14 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
   integrationId_day: z.string().optional(),
   integrationId_week: z.string().optional(),
   integrationId_month: z.string().optional(),
+  properties_hour: z.string().optional(),
+  properties_day: z.string().optional(),
+  properties_week: z.string().optional(),
+  properties_month: z.string().optional(),
+  userProperties_hour: z.string().optional(),
+  userProperties_day: z.string().optional(),
+  userProperties_week: z.string().optional(),
+  userProperties_month: z.string().optional(),
   firstMessageTime_hour: z.string().optional(),
   firstMessageTime_day: z.string().optional(),
   firstMessageTime_week: z.string().optional(),
@@ -539,6 +812,8 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
   sum_questionType: z.number().optional(),
   sum_projectId: z.number().optional(),
   sum_integrationId: z.number().optional(),
+  sum_properties: z.number().optional(),
+  sum_userProperties: z.number().optional(),
   sum_firstMessageTime: z.number().optional(),
   sum_lastMessageTime: z.number().optional(),
   sum_lastUpdated: z.number().optional(),
@@ -570,6 +845,8 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
   count_questionType: z.number().optional(),
   count_projectId: z.number().optional(),
   count_integrationId: z.number().optional(),
+  count_properties: z.number().optional(),
+  count_userProperties: z.number().optional(),
   count_firstMessageTime: z.number().optional(),
   count_lastMessageTime: z.number().optional(),
   count_lastUpdated: z.number().optional(),
@@ -601,6 +878,8 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
   avg_questionType: z.number().optional(),
   avg_projectId: z.number().optional(),
   avg_integrationId: z.number().optional(),
+  avg_properties: z.number().optional(),
+  avg_userProperties: z.number().optional(),
   avg_firstMessageTime: z.number().optional(),
   avg_lastMessageTime: z.number().optional(),
   avg_lastUpdated: z.number().optional(),
@@ -632,6 +911,8 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
   min_questionType: z.number().optional(),
   min_projectId: z.number().optional(),
   min_integrationId: z.number().optional(),
+  min_properties: z.number().optional(),
+  min_userProperties: z.number().optional(),
   min_firstMessageTime: z.number().optional(),
   min_lastMessageTime: z.number().optional(),
   min_lastUpdated: z.number().optional(),
@@ -663,6 +944,8 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
   max_questionType: z.number().optional(),
   max_projectId: z.number().optional(),
   max_integrationId: z.number().optional(),
+  max_properties: z.number().optional(),
+  max_userProperties: z.number().optional(),
   max_firstMessageTime: z.number().optional(),
   max_lastMessageTime: z.number().optional(),
   max_lastUpdated: z.number().optional(),
@@ -765,6 +1048,14 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
     "integrationId_day": "integrationIdDay",
     "integrationId_week": "integrationIdWeek",
     "integrationId_month": "integrationIdMonth",
+    "properties_hour": "propertiesHour",
+    "properties_day": "propertiesDay",
+    "properties_week": "propertiesWeek",
+    "properties_month": "propertiesMonth",
+    "userProperties_hour": "userPropertiesHour",
+    "userProperties_day": "userPropertiesDay",
+    "userProperties_week": "userPropertiesWeek",
+    "userProperties_month": "userPropertiesMonth",
     "firstMessageTime_hour": "firstMessageTimeHour",
     "firstMessageTime_day": "firstMessageTimeDay",
     "firstMessageTime_week": "firstMessageTimeWeek",
@@ -820,6 +1111,8 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
     "sum_questionType": "sumQuestionType",
     "sum_projectId": "sumProjectId",
     "sum_integrationId": "sumIntegrationId",
+    "sum_properties": "sumProperties",
+    "sum_userProperties": "sumUserProperties",
     "sum_firstMessageTime": "sumFirstMessageTime",
     "sum_lastMessageTime": "sumLastMessageTime",
     "sum_lastUpdated": "sumLastUpdated",
@@ -851,6 +1144,8 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
     "count_questionType": "countQuestionType",
     "count_projectId": "countProjectId",
     "count_integrationId": "countIntegrationId",
+    "count_properties": "countProperties",
+    "count_userProperties": "countUserProperties",
     "count_firstMessageTime": "countFirstMessageTime",
     "count_lastMessageTime": "countLastMessageTime",
     "count_lastUpdated": "countLastUpdated",
@@ -882,6 +1177,8 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
     "avg_questionType": "avgQuestionType",
     "avg_projectId": "avgProjectId",
     "avg_integrationId": "avgIntegrationId",
+    "avg_properties": "avgProperties",
+    "avg_userProperties": "avgUserProperties",
     "avg_firstMessageTime": "avgFirstMessageTime",
     "avg_lastMessageTime": "avgLastMessageTime",
     "avg_lastUpdated": "avgLastUpdated",
@@ -913,6 +1210,8 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
     "min_questionType": "minQuestionType",
     "min_projectId": "minProjectId",
     "min_integrationId": "minIntegrationId",
+    "min_properties": "minProperties",
+    "min_userProperties": "minUserProperties",
     "min_firstMessageTime": "minFirstMessageTime",
     "min_lastMessageTime": "minLastMessageTime",
     "min_lastUpdated": "minLastUpdated",
@@ -944,6 +1243,8 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
     "max_questionType": "maxQuestionType",
     "max_projectId": "maxProjectId",
     "max_integrationId": "maxIntegrationId",
+    "max_properties": "maxProperties",
+    "max_userProperties": "maxUserProperties",
     "max_firstMessageTime": "maxFirstMessageTime",
     "max_lastMessageTime": "maxLastMessageTime",
     "max_lastUpdated": "maxLastUpdated",
@@ -980,6 +1281,11 @@ export type SemanticThreadResultItem$Outbound = {
   questionType?: any | undefined;
   projectId?: string | undefined;
   integrationId?: string | undefined;
+  properties?: { [k: string]: any } | null | undefined;
+  userProperties?:
+    | QuerySemanticThreadsResponseDataUserProperties$Outbound
+    | null
+    | undefined;
   firstMessageTime?: string | undefined;
   lastMessageTime?: string | undefined;
   lastUpdated?: string | undefined;
@@ -1085,6 +1391,14 @@ export type SemanticThreadResultItem$Outbound = {
   integrationId_day?: string | undefined;
   integrationId_week?: string | undefined;
   integrationId_month?: string | undefined;
+  properties_hour?: string | undefined;
+  properties_day?: string | undefined;
+  properties_week?: string | undefined;
+  properties_month?: string | undefined;
+  userProperties_hour?: string | undefined;
+  userProperties_day?: string | undefined;
+  userProperties_week?: string | undefined;
+  userProperties_month?: string | undefined;
   firstMessageTime_hour?: string | undefined;
   firstMessageTime_day?: string | undefined;
   firstMessageTime_week?: string | undefined;
@@ -1140,6 +1454,8 @@ export type SemanticThreadResultItem$Outbound = {
   sum_questionType?: number | undefined;
   sum_projectId?: number | undefined;
   sum_integrationId?: number | undefined;
+  sum_properties?: number | undefined;
+  sum_userProperties?: number | undefined;
   sum_firstMessageTime?: number | undefined;
   sum_lastMessageTime?: number | undefined;
   sum_lastUpdated?: number | undefined;
@@ -1171,6 +1487,8 @@ export type SemanticThreadResultItem$Outbound = {
   count_questionType?: number | undefined;
   count_projectId?: number | undefined;
   count_integrationId?: number | undefined;
+  count_properties?: number | undefined;
+  count_userProperties?: number | undefined;
   count_firstMessageTime?: number | undefined;
   count_lastMessageTime?: number | undefined;
   count_lastUpdated?: number | undefined;
@@ -1202,6 +1520,8 @@ export type SemanticThreadResultItem$Outbound = {
   avg_questionType?: number | undefined;
   avg_projectId?: number | undefined;
   avg_integrationId?: number | undefined;
+  avg_properties?: number | undefined;
+  avg_userProperties?: number | undefined;
   avg_firstMessageTime?: number | undefined;
   avg_lastMessageTime?: number | undefined;
   avg_lastUpdated?: number | undefined;
@@ -1233,6 +1553,8 @@ export type SemanticThreadResultItem$Outbound = {
   min_questionType?: number | undefined;
   min_projectId?: number | undefined;
   min_integrationId?: number | undefined;
+  min_properties?: number | undefined;
+  min_userProperties?: number | undefined;
   min_firstMessageTime?: number | undefined;
   min_lastMessageTime?: number | undefined;
   min_lastUpdated?: number | undefined;
@@ -1264,6 +1586,8 @@ export type SemanticThreadResultItem$Outbound = {
   max_questionType?: number | undefined;
   max_projectId?: number | undefined;
   max_integrationId?: number | undefined;
+  max_properties?: number | undefined;
+  max_userProperties?: number | undefined;
   max_firstMessageTime?: number | undefined;
   max_lastMessageTime?: number | undefined;
   max_lastUpdated?: number | undefined;
@@ -1303,6 +1627,10 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
   questionType: z.any().optional(),
   projectId: z.string().optional(),
   integrationId: z.string().optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
+  userProperties: z.nullable(
+    z.lazy(() => QuerySemanticThreadsResponseDataUserProperties$outboundSchema),
+  ).optional(),
   firstMessageTime: z.date().transform(v => v.toISOString()).optional(),
   lastMessageTime: z.date().transform(v => v.toISOString()).optional(),
   lastUpdated: z.date().transform(v => v.toISOString()).optional(),
@@ -1408,6 +1736,14 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
   integrationIdDay: z.string().optional(),
   integrationIdWeek: z.string().optional(),
   integrationIdMonth: z.string().optional(),
+  propertiesHour: z.string().optional(),
+  propertiesDay: z.string().optional(),
+  propertiesWeek: z.string().optional(),
+  propertiesMonth: z.string().optional(),
+  userPropertiesHour: z.string().optional(),
+  userPropertiesDay: z.string().optional(),
+  userPropertiesWeek: z.string().optional(),
+  userPropertiesMonth: z.string().optional(),
   firstMessageTimeHour: z.string().optional(),
   firstMessageTimeDay: z.string().optional(),
   firstMessageTimeWeek: z.string().optional(),
@@ -1463,6 +1799,8 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
   sumQuestionType: z.number().optional(),
   sumProjectId: z.number().optional(),
   sumIntegrationId: z.number().optional(),
+  sumProperties: z.number().optional(),
+  sumUserProperties: z.number().optional(),
   sumFirstMessageTime: z.number().optional(),
   sumLastMessageTime: z.number().optional(),
   sumLastUpdated: z.number().optional(),
@@ -1494,6 +1832,8 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
   countQuestionType: z.number().optional(),
   countProjectId: z.number().optional(),
   countIntegrationId: z.number().optional(),
+  countProperties: z.number().optional(),
+  countUserProperties: z.number().optional(),
   countFirstMessageTime: z.number().optional(),
   countLastMessageTime: z.number().optional(),
   countLastUpdated: z.number().optional(),
@@ -1525,6 +1865,8 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
   avgQuestionType: z.number().optional(),
   avgProjectId: z.number().optional(),
   avgIntegrationId: z.number().optional(),
+  avgProperties: z.number().optional(),
+  avgUserProperties: z.number().optional(),
   avgFirstMessageTime: z.number().optional(),
   avgLastMessageTime: z.number().optional(),
   avgLastUpdated: z.number().optional(),
@@ -1556,6 +1898,8 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
   minQuestionType: z.number().optional(),
   minProjectId: z.number().optional(),
   minIntegrationId: z.number().optional(),
+  minProperties: z.number().optional(),
+  minUserProperties: z.number().optional(),
   minFirstMessageTime: z.number().optional(),
   minLastMessageTime: z.number().optional(),
   minLastUpdated: z.number().optional(),
@@ -1587,6 +1931,8 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
   maxQuestionType: z.number().optional(),
   maxProjectId: z.number().optional(),
   maxIntegrationId: z.number().optional(),
+  maxProperties: z.number().optional(),
+  maxUserProperties: z.number().optional(),
   maxFirstMessageTime: z.number().optional(),
   maxLastMessageTime: z.number().optional(),
   maxLastUpdated: z.number().optional(),
@@ -1689,6 +2035,14 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
     integrationIdDay: "integrationId_day",
     integrationIdWeek: "integrationId_week",
     integrationIdMonth: "integrationId_month",
+    propertiesHour: "properties_hour",
+    propertiesDay: "properties_day",
+    propertiesWeek: "properties_week",
+    propertiesMonth: "properties_month",
+    userPropertiesHour: "userProperties_hour",
+    userPropertiesDay: "userProperties_day",
+    userPropertiesWeek: "userProperties_week",
+    userPropertiesMonth: "userProperties_month",
     firstMessageTimeHour: "firstMessageTime_hour",
     firstMessageTimeDay: "firstMessageTime_day",
     firstMessageTimeWeek: "firstMessageTime_week",
@@ -1744,6 +2098,8 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
     sumQuestionType: "sum_questionType",
     sumProjectId: "sum_projectId",
     sumIntegrationId: "sum_integrationId",
+    sumProperties: "sum_properties",
+    sumUserProperties: "sum_userProperties",
     sumFirstMessageTime: "sum_firstMessageTime",
     sumLastMessageTime: "sum_lastMessageTime",
     sumLastUpdated: "sum_lastUpdated",
@@ -1775,6 +2131,8 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
     countQuestionType: "count_questionType",
     countProjectId: "count_projectId",
     countIntegrationId: "count_integrationId",
+    countProperties: "count_properties",
+    countUserProperties: "count_userProperties",
     countFirstMessageTime: "count_firstMessageTime",
     countLastMessageTime: "count_lastMessageTime",
     countLastUpdated: "count_lastUpdated",
@@ -1806,6 +2164,8 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
     avgQuestionType: "avg_questionType",
     avgProjectId: "avg_projectId",
     avgIntegrationId: "avg_integrationId",
+    avgProperties: "avg_properties",
+    avgUserProperties: "avg_userProperties",
     avgFirstMessageTime: "avg_firstMessageTime",
     avgLastMessageTime: "avg_lastMessageTime",
     avgLastUpdated: "avg_lastUpdated",
@@ -1837,6 +2197,8 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
     minQuestionType: "min_questionType",
     minProjectId: "min_projectId",
     minIntegrationId: "min_integrationId",
+    minProperties: "min_properties",
+    minUserProperties: "min_userProperties",
     minFirstMessageTime: "min_firstMessageTime",
     minLastMessageTime: "min_lastMessageTime",
     minLastUpdated: "min_lastUpdated",
@@ -1868,6 +2230,8 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
     maxQuestionType: "max_questionType",
     maxProjectId: "max_projectId",
     maxIntegrationId: "max_integrationId",
+    maxProperties: "max_properties",
+    maxUserProperties: "max_userProperties",
     maxFirstMessageTime: "max_firstMessageTime",
     maxLastMessageTime: "max_lastMessageTime",
     maxLastUpdated: "max_lastUpdated",

@@ -44,6 +44,8 @@ export const SemanticThreadTimeBasedGroupBySelectionField = {
   QuestionType: "questionType",
   ProjectId: "projectId",
   IntegrationId: "integrationId",
+  Properties: "properties",
+  UserProperties: "userProperties",
   FirstMessageTime: "firstMessageTime",
   LastMessageTime: "lastMessageTime",
   LastUpdated: "lastUpdated",
