@@ -9,7 +9,7 @@ let value: PositiveFeedback = {
   id: "<id>",
   type: "positive",
   messageId: "<id>",
-  createdAt: "1732951633916",
+  createdAt: "1735111630057",
   userProperties: {
     identificationType: "COOKIED",
   },
@@ -19,8 +19,8 @@ let value: PositiveFeedback = {
     externalUrl: "https://content-mom.info",
     type: "support_ticket",
     supportTicketConversationId: "<id>",
-    createdAt: "1717989656258",
-    updatedAt: "1745250311911",
+    createdAt: "1720149652403",
+    updatedAt: "1747410308057",
     projectId: "<id>",
     integrationId: "<id>",
     userProperties: {
@@ -34,8 +34,8 @@ let value: PositiveFeedback = {
         externalId: "<id>",
         externalUrl: "https://legal-impostor.com",
         conversationId: "<id>",
-        createdAt: "1739387200259",
-        updatedAt: "1745215968596",
+        createdAt: "1741547196408",
+        updatedAt: "1747375964746",
         role: "<value>",
         content: "<value>",
         userProperties: {
@@ -50,8 +50,8 @@ let value: PositiveFeedback = {
     externalId: "<id>",
     externalUrl: "https://unsightly-airport.net",
     conversationId: "<id>",
-    createdAt: "1717378844668",
-    updatedAt: "1745255816676",
+    createdAt: "1719538840823",
+    updatedAt: "1747415812831",
     role: "<value>",
     content: "<value>",
     userProperties: {
@@ -70,6 +70,7 @@ let value: PositiveFeedback = {
 | `messageId`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `createdAt`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `reasons`                                                                                                                                                                | [components.Reasons](../../models/components/reasons.md)[]                                                                                                               | :heavy_minus_sign:                                                                                                                                                       | N/A                                                                                                                                                                      |
+| `properties`                                                                                                                                                             | Record<string, *any*>                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | A customizable collection of custom properties or attributes.                                                                                                            |
 | `userProperties`                                                                                                                                                         | [components.GetAllFeedbackResponseUserProperties](../../models/components/getallfeedbackresponseuserproperties.md)                                                       | :heavy_minus_sign:                                                                                                                                                       | A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description. |
 | `conversation`                                                                                                                                                           | *components.Conversation*                                                                                                                                                | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `message`                                                                                                                                                                | *components.Message*                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |

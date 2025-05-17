@@ -27,7 +27,7 @@ async function run() {
   const result = await inkeepAnalytics.conversations.log({
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
-    type: "support_ticket",
+    type: "support_copilot",
     userProperties: {
       identificationType: "COOKIED",
     },
@@ -70,7 +70,7 @@ async function run() {
   const res = await conversationsLog(inkeepAnalytics, {
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
-    type: "support_ticket",
+    type: "support_copilot",
     userProperties: {
       identificationType: "COOKIED",
     },

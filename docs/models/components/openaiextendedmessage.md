@@ -13,8 +13,8 @@ let value: OpenAIExtendedMessage = {
   externalId: "<id>",
   externalUrl: "https://far-slipper.com",
   conversationId: "<id>",
-  createdAt: "1735239759830",
-  updatedAt: "1745274527196",
+  createdAt: "1737399753162",
+  updatedAt: "1747434520529",
   role: "assistant",
   content: [
     {

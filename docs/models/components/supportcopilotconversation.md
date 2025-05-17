@@ -11,8 +11,8 @@ let value: SupportCopilotConversation = {
   externalUrl: "https://uncommon-worth.net",
   type: "support_copilot",
   supportTicketConversationId: "<id>",
-  createdAt: "1744743070909",
-  updatedAt: "1745238392542",
+  createdAt: "1746903068348",
+  updatedAt: "1747398389981",
   projectId: "<id>",
   integrationId: "<id>",
   userProperties: {
@@ -26,8 +26,8 @@ let value: SupportCopilotConversation = {
       externalId: "<id>",
       externalUrl: "https://nice-vanadyl.com",
       conversationId: "<id>",
-      createdAt: "1737513941012",
-      updatedAt: "1745274499271",
+      createdAt: "1739673938452",
+      updatedAt: "1747434496710",
       role: "<value>",
       content: "<value>",
       userProperties: {

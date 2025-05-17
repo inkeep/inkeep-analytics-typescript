@@ -123,7 +123,7 @@ export function Example() {
         mutate({
           webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
         }, {
-          type: "support_ticket",
+          type: "support_copilot",
           userProperties: {
             identificationType: "COOKIED",
           },

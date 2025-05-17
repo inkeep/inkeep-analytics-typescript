@@ -11,8 +11,8 @@ let value: SupportTicketConversation = {
   externalUrl: "https://flashy-tail.net/",
   type: "support_ticket",
   supportTicketConversationId: "<id>",
-  createdAt: "1714884749899",
-  updatedAt: "1745262127399",
+  createdAt: "1717044742507",
+  updatedAt: "1747422120008",
   projectId: "<id>",
   integrationId: "<id>",
   userProperties: {
@@ -26,8 +26,8 @@ let value: SupportTicketConversation = {
       externalId: "<id>",
       externalUrl: "https://sure-footed-taro.org/",
       conversationId: "<id>",
-      createdAt: "1730596401464",
-      updatedAt: "1745247438213",
+      createdAt: "1732756394075",
+      updatedAt: "1747407430823",
       role: "<value>",
       content: "<value>",
       userProperties: {
