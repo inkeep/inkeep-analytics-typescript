@@ -17,7 +17,7 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 <!-- Start Summary [summary] -->
 ## Summary
 
-Inkeep Analytics API: The Inkeep Analytics API provides endpoints for managing conversations, feedback, events, and queries.
+Inkeep Analytics API: The Inkeep Analytics API provides endpoints for managing conversations, feedback, events, and queries. For details on authentication, see [authentication documentation](/analytics-api/authentication)
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -240,7 +240,7 @@ const inkeepAnalytics = new InkeepAnalytics();
 
 async function run() {
   const result = await inkeepAnalytics.conversations.log({}, {
-    type: "support_ticket",
+    type: "support_copilot",
     userProperties: {
       identificationType: "COOKIED",
     },
