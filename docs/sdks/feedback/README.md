@@ -25,11 +25,9 @@ const inkeepAnalytics = new InkeepAnalytics({
 
 async function run() {
   const result = await inkeepAnalytics.feedback.submit({
-    type: "negative",
+    type: "positive",
     messageId: "<id>",
-    userProperties: {
-      identificationType: "COOKIED",
-    },
+    userProperties: null,
   });
 
   // Handle the result
@@ -55,11 +53,9 @@ const inkeepAnalytics = new InkeepAnalyticsCore({
 
 async function run() {
   const res = await feedbackSubmit(inkeepAnalytics, {
-    type: "negative",
+    type: "positive",
     messageId: "<id>",
-    userProperties: {
-      identificationType: "COOKIED",
-    },
+    userProperties: null,
   });
 
   if (!res.ok) {
