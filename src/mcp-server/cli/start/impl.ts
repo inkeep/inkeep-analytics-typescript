@@ -50,7 +50,7 @@ async function startStdio(flags: StartCommandFlags) {
     logger,
     allowedTools: flags.tool,
     scopes: flags.scope,
-    ...{ apiIntegrationKey: flags["api-integration-key"] },
+    ...{ apiIntegrationKey: flags["api-integration-key"] ?? "" },
     serverURL: flags["server-url"],
     serverIdx: flags["server-index"],
   });
@@ -71,7 +71,7 @@ async function startSSE(flags: StartCommandFlags) {
     logger,
     allowedTools: flags.tool,
     scopes: flags.scope,
-    ...{ apiIntegrationKey: flags["api-integration-key"] },
+    ...{ apiIntegrationKey: flags["api-integration-key"] ?? "" },
     serverURL: flags["server-url"],
     serverIdx: flags["server-index"],
   });

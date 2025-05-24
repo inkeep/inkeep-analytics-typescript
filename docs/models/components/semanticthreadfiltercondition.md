@@ -9,9 +9,7 @@ let value: SemanticThreadFilterCondition = {
   condition: {
     field: "emotion",
     operator: "lt",
-    value: {
-      "key": "<value>",
-    },
+    value: "<value>",
   },
 };
 ```

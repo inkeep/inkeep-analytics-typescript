@@ -1,17 +1,15 @@
-# EventsFilterConditionValue6
+# EventsFilterConditionValue7
 
 ## Example Usage
 
 ```typescript
-import { EventsFilterConditionValue6 } from "@inkeep/inkeep-analytics/models/components";
+import { EventsFilterConditionValue7 } from "@inkeep/inkeep-analytics/models/components";
 
-let value: EventsFilterConditionValue6 = {
+let value: EventsFilterConditionValue7 = {
   path: [
-    "/var/log",
+    "/srv",
   ],
-  value: [
-    9280.65,
-  ],
+  value: 2135.47,
 };
 ```
 

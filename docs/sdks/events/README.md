@@ -25,11 +25,8 @@ async function run() {
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
     type: "<value>",
-    conversationId: "<id>",
-    userProperties: {
-      identificationType: "COOKIED",
-    },
-    entityType: "conversation",
+    messageId: "<id>",
+    entityType: "message",
   });
 
   // Handle the result
@@ -56,11 +53,8 @@ async function run() {
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
     type: "<value>",
-    conversationId: "<id>",
-    userProperties: {
-      identificationType: "COOKIED",
-    },
-    entityType: "conversation",
+    messageId: "<id>",
+    entityType: "message",
   });
 
   if (!res.ok) {
