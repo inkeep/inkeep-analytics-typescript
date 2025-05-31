@@ -11,8 +11,8 @@ let value: SupportTicketMessage = {
   externalId: "<id>",
   externalUrl: "https://frightened-comestible.name/",
   conversationId: "<id>",
-  createdAt: "1716840519424",
-  updatedAt: "1745246052524",
+  createdAt: "1707234219811",
+  updatedAt: "1735639752911",
   role: "<value>",
   content: "<value>",
   userProperties: {
