@@ -9,7 +9,7 @@ let value: NegativeFeedback = {
   id: "<id>",
   type: "negative",
   messageId: "<id>",
-  createdAt: "1718855697532",
+  createdAt: "1709249396560",
   userProperties: {
     identificationType: "COOKIED",
   },
@@ -19,13 +19,10 @@ let value: NegativeFeedback = {
     externalUrl: "https://ripe-sweatshop.org",
     type: "support_copilot",
     supportTicketConversationId: "<id>",
-    createdAt: "1742271068327",
-    updatedAt: "1745269184038",
+    createdAt: "1732664767353",
+    updatedAt: "1735662883064",
     projectId: "<id>",
     integrationId: "<id>",
-    userProperties: {
-      identificationType: "COOKIED",
-    },
     visibility: "public",
     messages: [
       {
@@ -34,8 +31,8 @@ let value: NegativeFeedback = {
         externalId: "<id>",
         externalUrl: "https://spiffy-testimonial.net",
         conversationId: "<id>",
-        createdAt: "1713900939776",
-        updatedAt: "1745292065577",
+        createdAt: "1704294638799",
+        updatedAt: "1735685764600",
         role: "<value>",
         content: "<value>",
         userProperties: {
@@ -50,13 +47,10 @@ let value: NegativeFeedback = {
     externalId: "<id>",
     externalUrl: "https://trustworthy-precedent.name",
     conversationId: "<id>",
-    createdAt: "1733438301579",
-    updatedAt: "1745272867461",
+    createdAt: "1723832000600",
+    updatedAt: "1735666566481",
     role: "<value>",
     content: "<value>",
-    userProperties: {
-      identificationType: "COOKIED",
-    },
   },
 };
 ```
@@ -70,6 +64,7 @@ let value: NegativeFeedback = {
 | `messageId`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `createdAt`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `reasons`                                                                                                                                                                | [components.GetAllFeedbackResponseReasons](../../models/components/getallfeedbackresponsereasons.md)[]                                                                   | :heavy_minus_sign:                                                                                                                                                       | N/A                                                                                                                                                                      |
+| `properties`                                                                                                                                                             | Record<string, *any*>                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | A customizable collection of custom properties or attributes.                                                                                                            |
 | `userProperties`                                                                                                                                                         | [components.GetAllFeedbackResponseNegativeFeedbackUserProperties](../../models/components/getallfeedbackresponsenegativefeedbackuserproperties.md)                       | :heavy_minus_sign:                                                                                                                                                       | A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description. |
 | `conversation`                                                                                                                                                           | *components.Conversation*                                                                                                                                                | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `message`                                                                                                                                                                | *components.Message*                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
