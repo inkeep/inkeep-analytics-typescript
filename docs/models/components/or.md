@@ -7,7 +7,19 @@
 
 ```typescript
 const value: components.ConversationsFilter = {
-  and: [],
+  and: [
+    {
+      or: [
+        {
+          condition: {
+            field: "userMessageCount",
+            operator: "arrayContains",
+            value: "<value>",
+          },
+        },
+      ],
+    },
+  ],
 };
 ```
 

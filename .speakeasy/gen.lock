@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 63a2136d-3fa3-4a0b-a766-1ddb2460cc12
 management:
-  docChecksum: 14ecf06c4b04eb0769c6688bb0efa3f3
+  docChecksum: 0edcd92e7f05821a127bc4122678a383
   docVersion: 0.1.1
-  speakeasyVersion: 1.537.0
-  generationVersion: 2.588.0
-  releaseVersion: 0.2.4-alpha.22
-  configChecksum: 559b7de3ef948c549d08dc2e84ac1874
+  speakeasyVersion: 1.555.2
+  generationVersion: 2.620.2
+  releaseVersion: 0.2.4-alpha.23
+  configChecksum: f5557a3f09e078db974ac8427f1e4395
   repoURL: https://github.com/inkeep/inkeep-analytics-typescript.git
   installationURL: https://github.com/inkeep/inkeep-analytics-typescript
   published: true
@@ -15,7 +15,7 @@ features:
     additionalDependencies: 0.1.0
     additionalProperties: 0.1.1
     constsAndDefaults: 0.1.11
-    core: 3.21.6
+    core: 3.21.10
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     downloadStreams: 0.1.1
@@ -24,7 +24,7 @@ features:
     globalSecurity: 2.82.13
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
-    globalServerURLs: 2.82.4
+    globalServerURLs: 2.82.5
     groups: 2.81.2
     mcpServer: 0.9.2
     methodSecurity: 2.82.6
@@ -33,7 +33,7 @@ features:
     reactQueryHooks: 0.2.3
     responseFormat: 0.2.3
     retries: 2.83.0
-    sdkHooks: 0.2.0
+    sdkHooks: 0.3.0
     unions: 2.85.8
 generatedFiles:
   - .devcontainer/README.md
@@ -57,7 +57,6 @@ generatedFiles:
   - docs/models/components/conversationsfilter.md
   - docs/models/components/conversationsfilterand.md
   - docs/models/components/conversationsfiltercondition.md
-  - docs/models/components/conversationsfilterconditionvalue.md
   - docs/models/components/conversationsfilteror.md
   - docs/models/components/conversationsgroupby.md
   - docs/models/components/conversationsorderby.md
@@ -119,8 +118,7 @@ generatedFiles:
   - docs/models/components/eventsfilterandand.md
   - docs/models/components/eventsfiltercondition.md
   - docs/models/components/eventsfilterconditioncondition.md
-  - docs/models/components/eventsfilterconditionvalue.md
-  - docs/models/components/eventsfilterconditionvalue6.md
+  - docs/models/components/eventsfilterconditionvalue7.md
   - docs/models/components/eventsfilterconditionvaluevalue.md
   - docs/models/components/eventsfilteror.md
   - docs/models/components/eventsfilteroror.md
@@ -136,6 +134,33 @@ generatedFiles:
   - docs/models/components/eventstimebasedgroupbyselection.md
   - docs/models/components/eventstimebasedgroupbyselectionfield.md
   - docs/models/components/eventstimebasedgroupbyselectiontype.md
+  - docs/models/components/feedbackaggregationselection.md
+  - docs/models/components/feedbackaggregationselectionaggregation.md
+  - docs/models/components/feedbackaggregationselectionfield.md
+  - docs/models/components/feedbackaggregationselectiontype.md
+  - docs/models/components/feedbackfield.md
+  - docs/models/components/feedbackfilter.md
+  - docs/models/components/feedbackfilterand.md
+  - docs/models/components/feedbackfilterandand.md
+  - docs/models/components/feedbackfiltercondition.md
+  - docs/models/components/feedbackfilterconditioncondition.md
+  - docs/models/components/feedbackfilterconditionvalue7.md
+  - docs/models/components/feedbackfilterconditionvaluevalue.md
+  - docs/models/components/feedbackfilterconditionvaluevalue4.md
+  - docs/models/components/feedbackfilteror.md
+  - docs/models/components/feedbackfilteroror.md
+  - docs/models/components/feedbackgroupby.md
+  - docs/models/components/feedbackorderby.md
+  - docs/models/components/feedbackorderbydirection.md
+  - docs/models/components/feedbackorderbyfield.md
+  - docs/models/components/feedbackresultitem.md
+  - docs/models/components/feedbackselection.md
+  - docs/models/components/feedbacksimplefieldselection.md
+  - docs/models/components/feedbacksimplefieldselectionfield.md
+  - docs/models/components/feedbacksimplefieldselectiontype.md
+  - docs/models/components/feedbacktimebasedgroupbyselection.md
+  - docs/models/components/feedbacktimebasedgroupbyselectionfield.md
+  - docs/models/components/feedbacktimebasedgroupbyselectiontype.md
   - docs/models/components/field.md
   - docs/models/components/filteroperator.md
   - docs/models/components/four.md
@@ -211,6 +236,10 @@ generatedFiles:
   - docs/models/components/queryeventsresponsebody.md
   - docs/models/components/queryeventsresponsebodystatus.md
   - docs/models/components/queryeventsresponsedata.md
+  - docs/models/components/queryfeedbackrequestbody.md
+  - docs/models/components/queryfeedbackresponsebody.md
+  - docs/models/components/queryfeedbackresponsebodystatus.md
+  - docs/models/components/queryfeedbackresponsedata.md
   - docs/models/components/querysemanticthreadsrequestbody.md
   - docs/models/components/querysemanticthreadsresponsebody.md
   - docs/models/components/querysemanticthreadsresponsebodystatus.md
@@ -247,8 +276,7 @@ generatedFiles:
   - docs/models/components/semanticthreadfilterandand.md
   - docs/models/components/semanticthreadfiltercondition.md
   - docs/models/components/semanticthreadfilterconditioncondition.md
-  - docs/models/components/semanticthreadfilterconditionvalue.md
-  - docs/models/components/semanticthreadfilterconditionvalue6.md
+  - docs/models/components/semanticthreadfilterconditionvalue7.md
   - docs/models/components/semanticthreadfilterconditionvaluevalue.md
   - docs/models/components/semanticthreadfilterconditionvaluevalue4.md
   - docs/models/components/semanticthreadfilteror.md
@@ -265,7 +293,7 @@ generatedFiles:
   - docs/models/components/semanticthreadtimebasedgroupbyselection.md
   - docs/models/components/semanticthreadtimebasedgroupbyselectionfield.md
   - docs/models/components/semanticthreadtimebasedgroupbyselectiontype.md
-  - docs/models/components/six.md
+  - docs/models/components/seven.md
   - docs/models/components/status.md
   - docs/models/components/supportcopilotconversation.md
   - docs/models/components/supportcopilotconversationid.md
@@ -338,11 +366,19 @@ generatedFiles:
   - docs/models/operations/getconversationbyexternalidrequest.md
   - docs/models/operations/getconversationrequest.md
   - docs/models/operations/getconversationsecurity.md
+  - docs/models/operations/getfeedbackbyidid.md
+  - docs/models/operations/getfeedbackbyidreasons.md
+  - docs/models/operations/getfeedbackbyidrequest.md
+  - docs/models/operations/getfeedbackbyidresponsebody.md
+  - docs/models/operations/getfeedbackbyidtype.md
+  - docs/models/operations/getfeedbackbyiduserid.md
+  - docs/models/operations/getfeedbackbyiduserproperties.md
   - docs/models/operations/id.md
   - docs/models/operations/logconversationsecurity.md
   - docs/models/operations/logeventsecurity.md
   - docs/models/operations/queryconversationssecurity.md
   - docs/models/operations/queryeventssecurity.md
+  - docs/models/operations/queryfeedbacksecurity.md
   - docs/models/operations/querysemanticthreadssecurity.md
   - docs/models/operations/reasons.md
   - docs/models/operations/result.md
@@ -378,11 +414,13 @@ generatedFiles:
   - src/funcs/conversationsList.ts
   - src/funcs/conversationsLog.ts
   - src/funcs/eventsLog.ts
+  - src/funcs/feedbackGetFeedbackById.ts
   - src/funcs/feedbackList.ts
   - src/funcs/feedbackSubmit.ts
   - src/funcs/queryConversations.ts
   - src/funcs/queryExportSemanticThreadsQueryResults.ts
   - src/funcs/queryQueryEvents.ts
+  - src/funcs/queryQueryFeedback.ts
   - src/funcs/queryQueryPropertyKeys.ts
   - src/funcs/queryQueryPropertyValues.ts
   - src/funcs/queryQuerySemanticThreads.ts
@@ -423,6 +461,7 @@ generatedFiles:
   - src/mcp-server/tools.ts
   - src/mcp-server/tools/conversationGetConversationByExternalId.ts
   - src/mcp-server/tools/conversationsList.ts
+  - src/mcp-server/tools/feedbackGetFeedbackById.ts
   - src/mcp-server/tools/feedbackList.ts
   - src/mcp-server/tools/feedbackSubmit.ts
   - src/mcp-server/tools/queryExportSemanticThreadsQueryResults.ts
@@ -436,7 +475,6 @@ generatedFiles:
   - src/models/components/conversationsfilter.ts
   - src/models/components/conversationsfilterand.ts
   - src/models/components/conversationsfiltercondition.ts
-  - src/models/components/conversationsfilterconditionvalue.ts
   - src/models/components/conversationsfilteror.ts
   - src/models/components/conversationsgroupby.ts
   - src/models/components/conversationsorderby.ts
@@ -452,13 +490,23 @@ generatedFiles:
   - src/models/components/eventsfilter.ts
   - src/models/components/eventsfilterand.ts
   - src/models/components/eventsfiltercondition.ts
-  - src/models/components/eventsfilterconditionvalue.ts
   - src/models/components/eventsfilteror.ts
   - src/models/components/eventsgroupby.ts
   - src/models/components/eventsorderby.ts
   - src/models/components/eventsselection.ts
   - src/models/components/eventssimplefieldselection.ts
   - src/models/components/eventstimebasedgroupbyselection.ts
+  - src/models/components/feedbackaggregationselection.ts
+  - src/models/components/feedbackfield.ts
+  - src/models/components/feedbackfilter.ts
+  - src/models/components/feedbackfilterand.ts
+  - src/models/components/feedbackfiltercondition.ts
+  - src/models/components/feedbackfilteror.ts
+  - src/models/components/feedbackgroupby.ts
+  - src/models/components/feedbackorderby.ts
+  - src/models/components/feedbackselection.ts
+  - src/models/components/feedbacksimplefieldselection.ts
+  - src/models/components/feedbacktimebasedgroupbyselection.ts
   - src/models/components/filteroperator.ts
   - src/models/components/getallfeedbackresponse.ts
   - src/models/components/index.ts
@@ -484,6 +532,9 @@ generatedFiles:
   - src/models/components/queryeventsrequestbody.ts
   - src/models/components/queryeventsresponsebody.ts
   - src/models/components/queryeventsresponsedata.ts
+  - src/models/components/queryfeedbackrequestbody.ts
+  - src/models/components/queryfeedbackresponsebody.ts
+  - src/models/components/queryfeedbackresponsedata.ts
   - src/models/components/querysemanticthreadsrequestbody.ts
   - src/models/components/querysemanticthreadsresponsebody.ts
   - src/models/components/querysemanticthreadsresponsedata.ts
@@ -497,7 +548,6 @@ generatedFiles:
   - src/models/components/semanticthreadfilter.ts
   - src/models/components/semanticthreadfilterand.ts
   - src/models/components/semanticthreadfiltercondition.ts
-  - src/models/components/semanticthreadfilterconditionvalue.ts
   - src/models/components/semanticthreadfilteror.ts
   - src/models/components/semanticthreadgroupby.ts
   - src/models/components/semanticthreadorderby.ts
@@ -524,11 +574,13 @@ generatedFiles:
   - src/models/operations/getallfeedback.ts
   - src/models/operations/getconversation.ts
   - src/models/operations/getconversationbyexternalid.ts
+  - src/models/operations/getfeedbackbyid.ts
   - src/models/operations/index.ts
   - src/models/operations/logconversation.ts
   - src/models/operations/logevent.ts
   - src/models/operations/queryconversations.ts
   - src/models/operations/queryevents.ts
+  - src/models/operations/queryfeedback.ts
   - src/models/operations/querysemanticthreads.ts
   - src/models/operations/submitfeedback.ts
   - src/models/operations/topsearchqueries.ts
@@ -541,12 +593,14 @@ generatedFiles:
   - src/react-query/conversationsList.ts
   - src/react-query/conversationsLog.ts
   - src/react-query/eventsLog.ts
+  - src/react-query/feedbackGetFeedbackById.ts
   - src/react-query/feedbackList.ts
   - src/react-query/feedbackSubmit.ts
   - src/react-query/index.ts
   - src/react-query/queryConversations.ts
   - src/react-query/queryExportSemanticThreadsQueryResults.ts
   - src/react-query/queryQueryEvents.ts
+  - src/react-query/queryQueryFeedback.ts
   - src/react-query/queryQueryPropertyKeys.ts
   - src/react-query/queryQueryPropertyValues.ts
   - src/react-query/queryQuerySemanticThreads.ts
@@ -574,7 +628,7 @@ examples:
     speakeasy-default-top-search-queries:
       responses:
         "200":
-          application/json: {"data": {"result": [], "total": 3412.78}}
+          application/json: {"data": {"result": [{"search_query": "<value>", "count": "<value>"}], "total": 6920.24}}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -589,7 +643,7 @@ examples:
     speakeasy-default-weekly-search-users:
       responses:
         "200":
-          application/json: {"data": {"result": [{"week": "<value>", "unique_users": "<value>"}, {"week": "<value>", "unique_users": "<value>"}], "total": 4462.8}}
+          application/json: {"data": {"result": [], "total": 3099.99}}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -603,10 +657,10 @@ examples:
   logConversation:
     speakeasy-default-log-conversation:
       requestBody:
-        application/json: {"type": "support_ticket", "userProperties": {"identificationType": "COOKIED"}, "messages": [{"role": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"role": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}
+        application/json: {"type": "support_copilot", "messages": [{"role": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}
       responses:
         "200":
-          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://well-made-tennis.net/", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1723857709508", "updatedAt": "1744074977129", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "public", "messages": [{"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://handy-testing.name/", "conversationId": "<id>", "createdAt": "1725397674857", "updatedAt": "1744113486542", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://esteemed-patroller.name/", "conversationId": "<id>", "createdAt": "1726587008426", "updatedAt": "1744085601588", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}
+          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://dull-agreement.name", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1710447916221", "updatedAt": "1735645816798", "projectId": "<id>", "integrationId": null, "visibility": "public", "messages": [], "messagesOpenAIFormat": [{"role": "user", "content": "<value>"}]}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -625,7 +679,7 @@ examples:
           offset: 0
       responses:
         "200":
-          application/json: {"conversations": [{"id": "<id>", "externalId": "<id>", "externalUrl": "https://definite-deer.com", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1732658637587", "updatedAt": "1744121334822", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "private", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://black-poetry.name/", "conversationId": "<id>", "createdAt": "1732607503281", "updatedAt": "1744066737695", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://hidden-jet.com/", "conversationId": "<id>", "createdAt": "1741981683428", "updatedAt": "1744115119130", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}, {"id": "<id>", "externalId": "<id>", "externalUrl": "https://average-fedora.org/", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1713192928021", "updatedAt": "1744143609244", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "private", "messages": [{"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://blue-technologist.com/", "conversationId": "<id>", "createdAt": "1727131765054", "updatedAt": "1744102840909", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://lonely-brook.name/", "conversationId": "<id>", "createdAt": "1739139232607", "updatedAt": "1744101533886", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://funny-grandson.com", "conversationId": "<id>", "createdAt": "1718328253783", "updatedAt": "1744145048291", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}, {"id": "<id>", "externalId": "<id>", "externalUrl": "https://vivid-tool.com", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1734468339551", "updatedAt": "1744115141265", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "public", "messages": [{"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://bossy-coliseum.com", "conversationId": "<id>", "createdAt": "1739005420086", "updatedAt": "1744133245639", "role": "system", "content": [{"type": "image_url"}], "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://biodegradable-bandwidth.biz", "conversationId": "<id>", "createdAt": "1743941333700", "updatedAt": "1744130681105", "role": "system", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://remorseful-hydrolyse.com/", "conversationId": "<id>", "createdAt": "1738184921657", "updatedAt": "1744148772713", "role": "assistant", "content": [{"type": "image_url"}, {"type": "text"}, {"type": "text"}], "userProperties": {"identificationType": "COOKIED"}}], "messagesOpenAIFormat": [{"role": "assistant", "content": [{"type": "text"}]}, {"role": "user", "content": [{"type": "text"}, {"type": "text"}]}, {"role": "assistant", "content": "<value>"}]}], "total": 4063.91, "pageSize": 791.69, "count": 1173.86}
+          application/json: {"conversations": [{"id": "<id>", "externalId": "<id>", "externalUrl": "https://potable-equal.net", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1723170898887", "updatedAt": "1735676356412", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": [], "messagesOpenAIFormat": []}], "total": 1243.68, "pageSize": 6415.32, "count": 3551.39}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -645,7 +699,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://necessary-lender.org", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1727061540976", "updatedAt": "1744105043250", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "private", "messages": []}
+          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": null, "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1709372366877", "updatedAt": "1735637831816", "projectId": "<id>", "integrationId": "<id>", "visibility": "private", "messages": []}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -665,7 +719,7 @@ examples:
           id: "<id>"
       responses:
         "200":
-          application/json: {"success": false, "message": "<value>"}
+          application/json: {"success": true, "message": "<value>"}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -685,7 +739,7 @@ examples:
           externalId: "<id>"
       responses:
         "200":
-          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://smug-railway.biz/", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1741560860450", "updatedAt": "1744093559797", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "private", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://heavy-incandescence.name/", "conversationId": "<id>", "createdAt": "1726697165411", "updatedAt": "1744131660846", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://shameless-cheetah.info", "conversationId": "<id>", "createdAt": "1737281901956", "updatedAt": "1744147919019", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://inferior-gallery.org/", "conversationId": "<id>", "createdAt": "1728870013139", "updatedAt": "1744141287781", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}
+          application/json: {"id": "<id>", "externalId": "<id>", "externalUrl": "https://shimmering-passport.name", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1708947030077", "updatedAt": "1735631602145", "projectId": "<id>", "integrationId": "<id>", "visibility": null, "messages": []}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -701,10 +755,10 @@ examples:
   submitFeedback:
     speakeasy-default-submit-feedback:
       requestBody:
-        application/json: {"type": "negative", "messageId": "<id>", "userProperties": {"identificationType": "COOKIED"}}
+        application/json: {"type": "positive", "messageId": "<id>", "userProperties": null}
       responses:
         "200":
-          application/json: {"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1724157561766", "userProperties": {"identificationType": "COOKIED"}}
+          application/json: {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1704799406060", "userProperties": {"identificationType": "COOKIED"}}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -723,7 +777,27 @@ examples:
           offset: 0
       responses:
         "200":
-          application/json: {"positiveFeedbackCount": 7685.78, "negativeFeedbackCount": 5472.72, "positiveFeedback": [{"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1719860839502", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://productive-affect.net", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1715333004342", "updatedAt": "1744072011337", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "public", "messages": [{"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://acidic-avalanche.info", "conversationId": "<id>", "createdAt": "1727934440326", "updatedAt": "1744072419395", "role": "assistant", "content": [{"type": "text"}, {"type": "text"}, {"type": "text"}], "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://agitated-technologist.info", "conversationId": "<id>", "createdAt": "1741423525062", "updatedAt": "1744081047460", "role": "system", "content": [], "userProperties": {"identificationType": "COOKIED"}}], "messagesOpenAIFormat": [{"role": "user", "content": "<value>"}]}, "message": {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://moist-sprinkles.info/", "conversationId": "<id>", "createdAt": "1739846737758", "updatedAt": "1744092650782", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}}, {"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1716195389596", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://animated-ostrich.org", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1741584224480", "updatedAt": "1744073366440", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "public", "messages": [{"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://substantial-yin.com", "conversationId": "<id>", "createdAt": "1717818833276", "updatedAt": "1744072483816", "role": "assistant", "content": [], "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://fond-scale.name", "conversationId": "<id>", "createdAt": "1714729201833", "updatedAt": "1744071351597", "role": "system", "content": [{"type": "text"}, {"type": "text"}], "userProperties": {"identificationType": "COOKIED"}}], "messagesOpenAIFormat": []}, "message": {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://accurate-siege.org/", "conversationId": "<id>", "createdAt": "1737133754989", "updatedAt": "1744109791332", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}}], "negativeFeedback": [{"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1713266611397", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://severe-ruin.info", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1713539476221", "updatedAt": "1744122452887", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "public", "messages": [{"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://arid-someplace.biz/", "conversationId": "<id>", "createdAt": "1725432426997", "updatedAt": "1744072932776", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}, {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://wavy-window.info/", "conversationId": "<id>", "createdAt": "1724294064931", "updatedAt": "1744105615144", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}, "message": {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://avaricious-optimal.info", "conversationId": "<id>", "createdAt": "1718463076788", "updatedAt": "1744084016226", "role": "system", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}}, {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1739071907406", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://actual-joy.net", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1736317771162", "updatedAt": "1744090070342", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "public", "messages": []}, "message": {"id": "<id>", "type": "support_ticket", "externalId": "<id>", "externalUrl": "https://calculating-guide.name", "conversationId": "<id>", "createdAt": "1724768181127", "updatedAt": "1744146776631", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}}, {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1740024274952", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://gaseous-programme.info/", "type": "support_ticket", "supportTicketConversationId": "<id>", "createdAt": "1739044833466", "updatedAt": "1744110780018", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "visibility": "public", "messages": []}, "message": {"id": "<id>", "type": "openai", "externalId": "<id>", "externalUrl": "https://ill-teammate.com/", "conversationId": "<id>", "createdAt": "1729115044778", "updatedAt": "1744093298692", "role": "user", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}}]}
+          application/json: {"positiveFeedbackCount": 6961.56, "negativeFeedbackCount": 4153.74, "positiveFeedback": [{"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1713328476280", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://grizzled-editor.org/", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1710817203853", "updatedAt": "1735687690121", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": [], "messagesOpenAIFormat": [{"role": "system", "content": "<value>"}]}, "message": {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://linear-collaboration.net", "conversationId": "<id>", "createdAt": "1715477061988", "updatedAt": "1735684129218", "role": "<value>", "content": null}}], "negativeFeedback": []}
+        "400":
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+        "404":
+          application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "error": {"code": "not_found", "message": "Not Found"}}
+        "422":
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+  getFeedbackById:
+    speakeasy-default-get-feedback-by-id:
+      parameters:
+        path:
+          id: "feedback-id-123"
+      responses:
+        "200":
+          application/json: {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1725885947238", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://difficult-accountability.info/", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1712671280110", "updatedAt": "1735652249363", "projectId": "<id>", "integrationId": "<id>", "visibility": "private", "messages": [{"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://merry-solution.com", "conversationId": "<id>", "createdAt": "1706159703123", "updatedAt": "1735669717348", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}, "message": {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://heavenly-reservation.info", "conversationId": "<id>", "createdAt": "1715541556343", "updatedAt": "1735675403237", "role": "<value>", "content": "<value>"}}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -739,10 +813,10 @@ examples:
   logEvent:
     speakeasy-default-log-event:
       requestBody:
-        application/json: {"type": "<value>", "conversationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "entityType": "conversation"}
+        application/json: {"type": "<value>", "messageId": "<id>", "entityType": "message"}
       responses:
         "200":
-          application/json: {"id": "<id>", "type": "<value>", "conversationId": "<id>", "createdAt": "1735048203405", "projectId": "<id>", "integrationId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "entityType": "conversation"}
+          application/json: {"id": "<id>", "type": "<value>", "conversationId": "<id>", "createdAt": "1710237716988", "projectId": "<id>", "integrationId": "<id>", "entityType": "conversation"}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -759,7 +833,7 @@ examples:
         application/json: {"notes": "Count of support ticket conversations by integration"}
       responses:
         "200":
-          application/json: {"status": "ok", "data": {"result": [{}, {}], "total": 8747.83, "pageSize": 7204.01, "count": 1266.74}}
+          application/json: {"status": "ok", "data": {"result": [{"userProperties": {"identificationType": "COOKIED"}}], "total": 9481.48, "pageSize": 7362.16, "count": 63.77}}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -776,7 +850,24 @@ examples:
         application/json: {"notes": "Count of events by type"}
       responses:
         "200":
-          application/json: {"status": "ok", "data": {"result": [], "total": 4443.48, "pageSize": 6184.78, "count": 9797.71}}
+          application/json: {"status": "ok", "data": {"result": [], "total": 5434.83, "pageSize": 8522.52, "count": 8854.8}}
+        "400":
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+        "422":
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+  queryFeedback:
+    speakeasy-default-query-feedback:
+      requestBody:
+        application/json: {"notes": "Count of feedback by type"}
+      responses:
+        "200":
+          application/json: {"status": "ok", "data": {"result": [{}], "total": 9528.15, "pageSize": 7967.05, "count": 3920.41}}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -793,7 +884,7 @@ examples:
         application/json: {"notes": "Count of chat sessions with documentation gaps by integration"}
       responses:
         "200":
-          application/json: {"status": "ok", "data": {"result": [{}], "total": 3002.48, "pageSize": 7650.29, "count": 7736.62}}
+          application/json: {"status": "ok", "data": {"result": [{"userProperties": {"identificationType": "COOKIED"}}], "total": 3606.4, "pageSize": 3631.78, "count": 7147.51}}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -824,7 +915,7 @@ examples:
   queryPropertyKeys:
     speakeasy-default-query-property-keys:
       requestBody:
-        application/json: {"field": "properties", "views": ["events_view", "conversations_view", "semantic_threads_view"]}
+        application/json: {"field": "properties", "views": ["events_view", "conversations_view", "semantic_threads_view", "feedback_view"]}
       responses:
         "200":
           application/json: {"results": ["theme"]}
@@ -841,7 +932,7 @@ examples:
   queryPropertyValues:
     speakeasy-default-query-property-values:
       requestBody:
-        application/json: {"field": "properties", "key": "theme", "views": ["events_view", "conversations_view", "semantic_threads_view"], "limit": 100}
+        application/json: {"field": "properties", "key": "theme", "views": ["events_view", "conversations_view", "semantic_threads_view", "feedback_view"], "limit": 100}
       responses:
         "200":
           application/json: {"results": ["dark"]}
@@ -855,5 +946,5 @@ examples:
           application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
           application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
-examplesVersion: 1.0.1
+examplesVersion: 1.0.2
 generatedTests: {}

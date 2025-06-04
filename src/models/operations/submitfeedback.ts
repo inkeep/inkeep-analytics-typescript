@@ -69,6 +69,10 @@ export type SubmitFeedbackRequestBody = {
   createdAt?: Date | null | undefined;
   reasons?: Array<Reasons> | null | undefined;
   /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
+  /**
    * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
    */
   userProperties?: UserProperties | null | undefined;
@@ -127,6 +131,10 @@ export type SubmitFeedbackResponseBody = {
   messageId: string;
   createdAt: string;
   reasons?: Array<SubmitFeedbackReasons> | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
   /**
    * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
    */
@@ -369,6 +377,7 @@ export const SubmitFeedbackRequestBody$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$inboundSchema))).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(z.lazy(() => UserProperties$inboundSchema))
     .optional(),
 });
@@ -380,6 +389,7 @@ export type SubmitFeedbackRequestBody$Outbound = {
   messageId: string;
   createdAt?: string | null | undefined;
   reasons?: Array<Reasons$Outbound> | null | undefined;
+  properties?: { [k: string]: any } | null | undefined;
   userProperties?: UserProperties$Outbound | null | undefined;
 };
 
@@ -394,6 +404,7 @@ export const SubmitFeedbackRequestBody$outboundSchema: z.ZodType<
   messageId: z.string(),
   createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$outboundSchema))).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(z.lazy(() => UserProperties$outboundSchema))
     .optional(),
 });
@@ -694,6 +705,7 @@ export const SubmitFeedbackResponseBody$inboundSchema: z.ZodType<
   reasons: z.nullable(
     z.array(z.lazy(() => SubmitFeedbackReasons$inboundSchema)),
   ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() => SubmitFeedbackUserProperties$inboundSchema),
   ).optional(),
@@ -706,6 +718,7 @@ export type SubmitFeedbackResponseBody$Outbound = {
   messageId: string;
   createdAt: string;
   reasons?: Array<SubmitFeedbackReasons$Outbound> | null | undefined;
+  properties?: { [k: string]: any } | null | undefined;
   userProperties?: SubmitFeedbackUserProperties$Outbound | null | undefined;
 };
 
@@ -722,6 +735,7 @@ export const SubmitFeedbackResponseBody$outboundSchema: z.ZodType<
   reasons: z.nullable(
     z.array(z.lazy(() => SubmitFeedbackReasons$outboundSchema)),
   ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() => SubmitFeedbackUserProperties$outboundSchema),
   ).optional(),

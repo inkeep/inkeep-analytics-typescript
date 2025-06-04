@@ -9,10 +9,12 @@ let value: Condition = {
   field: "id",
   operator: "in",
   value: {
-    path: [
-      "/usr/src",
+    "path": [
+      "/root",
+      "/home",
+      "/usr/X11R6",
     ],
-    value: false,
+    "value": 134.82,
   },
 };
 ```
@@ -23,4 +25,4 @@ let value: Condition = {
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
 | `field`                                                                                                       | [components.ConversationsField](../../models/components/conversationsfield.md)                                | :heavy_check_mark:                                                                                            | Available fields for Conversations                                                                            |
 | `operator`                                                                                                    | [components.FilterOperator](../../models/components/filteroperator.md)                                        | :heavy_check_mark:                                                                                            | Available operators for filtering data                                                                        |
-| `value`                                                                                                       | *components.ConversationsFilterConditionValue*                                                                | :heavy_check_mark:                                                                                            | The value to compare the field against. For JSON fields, can be either a JSON object or a {path, value} pair. |
+| `value`                                                                                                       | *any*                                                                                                         | :heavy_check_mark:                                                                                            | The value to compare the field against. For JSON fields, can be either a JSON object or a {path, value} pair. |

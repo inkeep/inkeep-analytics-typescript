@@ -8,11 +8,11 @@ import { SupportCopilotConversation } from "@inkeep/inkeep-analytics/models/comp
 let value: SupportCopilotConversation = {
   id: "<id>",
   externalId: "<id>",
-  externalUrl: "https://uncommon-worth.net",
+  externalUrl: "https://terrible-brace.name/",
   type: "support_copilot",
   supportTicketConversationId: "<id>",
-  createdAt: "1744743070909",
-  updatedAt: "1745238392542",
+  createdAt: "1725115765298",
+  updatedAt: "1735632564285",
   projectId: "<id>",
   integrationId: "<id>",
   userProperties: {
@@ -24,10 +24,10 @@ let value: SupportCopilotConversation = {
       id: "<id>",
       type: "support_copilot",
       externalId: "<id>",
-      externalUrl: "https://nice-vanadyl.com",
+      externalUrl: "https://emotional-circumference.org",
       conversationId: "<id>",
-      createdAt: "1737513941012",
-      updatedAt: "1745274499271",
+      createdAt: "1734941336698",
+      updatedAt: "1735668930778",
       role: "<value>",
       content: "<value>",
       userProperties: {

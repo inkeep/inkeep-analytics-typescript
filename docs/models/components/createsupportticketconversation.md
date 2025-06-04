@@ -10,14 +10,7 @@ let value: CreateSupportTicketConversation = {
   userProperties: {
     identificationType: "COOKIED",
   },
-  messages: [
-    {
-      role: "<value>",
-      userProperties: {
-        identificationType: "COOKIED",
-      },
-    },
-  ],
+  messages: [],
 };
 ```
 

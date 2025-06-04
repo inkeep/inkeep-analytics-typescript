@@ -10,19 +10,7 @@ let value: CreateOpenAIConversation = {
   userProperties: {
     identificationType: "COOKIED",
   },
-  messages: [
-    {
-      role: "user",
-      content: [
-        {
-          type: "text",
-        },
-      ],
-      userProperties: {
-        identificationType: "COOKIED",
-      },
-    },
-  ],
+  messages: [],
 };
 ```
 

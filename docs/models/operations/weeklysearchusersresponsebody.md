@@ -9,13 +9,8 @@ import { WeeklySearchUsersResponseBody } from "@inkeep/inkeep-analytics/models/o
 
 let value: WeeklySearchUsersResponseBody = {
   data: {
-    result: [
-      {
-        week: "<value>",
-        uniqueUsers: "<value>",
-      },
-    ],
-    total: 950.72,
+    result: [],
+    total: 4855.94,
   },
 };
 ```

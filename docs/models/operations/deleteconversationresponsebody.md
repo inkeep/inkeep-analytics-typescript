@@ -8,7 +8,7 @@ Conversation deleted successfully
 import { DeleteConversationResponseBody } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: DeleteConversationResponseBody = {
-  success: false,
+  success: true,
   message: "<value>",
 };
 ```

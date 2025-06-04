@@ -12,6 +12,8 @@ const value: components.EventsFilterCondition = {
     operator: "arrayContains",
     value: {
       "key": "<value>",
+      "key1": "<value>",
+      "key2": "<value>",
     },
   },
 };
@@ -21,7 +23,15 @@ const value: components.EventsFilterCondition = {
 
 ```typescript
 const value: components.EventsFilterAND = {
-  and: [],
+  and: [
+    {
+      and: [
+        {
+          and: [],
+        },
+      ],
+    },
+  ],
 };
 ```
 

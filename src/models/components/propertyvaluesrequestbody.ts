@@ -26,6 +26,7 @@ export const PropertyValuesRequestBodyViews = {
   EventsView: "events_view",
   ConversationsView: "conversations_view",
   SemanticThreadsView: "semantic_threads_view",
+  FeedbackView: "feedback_view",
 } as const;
 export type PropertyValuesRequestBodyViews = ClosedEnum<
   typeof PropertyValuesRequestBodyViews

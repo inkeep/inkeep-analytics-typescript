@@ -1,15 +1,19 @@
-# SemanticThreadFilterConditionValue6
+# SemanticThreadFilterConditionValue7
 
 ## Example Usage
 
 ```typescript
-import { SemanticThreadFilterConditionValue6 } from "@inkeep/inkeep-analytics/models/components";
+import { SemanticThreadFilterConditionValue7 } from "@inkeep/inkeep-analytics/models/components";
 
-let value: SemanticThreadFilterConditionValue6 = {
+let value: SemanticThreadFilterConditionValue7 = {
   path: [
-    "/usr/local/bin",
+    "/Network",
+    "/bin",
+    "/opt/bin",
   ],
-  value: 9107.64,
+  value: [
+    "<value>",
+  ],
 };
 ```
 

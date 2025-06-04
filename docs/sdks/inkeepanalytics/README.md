@@ -2,7 +2,7 @@
 
 ## Overview
 
-Inkeep Analytics API: The Inkeep Analytics API provides endpoints for managing conversations, feedback, events, and queries.
+Inkeep Analytics API: The Inkeep Analytics API provides endpoints for managing conversations, feedback, events, and queries. For details on authentication, see [authentication documentation](/analytics-api/authentication)
 
 ### Available Operations
 
@@ -25,7 +25,6 @@ const inkeepAnalytics = new InkeepAnalytics({
 async function run() {
   const result = await inkeepAnalytics.topSearchQueries({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -48,15 +47,12 @@ const inkeepAnalytics = new InkeepAnalyticsCore({
 
 async function run() {
   const res = await topSearchQueries(inkeepAnalytics, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("topSearchQueries failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -130,7 +126,6 @@ const inkeepAnalytics = new InkeepAnalytics({
 async function run() {
   const result = await inkeepAnalytics.weeklySearchUsers({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -153,15 +148,12 @@ const inkeepAnalytics = new InkeepAnalyticsCore({
 
 async function run() {
   const res = await weeklySearchUsers(inkeepAnalytics, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("weeklySearchUsers failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

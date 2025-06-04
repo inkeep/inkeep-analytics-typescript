@@ -8,33 +8,18 @@ import { SupportTicketConversation } from "@inkeep/inkeep-analytics/models/compo
 let value: SupportTicketConversation = {
   id: "<id>",
   externalId: "<id>",
-  externalUrl: "https://flashy-tail.net/",
+  externalUrl: "https://unlawful-lace.info",
   type: "support_ticket",
   supportTicketConversationId: "<id>",
-  createdAt: "1714884749899",
-  updatedAt: "1745262127399",
+  createdAt: "1705404518187",
+  updatedAt: "1735608499142",
   projectId: "<id>",
   integrationId: "<id>",
   userProperties: {
     identificationType: "COOKIED",
   },
   visibility: "public",
-  messages: [
-    {
-      id: "<id>",
-      type: "support_ticket",
-      externalId: "<id>",
-      externalUrl: "https://sure-footed-taro.org/",
-      conversationId: "<id>",
-      createdAt: "1730596401464",
-      updatedAt: "1745247438213",
-      role: "<value>",
-      content: "<value>",
-      userProperties: {
-        identificationType: "COOKIED",
-      },
-    },
-  ],
+  messages: [],
 };
 ```
 

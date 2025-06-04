@@ -7,6 +7,7 @@
 
 * [conversations](#conversations) - Query Conversations
 * [queryEvents](#queryevents) - Query Events
+* [queryFeedback](#queryfeedback) - Query Feedback
 * [querySemanticThreads](#querysemanticthreads) - Query Semantic Threads
 * [exportSemanticThreadsQueryResults](#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 * [queryPropertyKeys](#querypropertykeys) - Query Property Keys
@@ -30,7 +31,6 @@ async function run() {
     notes: "Count of support ticket conversations by integration",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -55,15 +55,12 @@ async function run() {
   }, {
     notes: "Count of support ticket conversations by integration",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("queryConversations failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -129,7 +126,6 @@ async function run() {
     notes: "Count of events by type",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -154,15 +150,12 @@ async function run() {
   }, {
     notes: "Count of events by type",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("queryQueryEvents failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -210,6 +203,101 @@ import {
 | errors.InternalServerError | 500                        | application/problem+json   |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
+## queryFeedback
+
+Query Feedback
+
+### Example Usage
+
+```typescript
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
+
+const inkeepAnalytics = new InkeepAnalytics();
+
+async function run() {
+  const result = await inkeepAnalytics.query.queryFeedback({
+    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
+  }, {
+    notes: "Count of feedback by type",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { queryQueryFeedback } from "@inkeep/inkeep-analytics/funcs/queryQueryFeedback.js";
+
+// Use `InkeepAnalyticsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const inkeepAnalytics = new InkeepAnalyticsCore();
+
+async function run() {
+  const res = await queryQueryFeedback(inkeepAnalytics, {
+    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
+  }, {
+    notes: "Count of feedback by type",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("queryQueryFeedback failed:", res.error);
+  }
+}
+
+run();
+```
+
+### React hooks and utilities
+
+This method can be used in React components through the following hooks and
+associated utilities.
+
+> Check out [this guide][hook-guide] for information about each of the utilities
+> below and how to get started using React hooks.
+
+[hook-guide]: ../../../REACT_QUERY.md
+
+```tsx
+import {
+  // Mutation hook for triggering the API call.
+  useQueryQueryFeedbackMutation
+} from "@inkeep/inkeep-analytics/react-query/queryQueryFeedback.js";
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [components.QueryFeedbackRequestBody](../../models/components/queryfeedbackrequestbody.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.QueryFeedbackSecurity](../../models/operations/queryfeedbacksecurity.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.QueryFeedbackResponseBody](../../models/components/queryfeedbackresponsebody.md)\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.BadRequest          | 400                        | application/problem+json   |
+| errors.Unauthorized        | 401                        | application/problem+json   |
+| errors.Forbidden           | 403                        | application/problem+json   |
+| errors.UnprocessableEntity | 422                        | application/problem+json   |
+| errors.InternalServerError | 500                        | application/problem+json   |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
 ## querySemanticThreads
 
 Query Semantic Threads
@@ -228,7 +316,6 @@ async function run() {
     notes: "Count of chat sessions with documentation gaps by integration",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -253,15 +340,12 @@ async function run() {
   }, {
     notes: "Count of chat sessions with documentation gaps by integration",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("queryQuerySemanticThreads failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -327,7 +411,6 @@ async function run() {
     notes: "Count of chat sessions with documentation gaps by integration",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -352,15 +435,12 @@ async function run() {
   const res = await queryExportSemanticThreadsQueryResults(inkeepAnalytics, {
     notes: "Count of chat sessions with documentation gaps by integration",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("queryExportSemanticThreadsQueryResults failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -427,10 +507,10 @@ async function run() {
       "events_view",
       "conversations_view",
       "semantic_threads_view",
+      "feedback_view",
     ],
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -458,17 +538,15 @@ async function run() {
       "events_view",
       "conversations_view",
       "semantic_threads_view",
+      "feedback_view",
     ],
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("queryQueryPropertyKeys failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -536,10 +614,10 @@ async function run() {
       "events_view",
       "conversations_view",
       "semantic_threads_view",
+      "feedback_view",
     ],
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -568,17 +646,15 @@ async function run() {
       "events_view",
       "conversations_view",
       "semantic_threads_view",
+      "feedback_view",
     ],
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("queryQueryPropertyValues failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

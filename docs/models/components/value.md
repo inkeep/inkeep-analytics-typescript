@@ -18,14 +18,14 @@ const value: number = 1284.03;
 ### `boolean`
 
 ```typescript
-const value: boolean = false;
+const value: boolean = true;
 ```
 
 ### `components.Four[]`
 
 ```typescript
 const value: components.Four[] = [
-  2106.76,
+  "<value>",
 ];
 ```
 
