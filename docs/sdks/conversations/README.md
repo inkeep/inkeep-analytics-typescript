@@ -27,17 +27,8 @@ async function run() {
   const result = await inkeepAnalytics.conversations.log({
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
-    type: "support_ticket",
-    userProperties: {
-      identificationType: "COOKIED",
-    },
+    type: "support_copilot",
     messages: [
-      {
-        role: "<value>",
-        userProperties: {
-          identificationType: "COOKIED",
-        },
-      },
       {
         role: "<value>",
         userProperties: {
@@ -47,7 +38,6 @@ async function run() {
     ],
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -70,17 +60,8 @@ async function run() {
   const res = await conversationsLog(inkeepAnalytics, {
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
-    type: "support_ticket",
-    userProperties: {
-      identificationType: "COOKIED",
-    },
+    type: "support_copilot",
     messages: [
-      {
-        role: "<value>",
-        userProperties: {
-          identificationType: "COOKIED",
-        },
-      },
       {
         role: "<value>",
         userProperties: {
@@ -89,15 +70,12 @@ async function run() {
       },
     ],
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("conversationsLog failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -161,7 +139,6 @@ const inkeepAnalytics = new InkeepAnalytics({
 async function run() {
   const result = await inkeepAnalytics.conversations.list({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -184,15 +161,12 @@ const inkeepAnalytics = new InkeepAnalyticsCore({
 
 async function run() {
   const res = await conversationsList(inkeepAnalytics, {});
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("conversationsList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -269,7 +243,6 @@ async function run() {
     id: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -294,15 +267,12 @@ async function run() {
   }, {
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("conversationsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -380,7 +350,6 @@ async function run() {
     id: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -405,15 +374,12 @@ async function run() {
   }, {
     id: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("conversationsDelete failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

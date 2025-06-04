@@ -17,7 +17,7 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 <!-- Start Summary [summary] -->
 ## Summary
 
-Inkeep Analytics API: The Inkeep Analytics API provides endpoints for managing conversations, feedback, events, and queries.
+Inkeep Analytics API: The Inkeep Analytics API provides endpoints for managing conversations, feedback, events, and queries. For details on authentication, see [authentication documentation](/analytics-api/authentication)
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -191,7 +191,6 @@ const inkeepAnalytics = new InkeepAnalytics({
 async function run() {
   const result = await inkeepAnalytics.topSearchQueries({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -222,7 +221,6 @@ const inkeepAnalytics = new InkeepAnalytics({
 async function run() {
   const result = await inkeepAnalytics.topSearchQueries({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -240,17 +238,8 @@ const inkeepAnalytics = new InkeepAnalytics();
 
 async function run() {
   const result = await inkeepAnalytics.conversations.log({}, {
-    type: "support_ticket",
-    userProperties: {
-      identificationType: "COOKIED",
-    },
+    type: "support_copilot",
     messages: [
-      {
-        role: "<value>",
-        userProperties: {
-          identificationType: "COOKIED",
-        },
-      },
       {
         role: "<value>",
         userProperties: {
@@ -260,7 +249,6 @@ async function run() {
     ],
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -294,6 +282,7 @@ run();
 
 * [submit](docs/sdks/feedback/README.md#submit) - Submit Feedback
 * [list](docs/sdks/feedback/README.md#list) - Get All Feedback
+* [getFeedbackById](docs/sdks/feedback/README.md#getfeedbackbyid) - Get Feedback by ID
 
 ### [InkeepAnalytics SDK](docs/sdks/inkeepanalytics/README.md)
 
@@ -304,6 +293,7 @@ run();
 
 * [conversations](docs/sdks/query/README.md#conversations) - Query Conversations
 * [queryEvents](docs/sdks/query/README.md#queryevents) - Query Events
+* [queryFeedback](docs/sdks/query/README.md#queryfeedback) - Query Feedback
 * [querySemanticThreads](docs/sdks/query/README.md#querysemanticthreads) - Query Semantic Threads
 * [exportSemanticThreadsQueryResults](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 * [queryPropertyKeys](docs/sdks/query/README.md#querypropertykeys) - Query Property Keys
@@ -333,11 +323,13 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`conversationsList`](docs/sdks/conversations/README.md#list) - Get All Conversations
 - [`conversationsLog`](docs/sdks/conversations/README.md#log) - Log Conversation
 - [`eventsLog`](docs/sdks/events/README.md#log) - Log Event
+- [`feedbackGetFeedbackById`](docs/sdks/feedback/README.md#getfeedbackbyid) - Get Feedback by ID
 - [`feedbackList`](docs/sdks/feedback/README.md#list) - Get All Feedback
 - [`feedbackSubmit`](docs/sdks/feedback/README.md#submit) - Submit Feedback
 - [`queryConversations`](docs/sdks/query/README.md#conversations) - Query Conversations
 - [`queryExportSemanticThreadsQueryResults`](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 - [`queryQueryEvents`](docs/sdks/query/README.md#queryevents) - Query Events
+- [`queryQueryFeedback`](docs/sdks/query/README.md#queryfeedback) - Query Feedback
 - [`queryQueryPropertyKeys`](docs/sdks/query/README.md#querypropertykeys) - Query Property Keys
 - [`queryQueryPropertyValues`](docs/sdks/query/README.md#querypropertyvalues) - Query Property Values
 - [`queryQuerySemanticThreads`](docs/sdks/query/README.md#querysemanticthreads) - Query Semantic Threads
@@ -375,11 +367,13 @@ To learn about this feature and how to get started, check
 - [`useConversationsList`](docs/sdks/conversations/README.md#list) - Get All Conversations
 - [`useConversationsLogMutation`](docs/sdks/conversations/README.md#log) - Log Conversation
 - [`useEventsLogMutation`](docs/sdks/events/README.md#log) - Log Event
+- [`useFeedbackGetFeedbackById`](docs/sdks/feedback/README.md#getfeedbackbyid) - Get Feedback by ID
 - [`useFeedbackList`](docs/sdks/feedback/README.md#list) - Get All Feedback
 - [`useFeedbackSubmitMutation`](docs/sdks/feedback/README.md#submit) - Submit Feedback
 - [`useQueryConversationsMutation`](docs/sdks/query/README.md#conversations) - Query Conversations
 - [`useQueryExportSemanticThreadsQueryResultsMutation`](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 - [`useQueryQueryEventsMutation`](docs/sdks/query/README.md#queryevents) - Query Events
+- [`useQueryQueryFeedbackMutation`](docs/sdks/query/README.md#queryfeedback) - Query Feedback
 - [`useQueryQueryPropertyKeysMutation`](docs/sdks/query/README.md#querypropertykeys) - Query Property Keys
 - [`useQueryQueryPropertyValuesMutation`](docs/sdks/query/README.md#querypropertyvalues) - Query Property Values
 - [`useQueryQuerySemanticThreadsMutation`](docs/sdks/query/README.md#querysemanticthreads) - Query Semantic Threads
@@ -416,7 +410,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -445,7 +438,6 @@ const inkeepAnalytics = new InkeepAnalytics({
 async function run() {
   const result = await inkeepAnalytics.topSearchQueries({});
 
-  // Handle the result
   console.log(result);
 }
 
@@ -457,80 +449,49 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `topSearchQueries` method may throw the following errors:
+This table shows properties which are common on error classes. For full details see [error classes](#error-classes).
 
-| Error Type                 | Status Code | Content Type             |
-| -------------------------- | ----------- | ------------------------ |
-| errors.BadRequest          | 400         | application/problem+json |
-| errors.Unauthorized        | 401         | application/problem+json |
-| errors.Forbidden           | 403         | application/problem+json |
-| errors.UnprocessableEntity | 422         | application/problem+json |
-| errors.InternalServerError | 500         | application/problem+json |
-| errors.APIError            | 4XX, 5XX    | \*/\*                    |
+| Property            | Type       | Description                                                                             |
+| ------------------- | ---------- | --------------------------------------------------------------------------------------- |
+| `error.name`        | `string`   | Error class name eg `APIError`                                                          |
+| `error.message`     | `string`   | Error message                                                                           |
+| `error.statusCode`  | `number`   | HTTP status code eg `404`                                                               |
+| `error.contentType` | `string`   | HTTP content type eg `application/json`                                                 |
+| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
+| `error.rawResponse` | `Response` | Raw HTTP response. Access to headers and more.                                          |
+| `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
-If the method throws an error and it is not captured by the known errors, it will default to throwing a `APIError`.
-
+### Example
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
-import {
-  BadRequest,
-  Forbidden,
-  InternalServerError,
-  SDKValidationError,
-  Unauthorized,
-  UnprocessableEntity,
-} from "@inkeep/inkeep-analytics/models/errors";
+import * as errors from "@inkeep/inkeep-analytics/models/errors";
 
 const inkeepAnalytics = new InkeepAnalytics({
   apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
 });
 
 async function run() {
-  let result;
   try {
-    result = await inkeepAnalytics.topSearchQueries({});
+    const result = await inkeepAnalytics.topSearchQueries({});
 
-    // Handle the result
     console.log(result);
-  } catch (err) {
-    switch (true) {
-      // The server response does not match the expected SDK schema
-      case (err instanceof SDKValidationError): {
-        // Pretty-print will provide a human-readable multi-line error message
-        console.error(err.pretty());
-        // Raw value may also be inspected
-        console.error(err.rawValue);
-        return;
-      }
-      case (err instanceof BadRequest): {
-        // Handle err.data$: BadRequestData
-        console.error(err);
-        return;
-      }
-      case (err instanceof Unauthorized): {
-        // Handle err.data$: UnauthorizedData
-        console.error(err);
-        return;
-      }
-      case (err instanceof Forbidden): {
-        // Handle err.data$: ForbiddenData
-        console.error(err);
-        return;
-      }
-      case (err instanceof UnprocessableEntity): {
-        // Handle err.data$: UnprocessableEntityData
-        console.error(err);
-        return;
-      }
-      case (err instanceof InternalServerError): {
-        // Handle err.data$: InternalServerErrorData
-        console.error(err);
-        return;
-      }
-      default: {
-        // Other errors such as network errors, see HTTPClientErrors for more details
-        throw err;
-      }
+  } catch (error) {
+    // Depending on the method different errors may be thrown
+    if (error instanceof errors.BadRequest) {
+      console.log(error.message);
+      console.log(error.data$.title); // string
+      console.log(error.data$.status); // number
+      console.log(error.data$.detail); // string
+      console.log(error.data$.instance); // string
+      console.log(error.data$.requestId); // string
+    }
+
+    // Fallback error class, if no other more specific error class is matched
+    if (error instanceof errors.APIError) {
+      console.log(error.message);
+      console.log(error.statusCode);
+      console.log(error.body);
+      console.log(error.rawResponse.headers);
     }
   }
 }
@@ -539,17 +500,25 @@ run();
 
 ```
 
-Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted multi-line string since validation errors can list many issues and the plain error string may be difficult read when debugging.
+### Error Classes
+* [`BadRequest`](docs/models/errors/badrequest.md): Bad Request. Status code `400`.
+* [`Unauthorized`](docs/models/errors/unauthorized.md): Unauthorized. Status code `401`.
+* [`Forbidden`](docs/models/errors/forbidden.md): Forbidden. Status code `403`.
+* [`UnprocessableEntity`](docs/models/errors/unprocessableentity.md): Unprocessable Entity. Status code `422`.
+* [`InternalServerError`](docs/models/errors/internalservererror.md): Internal Server Error. Status code `500`.
+* `APIError`: The fallback error class, if no other more specific error class is matched.
+* `SDKValidationError`: Type mismatch between the data returned from the server and the structure expected by the SDK. This can also be thrown for invalid method arguments. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+* Network errors:
+    * `ConnectionError`: HTTP client was unable to make a request to a server.
+    * `RequestTimeoutError`: HTTP request timed out due to an AbortSignal signal.
+    * `RequestAbortedError`: HTTP request was aborted by the client.
+    * `InvalidRequestError`: Any input used to create a request is invalid.
+    * `UnexpectedClientError`: Unrecognised or unexpected error.
+* Less common errors, applicable to a subset of methods:
+    * [`NotFound`](docs/models/errors/notfound.md): Not Found. Status code `404`. Applicable to 6 of 18 methods.*
 
-In some rare cases, the SDK can fail to get a response from the server or even make the request due to unexpected circumstances such as network conditions. These types of errors are captured in the `models/errors/httpclienterrors.ts` module:
 
-| HTTP Client Error                                    | Description                                          |
-| ---------------------------------------------------- | ---------------------------------------------------- |
-| RequestAbortedError                                  | HTTP request was aborted by the client               |
-| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
-| ConnectionError                                      | HTTP client was unable to make a request to a server |
-| InvalidRequestError                                  | Any input used to create a request is invalid        |
-| UnexpectedClientError                                | Unrecognised or unexpected error                     |
+\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -569,7 +538,6 @@ const inkeepAnalytics = new InkeepAnalytics({
 async function run() {
   const result = await inkeepAnalytics.topSearchQueries({});
 
-  // Handle the result
   console.log(result);
 }
 

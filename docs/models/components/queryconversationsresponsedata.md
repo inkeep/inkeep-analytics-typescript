@@ -8,16 +8,10 @@ Data object containing QueryConversations query results and pagination informati
 import { QueryConversationsResponseData } from "@inkeep/inkeep-analytics/models/components";
 
 let value: QueryConversationsResponseData = {
-  result: [
-    {
-      userProperties: {
-        identificationType: "COOKIED",
-      },
-    },
-  ],
-  total: 529.71,
-  pageSize: 9651.27,
-  count: 9777.02,
+  result: [],
+  total: 9651.27,
+  pageSize: 9777.02,
+  count: 8568.29,
 };
 ```
 

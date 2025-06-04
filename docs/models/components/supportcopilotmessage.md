@@ -9,10 +9,10 @@ let value: SupportCopilotMessage = {
   id: "<id>",
   type: "support_copilot",
   externalId: "<id>",
-  externalUrl: "https://essential-countess.net/",
+  externalUrl: "https://second-hand-exhaust.org/",
   conversationId: "<id>",
-  createdAt: "1723471776620",
-  updatedAt: "1745294154490",
+  createdAt: "1728672823112",
+  updatedAt: "1735641238459",
   role: "<value>",
   content: "<value>",
   userProperties: {

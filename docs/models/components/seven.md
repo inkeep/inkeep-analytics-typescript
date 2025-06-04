@@ -1,15 +1,16 @@
-# Six
+# Seven
 
 ## Example Usage
 
 ```typescript
-import { Six } from "@inkeep/inkeep-analytics/models/components";
+import { Seven } from "@inkeep/inkeep-analytics/models/components";
 
-let value: Six = {
+let value: Seven = {
   path: [
-    "/var/yp",
+    "/etc/periodic",
+    "/home",
   ],
-  value: 8809.51,
+  value: [],
 };
 ```
 

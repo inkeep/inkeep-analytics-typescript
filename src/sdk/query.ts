@@ -5,6 +5,7 @@
 import { queryConversations } from "../funcs/queryConversations.js";
 import { queryExportSemanticThreadsQueryResults } from "../funcs/queryExportSemanticThreadsQueryResults.js";
 import { queryQueryEvents } from "../funcs/queryQueryEvents.js";
+import { queryQueryFeedback } from "../funcs/queryQueryFeedback.js";
 import { queryQueryPropertyKeys } from "../funcs/queryQueryPropertyKeys.js";
 import { queryQueryPropertyValues } from "../funcs/queryQueryPropertyValues.js";
 import { queryQuerySemanticThreads } from "../funcs/queryQuerySemanticThreads.js";
@@ -39,6 +40,22 @@ export class Query extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.QueryEventsResponseBody> {
     return unwrapAsync(queryQueryEvents(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Query Feedback
+   */
+  async queryFeedback(
+    security: operations.QueryFeedbackSecurity,
+    request: components.QueryFeedbackRequestBody,
+    options?: RequestOptions,
+  ): Promise<components.QueryFeedbackResponseBody> {
+    return unwrapAsync(queryQueryFeedback(
       this,
       security,
       request,

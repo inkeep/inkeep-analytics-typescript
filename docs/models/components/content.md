@@ -12,10 +12,6 @@ const value: string = "<value>";
 ### `components.OpenAIContentItem[]`
 
 ```typescript
-const value: components.OpenAIContentItem[] = [
-  {
-    type: "text",
-  },
-];
+const value: components.OpenAIContentItem[] = [];
 ```
 

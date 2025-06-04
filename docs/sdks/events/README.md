@@ -25,14 +25,10 @@ async function run() {
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
     type: "<value>",
-    conversationId: "<id>",
-    userProperties: {
-      identificationType: "COOKIED",
-    },
-    entityType: "conversation",
+    messageId: "<id>",
+    entityType: "message",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -56,21 +52,15 @@ async function run() {
     webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
   }, {
     type: "<value>",
-    conversationId: "<id>",
-    userProperties: {
-      identificationType: "COOKIED",
-    },
-    entityType: "conversation",
+    messageId: "<id>",
+    entityType: "message",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("eventsLog failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

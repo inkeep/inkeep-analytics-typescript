@@ -7,7 +7,11 @@
 
 ```typescript
 const value: components.ConversationsFilter = {
-  and: [],
+  and: [
+    {
+      and: [],
+    },
+  ],
 };
 ```
 

@@ -12,16 +12,28 @@ import {
   EventsField$outboundSchema,
 } from "./eventsfield.js";
 import {
-  EventsFilterConditionValue,
-  EventsFilterConditionValue$inboundSchema,
-  EventsFilterConditionValue$Outbound,
-  EventsFilterConditionValue$outboundSchema,
-} from "./eventsfilterconditionvalue.js";
-import {
   FilterOperator,
   FilterOperator$inboundSchema,
   FilterOperator$outboundSchema,
 } from "./filteroperator.js";
+
+export type Value4 = string | number | boolean;
+
+export type EventsFilterConditionValueValue =
+  | string
+  | number
+  | boolean
+  | Array<string | number | boolean | null>;
+
+export type EventsFilterConditionValue7 = {
+  path: Array<string>;
+  value:
+    | string
+    | number
+    | boolean
+    | Array<string | number | boolean | null>
+    | null;
+};
 
 export type EventsFilterConditionCondition = {
   /**
@@ -35,12 +47,195 @@ export type EventsFilterConditionCondition = {
   /**
    * The value to compare the field against. For JSON fields, can be either a JSON object or a {path, value} pair.
    */
-  value: EventsFilterConditionValue;
+  value?: any | undefined;
 };
 
 export type EventsFilterCondition = {
   condition: EventsFilterConditionCondition;
 };
+
+/** @internal */
+export const Value4$inboundSchema: z.ZodType<Value4, z.ZodTypeDef, unknown> = z
+  .union([z.string(), z.number(), z.boolean()]);
+
+/** @internal */
+export type Value4$Outbound = string | number | boolean;
+
+/** @internal */
+export const Value4$outboundSchema: z.ZodType<
+  Value4$Outbound,
+  z.ZodTypeDef,
+  Value4
+> = z.union([z.string(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Value4$ {
+  /** @deprecated use `Value4$inboundSchema` instead. */
+  export const inboundSchema = Value4$inboundSchema;
+  /** @deprecated use `Value4$outboundSchema` instead. */
+  export const outboundSchema = Value4$outboundSchema;
+  /** @deprecated use `Value4$Outbound` instead. */
+  export type Outbound = Value4$Outbound;
+}
+
+export function value4ToJSON(value4: Value4): string {
+  return JSON.stringify(Value4$outboundSchema.parse(value4));
+}
+
+export function value4FromJSON(
+  jsonString: string,
+): SafeParseResult<Value4, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Value4$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Value4' from JSON`,
+  );
+}
+
+/** @internal */
+export const EventsFilterConditionValueValue$inboundSchema: z.ZodType<
+  EventsFilterConditionValueValue,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  z.string(),
+  z.number(),
+  z.boolean(),
+  z.array(z.nullable(z.union([z.string(), z.number(), z.boolean()]))),
+]);
+
+/** @internal */
+export type EventsFilterConditionValueValue$Outbound =
+  | string
+  | number
+  | boolean
+  | Array<string | number | boolean | null>;
+
+/** @internal */
+export const EventsFilterConditionValueValue$outboundSchema: z.ZodType<
+  EventsFilterConditionValueValue$Outbound,
+  z.ZodTypeDef,
+  EventsFilterConditionValueValue
+> = z.union([
+  z.string(),
+  z.number(),
+  z.boolean(),
+  z.array(z.nullable(z.union([z.string(), z.number(), z.boolean()]))),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace EventsFilterConditionValueValue$ {
+  /** @deprecated use `EventsFilterConditionValueValue$inboundSchema` instead. */
+  export const inboundSchema = EventsFilterConditionValueValue$inboundSchema;
+  /** @deprecated use `EventsFilterConditionValueValue$outboundSchema` instead. */
+  export const outboundSchema = EventsFilterConditionValueValue$outboundSchema;
+  /** @deprecated use `EventsFilterConditionValueValue$Outbound` instead. */
+  export type Outbound = EventsFilterConditionValueValue$Outbound;
+}
+
+export function eventsFilterConditionValueValueToJSON(
+  eventsFilterConditionValueValue: EventsFilterConditionValueValue,
+): string {
+  return JSON.stringify(
+    EventsFilterConditionValueValue$outboundSchema.parse(
+      eventsFilterConditionValueValue,
+    ),
+  );
+}
+
+export function eventsFilterConditionValueValueFromJSON(
+  jsonString: string,
+): SafeParseResult<EventsFilterConditionValueValue, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EventsFilterConditionValueValue$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EventsFilterConditionValueValue' from JSON`,
+  );
+}
+
+/** @internal */
+export const EventsFilterConditionValue7$inboundSchema: z.ZodType<
+  EventsFilterConditionValue7,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  path: z.array(z.string()),
+  value: z.nullable(
+    z.union([
+      z.string(),
+      z.number(),
+      z.boolean(),
+      z.array(z.nullable(z.union([z.string(), z.number(), z.boolean()]))),
+    ]),
+  ),
+});
+
+/** @internal */
+export type EventsFilterConditionValue7$Outbound = {
+  path: Array<string>;
+  value:
+    | string
+    | number
+    | boolean
+    | Array<string | number | boolean | null>
+    | null;
+};
+
+/** @internal */
+export const EventsFilterConditionValue7$outboundSchema: z.ZodType<
+  EventsFilterConditionValue7$Outbound,
+  z.ZodTypeDef,
+  EventsFilterConditionValue7
+> = z.object({
+  path: z.array(z.string()),
+  value: z.nullable(
+    z.union([
+      z.string(),
+      z.number(),
+      z.boolean(),
+      z.array(z.nullable(z.union([z.string(), z.number(), z.boolean()]))),
+    ]),
+  ),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace EventsFilterConditionValue7$ {
+  /** @deprecated use `EventsFilterConditionValue7$inboundSchema` instead. */
+  export const inboundSchema = EventsFilterConditionValue7$inboundSchema;
+  /** @deprecated use `EventsFilterConditionValue7$outboundSchema` instead. */
+  export const outboundSchema = EventsFilterConditionValue7$outboundSchema;
+  /** @deprecated use `EventsFilterConditionValue7$Outbound` instead. */
+  export type Outbound = EventsFilterConditionValue7$Outbound;
+}
+
+export function eventsFilterConditionValue7ToJSON(
+  eventsFilterConditionValue7: EventsFilterConditionValue7,
+): string {
+  return JSON.stringify(
+    EventsFilterConditionValue7$outboundSchema.parse(
+      eventsFilterConditionValue7,
+    ),
+  );
+}
+
+export function eventsFilterConditionValue7FromJSON(
+  jsonString: string,
+): SafeParseResult<EventsFilterConditionValue7, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EventsFilterConditionValue7$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EventsFilterConditionValue7' from JSON`,
+  );
+}
 
 /** @internal */
 export const EventsFilterConditionCondition$inboundSchema: z.ZodType<
@@ -50,14 +245,14 @@ export const EventsFilterConditionCondition$inboundSchema: z.ZodType<
 > = z.object({
   field: EventsField$inboundSchema,
   operator: FilterOperator$inboundSchema,
-  value: EventsFilterConditionValue$inboundSchema,
+  value: z.any().optional(),
 });
 
 /** @internal */
 export type EventsFilterConditionCondition$Outbound = {
   field: string;
   operator: string;
-  value: EventsFilterConditionValue$Outbound;
+  value?: any | undefined;
 };
 
 /** @internal */
@@ -68,7 +263,7 @@ export const EventsFilterConditionCondition$outboundSchema: z.ZodType<
 > = z.object({
   field: EventsField$outboundSchema,
   operator: FilterOperator$outboundSchema,
-  value: EventsFilterConditionValue$outboundSchema,
+  value: z.any().optional(),
 });
 
 /**

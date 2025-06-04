@@ -77,6 +77,10 @@ export type PositiveFeedback = {
   createdAt: string;
   reasons?: Array<Reasons> | null | undefined;
   /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
+  /**
    * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
    */
   userProperties?: GetAllFeedbackResponseUserProperties | null | undefined;
@@ -136,6 +140,10 @@ export type NegativeFeedback = {
   messageId: string;
   createdAt: string;
   reasons?: Array<GetAllFeedbackResponseReasons> | null | undefined;
+  /**
+   * A customizable collection of custom properties or attributes.
+   */
+  properties?: { [k: string]: any } | null | undefined;
   /**
    * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
    */
@@ -415,6 +423,7 @@ export const PositiveFeedback$inboundSchema: z.ZodType<
   messageId: z.string(),
   createdAt: z.string(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$inboundSchema))).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() => GetAllFeedbackResponseUserProperties$inboundSchema),
   ).optional(),
@@ -429,6 +438,7 @@ export type PositiveFeedback$Outbound = {
   messageId: string;
   createdAt: string;
   reasons?: Array<Reasons$Outbound> | null | undefined;
+  properties?: { [k: string]: any } | null | undefined;
   userProperties?:
     | GetAllFeedbackResponseUserProperties$Outbound
     | null
@@ -448,6 +458,7 @@ export const PositiveFeedback$outboundSchema: z.ZodType<
   messageId: z.string(),
   createdAt: z.string(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$outboundSchema))).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() => GetAllFeedbackResponseUserProperties$outboundSchema),
   ).optional(),
@@ -793,6 +804,7 @@ export const NegativeFeedback$inboundSchema: z.ZodType<
   reasons: z.nullable(
     z.array(z.lazy(() => GetAllFeedbackResponseReasons$inboundSchema)),
   ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() =>
       GetAllFeedbackResponseNegativeFeedbackUserProperties$inboundSchema
@@ -809,6 +821,7 @@ export type NegativeFeedback$Outbound = {
   messageId: string;
   createdAt: string;
   reasons?: Array<GetAllFeedbackResponseReasons$Outbound> | null | undefined;
+  properties?: { [k: string]: any } | null | undefined;
   userProperties?:
     | GetAllFeedbackResponseNegativeFeedbackUserProperties$Outbound
     | null
@@ -830,6 +843,7 @@ export const NegativeFeedback$outboundSchema: z.ZodType<
   reasons: z.nullable(
     z.array(z.lazy(() => GetAllFeedbackResponseReasons$outboundSchema)),
   ).optional(),
+  properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() =>
       GetAllFeedbackResponseNegativeFeedbackUserProperties$outboundSchema

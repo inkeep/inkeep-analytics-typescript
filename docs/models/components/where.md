@@ -12,6 +12,8 @@ const value: components.EventsFilterCondition = {
     operator: "arrayContains",
     value: {
       "key": "<value>",
+      "key1": "<value>",
+      "key2": "<value>",
     },
   },
 };
@@ -21,7 +23,15 @@ const value: components.EventsFilterCondition = {
 
 ```typescript
 const value: components.EventsFilterAND = {
-  and: [],
+  and: [
+    {
+      and: [
+        {
+          or: [],
+        },
+      ],
+    },
+  ],
 };
 ```
 
@@ -40,9 +50,7 @@ const value: components.ConversationsFilterCondition = {
   condition: {
     field: "userMessageCount",
     operator: "arrayContains",
-    value: [
-      "<value>",
-    ],
+    value: "<value>",
   },
 };
 ```
@@ -51,7 +59,11 @@ const value: components.ConversationsFilterCondition = {
 
 ```typescript
 const value: components.ConversationsFilterAND = {
-  and: [],
+  and: [
+    {
+      and: [],
+    },
+  ],
 };
 ```
 
@@ -87,7 +99,11 @@ const value: components.SemanticThreadFilterAND = {
 
 ```typescript
 const value: components.SemanticThreadFilterOR = {
-  or: [],
+  or: [
+    {
+      or: [],
+    },
+  ],
 };
 ```
 

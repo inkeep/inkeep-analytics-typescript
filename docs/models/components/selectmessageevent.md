@@ -9,12 +9,10 @@ let value: SelectMessageEvent = {
   id: "<id>",
   type: "<value>",
   messageId: "<id>",
-  createdAt: "1718899281977",
+  createdAt: "1723507634342",
   projectId: "<id>",
   integrationId: "<id>",
-  userProperties: {
-    identificationType: "COOKIED",
-  },
+  userProperties: null,
   entityType: "message",
 };
 ```

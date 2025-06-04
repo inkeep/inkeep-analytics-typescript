@@ -27,7 +27,15 @@ const value: components.SemanticThreadFilterAND = {
 
 ```typescript
 const value: components.SemanticThreadFilterOR = {
-  or: [],
+  or: [
+    {
+      condition: {
+        field: "isAnswerConfident",
+        operator: "lt",
+        value: "<value>",
+      },
+    },
+  ],
 };
 ```
 

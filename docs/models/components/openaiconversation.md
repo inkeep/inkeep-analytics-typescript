@@ -8,43 +8,24 @@ import { OpenAIConversation } from "@inkeep/inkeep-analytics/models/components";
 let value: OpenAIConversation = {
   id: "<id>",
   externalId: "<id>",
-  externalUrl: "https://illiterate-tenant.info",
+  externalUrl: "https://spotless-godfather.biz/",
   type: "openai",
   supportTicketConversationId: "<id>",
-  createdAt: "1719347654086",
-  updatedAt: "1745285583757",
+  createdAt: "1717749033246",
+  updatedAt: "1735689262899",
   projectId: "<id>",
   integrationId: "<id>",
   userProperties: {
     identificationType: "COOKIED",
   },
-  visibility: "public",
-  messages: [
+  visibility: "private",
+  messages: [],
+  messagesOpenAIFormat: [
     {
-      id: "<id>",
-      type: "openai",
-      externalId: "<id>",
-      externalUrl: "https://mean-nougat.org/",
-      conversationId: "<id>",
-      createdAt: "1714554033951",
-      updatedAt: "1745230813637",
-      role: "assistant",
+      role: "user",
       content: [
         {
           type: "text",
-        },
-      ],
-      userProperties: {
-        identificationType: "COOKIED",
-      },
-    },
-  ],
-  messagesOpenAIFormat: [
-    {
-      role: "assistant",
-      content: [
-        {
-          type: "image_url",
         },
       ],
     },

@@ -8,7 +8,11 @@ EventsFilter AND operator
 import { EventsFilterAND } from "@inkeep/inkeep-analytics/models/components";
 
 let value: EventsFilterAND = {
-  and: [],
+  and: [
+    {
+      or: [],
+    },
+  ],
 };
 ```
 

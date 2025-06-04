@@ -10,9 +10,7 @@ const value: components.ConversationsFilterCondition = {
   condition: {
     field: "userMessageCount",
     operator: "arrayContains",
-    value: [
-      "<value>",
-    ],
+    value: "<value>",
   },
 };
 ```
@@ -21,7 +19,15 @@ const value: components.ConversationsFilterCondition = {
 
 ```typescript
 const value: components.ConversationsFilterAND = {
-  and: [],
+  and: [
+    {
+      condition: {
+        field: "userMessageCount",
+        operator: "arrayContains",
+        value: "<value>",
+      },
+    },
+  ],
 };
 ```
 

@@ -8,7 +8,15 @@ SemanticThreadFilter OR operator
 import { SemanticThreadFilterOR } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SemanticThreadFilterOR = {
-  or: [],
+  or: [
+    {
+      condition: {
+        field: "isAnswerConfident",
+        operator: "lt",
+        value: "<value>",
+      },
+    },
+  ],
 };
 ```
 

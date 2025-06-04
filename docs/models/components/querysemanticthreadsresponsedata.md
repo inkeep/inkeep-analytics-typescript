@@ -8,16 +8,10 @@ Data object containing QuerySemanticThreads query results and pagination informa
 import { QuerySemanticThreadsResponseData } from "@inkeep/inkeep-analytics/models/components";
 
 let value: QuerySemanticThreadsResponseData = {
-  result: [
-    {
-      userProperties: {
-        identificationType: "COOKIED",
-      },
-    },
-  ],
-  total: 3226.28,
-  pageSize: 3107.52,
-  count: 4381.35,
+  result: [],
+  total: 3107.52,
+  pageSize: 4381.35,
+  count: 7975.26,
 };
 ```
 

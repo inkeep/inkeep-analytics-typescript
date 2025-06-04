@@ -9,39 +9,24 @@
 const value: components.OpenAIConversation = {
   id: "<id>",
   externalId: "<id>",
-  externalUrl: "https://turbulent-charm.net/",
+  externalUrl: "https://spotless-godfather.biz/",
   type: "openai",
   supportTicketConversationId: "<id>",
-  createdAt: "1725825611214",
-  updatedAt: "1745225961784",
+  createdAt: "1717749033246",
+  updatedAt: "1735689262899",
   projectId: "<id>",
   integrationId: "<id>",
   userProperties: {
     identificationType: "COOKIED",
   },
-  visibility: "public",
-  messages: [
-    {
-      id: "<id>",
-      type: "openai",
-      externalId: "<id>",
-      externalUrl: "https://yummy-jet.net/",
-      conversationId: "<id>",
-      createdAt: "1731715545765",
-      updatedAt: "1745260856220",
-      role: "user",
-      content: "<value>",
-      userProperties: {
-        identificationType: "COOKIED",
-      },
-    },
-  ],
+  visibility: "private",
+  messages: [],
   messagesOpenAIFormat: [
     {
-      role: "assistant",
+      role: "user",
       content: [
         {
-          type: "image_url",
+          type: "text",
         },
       ],
     },
@@ -55,33 +40,18 @@ const value: components.OpenAIConversation = {
 const value: components.SupportTicketConversation = {
   id: "<id>",
   externalId: "<id>",
-  externalUrl: "https://swift-soup.org/",
+  externalUrl: "https://unlawful-lace.info",
   type: "support_ticket",
   supportTicketConversationId: "<id>",
-  createdAt: "1729719962839",
-  updatedAt: "1745247280576",
+  createdAt: "1705404518187",
+  updatedAt: "1735608499142",
   projectId: "<id>",
   integrationId: "<id>",
   userProperties: {
     identificationType: "COOKIED",
   },
-  visibility: "private",
-  messages: [
-    {
-      id: "<id>",
-      type: "support_ticket",
-      externalId: "<id>",
-      externalUrl: "https://beloved-ceramic.org/",
-      conversationId: "<id>",
-      createdAt: "1721661522034",
-      updatedAt: "1745262897960",
-      role: "<value>",
-      content: "<value>",
-      userProperties: {
-        identificationType: "COOKIED",
-      },
-    },
-  ],
+  visibility: "public",
+  messages: [],
 };
 ```
 
@@ -91,11 +61,11 @@ const value: components.SupportTicketConversation = {
 const value: components.SupportCopilotConversation = {
   id: "<id>",
   externalId: "<id>",
-  externalUrl: "https://tame-advertisement.org",
+  externalUrl: "https://terrible-brace.name/",
   type: "support_copilot",
   supportTicketConversationId: "<id>",
-  createdAt: "1716840631171",
-  updatedAt: "1745266691484",
+  createdAt: "1725115765298",
+  updatedAt: "1735632564285",
   projectId: "<id>",
   integrationId: "<id>",
   userProperties: {
@@ -107,10 +77,10 @@ const value: components.SupportCopilotConversation = {
       id: "<id>",
       type: "support_copilot",
       externalId: "<id>",
-      externalUrl: "https://gripping-meander.biz",
+      externalUrl: "https://emotional-circumference.org",
       conversationId: "<id>",
-      createdAt: "1734808164658",
-      updatedAt: "1745283745878",
+      createdAt: "1734941336698",
+      updatedAt: "1735668930778",
       role: "<value>",
       content: "<value>",
       userProperties: {

@@ -11,16 +11,12 @@ let value: OpenAIExtendedMessage = {
   id: "<id>",
   type: "openai",
   externalId: "<id>",
-  externalUrl: "https://far-slipper.com",
+  externalUrl: "https://alienated-pleasure.net",
   conversationId: "<id>",
-  createdAt: "1735239759830",
-  updatedAt: "1745274527196",
+  createdAt: "1733585402153",
+  updatedAt: "1735660532794",
   role: "assistant",
-  content: [
-    {
-      type: "image_url",
-    },
-  ],
+  content: "<value>",
   userProperties: {
     identificationType: "COOKIED",
   },

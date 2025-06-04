@@ -7,10 +7,12 @@ import { EventsFilterCondition } from "@inkeep/inkeep-analytics/models/component
 
 let value: EventsFilterCondition = {
   condition: {
-    field: "projectId",
-    operator: "isNull",
+    field: "createdAt",
+    operator: "arrayContains",
     value: {
       "key": "<value>",
+      "key1": "<value>",
+      "key2": "<value>",
     },
   },
 };

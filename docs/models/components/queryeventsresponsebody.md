@@ -13,9 +13,9 @@ let value: QueryEventsResponseBody = {
     result: [
       {},
     ],
-    total: 8503.36,
-    pageSize: 2137.81,
-    count: 5529.71,
+    total: 2137.81,
+    pageSize: 5529.71,
+    count: 2433.23,
   },
 };
 ```

@@ -6,13 +6,8 @@
 import { WeeklySearchUsersData } from "@inkeep/inkeep-analytics/models/operations";
 
 let value: WeeklySearchUsersData = {
-  result: [
-    {
-      week: "<value>",
-      uniqueUsers: "<value>",
-    },
-  ],
-  total: 4949.54,
+  result: [],
+  total: 4804.97,
 };
 ```
 

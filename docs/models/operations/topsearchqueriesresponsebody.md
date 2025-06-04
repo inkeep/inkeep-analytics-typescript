@@ -9,13 +9,8 @@ import { TopSearchQueriesResponseBody } from "@inkeep/inkeep-analytics/models/op
 
 let value: TopSearchQueriesResponseBody = {
   data: {
-    result: [
-      {
-        searchQuery: "<value>",
-        count: "<value>",
-      },
-    ],
-    total: 2185.23,
+    result: [],
+    total: 1808.21,
   },
 };
 ```

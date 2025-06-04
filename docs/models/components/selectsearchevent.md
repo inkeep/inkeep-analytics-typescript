@@ -9,12 +9,10 @@ let value: SelectSearchEvent = {
   id: "<id>",
   type: "<value>",
   searchQuery: "<value>",
-  createdAt: "1736546376051",
+  createdAt: "1727313551827",
   projectId: "<id>",
   integrationId: "<id>",
-  userProperties: {
-    identificationType: "COOKIED",
-  },
+  userProperties: null,
   entityType: "search",
 };
 ```

@@ -9,7 +9,6 @@ const inkeepAnalytics = new InkeepAnalytics({
 async function run() {
   const result = await inkeepAnalytics.topSearchQueries({});
 
-  // Handle the result
   console.log(result);
 }
 

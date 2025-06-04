@@ -9,15 +9,13 @@ let value: SupportTicketMessage = {
   id: "<id>",
   type: "support_ticket",
   externalId: "<id>",
-  externalUrl: "https://frightened-comestible.name/",
+  externalUrl: "https://pleased-brace.info/",
   conversationId: "<id>",
-  createdAt: "1716840519424",
-  updatedAt: "1745246052524",
+  createdAt: "1735187454836",
+  updatedAt: "1735622836812",
   role: "<value>",
-  content: "<value>",
-  userProperties: {
-    identificationType: "COOKIED",
-  },
+  content: null,
+  userProperties: null,
 };
 ```
 

@@ -11,15 +11,7 @@ const value: components.CreateOpenAIConversation = {
   userProperties: {
     identificationType: "COOKIED",
   },
-  messages: [
-    {
-      role: "assistant",
-      content: "<value>",
-      userProperties: {
-        identificationType: "COOKIED",
-      },
-    },
-  ],
+  messages: [],
 };
 ```
 
@@ -31,14 +23,7 @@ const value: components.CreateSupportTicketConversation = {
   userProperties: {
     identificationType: "COOKIED",
   },
-  messages: [
-    {
-      role: "<value>",
-      userProperties: {
-        identificationType: "COOKIED",
-      },
-    },
-  ],
+  messages: [],
 };
 ```
 

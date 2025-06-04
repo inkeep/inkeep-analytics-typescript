@@ -12,16 +12,28 @@ import {
   ConversationsField$outboundSchema,
 } from "./conversationsfield.js";
 import {
-  ConversationsFilterConditionValue,
-  ConversationsFilterConditionValue$inboundSchema,
-  ConversationsFilterConditionValue$Outbound,
-  ConversationsFilterConditionValue$outboundSchema,
-} from "./conversationsfilterconditionvalue.js";
-import {
   FilterOperator,
   FilterOperator$inboundSchema,
   FilterOperator$outboundSchema,
 } from "./filteroperator.js";
+
+export type Four = string | number | boolean;
+
+export type Value =
+  | string
+  | number
+  | boolean
+  | Array<string | number | boolean | null>;
+
+export type Seven = {
+  path: Array<string>;
+  value:
+    | string
+    | number
+    | boolean
+    | Array<string | number | boolean | null>
+    | null;
+};
 
 export type Condition = {
   /**
@@ -35,12 +47,174 @@ export type Condition = {
   /**
    * The value to compare the field against. For JSON fields, can be either a JSON object or a {path, value} pair.
    */
-  value: ConversationsFilterConditionValue;
+  value?: any | undefined;
 };
 
 export type ConversationsFilterCondition = {
   condition: Condition;
 };
+
+/** @internal */
+export const Four$inboundSchema: z.ZodType<Four, z.ZodTypeDef, unknown> = z
+  .union([z.string(), z.number(), z.boolean()]);
+
+/** @internal */
+export type Four$Outbound = string | number | boolean;
+
+/** @internal */
+export const Four$outboundSchema: z.ZodType<Four$Outbound, z.ZodTypeDef, Four> =
+  z.union([z.string(), z.number(), z.boolean()]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Four$ {
+  /** @deprecated use `Four$inboundSchema` instead. */
+  export const inboundSchema = Four$inboundSchema;
+  /** @deprecated use `Four$outboundSchema` instead. */
+  export const outboundSchema = Four$outboundSchema;
+  /** @deprecated use `Four$Outbound` instead. */
+  export type Outbound = Four$Outbound;
+}
+
+export function fourToJSON(four: Four): string {
+  return JSON.stringify(Four$outboundSchema.parse(four));
+}
+
+export function fourFromJSON(
+  jsonString: string,
+): SafeParseResult<Four, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Four$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Four' from JSON`,
+  );
+}
+
+/** @internal */
+export const Value$inboundSchema: z.ZodType<Value, z.ZodTypeDef, unknown> = z
+  .union([
+    z.string(),
+    z.number(),
+    z.boolean(),
+    z.array(z.nullable(z.union([z.string(), z.number(), z.boolean()]))),
+  ]);
+
+/** @internal */
+export type Value$Outbound =
+  | string
+  | number
+  | boolean
+  | Array<string | number | boolean | null>;
+
+/** @internal */
+export const Value$outboundSchema: z.ZodType<
+  Value$Outbound,
+  z.ZodTypeDef,
+  Value
+> = z.union([
+  z.string(),
+  z.number(),
+  z.boolean(),
+  z.array(z.nullable(z.union([z.string(), z.number(), z.boolean()]))),
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Value$ {
+  /** @deprecated use `Value$inboundSchema` instead. */
+  export const inboundSchema = Value$inboundSchema;
+  /** @deprecated use `Value$outboundSchema` instead. */
+  export const outboundSchema = Value$outboundSchema;
+  /** @deprecated use `Value$Outbound` instead. */
+  export type Outbound = Value$Outbound;
+}
+
+export function valueToJSON(value: Value): string {
+  return JSON.stringify(Value$outboundSchema.parse(value));
+}
+
+export function valueFromJSON(
+  jsonString: string,
+): SafeParseResult<Value, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Value$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Value' from JSON`,
+  );
+}
+
+/** @internal */
+export const Seven$inboundSchema: z.ZodType<Seven, z.ZodTypeDef, unknown> = z
+  .object({
+    path: z.array(z.string()),
+    value: z.nullable(
+      z.union([
+        z.string(),
+        z.number(),
+        z.boolean(),
+        z.array(z.nullable(z.union([z.string(), z.number(), z.boolean()]))),
+      ]),
+    ),
+  });
+
+/** @internal */
+export type Seven$Outbound = {
+  path: Array<string>;
+  value:
+    | string
+    | number
+    | boolean
+    | Array<string | number | boolean | null>
+    | null;
+};
+
+/** @internal */
+export const Seven$outboundSchema: z.ZodType<
+  Seven$Outbound,
+  z.ZodTypeDef,
+  Seven
+> = z.object({
+  path: z.array(z.string()),
+  value: z.nullable(
+    z.union([
+      z.string(),
+      z.number(),
+      z.boolean(),
+      z.array(z.nullable(z.union([z.string(), z.number(), z.boolean()]))),
+    ]),
+  ),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Seven$ {
+  /** @deprecated use `Seven$inboundSchema` instead. */
+  export const inboundSchema = Seven$inboundSchema;
+  /** @deprecated use `Seven$outboundSchema` instead. */
+  export const outboundSchema = Seven$outboundSchema;
+  /** @deprecated use `Seven$Outbound` instead. */
+  export type Outbound = Seven$Outbound;
+}
+
+export function sevenToJSON(seven: Seven): string {
+  return JSON.stringify(Seven$outboundSchema.parse(seven));
+}
+
+export function sevenFromJSON(
+  jsonString: string,
+): SafeParseResult<Seven, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Seven$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Seven' from JSON`,
+  );
+}
 
 /** @internal */
 export const Condition$inboundSchema: z.ZodType<
@@ -50,14 +224,14 @@ export const Condition$inboundSchema: z.ZodType<
 > = z.object({
   field: ConversationsField$inboundSchema,
   operator: FilterOperator$inboundSchema,
-  value: ConversationsFilterConditionValue$inboundSchema,
+  value: z.any().optional(),
 });
 
 /** @internal */
 export type Condition$Outbound = {
   field: string;
   operator: string;
-  value: ConversationsFilterConditionValue$Outbound;
+  value?: any | undefined;
 };
 
 /** @internal */
@@ -68,7 +242,7 @@ export const Condition$outboundSchema: z.ZodType<
 > = z.object({
   field: ConversationsField$outboundSchema,
   operator: FilterOperator$outboundSchema,
-  value: ConversationsFilterConditionValue$outboundSchema,
+  value: z.any().optional(),
 });
 
 /**
