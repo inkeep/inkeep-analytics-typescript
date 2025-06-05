@@ -44,6 +44,24 @@ import {
   EventsFilterOR$outboundSchema,
 } from "./eventsfilteror.js";
 import {
+  FeedbackFilterAND,
+  FeedbackFilterAND$inboundSchema,
+  FeedbackFilterAND$Outbound,
+  FeedbackFilterAND$outboundSchema,
+} from "./feedbackfilterand.js";
+import {
+  FeedbackFilterCondition,
+  FeedbackFilterCondition$inboundSchema,
+  FeedbackFilterCondition$Outbound,
+  FeedbackFilterCondition$outboundSchema,
+} from "./feedbackfiltercondition.js";
+import {
+  FeedbackFilterOR,
+  FeedbackFilterOR$inboundSchema,
+  FeedbackFilterOR$Outbound,
+  FeedbackFilterOR$outboundSchema,
+} from "./feedbackfilteror.js";
+import {
   SemanticThreadFilterAND,
   SemanticThreadFilterAND$inboundSchema,
   SemanticThreadFilterAND$Outbound,
@@ -87,7 +105,10 @@ export type Where =
   | ConversationsFilterOR
   | SemanticThreadFilterCondition
   | SemanticThreadFilterAND
-  | SemanticThreadFilterOR;
+  | SemanticThreadFilterOR
+  | FeedbackFilterCondition
+  | FeedbackFilterAND
+  | FeedbackFilterOR;
 
 /**
  * Query Property Keys Params
@@ -108,6 +129,9 @@ export type PropertyKeysRequestBody = {
     | SemanticThreadFilterCondition
     | SemanticThreadFilterAND
     | SemanticThreadFilterOR
+    | FeedbackFilterCondition
+    | FeedbackFilterAND
+    | FeedbackFilterOR
     | undefined;
 };
 
@@ -164,6 +188,9 @@ export const Where$inboundSchema: z.ZodType<Where, z.ZodTypeDef, unknown> = z
     SemanticThreadFilterCondition$inboundSchema,
     SemanticThreadFilterAND$inboundSchema,
     SemanticThreadFilterOR$inboundSchema,
+    FeedbackFilterCondition$inboundSchema,
+    FeedbackFilterAND$inboundSchema,
+    FeedbackFilterOR$inboundSchema,
   ]);
 
 /** @internal */
@@ -176,7 +203,10 @@ export type Where$Outbound =
   | ConversationsFilterOR$Outbound
   | SemanticThreadFilterCondition$Outbound
   | SemanticThreadFilterAND$Outbound
-  | SemanticThreadFilterOR$Outbound;
+  | SemanticThreadFilterOR$Outbound
+  | FeedbackFilterCondition$Outbound
+  | FeedbackFilterAND$Outbound
+  | FeedbackFilterOR$Outbound;
 
 /** @internal */
 export const Where$outboundSchema: z.ZodType<
@@ -193,6 +223,9 @@ export const Where$outboundSchema: z.ZodType<
   SemanticThreadFilterCondition$outboundSchema,
   SemanticThreadFilterAND$outboundSchema,
   SemanticThreadFilterOR$outboundSchema,
+  FeedbackFilterCondition$outboundSchema,
+  FeedbackFilterAND$outboundSchema,
+  FeedbackFilterOR$outboundSchema,
 ]);
 
 /**
@@ -240,6 +273,9 @@ export const PropertyKeysRequestBody$inboundSchema: z.ZodType<
     SemanticThreadFilterCondition$inboundSchema,
     SemanticThreadFilterAND$inboundSchema,
     SemanticThreadFilterOR$inboundSchema,
+    FeedbackFilterCondition$inboundSchema,
+    FeedbackFilterAND$inboundSchema,
+    FeedbackFilterOR$inboundSchema,
   ]).optional(),
 });
 
@@ -257,6 +293,9 @@ export type PropertyKeysRequestBody$Outbound = {
     | SemanticThreadFilterCondition$Outbound
     | SemanticThreadFilterAND$Outbound
     | SemanticThreadFilterOR$Outbound
+    | FeedbackFilterCondition$Outbound
+    | FeedbackFilterAND$Outbound
+    | FeedbackFilterOR$Outbound
     | undefined;
 };
 
@@ -278,6 +317,9 @@ export const PropertyKeysRequestBody$outboundSchema: z.ZodType<
     SemanticThreadFilterCondition$outboundSchema,
     SemanticThreadFilterAND$outboundSchema,
     SemanticThreadFilterOR$outboundSchema,
+    FeedbackFilterCondition$outboundSchema,
+    FeedbackFilterAND$outboundSchema,
+    FeedbackFilterOR$outboundSchema,
   ]).optional(),
 });
 
