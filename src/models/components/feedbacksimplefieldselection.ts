@@ -17,10 +17,10 @@ export type FeedbackSimpleFieldSelectionType = ClosedEnum<
 
 export const FeedbackSimpleFieldSelectionField = {
   Id: "id",
-  OrganizationId: "organizationId",
   Type: "type",
   MessageId: "messageId",
   CreatedAt: "createdAt",
+  OrganizationId: "organizationId",
   Reasons: "reasons",
   Properties: "properties",
   UserProperties: "userProperties",

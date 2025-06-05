@@ -5,11 +5,11 @@
 ```typescript
 import { FeedbackSimpleFieldSelectionField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: FeedbackSimpleFieldSelectionField = "createdAt";
+let value: FeedbackSimpleFieldSelectionField = "organizationId";
 ```
 
 ## Values
 
 ```typescript
-"id" | "organizationId" | "type" | "messageId" | "createdAt" | "reasons" | "properties" | "userProperties" | "conversationId" | "projectId" | "integrationId"
+"id" | "type" | "messageId" | "createdAt" | "organizationId" | "reasons" | "properties" | "userProperties" | "conversationId" | "projectId" | "integrationId"
 ```

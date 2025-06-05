@@ -22,10 +22,10 @@ export type FeedbackTimeBasedGroupBySelectionType = ClosedEnum<
 
 export const FeedbackTimeBasedGroupBySelectionField = {
   Id: "id",
-  OrganizationId: "organizationId",
   Type: "type",
   MessageId: "messageId",
   CreatedAt: "createdAt",
+  OrganizationId: "organizationId",
   Reasons: "reasons",
   Properties: "properties",
   UserProperties: "userProperties",

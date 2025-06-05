@@ -5,11 +5,11 @@
 ```typescript
 import { FeedbackTimeBasedGroupBySelectionField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: FeedbackTimeBasedGroupBySelectionField = "createdAt";
+let value: FeedbackTimeBasedGroupBySelectionField = "organizationId";
 ```
 
 ## Values
 
 ```typescript
-"id" | "organizationId" | "type" | "messageId" | "createdAt" | "reasons" | "properties" | "userProperties" | "conversationId" | "projectId" | "integrationId"
+"id" | "type" | "messageId" | "createdAt" | "organizationId" | "reasons" | "properties" | "userProperties" | "conversationId" | "projectId" | "integrationId"
 ```
