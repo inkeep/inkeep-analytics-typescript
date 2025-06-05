@@ -10,10 +10,10 @@ import { ClosedEnum } from "../../types/enums.js";
  */
 export const FeedbackField = {
   Id: "id",
-  OrganizationId: "organizationId",
   Type: "type",
   MessageId: "messageId",
   CreatedAt: "createdAt",
+  OrganizationId: "organizationId",
   Reasons: "reasons",
   Properties: "properties",
   UserProperties: "userProperties",

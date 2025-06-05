@@ -29,10 +29,10 @@ export type FeedbackAggregationSelectionAggregation = ClosedEnum<
 
 export const FeedbackAggregationSelectionField = {
   Id: "id",
-  OrganizationId: "organizationId",
   Type: "type",
   MessageId: "messageId",
   CreatedAt: "createdAt",
+  OrganizationId: "organizationId",
   Reasons: "reasons",
   Properties: "properties",
   UserProperties: "userProperties",

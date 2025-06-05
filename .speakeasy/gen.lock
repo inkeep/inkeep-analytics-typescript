@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 63a2136d-3fa3-4a0b-a766-1ddb2460cc12
 management:
-  docChecksum: 0edcd92e7f05821a127bc4122678a383
+  docChecksum: 65e3e3f4eca46077c50290162048e4fc
   docVersion: 0.1.1
-  speakeasyVersion: 1.555.2
-  generationVersion: 2.620.2
-  releaseVersion: 0.2.4-alpha.23
-  configChecksum: f5557a3f09e078db974ac8427f1e4395
+  speakeasyVersion: 1.556.2
+  generationVersion: 2.621.3
+  releaseVersion: 0.2.4-alpha.24
+  configChecksum: 827b38009a292aadb27e958ab203f4a6
   repoURL: https://github.com/inkeep/inkeep-analytics-typescript.git
   installationURL: https://github.com/inkeep/inkeep-analytics-typescript
   published: true
@@ -240,6 +240,11 @@ generatedFiles:
   - docs/models/components/queryfeedbackresponsebody.md
   - docs/models/components/queryfeedbackresponsebodystatus.md
   - docs/models/components/queryfeedbackresponsedata.md
+  - docs/models/components/queryfeedbackresponsedataid.md
+  - docs/models/components/queryfeedbackresponsedatareasons.md
+  - docs/models/components/queryfeedbackresponsedatatype.md
+  - docs/models/components/queryfeedbackresponsedatauserid.md
+  - docs/models/components/queryfeedbackresponsedatauserproperties.md
   - docs/models/components/querysemanticthreadsrequestbody.md
   - docs/models/components/querysemanticthreadsresponsebody.md
   - docs/models/components/querysemanticthreadsresponsebodystatus.md
