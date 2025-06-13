@@ -30,20 +30,6 @@ export type CreateSupportCopilotConversationId = string | number;
 export type CreateSupportCopilotConversationUserId = string | number;
 
 /**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const CreateSupportCopilotConversationUserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type CreateSupportCopilotConversationUserType = ClosedEnum<
-  typeof CreateSupportCopilotConversationUserType
->;
-
-/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type CreateSupportCopilotConversationUserProperties = {
@@ -63,10 +49,6 @@ export type CreateSupportCopilotConversationUserProperties = {
    * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   supportAgentName?: string | null | undefined;
-  /**
-   * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
-   */
-  userType?: CreateSupportCopilotConversationUserType | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -117,20 +99,6 @@ export type CreateSupportCopilotConversationMessagesId = string | number;
 export type CreateSupportCopilotConversationMessagesUserId = string | number;
 
 /**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const CreateSupportCopilotConversationMessagesUserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type CreateSupportCopilotConversationMessagesUserType = ClosedEnum<
-  typeof CreateSupportCopilotConversationMessagesUserType
->;
-
-/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type CreateSupportCopilotConversationMessagesUserProperties = {
@@ -150,13 +118,6 @@ export type CreateSupportCopilotConversationMessagesUserProperties = {
    * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   supportAgentName?: string | null | undefined;
-  /**
-   * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
-   */
-  userType?:
-    | CreateSupportCopilotConversationMessagesUserType
-    | null
-    | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -352,29 +313,6 @@ export function createSupportCopilotConversationUserIdFromJSON(
 }
 
 /** @internal */
-export const CreateSupportCopilotConversationUserType$inboundSchema:
-  z.ZodNativeEnum<typeof CreateSupportCopilotConversationUserType> = z
-    .nativeEnum(CreateSupportCopilotConversationUserType);
-
-/** @internal */
-export const CreateSupportCopilotConversationUserType$outboundSchema:
-  z.ZodNativeEnum<typeof CreateSupportCopilotConversationUserType> =
-    CreateSupportCopilotConversationUserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSupportCopilotConversationUserType$ {
-  /** @deprecated use `CreateSupportCopilotConversationUserType$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateSupportCopilotConversationUserType$inboundSchema;
-  /** @deprecated use `CreateSupportCopilotConversationUserType$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateSupportCopilotConversationUserType$outboundSchema;
-}
-
-/** @internal */
 export const CreateSupportCopilotConversationUserProperties$inboundSchema:
   z.ZodType<
     CreateSupportCopilotConversationUserProperties,
@@ -386,9 +324,6 @@ export const CreateSupportCopilotConversationUserProperties$inboundSchema:
       identificationType: z.nullable(z.string()).optional(),
       userId: z.nullable(z.union([z.string(), z.number()])).optional(),
       supportAgentName: z.nullable(z.string()).optional(),
-      userType: z.nullable(
-        CreateSupportCopilotConversationUserType$inboundSchema,
-      ).optional(),
     }).catchall(z.any()),
     "additionalProperties",
     true,
@@ -400,7 +335,6 @@ export type CreateSupportCopilotConversationUserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
-  userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
 
@@ -415,9 +349,6 @@ export const CreateSupportCopilotConversationUserProperties$outboundSchema:
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(
-      CreateSupportCopilotConversationUserType$outboundSchema,
-    ).optional(),
     additionalProperties: z.record(z.any()),
   }).transform((v) => {
     return {
@@ -790,29 +721,6 @@ export function createSupportCopilotConversationMessagesUserIdFromJSON(
 }
 
 /** @internal */
-export const CreateSupportCopilotConversationMessagesUserType$inboundSchema:
-  z.ZodNativeEnum<typeof CreateSupportCopilotConversationMessagesUserType> = z
-    .nativeEnum(CreateSupportCopilotConversationMessagesUserType);
-
-/** @internal */
-export const CreateSupportCopilotConversationMessagesUserType$outboundSchema:
-  z.ZodNativeEnum<typeof CreateSupportCopilotConversationMessagesUserType> =
-    CreateSupportCopilotConversationMessagesUserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateSupportCopilotConversationMessagesUserType$ {
-  /** @deprecated use `CreateSupportCopilotConversationMessagesUserType$inboundSchema` instead. */
-  export const inboundSchema =
-    CreateSupportCopilotConversationMessagesUserType$inboundSchema;
-  /** @deprecated use `CreateSupportCopilotConversationMessagesUserType$outboundSchema` instead. */
-  export const outboundSchema =
-    CreateSupportCopilotConversationMessagesUserType$outboundSchema;
-}
-
-/** @internal */
 export const CreateSupportCopilotConversationMessagesUserProperties$inboundSchema:
   z.ZodType<
     CreateSupportCopilotConversationMessagesUserProperties,
@@ -824,9 +732,6 @@ export const CreateSupportCopilotConversationMessagesUserProperties$inboundSchem
       identificationType: z.nullable(z.string()).optional(),
       userId: z.nullable(z.union([z.string(), z.number()])).optional(),
       supportAgentName: z.nullable(z.string()).optional(),
-      userType: z.nullable(
-        CreateSupportCopilotConversationMessagesUserType$inboundSchema,
-      ).optional(),
     }).catchall(z.any()),
     "additionalProperties",
     true,
@@ -838,7 +743,6 @@ export type CreateSupportCopilotConversationMessagesUserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
-  userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
 
@@ -853,9 +757,6 @@ export const CreateSupportCopilotConversationMessagesUserProperties$outboundSche
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(
-      CreateSupportCopilotConversationMessagesUserType$outboundSchema,
-    ).optional(),
     additionalProperties: z.record(z.any()),
   }).transform((v) => {
     return {

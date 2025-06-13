@@ -7,16 +7,12 @@ import * as operations from "../../models/operations/index.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 const args = {
-  request: operations.LogFeedbackRequestBody$inboundSchema,
+  request: operations.SubmitFeedbackRequestBody$inboundSchema,
 };
 
 export const tool$feedbackSubmit: ToolDefinition<typeof args> = {
   name: "feedback-submit",
-  description: `Log Feedback
-
-Logs new feedback or updates an existing one.
-
-**API Key Types:** \`API\``,
+  description: `Submit Feedback`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await feedbackSubmit(

@@ -1,6 +1,6 @@
 {
   "name": "@inkeep/inkeep-analytics",
-  "version": "0.2.4-alpha.26",
+  "version": "0.2.5-dev.1",
   "author": "Speakeasy",
   "type": "module",
   "bin": {

@@ -27,8 +27,6 @@ export const FeedbackSimpleFieldSelectionField = {
   ConversationId: "conversationId",
   ProjectId: "projectId",
   IntegrationId: "integrationId",
-  UpdatedAt: "updatedAt",
-  Status: "status",
 } as const;
 export type FeedbackSimpleFieldSelectionField = ClosedEnum<
   typeof FeedbackSimpleFieldSelectionField
