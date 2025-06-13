@@ -30,6 +30,20 @@ export type CreateSupportTicketConversationId = string | number;
 export type CreateSupportTicketConversationUserId = string | number;
 
 /**
+ * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export const CreateSupportTicketConversationUserType = {
+  User: "user",
+  Member: "member",
+} as const;
+/**
+ * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type CreateSupportTicketConversationUserType = ClosedEnum<
+  typeof CreateSupportTicketConversationUserType
+>;
+
+/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type CreateSupportTicketConversationUserProperties = {
@@ -49,6 +63,10 @@ export type CreateSupportTicketConversationUserProperties = {
    * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   supportAgentName?: string | null | undefined;
+  /**
+   * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userType?: CreateSupportTicketConversationUserType | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -99,6 +117,20 @@ export type CreateSupportTicketConversationMessagesId = string | number;
 export type CreateSupportTicketConversationMessagesUserId = string | number;
 
 /**
+ * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export const CreateSupportTicketConversationMessagesUserType = {
+  User: "user",
+  Member: "member",
+} as const;
+/**
+ * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type CreateSupportTicketConversationMessagesUserType = ClosedEnum<
+  typeof CreateSupportTicketConversationMessagesUserType
+>;
+
+/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type CreateSupportTicketConversationMessagesUserProperties = {
@@ -118,6 +150,10 @@ export type CreateSupportTicketConversationMessagesUserProperties = {
    * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   supportAgentName?: string | null | undefined;
+  /**
+   * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userType?: CreateSupportTicketConversationMessagesUserType | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -310,6 +346,29 @@ export function createSupportTicketConversationUserIdFromJSON(
 }
 
 /** @internal */
+export const CreateSupportTicketConversationUserType$inboundSchema:
+  z.ZodNativeEnum<typeof CreateSupportTicketConversationUserType> = z
+    .nativeEnum(CreateSupportTicketConversationUserType);
+
+/** @internal */
+export const CreateSupportTicketConversationUserType$outboundSchema:
+  z.ZodNativeEnum<typeof CreateSupportTicketConversationUserType> =
+    CreateSupportTicketConversationUserType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSupportTicketConversationUserType$ {
+  /** @deprecated use `CreateSupportTicketConversationUserType$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateSupportTicketConversationUserType$inboundSchema;
+  /** @deprecated use `CreateSupportTicketConversationUserType$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateSupportTicketConversationUserType$outboundSchema;
+}
+
+/** @internal */
 export const CreateSupportTicketConversationUserProperties$inboundSchema:
   z.ZodType<
     CreateSupportTicketConversationUserProperties,
@@ -321,6 +380,9 @@ export const CreateSupportTicketConversationUserProperties$inboundSchema:
       identificationType: z.nullable(z.string()).optional(),
       userId: z.nullable(z.union([z.string(), z.number()])).optional(),
       supportAgentName: z.nullable(z.string()).optional(),
+      userType: z.nullable(
+        CreateSupportTicketConversationUserType$inboundSchema,
+      ).optional(),
     }).catchall(z.any()),
     "additionalProperties",
     true,
@@ -332,6 +394,7 @@ export type CreateSupportTicketConversationUserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
+  userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
 
@@ -346,6 +409,8 @@ export const CreateSupportTicketConversationUserProperties$outboundSchema:
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
+    userType: z.nullable(CreateSupportTicketConversationUserType$outboundSchema)
+      .optional(),
     additionalProperties: z.record(z.any()),
   }).transform((v) => {
     return {
@@ -715,6 +780,29 @@ export function createSupportTicketConversationMessagesUserIdFromJSON(
 }
 
 /** @internal */
+export const CreateSupportTicketConversationMessagesUserType$inboundSchema:
+  z.ZodNativeEnum<typeof CreateSupportTicketConversationMessagesUserType> = z
+    .nativeEnum(CreateSupportTicketConversationMessagesUserType);
+
+/** @internal */
+export const CreateSupportTicketConversationMessagesUserType$outboundSchema:
+  z.ZodNativeEnum<typeof CreateSupportTicketConversationMessagesUserType> =
+    CreateSupportTicketConversationMessagesUserType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace CreateSupportTicketConversationMessagesUserType$ {
+  /** @deprecated use `CreateSupportTicketConversationMessagesUserType$inboundSchema` instead. */
+  export const inboundSchema =
+    CreateSupportTicketConversationMessagesUserType$inboundSchema;
+  /** @deprecated use `CreateSupportTicketConversationMessagesUserType$outboundSchema` instead. */
+  export const outboundSchema =
+    CreateSupportTicketConversationMessagesUserType$outboundSchema;
+}
+
+/** @internal */
 export const CreateSupportTicketConversationMessagesUserProperties$inboundSchema:
   z.ZodType<
     CreateSupportTicketConversationMessagesUserProperties,
@@ -726,6 +814,9 @@ export const CreateSupportTicketConversationMessagesUserProperties$inboundSchema
       identificationType: z.nullable(z.string()).optional(),
       userId: z.nullable(z.union([z.string(), z.number()])).optional(),
       supportAgentName: z.nullable(z.string()).optional(),
+      userType: z.nullable(
+        CreateSupportTicketConversationMessagesUserType$inboundSchema,
+      ).optional(),
     }).catchall(z.any()),
     "additionalProperties",
     true,
@@ -737,6 +828,7 @@ export type CreateSupportTicketConversationMessagesUserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
+  userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
 
@@ -751,6 +843,9 @@ export const CreateSupportTicketConversationMessagesUserProperties$outboundSchem
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
+    userType: z.nullable(
+      CreateSupportTicketConversationMessagesUserType$outboundSchema,
+    ).optional(),
     additionalProperties: z.record(z.any()),
   }).transform((v) => {
     return {

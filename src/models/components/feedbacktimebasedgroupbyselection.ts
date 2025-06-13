@@ -32,6 +32,8 @@ export const FeedbackTimeBasedGroupBySelectionField = {
   ConversationId: "conversationId",
   ProjectId: "projectId",
   IntegrationId: "integrationId",
+  UpdatedAt: "updatedAt",
+  Status: "status",
 } as const;
 export type FeedbackTimeBasedGroupBySelectionField = ClosedEnum<
   typeof FeedbackTimeBasedGroupBySelectionField

@@ -7,13 +7,15 @@ Use to provide positive or negative feedback along with details.
 
 ### Available Operations
 
-* [submit](#submit) - Submit Feedback
+* [submit](#submit) - Log Feedback
 * [list](#list) - Get All Feedback
 * [getFeedbackById](#getfeedbackbyid) - Get Feedback by ID
 
 ## submit
 
-Submit Feedback
+Logs new feedback or updates an existing one.
+
+**API Key Types:** `API`
 
 ### Example Usage
 
@@ -28,7 +30,9 @@ async function run() {
   const result = await inkeepAnalytics.feedback.submit({
     type: "positive",
     messageId: "<id>",
-    userProperties: null,
+    userProperties: {
+      identificationType: "COOKIED",
+    },
   });
 
   console.log(result);
@@ -55,7 +59,9 @@ async function run() {
   const res = await feedbackSubmit(inkeepAnalytics, {
     type: "positive",
     messageId: "<id>",
-    userProperties: null,
+    userProperties: {
+      identificationType: "COOKIED",
+    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -89,14 +95,14 @@ import {
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.SubmitFeedbackRequestBody](../../models/operations/submitfeedbackrequestbody.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.LogFeedbackRequestBody](../../models/operations/logfeedbackrequestbody.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
 
 ### Response
 
-**Promise\<[operations.SubmitFeedbackResponseBody](../../models/operations/submitfeedbackresponsebody.md)\>**
+**Promise\<[operations.LogFeedbackResponseBody](../../models/operations/logfeedbackresponsebody.md)\>**
 
 ### Errors
 
