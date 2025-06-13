@@ -39,6 +39,8 @@ export const FeedbackAggregationSelectionField = {
   ConversationId: "conversationId",
   ProjectId: "projectId",
   IntegrationId: "integrationId",
+  UpdatedAt: "updatedAt",
+  Status: "status",
 } as const;
 export type FeedbackAggregationSelectionField = ClosedEnum<
   typeof FeedbackAggregationSelectionField

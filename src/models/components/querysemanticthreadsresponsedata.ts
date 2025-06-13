@@ -8,6 +8,7 @@ import {
   collectExtraKeys as collectExtraKeys$,
   safeParse,
 } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
@@ -20,6 +21,20 @@ export type QuerySemanticThreadsResponseDataId = string | number;
  * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
  */
 export type QuerySemanticThreadsResponseDataUserId = string | number;
+
+/**
+ * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export const QuerySemanticThreadsResponseDataUserType = {
+  User: "user",
+  Member: "member",
+} as const;
+/**
+ * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type QuerySemanticThreadsResponseDataUserType = ClosedEnum<
+  typeof QuerySemanticThreadsResponseDataUserType
+>;
 
 /**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
@@ -41,6 +56,10 @@ export type QuerySemanticThreadsResponseDataUserProperties = {
    * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   supportAgentName?: string | null | undefined;
+  /**
+   * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userType?: QuerySemanticThreadsResponseDataUserType | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -517,6 +536,29 @@ export function querySemanticThreadsResponseDataUserIdFromJSON(
 }
 
 /** @internal */
+export const QuerySemanticThreadsResponseDataUserType$inboundSchema:
+  z.ZodNativeEnum<typeof QuerySemanticThreadsResponseDataUserType> = z
+    .nativeEnum(QuerySemanticThreadsResponseDataUserType);
+
+/** @internal */
+export const QuerySemanticThreadsResponseDataUserType$outboundSchema:
+  z.ZodNativeEnum<typeof QuerySemanticThreadsResponseDataUserType> =
+    QuerySemanticThreadsResponseDataUserType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace QuerySemanticThreadsResponseDataUserType$ {
+  /** @deprecated use `QuerySemanticThreadsResponseDataUserType$inboundSchema` instead. */
+  export const inboundSchema =
+    QuerySemanticThreadsResponseDataUserType$inboundSchema;
+  /** @deprecated use `QuerySemanticThreadsResponseDataUserType$outboundSchema` instead. */
+  export const outboundSchema =
+    QuerySemanticThreadsResponseDataUserType$outboundSchema;
+}
+
+/** @internal */
 export const QuerySemanticThreadsResponseDataUserProperties$inboundSchema:
   z.ZodType<
     QuerySemanticThreadsResponseDataUserProperties,
@@ -528,6 +570,9 @@ export const QuerySemanticThreadsResponseDataUserProperties$inboundSchema:
       identificationType: z.nullable(z.string()).optional(),
       userId: z.nullable(z.union([z.string(), z.number()])).optional(),
       supportAgentName: z.nullable(z.string()).optional(),
+      userType: z.nullable(
+        QuerySemanticThreadsResponseDataUserType$inboundSchema,
+      ).optional(),
     }).catchall(z.any()),
     "additionalProperties",
     true,
@@ -539,6 +584,7 @@ export type QuerySemanticThreadsResponseDataUserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
+  userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
 
@@ -553,6 +599,9 @@ export const QuerySemanticThreadsResponseDataUserProperties$outboundSchema:
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
+    userType: z.nullable(
+      QuerySemanticThreadsResponseDataUserType$outboundSchema,
+    ).optional(),
     additionalProperties: z.record(z.any()),
   }).transform((v) => {
     return {

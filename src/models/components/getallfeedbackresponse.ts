@@ -48,6 +48,20 @@ export type GetAllFeedbackResponseId = string | number;
 export type GetAllFeedbackResponseUserId = string | number;
 
 /**
+ * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export const GetAllFeedbackResponseUserType = {
+  User: "user",
+  Member: "member",
+} as const;
+/**
+ * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type GetAllFeedbackResponseUserType = ClosedEnum<
+  typeof GetAllFeedbackResponseUserType
+>;
+
+/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type GetAllFeedbackResponseUserProperties = {
@@ -67,6 +81,10 @@ export type GetAllFeedbackResponseUserProperties = {
    * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   supportAgentName?: string | null | undefined;
+  /**
+   * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userType?: GetAllFeedbackResponseUserType | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -74,7 +92,10 @@ export type PositiveFeedback = {
   id: string;
   type: GetAllFeedbackResponseType;
   messageId: string;
-  createdAt: string;
+  /**
+   * A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.
+   */
+  createdAt?: Date | null | undefined;
   reasons?: Array<Reasons> | null | undefined;
   /**
    * A customizable collection of custom properties or attributes.
@@ -112,6 +133,20 @@ export type GetAllFeedbackResponseNegativeFeedbackId = string | number;
 export type GetAllFeedbackResponseNegativeFeedbackUserId = string | number;
 
 /**
+ * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export const GetAllFeedbackResponseNegativeFeedbackUserType = {
+  User: "user",
+  Member: "member",
+} as const;
+/**
+ * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type GetAllFeedbackResponseNegativeFeedbackUserType = ClosedEnum<
+  typeof GetAllFeedbackResponseNegativeFeedbackUserType
+>;
+
+/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type GetAllFeedbackResponseNegativeFeedbackUserProperties = {
@@ -131,6 +166,10 @@ export type GetAllFeedbackResponseNegativeFeedbackUserProperties = {
    * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   supportAgentName?: string | null | undefined;
+  /**
+   * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userType?: GetAllFeedbackResponseNegativeFeedbackUserType | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -138,7 +177,10 @@ export type NegativeFeedback = {
   id: string;
   type: GetAllFeedbackResponseNegativeFeedbackType;
   messageId: string;
-  createdAt: string;
+  /**
+   * A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.
+   */
+  createdAt?: Date | null | undefined;
   reasons?: Array<GetAllFeedbackResponseReasons> | null | undefined;
   /**
    * A customizable collection of custom properties or attributes.
@@ -332,6 +374,27 @@ export function getAllFeedbackResponseUserIdFromJSON(
 }
 
 /** @internal */
+export const GetAllFeedbackResponseUserType$inboundSchema: z.ZodNativeEnum<
+  typeof GetAllFeedbackResponseUserType
+> = z.nativeEnum(GetAllFeedbackResponseUserType);
+
+/** @internal */
+export const GetAllFeedbackResponseUserType$outboundSchema: z.ZodNativeEnum<
+  typeof GetAllFeedbackResponseUserType
+> = GetAllFeedbackResponseUserType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetAllFeedbackResponseUserType$ {
+  /** @deprecated use `GetAllFeedbackResponseUserType$inboundSchema` instead. */
+  export const inboundSchema = GetAllFeedbackResponseUserType$inboundSchema;
+  /** @deprecated use `GetAllFeedbackResponseUserType$outboundSchema` instead. */
+  export const outboundSchema = GetAllFeedbackResponseUserType$outboundSchema;
+}
+
+/** @internal */
 export const GetAllFeedbackResponseUserProperties$inboundSchema: z.ZodType<
   GetAllFeedbackResponseUserProperties,
   z.ZodTypeDef,
@@ -342,6 +405,8 @@ export const GetAllFeedbackResponseUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
+    userType: z.nullable(GetAllFeedbackResponseUserType$inboundSchema)
+      .optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -353,6 +418,7 @@ export type GetAllFeedbackResponseUserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
+  userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
 
@@ -366,6 +432,8 @@ export const GetAllFeedbackResponseUserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
+  userType: z.nullable(GetAllFeedbackResponseUserType$outboundSchema)
+    .optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {
@@ -421,7 +489,9 @@ export const PositiveFeedback$inboundSchema: z.ZodType<
   id: z.string(),
   type: GetAllFeedbackResponseType$inboundSchema,
   messageId: z.string(),
-  createdAt: z.string(),
+  createdAt: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$inboundSchema))).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
@@ -436,7 +506,7 @@ export type PositiveFeedback$Outbound = {
   id: string;
   type: string;
   messageId: string;
-  createdAt: string;
+  createdAt?: string | null | undefined;
   reasons?: Array<Reasons$Outbound> | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
   userProperties?:
@@ -456,7 +526,7 @@ export const PositiveFeedback$outboundSchema: z.ZodType<
   id: z.string(),
   type: GetAllFeedbackResponseType$outboundSchema,
   messageId: z.string(),
-  createdAt: z.string(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$outboundSchema))).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
@@ -702,6 +772,29 @@ export function getAllFeedbackResponseNegativeFeedbackUserIdFromJSON(
 }
 
 /** @internal */
+export const GetAllFeedbackResponseNegativeFeedbackUserType$inboundSchema:
+  z.ZodNativeEnum<typeof GetAllFeedbackResponseNegativeFeedbackUserType> = z
+    .nativeEnum(GetAllFeedbackResponseNegativeFeedbackUserType);
+
+/** @internal */
+export const GetAllFeedbackResponseNegativeFeedbackUserType$outboundSchema:
+  z.ZodNativeEnum<typeof GetAllFeedbackResponseNegativeFeedbackUserType> =
+    GetAllFeedbackResponseNegativeFeedbackUserType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetAllFeedbackResponseNegativeFeedbackUserType$ {
+  /** @deprecated use `GetAllFeedbackResponseNegativeFeedbackUserType$inboundSchema` instead. */
+  export const inboundSchema =
+    GetAllFeedbackResponseNegativeFeedbackUserType$inboundSchema;
+  /** @deprecated use `GetAllFeedbackResponseNegativeFeedbackUserType$outboundSchema` instead. */
+  export const outboundSchema =
+    GetAllFeedbackResponseNegativeFeedbackUserType$outboundSchema;
+}
+
+/** @internal */
 export const GetAllFeedbackResponseNegativeFeedbackUserProperties$inboundSchema:
   z.ZodType<
     GetAllFeedbackResponseNegativeFeedbackUserProperties,
@@ -713,6 +806,9 @@ export const GetAllFeedbackResponseNegativeFeedbackUserProperties$inboundSchema:
       identificationType: z.nullable(z.string()).optional(),
       userId: z.nullable(z.union([z.string(), z.number()])).optional(),
       supportAgentName: z.nullable(z.string()).optional(),
+      userType: z.nullable(
+        GetAllFeedbackResponseNegativeFeedbackUserType$inboundSchema,
+      ).optional(),
     }).catchall(z.any()),
     "additionalProperties",
     true,
@@ -724,6 +820,7 @@ export type GetAllFeedbackResponseNegativeFeedbackUserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
+  userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
 
@@ -738,6 +835,9 @@ export const GetAllFeedbackResponseNegativeFeedbackUserProperties$outboundSchema
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
+    userType: z.nullable(
+      GetAllFeedbackResponseNegativeFeedbackUserType$outboundSchema,
+    ).optional(),
     additionalProperties: z.record(z.any()),
   }).transform((v) => {
     return {
@@ -800,7 +900,9 @@ export const NegativeFeedback$inboundSchema: z.ZodType<
   id: z.string(),
   type: GetAllFeedbackResponseNegativeFeedbackType$inboundSchema,
   messageId: z.string(),
-  createdAt: z.string(),
+  createdAt: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
   reasons: z.nullable(
     z.array(z.lazy(() => GetAllFeedbackResponseReasons$inboundSchema)),
   ).optional(),
@@ -819,7 +921,7 @@ export type NegativeFeedback$Outbound = {
   id: string;
   type: string;
   messageId: string;
-  createdAt: string;
+  createdAt?: string | null | undefined;
   reasons?: Array<GetAllFeedbackResponseReasons$Outbound> | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
   userProperties?:
@@ -839,7 +941,7 @@ export const NegativeFeedback$outboundSchema: z.ZodType<
   id: z.string(),
   type: GetAllFeedbackResponseNegativeFeedbackType$outboundSchema,
   messageId: z.string(),
-  createdAt: z.string(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   reasons: z.nullable(
     z.array(z.lazy(() => GetAllFeedbackResponseReasons$outboundSchema)),
   ).optional(),

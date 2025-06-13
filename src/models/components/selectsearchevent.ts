@@ -23,6 +23,20 @@ export type SelectSearchEventId = string | number;
 export type SelectSearchEventUserId = string | number;
 
 /**
+ * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export const SelectSearchEventUserType = {
+  User: "user",
+  Member: "member",
+} as const;
+/**
+ * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type SelectSearchEventUserType = ClosedEnum<
+  typeof SelectSearchEventUserType
+>;
+
+/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type SelectSearchEventUserProperties = {
@@ -42,6 +56,10 @@ export type SelectSearchEventUserProperties = {
    * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   supportAgentName?: string | null | undefined;
+  /**
+   * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userType?: SelectSearchEventUserType | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -167,6 +185,27 @@ export function selectSearchEventUserIdFromJSON(
 }
 
 /** @internal */
+export const SelectSearchEventUserType$inboundSchema: z.ZodNativeEnum<
+  typeof SelectSearchEventUserType
+> = z.nativeEnum(SelectSearchEventUserType);
+
+/** @internal */
+export const SelectSearchEventUserType$outboundSchema: z.ZodNativeEnum<
+  typeof SelectSearchEventUserType
+> = SelectSearchEventUserType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SelectSearchEventUserType$ {
+  /** @deprecated use `SelectSearchEventUserType$inboundSchema` instead. */
+  export const inboundSchema = SelectSearchEventUserType$inboundSchema;
+  /** @deprecated use `SelectSearchEventUserType$outboundSchema` instead. */
+  export const outboundSchema = SelectSearchEventUserType$outboundSchema;
+}
+
+/** @internal */
 export const SelectSearchEventUserProperties$inboundSchema: z.ZodType<
   SelectSearchEventUserProperties,
   z.ZodTypeDef,
@@ -177,6 +216,7 @@ export const SelectSearchEventUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
+    userType: z.nullable(SelectSearchEventUserType$inboundSchema).optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -188,6 +228,7 @@ export type SelectSearchEventUserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
+  userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
 
@@ -201,6 +242,7 @@ export const SelectSearchEventUserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
+  userType: z.nullable(SelectSearchEventUserType$outboundSchema).optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {

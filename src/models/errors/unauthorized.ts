@@ -6,6 +6,7 @@ import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { InkeepAnalyticsError } from "./inkeepanalyticserror.js";
 import { SDKValidationError } from "./sdkvalidationerror.js";
 
 /**
@@ -75,7 +76,7 @@ export type UnauthorizedData = {
   error: UnauthorizedError;
 };
 
-export class Unauthorized extends Error {
+export class Unauthorized extends InkeepAnalyticsError {
   /**
    * A short, human-readable summary of the problem type.
    */
@@ -108,13 +109,15 @@ export class Unauthorized extends Error {
   /** The original data that was passed to this error instance. */
   data$: UnauthorizedData;
 
-  constructor(err: UnauthorizedData) {
+  constructor(
+    err: UnauthorizedData,
+    httpMeta: { response: Response; request: Request; body: string },
+  ) {
     const message = "message" in err && typeof err.message === "string"
       ? err.message
       : `API error occurred: ${JSON.stringify(err)}`;
-    super(message);
+    super(message, httpMeta);
     this.data$ = err;
-
     this.title = err.title;
     this.status = err.status;
     this.detail = err.detail;
@@ -239,9 +242,16 @@ export const Unauthorized$inboundSchema: z.ZodType<
   requestId: z.string().optional(),
   code: UnauthorizedCode$inboundSchema,
   error: z.lazy(() => UnauthorizedError$inboundSchema),
+  request$: z.instanceof(Request),
+  response$: z.instanceof(Response),
+  body$: z.string(),
 })
   .transform((v) => {
-    return new Unauthorized(v);
+    return new Unauthorized(v, {
+      request: v.request$,
+      response: v.response$,
+      body: v.body$,
+    });
   });
 
 /** @internal */

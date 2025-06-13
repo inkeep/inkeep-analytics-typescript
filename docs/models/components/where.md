@@ -112,7 +112,7 @@ const value: components.SemanticThreadFilterOR = {
 ```typescript
 const value: components.FeedbackFilterCondition = {
   condition: {
-    field: "conversationId",
+    field: "integrationId",
     operator: "jsonContainedBy",
     value: "<value>",
   },

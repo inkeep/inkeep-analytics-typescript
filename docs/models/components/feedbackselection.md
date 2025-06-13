@@ -28,7 +28,7 @@ const value: components.FeedbackTimeBasedGroupBySelection = {
 ```typescript
 const value: components.FeedbackSimpleFieldSelection = {
   type: "field",
-  field: "integrationId",
+  field: "updatedAt",
 };
 ```
 

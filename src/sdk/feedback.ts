@@ -12,12 +12,17 @@ import { unwrapAsync } from "../types/fp.js";
 
 export class Feedback extends ClientSDK {
   /**
-   * Submit Feedback
+   * Log Feedback
+   *
+   * @remarks
+   * Logs new feedback or updates an existing one.
+   *
+   * **API Key Types:** `API`
    */
   async submit(
-    request: operations.SubmitFeedbackRequestBody,
+    request: operations.LogFeedbackRequestBody,
     options?: RequestOptions,
-  ): Promise<operations.SubmitFeedbackResponseBody> {
+  ): Promise<operations.LogFeedbackResponseBody> {
     return unwrapAsync(feedbackSubmit(
       this,
       request,

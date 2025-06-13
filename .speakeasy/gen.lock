@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 63a2136d-3fa3-4a0b-a766-1ddb2460cc12
 management:
-  docChecksum: c909772f5d7175cd9ab8aabc715e42ab
+  docChecksum: f834c276d28ca8b3bbe4251323f2f725
   docVersion: 0.1.1
-  speakeasyVersion: 1.556.2
-  generationVersion: 2.621.3
-  releaseVersion: 0.2.4-alpha.25
-  configChecksum: b6ed00b5fc580f7e5c762f84d6d94d67
+  speakeasyVersion: 1.561.0
+  generationVersion: 2.628.0
+  releaseVersion: 0.2.4-alpha.26
+  configChecksum: c6dc900ea60b08b14f0ef2d845ef2793
   repoURL: https://github.com/inkeep/inkeep-analytics-typescript.git
   installationURL: https://github.com/inkeep/inkeep-analytics-typescript
   published: true
@@ -15,7 +15,7 @@ features:
     additionalDependencies: 0.1.0
     additionalProperties: 0.1.1
     constsAndDefaults: 0.1.11
-    core: 3.21.10
+    core: 3.21.11
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     downloadStreams: 0.1.1
@@ -34,7 +34,7 @@ features:
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.3.0
-    unions: 2.85.8
+    unions: 2.85.9
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -79,6 +79,7 @@ generatedFiles:
   - docs/models/components/createopenaiconversationtype1.md
   - docs/models/components/createopenaiconversationuserid.md
   - docs/models/components/createopenaiconversationuserproperties.md
+  - docs/models/components/createopenaiconversationusertype.md
   - docs/models/components/createsupportcopilotconversation.md
   - docs/models/components/createsupportcopilotconversationid.md
   - docs/models/components/createsupportcopilotconversationlinks.md
@@ -87,10 +88,12 @@ generatedFiles:
   - docs/models/components/createsupportcopilotconversationmessagestype.md
   - docs/models/components/createsupportcopilotconversationmessagesuserid.md
   - docs/models/components/createsupportcopilotconversationmessagesuserproperties.md
+  - docs/models/components/createsupportcopilotconversationmessagesusertype.md
   - docs/models/components/createsupportcopilotconversationtype.md
   - docs/models/components/createsupportcopilotconversationtype1.md
   - docs/models/components/createsupportcopilotconversationuserid.md
   - docs/models/components/createsupportcopilotconversationuserproperties.md
+  - docs/models/components/createsupportcopilotconversationusertype.md
   - docs/models/components/createsupportcopilotconversationvisibility.md
   - docs/models/components/createsupportticketconversation.md
   - docs/models/components/createsupportticketconversationid.md
@@ -100,10 +103,12 @@ generatedFiles:
   - docs/models/components/createsupportticketconversationmessagestype.md
   - docs/models/components/createsupportticketconversationmessagesuserid.md
   - docs/models/components/createsupportticketconversationmessagesuserproperties.md
+  - docs/models/components/createsupportticketconversationmessagesusertype.md
   - docs/models/components/createsupportticketconversationtype.md
   - docs/models/components/createsupportticketconversationtype1.md
   - docs/models/components/createsupportticketconversationuserid.md
   - docs/models/components/createsupportticketconversationuserproperties.md
+  - docs/models/components/createsupportticketconversationusertype.md
   - docs/models/components/createsupportticketconversationvisibility.md
   - docs/models/components/detail.md
   - docs/models/components/direction.md
@@ -170,26 +175,31 @@ generatedFiles:
   - docs/models/components/getallfeedbackresponsenegativefeedbacktype.md
   - docs/models/components/getallfeedbackresponsenegativefeedbackuserid.md
   - docs/models/components/getallfeedbackresponsenegativefeedbackuserproperties.md
+  - docs/models/components/getallfeedbackresponsenegativefeedbackusertype.md
   - docs/models/components/getallfeedbackresponsereasons.md
   - docs/models/components/getallfeedbackresponsetype.md
   - docs/models/components/getallfeedbackresponseuserid.md
   - docs/models/components/getallfeedbackresponseuserproperties.md
+  - docs/models/components/getallfeedbackresponseusertype.md
   - docs/models/components/id.md
   - docs/models/components/insertconversationevent.md
   - docs/models/components/insertconversationevententitytype.md
   - docs/models/components/insertconversationeventid.md
   - docs/models/components/insertconversationeventuserid.md
   - docs/models/components/insertconversationeventuserproperties.md
+  - docs/models/components/insertconversationeventusertype.md
   - docs/models/components/insertevent.md
   - docs/models/components/insertmessageevent.md
   - docs/models/components/insertmessageeventid.md
   - docs/models/components/insertmessageeventuserid.md
   - docs/models/components/insertmessageeventuserproperties.md
+  - docs/models/components/insertmessageeventusertype.md
   - docs/models/components/insertsearchevent.md
   - docs/models/components/insertsearchevententitytype.md
   - docs/models/components/insertsearcheventid.md
   - docs/models/components/insertsearcheventuserid.md
   - docs/models/components/insertsearcheventuserproperties.md
+  - docs/models/components/insertsearcheventusertype.md
   - docs/models/components/links.md
   - docs/models/components/message.md
   - docs/models/components/messages.md
@@ -205,6 +215,7 @@ generatedFiles:
   - docs/models/components/openaiconversationtype.md
   - docs/models/components/openaiconversationuserid.md
   - docs/models/components/openaiconversationuserproperties.md
+  - docs/models/components/openaiconversationusertype.md
   - docs/models/components/openaiconversationvisibility.md
   - docs/models/components/openaiextendedmessage.md
   - docs/models/components/openaiextendedmessageid.md
@@ -212,6 +223,7 @@ generatedFiles:
   - docs/models/components/openaiextendedmessagetype.md
   - docs/models/components/openaiextendedmessageuserid.md
   - docs/models/components/openaiextendedmessageuserproperties.md
+  - docs/models/components/openaiextendedmessageusertype.md
   - docs/models/components/openaiimageurlobject.md
   - docs/models/components/openaitoolcall.md
   - docs/models/components/openaitoolcallfunction.md
@@ -232,6 +244,7 @@ generatedFiles:
   - docs/models/components/queryconversationsresponsedatatype.md
   - docs/models/components/queryconversationsresponsedatauserid.md
   - docs/models/components/queryconversationsresponsedatauserproperties.md
+  - docs/models/components/queryconversationsresponsedatausertype.md
   - docs/models/components/queryeventsrequestbody.md
   - docs/models/components/queryeventsresponsebody.md
   - docs/models/components/queryeventsresponsebodystatus.md
@@ -242,9 +255,11 @@ generatedFiles:
   - docs/models/components/queryfeedbackresponsedata.md
   - docs/models/components/queryfeedbackresponsedataid.md
   - docs/models/components/queryfeedbackresponsedatareasons.md
+  - docs/models/components/queryfeedbackresponsedatastatus.md
   - docs/models/components/queryfeedbackresponsedatatype.md
   - docs/models/components/queryfeedbackresponsedatauserid.md
   - docs/models/components/queryfeedbackresponsedatauserproperties.md
+  - docs/models/components/queryfeedbackresponsedatausertype.md
   - docs/models/components/querysemanticthreadsrequestbody.md
   - docs/models/components/querysemanticthreadsresponsebody.md
   - docs/models/components/querysemanticthreadsresponsebodystatus.md
@@ -252,6 +267,7 @@ generatedFiles:
   - docs/models/components/querysemanticthreadsresponsedataid.md
   - docs/models/components/querysemanticthreadsresponsedatauserid.md
   - docs/models/components/querysemanticthreadsresponsedatauserproperties.md
+  - docs/models/components/querysemanticthreadsresponsedatausertype.md
   - docs/models/components/reasons.md
   - docs/models/components/role.md
   - docs/models/components/security.md
@@ -260,17 +276,20 @@ generatedFiles:
   - docs/models/components/selectconversationeventid.md
   - docs/models/components/selectconversationeventuserid.md
   - docs/models/components/selectconversationeventuserproperties.md
+  - docs/models/components/selectconversationeventusertype.md
   - docs/models/components/selectevent.md
   - docs/models/components/selectmessageevent.md
   - docs/models/components/selectmessageevententitytype.md
   - docs/models/components/selectmessageeventid.md
   - docs/models/components/selectmessageeventuserid.md
   - docs/models/components/selectmessageeventuserproperties.md
+  - docs/models/components/selectmessageeventusertype.md
   - docs/models/components/selectsearchevent.md
   - docs/models/components/selectsearchevententitytype.md
   - docs/models/components/selectsearcheventid.md
   - docs/models/components/selectsearcheventuserid.md
   - docs/models/components/selectsearcheventuserproperties.md
+  - docs/models/components/selectsearcheventusertype.md
   - docs/models/components/semanticthreadaggregationselection.md
   - docs/models/components/semanticthreadaggregationselectionaggregation.md
   - docs/models/components/semanticthreadaggregationselectionfield.md
@@ -305,6 +324,7 @@ generatedFiles:
   - docs/models/components/supportcopilotconversationtype.md
   - docs/models/components/supportcopilotconversationuserid.md
   - docs/models/components/supportcopilotconversationuserproperties.md
+  - docs/models/components/supportcopilotconversationusertype.md
   - docs/models/components/supportcopilotconversationvisibility.md
   - docs/models/components/supportcopilotmessage.md
   - docs/models/components/supportcopilotmessageid.md
@@ -314,11 +334,13 @@ generatedFiles:
   - docs/models/components/supportcopilotmessagetype1.md
   - docs/models/components/supportcopilotmessageuserid.md
   - docs/models/components/supportcopilotmessageuserproperties.md
+  - docs/models/components/supportcopilotmessageusertype.md
   - docs/models/components/supportticketconversation.md
   - docs/models/components/supportticketconversationid.md
   - docs/models/components/supportticketconversationtype.md
   - docs/models/components/supportticketconversationuserid.md
   - docs/models/components/supportticketconversationuserproperties.md
+  - docs/models/components/supportticketconversationusertype.md
   - docs/models/components/supportticketconversationvisibility.md
   - docs/models/components/supportticketmessage.md
   - docs/models/components/supportticketmessageid.md
@@ -327,11 +349,13 @@ generatedFiles:
   - docs/models/components/supportticketmessagetype.md
   - docs/models/components/supportticketmessageuserid.md
   - docs/models/components/supportticketmessageuserproperties.md
+  - docs/models/components/supportticketmessageusertype.md
   - docs/models/components/timeunit.md
   - docs/models/components/type.md
   - docs/models/components/type1.md
   - docs/models/components/userid.md
   - docs/models/components/userproperties.md
+  - docs/models/components/usertype.md
   - docs/models/components/value.md
   - docs/models/components/value4.md
   - docs/models/components/views.md
@@ -378,27 +402,30 @@ generatedFiles:
   - docs/models/operations/getfeedbackbyidtype.md
   - docs/models/operations/getfeedbackbyiduserid.md
   - docs/models/operations/getfeedbackbyiduserproperties.md
+  - docs/models/operations/getfeedbackbyidusertype.md
   - docs/models/operations/id.md
   - docs/models/operations/logconversationsecurity.md
   - docs/models/operations/logeventsecurity.md
+  - docs/models/operations/logfeedbackid.md
+  - docs/models/operations/logfeedbackreasons.md
+  - docs/models/operations/logfeedbackrequestbody.md
+  - docs/models/operations/logfeedbackresponsebody.md
+  - docs/models/operations/logfeedbacktype.md
+  - docs/models/operations/logfeedbackuserid.md
+  - docs/models/operations/logfeedbackuserproperties.md
+  - docs/models/operations/logfeedbackusertype.md
   - docs/models/operations/queryconversationssecurity.md
   - docs/models/operations/queryeventssecurity.md
   - docs/models/operations/queryfeedbacksecurity.md
   - docs/models/operations/querysemanticthreadssecurity.md
   - docs/models/operations/reasons.md
   - docs/models/operations/result.md
-  - docs/models/operations/submitfeedbackid.md
-  - docs/models/operations/submitfeedbackreasons.md
-  - docs/models/operations/submitfeedbackrequestbody.md
-  - docs/models/operations/submitfeedbackresponsebody.md
-  - docs/models/operations/submitfeedbacktype.md
-  - docs/models/operations/submitfeedbackuserid.md
-  - docs/models/operations/submitfeedbackuserproperties.md
   - docs/models/operations/topsearchqueriesrequest.md
   - docs/models/operations/topsearchqueriesresponsebody.md
   - docs/models/operations/type.md
   - docs/models/operations/userid.md
   - docs/models/operations/userproperties.md
+  - docs/models/operations/usertype.md
   - docs/models/operations/weeklysearchusersdata.md
   - docs/models/operations/weeklysearchusersrequest.md
   - docs/models/operations/weeklysearchusersresponsebody.md
@@ -569,8 +596,10 @@ generatedFiles:
   - src/models/errors/forbidden.ts
   - src/models/errors/httpclienterrors.ts
   - src/models/errors/index.ts
+  - src/models/errors/inkeepanalyticserror.ts
   - src/models/errors/internalservererror.ts
   - src/models/errors/notfound.ts
+  - src/models/errors/responsevalidationerror.ts
   - src/models/errors/sdkvalidationerror.ts
   - src/models/errors/unauthorized.ts
   - src/models/errors/unprocessableentity.ts
@@ -583,11 +612,11 @@ generatedFiles:
   - src/models/operations/index.ts
   - src/models/operations/logconversation.ts
   - src/models/operations/logevent.ts
+  - src/models/operations/logfeedback.ts
   - src/models/operations/queryconversations.ts
   - src/models/operations/queryevents.ts
   - src/models/operations/queryfeedback.ts
   - src/models/operations/querysemanticthreads.ts
-  - src/models/operations/submitfeedback.ts
   - src/models/operations/topsearchqueries.ts
   - src/models/operations/weeklysearchusers.ts
   - src/react-query/_context.tsx
@@ -802,7 +831,7 @@ examples:
           id: "feedback-id-123"
       responses:
         "200":
-          application/json: {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1725885947238", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://difficult-accountability.info/", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1712671280110", "updatedAt": "1735652249363", "projectId": "<id>", "integrationId": "<id>", "visibility": "private", "messages": [{"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://merry-solution.com", "conversationId": "<id>", "createdAt": "1706159703123", "updatedAt": "1735669717348", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}, "message": {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://heavenly-reservation.info", "conversationId": "<id>", "createdAt": "1715541556343", "updatedAt": "1735675403237", "role": "<value>", "content": "<value>"}}
+          application/json: {"id": "<id>", "type": "negative", "messageId": "<id>", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://difficult-accountability.info/", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1712671280110", "updatedAt": "1735652249363", "projectId": "<id>", "integrationId": "<id>", "visibility": "private", "messages": [{"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://merry-solution.com", "conversationId": "<id>", "createdAt": "1706159703123", "updatedAt": "1735669717348", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}, "message": {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://heavenly-reservation.info", "conversationId": "<id>", "createdAt": "1715541556343", "updatedAt": "1735675403237", "role": "<value>", "content": "<value>"}}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -872,7 +901,7 @@ examples:
         application/json: {"notes": "Count of feedback by type"}
       responses:
         "200":
-          application/json: {"status": "ok", "data": {"result": [{}], "total": 9528.15, "pageSize": 7967.05, "count": 3920.41}}
+          application/json: {"status": "ok", "data": {"result": [{"status": "unreviewed"}], "total": 9528.15, "pageSize": 7967.05, "count": 3920.41}}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -941,6 +970,23 @@ examples:
       responses:
         "200":
           application/json: {"results": ["dark"]}
+        "400":
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+        "422":
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+  logFeedback:
+    speakeasy-default-log-feedback:
+      requestBody:
+        application/json: {"type": "positive", "messageId": "<id>", "userProperties": {"identificationType": "COOKIED"}}
+      responses:
+        "200":
+          application/json: {"id": "<id>", "type": "negative", "messageId": "<id>", "userProperties": null}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":

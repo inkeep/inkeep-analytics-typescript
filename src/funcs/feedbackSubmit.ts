@@ -10,7 +10,6 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
-import { APIError } from "../models/errors/apierror.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -19,33 +18,41 @@ import {
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
 import * as errors from "../models/errors/index.js";
+import { InkeepAnalyticsError } from "../models/errors/inkeepanalyticserror.js";
+import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
 /**
- * Submit Feedback
+ * Log Feedback
+ *
+ * @remarks
+ * Logs new feedback or updates an existing one.
+ *
+ * **API Key Types:** `API`
  */
 export function feedbackSubmit(
   client: InkeepAnalyticsCore,
-  request: operations.SubmitFeedbackRequestBody,
+  request: operations.LogFeedbackRequestBody,
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.SubmitFeedbackResponseBody,
+    operations.LogFeedbackResponseBody,
     | errors.BadRequest
     | errors.Unauthorized
     | errors.Forbidden
     | errors.UnprocessableEntity
     | errors.InternalServerError
-    | APIError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
+    | InkeepAnalyticsError
+    | ResponseValidationError
+    | ConnectionError
     | RequestAbortedError
     | RequestTimeoutError
-    | ConnectionError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >
 > {
   return new APIPromise($do(
@@ -57,31 +64,32 @@ export function feedbackSubmit(
 
 async function $do(
   client: InkeepAnalyticsCore,
-  request: operations.SubmitFeedbackRequestBody,
+  request: operations.LogFeedbackRequestBody,
   options?: RequestOptions,
 ): Promise<
   [
     Result<
-      operations.SubmitFeedbackResponseBody,
+      operations.LogFeedbackResponseBody,
       | errors.BadRequest
       | errors.Unauthorized
       | errors.Forbidden
       | errors.UnprocessableEntity
       | errors.InternalServerError
-      | APIError
-      | SDKValidationError
-      | UnexpectedClientError
-      | InvalidRequestError
+      | InkeepAnalyticsError
+      | ResponseValidationError
+      | ConnectionError
       | RequestAbortedError
       | RequestTimeoutError
-      | ConnectionError
+      | InvalidRequestError
+      | UnexpectedClientError
+      | SDKValidationError
     >,
     APICall,
   ]
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.SubmitFeedbackRequestBody$outboundSchema.parse(value),
+    (value) => operations.LogFeedbackRequestBody$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -106,7 +114,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "submitFeedback",
+    operationID: "logFeedback",
     oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
@@ -159,21 +167,22 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.SubmitFeedbackResponseBody,
+    operations.LogFeedbackResponseBody,
     | errors.BadRequest
     | errors.Unauthorized
     | errors.Forbidden
     | errors.UnprocessableEntity
     | errors.InternalServerError
-    | APIError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
+    | InkeepAnalyticsError
+    | ResponseValidationError
+    | ConnectionError
     | RequestAbortedError
     | RequestTimeoutError
-    | ConnectionError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >(
-    M.json(200, operations.SubmitFeedbackResponseBody$inboundSchema),
+    M.json(200, operations.LogFeedbackResponseBody$inboundSchema),
     M.jsonErr(400, errors.BadRequest$inboundSchema, {
       ctype: "application/problem+json",
     }),
@@ -191,7 +200,7 @@ async function $do(
     }),
     M.fail("4XX"),
     M.fail("5XX"),
-  )(response, { extraFields: responseFields });
+  )(response, req, { extraFields: responseFields });
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
   }

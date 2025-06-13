@@ -280,7 +280,7 @@ run();
 
 ### [feedback](docs/sdks/feedback/README.md)
 
-* [submit](docs/sdks/feedback/README.md#submit) - Submit Feedback
+* [submit](docs/sdks/feedback/README.md#submit) - Log Feedback
 * [list](docs/sdks/feedback/README.md#list) - Get All Feedback
 * [getFeedbackById](docs/sdks/feedback/README.md#getfeedbackbyid) - Get Feedback by ID
 
@@ -325,7 +325,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`eventsLog`](docs/sdks/events/README.md#log) - Log Event
 - [`feedbackGetFeedbackById`](docs/sdks/feedback/README.md#getfeedbackbyid) - Get Feedback by ID
 - [`feedbackList`](docs/sdks/feedback/README.md#list) - Get All Feedback
-- [`feedbackSubmit`](docs/sdks/feedback/README.md#submit) - Submit Feedback
+- [`feedbackSubmit`](docs/sdks/feedback/README.md#submit) - Log Feedback
 - [`queryConversations`](docs/sdks/query/README.md#conversations) - Query Conversations
 - [`queryExportSemanticThreadsQueryResults`](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 - [`queryQueryEvents`](docs/sdks/query/README.md#queryevents) - Query Events
@@ -369,7 +369,7 @@ To learn about this feature and how to get started, check
 - [`useEventsLogMutation`](docs/sdks/events/README.md#log) - Log Event
 - [`useFeedbackGetFeedbackById`](docs/sdks/feedback/README.md#getfeedbackbyid) - Get Feedback by ID
 - [`useFeedbackList`](docs/sdks/feedback/README.md#list) - Get All Feedback
-- [`useFeedbackSubmitMutation`](docs/sdks/feedback/README.md#submit) - Submit Feedback
+- [`useFeedbackSubmitMutation`](docs/sdks/feedback/README.md#submit) - Log Feedback
 - [`useQueryConversationsMutation`](docs/sdks/query/README.md#conversations) - Query Conversations
 - [`useQueryExportSemanticThreadsQueryResultsMutation`](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 - [`useQueryQueryEventsMutation`](docs/sdks/query/README.md#queryevents) - Query Events
@@ -449,16 +449,15 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-This table shows properties which are common on error classes. For full details see [error classes](#error-classes).
+[`InkeepAnalyticsError`](./src/models/errors/inkeepanalyticserror.ts) is the base class for all HTTP error responses. It has the following properties:
 
 | Property            | Type       | Description                                                                             |
 | ------------------- | ---------- | --------------------------------------------------------------------------------------- |
-| `error.name`        | `string`   | Error class name eg `APIError`                                                          |
 | `error.message`     | `string`   | Error message                                                                           |
-| `error.statusCode`  | `number`   | HTTP status code eg `404`                                                               |
-| `error.contentType` | `string`   | HTTP content type eg `application/json`                                                 |
+| `error.statusCode`  | `number`   | HTTP response status code eg `404`                                                      |
+| `error.headers`     | `Headers`  | HTTP response headers                                                                   |
 | `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
-| `error.rawResponse` | `Response` | Raw HTTP response. Access to headers and more.                                          |
+| `error.rawResponse` | `Response` | Raw HTTP response                                                                       |
 | `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
 ### Example
@@ -476,22 +475,21 @@ async function run() {
 
     console.log(result);
   } catch (error) {
-    // Depending on the method different errors may be thrown
-    if (error instanceof errors.BadRequest) {
-      console.log(error.message);
-      console.log(error.data$.title); // string
-      console.log(error.data$.status); // number
-      console.log(error.data$.detail); // string
-      console.log(error.data$.instance); // string
-      console.log(error.data$.requestId); // string
-    }
-
-    // Fallback error class, if no other more specific error class is matched
-    if (error instanceof errors.APIError) {
+    // The base class for HTTP error responses
+    if (error instanceof errors.InkeepAnalyticsError) {
       console.log(error.message);
       console.log(error.statusCode);
       console.log(error.body);
-      console.log(error.rawResponse.headers);
+      console.log(error.headers);
+
+      // Depending on the method different errors may be thrown
+      if (error instanceof errors.BadRequest) {
+        console.log(error.data$.title); // string
+        console.log(error.data$.status); // number
+        console.log(error.data$.detail); // string
+        console.log(error.data$.instance); // string
+        console.log(error.data$.requestId); // string
+      }
     }
   }
 }
@@ -501,22 +499,31 @@ run();
 ```
 
 ### Error Classes
-* [`BadRequest`](docs/models/errors/badrequest.md): Bad Request. Status code `400`.
-* [`Unauthorized`](docs/models/errors/unauthorized.md): Unauthorized. Status code `401`.
-* [`Forbidden`](docs/models/errors/forbidden.md): Forbidden. Status code `403`.
-* [`UnprocessableEntity`](docs/models/errors/unprocessableentity.md): Unprocessable Entity. Status code `422`.
-* [`InternalServerError`](docs/models/errors/internalservererror.md): Internal Server Error. Status code `500`.
-* `APIError`: The fallback error class, if no other more specific error class is matched.
-* `SDKValidationError`: Type mismatch between the data returned from the server and the structure expected by the SDK. This can also be thrown for invalid method arguments. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
-* Network errors:
-    * `ConnectionError`: HTTP client was unable to make a request to a server.
-    * `RequestTimeoutError`: HTTP request timed out due to an AbortSignal signal.
-    * `RequestAbortedError`: HTTP request was aborted by the client.
-    * `InvalidRequestError`: Any input used to create a request is invalid.
-    * `UnexpectedClientError`: Unrecognised or unexpected error.
-* Less common errors, applicable to a subset of methods:
-    * [`NotFound`](docs/models/errors/notfound.md): Not Found. Status code `404`. Applicable to 6 of 18 methods.*
+**Primary errors:**
+* [`InkeepAnalyticsError`](./src/models/errors/inkeepanalyticserror.ts): The base class for HTTP error responses.
+  * [`BadRequest`](docs/models/errors/badrequest.md): Bad Request. Status code `400`.
+  * [`Unauthorized`](docs/models/errors/unauthorized.md): Unauthorized. Status code `401`.
+  * [`Forbidden`](docs/models/errors/forbidden.md): Forbidden. Status code `403`.
+  * [`UnprocessableEntity`](docs/models/errors/unprocessableentity.md): Unprocessable Entity. Status code `422`.
+  * [`InternalServerError`](docs/models/errors/internalservererror.md): Internal Server Error. Status code `500`.
 
+<details><summary>Less common errors (7)</summary>
+
+<br />
+
+**Network errors:**
+* [`ConnectionError`](./src/models/errors/httpclienterrors.ts): HTTP client was unable to make a request to a server.
+* [`RequestTimeoutError`](./src/models/errors/httpclienterrors.ts): HTTP request timed out due to an AbortSignal signal.
+* [`RequestAbortedError`](./src/models/errors/httpclienterrors.ts): HTTP request was aborted by the client.
+* [`InvalidRequestError`](./src/models/errors/httpclienterrors.ts): Any input used to create a request is invalid.
+* [`UnexpectedClientError`](./src/models/errors/httpclienterrors.ts): Unrecognised or unexpected error.
+
+
+**Inherit from [`InkeepAnalyticsError`](./src/models/errors/inkeepanalyticserror.ts)**:
+* [`NotFound`](docs/models/errors/notfound.md): Not Found. Status code `404`. Applicable to 6 of 18 methods.*
+* [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+
+</details>
 
 \* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->

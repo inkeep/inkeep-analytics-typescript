@@ -36,6 +36,20 @@ export type SupportTicketConversationId = string | number;
 export type SupportTicketConversationUserId = string | number;
 
 /**
+ * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export const SupportTicketConversationUserType = {
+  User: "user",
+  Member: "member",
+} as const;
+/**
+ * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type SupportTicketConversationUserType = ClosedEnum<
+  typeof SupportTicketConversationUserType
+>;
+
+/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type SupportTicketConversationUserProperties = {
@@ -55,6 +69,10 @@ export type SupportTicketConversationUserProperties = {
    * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   supportAgentName?: string | null | undefined;
+  /**
+   * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userType?: SupportTicketConversationUserType | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -214,6 +232,28 @@ export function supportTicketConversationUserIdFromJSON(
 }
 
 /** @internal */
+export const SupportTicketConversationUserType$inboundSchema: z.ZodNativeEnum<
+  typeof SupportTicketConversationUserType
+> = z.nativeEnum(SupportTicketConversationUserType);
+
+/** @internal */
+export const SupportTicketConversationUserType$outboundSchema: z.ZodNativeEnum<
+  typeof SupportTicketConversationUserType
+> = SupportTicketConversationUserType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SupportTicketConversationUserType$ {
+  /** @deprecated use `SupportTicketConversationUserType$inboundSchema` instead. */
+  export const inboundSchema = SupportTicketConversationUserType$inboundSchema;
+  /** @deprecated use `SupportTicketConversationUserType$outboundSchema` instead. */
+  export const outboundSchema =
+    SupportTicketConversationUserType$outboundSchema;
+}
+
+/** @internal */
 export const SupportTicketConversationUserProperties$inboundSchema: z.ZodType<
   SupportTicketConversationUserProperties,
   z.ZodTypeDef,
@@ -224,6 +264,8 @@ export const SupportTicketConversationUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
+    userType: z.nullable(SupportTicketConversationUserType$inboundSchema)
+      .optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -235,6 +277,7 @@ export type SupportTicketConversationUserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
+  userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
 
@@ -248,6 +291,8 @@ export const SupportTicketConversationUserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
+  userType: z.nullable(SupportTicketConversationUserType$outboundSchema)
+    .optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {

@@ -75,6 +75,20 @@ export type OpenAIExtendedMessageId = string | number;
 export type OpenAIExtendedMessageUserId = string | number;
 
 /**
+ * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export const OpenAIExtendedMessageUserType = {
+  User: "user",
+  Member: "member",
+} as const;
+/**
+ * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+ */
+export type OpenAIExtendedMessageUserType = ClosedEnum<
+  typeof OpenAIExtendedMessageUserType
+>;
+
+/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type OpenAIExtendedMessageUserProperties = {
@@ -94,6 +108,10 @@ export type OpenAIExtendedMessageUserProperties = {
    * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   supportAgentName?: string | null | undefined;
+  /**
+   * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  userType?: OpenAIExtendedMessageUserType | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -434,6 +452,27 @@ export function openAIExtendedMessageUserIdFromJSON(
 }
 
 /** @internal */
+export const OpenAIExtendedMessageUserType$inboundSchema: z.ZodNativeEnum<
+  typeof OpenAIExtendedMessageUserType
+> = z.nativeEnum(OpenAIExtendedMessageUserType);
+
+/** @internal */
+export const OpenAIExtendedMessageUserType$outboundSchema: z.ZodNativeEnum<
+  typeof OpenAIExtendedMessageUserType
+> = OpenAIExtendedMessageUserType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace OpenAIExtendedMessageUserType$ {
+  /** @deprecated use `OpenAIExtendedMessageUserType$inboundSchema` instead. */
+  export const inboundSchema = OpenAIExtendedMessageUserType$inboundSchema;
+  /** @deprecated use `OpenAIExtendedMessageUserType$outboundSchema` instead. */
+  export const outboundSchema = OpenAIExtendedMessageUserType$outboundSchema;
+}
+
+/** @internal */
 export const OpenAIExtendedMessageUserProperties$inboundSchema: z.ZodType<
   OpenAIExtendedMessageUserProperties,
   z.ZodTypeDef,
@@ -444,6 +483,8 @@ export const OpenAIExtendedMessageUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
+    userType: z.nullable(OpenAIExtendedMessageUserType$inboundSchema)
+      .optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -455,6 +496,7 @@ export type OpenAIExtendedMessageUserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
+  userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
 
@@ -468,6 +510,7 @@ export const OpenAIExtendedMessageUserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
+  userType: z.nullable(OpenAIExtendedMessageUserType$outboundSchema).optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {

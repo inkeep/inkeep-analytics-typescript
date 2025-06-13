@@ -17,14 +17,19 @@ import { useInkeepAnalyticsContext } from "./_context.js";
 import { MutationHookOptions } from "./_types.js";
 
 export type FeedbackSubmitMutationVariables = {
-  request: operations.SubmitFeedbackRequestBody;
+  request: operations.LogFeedbackRequestBody;
   options?: RequestOptions;
 };
 
-export type FeedbackSubmitMutationData = operations.SubmitFeedbackResponseBody;
+export type FeedbackSubmitMutationData = operations.LogFeedbackResponseBody;
 
 /**
- * Submit Feedback
+ * Log Feedback
+ *
+ * @remarks
+ * Logs new feedback or updates an existing one.
+ *
+ * **API Key Types:** `API`
  */
 export function useFeedbackSubmitMutation(
   options?: MutationHookOptions<
