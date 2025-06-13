@@ -1,6 +1,13 @@
 workflowVersion: 1.0.0
 speakeasyVersion: latest
 sources:
+    Dev Inkeep Analytics API:
+        inputs:
+            - location: http://localhost:3003/openapi.json
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+        registry:
+            location: registry.speakeasyapi.dev/inkeep/inkeep/dev-inkeep-analytics-api
     Inkeep Analytics API:
         inputs:
             - location: https://api.analytics.inkeep.com/openapi.json
@@ -9,6 +16,18 @@ sources:
         registry:
             location: registry.speakeasyapi.dev/inkeep/inkeep/inkeep-analytics-api
 targets:
+    dev-inkeep-analytics:
+        target: typescript
+        source: Dev Inkeep Analytics API
+        publish:
+            npm:
+                token: $npm_token
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/inkeep/inkeep/inkeep-analytics-api-typescript-code-samples
+            labelOverride:
+                fixedValue: Typescript (SDK)
+            blocking: false
     inkeep-analytics:
         target: typescript
         source: Inkeep Analytics API

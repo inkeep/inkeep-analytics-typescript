@@ -32,20 +32,6 @@ export type QueryConversationsResponseDataId = string | number;
 export type QueryConversationsResponseDataUserId = string | number;
 
 /**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const QueryConversationsResponseDataUserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type QueryConversationsResponseDataUserType = ClosedEnum<
-  typeof QueryConversationsResponseDataUserType
->;
-
-/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type QueryConversationsResponseDataUserProperties = {
@@ -65,10 +51,6 @@ export type QueryConversationsResponseDataUserProperties = {
    * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   supportAgentName?: string | null | undefined;
-  /**
-   * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
-   */
-  userType?: QueryConversationsResponseDataUserType | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -352,30 +334,6 @@ export function queryConversationsResponseDataUserIdFromJSON(
 }
 
 /** @internal */
-export const QueryConversationsResponseDataUserType$inboundSchema:
-  z.ZodNativeEnum<typeof QueryConversationsResponseDataUserType> = z.nativeEnum(
-    QueryConversationsResponseDataUserType,
-  );
-
-/** @internal */
-export const QueryConversationsResponseDataUserType$outboundSchema:
-  z.ZodNativeEnum<typeof QueryConversationsResponseDataUserType> =
-    QueryConversationsResponseDataUserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace QueryConversationsResponseDataUserType$ {
-  /** @deprecated use `QueryConversationsResponseDataUserType$inboundSchema` instead. */
-  export const inboundSchema =
-    QueryConversationsResponseDataUserType$inboundSchema;
-  /** @deprecated use `QueryConversationsResponseDataUserType$outboundSchema` instead. */
-  export const outboundSchema =
-    QueryConversationsResponseDataUserType$outboundSchema;
-}
-
-/** @internal */
 export const QueryConversationsResponseDataUserProperties$inboundSchema:
   z.ZodType<
     QueryConversationsResponseDataUserProperties,
@@ -387,8 +345,6 @@ export const QueryConversationsResponseDataUserProperties$inboundSchema:
       identificationType: z.nullable(z.string()).optional(),
       userId: z.nullable(z.union([z.string(), z.number()])).optional(),
       supportAgentName: z.nullable(z.string()).optional(),
-      userType: z.nullable(QueryConversationsResponseDataUserType$inboundSchema)
-        .optional(),
     }).catchall(z.any()),
     "additionalProperties",
     true,
@@ -400,7 +356,6 @@ export type QueryConversationsResponseDataUserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
-  userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
 
@@ -415,8 +370,6 @@ export const QueryConversationsResponseDataUserProperties$outboundSchema:
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(QueryConversationsResponseDataUserType$outboundSchema)
-      .optional(),
     additionalProperties: z.record(z.any()),
   }).transform((v) => {
     return {

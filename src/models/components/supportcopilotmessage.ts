@@ -58,20 +58,6 @@ export type SupportCopilotMessageId = string | number;
 export type SupportCopilotMessageUserId = string | number;
 
 /**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const SupportCopilotMessageUserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type SupportCopilotMessageUserType = ClosedEnum<
-  typeof SupportCopilotMessageUserType
->;
-
-/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type SupportCopilotMessageUserProperties = {
@@ -91,10 +77,6 @@ export type SupportCopilotMessageUserProperties = {
    * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   supportAgentName?: string | null | undefined;
-  /**
-   * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
-   */
-  userType?: SupportCopilotMessageUserType | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -384,27 +366,6 @@ export function supportCopilotMessageUserIdFromJSON(
 }
 
 /** @internal */
-export const SupportCopilotMessageUserType$inboundSchema: z.ZodNativeEnum<
-  typeof SupportCopilotMessageUserType
-> = z.nativeEnum(SupportCopilotMessageUserType);
-
-/** @internal */
-export const SupportCopilotMessageUserType$outboundSchema: z.ZodNativeEnum<
-  typeof SupportCopilotMessageUserType
-> = SupportCopilotMessageUserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SupportCopilotMessageUserType$ {
-  /** @deprecated use `SupportCopilotMessageUserType$inboundSchema` instead. */
-  export const inboundSchema = SupportCopilotMessageUserType$inboundSchema;
-  /** @deprecated use `SupportCopilotMessageUserType$outboundSchema` instead. */
-  export const outboundSchema = SupportCopilotMessageUserType$outboundSchema;
-}
-
-/** @internal */
 export const SupportCopilotMessageUserProperties$inboundSchema: z.ZodType<
   SupportCopilotMessageUserProperties,
   z.ZodTypeDef,
@@ -415,8 +376,6 @@ export const SupportCopilotMessageUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(SupportCopilotMessageUserType$inboundSchema)
-      .optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -428,7 +387,6 @@ export type SupportCopilotMessageUserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
-  userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
 
@@ -442,7 +400,6 @@ export const SupportCopilotMessageUserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
-  userType: z.nullable(SupportCopilotMessageUserType$outboundSchema).optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {

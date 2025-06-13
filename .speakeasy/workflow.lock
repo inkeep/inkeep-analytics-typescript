@@ -1,5 +1,12 @@
-speakeasyVersion: 1.561.0
+speakeasyVersion: 1.563.0
 sources:
+    Dev Inkeep Analytics API:
+        sourceNamespace: dev-inkeep-analytics-api
+        sourceRevisionDigest: sha256:01cb313b4466279b5d2a5ef81eaa706989861b00a1446948b2e125e3f62c8db4
+        sourceBlobDigest: sha256:9d79e0db0ce1f5db83d36a55af33cc3a99f03a9f0fcc6c90c810d539c719b159
+        tags:
+            - latest
+            - 0.1.1
     Inkeep Analytics API:
         sourceNamespace: inkeep-analytics-api
         sourceRevisionDigest: sha256:c8c5b84fd310d4a5d0356a98a16a354f24c5ea0dbfcae57a100191d41deb06f2
@@ -9,6 +16,13 @@ sources:
             - speakeasy-sdk-regen-1749793632
             - 0.1.1
 targets:
+    dev-inkeep-analytics:
+        source: Dev Inkeep Analytics API
+        sourceNamespace: dev-inkeep-analytics-api
+        sourceRevisionDigest: sha256:01cb313b4466279b5d2a5ef81eaa706989861b00a1446948b2e125e3f62c8db4
+        sourceBlobDigest: sha256:9d79e0db0ce1f5db83d36a55af33cc3a99f03a9f0fcc6c90c810d539c719b159
+        codeSamplesNamespace: inkeep-analytics-api-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:70b72b02d45766ac52aa179e69eef531eec33741f51c72147b9a87d8f9911635
     inkeep-analytics:
         source: Inkeep Analytics API
         sourceNamespace: inkeep-analytics-api
@@ -20,6 +34,13 @@ workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
+        Dev Inkeep Analytics API:
+            inputs:
+                - location: http://localhost:3003/openapi.json
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            registry:
+                location: registry.speakeasyapi.dev/inkeep/inkeep/dev-inkeep-analytics-api
         Inkeep Analytics API:
             inputs:
                 - location: https://api.analytics.inkeep.com/openapi.json
@@ -28,6 +49,18 @@ workflow:
             registry:
                 location: registry.speakeasyapi.dev/inkeep/inkeep/inkeep-analytics-api
     targets:
+        dev-inkeep-analytics:
+            target: typescript
+            source: Dev Inkeep Analytics API
+            publish:
+                npm:
+                    token: $npm_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/inkeep/inkeep/inkeep-analytics-api-typescript-code-samples
+                labelOverride:
+                    fixedValue: Typescript (SDK)
+                blocking: false
         inkeep-analytics:
             target: typescript
             source: Inkeep Analytics API
