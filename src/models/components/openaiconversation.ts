@@ -40,20 +40,6 @@ export type OpenAIConversationId = string | number;
 export type OpenAIConversationUserId = string | number;
 
 /**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const OpenAIConversationUserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type OpenAIConversationUserType = ClosedEnum<
-  typeof OpenAIConversationUserType
->;
-
-/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type OpenAIConversationUserProperties = {
@@ -73,10 +59,6 @@ export type OpenAIConversationUserProperties = {
    * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   supportAgentName?: string | null | undefined;
-  /**
-   * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
-   */
-  userType?: OpenAIConversationUserType | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -233,27 +215,6 @@ export function openAIConversationUserIdFromJSON(
 }
 
 /** @internal */
-export const OpenAIConversationUserType$inboundSchema: z.ZodNativeEnum<
-  typeof OpenAIConversationUserType
-> = z.nativeEnum(OpenAIConversationUserType);
-
-/** @internal */
-export const OpenAIConversationUserType$outboundSchema: z.ZodNativeEnum<
-  typeof OpenAIConversationUserType
-> = OpenAIConversationUserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace OpenAIConversationUserType$ {
-  /** @deprecated use `OpenAIConversationUserType$inboundSchema` instead. */
-  export const inboundSchema = OpenAIConversationUserType$inboundSchema;
-  /** @deprecated use `OpenAIConversationUserType$outboundSchema` instead. */
-  export const outboundSchema = OpenAIConversationUserType$outboundSchema;
-}
-
-/** @internal */
 export const OpenAIConversationUserProperties$inboundSchema: z.ZodType<
   OpenAIConversationUserProperties,
   z.ZodTypeDef,
@@ -264,7 +225,6 @@ export const OpenAIConversationUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(OpenAIConversationUserType$inboundSchema).optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -276,7 +236,6 @@ export type OpenAIConversationUserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
-  userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
 
@@ -290,7 +249,6 @@ export const OpenAIConversationUserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
-  userType: z.nullable(OpenAIConversationUserType$outboundSchema).optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {
