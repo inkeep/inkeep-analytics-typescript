@@ -20,8 +20,6 @@ export const FeedbackField = {
   ConversationId: "conversationId",
   ProjectId: "projectId",
   IntegrationId: "integrationId",
-  UpdatedAt: "updatedAt",
-  Status: "status",
 } as const;
 /**
  * Available fields for Feedback

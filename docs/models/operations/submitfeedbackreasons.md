@@ -1,11 +1,11 @@
-# LogFeedbackReasons
+# SubmitFeedbackReasons
 
 ## Example Usage
 
 ```typescript
-import { LogFeedbackReasons } from "@inkeep/inkeep-analytics/models/operations";
+import { SubmitFeedbackReasons } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: LogFeedbackReasons = {
+let value: SubmitFeedbackReasons = {
   label: "<value>",
   details: "<value>",
 };
