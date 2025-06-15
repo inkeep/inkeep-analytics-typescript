@@ -1,4 +1,4 @@
-# LogFeedbackId
+# SubmitFeedbackId
 
 The unique identifier for the user. This value is sent by the inkeep widget.
 

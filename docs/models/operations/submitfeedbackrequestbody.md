@@ -1,13 +1,13 @@
-# LogFeedbackRequestBody
+# SubmitFeedbackRequestBody
 
 Note: The maximum size of the request body is 2 MB.
 
 ## Example Usage
 
 ```typescript
-import { LogFeedbackRequestBody } from "@inkeep/inkeep-analytics/models/operations";
+import { SubmitFeedbackRequestBody } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: LogFeedbackRequestBody = {
+let value: SubmitFeedbackRequestBody = {
   type: "positive",
   messageId: "<id>",
   userProperties: {

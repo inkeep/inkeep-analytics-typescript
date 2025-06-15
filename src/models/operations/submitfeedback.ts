@@ -34,18 +34,6 @@ export type Id = string | number;
 export type UserId = string | number;
 
 /**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const UserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type UserType = ClosedEnum<typeof UserType>;
-
-/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type UserProperties = {
@@ -65,17 +53,13 @@ export type UserProperties = {
    * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   supportAgentName?: string | null | undefined;
-  /**
-   * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
-   */
-  userType?: UserType | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
 /**
  * Note: The maximum size of the request body is 2 MB.
  */
-export type LogFeedbackRequestBody = {
+export type SubmitFeedbackRequestBody = {
   id?: string | undefined;
   type: Type;
   messageId: string;
@@ -94,13 +78,13 @@ export type LogFeedbackRequestBody = {
   userProperties?: UserProperties | null | undefined;
 };
 
-export const LogFeedbackType = {
+export const SubmitFeedbackType = {
   Positive: "positive",
   Negative: "negative",
 } as const;
-export type LogFeedbackType = ClosedEnum<typeof LogFeedbackType>;
+export type SubmitFeedbackType = ClosedEnum<typeof SubmitFeedbackType>;
 
-export type LogFeedbackReasons = {
+export type SubmitFeedbackReasons = {
   label: string;
   details: string;
 };
@@ -108,29 +92,17 @@ export type LogFeedbackReasons = {
 /**
  * The unique identifier for the user. This value is sent by the inkeep widget.
  */
-export type LogFeedbackId = string | number;
+export type SubmitFeedbackId = string | number;
 
 /**
  * The unique identifier for the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
  */
-export type LogFeedbackUserId = string | number;
-
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const LogFeedbackUserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type LogFeedbackUserType = ClosedEnum<typeof LogFeedbackUserType>;
+export type SubmitFeedbackUserId = string | number;
 
 /**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
-export type LogFeedbackUserProperties = {
+export type SubmitFeedbackUserProperties = {
   /**
    * The unique identifier for the user. This value is sent by the inkeep widget.
    */
@@ -147,25 +119,18 @@ export type LogFeedbackUserProperties = {
    * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   supportAgentName?: string | null | undefined;
-  /**
-   * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
-   */
-  userType?: LogFeedbackUserType | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
 /**
  * Feedback provided successfully
  */
-export type LogFeedbackResponseBody = {
+export type SubmitFeedbackResponseBody = {
   id: string;
-  type: LogFeedbackType;
+  type: SubmitFeedbackType;
   messageId: string;
-  /**
-   * A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.
-   */
-  createdAt?: Date | null | undefined;
-  reasons?: Array<LogFeedbackReasons> | null | undefined;
+  createdAt: string;
+  reasons?: Array<SubmitFeedbackReasons> | null | undefined;
   /**
    * A customizable collection of custom properties or attributes.
    */
@@ -173,7 +138,7 @@ export type LogFeedbackResponseBody = {
   /**
    * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
    */
-  userProperties?: LogFeedbackUserProperties | null | undefined;
+  userProperties?: SubmitFeedbackUserProperties | null | undefined;
 };
 
 /** @internal */
@@ -328,25 +293,6 @@ export function userIdFromJSON(
 }
 
 /** @internal */
-export const UserType$inboundSchema: z.ZodNativeEnum<typeof UserType> = z
-  .nativeEnum(UserType);
-
-/** @internal */
-export const UserType$outboundSchema: z.ZodNativeEnum<typeof UserType> =
-  UserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UserType$ {
-  /** @deprecated use `UserType$inboundSchema` instead. */
-  export const inboundSchema = UserType$inboundSchema;
-  /** @deprecated use `UserType$outboundSchema` instead. */
-  export const outboundSchema = UserType$outboundSchema;
-}
-
-/** @internal */
 export const UserProperties$inboundSchema: z.ZodType<
   UserProperties,
   z.ZodTypeDef,
@@ -357,7 +303,6 @@ export const UserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(UserType$inboundSchema).optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -369,7 +314,6 @@ export type UserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
-  userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
 
@@ -383,7 +327,6 @@ export const UserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
-  userType: z.nullable(UserType$outboundSchema).optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {
@@ -422,8 +365,8 @@ export function userPropertiesFromJSON(
 }
 
 /** @internal */
-export const LogFeedbackRequestBody$inboundSchema: z.ZodType<
-  LogFeedbackRequestBody,
+export const SubmitFeedbackRequestBody$inboundSchema: z.ZodType<
+  SubmitFeedbackRequestBody,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -440,7 +383,7 @@ export const LogFeedbackRequestBody$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type LogFeedbackRequestBody$Outbound = {
+export type SubmitFeedbackRequestBody$Outbound = {
   id?: string | undefined;
   type: string;
   messageId: string;
@@ -451,10 +394,10 @@ export type LogFeedbackRequestBody$Outbound = {
 };
 
 /** @internal */
-export const LogFeedbackRequestBody$outboundSchema: z.ZodType<
-  LogFeedbackRequestBody$Outbound,
+export const SubmitFeedbackRequestBody$outboundSchema: z.ZodType<
+  SubmitFeedbackRequestBody$Outbound,
   z.ZodTypeDef,
-  LogFeedbackRequestBody
+  SubmitFeedbackRequestBody
 > = z.object({
   id: z.string().optional(),
   type: Type$outboundSchema,
@@ -470,57 +413,57 @@ export const LogFeedbackRequestBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace LogFeedbackRequestBody$ {
-  /** @deprecated use `LogFeedbackRequestBody$inboundSchema` instead. */
-  export const inboundSchema = LogFeedbackRequestBody$inboundSchema;
-  /** @deprecated use `LogFeedbackRequestBody$outboundSchema` instead. */
-  export const outboundSchema = LogFeedbackRequestBody$outboundSchema;
-  /** @deprecated use `LogFeedbackRequestBody$Outbound` instead. */
-  export type Outbound = LogFeedbackRequestBody$Outbound;
+export namespace SubmitFeedbackRequestBody$ {
+  /** @deprecated use `SubmitFeedbackRequestBody$inboundSchema` instead. */
+  export const inboundSchema = SubmitFeedbackRequestBody$inboundSchema;
+  /** @deprecated use `SubmitFeedbackRequestBody$outboundSchema` instead. */
+  export const outboundSchema = SubmitFeedbackRequestBody$outboundSchema;
+  /** @deprecated use `SubmitFeedbackRequestBody$Outbound` instead. */
+  export type Outbound = SubmitFeedbackRequestBody$Outbound;
 }
 
-export function logFeedbackRequestBodyToJSON(
-  logFeedbackRequestBody: LogFeedbackRequestBody,
+export function submitFeedbackRequestBodyToJSON(
+  submitFeedbackRequestBody: SubmitFeedbackRequestBody,
 ): string {
   return JSON.stringify(
-    LogFeedbackRequestBody$outboundSchema.parse(logFeedbackRequestBody),
+    SubmitFeedbackRequestBody$outboundSchema.parse(submitFeedbackRequestBody),
   );
 }
 
-export function logFeedbackRequestBodyFromJSON(
+export function submitFeedbackRequestBodyFromJSON(
   jsonString: string,
-): SafeParseResult<LogFeedbackRequestBody, SDKValidationError> {
+): SafeParseResult<SubmitFeedbackRequestBody, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => LogFeedbackRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LogFeedbackRequestBody' from JSON`,
+    (x) => SubmitFeedbackRequestBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubmitFeedbackRequestBody' from JSON`,
   );
 }
 
 /** @internal */
-export const LogFeedbackType$inboundSchema: z.ZodNativeEnum<
-  typeof LogFeedbackType
-> = z.nativeEnum(LogFeedbackType);
+export const SubmitFeedbackType$inboundSchema: z.ZodNativeEnum<
+  typeof SubmitFeedbackType
+> = z.nativeEnum(SubmitFeedbackType);
 
 /** @internal */
-export const LogFeedbackType$outboundSchema: z.ZodNativeEnum<
-  typeof LogFeedbackType
-> = LogFeedbackType$inboundSchema;
+export const SubmitFeedbackType$outboundSchema: z.ZodNativeEnum<
+  typeof SubmitFeedbackType
+> = SubmitFeedbackType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace LogFeedbackType$ {
-  /** @deprecated use `LogFeedbackType$inboundSchema` instead. */
-  export const inboundSchema = LogFeedbackType$inboundSchema;
-  /** @deprecated use `LogFeedbackType$outboundSchema` instead. */
-  export const outboundSchema = LogFeedbackType$outboundSchema;
+export namespace SubmitFeedbackType$ {
+  /** @deprecated use `SubmitFeedbackType$inboundSchema` instead. */
+  export const inboundSchema = SubmitFeedbackType$inboundSchema;
+  /** @deprecated use `SubmitFeedbackType$outboundSchema` instead. */
+  export const outboundSchema = SubmitFeedbackType$outboundSchema;
 }
 
 /** @internal */
-export const LogFeedbackReasons$inboundSchema: z.ZodType<
-  LogFeedbackReasons,
+export const SubmitFeedbackReasons$inboundSchema: z.ZodType<
+  SubmitFeedbackReasons,
   z.ZodTypeDef,
   unknown
 > = z.object({
@@ -529,16 +472,16 @@ export const LogFeedbackReasons$inboundSchema: z.ZodType<
 });
 
 /** @internal */
-export type LogFeedbackReasons$Outbound = {
+export type SubmitFeedbackReasons$Outbound = {
   label: string;
   details: string;
 };
 
 /** @internal */
-export const LogFeedbackReasons$outboundSchema: z.ZodType<
-  LogFeedbackReasons$Outbound,
+export const SubmitFeedbackReasons$outboundSchema: z.ZodType<
+  SubmitFeedbackReasons$Outbound,
   z.ZodTypeDef,
-  LogFeedbackReasons
+  SubmitFeedbackReasons
 > = z.object({
   label: z.string(),
   details: z.string(),
@@ -548,149 +491,132 @@ export const LogFeedbackReasons$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace LogFeedbackReasons$ {
-  /** @deprecated use `LogFeedbackReasons$inboundSchema` instead. */
-  export const inboundSchema = LogFeedbackReasons$inboundSchema;
-  /** @deprecated use `LogFeedbackReasons$outboundSchema` instead. */
-  export const outboundSchema = LogFeedbackReasons$outboundSchema;
-  /** @deprecated use `LogFeedbackReasons$Outbound` instead. */
-  export type Outbound = LogFeedbackReasons$Outbound;
+export namespace SubmitFeedbackReasons$ {
+  /** @deprecated use `SubmitFeedbackReasons$inboundSchema` instead. */
+  export const inboundSchema = SubmitFeedbackReasons$inboundSchema;
+  /** @deprecated use `SubmitFeedbackReasons$outboundSchema` instead. */
+  export const outboundSchema = SubmitFeedbackReasons$outboundSchema;
+  /** @deprecated use `SubmitFeedbackReasons$Outbound` instead. */
+  export type Outbound = SubmitFeedbackReasons$Outbound;
 }
 
-export function logFeedbackReasonsToJSON(
-  logFeedbackReasons: LogFeedbackReasons,
+export function submitFeedbackReasonsToJSON(
+  submitFeedbackReasons: SubmitFeedbackReasons,
 ): string {
   return JSON.stringify(
-    LogFeedbackReasons$outboundSchema.parse(logFeedbackReasons),
+    SubmitFeedbackReasons$outboundSchema.parse(submitFeedbackReasons),
   );
 }
 
-export function logFeedbackReasonsFromJSON(
+export function submitFeedbackReasonsFromJSON(
   jsonString: string,
-): SafeParseResult<LogFeedbackReasons, SDKValidationError> {
+): SafeParseResult<SubmitFeedbackReasons, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => LogFeedbackReasons$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LogFeedbackReasons' from JSON`,
+    (x) => SubmitFeedbackReasons$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubmitFeedbackReasons' from JSON`,
   );
 }
 
 /** @internal */
-export const LogFeedbackId$inboundSchema: z.ZodType<
-  LogFeedbackId,
+export const SubmitFeedbackId$inboundSchema: z.ZodType<
+  SubmitFeedbackId,
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number()]);
 
 /** @internal */
-export type LogFeedbackId$Outbound = string | number;
+export type SubmitFeedbackId$Outbound = string | number;
 
 /** @internal */
-export const LogFeedbackId$outboundSchema: z.ZodType<
-  LogFeedbackId$Outbound,
+export const SubmitFeedbackId$outboundSchema: z.ZodType<
+  SubmitFeedbackId$Outbound,
   z.ZodTypeDef,
-  LogFeedbackId
+  SubmitFeedbackId
 > = z.union([z.string(), z.number()]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace LogFeedbackId$ {
-  /** @deprecated use `LogFeedbackId$inboundSchema` instead. */
-  export const inboundSchema = LogFeedbackId$inboundSchema;
-  /** @deprecated use `LogFeedbackId$outboundSchema` instead. */
-  export const outboundSchema = LogFeedbackId$outboundSchema;
-  /** @deprecated use `LogFeedbackId$Outbound` instead. */
-  export type Outbound = LogFeedbackId$Outbound;
+export namespace SubmitFeedbackId$ {
+  /** @deprecated use `SubmitFeedbackId$inboundSchema` instead. */
+  export const inboundSchema = SubmitFeedbackId$inboundSchema;
+  /** @deprecated use `SubmitFeedbackId$outboundSchema` instead. */
+  export const outboundSchema = SubmitFeedbackId$outboundSchema;
+  /** @deprecated use `SubmitFeedbackId$Outbound` instead. */
+  export type Outbound = SubmitFeedbackId$Outbound;
 }
 
-export function logFeedbackIdToJSON(logFeedbackId: LogFeedbackId): string {
-  return JSON.stringify(LogFeedbackId$outboundSchema.parse(logFeedbackId));
+export function submitFeedbackIdToJSON(
+  submitFeedbackId: SubmitFeedbackId,
+): string {
+  return JSON.stringify(
+    SubmitFeedbackId$outboundSchema.parse(submitFeedbackId),
+  );
 }
 
-export function logFeedbackIdFromJSON(
+export function submitFeedbackIdFromJSON(
   jsonString: string,
-): SafeParseResult<LogFeedbackId, SDKValidationError> {
+): SafeParseResult<SubmitFeedbackId, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => LogFeedbackId$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LogFeedbackId' from JSON`,
+    (x) => SubmitFeedbackId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubmitFeedbackId' from JSON`,
   );
 }
 
 /** @internal */
-export const LogFeedbackUserId$inboundSchema: z.ZodType<
-  LogFeedbackUserId,
+export const SubmitFeedbackUserId$inboundSchema: z.ZodType<
+  SubmitFeedbackUserId,
   z.ZodTypeDef,
   unknown
 > = z.union([z.string(), z.number()]);
 
 /** @internal */
-export type LogFeedbackUserId$Outbound = string | number;
+export type SubmitFeedbackUserId$Outbound = string | number;
 
 /** @internal */
-export const LogFeedbackUserId$outboundSchema: z.ZodType<
-  LogFeedbackUserId$Outbound,
+export const SubmitFeedbackUserId$outboundSchema: z.ZodType<
+  SubmitFeedbackUserId$Outbound,
   z.ZodTypeDef,
-  LogFeedbackUserId
+  SubmitFeedbackUserId
 > = z.union([z.string(), z.number()]);
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace LogFeedbackUserId$ {
-  /** @deprecated use `LogFeedbackUserId$inboundSchema` instead. */
-  export const inboundSchema = LogFeedbackUserId$inboundSchema;
-  /** @deprecated use `LogFeedbackUserId$outboundSchema` instead. */
-  export const outboundSchema = LogFeedbackUserId$outboundSchema;
-  /** @deprecated use `LogFeedbackUserId$Outbound` instead. */
-  export type Outbound = LogFeedbackUserId$Outbound;
+export namespace SubmitFeedbackUserId$ {
+  /** @deprecated use `SubmitFeedbackUserId$inboundSchema` instead. */
+  export const inboundSchema = SubmitFeedbackUserId$inboundSchema;
+  /** @deprecated use `SubmitFeedbackUserId$outboundSchema` instead. */
+  export const outboundSchema = SubmitFeedbackUserId$outboundSchema;
+  /** @deprecated use `SubmitFeedbackUserId$Outbound` instead. */
+  export type Outbound = SubmitFeedbackUserId$Outbound;
 }
 
-export function logFeedbackUserIdToJSON(
-  logFeedbackUserId: LogFeedbackUserId,
+export function submitFeedbackUserIdToJSON(
+  submitFeedbackUserId: SubmitFeedbackUserId,
 ): string {
   return JSON.stringify(
-    LogFeedbackUserId$outboundSchema.parse(logFeedbackUserId),
+    SubmitFeedbackUserId$outboundSchema.parse(submitFeedbackUserId),
   );
 }
 
-export function logFeedbackUserIdFromJSON(
+export function submitFeedbackUserIdFromJSON(
   jsonString: string,
-): SafeParseResult<LogFeedbackUserId, SDKValidationError> {
+): SafeParseResult<SubmitFeedbackUserId, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => LogFeedbackUserId$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LogFeedbackUserId' from JSON`,
+    (x) => SubmitFeedbackUserId$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubmitFeedbackUserId' from JSON`,
   );
 }
 
 /** @internal */
-export const LogFeedbackUserType$inboundSchema: z.ZodNativeEnum<
-  typeof LogFeedbackUserType
-> = z.nativeEnum(LogFeedbackUserType);
-
-/** @internal */
-export const LogFeedbackUserType$outboundSchema: z.ZodNativeEnum<
-  typeof LogFeedbackUserType
-> = LogFeedbackUserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LogFeedbackUserType$ {
-  /** @deprecated use `LogFeedbackUserType$inboundSchema` instead. */
-  export const inboundSchema = LogFeedbackUserType$inboundSchema;
-  /** @deprecated use `LogFeedbackUserType$outboundSchema` instead. */
-  export const outboundSchema = LogFeedbackUserType$outboundSchema;
-}
-
-/** @internal */
-export const LogFeedbackUserProperties$inboundSchema: z.ZodType<
-  LogFeedbackUserProperties,
+export const SubmitFeedbackUserProperties$inboundSchema: z.ZodType<
+  SubmitFeedbackUserProperties,
   z.ZodTypeDef,
   unknown
 > = collectExtraKeys$(
@@ -699,33 +625,30 @@ export const LogFeedbackUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(LogFeedbackUserType$inboundSchema).optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
 );
 
 /** @internal */
-export type LogFeedbackUserProperties$Outbound = {
+export type SubmitFeedbackUserProperties$Outbound = {
   id?: string | number | null | undefined;
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
-  userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
 
 /** @internal */
-export const LogFeedbackUserProperties$outboundSchema: z.ZodType<
-  LogFeedbackUserProperties$Outbound,
+export const SubmitFeedbackUserProperties$outboundSchema: z.ZodType<
+  SubmitFeedbackUserProperties$Outbound,
   z.ZodTypeDef,
-  LogFeedbackUserProperties
+  SubmitFeedbackUserProperties
 > = z.object({
   id: z.nullable(z.union([z.string(), z.number()])).optional(),
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
-  userType: z.nullable(LogFeedbackUserType$outboundSchema).optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {
@@ -740,79 +663,81 @@ export const LogFeedbackUserProperties$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace LogFeedbackUserProperties$ {
-  /** @deprecated use `LogFeedbackUserProperties$inboundSchema` instead. */
-  export const inboundSchema = LogFeedbackUserProperties$inboundSchema;
-  /** @deprecated use `LogFeedbackUserProperties$outboundSchema` instead. */
-  export const outboundSchema = LogFeedbackUserProperties$outboundSchema;
-  /** @deprecated use `LogFeedbackUserProperties$Outbound` instead. */
-  export type Outbound = LogFeedbackUserProperties$Outbound;
+export namespace SubmitFeedbackUserProperties$ {
+  /** @deprecated use `SubmitFeedbackUserProperties$inboundSchema` instead. */
+  export const inboundSchema = SubmitFeedbackUserProperties$inboundSchema;
+  /** @deprecated use `SubmitFeedbackUserProperties$outboundSchema` instead. */
+  export const outboundSchema = SubmitFeedbackUserProperties$outboundSchema;
+  /** @deprecated use `SubmitFeedbackUserProperties$Outbound` instead. */
+  export type Outbound = SubmitFeedbackUserProperties$Outbound;
 }
 
-export function logFeedbackUserPropertiesToJSON(
-  logFeedbackUserProperties: LogFeedbackUserProperties,
+export function submitFeedbackUserPropertiesToJSON(
+  submitFeedbackUserProperties: SubmitFeedbackUserProperties,
 ): string {
   return JSON.stringify(
-    LogFeedbackUserProperties$outboundSchema.parse(logFeedbackUserProperties),
+    SubmitFeedbackUserProperties$outboundSchema.parse(
+      submitFeedbackUserProperties,
+    ),
   );
 }
 
-export function logFeedbackUserPropertiesFromJSON(
+export function submitFeedbackUserPropertiesFromJSON(
   jsonString: string,
-): SafeParseResult<LogFeedbackUserProperties, SDKValidationError> {
+): SafeParseResult<SubmitFeedbackUserProperties, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => LogFeedbackUserProperties$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LogFeedbackUserProperties' from JSON`,
+    (x) => SubmitFeedbackUserProperties$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubmitFeedbackUserProperties' from JSON`,
   );
 }
 
 /** @internal */
-export const LogFeedbackResponseBody$inboundSchema: z.ZodType<
-  LogFeedbackResponseBody,
+export const SubmitFeedbackResponseBody$inboundSchema: z.ZodType<
+  SubmitFeedbackResponseBody,
   z.ZodTypeDef,
   unknown
 > = z.object({
   id: z.string(),
-  type: LogFeedbackType$inboundSchema,
+  type: SubmitFeedbackType$inboundSchema,
   messageId: z.string(),
-  createdAt: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  createdAt: z.string(),
+  reasons: z.nullable(
+    z.array(z.lazy(() => SubmitFeedbackReasons$inboundSchema)),
   ).optional(),
-  reasons: z.nullable(z.array(z.lazy(() => LogFeedbackReasons$inboundSchema)))
-    .optional(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
-    z.lazy(() => LogFeedbackUserProperties$inboundSchema),
+    z.lazy(() => SubmitFeedbackUserProperties$inboundSchema),
   ).optional(),
 });
 
 /** @internal */
-export type LogFeedbackResponseBody$Outbound = {
+export type SubmitFeedbackResponseBody$Outbound = {
   id: string;
   type: string;
   messageId: string;
-  createdAt?: string | null | undefined;
-  reasons?: Array<LogFeedbackReasons$Outbound> | null | undefined;
+  createdAt: string;
+  reasons?: Array<SubmitFeedbackReasons$Outbound> | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
-  userProperties?: LogFeedbackUserProperties$Outbound | null | undefined;
+  userProperties?: SubmitFeedbackUserProperties$Outbound | null | undefined;
 };
 
 /** @internal */
-export const LogFeedbackResponseBody$outboundSchema: z.ZodType<
-  LogFeedbackResponseBody$Outbound,
+export const SubmitFeedbackResponseBody$outboundSchema: z.ZodType<
+  SubmitFeedbackResponseBody$Outbound,
   z.ZodTypeDef,
-  LogFeedbackResponseBody
+  SubmitFeedbackResponseBody
 > = z.object({
   id: z.string(),
-  type: LogFeedbackType$outboundSchema,
+  type: SubmitFeedbackType$outboundSchema,
   messageId: z.string(),
-  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
-  reasons: z.nullable(z.array(z.lazy(() => LogFeedbackReasons$outboundSchema)))
-    .optional(),
+  createdAt: z.string(),
+  reasons: z.nullable(
+    z.array(z.lazy(() => SubmitFeedbackReasons$outboundSchema)),
+  ).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
-    z.lazy(() => LogFeedbackUserProperties$outboundSchema),
+    z.lazy(() => SubmitFeedbackUserProperties$outboundSchema),
   ).optional(),
 });
 
@@ -820,29 +745,29 @@ export const LogFeedbackResponseBody$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace LogFeedbackResponseBody$ {
-  /** @deprecated use `LogFeedbackResponseBody$inboundSchema` instead. */
-  export const inboundSchema = LogFeedbackResponseBody$inboundSchema;
-  /** @deprecated use `LogFeedbackResponseBody$outboundSchema` instead. */
-  export const outboundSchema = LogFeedbackResponseBody$outboundSchema;
-  /** @deprecated use `LogFeedbackResponseBody$Outbound` instead. */
-  export type Outbound = LogFeedbackResponseBody$Outbound;
+export namespace SubmitFeedbackResponseBody$ {
+  /** @deprecated use `SubmitFeedbackResponseBody$inboundSchema` instead. */
+  export const inboundSchema = SubmitFeedbackResponseBody$inboundSchema;
+  /** @deprecated use `SubmitFeedbackResponseBody$outboundSchema` instead. */
+  export const outboundSchema = SubmitFeedbackResponseBody$outboundSchema;
+  /** @deprecated use `SubmitFeedbackResponseBody$Outbound` instead. */
+  export type Outbound = SubmitFeedbackResponseBody$Outbound;
 }
 
-export function logFeedbackResponseBodyToJSON(
-  logFeedbackResponseBody: LogFeedbackResponseBody,
+export function submitFeedbackResponseBodyToJSON(
+  submitFeedbackResponseBody: SubmitFeedbackResponseBody,
 ): string {
   return JSON.stringify(
-    LogFeedbackResponseBody$outboundSchema.parse(logFeedbackResponseBody),
+    SubmitFeedbackResponseBody$outboundSchema.parse(submitFeedbackResponseBody),
   );
 }
 
-export function logFeedbackResponseBodyFromJSON(
+export function submitFeedbackResponseBodyFromJSON(
   jsonString: string,
-): SafeParseResult<LogFeedbackResponseBody, SDKValidationError> {
+): SafeParseResult<SubmitFeedbackResponseBody, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => LogFeedbackResponseBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'LogFeedbackResponseBody' from JSON`,
+    (x) => SubmitFeedbackResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SubmitFeedbackResponseBody' from JSON`,
   );
 }

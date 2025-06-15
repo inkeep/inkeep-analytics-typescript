@@ -5,11 +5,11 @@
 ```typescript
 import { FeedbackAggregationSelectionField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: FeedbackAggregationSelectionField = "reasons";
+let value: FeedbackAggregationSelectionField = "organizationId";
 ```
 
 ## Values
 
 ```typescript
-"id" | "type" | "messageId" | "createdAt" | "organizationId" | "reasons" | "properties" | "userProperties" | "conversationId" | "projectId" | "integrationId" | "updatedAt" | "status"
+"id" | "type" | "messageId" | "createdAt" | "organizationId" | "reasons" | "properties" | "userProperties" | "conversationId" | "projectId" | "integrationId"
 ```

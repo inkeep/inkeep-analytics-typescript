@@ -9,20 +9,21 @@ let value: NegativeFeedback = {
   id: "<id>",
   type: "negative",
   messageId: "<id>",
+  createdAt: "1709249396560",
   userProperties: {
     identificationType: "COOKIED",
   },
   conversation: {
     id: "<id>",
     externalId: "<id>",
-    externalUrl: "https://trim-term.net",
+    externalUrl: "https://unsung-pomelo.org",
     type: "support_copilot",
     supportTicketConversationId: "<id>",
-    createdAt: "1720423662593",
-    updatedAt: "1735670950518",
+    createdAt: "1728882824397",
+    updatedAt: "1735681424620",
     projectId: "<id>",
-    integrationId: "<id>",
-    visibility: null,
+    integrationId: null,
+    visibility: "public",
     messages: [
       {
         id: "<id>",
@@ -44,10 +45,10 @@ let value: NegativeFeedback = {
     id: "<id>",
     type: "support_copilot",
     externalId: "<id>",
-    externalUrl: "https://nautical-opera.net",
+    externalUrl: "https://shimmering-story.net",
     conversationId: "<id>",
-    createdAt: "1731190000343",
-    updatedAt: "1735673856387",
+    createdAt: "1714219698350",
+    updatedAt: "1735689143924",
     role: "<value>",
     content: "<value>",
   },
@@ -61,7 +62,7 @@ let value: NegativeFeedback = {
 | `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `type`                                                                                                                                                                   | [components.GetAllFeedbackResponseNegativeFeedbackType](../../models/components/getallfeedbackresponsenegativefeedbacktype.md)                                           | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `messageId`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
-| `createdAt`                                                                                                                                                              | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                            | :heavy_minus_sign:                                                                                                                                                       | A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.                                                                |
+| `createdAt`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `reasons`                                                                                                                                                                | [components.GetAllFeedbackResponseReasons](../../models/components/getallfeedbackresponsereasons.md)[]                                                                   | :heavy_minus_sign:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `properties`                                                                                                                                                             | Record<string, *any*>                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | A customizable collection of custom properties or attributes.                                                                                                            |
 | `userProperties`                                                                                                                                                         | [components.GetAllFeedbackResponseNegativeFeedbackUserProperties](../../models/components/getallfeedbackresponsenegativefeedbackuserproperties.md)                       | :heavy_minus_sign:                                                                                                                                                       | A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description. |
