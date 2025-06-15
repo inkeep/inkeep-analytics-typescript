@@ -280,7 +280,7 @@ run();
 
 ### [feedback](docs/sdks/feedback/README.md)
 
-* [submit](docs/sdks/feedback/README.md#submit) - Log Feedback
+* [submit](docs/sdks/feedback/README.md#submit) - Submit Feedback
 * [list](docs/sdks/feedback/README.md#list) - Get All Feedback
 * [getFeedbackById](docs/sdks/feedback/README.md#getfeedbackbyid) - Get Feedback by ID
 
@@ -325,7 +325,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`eventsLog`](docs/sdks/events/README.md#log) - Log Event
 - [`feedbackGetFeedbackById`](docs/sdks/feedback/README.md#getfeedbackbyid) - Get Feedback by ID
 - [`feedbackList`](docs/sdks/feedback/README.md#list) - Get All Feedback
-- [`feedbackSubmit`](docs/sdks/feedback/README.md#submit) - Log Feedback
+- [`feedbackSubmit`](docs/sdks/feedback/README.md#submit) - Submit Feedback
 - [`queryConversations`](docs/sdks/query/README.md#conversations) - Query Conversations
 - [`queryExportSemanticThreadsQueryResults`](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 - [`queryQueryEvents`](docs/sdks/query/README.md#queryevents) - Query Events
@@ -369,7 +369,7 @@ To learn about this feature and how to get started, check
 - [`useEventsLogMutation`](docs/sdks/events/README.md#log) - Log Event
 - [`useFeedbackGetFeedbackById`](docs/sdks/feedback/README.md#getfeedbackbyid) - Get Feedback by ID
 - [`useFeedbackList`](docs/sdks/feedback/README.md#list) - Get All Feedback
-- [`useFeedbackSubmitMutation`](docs/sdks/feedback/README.md#submit) - Log Feedback
+- [`useFeedbackSubmitMutation`](docs/sdks/feedback/README.md#submit) - Submit Feedback
 - [`useQueryConversationsMutation`](docs/sdks/query/README.md#conversations) - Query Conversations
 - [`useQueryExportSemanticThreadsQueryResultsMutation`](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 - [`useQueryQueryEventsMutation`](docs/sdks/query/README.md#queryevents) - Query Events
