@@ -12,13 +12,11 @@ import { queryConversations } from "../funcs/queryConversations.js";
 import { combineSignals } from "../lib/primitives.js";
 import { RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
 import { MutationHookOptions } from "./_types.js";
 
 export type QueryConversationsMutationVariables = {
-  security: operations.QueryConversationsSecurity;
   request: components.QueryConversationsRequestBody;
   options?: RequestOptions;
 };
@@ -63,7 +61,6 @@ export function buildQueryConversationsMutation(
   return {
     mutationKey: mutationKeyQueryConversations(),
     mutationFn: function queryConversationsMutationFn({
-      security,
       request,
       options,
     }): Promise<QueryConversationsMutationData> {
@@ -81,7 +78,6 @@ export function buildQueryConversationsMutation(
       };
       return unwrapAsync(queryConversations(
         client$,
-        security,
         request,
         mergedOptions,
       ));

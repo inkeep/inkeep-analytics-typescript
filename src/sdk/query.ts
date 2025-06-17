@@ -11,7 +11,6 @@ import { queryQueryPropertyValues } from "../funcs/queryQueryPropertyValues.js";
 import { queryQuerySemanticThreads } from "../funcs/queryQuerySemanticThreads.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Query extends ClientSDK {
@@ -19,13 +18,11 @@ export class Query extends ClientSDK {
    * Query Conversations
    */
   async conversations(
-    security: operations.QueryConversationsSecurity,
     request: components.QueryConversationsRequestBody,
     options?: RequestOptions,
   ): Promise<components.QueryConversationsResponseBody> {
     return unwrapAsync(queryConversations(
       this,
-      security,
       request,
       options,
     ));
@@ -35,13 +32,11 @@ export class Query extends ClientSDK {
    * Query Events
    */
   async queryEvents(
-    security: operations.QueryEventsSecurity,
     request: components.QueryEventsRequestBody,
     options?: RequestOptions,
   ): Promise<components.QueryEventsResponseBody> {
     return unwrapAsync(queryQueryEvents(
       this,
-      security,
       request,
       options,
     ));
@@ -51,13 +46,11 @@ export class Query extends ClientSDK {
    * Query Feedback
    */
   async queryFeedback(
-    security: operations.QueryFeedbackSecurity,
     request: components.QueryFeedbackRequestBody,
     options?: RequestOptions,
   ): Promise<components.QueryFeedbackResponseBody> {
     return unwrapAsync(queryQueryFeedback(
       this,
-      security,
       request,
       options,
     ));
@@ -67,13 +60,11 @@ export class Query extends ClientSDK {
    * Query Semantic Threads
    */
   async querySemanticThreads(
-    security: operations.QuerySemanticThreadsSecurity,
     request: components.QuerySemanticThreadsRequestBody,
     options?: RequestOptions,
   ): Promise<components.QuerySemanticThreadsResponseBody> {
     return unwrapAsync(queryQuerySemanticThreads(
       this,
-      security,
       request,
       options,
     ));

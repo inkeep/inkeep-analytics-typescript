@@ -22,12 +22,12 @@ Query Conversations
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
-const inkeepAnalytics = new InkeepAnalytics();
+const inkeepAnalytics = new InkeepAnalytics({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
   const result = await inkeepAnalytics.query.conversations({
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
     notes: "Count of support ticket conversations by integration",
   });
 
@@ -47,12 +47,12 @@ import { queryConversations } from "@inkeep/inkeep-analytics/funcs/queryConversa
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const inkeepAnalytics = new InkeepAnalyticsCore();
+const inkeepAnalytics = new InkeepAnalyticsCore({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
   const res = await queryConversations(inkeepAnalytics, {
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
     notes: "Count of support ticket conversations by integration",
   });
   if (res.ok) {
@@ -88,7 +88,6 @@ import {
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [components.QueryConversationsRequestBody](../../models/components/queryconversationsrequestbody.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.QueryConversationsSecurity](../../models/operations/queryconversationssecurity.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -117,12 +116,12 @@ Query Events
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
-const inkeepAnalytics = new InkeepAnalytics();
+const inkeepAnalytics = new InkeepAnalytics({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
   const result = await inkeepAnalytics.query.queryEvents({
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
     notes: "Count of events by type",
   });
 
@@ -142,12 +141,12 @@ import { queryQueryEvents } from "@inkeep/inkeep-analytics/funcs/queryQueryEvent
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const inkeepAnalytics = new InkeepAnalyticsCore();
+const inkeepAnalytics = new InkeepAnalyticsCore({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
   const res = await queryQueryEvents(inkeepAnalytics, {
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
     notes: "Count of events by type",
   });
   if (res.ok) {
@@ -183,7 +182,6 @@ import {
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [components.QueryEventsRequestBody](../../models/components/queryeventsrequestbody.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.QueryEventsSecurity](../../models/operations/queryeventssecurity.md)                                                                                               | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -212,12 +210,12 @@ Query Feedback
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
-const inkeepAnalytics = new InkeepAnalytics();
+const inkeepAnalytics = new InkeepAnalytics({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
   const result = await inkeepAnalytics.query.queryFeedback({
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
     notes: "Count of feedback by type",
   });
 
@@ -237,12 +235,12 @@ import { queryQueryFeedback } from "@inkeep/inkeep-analytics/funcs/queryQueryFee
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const inkeepAnalytics = new InkeepAnalyticsCore();
+const inkeepAnalytics = new InkeepAnalyticsCore({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
   const res = await queryQueryFeedback(inkeepAnalytics, {
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
     notes: "Count of feedback by type",
   });
   if (res.ok) {
@@ -278,7 +276,6 @@ import {
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [components.QueryFeedbackRequestBody](../../models/components/queryfeedbackrequestbody.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.QueryFeedbackSecurity](../../models/operations/queryfeedbacksecurity.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -307,12 +304,12 @@ Query Semantic Threads
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
-const inkeepAnalytics = new InkeepAnalytics();
+const inkeepAnalytics = new InkeepAnalytics({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
   const result = await inkeepAnalytics.query.querySemanticThreads({
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
     notes: "Count of chat sessions with documentation gaps by integration",
   });
 
@@ -332,12 +329,12 @@ import { queryQuerySemanticThreads } from "@inkeep/inkeep-analytics/funcs/queryQ
 
 // Use `InkeepAnalyticsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
-const inkeepAnalytics = new InkeepAnalyticsCore();
+const inkeepAnalytics = new InkeepAnalyticsCore({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
 
 async function run() {
   const res = await queryQuerySemanticThreads(inkeepAnalytics, {
-    webIntegrationKey: process.env["INKEEPANALYTICS_WEB_INTEGRATION_KEY"] ?? "",
-  }, {
     notes: "Count of chat sessions with documentation gaps by integration",
   });
   if (res.ok) {
@@ -373,7 +370,6 @@ import {
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [components.QuerySemanticThreadsRequestBody](../../models/components/querysemanticthreadsrequestbody.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.QuerySemanticThreadsSecurity](../../models/operations/querysemanticthreadssecurity.md)                                                                             | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |

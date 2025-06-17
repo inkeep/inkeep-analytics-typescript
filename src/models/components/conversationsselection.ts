@@ -29,9 +29,9 @@ import {
  * Fields to select from conversations
  */
 export type ConversationsSelection =
+  | (ConversationsAggregationSelection & { type: "aggregation" })
   | (ConversationsTimeBasedGroupBySelection & { type: "time" })
-  | (ConversationsSimpleFieldSelection & { type: "field" })
-  | (ConversationsAggregationSelection & { type: "aggregation" });
+  | (ConversationsSimpleFieldSelection & { type: "field" });
 
 /** @internal */
 export const ConversationsSelection$inboundSchema: z.ZodType<
@@ -39,24 +39,24 @@ export const ConversationsSelection$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  ConversationsAggregationSelection$inboundSchema.and(
+    z.object({ type: z.literal("aggregation") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
   ConversationsTimeBasedGroupBySelection$inboundSchema.and(
     z.object({ type: z.literal("time") }).transform((v) => ({ type: v.type })),
   ),
   ConversationsSimpleFieldSelection$inboundSchema.and(
     z.object({ type: z.literal("field") }).transform((v) => ({ type: v.type })),
   ),
-  ConversationsAggregationSelection$inboundSchema.and(
-    z.object({ type: z.literal("aggregation") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
 ]);
 
 /** @internal */
 export type ConversationsSelection$Outbound =
+  | (ConversationsAggregationSelection$Outbound & { type: "aggregation" })
   | (ConversationsTimeBasedGroupBySelection$Outbound & { type: "time" })
-  | (ConversationsSimpleFieldSelection$Outbound & { type: "field" })
-  | (ConversationsAggregationSelection$Outbound & { type: "aggregation" });
+  | (ConversationsSimpleFieldSelection$Outbound & { type: "field" });
 
 /** @internal */
 export const ConversationsSelection$outboundSchema: z.ZodType<
@@ -64,16 +64,16 @@ export const ConversationsSelection$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ConversationsSelection
 > = z.union([
+  ConversationsAggregationSelection$outboundSchema.and(
+    z.object({ type: z.literal("aggregation") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
   ConversationsTimeBasedGroupBySelection$outboundSchema.and(
     z.object({ type: z.literal("time") }).transform((v) => ({ type: v.type })),
   ),
   ConversationsSimpleFieldSelection$outboundSchema.and(
     z.object({ type: z.literal("field") }).transform((v) => ({ type: v.type })),
-  ),
-  ConversationsAggregationSelection$outboundSchema.and(
-    z.object({ type: z.literal("aggregation") }).transform((v) => ({
-      type: v.type,
-    })),
   ),
 ]);
 

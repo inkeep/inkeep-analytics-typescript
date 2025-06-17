@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 63a2136d-3fa3-4a0b-a766-1ddb2460cc12
 management:
-  docChecksum: c909772f5d7175cd9ab8aabc715e42ab
+  docChecksum: 038d9cd10bea679265b144b2ce573b4c
   docVersion: 0.1.1
-  speakeasyVersion: 1.563.0
-  generationVersion: 2.629.1
-  releaseVersion: 0.2.5-dev.1
-  configChecksum: 07dfbfd7889bfdeb0d974ae23e298292
+  speakeasyVersion: 1.564.0
+  generationVersion: 2.630.8
+  releaseVersion: 0.2.5-dev.2
+  configChecksum: a84c973288a355c9c4080da6ac61f9b9
   repoURL: https://github.com/inkeep/inkeep-analytics-typescript.git
   installationURL: https://github.com/inkeep/inkeep-analytics-typescript
   published: true
@@ -14,7 +14,7 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     additionalProperties: 0.1.1
-    constsAndDefaults: 0.1.11
+    constsAndDefaults: 0.1.12
     core: 3.21.11
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
@@ -34,7 +34,7 @@ features:
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.3.0
-    unions: 2.85.9
+    unions: 2.85.10
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -381,10 +381,6 @@ generatedFiles:
   - docs/models/operations/id.md
   - docs/models/operations/logconversationsecurity.md
   - docs/models/operations/logeventsecurity.md
-  - docs/models/operations/queryconversationssecurity.md
-  - docs/models/operations/queryeventssecurity.md
-  - docs/models/operations/queryfeedbacksecurity.md
-  - docs/models/operations/querysemanticthreadssecurity.md
   - docs/models/operations/reasons.md
   - docs/models/operations/result.md
   - docs/models/operations/submitfeedbackid.md
@@ -469,9 +465,13 @@ generatedFiles:
   - src/mcp-server/tools/feedbackGetFeedbackById.ts
   - src/mcp-server/tools/feedbackList.ts
   - src/mcp-server/tools/feedbackSubmit.ts
+  - src/mcp-server/tools/queryConversations.ts
   - src/mcp-server/tools/queryExportSemanticThreadsQueryResults.ts
+  - src/mcp-server/tools/queryQueryEvents.ts
+  - src/mcp-server/tools/queryQueryFeedback.ts
   - src/mcp-server/tools/queryQueryPropertyKeys.ts
   - src/mcp-server/tools/queryQueryPropertyValues.ts
+  - src/mcp-server/tools/queryQuerySemanticThreads.ts
   - src/mcp-server/tools/topSearchQueries.ts
   - src/mcp-server/tools/weeklySearchUsers.ts
   - src/models/components/conversation.ts
@@ -585,10 +585,6 @@ generatedFiles:
   - src/models/operations/index.ts
   - src/models/operations/logconversation.ts
   - src/models/operations/logevent.ts
-  - src/models/operations/queryconversations.ts
-  - src/models/operations/queryevents.ts
-  - src/models/operations/queryfeedback.ts
-  - src/models/operations/querysemanticthreads.ts
   - src/models/operations/submitfeedback.ts
   - src/models/operations/topsearchqueries.ts
   - src/models/operations/weeklysearchusers.ts

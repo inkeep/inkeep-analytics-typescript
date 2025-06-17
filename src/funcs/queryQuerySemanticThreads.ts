@@ -8,7 +8,7 @@ import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
-import { resolveSecurity } from "../lib/security.js";
+import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import * as components from "../models/components/index.js";
 import {
@@ -22,7 +22,6 @@ import * as errors from "../models/errors/index.js";
 import { InkeepAnalyticsError } from "../models/errors/inkeepanalyticserror.js";
 import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
-import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
 
@@ -31,7 +30,6 @@ import { Result } from "../types/fp.js";
  */
 export function queryQuerySemanticThreads(
   client: InkeepAnalyticsCore,
-  security: operations.QuerySemanticThreadsSecurity,
   request: components.QuerySemanticThreadsRequestBody,
   options?: RequestOptions,
 ): APIPromise<
@@ -54,7 +52,6 @@ export function queryQuerySemanticThreads(
 > {
   return new APIPromise($do(
     client,
-    security,
     request,
     options,
   ));
@@ -62,7 +59,6 @@ export function queryQuerySemanticThreads(
 
 async function $do(
   client: InkeepAnalyticsCore,
-  security: operations.QuerySemanticThreadsSecurity,
   request: components.QuerySemanticThreadsRequestBody,
   options?: RequestOptions,
 ): Promise<
@@ -105,32 +101,21 @@ async function $do(
     Accept: "application/json",
   }));
 
-  const requestSecurity = resolveSecurity(
-    [
-      {
-        fieldName: "Authorization",
-        type: "http:bearer",
-        value: security?.webIntegrationKey,
-      },
-    ],
-    [
-      {
-        fieldName: "Authorization",
-        type: "http:bearer",
-        value: security?.apiIntegrationKey,
-      },
-    ],
-  );
+  const secConfig = await extractSecurity(client._options.apiIntegrationKey);
+  const securityInput = secConfig == null
+    ? {}
+    : { apiIntegrationKey: secConfig };
+  const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "querySemanticThreads",
-    oAuth2Scopes: null,
+    oAuth2Scopes: [],
 
     resolvedSecurity: requestSecurity,
 
-    securitySource: security,
+    securitySource: client._options.apiIntegrationKey,
     retryConfig: options?.retries
       || client._options.retryConfig
       || {
