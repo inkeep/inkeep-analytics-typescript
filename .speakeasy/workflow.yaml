@@ -3,7 +3,7 @@ speakeasyVersion: latest
 sources:
     Dev Inkeep Analytics API:
         inputs:
-            - location: http://localhost:3003/openapi.json
+            - location: http://localhost:10533/openapi.json
         overlays:
             - location: .speakeasy/speakeasy-modifications-overlay.yaml
         registry:
