@@ -54,20 +54,6 @@ export type SupportTicketMessageId = string | number;
 export type SupportTicketMessageUserId = string | number;
 
 /**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const SupportTicketMessageUserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type SupportTicketMessageUserType = ClosedEnum<
-  typeof SupportTicketMessageUserType
->;
-
-/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type SupportTicketMessageUserProperties = {
@@ -90,7 +76,7 @@ export type SupportTicketMessageUserProperties = {
   /**
    * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
-  userType?: SupportTicketMessageUserType | null | undefined;
+  userType?: string | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -373,27 +359,6 @@ export function supportTicketMessageUserIdFromJSON(
 }
 
 /** @internal */
-export const SupportTicketMessageUserType$inboundSchema: z.ZodNativeEnum<
-  typeof SupportTicketMessageUserType
-> = z.nativeEnum(SupportTicketMessageUserType);
-
-/** @internal */
-export const SupportTicketMessageUserType$outboundSchema: z.ZodNativeEnum<
-  typeof SupportTicketMessageUserType
-> = SupportTicketMessageUserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SupportTicketMessageUserType$ {
-  /** @deprecated use `SupportTicketMessageUserType$inboundSchema` instead. */
-  export const inboundSchema = SupportTicketMessageUserType$inboundSchema;
-  /** @deprecated use `SupportTicketMessageUserType$outboundSchema` instead. */
-  export const outboundSchema = SupportTicketMessageUserType$outboundSchema;
-}
-
-/** @internal */
 export const SupportTicketMessageUserProperties$inboundSchema: z.ZodType<
   SupportTicketMessageUserProperties,
   z.ZodTypeDef,
@@ -404,7 +369,7 @@ export const SupportTicketMessageUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(SupportTicketMessageUserType$inboundSchema).optional(),
+    userType: z.nullable(z.string()).optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -430,7 +395,7 @@ export const SupportTicketMessageUserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
-  userType: z.nullable(SupportTicketMessageUserType$outboundSchema).optional(),
+  userType: z.nullable(z.string()).optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {

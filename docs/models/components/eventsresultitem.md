@@ -165,3 +165,4 @@ let value: EventsResultItem = {};
 | `propertiesSupportAgentName`                  | *string*                                      | :heavy_minus_sign:                            | N/A                                           |
 | `userPropertiesUserId`                        | *string*                                      | :heavy_minus_sign:                            | N/A                                           |
 | `userPropertiesSupportAgentName`              | *string*                                      | :heavy_minus_sign:                            | N/A                                           |
+| `additionalProperties`                        | Record<string, *any*>                         | :heavy_minus_sign:                            | N/A                                           |

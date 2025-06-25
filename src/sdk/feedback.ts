@@ -17,7 +17,7 @@ export class Feedback extends ClientSDK {
    * @remarks
    * Logs new feedback or updates an existing one.
    *
-   * **API Key Types:** `API`
+   * **API Key Types:**  `WEB`, `API`
    */
   async submit(
     request: operations.LogFeedbackRequestBody,

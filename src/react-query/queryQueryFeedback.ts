@@ -12,13 +12,11 @@ import { queryQueryFeedback } from "../funcs/queryQueryFeedback.js";
 import { combineSignals } from "../lib/primitives.js";
 import { RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
 import { MutationHookOptions } from "./_types.js";
 
 export type QueryQueryFeedbackMutationVariables = {
-  security: operations.QueryFeedbackSecurity;
   request: components.QueryFeedbackRequestBody;
   options?: RequestOptions;
 };
@@ -63,7 +61,6 @@ export function buildQueryQueryFeedbackMutation(
   return {
     mutationKey: mutationKeyQueryQueryFeedback(),
     mutationFn: function queryQueryFeedbackMutationFn({
-      security,
       request,
       options,
     }): Promise<QueryQueryFeedbackMutationData> {
@@ -81,7 +78,6 @@ export function buildQueryQueryFeedbackMutation(
       };
       return unwrapAsync(queryQueryFeedback(
         client$,
-        security,
         request,
         mergedOptions,
       ));

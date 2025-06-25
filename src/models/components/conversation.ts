@@ -26,9 +26,9 @@ import {
 } from "./supportticketconversation.js";
 
 export type Conversation =
+  | (OpenAIConversation & { type: "openai" })
   | (SupportTicketConversation & { type: "support_ticket" })
-  | (SupportCopilotConversation & { type: "support_copilot" })
-  | (OpenAIConversation & { type: "openai" });
+  | (SupportCopilotConversation & { type: "support_copilot" });
 
 /** @internal */
 export const Conversation$inboundSchema: z.ZodType<
@@ -36,6 +36,11 @@ export const Conversation$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  OpenAIConversation$inboundSchema.and(
+    z.object({ type: z.literal("openai") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
   SupportTicketConversation$inboundSchema.and(
     z.object({ type: z.literal("support_ticket") }).transform((v) => ({
       type: v.type,
@@ -46,18 +51,13 @@ export const Conversation$inboundSchema: z.ZodType<
       type: v.type,
     })),
   ),
-  OpenAIConversation$inboundSchema.and(
-    z.object({ type: z.literal("openai") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
 ]);
 
 /** @internal */
 export type Conversation$Outbound =
+  | (OpenAIConversation$Outbound & { type: "openai" })
   | (SupportTicketConversation$Outbound & { type: "support_ticket" })
-  | (SupportCopilotConversation$Outbound & { type: "support_copilot" })
-  | (OpenAIConversation$Outbound & { type: "openai" });
+  | (SupportCopilotConversation$Outbound & { type: "support_copilot" });
 
 /** @internal */
 export const Conversation$outboundSchema: z.ZodType<
@@ -65,6 +65,11 @@ export const Conversation$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Conversation
 > = z.union([
+  OpenAIConversation$outboundSchema.and(
+    z.object({ type: z.literal("openai") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
   SupportTicketConversation$outboundSchema.and(
     z.object({ type: z.literal("support_ticket") }).transform((v) => ({
       type: v.type,
@@ -72,11 +77,6 @@ export const Conversation$outboundSchema: z.ZodType<
   ),
   SupportCopilotConversation$outboundSchema.and(
     z.object({ type: z.literal("support_copilot") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
-  OpenAIConversation$outboundSchema.and(
-    z.object({ type: z.literal("openai") }).transform((v) => ({
       type: v.type,
     })),
   ),

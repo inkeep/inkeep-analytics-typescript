@@ -12,13 +12,11 @@ import { queryQuerySemanticThreads } from "../funcs/queryQuerySemanticThreads.js
 import { combineSignals } from "../lib/primitives.js";
 import { RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
-import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
 import { MutationHookOptions } from "./_types.js";
 
 export type QueryQuerySemanticThreadsMutationVariables = {
-  security: operations.QuerySemanticThreadsSecurity;
   request: components.QuerySemanticThreadsRequestBody;
   options?: RequestOptions;
 };
@@ -63,7 +61,6 @@ export function buildQueryQuerySemanticThreadsMutation(
   return {
     mutationKey: mutationKeyQueryQuerySemanticThreads(),
     mutationFn: function queryQuerySemanticThreadsMutationFn({
-      security,
       request,
       options,
     }): Promise<QueryQuerySemanticThreadsMutationData> {
@@ -81,7 +78,6 @@ export function buildQueryQuerySemanticThreadsMutation(
       };
       return unwrapAsync(queryQuerySemanticThreads(
         client$,
-        security,
         request,
         mergedOptions,
       ));

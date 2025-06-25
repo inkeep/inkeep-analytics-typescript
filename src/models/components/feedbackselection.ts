@@ -29,9 +29,9 @@ import {
  * Fields to select from feedback
  */
 export type FeedbackSelection =
+  | (FeedbackAggregationSelection & { type: "aggregation" })
   | (FeedbackTimeBasedGroupBySelection & { type: "time" })
-  | (FeedbackSimpleFieldSelection & { type: "field" })
-  | (FeedbackAggregationSelection & { type: "aggregation" });
+  | (FeedbackSimpleFieldSelection & { type: "field" });
 
 /** @internal */
 export const FeedbackSelection$inboundSchema: z.ZodType<
@@ -39,24 +39,24 @@ export const FeedbackSelection$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  FeedbackAggregationSelection$inboundSchema.and(
+    z.object({ type: z.literal("aggregation") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
   FeedbackTimeBasedGroupBySelection$inboundSchema.and(
     z.object({ type: z.literal("time") }).transform((v) => ({ type: v.type })),
   ),
   FeedbackSimpleFieldSelection$inboundSchema.and(
     z.object({ type: z.literal("field") }).transform((v) => ({ type: v.type })),
   ),
-  FeedbackAggregationSelection$inboundSchema.and(
-    z.object({ type: z.literal("aggregation") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
 ]);
 
 /** @internal */
 export type FeedbackSelection$Outbound =
+  | (FeedbackAggregationSelection$Outbound & { type: "aggregation" })
   | (FeedbackTimeBasedGroupBySelection$Outbound & { type: "time" })
-  | (FeedbackSimpleFieldSelection$Outbound & { type: "field" })
-  | (FeedbackAggregationSelection$Outbound & { type: "aggregation" });
+  | (FeedbackSimpleFieldSelection$Outbound & { type: "field" });
 
 /** @internal */
 export const FeedbackSelection$outboundSchema: z.ZodType<
@@ -64,16 +64,16 @@ export const FeedbackSelection$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   FeedbackSelection
 > = z.union([
+  FeedbackAggregationSelection$outboundSchema.and(
+    z.object({ type: z.literal("aggregation") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
   FeedbackTimeBasedGroupBySelection$outboundSchema.and(
     z.object({ type: z.literal("time") }).transform((v) => ({ type: v.type })),
   ),
   FeedbackSimpleFieldSelection$outboundSchema.and(
     z.object({ type: z.literal("field") }).transform((v) => ({ type: v.type })),
-  ),
-  FeedbackAggregationSelection$outboundSchema.and(
-    z.object({ type: z.literal("aggregation") }).transform((v) => ({
-      type: v.type,
-    })),
   ),
 ]);
 

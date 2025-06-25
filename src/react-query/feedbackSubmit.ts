@@ -29,7 +29,7 @@ export type FeedbackSubmitMutationData = operations.LogFeedbackResponseBody;
  * @remarks
  * Logs new feedback or updates an existing one.
  *
- * **API Key Types:** `API`
+ * **API Key Types:**  `WEB`, `API`
  */
 export function useFeedbackSubmitMutation(
   options?: MutationHookOptions<

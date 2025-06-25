@@ -34,18 +34,6 @@ export type Id = string | number;
 export type UserId = string | number;
 
 /**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const UserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type UserType = ClosedEnum<typeof UserType>;
-
-/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type UserProperties = {
@@ -68,7 +56,7 @@ export type UserProperties = {
   /**
    * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
-  userType?: UserType | null | undefined;
+  userType?: string | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -116,18 +104,6 @@ export type LogFeedbackId = string | number;
 export type LogFeedbackUserId = string | number;
 
 /**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const LogFeedbackUserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type LogFeedbackUserType = ClosedEnum<typeof LogFeedbackUserType>;
-
-/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type LogFeedbackUserProperties = {
@@ -150,21 +126,18 @@ export type LogFeedbackUserProperties = {
   /**
    * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
-  userType?: LogFeedbackUserType | null | undefined;
+  userType?: string | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
 /**
- * Feedback provided successfully
+ * Feedback logged successfully
  */
 export type LogFeedbackResponseBody = {
   id: string;
   type: LogFeedbackType;
   messageId: string;
-  /**
-   * A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.
-   */
-  createdAt?: Date | null | undefined;
+  createdAt: string;
   reasons?: Array<LogFeedbackReasons> | null | undefined;
   /**
    * A customizable collection of custom properties or attributes.
@@ -328,25 +301,6 @@ export function userIdFromJSON(
 }
 
 /** @internal */
-export const UserType$inboundSchema: z.ZodNativeEnum<typeof UserType> = z
-  .nativeEnum(UserType);
-
-/** @internal */
-export const UserType$outboundSchema: z.ZodNativeEnum<typeof UserType> =
-  UserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UserType$ {
-  /** @deprecated use `UserType$inboundSchema` instead. */
-  export const inboundSchema = UserType$inboundSchema;
-  /** @deprecated use `UserType$outboundSchema` instead. */
-  export const outboundSchema = UserType$outboundSchema;
-}
-
-/** @internal */
 export const UserProperties$inboundSchema: z.ZodType<
   UserProperties,
   z.ZodTypeDef,
@@ -357,7 +311,7 @@ export const UserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(UserType$inboundSchema).optional(),
+    userType: z.nullable(z.string()).optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -383,7 +337,7 @@ export const UserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
-  userType: z.nullable(UserType$outboundSchema).optional(),
+  userType: z.nullable(z.string()).optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {
@@ -668,27 +622,6 @@ export function logFeedbackUserIdFromJSON(
 }
 
 /** @internal */
-export const LogFeedbackUserType$inboundSchema: z.ZodNativeEnum<
-  typeof LogFeedbackUserType
-> = z.nativeEnum(LogFeedbackUserType);
-
-/** @internal */
-export const LogFeedbackUserType$outboundSchema: z.ZodNativeEnum<
-  typeof LogFeedbackUserType
-> = LogFeedbackUserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace LogFeedbackUserType$ {
-  /** @deprecated use `LogFeedbackUserType$inboundSchema` instead. */
-  export const inboundSchema = LogFeedbackUserType$inboundSchema;
-  /** @deprecated use `LogFeedbackUserType$outboundSchema` instead. */
-  export const outboundSchema = LogFeedbackUserType$outboundSchema;
-}
-
-/** @internal */
 export const LogFeedbackUserProperties$inboundSchema: z.ZodType<
   LogFeedbackUserProperties,
   z.ZodTypeDef,
@@ -699,7 +632,7 @@ export const LogFeedbackUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(LogFeedbackUserType$inboundSchema).optional(),
+    userType: z.nullable(z.string()).optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -725,7 +658,7 @@ export const LogFeedbackUserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
-  userType: z.nullable(LogFeedbackUserType$outboundSchema).optional(),
+  userType: z.nullable(z.string()).optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {
@@ -776,9 +709,7 @@ export const LogFeedbackResponseBody$inboundSchema: z.ZodType<
   id: z.string(),
   type: LogFeedbackType$inboundSchema,
   messageId: z.string(),
-  createdAt: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
+  createdAt: z.string(),
   reasons: z.nullable(z.array(z.lazy(() => LogFeedbackReasons$inboundSchema)))
     .optional(),
   properties: z.nullable(z.record(z.any())).optional(),
@@ -792,7 +723,7 @@ export type LogFeedbackResponseBody$Outbound = {
   id: string;
   type: string;
   messageId: string;
-  createdAt?: string | null | undefined;
+  createdAt: string;
   reasons?: Array<LogFeedbackReasons$Outbound> | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
   userProperties?: LogFeedbackUserProperties$Outbound | null | undefined;
@@ -807,7 +738,7 @@ export const LogFeedbackResponseBody$outboundSchema: z.ZodType<
   id: z.string(),
   type: LogFeedbackType$outboundSchema,
   messageId: z.string(),
-  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  createdAt: z.string(),
   reasons: z.nullable(z.array(z.lazy(() => LogFeedbackReasons$outboundSchema)))
     .optional(),
   properties: z.nullable(z.record(z.any())).optional(),

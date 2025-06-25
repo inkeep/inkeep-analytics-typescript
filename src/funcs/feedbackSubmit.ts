@@ -31,7 +31,7 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Logs new feedback or updates an existing one.
  *
- * **API Key Types:** `API`
+ * **API Key Types:**  `WEB`, `API`
  */
 export function feedbackSubmit(
   client: InkeepAnalyticsCore,
