@@ -40,18 +40,6 @@ export type Id = string | number;
 export type UserId = string | number;
 
 /**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const UserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type UserType = ClosedEnum<typeof UserType>;
-
-/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type UserProperties = {
@@ -74,7 +62,7 @@ export type UserProperties = {
   /**
    * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
-  userType?: UserType | null | undefined;
+  userType?: string | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -134,20 +122,6 @@ export type CreateOpenAIConversationId = string | number;
 export type CreateOpenAIConversationUserId = string | number;
 
 /**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const CreateOpenAIConversationUserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type CreateOpenAIConversationUserType = ClosedEnum<
-  typeof CreateOpenAIConversationUserType
->;
-
-/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type CreateOpenAIConversationUserProperties = {
@@ -170,7 +144,7 @@ export type CreateOpenAIConversationUserProperties = {
   /**
    * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
-  userType?: CreateOpenAIConversationUserType | null | undefined;
+  userType?: string | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -335,25 +309,6 @@ export function userIdFromJSON(
 }
 
 /** @internal */
-export const UserType$inboundSchema: z.ZodNativeEnum<typeof UserType> = z
-  .nativeEnum(UserType);
-
-/** @internal */
-export const UserType$outboundSchema: z.ZodNativeEnum<typeof UserType> =
-  UserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace UserType$ {
-  /** @deprecated use `UserType$inboundSchema` instead. */
-  export const inboundSchema = UserType$inboundSchema;
-  /** @deprecated use `UserType$outboundSchema` instead. */
-  export const outboundSchema = UserType$outboundSchema;
-}
-
-/** @internal */
 export const UserProperties$inboundSchema: z.ZodType<
   UserProperties,
   z.ZodTypeDef,
@@ -364,7 +319,7 @@ export const UserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(UserType$inboundSchema).optional(),
+    userType: z.nullable(z.string()).optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -390,7 +345,7 @@ export const UserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
-  userType: z.nullable(UserType$outboundSchema).optional(),
+  userType: z.nullable(z.string()).optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {
@@ -765,27 +720,6 @@ export function createOpenAIConversationUserIdFromJSON(
 }
 
 /** @internal */
-export const CreateOpenAIConversationUserType$inboundSchema: z.ZodNativeEnum<
-  typeof CreateOpenAIConversationUserType
-> = z.nativeEnum(CreateOpenAIConversationUserType);
-
-/** @internal */
-export const CreateOpenAIConversationUserType$outboundSchema: z.ZodNativeEnum<
-  typeof CreateOpenAIConversationUserType
-> = CreateOpenAIConversationUserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace CreateOpenAIConversationUserType$ {
-  /** @deprecated use `CreateOpenAIConversationUserType$inboundSchema` instead. */
-  export const inboundSchema = CreateOpenAIConversationUserType$inboundSchema;
-  /** @deprecated use `CreateOpenAIConversationUserType$outboundSchema` instead. */
-  export const outboundSchema = CreateOpenAIConversationUserType$outboundSchema;
-}
-
-/** @internal */
 export const CreateOpenAIConversationUserProperties$inboundSchema: z.ZodType<
   CreateOpenAIConversationUserProperties,
   z.ZodTypeDef,
@@ -796,8 +730,7 @@ export const CreateOpenAIConversationUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(CreateOpenAIConversationUserType$inboundSchema)
-      .optional(),
+    userType: z.nullable(z.string()).optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -823,8 +756,7 @@ export const CreateOpenAIConversationUserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
-  userType: z.nullable(CreateOpenAIConversationUserType$outboundSchema)
-    .optional(),
+  userType: z.nullable(z.string()).optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {

@@ -36,20 +36,6 @@ export type QueryFeedbackResponseDataId = string | number;
 export type QueryFeedbackResponseDataUserId = string | number;
 
 /**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const QueryFeedbackResponseDataUserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type QueryFeedbackResponseDataUserType = ClosedEnum<
-  typeof QueryFeedbackResponseDataUserType
->;
-
-/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type QueryFeedbackResponseDataUserProperties = {
@@ -72,25 +58,15 @@ export type QueryFeedbackResponseDataUserProperties = {
   /**
    * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
-  userType?: QueryFeedbackResponseDataUserType | null | undefined;
+  userType?: string | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
-
-export const QueryFeedbackResponseDataStatus = {
-  Unreviewed: "unreviewed",
-  Flagged: "flagged",
-  Deferred: "deferred",
-  Resolved: "resolved",
-} as const;
-export type QueryFeedbackResponseDataStatus = ClosedEnum<
-  typeof QueryFeedbackResponseDataStatus
->;
 
 export type FeedbackResultItem = {
   id?: string | undefined;
   type?: QueryFeedbackResponseDataType | undefined;
   messageId?: string | undefined;
-  createdAt?: Date | undefined;
+  createdAt?: any | undefined;
   organizationId?: string | undefined;
   reasons?: Array<QueryFeedbackResponseDataReasons> | null | undefined;
   /**
@@ -104,8 +80,6 @@ export type FeedbackResultItem = {
   conversationId?: string | undefined;
   projectId?: string | null | undefined;
   integrationId?: string | null | undefined;
-  updatedAt?: Date | null | undefined;
-  status?: QueryFeedbackResponseDataStatus | undefined;
   sum?: number | undefined;
   count?: number | undefined;
   avg?: number | undefined;
@@ -155,14 +129,6 @@ export type FeedbackResultItem = {
   integrationIdDay?: string | undefined;
   integrationIdWeek?: string | undefined;
   integrationIdMonth?: string | undefined;
-  updatedAtHour?: string | undefined;
-  updatedAtDay?: string | undefined;
-  updatedAtWeek?: string | undefined;
-  updatedAtMonth?: string | undefined;
-  statusHour?: string | undefined;
-  statusDay?: string | undefined;
-  statusWeek?: string | undefined;
-  statusMonth?: string | undefined;
   sumId?: number | undefined;
   sumType?: number | undefined;
   sumMessageId?: number | undefined;
@@ -174,8 +140,6 @@ export type FeedbackResultItem = {
   sumConversationId?: number | undefined;
   sumProjectId?: number | undefined;
   sumIntegrationId?: number | undefined;
-  sumUpdatedAt?: number | undefined;
-  sumStatus?: number | undefined;
   countId?: number | undefined;
   countType?: number | undefined;
   countMessageId?: number | undefined;
@@ -187,8 +151,6 @@ export type FeedbackResultItem = {
   countConversationId?: number | undefined;
   countProjectId?: number | undefined;
   countIntegrationId?: number | undefined;
-  countUpdatedAt?: number | undefined;
-  countStatus?: number | undefined;
   avgId?: number | undefined;
   avgType?: number | undefined;
   avgMessageId?: number | undefined;
@@ -200,8 +162,6 @@ export type FeedbackResultItem = {
   avgConversationId?: number | undefined;
   avgProjectId?: number | undefined;
   avgIntegrationId?: number | undefined;
-  avgUpdatedAt?: number | undefined;
-  avgStatus?: number | undefined;
   minId?: number | undefined;
   minType?: number | undefined;
   minMessageId?: number | undefined;
@@ -213,8 +173,6 @@ export type FeedbackResultItem = {
   minConversationId?: number | undefined;
   minProjectId?: number | undefined;
   minIntegrationId?: number | undefined;
-  minUpdatedAt?: number | undefined;
-  minStatus?: number | undefined;
   maxId?: number | undefined;
   maxType?: number | undefined;
   maxMessageId?: number | undefined;
@@ -226,8 +184,6 @@ export type FeedbackResultItem = {
   maxConversationId?: number | undefined;
   maxProjectId?: number | undefined;
   maxIntegrationId?: number | undefined;
-  maxUpdatedAt?: number | undefined;
-  maxStatus?: number | undefined;
   sumPropertiesUserId?: number | undefined;
   sumPropertiesSupportAgentName?: number | undefined;
   sumUserPropertiesUserId?: number | undefined;
@@ -256,6 +212,7 @@ export type FeedbackResultItem = {
   propertiesSupportAgentName?: string | null | undefined;
   userPropertiesUserId?: string | null | undefined;
   userPropertiesSupportAgentName?: string | null | undefined;
+  additionalProperties?: { [k: string]: any };
 };
 
 /**
@@ -458,28 +415,6 @@ export function queryFeedbackResponseDataUserIdFromJSON(
 }
 
 /** @internal */
-export const QueryFeedbackResponseDataUserType$inboundSchema: z.ZodNativeEnum<
-  typeof QueryFeedbackResponseDataUserType
-> = z.nativeEnum(QueryFeedbackResponseDataUserType);
-
-/** @internal */
-export const QueryFeedbackResponseDataUserType$outboundSchema: z.ZodNativeEnum<
-  typeof QueryFeedbackResponseDataUserType
-> = QueryFeedbackResponseDataUserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace QueryFeedbackResponseDataUserType$ {
-  /** @deprecated use `QueryFeedbackResponseDataUserType$inboundSchema` instead. */
-  export const inboundSchema = QueryFeedbackResponseDataUserType$inboundSchema;
-  /** @deprecated use `QueryFeedbackResponseDataUserType$outboundSchema` instead. */
-  export const outboundSchema =
-    QueryFeedbackResponseDataUserType$outboundSchema;
-}
-
-/** @internal */
 export const QueryFeedbackResponseDataUserProperties$inboundSchema: z.ZodType<
   QueryFeedbackResponseDataUserProperties,
   z.ZodTypeDef,
@@ -490,8 +425,7 @@ export const QueryFeedbackResponseDataUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(QueryFeedbackResponseDataUserType$inboundSchema)
-      .optional(),
+    userType: z.nullable(z.string()).optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -517,8 +451,7 @@ export const QueryFeedbackResponseDataUserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
-  userType: z.nullable(QueryFeedbackResponseDataUserType$outboundSchema)
-    .optional(),
+  userType: z.nullable(z.string()).optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {
@@ -572,203 +505,163 @@ export function queryFeedbackResponseDataUserPropertiesFromJSON(
 }
 
 /** @internal */
-export const QueryFeedbackResponseDataStatus$inboundSchema: z.ZodNativeEnum<
-  typeof QueryFeedbackResponseDataStatus
-> = z.nativeEnum(QueryFeedbackResponseDataStatus);
-
-/** @internal */
-export const QueryFeedbackResponseDataStatus$outboundSchema: z.ZodNativeEnum<
-  typeof QueryFeedbackResponseDataStatus
-> = QueryFeedbackResponseDataStatus$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace QueryFeedbackResponseDataStatus$ {
-  /** @deprecated use `QueryFeedbackResponseDataStatus$inboundSchema` instead. */
-  export const inboundSchema = QueryFeedbackResponseDataStatus$inboundSchema;
-  /** @deprecated use `QueryFeedbackResponseDataStatus$outboundSchema` instead. */
-  export const outboundSchema = QueryFeedbackResponseDataStatus$outboundSchema;
-}
-
-/** @internal */
 export const FeedbackResultItem$inboundSchema: z.ZodType<
   FeedbackResultItem,
   z.ZodTypeDef,
   unknown
-> = z.object({
-  id: z.string().optional(),
-  type: QueryFeedbackResponseDataType$inboundSchema.optional(),
-  messageId: z.string().optional(),
-  createdAt: z.string().datetime({ offset: true }).transform(v => new Date(v))
-    .optional(),
-  organizationId: z.string().optional(),
-  reasons: z.nullable(
-    z.array(z.lazy(() => QueryFeedbackResponseDataReasons$inboundSchema)),
-  ).optional(),
-  properties: z.nullable(z.record(z.any())).optional(),
-  userProperties: z.nullable(
-    z.lazy(() => QueryFeedbackResponseDataUserProperties$inboundSchema),
-  ).optional(),
-  conversationId: z.string().optional(),
-  projectId: z.nullable(z.string()).optional(),
-  integrationId: z.nullable(z.string()).optional(),
-  updatedAt: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
-  status: QueryFeedbackResponseDataStatus$inboundSchema.default("unreviewed"),
-  sum: z.number().optional(),
-  count: z.number().optional(),
-  avg: z.number().optional(),
-  min: z.number().optional(),
-  max: z.number().optional(),
-  id_hour: z.string().optional(),
-  id_day: z.string().optional(),
-  id_week: z.string().optional(),
-  id_month: z.string().optional(),
-  type_hour: z.string().optional(),
-  type_day: z.string().optional(),
-  type_week: z.string().optional(),
-  type_month: z.string().optional(),
-  messageId_hour: z.string().optional(),
-  messageId_day: z.string().optional(),
-  messageId_week: z.string().optional(),
-  messageId_month: z.string().optional(),
-  createdAt_hour: z.string().optional(),
-  createdAt_day: z.string().optional(),
-  createdAt_week: z.string().optional(),
-  createdAt_month: z.string().optional(),
-  organizationId_hour: z.string().optional(),
-  organizationId_day: z.string().optional(),
-  organizationId_week: z.string().optional(),
-  organizationId_month: z.string().optional(),
-  reasons_hour: z.string().optional(),
-  reasons_day: z.string().optional(),
-  reasons_week: z.string().optional(),
-  reasons_month: z.string().optional(),
-  properties_hour: z.string().optional(),
-  properties_day: z.string().optional(),
-  properties_week: z.string().optional(),
-  properties_month: z.string().optional(),
-  userProperties_hour: z.string().optional(),
-  userProperties_day: z.string().optional(),
-  userProperties_week: z.string().optional(),
-  userProperties_month: z.string().optional(),
-  conversationId_hour: z.string().optional(),
-  conversationId_day: z.string().optional(),
-  conversationId_week: z.string().optional(),
-  conversationId_month: z.string().optional(),
-  projectId_hour: z.string().optional(),
-  projectId_day: z.string().optional(),
-  projectId_week: z.string().optional(),
-  projectId_month: z.string().optional(),
-  integrationId_hour: z.string().optional(),
-  integrationId_day: z.string().optional(),
-  integrationId_week: z.string().optional(),
-  integrationId_month: z.string().optional(),
-  updatedAt_hour: z.string().optional(),
-  updatedAt_day: z.string().optional(),
-  updatedAt_week: z.string().optional(),
-  updatedAt_month: z.string().optional(),
-  status_hour: z.string().optional(),
-  status_day: z.string().optional(),
-  status_week: z.string().optional(),
-  status_month: z.string().optional(),
-  sum_id: z.number().optional(),
-  sum_type: z.number().optional(),
-  sum_messageId: z.number().optional(),
-  sum_createdAt: z.number().optional(),
-  sum_organizationId: z.number().optional(),
-  sum_reasons: z.number().optional(),
-  sum_properties: z.number().optional(),
-  sum_userProperties: z.number().optional(),
-  sum_conversationId: z.number().optional(),
-  sum_projectId: z.number().optional(),
-  sum_integrationId: z.number().optional(),
-  sum_updatedAt: z.number().optional(),
-  sum_status: z.number().optional(),
-  count_id: z.number().optional(),
-  count_type: z.number().optional(),
-  count_messageId: z.number().optional(),
-  count_createdAt: z.number().optional(),
-  count_organizationId: z.number().optional(),
-  count_reasons: z.number().optional(),
-  count_properties: z.number().optional(),
-  count_userProperties: z.number().optional(),
-  count_conversationId: z.number().optional(),
-  count_projectId: z.number().optional(),
-  count_integrationId: z.number().optional(),
-  count_updatedAt: z.number().optional(),
-  count_status: z.number().optional(),
-  avg_id: z.number().optional(),
-  avg_type: z.number().optional(),
-  avg_messageId: z.number().optional(),
-  avg_createdAt: z.number().optional(),
-  avg_organizationId: z.number().optional(),
-  avg_reasons: z.number().optional(),
-  avg_properties: z.number().optional(),
-  avg_userProperties: z.number().optional(),
-  avg_conversationId: z.number().optional(),
-  avg_projectId: z.number().optional(),
-  avg_integrationId: z.number().optional(),
-  avg_updatedAt: z.number().optional(),
-  avg_status: z.number().optional(),
-  min_id: z.number().optional(),
-  min_type: z.number().optional(),
-  min_messageId: z.number().optional(),
-  min_createdAt: z.number().optional(),
-  min_organizationId: z.number().optional(),
-  min_reasons: z.number().optional(),
-  min_properties: z.number().optional(),
-  min_userProperties: z.number().optional(),
-  min_conversationId: z.number().optional(),
-  min_projectId: z.number().optional(),
-  min_integrationId: z.number().optional(),
-  min_updatedAt: z.number().optional(),
-  min_status: z.number().optional(),
-  max_id: z.number().optional(),
-  max_type: z.number().optional(),
-  max_messageId: z.number().optional(),
-  max_createdAt: z.number().optional(),
-  max_organizationId: z.number().optional(),
-  max_reasons: z.number().optional(),
-  max_properties: z.number().optional(),
-  max_userProperties: z.number().optional(),
-  max_conversationId: z.number().optional(),
-  max_projectId: z.number().optional(),
-  max_integrationId: z.number().optional(),
-  max_updatedAt: z.number().optional(),
-  max_status: z.number().optional(),
-  "sum_properties.userId": z.number().optional(),
-  "sum_properties.supportAgentName": z.number().optional(),
-  "sum_userProperties.userId": z.number().optional(),
-  "sum_userProperties.supportAgentName": z.number().optional(),
-  "count_properties.userId": z.number().optional(),
-  "count_properties.supportAgentName": z.number().optional(),
-  "count_userProperties.userId": z.number().optional(),
-  "count_userProperties.supportAgentName": z.number().optional(),
-  "countDistinct_properties.userId": z.number().optional(),
-  "countDistinct_properties.supportAgentName": z.number().optional(),
-  "countDistinct_userProperties.userId": z.number().optional(),
-  "countDistinct_userProperties.supportAgentName": z.number().optional(),
-  "avg_properties.userId": z.number().optional(),
-  "avg_properties.supportAgentName": z.number().optional(),
-  "avg_userProperties.userId": z.number().optional(),
-  "avg_userProperties.supportAgentName": z.number().optional(),
-  "min_properties.userId": z.number().optional(),
-  "min_properties.supportAgentName": z.number().optional(),
-  "min_userProperties.userId": z.number().optional(),
-  "min_userProperties.supportAgentName": z.number().optional(),
-  "max_properties.userId": z.number().optional(),
-  "max_properties.supportAgentName": z.number().optional(),
-  "max_userProperties.userId": z.number().optional(),
-  "max_userProperties.supportAgentName": z.number().optional(),
-  "properties.userId": z.nullable(z.string()).optional(),
-  "properties.supportAgentName": z.nullable(z.string()).optional(),
-  "userProperties.userId": z.nullable(z.string()).optional(),
-  "userProperties.supportAgentName": z.nullable(z.string()).optional(),
-}).transform((v) => {
+> = collectExtraKeys$(
+  z.object({
+    id: z.string().optional(),
+    type: QueryFeedbackResponseDataType$inboundSchema.optional(),
+    messageId: z.string().optional(),
+    createdAt: z.any().optional(),
+    organizationId: z.string().optional(),
+    reasons: z.nullable(
+      z.array(z.lazy(() => QueryFeedbackResponseDataReasons$inboundSchema)),
+    ).optional(),
+    properties: z.nullable(z.record(z.any())).optional(),
+    userProperties: z.nullable(
+      z.lazy(() => QueryFeedbackResponseDataUserProperties$inboundSchema),
+    ).optional(),
+    conversationId: z.string().optional(),
+    projectId: z.nullable(z.string()).optional(),
+    integrationId: z.nullable(z.string()).optional(),
+    sum: z.number().optional(),
+    count: z.number().optional(),
+    avg: z.number().optional(),
+    min: z.number().optional(),
+    max: z.number().optional(),
+    id_hour: z.string().optional(),
+    id_day: z.string().optional(),
+    id_week: z.string().optional(),
+    id_month: z.string().optional(),
+    type_hour: z.string().optional(),
+    type_day: z.string().optional(),
+    type_week: z.string().optional(),
+    type_month: z.string().optional(),
+    messageId_hour: z.string().optional(),
+    messageId_day: z.string().optional(),
+    messageId_week: z.string().optional(),
+    messageId_month: z.string().optional(),
+    createdAt_hour: z.string().optional(),
+    createdAt_day: z.string().optional(),
+    createdAt_week: z.string().optional(),
+    createdAt_month: z.string().optional(),
+    organizationId_hour: z.string().optional(),
+    organizationId_day: z.string().optional(),
+    organizationId_week: z.string().optional(),
+    organizationId_month: z.string().optional(),
+    reasons_hour: z.string().optional(),
+    reasons_day: z.string().optional(),
+    reasons_week: z.string().optional(),
+    reasons_month: z.string().optional(),
+    properties_hour: z.string().optional(),
+    properties_day: z.string().optional(),
+    properties_week: z.string().optional(),
+    properties_month: z.string().optional(),
+    userProperties_hour: z.string().optional(),
+    userProperties_day: z.string().optional(),
+    userProperties_week: z.string().optional(),
+    userProperties_month: z.string().optional(),
+    conversationId_hour: z.string().optional(),
+    conversationId_day: z.string().optional(),
+    conversationId_week: z.string().optional(),
+    conversationId_month: z.string().optional(),
+    projectId_hour: z.string().optional(),
+    projectId_day: z.string().optional(),
+    projectId_week: z.string().optional(),
+    projectId_month: z.string().optional(),
+    integrationId_hour: z.string().optional(),
+    integrationId_day: z.string().optional(),
+    integrationId_week: z.string().optional(),
+    integrationId_month: z.string().optional(),
+    sum_id: z.number().optional(),
+    sum_type: z.number().optional(),
+    sum_messageId: z.number().optional(),
+    sum_createdAt: z.number().optional(),
+    sum_organizationId: z.number().optional(),
+    sum_reasons: z.number().optional(),
+    sum_properties: z.number().optional(),
+    sum_userProperties: z.number().optional(),
+    sum_conversationId: z.number().optional(),
+    sum_projectId: z.number().optional(),
+    sum_integrationId: z.number().optional(),
+    count_id: z.number().optional(),
+    count_type: z.number().optional(),
+    count_messageId: z.number().optional(),
+    count_createdAt: z.number().optional(),
+    count_organizationId: z.number().optional(),
+    count_reasons: z.number().optional(),
+    count_properties: z.number().optional(),
+    count_userProperties: z.number().optional(),
+    count_conversationId: z.number().optional(),
+    count_projectId: z.number().optional(),
+    count_integrationId: z.number().optional(),
+    avg_id: z.number().optional(),
+    avg_type: z.number().optional(),
+    avg_messageId: z.number().optional(),
+    avg_createdAt: z.number().optional(),
+    avg_organizationId: z.number().optional(),
+    avg_reasons: z.number().optional(),
+    avg_properties: z.number().optional(),
+    avg_userProperties: z.number().optional(),
+    avg_conversationId: z.number().optional(),
+    avg_projectId: z.number().optional(),
+    avg_integrationId: z.number().optional(),
+    min_id: z.number().optional(),
+    min_type: z.number().optional(),
+    min_messageId: z.number().optional(),
+    min_createdAt: z.number().optional(),
+    min_organizationId: z.number().optional(),
+    min_reasons: z.number().optional(),
+    min_properties: z.number().optional(),
+    min_userProperties: z.number().optional(),
+    min_conversationId: z.number().optional(),
+    min_projectId: z.number().optional(),
+    min_integrationId: z.number().optional(),
+    max_id: z.number().optional(),
+    max_type: z.number().optional(),
+    max_messageId: z.number().optional(),
+    max_createdAt: z.number().optional(),
+    max_organizationId: z.number().optional(),
+    max_reasons: z.number().optional(),
+    max_properties: z.number().optional(),
+    max_userProperties: z.number().optional(),
+    max_conversationId: z.number().optional(),
+    max_projectId: z.number().optional(),
+    max_integrationId: z.number().optional(),
+    "sum_properties.userId": z.number().optional(),
+    "sum_properties.supportAgentName": z.number().optional(),
+    "sum_userProperties.userId": z.number().optional(),
+    "sum_userProperties.supportAgentName": z.number().optional(),
+    "count_properties.userId": z.number().optional(),
+    "count_properties.supportAgentName": z.number().optional(),
+    "count_userProperties.userId": z.number().optional(),
+    "count_userProperties.supportAgentName": z.number().optional(),
+    "countDistinct_properties.userId": z.number().optional(),
+    "countDistinct_properties.supportAgentName": z.number().optional(),
+    "countDistinct_userProperties.userId": z.number().optional(),
+    "countDistinct_userProperties.supportAgentName": z.number().optional(),
+    "avg_properties.userId": z.number().optional(),
+    "avg_properties.supportAgentName": z.number().optional(),
+    "avg_userProperties.userId": z.number().optional(),
+    "avg_userProperties.supportAgentName": z.number().optional(),
+    "min_properties.userId": z.number().optional(),
+    "min_properties.supportAgentName": z.number().optional(),
+    "min_userProperties.userId": z.number().optional(),
+    "min_userProperties.supportAgentName": z.number().optional(),
+    "max_properties.userId": z.number().optional(),
+    "max_properties.supportAgentName": z.number().optional(),
+    "max_userProperties.userId": z.number().optional(),
+    "max_userProperties.supportAgentName": z.number().optional(),
+    "properties.userId": z.nullable(z.string()).optional(),
+    "properties.supportAgentName": z.nullable(z.string()).optional(),
+    "userProperties.userId": z.nullable(z.string()).optional(),
+    "userProperties.supportAgentName": z.nullable(z.string()).optional(),
+  }).catchall(z.any()),
+  "additionalProperties",
+  true,
+).transform((v) => {
   return remap$(v, {
     "id_hour": "idHour",
     "id_day": "idDay",
@@ -814,14 +707,6 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "integrationId_day": "integrationIdDay",
     "integrationId_week": "integrationIdWeek",
     "integrationId_month": "integrationIdMonth",
-    "updatedAt_hour": "updatedAtHour",
-    "updatedAt_day": "updatedAtDay",
-    "updatedAt_week": "updatedAtWeek",
-    "updatedAt_month": "updatedAtMonth",
-    "status_hour": "statusHour",
-    "status_day": "statusDay",
-    "status_week": "statusWeek",
-    "status_month": "statusMonth",
     "sum_id": "sumId",
     "sum_type": "sumType",
     "sum_messageId": "sumMessageId",
@@ -833,8 +718,6 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "sum_conversationId": "sumConversationId",
     "sum_projectId": "sumProjectId",
     "sum_integrationId": "sumIntegrationId",
-    "sum_updatedAt": "sumUpdatedAt",
-    "sum_status": "sumStatus",
     "count_id": "countId",
     "count_type": "countType",
     "count_messageId": "countMessageId",
@@ -846,8 +729,6 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "count_conversationId": "countConversationId",
     "count_projectId": "countProjectId",
     "count_integrationId": "countIntegrationId",
-    "count_updatedAt": "countUpdatedAt",
-    "count_status": "countStatus",
     "avg_id": "avgId",
     "avg_type": "avgType",
     "avg_messageId": "avgMessageId",
@@ -859,8 +740,6 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "avg_conversationId": "avgConversationId",
     "avg_projectId": "avgProjectId",
     "avg_integrationId": "avgIntegrationId",
-    "avg_updatedAt": "avgUpdatedAt",
-    "avg_status": "avgStatus",
     "min_id": "minId",
     "min_type": "minType",
     "min_messageId": "minMessageId",
@@ -872,8 +751,6 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "min_conversationId": "minConversationId",
     "min_projectId": "minProjectId",
     "min_integrationId": "minIntegrationId",
-    "min_updatedAt": "minUpdatedAt",
-    "min_status": "minStatus",
     "max_id": "maxId",
     "max_type": "maxType",
     "max_messageId": "maxMessageId",
@@ -885,8 +762,6 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "max_conversationId": "maxConversationId",
     "max_projectId": "maxProjectId",
     "max_integrationId": "maxIntegrationId",
-    "max_updatedAt": "maxUpdatedAt",
-    "max_status": "maxStatus",
     "sum_properties.userId": "sumPropertiesUserId",
     "sum_properties.supportAgentName": "sumPropertiesSupportAgentName",
     "sum_userProperties.userId": "sumUserPropertiesUserId",
@@ -926,7 +801,7 @@ export type FeedbackResultItem$Outbound = {
   id?: string | undefined;
   type?: string | undefined;
   messageId?: string | undefined;
-  createdAt?: string | undefined;
+  createdAt?: any | undefined;
   organizationId?: string | undefined;
   reasons?: Array<QueryFeedbackResponseDataReasons$Outbound> | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
@@ -937,8 +812,6 @@ export type FeedbackResultItem$Outbound = {
   conversationId?: string | undefined;
   projectId?: string | null | undefined;
   integrationId?: string | null | undefined;
-  updatedAt?: string | null | undefined;
-  status: string;
   sum?: number | undefined;
   count?: number | undefined;
   avg?: number | undefined;
@@ -988,14 +861,6 @@ export type FeedbackResultItem$Outbound = {
   integrationId_day?: string | undefined;
   integrationId_week?: string | undefined;
   integrationId_month?: string | undefined;
-  updatedAt_hour?: string | undefined;
-  updatedAt_day?: string | undefined;
-  updatedAt_week?: string | undefined;
-  updatedAt_month?: string | undefined;
-  status_hour?: string | undefined;
-  status_day?: string | undefined;
-  status_week?: string | undefined;
-  status_month?: string | undefined;
   sum_id?: number | undefined;
   sum_type?: number | undefined;
   sum_messageId?: number | undefined;
@@ -1007,8 +872,6 @@ export type FeedbackResultItem$Outbound = {
   sum_conversationId?: number | undefined;
   sum_projectId?: number | undefined;
   sum_integrationId?: number | undefined;
-  sum_updatedAt?: number | undefined;
-  sum_status?: number | undefined;
   count_id?: number | undefined;
   count_type?: number | undefined;
   count_messageId?: number | undefined;
@@ -1020,8 +883,6 @@ export type FeedbackResultItem$Outbound = {
   count_conversationId?: number | undefined;
   count_projectId?: number | undefined;
   count_integrationId?: number | undefined;
-  count_updatedAt?: number | undefined;
-  count_status?: number | undefined;
   avg_id?: number | undefined;
   avg_type?: number | undefined;
   avg_messageId?: number | undefined;
@@ -1033,8 +894,6 @@ export type FeedbackResultItem$Outbound = {
   avg_conversationId?: number | undefined;
   avg_projectId?: number | undefined;
   avg_integrationId?: number | undefined;
-  avg_updatedAt?: number | undefined;
-  avg_status?: number | undefined;
   min_id?: number | undefined;
   min_type?: number | undefined;
   min_messageId?: number | undefined;
@@ -1046,8 +905,6 @@ export type FeedbackResultItem$Outbound = {
   min_conversationId?: number | undefined;
   min_projectId?: number | undefined;
   min_integrationId?: number | undefined;
-  min_updatedAt?: number | undefined;
-  min_status?: number | undefined;
   max_id?: number | undefined;
   max_type?: number | undefined;
   max_messageId?: number | undefined;
@@ -1059,8 +916,6 @@ export type FeedbackResultItem$Outbound = {
   max_conversationId?: number | undefined;
   max_projectId?: number | undefined;
   max_integrationId?: number | undefined;
-  max_updatedAt?: number | undefined;
-  max_status?: number | undefined;
   "sum_properties.userId"?: number | undefined;
   "sum_properties.supportAgentName"?: number | undefined;
   "sum_userProperties.userId"?: number | undefined;
@@ -1089,6 +944,7 @@ export type FeedbackResultItem$Outbound = {
   "properties.supportAgentName"?: string | null | undefined;
   "userProperties.userId"?: string | null | undefined;
   "userProperties.supportAgentName"?: string | null | undefined;
+  [additionalProperties: string]: unknown;
 };
 
 /** @internal */
@@ -1100,7 +956,7 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   id: z.string().optional(),
   type: QueryFeedbackResponseDataType$outboundSchema.optional(),
   messageId: z.string().optional(),
-  createdAt: z.date().transform(v => v.toISOString()).optional(),
+  createdAt: z.any().optional(),
   organizationId: z.string().optional(),
   reasons: z.nullable(
     z.array(z.lazy(() => QueryFeedbackResponseDataReasons$outboundSchema)),
@@ -1112,8 +968,6 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   conversationId: z.string().optional(),
   projectId: z.nullable(z.string()).optional(),
   integrationId: z.nullable(z.string()).optional(),
-  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
-  status: QueryFeedbackResponseDataStatus$outboundSchema.default("unreviewed"),
   sum: z.number().optional(),
   count: z.number().optional(),
   avg: z.number().optional(),
@@ -1163,14 +1017,6 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   integrationIdDay: z.string().optional(),
   integrationIdWeek: z.string().optional(),
   integrationIdMonth: z.string().optional(),
-  updatedAtHour: z.string().optional(),
-  updatedAtDay: z.string().optional(),
-  updatedAtWeek: z.string().optional(),
-  updatedAtMonth: z.string().optional(),
-  statusHour: z.string().optional(),
-  statusDay: z.string().optional(),
-  statusWeek: z.string().optional(),
-  statusMonth: z.string().optional(),
   sumId: z.number().optional(),
   sumType: z.number().optional(),
   sumMessageId: z.number().optional(),
@@ -1182,8 +1028,6 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   sumConversationId: z.number().optional(),
   sumProjectId: z.number().optional(),
   sumIntegrationId: z.number().optional(),
-  sumUpdatedAt: z.number().optional(),
-  sumStatus: z.number().optional(),
   countId: z.number().optional(),
   countType: z.number().optional(),
   countMessageId: z.number().optional(),
@@ -1195,8 +1039,6 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   countConversationId: z.number().optional(),
   countProjectId: z.number().optional(),
   countIntegrationId: z.number().optional(),
-  countUpdatedAt: z.number().optional(),
-  countStatus: z.number().optional(),
   avgId: z.number().optional(),
   avgType: z.number().optional(),
   avgMessageId: z.number().optional(),
@@ -1208,8 +1050,6 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   avgConversationId: z.number().optional(),
   avgProjectId: z.number().optional(),
   avgIntegrationId: z.number().optional(),
-  avgUpdatedAt: z.number().optional(),
-  avgStatus: z.number().optional(),
   minId: z.number().optional(),
   minType: z.number().optional(),
   minMessageId: z.number().optional(),
@@ -1221,8 +1061,6 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   minConversationId: z.number().optional(),
   minProjectId: z.number().optional(),
   minIntegrationId: z.number().optional(),
-  minUpdatedAt: z.number().optional(),
-  minStatus: z.number().optional(),
   maxId: z.number().optional(),
   maxType: z.number().optional(),
   maxMessageId: z.number().optional(),
@@ -1234,8 +1072,6 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   maxConversationId: z.number().optional(),
   maxProjectId: z.number().optional(),
   maxIntegrationId: z.number().optional(),
-  maxUpdatedAt: z.number().optional(),
-  maxStatus: z.number().optional(),
   sumPropertiesUserId: z.number().optional(),
   sumPropertiesSupportAgentName: z.number().optional(),
   sumUserPropertiesUserId: z.number().optional(),
@@ -1264,157 +1100,144 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   propertiesSupportAgentName: z.nullable(z.string()).optional(),
   userPropertiesUserId: z.nullable(z.string()).optional(),
   userPropertiesSupportAgentName: z.nullable(z.string()).optional(),
+  additionalProperties: z.record(z.any()),
 }).transform((v) => {
-  return remap$(v, {
-    idHour: "id_hour",
-    idDay: "id_day",
-    idWeek: "id_week",
-    idMonth: "id_month",
-    typeHour: "type_hour",
-    typeDay: "type_day",
-    typeWeek: "type_week",
-    typeMonth: "type_month",
-    messageIdHour: "messageId_hour",
-    messageIdDay: "messageId_day",
-    messageIdWeek: "messageId_week",
-    messageIdMonth: "messageId_month",
-    createdAtHour: "createdAt_hour",
-    createdAtDay: "createdAt_day",
-    createdAtWeek: "createdAt_week",
-    createdAtMonth: "createdAt_month",
-    organizationIdHour: "organizationId_hour",
-    organizationIdDay: "organizationId_day",
-    organizationIdWeek: "organizationId_week",
-    organizationIdMonth: "organizationId_month",
-    reasonsHour: "reasons_hour",
-    reasonsDay: "reasons_day",
-    reasonsWeek: "reasons_week",
-    reasonsMonth: "reasons_month",
-    propertiesHour: "properties_hour",
-    propertiesDay: "properties_day",
-    propertiesWeek: "properties_week",
-    propertiesMonth: "properties_month",
-    userPropertiesHour: "userProperties_hour",
-    userPropertiesDay: "userProperties_day",
-    userPropertiesWeek: "userProperties_week",
-    userPropertiesMonth: "userProperties_month",
-    conversationIdHour: "conversationId_hour",
-    conversationIdDay: "conversationId_day",
-    conversationIdWeek: "conversationId_week",
-    conversationIdMonth: "conversationId_month",
-    projectIdHour: "projectId_hour",
-    projectIdDay: "projectId_day",
-    projectIdWeek: "projectId_week",
-    projectIdMonth: "projectId_month",
-    integrationIdHour: "integrationId_hour",
-    integrationIdDay: "integrationId_day",
-    integrationIdWeek: "integrationId_week",
-    integrationIdMonth: "integrationId_month",
-    updatedAtHour: "updatedAt_hour",
-    updatedAtDay: "updatedAt_day",
-    updatedAtWeek: "updatedAt_week",
-    updatedAtMonth: "updatedAt_month",
-    statusHour: "status_hour",
-    statusDay: "status_day",
-    statusWeek: "status_week",
-    statusMonth: "status_month",
-    sumId: "sum_id",
-    sumType: "sum_type",
-    sumMessageId: "sum_messageId",
-    sumCreatedAt: "sum_createdAt",
-    sumOrganizationId: "sum_organizationId",
-    sumReasons: "sum_reasons",
-    sumProperties: "sum_properties",
-    sumUserProperties: "sum_userProperties",
-    sumConversationId: "sum_conversationId",
-    sumProjectId: "sum_projectId",
-    sumIntegrationId: "sum_integrationId",
-    sumUpdatedAt: "sum_updatedAt",
-    sumStatus: "sum_status",
-    countId: "count_id",
-    countType: "count_type",
-    countMessageId: "count_messageId",
-    countCreatedAt: "count_createdAt",
-    countOrganizationId: "count_organizationId",
-    countReasons: "count_reasons",
-    countProperties: "count_properties",
-    countUserProperties: "count_userProperties",
-    countConversationId: "count_conversationId",
-    countProjectId: "count_projectId",
-    countIntegrationId: "count_integrationId",
-    countUpdatedAt: "count_updatedAt",
-    countStatus: "count_status",
-    avgId: "avg_id",
-    avgType: "avg_type",
-    avgMessageId: "avg_messageId",
-    avgCreatedAt: "avg_createdAt",
-    avgOrganizationId: "avg_organizationId",
-    avgReasons: "avg_reasons",
-    avgProperties: "avg_properties",
-    avgUserProperties: "avg_userProperties",
-    avgConversationId: "avg_conversationId",
-    avgProjectId: "avg_projectId",
-    avgIntegrationId: "avg_integrationId",
-    avgUpdatedAt: "avg_updatedAt",
-    avgStatus: "avg_status",
-    minId: "min_id",
-    minType: "min_type",
-    minMessageId: "min_messageId",
-    minCreatedAt: "min_createdAt",
-    minOrganizationId: "min_organizationId",
-    minReasons: "min_reasons",
-    minProperties: "min_properties",
-    minUserProperties: "min_userProperties",
-    minConversationId: "min_conversationId",
-    minProjectId: "min_projectId",
-    minIntegrationId: "min_integrationId",
-    minUpdatedAt: "min_updatedAt",
-    minStatus: "min_status",
-    maxId: "max_id",
-    maxType: "max_type",
-    maxMessageId: "max_messageId",
-    maxCreatedAt: "max_createdAt",
-    maxOrganizationId: "max_organizationId",
-    maxReasons: "max_reasons",
-    maxProperties: "max_properties",
-    maxUserProperties: "max_userProperties",
-    maxConversationId: "max_conversationId",
-    maxProjectId: "max_projectId",
-    maxIntegrationId: "max_integrationId",
-    maxUpdatedAt: "max_updatedAt",
-    maxStatus: "max_status",
-    sumPropertiesUserId: "sum_properties.userId",
-    sumPropertiesSupportAgentName: "sum_properties.supportAgentName",
-    sumUserPropertiesUserId: "sum_userProperties.userId",
-    sumUserPropertiesSupportAgentName: "sum_userProperties.supportAgentName",
-    countPropertiesUserId: "count_properties.userId",
-    countPropertiesSupportAgentName: "count_properties.supportAgentName",
-    countUserPropertiesUserId: "count_userProperties.userId",
-    countUserPropertiesSupportAgentName:
-      "count_userProperties.supportAgentName",
-    countDistinctPropertiesUserId: "countDistinct_properties.userId",
-    countDistinctPropertiesSupportAgentName:
-      "countDistinct_properties.supportAgentName",
-    countDistinctUserPropertiesUserId: "countDistinct_userProperties.userId",
-    countDistinctUserPropertiesSupportAgentName:
-      "countDistinct_userProperties.supportAgentName",
-    avgPropertiesUserId: "avg_properties.userId",
-    avgPropertiesSupportAgentName: "avg_properties.supportAgentName",
-    avgUserPropertiesUserId: "avg_userProperties.userId",
-    avgUserPropertiesSupportAgentName: "avg_userProperties.supportAgentName",
-    minPropertiesUserId: "min_properties.userId",
-    minPropertiesSupportAgentName: "min_properties.supportAgentName",
-    minUserPropertiesUserId: "min_userProperties.userId",
-    minUserPropertiesSupportAgentName: "min_userProperties.supportAgentName",
-    maxPropertiesUserId: "max_properties.userId",
-    maxPropertiesSupportAgentName: "max_properties.supportAgentName",
-    maxUserPropertiesUserId: "max_userProperties.userId",
-    maxUserPropertiesSupportAgentName: "max_userProperties.supportAgentName",
-    propertiesUserId: "properties.userId",
-    propertiesSupportAgentName: "properties.supportAgentName",
-    userPropertiesUserId: "userProperties.userId",
-    userPropertiesSupportAgentName: "userProperties.supportAgentName",
-  });
+  return {
+    ...v.additionalProperties,
+    ...remap$(v, {
+      idHour: "id_hour",
+      idDay: "id_day",
+      idWeek: "id_week",
+      idMonth: "id_month",
+      typeHour: "type_hour",
+      typeDay: "type_day",
+      typeWeek: "type_week",
+      typeMonth: "type_month",
+      messageIdHour: "messageId_hour",
+      messageIdDay: "messageId_day",
+      messageIdWeek: "messageId_week",
+      messageIdMonth: "messageId_month",
+      createdAtHour: "createdAt_hour",
+      createdAtDay: "createdAt_day",
+      createdAtWeek: "createdAt_week",
+      createdAtMonth: "createdAt_month",
+      organizationIdHour: "organizationId_hour",
+      organizationIdDay: "organizationId_day",
+      organizationIdWeek: "organizationId_week",
+      organizationIdMonth: "organizationId_month",
+      reasonsHour: "reasons_hour",
+      reasonsDay: "reasons_day",
+      reasonsWeek: "reasons_week",
+      reasonsMonth: "reasons_month",
+      propertiesHour: "properties_hour",
+      propertiesDay: "properties_day",
+      propertiesWeek: "properties_week",
+      propertiesMonth: "properties_month",
+      userPropertiesHour: "userProperties_hour",
+      userPropertiesDay: "userProperties_day",
+      userPropertiesWeek: "userProperties_week",
+      userPropertiesMonth: "userProperties_month",
+      conversationIdHour: "conversationId_hour",
+      conversationIdDay: "conversationId_day",
+      conversationIdWeek: "conversationId_week",
+      conversationIdMonth: "conversationId_month",
+      projectIdHour: "projectId_hour",
+      projectIdDay: "projectId_day",
+      projectIdWeek: "projectId_week",
+      projectIdMonth: "projectId_month",
+      integrationIdHour: "integrationId_hour",
+      integrationIdDay: "integrationId_day",
+      integrationIdWeek: "integrationId_week",
+      integrationIdMonth: "integrationId_month",
+      sumId: "sum_id",
+      sumType: "sum_type",
+      sumMessageId: "sum_messageId",
+      sumCreatedAt: "sum_createdAt",
+      sumOrganizationId: "sum_organizationId",
+      sumReasons: "sum_reasons",
+      sumProperties: "sum_properties",
+      sumUserProperties: "sum_userProperties",
+      sumConversationId: "sum_conversationId",
+      sumProjectId: "sum_projectId",
+      sumIntegrationId: "sum_integrationId",
+      countId: "count_id",
+      countType: "count_type",
+      countMessageId: "count_messageId",
+      countCreatedAt: "count_createdAt",
+      countOrganizationId: "count_organizationId",
+      countReasons: "count_reasons",
+      countProperties: "count_properties",
+      countUserProperties: "count_userProperties",
+      countConversationId: "count_conversationId",
+      countProjectId: "count_projectId",
+      countIntegrationId: "count_integrationId",
+      avgId: "avg_id",
+      avgType: "avg_type",
+      avgMessageId: "avg_messageId",
+      avgCreatedAt: "avg_createdAt",
+      avgOrganizationId: "avg_organizationId",
+      avgReasons: "avg_reasons",
+      avgProperties: "avg_properties",
+      avgUserProperties: "avg_userProperties",
+      avgConversationId: "avg_conversationId",
+      avgProjectId: "avg_projectId",
+      avgIntegrationId: "avg_integrationId",
+      minId: "min_id",
+      minType: "min_type",
+      minMessageId: "min_messageId",
+      minCreatedAt: "min_createdAt",
+      minOrganizationId: "min_organizationId",
+      minReasons: "min_reasons",
+      minProperties: "min_properties",
+      minUserProperties: "min_userProperties",
+      minConversationId: "min_conversationId",
+      minProjectId: "min_projectId",
+      minIntegrationId: "min_integrationId",
+      maxId: "max_id",
+      maxType: "max_type",
+      maxMessageId: "max_messageId",
+      maxCreatedAt: "max_createdAt",
+      maxOrganizationId: "max_organizationId",
+      maxReasons: "max_reasons",
+      maxProperties: "max_properties",
+      maxUserProperties: "max_userProperties",
+      maxConversationId: "max_conversationId",
+      maxProjectId: "max_projectId",
+      maxIntegrationId: "max_integrationId",
+      sumPropertiesUserId: "sum_properties.userId",
+      sumPropertiesSupportAgentName: "sum_properties.supportAgentName",
+      sumUserPropertiesUserId: "sum_userProperties.userId",
+      sumUserPropertiesSupportAgentName: "sum_userProperties.supportAgentName",
+      countPropertiesUserId: "count_properties.userId",
+      countPropertiesSupportAgentName: "count_properties.supportAgentName",
+      countUserPropertiesUserId: "count_userProperties.userId",
+      countUserPropertiesSupportAgentName:
+        "count_userProperties.supportAgentName",
+      countDistinctPropertiesUserId: "countDistinct_properties.userId",
+      countDistinctPropertiesSupportAgentName:
+        "countDistinct_properties.supportAgentName",
+      countDistinctUserPropertiesUserId: "countDistinct_userProperties.userId",
+      countDistinctUserPropertiesSupportAgentName:
+        "countDistinct_userProperties.supportAgentName",
+      avgPropertiesUserId: "avg_properties.userId",
+      avgPropertiesSupportAgentName: "avg_properties.supportAgentName",
+      avgUserPropertiesUserId: "avg_userProperties.userId",
+      avgUserPropertiesSupportAgentName: "avg_userProperties.supportAgentName",
+      minPropertiesUserId: "min_properties.userId",
+      minPropertiesSupportAgentName: "min_properties.supportAgentName",
+      minUserPropertiesUserId: "min_userProperties.userId",
+      minUserPropertiesSupportAgentName: "min_userProperties.supportAgentName",
+      maxPropertiesUserId: "max_properties.userId",
+      maxPropertiesSupportAgentName: "max_properties.supportAgentName",
+      maxUserPropertiesUserId: "max_userProperties.userId",
+      maxUserPropertiesSupportAgentName: "max_userProperties.supportAgentName",
+      propertiesUserId: "properties.userId",
+      propertiesSupportAgentName: "properties.supportAgentName",
+      userPropertiesUserId: "userProperties.userId",
+      userPropertiesSupportAgentName: "userProperties.supportAgentName",
+      additionalProperties: null,
+    }),
+  };
 });
 
 /**

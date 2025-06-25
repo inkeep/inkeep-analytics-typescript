@@ -7,11 +7,11 @@ Available fields for Feedback
 ```typescript
 import { FeedbackField } from "@inkeep/inkeep-analytics/models/components";
 
-let value: FeedbackField = "conversationId";
+let value: FeedbackField = "userProperties";
 ```
 
 ## Values
 
 ```typescript
-"id" | "type" | "messageId" | "createdAt" | "organizationId" | "reasons" | "properties" | "userProperties" | "conversationId" | "projectId" | "integrationId" | "updatedAt" | "status"
+"id" | "type" | "messageId" | "createdAt" | "organizationId" | "reasons" | "properties" | "userProperties" | "conversationId" | "projectId" | "integrationId"
 ```

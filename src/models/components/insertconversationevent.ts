@@ -23,20 +23,6 @@ export type InsertConversationEventId = string | number;
 export type InsertConversationEventUserId = string | number;
 
 /**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const InsertConversationEventUserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type InsertConversationEventUserType = ClosedEnum<
-  typeof InsertConversationEventUserType
->;
-
-/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type InsertConversationEventUserProperties = {
@@ -59,7 +45,7 @@ export type InsertConversationEventUserProperties = {
   /**
    * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
-  userType?: InsertConversationEventUserType | null | undefined;
+  userType?: string | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -190,27 +176,6 @@ export function insertConversationEventUserIdFromJSON(
 }
 
 /** @internal */
-export const InsertConversationEventUserType$inboundSchema: z.ZodNativeEnum<
-  typeof InsertConversationEventUserType
-> = z.nativeEnum(InsertConversationEventUserType);
-
-/** @internal */
-export const InsertConversationEventUserType$outboundSchema: z.ZodNativeEnum<
-  typeof InsertConversationEventUserType
-> = InsertConversationEventUserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace InsertConversationEventUserType$ {
-  /** @deprecated use `InsertConversationEventUserType$inboundSchema` instead. */
-  export const inboundSchema = InsertConversationEventUserType$inboundSchema;
-  /** @deprecated use `InsertConversationEventUserType$outboundSchema` instead. */
-  export const outboundSchema = InsertConversationEventUserType$outboundSchema;
-}
-
-/** @internal */
 export const InsertConversationEventUserProperties$inboundSchema: z.ZodType<
   InsertConversationEventUserProperties,
   z.ZodTypeDef,
@@ -221,8 +186,7 @@ export const InsertConversationEventUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(InsertConversationEventUserType$inboundSchema)
-      .optional(),
+    userType: z.nullable(z.string()).optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -248,8 +212,7 @@ export const InsertConversationEventUserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
-  userType: z.nullable(InsertConversationEventUserType$outboundSchema)
-    .optional(),
+  userType: z.nullable(z.string()).optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {

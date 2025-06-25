@@ -7,7 +7,7 @@ import { FeedbackSimpleFieldSelection } from "@inkeep/inkeep-analytics/models/co
 
 let value: FeedbackSimpleFieldSelection = {
   type: "field",
-  field: "updatedAt",
+  field: "integrationId",
 };
 ```
 

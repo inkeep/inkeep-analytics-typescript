@@ -23,20 +23,6 @@ export type InsertSearchEventId = string | number;
 export type InsertSearchEventUserId = string | number;
 
 /**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const InsertSearchEventUserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type InsertSearchEventUserType = ClosedEnum<
-  typeof InsertSearchEventUserType
->;
-
-/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type InsertSearchEventUserProperties = {
@@ -59,7 +45,7 @@ export type InsertSearchEventUserProperties = {
   /**
    * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
-  userType?: InsertSearchEventUserType | null | undefined;
+  userType?: string | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -188,27 +174,6 @@ export function insertSearchEventUserIdFromJSON(
 }
 
 /** @internal */
-export const InsertSearchEventUserType$inboundSchema: z.ZodNativeEnum<
-  typeof InsertSearchEventUserType
-> = z.nativeEnum(InsertSearchEventUserType);
-
-/** @internal */
-export const InsertSearchEventUserType$outboundSchema: z.ZodNativeEnum<
-  typeof InsertSearchEventUserType
-> = InsertSearchEventUserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace InsertSearchEventUserType$ {
-  /** @deprecated use `InsertSearchEventUserType$inboundSchema` instead. */
-  export const inboundSchema = InsertSearchEventUserType$inboundSchema;
-  /** @deprecated use `InsertSearchEventUserType$outboundSchema` instead. */
-  export const outboundSchema = InsertSearchEventUserType$outboundSchema;
-}
-
-/** @internal */
 export const InsertSearchEventUserProperties$inboundSchema: z.ZodType<
   InsertSearchEventUserProperties,
   z.ZodTypeDef,
@@ -219,7 +184,7 @@ export const InsertSearchEventUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(InsertSearchEventUserType$inboundSchema).optional(),
+    userType: z.nullable(z.string()).optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -245,7 +210,7 @@ export const InsertSearchEventUserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
-  userType: z.nullable(InsertSearchEventUserType$outboundSchema).optional(),
+  userType: z.nullable(z.string()).optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {

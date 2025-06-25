@@ -29,9 +29,9 @@ import {
  * Fields to select from semantic threads
  */
 export type SemanticThreadSelection =
+  | (SemanticThreadAggregationSelection & { type: "aggregation" })
   | (SemanticThreadTimeBasedGroupBySelection & { type: "time" })
-  | (SemanticThreadSimpleFieldSelection & { type: "field" })
-  | (SemanticThreadAggregationSelection & { type: "aggregation" });
+  | (SemanticThreadSimpleFieldSelection & { type: "field" });
 
 /** @internal */
 export const SemanticThreadSelection$inboundSchema: z.ZodType<
@@ -39,24 +39,24 @@ export const SemanticThreadSelection$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
+  SemanticThreadAggregationSelection$inboundSchema.and(
+    z.object({ type: z.literal("aggregation") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
   SemanticThreadTimeBasedGroupBySelection$inboundSchema.and(
     z.object({ type: z.literal("time") }).transform((v) => ({ type: v.type })),
   ),
   SemanticThreadSimpleFieldSelection$inboundSchema.and(
     z.object({ type: z.literal("field") }).transform((v) => ({ type: v.type })),
   ),
-  SemanticThreadAggregationSelection$inboundSchema.and(
-    z.object({ type: z.literal("aggregation") }).transform((v) => ({
-      type: v.type,
-    })),
-  ),
 ]);
 
 /** @internal */
 export type SemanticThreadSelection$Outbound =
+  | (SemanticThreadAggregationSelection$Outbound & { type: "aggregation" })
   | (SemanticThreadTimeBasedGroupBySelection$Outbound & { type: "time" })
-  | (SemanticThreadSimpleFieldSelection$Outbound & { type: "field" })
-  | (SemanticThreadAggregationSelection$Outbound & { type: "aggregation" });
+  | (SemanticThreadSimpleFieldSelection$Outbound & { type: "field" });
 
 /** @internal */
 export const SemanticThreadSelection$outboundSchema: z.ZodType<
@@ -64,16 +64,16 @@ export const SemanticThreadSelection$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SemanticThreadSelection
 > = z.union([
+  SemanticThreadAggregationSelection$outboundSchema.and(
+    z.object({ type: z.literal("aggregation") }).transform((v) => ({
+      type: v.type,
+    })),
+  ),
   SemanticThreadTimeBasedGroupBySelection$outboundSchema.and(
     z.object({ type: z.literal("time") }).transform((v) => ({ type: v.type })),
   ),
   SemanticThreadSimpleFieldSelection$outboundSchema.and(
     z.object({ type: z.literal("field") }).transform((v) => ({ type: v.type })),
-  ),
-  SemanticThreadAggregationSelection$outboundSchema.and(
-    z.object({ type: z.literal("aggregation") }).transform((v) => ({
-      type: v.type,
-    })),
   ),
 ]);
 

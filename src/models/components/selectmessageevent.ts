@@ -23,20 +23,6 @@ export type SelectMessageEventId = string | number;
 export type SelectMessageEventUserId = string | number;
 
 /**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const SelectMessageEventUserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type SelectMessageEventUserType = ClosedEnum<
-  typeof SelectMessageEventUserType
->;
-
-/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type SelectMessageEventUserProperties = {
@@ -59,7 +45,7 @@ export type SelectMessageEventUserProperties = {
   /**
    * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
-  userType?: SelectMessageEventUserType | null | undefined;
+  userType?: string | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -185,27 +171,6 @@ export function selectMessageEventUserIdFromJSON(
 }
 
 /** @internal */
-export const SelectMessageEventUserType$inboundSchema: z.ZodNativeEnum<
-  typeof SelectMessageEventUserType
-> = z.nativeEnum(SelectMessageEventUserType);
-
-/** @internal */
-export const SelectMessageEventUserType$outboundSchema: z.ZodNativeEnum<
-  typeof SelectMessageEventUserType
-> = SelectMessageEventUserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SelectMessageEventUserType$ {
-  /** @deprecated use `SelectMessageEventUserType$inboundSchema` instead. */
-  export const inboundSchema = SelectMessageEventUserType$inboundSchema;
-  /** @deprecated use `SelectMessageEventUserType$outboundSchema` instead. */
-  export const outboundSchema = SelectMessageEventUserType$outboundSchema;
-}
-
-/** @internal */
 export const SelectMessageEventUserProperties$inboundSchema: z.ZodType<
   SelectMessageEventUserProperties,
   z.ZodTypeDef,
@@ -216,7 +181,7 @@ export const SelectMessageEventUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(SelectMessageEventUserType$inboundSchema).optional(),
+    userType: z.nullable(z.string()).optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -242,7 +207,7 @@ export const SelectMessageEventUserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
-  userType: z.nullable(SelectMessageEventUserType$outboundSchema).optional(),
+  userType: z.nullable(z.string()).optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {

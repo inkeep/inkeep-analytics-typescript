@@ -9,20 +9,21 @@ let value: PositiveFeedback = {
   id: "<id>",
   type: "positive",
   messageId: "<id>",
+  createdAt: "1723345333062",
   userProperties: {
     identificationType: "COOKIED",
   },
   conversation: {
     id: "<id>",
     externalId: "<id>",
-    externalUrl: "https://grounded-chainstay.info",
-    type: "support_ticket",
+    externalUrl: "https://concerned-integer.name/",
+    type: "support_copilot",
     supportTicketConversationId: "<id>",
-    createdAt: "1727706559745",
-    updatedAt: "1735643314242",
+    createdAt: "1718795467397",
+    updatedAt: "1735642779071",
     projectId: "<id>",
     integrationId: "<id>",
-    visibility: "private",
+    visibility: null,
     messages: [],
   },
   message: {
@@ -46,7 +47,7 @@ let value: PositiveFeedback = {
 | `id`                                                                                                                                                                     | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `type`                                                                                                                                                                   | [components.GetAllFeedbackResponseType](../../models/components/getallfeedbackresponsetype.md)                                                                           | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `messageId`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
-| `createdAt`                                                                                                                                                              | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)                                                                            | :heavy_minus_sign:                                                                                                                                                       | A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.                                                                |
+| `createdAt`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `reasons`                                                                                                                                                                | [components.Reasons](../../models/components/reasons.md)[]                                                                                                               | :heavy_minus_sign:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `properties`                                                                                                                                                             | Record<string, *any*>                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | A customizable collection of custom properties or attributes.                                                                                                            |
 | `userProperties`                                                                                                                                                         | [components.GetAllFeedbackResponseUserProperties](../../models/components/getallfeedbackresponseuserproperties.md)                                                       | :heavy_minus_sign:                                                                                                                                                       | A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description. |

@@ -39,20 +39,6 @@ export type GetFeedbackByIdId = string | number;
 export type GetFeedbackByIdUserId = string | number;
 
 /**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export const GetFeedbackByIdUserType = {
-  User: "user",
-  Member: "member",
-} as const;
-/**
- * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
- */
-export type GetFeedbackByIdUserType = ClosedEnum<
-  typeof GetFeedbackByIdUserType
->;
-
-/**
  * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
  */
 export type GetFeedbackByIdUserProperties = {
@@ -75,7 +61,7 @@ export type GetFeedbackByIdUserProperties = {
   /**
    * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
-  userType?: GetFeedbackByIdUserType | null | undefined;
+  userType?: string | null | undefined;
   additionalProperties?: { [k: string]: any };
 };
 
@@ -86,10 +72,7 @@ export type GetFeedbackByIdResponseBody = {
   id: string;
   type: GetFeedbackByIdType;
   messageId: string;
-  /**
-   * A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.
-   */
-  createdAt?: Date | null | undefined;
+  createdAt: string;
   reasons?: Array<GetFeedbackByIdReasons> | null | undefined;
   /**
    * A customizable collection of custom properties or attributes.
@@ -332,27 +315,6 @@ export function getFeedbackByIdUserIdFromJSON(
 }
 
 /** @internal */
-export const GetFeedbackByIdUserType$inboundSchema: z.ZodNativeEnum<
-  typeof GetFeedbackByIdUserType
-> = z.nativeEnum(GetFeedbackByIdUserType);
-
-/** @internal */
-export const GetFeedbackByIdUserType$outboundSchema: z.ZodNativeEnum<
-  typeof GetFeedbackByIdUserType
-> = GetFeedbackByIdUserType$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace GetFeedbackByIdUserType$ {
-  /** @deprecated use `GetFeedbackByIdUserType$inboundSchema` instead. */
-  export const inboundSchema = GetFeedbackByIdUserType$inboundSchema;
-  /** @deprecated use `GetFeedbackByIdUserType$outboundSchema` instead. */
-  export const outboundSchema = GetFeedbackByIdUserType$outboundSchema;
-}
-
-/** @internal */
 export const GetFeedbackByIdUserProperties$inboundSchema: z.ZodType<
   GetFeedbackByIdUserProperties,
   z.ZodTypeDef,
@@ -363,7 +325,7 @@ export const GetFeedbackByIdUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
-    userType: z.nullable(GetFeedbackByIdUserType$inboundSchema).optional(),
+    userType: z.nullable(z.string()).optional(),
   }).catchall(z.any()),
   "additionalProperties",
   true,
@@ -389,7 +351,7 @@ export const GetFeedbackByIdUserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
-  userType: z.nullable(GetFeedbackByIdUserType$outboundSchema).optional(),
+  userType: z.nullable(z.string()).optional(),
   additionalProperties: z.record(z.any()),
 }).transform((v) => {
   return {
@@ -442,9 +404,7 @@ export const GetFeedbackByIdResponseBody$inboundSchema: z.ZodType<
   id: z.string(),
   type: GetFeedbackByIdType$inboundSchema,
   messageId: z.string(),
-  createdAt: z.nullable(
-    z.string().datetime({ offset: true }).transform(v => new Date(v)),
-  ).optional(),
+  createdAt: z.string(),
   reasons: z.nullable(
     z.array(z.lazy(() => GetFeedbackByIdReasons$inboundSchema)),
   ).optional(),
@@ -461,7 +421,7 @@ export type GetFeedbackByIdResponseBody$Outbound = {
   id: string;
   type: string;
   messageId: string;
-  createdAt?: string | null | undefined;
+  createdAt: string;
   reasons?: Array<GetFeedbackByIdReasons$Outbound> | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
   userProperties?: GetFeedbackByIdUserProperties$Outbound | null | undefined;
@@ -478,7 +438,7 @@ export const GetFeedbackByIdResponseBody$outboundSchema: z.ZodType<
   id: z.string(),
   type: GetFeedbackByIdType$outboundSchema,
   messageId: z.string(),
-  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  createdAt: z.string(),
   reasons: z.nullable(
     z.array(z.lazy(() => GetFeedbackByIdReasons$outboundSchema)),
   ).optional(),

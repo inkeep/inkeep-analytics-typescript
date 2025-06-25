@@ -15,7 +15,7 @@ Use to provide positive or negative feedback along with details.
 
 Logs new feedback or updates an existing one.
 
-**API Key Types:** `API`
+**API Key Types:**  `WEB`, `API`
 
 ### Example Usage
 
