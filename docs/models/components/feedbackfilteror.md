@@ -10,11 +10,7 @@ import { FeedbackFilterOR } from "@inkeep/inkeep-analytics/models/components";
 let value: FeedbackFilterOR = {
   or: [
     {
-      and: [
-        {
-          and: [],
-        },
-      ],
+      or: [],
     },
   ],
 };

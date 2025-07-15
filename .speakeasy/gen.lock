@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 63a2136d-3fa3-4a0b-a766-1ddb2460cc12
 management:
-  docChecksum: f81e8133581c39d9bcd58ef5701096e5
+  docChecksum: 21b0df96ca59079500d07a175bf4988f
   docVersion: 0.1.1
-  speakeasyVersion: 1.568.2
-  generationVersion: 2.634.2
-  releaseVersion: 0.2.4-alpha.27
-  configChecksum: ad7c8803d2d4f3c430516cad647d6a17
+  speakeasyVersion: 1.582.0
+  generationVersion: 2.657.1
+  releaseVersion: 0.2.4-alpha.28
+  configChecksum: f164bb3507bf6cba233836c9e3a4604d
   repoURL: https://github.com/inkeep/inkeep-analytics-typescript.git
   installationURL: https://github.com/inkeep/inkeep-analytics-typescript
   published: true
@@ -15,7 +15,7 @@ features:
     additionalDependencies: 0.1.0
     additionalProperties: 0.1.1
     constsAndDefaults: 0.1.12
-    core: 3.21.11
+    core: 3.21.14
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     downloadStreams: 0.1.1
@@ -26,7 +26,7 @@ features:
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.5
     groups: 2.81.2
-    mcpServer: 0.9.2
+    mcpServer: 0.9.3
     methodSecurity: 2.82.6
     nameOverrides: 2.81.2
     nullables: 0.1.1
@@ -167,10 +167,13 @@ generatedFiles:
   - docs/models/components/getallfeedbackresponse.md
   - docs/models/components/getallfeedbackresponseid.md
   - docs/models/components/getallfeedbackresponsenegativefeedbackid.md
+  - docs/models/components/getallfeedbackresponsenegativefeedbacksourcestype.md
   - docs/models/components/getallfeedbackresponsenegativefeedbacktype.md
   - docs/models/components/getallfeedbackresponsenegativefeedbackuserid.md
   - docs/models/components/getallfeedbackresponsenegativefeedbackuserproperties.md
+  - docs/models/components/getallfeedbackresponsepositivefeedbacktype.md
   - docs/models/components/getallfeedbackresponsereasons.md
+  - docs/models/components/getallfeedbackresponsesources.md
   - docs/models/components/getallfeedbackresponsetype.md
   - docs/models/components/getallfeedbackresponseuserid.md
   - docs/models/components/getallfeedbackresponseuserproperties.md
@@ -242,6 +245,8 @@ generatedFiles:
   - docs/models/components/queryfeedbackresponsedata.md
   - docs/models/components/queryfeedbackresponsedataid.md
   - docs/models/components/queryfeedbackresponsedatareasons.md
+  - docs/models/components/queryfeedbackresponsedataresulttype.md
+  - docs/models/components/queryfeedbackresponsedatasources.md
   - docs/models/components/queryfeedbackresponsedatatype.md
   - docs/models/components/queryfeedbackresponsedatauserid.md
   - docs/models/components/queryfeedbackresponsedatauserproperties.md
@@ -299,6 +304,7 @@ generatedFiles:
   - docs/models/components/semanticthreadtimebasedgroupbyselectionfield.md
   - docs/models/components/semanticthreadtimebasedgroupbyselectiontype.md
   - docs/models/components/seven.md
+  - docs/models/components/sources.md
   - docs/models/components/status.md
   - docs/models/components/supportcopilotconversation.md
   - docs/models/components/supportcopilotconversationid.md
@@ -371,25 +377,31 @@ generatedFiles:
   - docs/models/operations/getconversationbyexternalidrequest.md
   - docs/models/operations/getconversationrequest.md
   - docs/models/operations/getconversationsecurity.md
+  - docs/models/operations/getfeedbackbyidfeedbacktype.md
   - docs/models/operations/getfeedbackbyidid.md
   - docs/models/operations/getfeedbackbyidreasons.md
   - docs/models/operations/getfeedbackbyidrequest.md
   - docs/models/operations/getfeedbackbyidresponsebody.md
+  - docs/models/operations/getfeedbackbyidsources.md
   - docs/models/operations/getfeedbackbyidtype.md
   - docs/models/operations/getfeedbackbyiduserid.md
   - docs/models/operations/getfeedbackbyiduserproperties.md
   - docs/models/operations/id.md
   - docs/models/operations/logconversationsecurity.md
   - docs/models/operations/logeventsecurity.md
+  - docs/models/operations/logfeedbackfeedbackresponsetype.md
+  - docs/models/operations/logfeedbackfeedbacktype.md
   - docs/models/operations/logfeedbackid.md
   - docs/models/operations/logfeedbackreasons.md
   - docs/models/operations/logfeedbackrequestbody.md
   - docs/models/operations/logfeedbackresponsebody.md
+  - docs/models/operations/logfeedbacksources.md
   - docs/models/operations/logfeedbacktype.md
   - docs/models/operations/logfeedbackuserid.md
   - docs/models/operations/logfeedbackuserproperties.md
   - docs/models/operations/reasons.md
   - docs/models/operations/result.md
+  - docs/models/operations/sources.md
   - docs/models/operations/topsearchqueriesrequest.md
   - docs/models/operations/topsearchqueriesresponsebody.md
   - docs/models/operations/type.md
@@ -406,6 +418,10 @@ generatedFiles:
   - docs/sdks/inkeepanalytics/README.md
   - docs/sdks/query/README.md
   - eslint.config.mjs
+  - examples/.env.template
+  - examples/README.md
+  - examples/package.json
+  - examples/topSearchQueries.example.ts
   - jsr.json
   - package.json
   - src/core.ts
@@ -780,7 +796,7 @@ examples:
           offset: 0
       responses:
         "200":
-          application/json: {"positiveFeedbackCount": 6961.56, "negativeFeedbackCount": 4153.74, "positiveFeedback": [{"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1713328476280", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://grizzled-editor.org/", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1710817203853", "updatedAt": "1735687690121", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": [], "messagesOpenAIFormat": [{"role": "system", "content": "<value>"}]}, "message": {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://linear-collaboration.net", "conversationId": "<id>", "createdAt": "1715477061988", "updatedAt": "1735684129218", "role": "<value>", "content": null}}], "negativeFeedback": []}
+          application/json: {"positiveFeedbackCount": 6961.56, "negativeFeedbackCount": 4153.74, "positiveFeedback": [{"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1713328476280", "details": "<value>", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://grizzled-editor.org/", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1710817203853", "updatedAt": "1735687690121", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": [], "messagesOpenAIFormat": [{"role": "system", "content": "<value>"}]}, "message": {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://linear-collaboration.net", "conversationId": "<id>", "createdAt": "1715477061988", "updatedAt": "1735684129218", "role": "<value>", "content": null}}], "negativeFeedback": []}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -800,7 +816,7 @@ examples:
           id: "feedback-id-123"
       responses:
         "200":
-          application/json: {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1722259016960", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://difficult-accountability.info/", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1712671280110", "updatedAt": "1735652249363", "projectId": "<id>", "integrationId": "<id>", "visibility": "private", "messages": [{"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://merry-solution.com", "conversationId": "<id>", "createdAt": "1706159703123", "updatedAt": "1735669717348", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}, "message": {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://heavenly-reservation.info", "conversationId": "<id>", "createdAt": "1715541556343", "updatedAt": "1735675403237", "role": "<value>", "content": "<value>"}}
+          application/json: {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1722259016960", "details": "<value>", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://difficult-accountability.info/", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1712671280110", "updatedAt": "1735652249363", "projectId": "<id>", "integrationId": "<id>", "visibility": "private", "messages": [{"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://merry-solution.com", "conversationId": "<id>", "createdAt": "1706159703123", "updatedAt": "1735669717348", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}, "message": {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://heavenly-reservation.info", "conversationId": "<id>", "createdAt": "1715541556343", "updatedAt": "1735675403237", "role": "<value>", "content": "<value>"}}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -952,10 +968,10 @@ examples:
   logFeedback:
     speakeasy-default-log-feedback:
       requestBody:
-        application/json: {"type": "positive", "messageId": "<id>", "userProperties": {"identificationType": "COOKIED"}}
+        application/json: {"type": "positive", "messageId": "<id>", "details": "<value>", "userProperties": {"identificationType": "COOKIED"}}
       responses:
         "200":
-          application/json: {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1715498996076", "userProperties": null}
+          application/json: {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1715498996076", "details": "<value>", "userProperties": null}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":

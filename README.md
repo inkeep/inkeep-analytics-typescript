@@ -501,11 +501,11 @@ run();
 ### Error Classes
 **Primary errors:**
 * [`InkeepAnalyticsError`](./src/models/errors/inkeepanalyticserror.ts): The base class for HTTP error responses.
-  * [`BadRequest`](docs/models/errors/badrequest.md): Bad Request. Status code `400`.
-  * [`Unauthorized`](docs/models/errors/unauthorized.md): Unauthorized. Status code `401`.
-  * [`Forbidden`](docs/models/errors/forbidden.md): Forbidden. Status code `403`.
-  * [`UnprocessableEntity`](docs/models/errors/unprocessableentity.md): Unprocessable Entity. Status code `422`.
-  * [`InternalServerError`](docs/models/errors/internalservererror.md): Internal Server Error. Status code `500`.
+  * [`BadRequest`](./src/models/errors/badrequest.ts): Bad Request. Status code `400`.
+  * [`Unauthorized`](./src/models/errors/unauthorized.ts): Unauthorized. Status code `401`.
+  * [`Forbidden`](./src/models/errors/forbidden.ts): Forbidden. Status code `403`.
+  * [`UnprocessableEntity`](./src/models/errors/unprocessableentity.ts): Unprocessable Entity. Status code `422`.
+  * [`InternalServerError`](./src/models/errors/internalservererror.ts): Internal Server Error. Status code `500`.
 
 <details><summary>Less common errors (7)</summary>
 
@@ -520,7 +520,7 @@ run();
 
 
 **Inherit from [`InkeepAnalyticsError`](./src/models/errors/inkeepanalyticserror.ts)**:
-* [`NotFound`](docs/models/errors/notfound.md): Not Found. Status code `404`. Applicable to 6 of 18 methods.*
+* [`NotFound`](./src/models/errors/notfound.ts): Not Found. Status code `404`. Applicable to 6 of 18 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

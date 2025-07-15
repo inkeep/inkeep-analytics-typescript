@@ -65,6 +65,21 @@ export type GetFeedbackByIdUserProperties = {
   additionalProperties?: { [k: string]: any };
 };
 
+export const GetFeedbackByIdFeedbackType = {
+  Positive: "positive",
+  Negative: "negative",
+  New: "new",
+} as const;
+export type GetFeedbackByIdFeedbackType = ClosedEnum<
+  typeof GetFeedbackByIdFeedbackType
+>;
+
+export type GetFeedbackByIdSources = {
+  type: GetFeedbackByIdFeedbackType | null;
+  title?: string | null | undefined;
+  url?: string | null | undefined;
+};
+
 /**
  * Feedback retrieved successfully
  */
@@ -74,6 +89,7 @@ export type GetFeedbackByIdResponseBody = {
   messageId: string;
   createdAt: string;
   reasons?: Array<GetFeedbackByIdReasons> | null | undefined;
+  details: string;
   /**
    * A customizable collection of custom properties or attributes.
    */
@@ -82,6 +98,7 @@ export type GetFeedbackByIdResponseBody = {
    * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
    */
   userProperties?: GetFeedbackByIdUserProperties | null | undefined;
+  sources?: Array<GetFeedbackByIdSources> | null | undefined;
   conversation: components.Conversation;
   message: components.Message;
 };
@@ -396,6 +413,87 @@ export function getFeedbackByIdUserPropertiesFromJSON(
 }
 
 /** @internal */
+export const GetFeedbackByIdFeedbackType$inboundSchema: z.ZodNativeEnum<
+  typeof GetFeedbackByIdFeedbackType
+> = z.nativeEnum(GetFeedbackByIdFeedbackType);
+
+/** @internal */
+export const GetFeedbackByIdFeedbackType$outboundSchema: z.ZodNativeEnum<
+  typeof GetFeedbackByIdFeedbackType
+> = GetFeedbackByIdFeedbackType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetFeedbackByIdFeedbackType$ {
+  /** @deprecated use `GetFeedbackByIdFeedbackType$inboundSchema` instead. */
+  export const inboundSchema = GetFeedbackByIdFeedbackType$inboundSchema;
+  /** @deprecated use `GetFeedbackByIdFeedbackType$outboundSchema` instead. */
+  export const outboundSchema = GetFeedbackByIdFeedbackType$outboundSchema;
+}
+
+/** @internal */
+export const GetFeedbackByIdSources$inboundSchema: z.ZodType<
+  GetFeedbackByIdSources,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: z.nullable(GetFeedbackByIdFeedbackType$inboundSchema),
+  title: z.nullable(z.string()).optional(),
+  url: z.nullable(z.string()).optional(),
+});
+
+/** @internal */
+export type GetFeedbackByIdSources$Outbound = {
+  type: string | null;
+  title?: string | null | undefined;
+  url?: string | null | undefined;
+};
+
+/** @internal */
+export const GetFeedbackByIdSources$outboundSchema: z.ZodType<
+  GetFeedbackByIdSources$Outbound,
+  z.ZodTypeDef,
+  GetFeedbackByIdSources
+> = z.object({
+  type: z.nullable(GetFeedbackByIdFeedbackType$outboundSchema),
+  title: z.nullable(z.string()).optional(),
+  url: z.nullable(z.string()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace GetFeedbackByIdSources$ {
+  /** @deprecated use `GetFeedbackByIdSources$inboundSchema` instead. */
+  export const inboundSchema = GetFeedbackByIdSources$inboundSchema;
+  /** @deprecated use `GetFeedbackByIdSources$outboundSchema` instead. */
+  export const outboundSchema = GetFeedbackByIdSources$outboundSchema;
+  /** @deprecated use `GetFeedbackByIdSources$Outbound` instead. */
+  export type Outbound = GetFeedbackByIdSources$Outbound;
+}
+
+export function getFeedbackByIdSourcesToJSON(
+  getFeedbackByIdSources: GetFeedbackByIdSources,
+): string {
+  return JSON.stringify(
+    GetFeedbackByIdSources$outboundSchema.parse(getFeedbackByIdSources),
+  );
+}
+
+export function getFeedbackByIdSourcesFromJSON(
+  jsonString: string,
+): SafeParseResult<GetFeedbackByIdSources, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetFeedbackByIdSources$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetFeedbackByIdSources' from JSON`,
+  );
+}
+
+/** @internal */
 export const GetFeedbackByIdResponseBody$inboundSchema: z.ZodType<
   GetFeedbackByIdResponseBody,
   z.ZodTypeDef,
@@ -408,9 +506,13 @@ export const GetFeedbackByIdResponseBody$inboundSchema: z.ZodType<
   reasons: z.nullable(
     z.array(z.lazy(() => GetFeedbackByIdReasons$inboundSchema)),
   ).optional(),
+  details: z.string(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() => GetFeedbackByIdUserProperties$inboundSchema),
+  ).optional(),
+  sources: z.nullable(
+    z.array(z.lazy(() => GetFeedbackByIdSources$inboundSchema)),
   ).optional(),
   conversation: components.Conversation$inboundSchema,
   message: components.Message$inboundSchema,
@@ -423,8 +525,10 @@ export type GetFeedbackByIdResponseBody$Outbound = {
   messageId: string;
   createdAt: string;
   reasons?: Array<GetFeedbackByIdReasons$Outbound> | null | undefined;
+  details: string;
   properties?: { [k: string]: any } | null | undefined;
   userProperties?: GetFeedbackByIdUserProperties$Outbound | null | undefined;
+  sources?: Array<GetFeedbackByIdSources$Outbound> | null | undefined;
   conversation: components.Conversation$Outbound;
   message: components.Message$Outbound;
 };
@@ -442,9 +546,13 @@ export const GetFeedbackByIdResponseBody$outboundSchema: z.ZodType<
   reasons: z.nullable(
     z.array(z.lazy(() => GetFeedbackByIdReasons$outboundSchema)),
   ).optional(),
+  details: z.string(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() => GetFeedbackByIdUserProperties$outboundSchema),
+  ).optional(),
+  sources: z.nullable(
+    z.array(z.lazy(() => GetFeedbackByIdSources$outboundSchema)),
   ).optional(),
   conversation: components.Conversation$outboundSchema,
   message: components.Message$outboundSchema,

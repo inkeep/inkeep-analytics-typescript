@@ -21,11 +21,7 @@ const value: components.ConversationsFilterCondition = {
 const value: components.ConversationsFilterAND = {
   and: [
     {
-      condition: {
-        field: "userMessageCount",
-        operator: "arrayContains",
-        value: "<value>",
-      },
+      and: [],
     },
   ],
 };

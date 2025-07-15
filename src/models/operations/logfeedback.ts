@@ -60,6 +60,19 @@ export type UserProperties = {
   additionalProperties?: { [k: string]: any };
 };
 
+export const LogFeedbackType = {
+  Positive: "positive",
+  Negative: "negative",
+  New: "new",
+} as const;
+export type LogFeedbackType = ClosedEnum<typeof LogFeedbackType>;
+
+export type Sources = {
+  type: LogFeedbackType | null;
+  title?: string | null | undefined;
+  url?: string | null | undefined;
+};
+
 /**
  * Note: The maximum size of the request body is 2 MB.
  */
@@ -72,6 +85,7 @@ export type LogFeedbackRequestBody = {
    */
   createdAt?: Date | null | undefined;
   reasons?: Array<Reasons> | null | undefined;
+  details: string;
   /**
    * A customizable collection of custom properties or attributes.
    */
@@ -80,13 +94,16 @@ export type LogFeedbackRequestBody = {
    * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
    */
   userProperties?: UserProperties | null | undefined;
+  sources?: Array<Sources> | null | undefined;
 };
 
-export const LogFeedbackType = {
+export const LogFeedbackFeedbackType = {
   Positive: "positive",
   Negative: "negative",
 } as const;
-export type LogFeedbackType = ClosedEnum<typeof LogFeedbackType>;
+export type LogFeedbackFeedbackType = ClosedEnum<
+  typeof LogFeedbackFeedbackType
+>;
 
 export type LogFeedbackReasons = {
   label: string;
@@ -130,15 +147,31 @@ export type LogFeedbackUserProperties = {
   additionalProperties?: { [k: string]: any };
 };
 
+export const LogFeedbackFeedbackResponseType = {
+  Positive: "positive",
+  Negative: "negative",
+  New: "new",
+} as const;
+export type LogFeedbackFeedbackResponseType = ClosedEnum<
+  typeof LogFeedbackFeedbackResponseType
+>;
+
+export type LogFeedbackSources = {
+  type: LogFeedbackFeedbackResponseType | null;
+  title?: string | null | undefined;
+  url?: string | null | undefined;
+};
+
 /**
  * Feedback logged successfully
  */
 export type LogFeedbackResponseBody = {
   id: string;
-  type: LogFeedbackType;
+  type: LogFeedbackFeedbackType;
   messageId: string;
   createdAt: string;
   reasons?: Array<LogFeedbackReasons> | null | undefined;
+  details: string;
   /**
    * A customizable collection of custom properties or attributes.
    */
@@ -147,6 +180,7 @@ export type LogFeedbackResponseBody = {
    * A customizable collection of custom properties or attributes. Some properties have first class support for the Inkeep Portal or Widget and are noted in the description.
    */
   userProperties?: LogFeedbackUserProperties | null | undefined;
+  sources?: Array<LogFeedbackSources> | null | undefined;
 };
 
 /** @internal */
@@ -376,6 +410,80 @@ export function userPropertiesFromJSON(
 }
 
 /** @internal */
+export const LogFeedbackType$inboundSchema: z.ZodNativeEnum<
+  typeof LogFeedbackType
+> = z.nativeEnum(LogFeedbackType);
+
+/** @internal */
+export const LogFeedbackType$outboundSchema: z.ZodNativeEnum<
+  typeof LogFeedbackType
+> = LogFeedbackType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace LogFeedbackType$ {
+  /** @deprecated use `LogFeedbackType$inboundSchema` instead. */
+  export const inboundSchema = LogFeedbackType$inboundSchema;
+  /** @deprecated use `LogFeedbackType$outboundSchema` instead. */
+  export const outboundSchema = LogFeedbackType$outboundSchema;
+}
+
+/** @internal */
+export const Sources$inboundSchema: z.ZodType<Sources, z.ZodTypeDef, unknown> =
+  z.object({
+    type: z.nullable(LogFeedbackType$inboundSchema),
+    title: z.nullable(z.string()).optional(),
+    url: z.nullable(z.string()).optional(),
+  });
+
+/** @internal */
+export type Sources$Outbound = {
+  type: string | null;
+  title?: string | null | undefined;
+  url?: string | null | undefined;
+};
+
+/** @internal */
+export const Sources$outboundSchema: z.ZodType<
+  Sources$Outbound,
+  z.ZodTypeDef,
+  Sources
+> = z.object({
+  type: z.nullable(LogFeedbackType$outboundSchema),
+  title: z.nullable(z.string()).optional(),
+  url: z.nullable(z.string()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Sources$ {
+  /** @deprecated use `Sources$inboundSchema` instead. */
+  export const inboundSchema = Sources$inboundSchema;
+  /** @deprecated use `Sources$outboundSchema` instead. */
+  export const outboundSchema = Sources$outboundSchema;
+  /** @deprecated use `Sources$Outbound` instead. */
+  export type Outbound = Sources$Outbound;
+}
+
+export function sourcesToJSON(sources: Sources): string {
+  return JSON.stringify(Sources$outboundSchema.parse(sources));
+}
+
+export function sourcesFromJSON(
+  jsonString: string,
+): SafeParseResult<Sources, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Sources$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Sources' from JSON`,
+  );
+}
+
+/** @internal */
 export const LogFeedbackRequestBody$inboundSchema: z.ZodType<
   LogFeedbackRequestBody,
   z.ZodTypeDef,
@@ -388,9 +496,11 @@ export const LogFeedbackRequestBody$inboundSchema: z.ZodType<
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$inboundSchema))).optional(),
+  details: z.string(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(z.lazy(() => UserProperties$inboundSchema))
     .optional(),
+  sources: z.nullable(z.array(z.lazy(() => Sources$inboundSchema))).optional(),
 });
 
 /** @internal */
@@ -400,8 +510,10 @@ export type LogFeedbackRequestBody$Outbound = {
   messageId: string;
   createdAt?: string | null | undefined;
   reasons?: Array<Reasons$Outbound> | null | undefined;
+  details: string;
   properties?: { [k: string]: any } | null | undefined;
   userProperties?: UserProperties$Outbound | null | undefined;
+  sources?: Array<Sources$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -415,9 +527,11 @@ export const LogFeedbackRequestBody$outboundSchema: z.ZodType<
   messageId: z.string(),
   createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$outboundSchema))).optional(),
+  details: z.string(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(z.lazy(() => UserProperties$outboundSchema))
     .optional(),
+  sources: z.nullable(z.array(z.lazy(() => Sources$outboundSchema))).optional(),
 });
 
 /**
@@ -452,24 +566,24 @@ export function logFeedbackRequestBodyFromJSON(
 }
 
 /** @internal */
-export const LogFeedbackType$inboundSchema: z.ZodNativeEnum<
-  typeof LogFeedbackType
-> = z.nativeEnum(LogFeedbackType);
+export const LogFeedbackFeedbackType$inboundSchema: z.ZodNativeEnum<
+  typeof LogFeedbackFeedbackType
+> = z.nativeEnum(LogFeedbackFeedbackType);
 
 /** @internal */
-export const LogFeedbackType$outboundSchema: z.ZodNativeEnum<
-  typeof LogFeedbackType
-> = LogFeedbackType$inboundSchema;
+export const LogFeedbackFeedbackType$outboundSchema: z.ZodNativeEnum<
+  typeof LogFeedbackFeedbackType
+> = LogFeedbackFeedbackType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace LogFeedbackType$ {
-  /** @deprecated use `LogFeedbackType$inboundSchema` instead. */
-  export const inboundSchema = LogFeedbackType$inboundSchema;
-  /** @deprecated use `LogFeedbackType$outboundSchema` instead. */
-  export const outboundSchema = LogFeedbackType$outboundSchema;
+export namespace LogFeedbackFeedbackType$ {
+  /** @deprecated use `LogFeedbackFeedbackType$inboundSchema` instead. */
+  export const inboundSchema = LogFeedbackFeedbackType$inboundSchema;
+  /** @deprecated use `LogFeedbackFeedbackType$outboundSchema` instead. */
+  export const outboundSchema = LogFeedbackFeedbackType$outboundSchema;
 }
 
 /** @internal */
@@ -701,21 +815,105 @@ export function logFeedbackUserPropertiesFromJSON(
 }
 
 /** @internal */
+export const LogFeedbackFeedbackResponseType$inboundSchema: z.ZodNativeEnum<
+  typeof LogFeedbackFeedbackResponseType
+> = z.nativeEnum(LogFeedbackFeedbackResponseType);
+
+/** @internal */
+export const LogFeedbackFeedbackResponseType$outboundSchema: z.ZodNativeEnum<
+  typeof LogFeedbackFeedbackResponseType
+> = LogFeedbackFeedbackResponseType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace LogFeedbackFeedbackResponseType$ {
+  /** @deprecated use `LogFeedbackFeedbackResponseType$inboundSchema` instead. */
+  export const inboundSchema = LogFeedbackFeedbackResponseType$inboundSchema;
+  /** @deprecated use `LogFeedbackFeedbackResponseType$outboundSchema` instead. */
+  export const outboundSchema = LogFeedbackFeedbackResponseType$outboundSchema;
+}
+
+/** @internal */
+export const LogFeedbackSources$inboundSchema: z.ZodType<
+  LogFeedbackSources,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: z.nullable(LogFeedbackFeedbackResponseType$inboundSchema),
+  title: z.nullable(z.string()).optional(),
+  url: z.nullable(z.string()).optional(),
+});
+
+/** @internal */
+export type LogFeedbackSources$Outbound = {
+  type: string | null;
+  title?: string | null | undefined;
+  url?: string | null | undefined;
+};
+
+/** @internal */
+export const LogFeedbackSources$outboundSchema: z.ZodType<
+  LogFeedbackSources$Outbound,
+  z.ZodTypeDef,
+  LogFeedbackSources
+> = z.object({
+  type: z.nullable(LogFeedbackFeedbackResponseType$outboundSchema),
+  title: z.nullable(z.string()).optional(),
+  url: z.nullable(z.string()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace LogFeedbackSources$ {
+  /** @deprecated use `LogFeedbackSources$inboundSchema` instead. */
+  export const inboundSchema = LogFeedbackSources$inboundSchema;
+  /** @deprecated use `LogFeedbackSources$outboundSchema` instead. */
+  export const outboundSchema = LogFeedbackSources$outboundSchema;
+  /** @deprecated use `LogFeedbackSources$Outbound` instead. */
+  export type Outbound = LogFeedbackSources$Outbound;
+}
+
+export function logFeedbackSourcesToJSON(
+  logFeedbackSources: LogFeedbackSources,
+): string {
+  return JSON.stringify(
+    LogFeedbackSources$outboundSchema.parse(logFeedbackSources),
+  );
+}
+
+export function logFeedbackSourcesFromJSON(
+  jsonString: string,
+): SafeParseResult<LogFeedbackSources, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => LogFeedbackSources$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'LogFeedbackSources' from JSON`,
+  );
+}
+
+/** @internal */
 export const LogFeedbackResponseBody$inboundSchema: z.ZodType<
   LogFeedbackResponseBody,
   z.ZodTypeDef,
   unknown
 > = z.object({
   id: z.string(),
-  type: LogFeedbackType$inboundSchema,
+  type: LogFeedbackFeedbackType$inboundSchema,
   messageId: z.string(),
   createdAt: z.string(),
   reasons: z.nullable(z.array(z.lazy(() => LogFeedbackReasons$inboundSchema)))
     .optional(),
+  details: z.string(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() => LogFeedbackUserProperties$inboundSchema),
   ).optional(),
+  sources: z.nullable(z.array(z.lazy(() => LogFeedbackSources$inboundSchema)))
+    .optional(),
 });
 
 /** @internal */
@@ -725,8 +923,10 @@ export type LogFeedbackResponseBody$Outbound = {
   messageId: string;
   createdAt: string;
   reasons?: Array<LogFeedbackReasons$Outbound> | null | undefined;
+  details: string;
   properties?: { [k: string]: any } | null | undefined;
   userProperties?: LogFeedbackUserProperties$Outbound | null | undefined;
+  sources?: Array<LogFeedbackSources$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -736,15 +936,18 @@ export const LogFeedbackResponseBody$outboundSchema: z.ZodType<
   LogFeedbackResponseBody
 > = z.object({
   id: z.string(),
-  type: LogFeedbackType$outboundSchema,
+  type: LogFeedbackFeedbackType$outboundSchema,
   messageId: z.string(),
   createdAt: z.string(),
   reasons: z.nullable(z.array(z.lazy(() => LogFeedbackReasons$outboundSchema)))
     .optional(),
+  details: z.string(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() => LogFeedbackUserProperties$outboundSchema),
   ).optional(),
+  sources: z.nullable(z.array(z.lazy(() => LogFeedbackSources$outboundSchema)))
+    .optional(),
 });
 
 /**

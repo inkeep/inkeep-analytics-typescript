@@ -30,6 +30,7 @@ async function run() {
   const result = await inkeepAnalytics.feedback.submit({
     type: "positive",
     messageId: "<id>",
+    details: "<value>",
     userProperties: {
       identificationType: "COOKIED",
     },
@@ -59,6 +60,7 @@ async function run() {
   const res = await feedbackSubmit(inkeepAnalytics, {
     type: "positive",
     messageId: "<id>",
+    details: "<value>",
     userProperties: {
       identificationType: "COOKIED",
     },

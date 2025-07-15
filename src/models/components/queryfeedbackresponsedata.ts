@@ -25,6 +25,21 @@ export type QueryFeedbackResponseDataReasons = {
   details: string;
 };
 
+export const QueryFeedbackResponseDataResultType = {
+  Positive: "positive",
+  Negative: "negative",
+  New: "new",
+} as const;
+export type QueryFeedbackResponseDataResultType = ClosedEnum<
+  typeof QueryFeedbackResponseDataResultType
+>;
+
+export type QueryFeedbackResponseDataSources = {
+  type: QueryFeedbackResponseDataResultType | null;
+  title?: string | null | undefined;
+  url?: string | null | undefined;
+};
+
 /**
  * The unique identifier for the user. This value is sent by the inkeep widget.
  */
@@ -69,6 +84,8 @@ export type FeedbackResultItem = {
   createdAt?: any | undefined;
   organizationId?: string | undefined;
   reasons?: Array<QueryFeedbackResponseDataReasons> | null | undefined;
+  sources?: Array<QueryFeedbackResponseDataSources> | null | undefined;
+  details?: string | null | undefined;
   /**
    * A customizable collection of custom properties or attributes.
    */
@@ -109,6 +126,14 @@ export type FeedbackResultItem = {
   reasonsDay?: string | undefined;
   reasonsWeek?: string | undefined;
   reasonsMonth?: string | undefined;
+  sourcesHour?: string | undefined;
+  sourcesDay?: string | undefined;
+  sourcesWeek?: string | undefined;
+  sourcesMonth?: string | undefined;
+  detailsHour?: string | undefined;
+  detailsDay?: string | undefined;
+  detailsWeek?: string | undefined;
+  detailsMonth?: string | undefined;
   propertiesHour?: string | undefined;
   propertiesDay?: string | undefined;
   propertiesWeek?: string | undefined;
@@ -135,6 +160,8 @@ export type FeedbackResultItem = {
   sumCreatedAt?: number | undefined;
   sumOrganizationId?: number | undefined;
   sumReasons?: number | undefined;
+  sumSources?: number | undefined;
+  sumDetails?: number | undefined;
   sumProperties?: number | undefined;
   sumUserProperties?: number | undefined;
   sumConversationId?: number | undefined;
@@ -146,6 +173,8 @@ export type FeedbackResultItem = {
   countCreatedAt?: number | undefined;
   countOrganizationId?: number | undefined;
   countReasons?: number | undefined;
+  countSources?: number | undefined;
+  countDetails?: number | undefined;
   countProperties?: number | undefined;
   countUserProperties?: number | undefined;
   countConversationId?: number | undefined;
@@ -157,6 +186,8 @@ export type FeedbackResultItem = {
   avgCreatedAt?: number | undefined;
   avgOrganizationId?: number | undefined;
   avgReasons?: number | undefined;
+  avgSources?: number | undefined;
+  avgDetails?: number | undefined;
   avgProperties?: number | undefined;
   avgUserProperties?: number | undefined;
   avgConversationId?: number | undefined;
@@ -168,6 +199,8 @@ export type FeedbackResultItem = {
   minCreatedAt?: number | undefined;
   minOrganizationId?: number | undefined;
   minReasons?: number | undefined;
+  minSources?: number | undefined;
+  minDetails?: number | undefined;
   minProperties?: number | undefined;
   minUserProperties?: number | undefined;
   minConversationId?: number | undefined;
@@ -179,6 +212,8 @@ export type FeedbackResultItem = {
   maxCreatedAt?: number | undefined;
   maxOrganizationId?: number | undefined;
   maxReasons?: number | undefined;
+  maxSources?: number | undefined;
+  maxDetails?: number | undefined;
   maxProperties?: number | undefined;
   maxUserProperties?: number | undefined;
   maxConversationId?: number | undefined;
@@ -311,6 +346,91 @@ export function queryFeedbackResponseDataReasonsFromJSON(
     jsonString,
     (x) => QueryFeedbackResponseDataReasons$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'QueryFeedbackResponseDataReasons' from JSON`,
+  );
+}
+
+/** @internal */
+export const QueryFeedbackResponseDataResultType$inboundSchema: z.ZodNativeEnum<
+  typeof QueryFeedbackResponseDataResultType
+> = z.nativeEnum(QueryFeedbackResponseDataResultType);
+
+/** @internal */
+export const QueryFeedbackResponseDataResultType$outboundSchema:
+  z.ZodNativeEnum<typeof QueryFeedbackResponseDataResultType> =
+    QueryFeedbackResponseDataResultType$inboundSchema;
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace QueryFeedbackResponseDataResultType$ {
+  /** @deprecated use `QueryFeedbackResponseDataResultType$inboundSchema` instead. */
+  export const inboundSchema =
+    QueryFeedbackResponseDataResultType$inboundSchema;
+  /** @deprecated use `QueryFeedbackResponseDataResultType$outboundSchema` instead. */
+  export const outboundSchema =
+    QueryFeedbackResponseDataResultType$outboundSchema;
+}
+
+/** @internal */
+export const QueryFeedbackResponseDataSources$inboundSchema: z.ZodType<
+  QueryFeedbackResponseDataSources,
+  z.ZodTypeDef,
+  unknown
+> = z.object({
+  type: z.nullable(QueryFeedbackResponseDataResultType$inboundSchema),
+  title: z.nullable(z.string()).optional(),
+  url: z.nullable(z.string()).optional(),
+});
+
+/** @internal */
+export type QueryFeedbackResponseDataSources$Outbound = {
+  type: string | null;
+  title?: string | null | undefined;
+  url?: string | null | undefined;
+};
+
+/** @internal */
+export const QueryFeedbackResponseDataSources$outboundSchema: z.ZodType<
+  QueryFeedbackResponseDataSources$Outbound,
+  z.ZodTypeDef,
+  QueryFeedbackResponseDataSources
+> = z.object({
+  type: z.nullable(QueryFeedbackResponseDataResultType$outboundSchema),
+  title: z.nullable(z.string()).optional(),
+  url: z.nullable(z.string()).optional(),
+});
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace QueryFeedbackResponseDataSources$ {
+  /** @deprecated use `QueryFeedbackResponseDataSources$inboundSchema` instead. */
+  export const inboundSchema = QueryFeedbackResponseDataSources$inboundSchema;
+  /** @deprecated use `QueryFeedbackResponseDataSources$outboundSchema` instead. */
+  export const outboundSchema = QueryFeedbackResponseDataSources$outboundSchema;
+  /** @deprecated use `QueryFeedbackResponseDataSources$Outbound` instead. */
+  export type Outbound = QueryFeedbackResponseDataSources$Outbound;
+}
+
+export function queryFeedbackResponseDataSourcesToJSON(
+  queryFeedbackResponseDataSources: QueryFeedbackResponseDataSources,
+): string {
+  return JSON.stringify(
+    QueryFeedbackResponseDataSources$outboundSchema.parse(
+      queryFeedbackResponseDataSources,
+    ),
+  );
+}
+
+export function queryFeedbackResponseDataSourcesFromJSON(
+  jsonString: string,
+): SafeParseResult<QueryFeedbackResponseDataSources, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => QueryFeedbackResponseDataSources$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'QueryFeedbackResponseDataSources' from JSON`,
   );
 }
 
@@ -519,6 +639,10 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     reasons: z.nullable(
       z.array(z.lazy(() => QueryFeedbackResponseDataReasons$inboundSchema)),
     ).optional(),
+    sources: z.nullable(
+      z.array(z.lazy(() => QueryFeedbackResponseDataSources$inboundSchema)),
+    ).optional(),
+    details: z.nullable(z.string()).optional(),
     properties: z.nullable(z.record(z.any())).optional(),
     userProperties: z.nullable(
       z.lazy(() => QueryFeedbackResponseDataUserProperties$inboundSchema),
@@ -555,6 +679,14 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     reasons_day: z.string().optional(),
     reasons_week: z.string().optional(),
     reasons_month: z.string().optional(),
+    sources_hour: z.string().optional(),
+    sources_day: z.string().optional(),
+    sources_week: z.string().optional(),
+    sources_month: z.string().optional(),
+    details_hour: z.string().optional(),
+    details_day: z.string().optional(),
+    details_week: z.string().optional(),
+    details_month: z.string().optional(),
     properties_hour: z.string().optional(),
     properties_day: z.string().optional(),
     properties_week: z.string().optional(),
@@ -581,6 +713,8 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     sum_createdAt: z.number().optional(),
     sum_organizationId: z.number().optional(),
     sum_reasons: z.number().optional(),
+    sum_sources: z.number().optional(),
+    sum_details: z.number().optional(),
     sum_properties: z.number().optional(),
     sum_userProperties: z.number().optional(),
     sum_conversationId: z.number().optional(),
@@ -592,6 +726,8 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     count_createdAt: z.number().optional(),
     count_organizationId: z.number().optional(),
     count_reasons: z.number().optional(),
+    count_sources: z.number().optional(),
+    count_details: z.number().optional(),
     count_properties: z.number().optional(),
     count_userProperties: z.number().optional(),
     count_conversationId: z.number().optional(),
@@ -603,6 +739,8 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     avg_createdAt: z.number().optional(),
     avg_organizationId: z.number().optional(),
     avg_reasons: z.number().optional(),
+    avg_sources: z.number().optional(),
+    avg_details: z.number().optional(),
     avg_properties: z.number().optional(),
     avg_userProperties: z.number().optional(),
     avg_conversationId: z.number().optional(),
@@ -614,6 +752,8 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     min_createdAt: z.number().optional(),
     min_organizationId: z.number().optional(),
     min_reasons: z.number().optional(),
+    min_sources: z.number().optional(),
+    min_details: z.number().optional(),
     min_properties: z.number().optional(),
     min_userProperties: z.number().optional(),
     min_conversationId: z.number().optional(),
@@ -625,6 +765,8 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     max_createdAt: z.number().optional(),
     max_organizationId: z.number().optional(),
     max_reasons: z.number().optional(),
+    max_sources: z.number().optional(),
+    max_details: z.number().optional(),
     max_properties: z.number().optional(),
     max_userProperties: z.number().optional(),
     max_conversationId: z.number().optional(),
@@ -687,6 +829,14 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "reasons_day": "reasonsDay",
     "reasons_week": "reasonsWeek",
     "reasons_month": "reasonsMonth",
+    "sources_hour": "sourcesHour",
+    "sources_day": "sourcesDay",
+    "sources_week": "sourcesWeek",
+    "sources_month": "sourcesMonth",
+    "details_hour": "detailsHour",
+    "details_day": "detailsDay",
+    "details_week": "detailsWeek",
+    "details_month": "detailsMonth",
     "properties_hour": "propertiesHour",
     "properties_day": "propertiesDay",
     "properties_week": "propertiesWeek",
@@ -713,6 +863,8 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "sum_createdAt": "sumCreatedAt",
     "sum_organizationId": "sumOrganizationId",
     "sum_reasons": "sumReasons",
+    "sum_sources": "sumSources",
+    "sum_details": "sumDetails",
     "sum_properties": "sumProperties",
     "sum_userProperties": "sumUserProperties",
     "sum_conversationId": "sumConversationId",
@@ -724,6 +876,8 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "count_createdAt": "countCreatedAt",
     "count_organizationId": "countOrganizationId",
     "count_reasons": "countReasons",
+    "count_sources": "countSources",
+    "count_details": "countDetails",
     "count_properties": "countProperties",
     "count_userProperties": "countUserProperties",
     "count_conversationId": "countConversationId",
@@ -735,6 +889,8 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "avg_createdAt": "avgCreatedAt",
     "avg_organizationId": "avgOrganizationId",
     "avg_reasons": "avgReasons",
+    "avg_sources": "avgSources",
+    "avg_details": "avgDetails",
     "avg_properties": "avgProperties",
     "avg_userProperties": "avgUserProperties",
     "avg_conversationId": "avgConversationId",
@@ -746,6 +902,8 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "min_createdAt": "minCreatedAt",
     "min_organizationId": "minOrganizationId",
     "min_reasons": "minReasons",
+    "min_sources": "minSources",
+    "min_details": "minDetails",
     "min_properties": "minProperties",
     "min_userProperties": "minUserProperties",
     "min_conversationId": "minConversationId",
@@ -757,6 +915,8 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "max_createdAt": "maxCreatedAt",
     "max_organizationId": "maxOrganizationId",
     "max_reasons": "maxReasons",
+    "max_sources": "maxSources",
+    "max_details": "maxDetails",
     "max_properties": "maxProperties",
     "max_userProperties": "maxUserProperties",
     "max_conversationId": "maxConversationId",
@@ -804,6 +964,8 @@ export type FeedbackResultItem$Outbound = {
   createdAt?: any | undefined;
   organizationId?: string | undefined;
   reasons?: Array<QueryFeedbackResponseDataReasons$Outbound> | null | undefined;
+  sources?: Array<QueryFeedbackResponseDataSources$Outbound> | null | undefined;
+  details?: string | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
   userProperties?:
     | QueryFeedbackResponseDataUserProperties$Outbound
@@ -841,6 +1003,14 @@ export type FeedbackResultItem$Outbound = {
   reasons_day?: string | undefined;
   reasons_week?: string | undefined;
   reasons_month?: string | undefined;
+  sources_hour?: string | undefined;
+  sources_day?: string | undefined;
+  sources_week?: string | undefined;
+  sources_month?: string | undefined;
+  details_hour?: string | undefined;
+  details_day?: string | undefined;
+  details_week?: string | undefined;
+  details_month?: string | undefined;
   properties_hour?: string | undefined;
   properties_day?: string | undefined;
   properties_week?: string | undefined;
@@ -867,6 +1037,8 @@ export type FeedbackResultItem$Outbound = {
   sum_createdAt?: number | undefined;
   sum_organizationId?: number | undefined;
   sum_reasons?: number | undefined;
+  sum_sources?: number | undefined;
+  sum_details?: number | undefined;
   sum_properties?: number | undefined;
   sum_userProperties?: number | undefined;
   sum_conversationId?: number | undefined;
@@ -878,6 +1050,8 @@ export type FeedbackResultItem$Outbound = {
   count_createdAt?: number | undefined;
   count_organizationId?: number | undefined;
   count_reasons?: number | undefined;
+  count_sources?: number | undefined;
+  count_details?: number | undefined;
   count_properties?: number | undefined;
   count_userProperties?: number | undefined;
   count_conversationId?: number | undefined;
@@ -889,6 +1063,8 @@ export type FeedbackResultItem$Outbound = {
   avg_createdAt?: number | undefined;
   avg_organizationId?: number | undefined;
   avg_reasons?: number | undefined;
+  avg_sources?: number | undefined;
+  avg_details?: number | undefined;
   avg_properties?: number | undefined;
   avg_userProperties?: number | undefined;
   avg_conversationId?: number | undefined;
@@ -900,6 +1076,8 @@ export type FeedbackResultItem$Outbound = {
   min_createdAt?: number | undefined;
   min_organizationId?: number | undefined;
   min_reasons?: number | undefined;
+  min_sources?: number | undefined;
+  min_details?: number | undefined;
   min_properties?: number | undefined;
   min_userProperties?: number | undefined;
   min_conversationId?: number | undefined;
@@ -911,6 +1089,8 @@ export type FeedbackResultItem$Outbound = {
   max_createdAt?: number | undefined;
   max_organizationId?: number | undefined;
   max_reasons?: number | undefined;
+  max_sources?: number | undefined;
+  max_details?: number | undefined;
   max_properties?: number | undefined;
   max_userProperties?: number | undefined;
   max_conversationId?: number | undefined;
@@ -961,6 +1141,10 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   reasons: z.nullable(
     z.array(z.lazy(() => QueryFeedbackResponseDataReasons$outboundSchema)),
   ).optional(),
+  sources: z.nullable(
+    z.array(z.lazy(() => QueryFeedbackResponseDataSources$outboundSchema)),
+  ).optional(),
+  details: z.nullable(z.string()).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() => QueryFeedbackResponseDataUserProperties$outboundSchema),
@@ -997,6 +1181,14 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   reasonsDay: z.string().optional(),
   reasonsWeek: z.string().optional(),
   reasonsMonth: z.string().optional(),
+  sourcesHour: z.string().optional(),
+  sourcesDay: z.string().optional(),
+  sourcesWeek: z.string().optional(),
+  sourcesMonth: z.string().optional(),
+  detailsHour: z.string().optional(),
+  detailsDay: z.string().optional(),
+  detailsWeek: z.string().optional(),
+  detailsMonth: z.string().optional(),
   propertiesHour: z.string().optional(),
   propertiesDay: z.string().optional(),
   propertiesWeek: z.string().optional(),
@@ -1023,6 +1215,8 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   sumCreatedAt: z.number().optional(),
   sumOrganizationId: z.number().optional(),
   sumReasons: z.number().optional(),
+  sumSources: z.number().optional(),
+  sumDetails: z.number().optional(),
   sumProperties: z.number().optional(),
   sumUserProperties: z.number().optional(),
   sumConversationId: z.number().optional(),
@@ -1034,6 +1228,8 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   countCreatedAt: z.number().optional(),
   countOrganizationId: z.number().optional(),
   countReasons: z.number().optional(),
+  countSources: z.number().optional(),
+  countDetails: z.number().optional(),
   countProperties: z.number().optional(),
   countUserProperties: z.number().optional(),
   countConversationId: z.number().optional(),
@@ -1045,6 +1241,8 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   avgCreatedAt: z.number().optional(),
   avgOrganizationId: z.number().optional(),
   avgReasons: z.number().optional(),
+  avgSources: z.number().optional(),
+  avgDetails: z.number().optional(),
   avgProperties: z.number().optional(),
   avgUserProperties: z.number().optional(),
   avgConversationId: z.number().optional(),
@@ -1056,6 +1254,8 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   minCreatedAt: z.number().optional(),
   minOrganizationId: z.number().optional(),
   minReasons: z.number().optional(),
+  minSources: z.number().optional(),
+  minDetails: z.number().optional(),
   minProperties: z.number().optional(),
   minUserProperties: z.number().optional(),
   minConversationId: z.number().optional(),
@@ -1067,6 +1267,8 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   maxCreatedAt: z.number().optional(),
   maxOrganizationId: z.number().optional(),
   maxReasons: z.number().optional(),
+  maxSources: z.number().optional(),
+  maxDetails: z.number().optional(),
   maxProperties: z.number().optional(),
   maxUserProperties: z.number().optional(),
   maxConversationId: z.number().optional(),
@@ -1129,6 +1331,14 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
       reasonsDay: "reasons_day",
       reasonsWeek: "reasons_week",
       reasonsMonth: "reasons_month",
+      sourcesHour: "sources_hour",
+      sourcesDay: "sources_day",
+      sourcesWeek: "sources_week",
+      sourcesMonth: "sources_month",
+      detailsHour: "details_hour",
+      detailsDay: "details_day",
+      detailsWeek: "details_week",
+      detailsMonth: "details_month",
       propertiesHour: "properties_hour",
       propertiesDay: "properties_day",
       propertiesWeek: "properties_week",
@@ -1155,6 +1365,8 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
       sumCreatedAt: "sum_createdAt",
       sumOrganizationId: "sum_organizationId",
       sumReasons: "sum_reasons",
+      sumSources: "sum_sources",
+      sumDetails: "sum_details",
       sumProperties: "sum_properties",
       sumUserProperties: "sum_userProperties",
       sumConversationId: "sum_conversationId",
@@ -1166,6 +1378,8 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
       countCreatedAt: "count_createdAt",
       countOrganizationId: "count_organizationId",
       countReasons: "count_reasons",
+      countSources: "count_sources",
+      countDetails: "count_details",
       countProperties: "count_properties",
       countUserProperties: "count_userProperties",
       countConversationId: "count_conversationId",
@@ -1177,6 +1391,8 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
       avgCreatedAt: "avg_createdAt",
       avgOrganizationId: "avg_organizationId",
       avgReasons: "avg_reasons",
+      avgSources: "avg_sources",
+      avgDetails: "avg_details",
       avgProperties: "avg_properties",
       avgUserProperties: "avg_userProperties",
       avgConversationId: "avg_conversationId",
@@ -1188,6 +1404,8 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
       minCreatedAt: "min_createdAt",
       minOrganizationId: "min_organizationId",
       minReasons: "min_reasons",
+      minSources: "min_sources",
+      minDetails: "min_details",
       minProperties: "min_properties",
       minUserProperties: "min_userProperties",
       minConversationId: "min_conversationId",
@@ -1199,6 +1417,8 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
       maxCreatedAt: "max_createdAt",
       maxOrganizationId: "max_organizationId",
       maxReasons: "max_reasons",
+      maxSources: "max_sources",
+      maxDetails: "max_details",
       maxProperties: "max_properties",
       maxUserProperties: "max_userProperties",
       maxConversationId: "max_conversationId",

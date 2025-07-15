@@ -25,11 +25,7 @@ const value: components.EventsFilterCondition = {
 const value: components.EventsFilterAND = {
   and: [
     {
-      and: [
-        {
-          and: [],
-        },
-      ],
+      or: [],
     },
   ],
 };

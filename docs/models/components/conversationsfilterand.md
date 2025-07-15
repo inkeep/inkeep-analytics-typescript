@@ -10,15 +10,7 @@ import { ConversationsFilterAND } from "@inkeep/inkeep-analytics/models/componen
 let value: ConversationsFilterAND = {
   and: [
     {
-      or: [
-        {
-          condition: {
-            field: "userMessageCount",
-            operator: "arrayContains",
-            value: "<value>",
-          },
-        },
-      ],
+      and: [],
     },
   ],
 };
