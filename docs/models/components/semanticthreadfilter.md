@@ -29,11 +29,7 @@ const value: components.SemanticThreadFilterAND = {
 const value: components.SemanticThreadFilterOR = {
   or: [
     {
-      condition: {
-        field: "isAnswerConfident",
-        operator: "lt",
-        value: "<value>",
-      },
+      or: [],
     },
   ],
 };

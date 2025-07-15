@@ -14,6 +14,7 @@ let value: GetAllFeedbackResponse = {
       type: "positive",
       messageId: "<id>",
       createdAt: "1723345333062",
+      details: "<value>",
       userProperties: {
         identificationType: "COOKIED",
       },

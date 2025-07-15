@@ -8,7 +8,7 @@ Specifies how to order Feedback query results by field and direction
 import { FeedbackOrderBy } from "@inkeep/inkeep-analytics/models/components";
 
 let value: FeedbackOrderBy = {
-  field: "messageId_month",
+  field: "createdAt_day",
   direction: "asc",
 };
 ```

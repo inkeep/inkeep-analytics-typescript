@@ -5,11 +5,11 @@
 ```typescript
 import { LogFeedbackType } from "@inkeep/inkeep-analytics/models/operations";
 
-let value: LogFeedbackType = "negative";
+let value: LogFeedbackType = "new";
 ```
 
 ## Values
 
 ```typescript
-"positive" | "negative"
+"positive" | "negative" | "new"
 ```

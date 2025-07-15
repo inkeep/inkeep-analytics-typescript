@@ -24,7 +24,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.2.4-alpha.27
+  version: 0.2.4-alpha.28
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -42,6 +42,7 @@ typescript:
   envVarPrefix: INKEEPANALYTICS
   flattenGlobalSecurity: true
   flatteningOrder: parameters-first
+  generateExamples: true
   imports:
     option: openapi
     paths:

@@ -8,7 +8,7 @@ Group by options for feedback
 import { FeedbackGroupBy } from "@inkeep/inkeep-analytics/models/components";
 
 let value: FeedbackGroupBy = {
-  field: "organizationId",
+  field: "reasons",
 };
 ```
 

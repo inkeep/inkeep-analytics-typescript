@@ -15,6 +15,8 @@ export const FeedbackField = {
   CreatedAt: "createdAt",
   OrganizationId: "organizationId",
   Reasons: "reasons",
+  Sources: "sources",
+  Details: "details",
   Properties: "properties",
   UserProperties: "userProperties",
   ConversationId: "conversationId",

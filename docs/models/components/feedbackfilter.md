@@ -29,11 +29,7 @@ const value: components.FeedbackFilterAND = {
 const value: components.FeedbackFilterOR = {
   or: [
     {
-      and: [
-        {
-          and: [],
-        },
-      ],
+      or: [],
     },
   ],
 };

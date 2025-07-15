@@ -10,11 +10,7 @@ import { SemanticThreadFilterOR } from "@inkeep/inkeep-analytics/models/componen
 let value: SemanticThreadFilterOR = {
   or: [
     {
-      condition: {
-        field: "isAnswerConfident",
-        operator: "lt",
-        value: "<value>",
-      },
+      or: [],
     },
   ],
 };

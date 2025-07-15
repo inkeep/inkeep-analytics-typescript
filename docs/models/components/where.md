@@ -25,11 +25,7 @@ const value: components.EventsFilterCondition = {
 const value: components.EventsFilterAND = {
   and: [
     {
-      and: [
-        {
-          or: [],
-        },
-      ],
+      or: [],
     },
   ],
 };
@@ -133,11 +129,7 @@ const value: components.FeedbackFilterAND = {
 const value: components.FeedbackFilterOR = {
   or: [
     {
-      and: [
-        {
-          or: [],
-        },
-      ],
+      or: [],
     },
   ],
 };
