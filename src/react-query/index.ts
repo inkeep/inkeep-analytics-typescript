@@ -14,6 +14,7 @@ export * from "./conversationsGet.js";
 export * from "./conversationsList.js";
 export * from "./conversationsLog.js";
 export * from "./eventsLog.js";
+export * from "./feedbackDeleteFeedbackById.js";
 export * from "./feedbackGetFeedbackById.js";
 export * from "./feedbackList.js";
 export * from "./feedbackSubmit.js";

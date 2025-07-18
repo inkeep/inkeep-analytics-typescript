@@ -10,6 +10,7 @@ let value: NegativeFeedback = {
   type: "negative",
   messageId: "<id>",
   createdAt: "1709249396560",
+  updatedAt: "1735667605681",
   details: "<value>",
   userProperties: {
     identificationType: "COOKIED",
@@ -17,13 +18,13 @@ let value: NegativeFeedback = {
   conversation: {
     id: "<id>",
     externalId: "<id>",
-    externalUrl: "https://unsung-pomelo.org",
+    externalUrl: "https://rotating-vicinity.name",
     type: "support_copilot",
     supportTicketConversationId: "<id>",
-    createdAt: "1728882824397",
-    updatedAt: "1735681424620",
-    projectId: "<id>",
-    integrationId: null,
+    createdAt: "1732705915746",
+    updatedAt: "1735674770384",
+    projectId: null,
+    integrationId: "<id>",
     visibility: "public",
     messages: [
       {
@@ -46,10 +47,10 @@ let value: NegativeFeedback = {
     id: "<id>",
     type: "support_copilot",
     externalId: "<id>",
-    externalUrl: "https://shimmering-story.net",
+    externalUrl: "https://tinted-skeleton.biz",
     conversationId: "<id>",
-    createdAt: "1714219698350",
-    updatedAt: "1735689143924",
+    createdAt: "1735523494342",
+    updatedAt: "1735629309827",
     role: "<value>",
     content: "<value>",
   },
@@ -64,6 +65,7 @@ let value: NegativeFeedback = {
 | `type`                                                                                                                                                                   | [components.GetAllFeedbackResponseNegativeFeedbackType](../../models/components/getallfeedbackresponsenegativefeedbacktype.md)                                           | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `messageId`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `createdAt`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
+| `updatedAt`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `reasons`                                                                                                                                                                | [components.GetAllFeedbackResponseReasons](../../models/components/getallfeedbackresponsereasons.md)[]                                                                   | :heavy_minus_sign:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `details`                                                                                                                                                                | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `properties`                                                                                                                                                             | Record<string, *any*>                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | A customizable collection of custom properties or attributes.                                                                                                            |

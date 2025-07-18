@@ -32,6 +32,7 @@ export const FeedbackAggregationSelectionField = {
   Type: "type",
   MessageId: "messageId",
   CreatedAt: "createdAt",
+  UpdatedAt: "updatedAt",
   OrganizationId: "organizationId",
   Reasons: "reasons",
   Sources: "sources",

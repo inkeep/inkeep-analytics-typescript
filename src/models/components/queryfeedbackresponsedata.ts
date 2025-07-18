@@ -82,6 +82,7 @@ export type FeedbackResultItem = {
   type?: QueryFeedbackResponseDataType | undefined;
   messageId?: string | undefined;
   createdAt?: any | undefined;
+  updatedAt?: any | undefined;
   organizationId?: string | undefined;
   reasons?: Array<QueryFeedbackResponseDataReasons> | null | undefined;
   sources?: Array<QueryFeedbackResponseDataSources> | null | undefined;
@@ -118,6 +119,10 @@ export type FeedbackResultItem = {
   createdAtDay?: string | undefined;
   createdAtWeek?: string | undefined;
   createdAtMonth?: string | undefined;
+  updatedAtHour?: string | undefined;
+  updatedAtDay?: string | undefined;
+  updatedAtWeek?: string | undefined;
+  updatedAtMonth?: string | undefined;
   organizationIdHour?: string | undefined;
   organizationIdDay?: string | undefined;
   organizationIdWeek?: string | undefined;
@@ -158,6 +163,7 @@ export type FeedbackResultItem = {
   sumType?: number | undefined;
   sumMessageId?: number | undefined;
   sumCreatedAt?: number | undefined;
+  sumUpdatedAt?: number | undefined;
   sumOrganizationId?: number | undefined;
   sumReasons?: number | undefined;
   sumSources?: number | undefined;
@@ -171,6 +177,7 @@ export type FeedbackResultItem = {
   countType?: number | undefined;
   countMessageId?: number | undefined;
   countCreatedAt?: number | undefined;
+  countUpdatedAt?: number | undefined;
   countOrganizationId?: number | undefined;
   countReasons?: number | undefined;
   countSources?: number | undefined;
@@ -184,6 +191,7 @@ export type FeedbackResultItem = {
   avgType?: number | undefined;
   avgMessageId?: number | undefined;
   avgCreatedAt?: number | undefined;
+  avgUpdatedAt?: number | undefined;
   avgOrganizationId?: number | undefined;
   avgReasons?: number | undefined;
   avgSources?: number | undefined;
@@ -197,6 +205,7 @@ export type FeedbackResultItem = {
   minType?: number | undefined;
   minMessageId?: number | undefined;
   minCreatedAt?: number | undefined;
+  minUpdatedAt?: number | undefined;
   minOrganizationId?: number | undefined;
   minReasons?: number | undefined;
   minSources?: number | undefined;
@@ -210,6 +219,7 @@ export type FeedbackResultItem = {
   maxType?: number | undefined;
   maxMessageId?: number | undefined;
   maxCreatedAt?: number | undefined;
+  maxUpdatedAt?: number | undefined;
   maxOrganizationId?: number | undefined;
   maxReasons?: number | undefined;
   maxSources?: number | undefined;
@@ -635,6 +645,7 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     type: QueryFeedbackResponseDataType$inboundSchema.optional(),
     messageId: z.string().optional(),
     createdAt: z.any().optional(),
+    updatedAt: z.any().optional(),
     organizationId: z.string().optional(),
     reasons: z.nullable(
       z.array(z.lazy(() => QueryFeedbackResponseDataReasons$inboundSchema)),
@@ -671,6 +682,10 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     createdAt_day: z.string().optional(),
     createdAt_week: z.string().optional(),
     createdAt_month: z.string().optional(),
+    updatedAt_hour: z.string().optional(),
+    updatedAt_day: z.string().optional(),
+    updatedAt_week: z.string().optional(),
+    updatedAt_month: z.string().optional(),
     organizationId_hour: z.string().optional(),
     organizationId_day: z.string().optional(),
     organizationId_week: z.string().optional(),
@@ -711,6 +726,7 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     sum_type: z.number().optional(),
     sum_messageId: z.number().optional(),
     sum_createdAt: z.number().optional(),
+    sum_updatedAt: z.number().optional(),
     sum_organizationId: z.number().optional(),
     sum_reasons: z.number().optional(),
     sum_sources: z.number().optional(),
@@ -724,6 +740,7 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     count_type: z.number().optional(),
     count_messageId: z.number().optional(),
     count_createdAt: z.number().optional(),
+    count_updatedAt: z.number().optional(),
     count_organizationId: z.number().optional(),
     count_reasons: z.number().optional(),
     count_sources: z.number().optional(),
@@ -737,6 +754,7 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     avg_type: z.number().optional(),
     avg_messageId: z.number().optional(),
     avg_createdAt: z.number().optional(),
+    avg_updatedAt: z.number().optional(),
     avg_organizationId: z.number().optional(),
     avg_reasons: z.number().optional(),
     avg_sources: z.number().optional(),
@@ -750,6 +768,7 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     min_type: z.number().optional(),
     min_messageId: z.number().optional(),
     min_createdAt: z.number().optional(),
+    min_updatedAt: z.number().optional(),
     min_organizationId: z.number().optional(),
     min_reasons: z.number().optional(),
     min_sources: z.number().optional(),
@@ -763,6 +782,7 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     max_type: z.number().optional(),
     max_messageId: z.number().optional(),
     max_createdAt: z.number().optional(),
+    max_updatedAt: z.number().optional(),
     max_organizationId: z.number().optional(),
     max_reasons: z.number().optional(),
     max_sources: z.number().optional(),
@@ -821,6 +841,10 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "createdAt_day": "createdAtDay",
     "createdAt_week": "createdAtWeek",
     "createdAt_month": "createdAtMonth",
+    "updatedAt_hour": "updatedAtHour",
+    "updatedAt_day": "updatedAtDay",
+    "updatedAt_week": "updatedAtWeek",
+    "updatedAt_month": "updatedAtMonth",
     "organizationId_hour": "organizationIdHour",
     "organizationId_day": "organizationIdDay",
     "organizationId_week": "organizationIdWeek",
@@ -861,6 +885,7 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "sum_type": "sumType",
     "sum_messageId": "sumMessageId",
     "sum_createdAt": "sumCreatedAt",
+    "sum_updatedAt": "sumUpdatedAt",
     "sum_organizationId": "sumOrganizationId",
     "sum_reasons": "sumReasons",
     "sum_sources": "sumSources",
@@ -874,6 +899,7 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "count_type": "countType",
     "count_messageId": "countMessageId",
     "count_createdAt": "countCreatedAt",
+    "count_updatedAt": "countUpdatedAt",
     "count_organizationId": "countOrganizationId",
     "count_reasons": "countReasons",
     "count_sources": "countSources",
@@ -887,6 +913,7 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "avg_type": "avgType",
     "avg_messageId": "avgMessageId",
     "avg_createdAt": "avgCreatedAt",
+    "avg_updatedAt": "avgUpdatedAt",
     "avg_organizationId": "avgOrganizationId",
     "avg_reasons": "avgReasons",
     "avg_sources": "avgSources",
@@ -900,6 +927,7 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "min_type": "minType",
     "min_messageId": "minMessageId",
     "min_createdAt": "minCreatedAt",
+    "min_updatedAt": "minUpdatedAt",
     "min_organizationId": "minOrganizationId",
     "min_reasons": "minReasons",
     "min_sources": "minSources",
@@ -913,6 +941,7 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "max_type": "maxType",
     "max_messageId": "maxMessageId",
     "max_createdAt": "maxCreatedAt",
+    "max_updatedAt": "maxUpdatedAt",
     "max_organizationId": "maxOrganizationId",
     "max_reasons": "maxReasons",
     "max_sources": "maxSources",
@@ -962,6 +991,7 @@ export type FeedbackResultItem$Outbound = {
   type?: string | undefined;
   messageId?: string | undefined;
   createdAt?: any | undefined;
+  updatedAt?: any | undefined;
   organizationId?: string | undefined;
   reasons?: Array<QueryFeedbackResponseDataReasons$Outbound> | null | undefined;
   sources?: Array<QueryFeedbackResponseDataSources$Outbound> | null | undefined;
@@ -995,6 +1025,10 @@ export type FeedbackResultItem$Outbound = {
   createdAt_day?: string | undefined;
   createdAt_week?: string | undefined;
   createdAt_month?: string | undefined;
+  updatedAt_hour?: string | undefined;
+  updatedAt_day?: string | undefined;
+  updatedAt_week?: string | undefined;
+  updatedAt_month?: string | undefined;
   organizationId_hour?: string | undefined;
   organizationId_day?: string | undefined;
   organizationId_week?: string | undefined;
@@ -1035,6 +1069,7 @@ export type FeedbackResultItem$Outbound = {
   sum_type?: number | undefined;
   sum_messageId?: number | undefined;
   sum_createdAt?: number | undefined;
+  sum_updatedAt?: number | undefined;
   sum_organizationId?: number | undefined;
   sum_reasons?: number | undefined;
   sum_sources?: number | undefined;
@@ -1048,6 +1083,7 @@ export type FeedbackResultItem$Outbound = {
   count_type?: number | undefined;
   count_messageId?: number | undefined;
   count_createdAt?: number | undefined;
+  count_updatedAt?: number | undefined;
   count_organizationId?: number | undefined;
   count_reasons?: number | undefined;
   count_sources?: number | undefined;
@@ -1061,6 +1097,7 @@ export type FeedbackResultItem$Outbound = {
   avg_type?: number | undefined;
   avg_messageId?: number | undefined;
   avg_createdAt?: number | undefined;
+  avg_updatedAt?: number | undefined;
   avg_organizationId?: number | undefined;
   avg_reasons?: number | undefined;
   avg_sources?: number | undefined;
@@ -1074,6 +1111,7 @@ export type FeedbackResultItem$Outbound = {
   min_type?: number | undefined;
   min_messageId?: number | undefined;
   min_createdAt?: number | undefined;
+  min_updatedAt?: number | undefined;
   min_organizationId?: number | undefined;
   min_reasons?: number | undefined;
   min_sources?: number | undefined;
@@ -1087,6 +1125,7 @@ export type FeedbackResultItem$Outbound = {
   max_type?: number | undefined;
   max_messageId?: number | undefined;
   max_createdAt?: number | undefined;
+  max_updatedAt?: number | undefined;
   max_organizationId?: number | undefined;
   max_reasons?: number | undefined;
   max_sources?: number | undefined;
@@ -1137,6 +1176,7 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   type: QueryFeedbackResponseDataType$outboundSchema.optional(),
   messageId: z.string().optional(),
   createdAt: z.any().optional(),
+  updatedAt: z.any().optional(),
   organizationId: z.string().optional(),
   reasons: z.nullable(
     z.array(z.lazy(() => QueryFeedbackResponseDataReasons$outboundSchema)),
@@ -1173,6 +1213,10 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   createdAtDay: z.string().optional(),
   createdAtWeek: z.string().optional(),
   createdAtMonth: z.string().optional(),
+  updatedAtHour: z.string().optional(),
+  updatedAtDay: z.string().optional(),
+  updatedAtWeek: z.string().optional(),
+  updatedAtMonth: z.string().optional(),
   organizationIdHour: z.string().optional(),
   organizationIdDay: z.string().optional(),
   organizationIdWeek: z.string().optional(),
@@ -1213,6 +1257,7 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   sumType: z.number().optional(),
   sumMessageId: z.number().optional(),
   sumCreatedAt: z.number().optional(),
+  sumUpdatedAt: z.number().optional(),
   sumOrganizationId: z.number().optional(),
   sumReasons: z.number().optional(),
   sumSources: z.number().optional(),
@@ -1226,6 +1271,7 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   countType: z.number().optional(),
   countMessageId: z.number().optional(),
   countCreatedAt: z.number().optional(),
+  countUpdatedAt: z.number().optional(),
   countOrganizationId: z.number().optional(),
   countReasons: z.number().optional(),
   countSources: z.number().optional(),
@@ -1239,6 +1285,7 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   avgType: z.number().optional(),
   avgMessageId: z.number().optional(),
   avgCreatedAt: z.number().optional(),
+  avgUpdatedAt: z.number().optional(),
   avgOrganizationId: z.number().optional(),
   avgReasons: z.number().optional(),
   avgSources: z.number().optional(),
@@ -1252,6 +1299,7 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   minType: z.number().optional(),
   minMessageId: z.number().optional(),
   minCreatedAt: z.number().optional(),
+  minUpdatedAt: z.number().optional(),
   minOrganizationId: z.number().optional(),
   minReasons: z.number().optional(),
   minSources: z.number().optional(),
@@ -1265,6 +1313,7 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   maxType: z.number().optional(),
   maxMessageId: z.number().optional(),
   maxCreatedAt: z.number().optional(),
+  maxUpdatedAt: z.number().optional(),
   maxOrganizationId: z.number().optional(),
   maxReasons: z.number().optional(),
   maxSources: z.number().optional(),
@@ -1323,6 +1372,10 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
       createdAtDay: "createdAt_day",
       createdAtWeek: "createdAt_week",
       createdAtMonth: "createdAt_month",
+      updatedAtHour: "updatedAt_hour",
+      updatedAtDay: "updatedAt_day",
+      updatedAtWeek: "updatedAt_week",
+      updatedAtMonth: "updatedAt_month",
       organizationIdHour: "organizationId_hour",
       organizationIdDay: "organizationId_day",
       organizationIdWeek: "organizationId_week",
@@ -1363,6 +1416,7 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
       sumType: "sum_type",
       sumMessageId: "sum_messageId",
       sumCreatedAt: "sum_createdAt",
+      sumUpdatedAt: "sum_updatedAt",
       sumOrganizationId: "sum_organizationId",
       sumReasons: "sum_reasons",
       sumSources: "sum_sources",
@@ -1376,6 +1430,7 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
       countType: "count_type",
       countMessageId: "count_messageId",
       countCreatedAt: "count_createdAt",
+      countUpdatedAt: "count_updatedAt",
       countOrganizationId: "count_organizationId",
       countReasons: "count_reasons",
       countSources: "count_sources",
@@ -1389,6 +1444,7 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
       avgType: "avg_type",
       avgMessageId: "avg_messageId",
       avgCreatedAt: "avg_createdAt",
+      avgUpdatedAt: "avg_updatedAt",
       avgOrganizationId: "avg_organizationId",
       avgReasons: "avg_reasons",
       avgSources: "avg_sources",
@@ -1402,6 +1458,7 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
       minType: "min_type",
       minMessageId: "min_messageId",
       minCreatedAt: "min_createdAt",
+      minUpdatedAt: "min_updatedAt",
       minOrganizationId: "min_organizationId",
       minReasons: "min_reasons",
       minSources: "min_sources",
@@ -1415,6 +1472,7 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
       maxType: "max_type",
       maxMessageId: "max_messageId",
       maxCreatedAt: "max_createdAt",
+      maxUpdatedAt: "max_updatedAt",
       maxOrganizationId: "max_organizationId",
       maxReasons: "max_reasons",
       maxSources: "max_sources",

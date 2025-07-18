@@ -3,6 +3,7 @@
  */
 
 export * from "./deleteconversation.js";
+export * from "./deletefeedbackbyid.js";
 export * from "./getallconversation.js";
 export * from "./getallfeedback.js";
 export * from "./getconversation.js";

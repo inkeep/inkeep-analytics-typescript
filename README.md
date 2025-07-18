@@ -283,6 +283,7 @@ run();
 * [submit](docs/sdks/feedback/README.md#submit) - Log Feedback
 * [list](docs/sdks/feedback/README.md#list) - Get All Feedback
 * [getFeedbackById](docs/sdks/feedback/README.md#getfeedbackbyid) - Get Feedback by ID
+* [deleteFeedbackById](docs/sdks/feedback/README.md#deletefeedbackbyid) - Delete Feedback by ID
 
 ### [InkeepAnalytics SDK](docs/sdks/inkeepanalytics/README.md)
 
@@ -323,6 +324,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`conversationsList`](docs/sdks/conversations/README.md#list) - Get All Conversations
 - [`conversationsLog`](docs/sdks/conversations/README.md#log) - Log Conversation
 - [`eventsLog`](docs/sdks/events/README.md#log) - Log Event
+- [`feedbackDeleteFeedbackById`](docs/sdks/feedback/README.md#deletefeedbackbyid) - Delete Feedback by ID
 - [`feedbackGetFeedbackById`](docs/sdks/feedback/README.md#getfeedbackbyid) - Get Feedback by ID
 - [`feedbackList`](docs/sdks/feedback/README.md#list) - Get All Feedback
 - [`feedbackSubmit`](docs/sdks/feedback/README.md#submit) - Log Feedback
@@ -367,6 +369,7 @@ To learn about this feature and how to get started, check
 - [`useConversationsList`](docs/sdks/conversations/README.md#list) - Get All Conversations
 - [`useConversationsLogMutation`](docs/sdks/conversations/README.md#log) - Log Conversation
 - [`useEventsLogMutation`](docs/sdks/events/README.md#log) - Log Event
+- [`useFeedbackDeleteFeedbackByIdMutation`](docs/sdks/feedback/README.md#deletefeedbackbyid) - Delete Feedback by ID
 - [`useFeedbackGetFeedbackById`](docs/sdks/feedback/README.md#getfeedbackbyid) - Get Feedback by ID
 - [`useFeedbackList`](docs/sdks/feedback/README.md#list) - Get All Feedback
 - [`useFeedbackSubmitMutation`](docs/sdks/feedback/README.md#submit) - Log Feedback
@@ -520,7 +523,7 @@ run();
 
 
 **Inherit from [`InkeepAnalyticsError`](./src/models/errors/inkeepanalyticserror.ts)**:
-* [`NotFound`](./src/models/errors/notfound.ts): Not Found. Status code `404`. Applicable to 6 of 18 methods.*
+* [`NotFound`](./src/models/errors/notfound.ts): Not Found. Status code `404`. Applicable to 7 of 19 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

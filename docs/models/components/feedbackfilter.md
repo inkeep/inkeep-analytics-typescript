@@ -8,7 +8,7 @@
 ```typescript
 const value: components.FeedbackFilterCondition = {
   condition: {
-    field: "conversationId",
+    field: "userProperties",
     operator: "jsonContainedBy",
     value: "<value>",
   },

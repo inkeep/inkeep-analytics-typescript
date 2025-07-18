@@ -13,5 +13,5 @@ let value: FeedbackField = "properties";
 ## Values
 
 ```typescript
-"id" | "type" | "messageId" | "createdAt" | "organizationId" | "reasons" | "sources" | "details" | "properties" | "userProperties" | "conversationId" | "projectId" | "integrationId"
+"id" | "type" | "messageId" | "createdAt" | "updatedAt" | "organizationId" | "reasons" | "sources" | "details" | "properties" | "userProperties" | "conversationId" | "projectId" | "integrationId"
 ```

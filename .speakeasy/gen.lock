@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 63a2136d-3fa3-4a0b-a766-1ddb2460cc12
 management:
-  docChecksum: 21b0df96ca59079500d07a175bf4988f
+  docChecksum: 04b3adb83bd8b04b7cf5dbe9e9a85051
   docVersion: 0.1.1
   speakeasyVersion: 1.582.0
   generationVersion: 2.657.1
-  releaseVersion: 0.2.4-alpha.28
-  configChecksum: f164bb3507bf6cba233836c9e3a4604d
+  releaseVersion: 0.2.4-alpha.29
+  configChecksum: 6824f681e3299968f0cfe150ef29eb65
   repoURL: https://github.com/inkeep/inkeep-analytics-typescript.git
   installationURL: https://github.com/inkeep/inkeep-analytics-typescript
   published: true
@@ -371,6 +371,8 @@ generatedFiles:
   - docs/models/operations/deleteconversationrequest.md
   - docs/models/operations/deleteconversationresponsebody.md
   - docs/models/operations/deleteconversationsecurity.md
+  - docs/models/operations/deletefeedbackbyidrequest.md
+  - docs/models/operations/deletefeedbackbyidresponsebody.md
   - docs/models/operations/getallconversationrequest.md
   - docs/models/operations/getallconversationresponsebody.md
   - docs/models/operations/getallfeedbackrequest.md
@@ -431,6 +433,7 @@ generatedFiles:
   - src/funcs/conversationsList.ts
   - src/funcs/conversationsLog.ts
   - src/funcs/eventsLog.ts
+  - src/funcs/feedbackDeleteFeedbackById.ts
   - src/funcs/feedbackGetFeedbackById.ts
   - src/funcs/feedbackList.ts
   - src/funcs/feedbackSubmit.ts
@@ -478,6 +481,7 @@ generatedFiles:
   - src/mcp-server/tools.ts
   - src/mcp-server/tools/conversationGetConversationByExternalId.ts
   - src/mcp-server/tools/conversationsList.ts
+  - src/mcp-server/tools/feedbackDeleteFeedbackById.ts
   - src/mcp-server/tools/feedbackGetFeedbackById.ts
   - src/mcp-server/tools/feedbackList.ts
   - src/mcp-server/tools/feedbackSubmit.ts
@@ -593,6 +597,7 @@ generatedFiles:
   - src/models/errors/unauthorized.ts
   - src/models/errors/unprocessableentity.ts
   - src/models/operations/deleteconversation.ts
+  - src/models/operations/deletefeedbackbyid.ts
   - src/models/operations/getallconversation.ts
   - src/models/operations/getallfeedback.ts
   - src/models/operations/getconversation.ts
@@ -612,6 +617,7 @@ generatedFiles:
   - src/react-query/conversationsList.ts
   - src/react-query/conversationsLog.ts
   - src/react-query/eventsLog.ts
+  - src/react-query/feedbackDeleteFeedbackById.ts
   - src/react-query/feedbackGetFeedbackById.ts
   - src/react-query/feedbackList.ts
   - src/react-query/feedbackSubmit.ts
@@ -796,7 +802,7 @@ examples:
           offset: 0
       responses:
         "200":
-          application/json: {"positiveFeedbackCount": 6961.56, "negativeFeedbackCount": 4153.74, "positiveFeedback": [{"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1713328476280", "details": "<value>", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://grizzled-editor.org/", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1710817203853", "updatedAt": "1735687690121", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": [], "messagesOpenAIFormat": [{"role": "system", "content": "<value>"}]}, "message": {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://linear-collaboration.net", "conversationId": "<id>", "createdAt": "1715477061988", "updatedAt": "1735684129218", "role": "<value>", "content": null}}], "negativeFeedback": []}
+          application/json: {"positiveFeedbackCount": 6961.56, "negativeFeedbackCount": 4153.74, "positiveFeedback": [{"id": "<id>", "type": "positive", "messageId": "<id>", "createdAt": "1713328476280", "updatedAt": "1735663347160", "details": "<value>", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://grizzled-editor.org/", "type": "openai", "supportTicketConversationId": "<id>", "createdAt": "1710817203853", "updatedAt": "1735687690121", "projectId": "<id>", "integrationId": "<id>", "visibility": "public", "messages": [], "messagesOpenAIFormat": [{"role": "system", "content": "<value>"}]}, "message": {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://linear-collaboration.net", "conversationId": "<id>", "createdAt": "1715477061988", "updatedAt": "1735684129218", "role": "<value>", "content": null}}], "negativeFeedback": []}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -816,7 +822,7 @@ examples:
           id: "feedback-id-123"
       responses:
         "200":
-          application/json: {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1722259016960", "details": "<value>", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://difficult-accountability.info/", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1712671280110", "updatedAt": "1735652249363", "projectId": "<id>", "integrationId": "<id>", "visibility": "private", "messages": [{"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://merry-solution.com", "conversationId": "<id>", "createdAt": "1706159703123", "updatedAt": "1735669717348", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}, "message": {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://heavenly-reservation.info", "conversationId": "<id>", "createdAt": "1715541556343", "updatedAt": "1735675403237", "role": "<value>", "content": "<value>"}}
+          application/json: {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1722259016960", "updatedAt": "1735652803310", "details": "<value>", "userProperties": {"identificationType": "COOKIED"}, "conversation": {"id": "<id>", "externalId": "<id>", "externalUrl": "https://difficult-accountability.info/", "type": "support_copilot", "supportTicketConversationId": "<id>", "createdAt": "1712671280110", "updatedAt": "1735652249363", "projectId": "<id>", "integrationId": "<id>", "visibility": "private", "messages": [{"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://merry-solution.com", "conversationId": "<id>", "createdAt": "1706159703123", "updatedAt": "1735669717348", "role": "<value>", "content": "<value>", "userProperties": {"identificationType": "COOKIED"}}]}, "message": {"id": "<id>", "type": "support_copilot", "externalId": "<id>", "externalUrl": "https://heavenly-reservation.info", "conversationId": "<id>", "createdAt": "1715541556343", "updatedAt": "1735675403237", "role": "<value>", "content": "<value>"}}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
@@ -971,13 +977,33 @@ examples:
         application/json: {"type": "positive", "messageId": "<id>", "details": "<value>", "userProperties": {"identificationType": "COOKIED"}}
       responses:
         "200":
-          application/json: {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1715498996076", "details": "<value>", "userProperties": null}
+          application/json: {"id": "<id>", "type": "negative", "messageId": "<id>", "createdAt": "1715498996076", "updatedAt": "1735634282918", "details": "<value>", "userProperties": null}
         "400":
           application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
         "401":
           application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
         "403":
           application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+        "422":
+          application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
+        "500":
+          application/problem+json: {"title": "Internal Server Error", "status": 500, "detail": "Internal Server Error", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "internal_server_error", "error": {"code": "internal_server_error", "message": "Internal Server Error"}}
+  deleteFeedbackById:
+    speakeasy-default-delete-feedback-by-id:
+      parameters:
+        path:
+          id: "<id>"
+      responses:
+        "200":
+          application/json: {"success": false, "message": "<value>"}
+        "400":
+          application/problem+json: {"title": "Bad Request", "status": 400, "detail": "Bad Request", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "bad_request", "error": {"code": "bad_request", "message": "Bad Request"}}
+        "401":
+          application/problem+json: {"title": "Unauthorized", "status": 401, "detail": "Unauthorized", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unauthorized", "error": {"code": "unauthorized", "message": "Unauthorized"}}
+        "403":
+          application/problem+json: {"title": "Forbidden", "status": 403, "detail": "Forbidden", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "forbidden", "error": {"code": "forbidden", "message": "Forbidden"}}
+        "404":
+          application/problem+json: {"title": "Not Found", "status": 404, "detail": "Not Found", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "not_found", "error": {"code": "not_found", "message": "Not Found"}}
         "422":
           application/problem+json: {"title": "Unprocessable Entity", "status": 422, "detail": "Unprocessable Entity", "instance": "/conversations/123", "requestId": "req_1234567890", "code": "unprocessable_entity", "error": {"code": "unprocessable_entity", "message": "Unprocessable Entity"}}
         "500":
