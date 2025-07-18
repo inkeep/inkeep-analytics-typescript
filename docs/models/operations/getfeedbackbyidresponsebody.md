@@ -12,6 +12,7 @@ let value: GetFeedbackByIdResponseBody = {
   type: "positive",
   messageId: "<id>",
   createdAt: "1718482638517",
+  updatedAt: "1735617871006",
   details: "<value>",
   userProperties: {
     identificationType: "COOKIED",
@@ -19,26 +20,41 @@ let value: GetFeedbackByIdResponseBody = {
   conversation: {
     id: "<id>",
     externalId: "<id>",
-    externalUrl: "https://nautical-scratch.name/",
-    type: "support_copilot",
-    supportTicketConversationId: null,
-    createdAt: "1734996497674",
-    updatedAt: "1735689340275",
+    externalUrl: "https://squiggly-pension.com",
+    type: "support_ticket",
+    supportTicketConversationId: "<id>",
+    createdAt: "1735595163239",
+    updatedAt: "1735650136992",
     projectId: "<id>",
     integrationId: "<id>",
     visibility: "private",
-    messages: [],
+    messages: [
+      {
+        id: "<id>",
+        type: "support_ticket",
+        externalId: null,
+        externalUrl: null,
+        conversationId: "<id>",
+        createdAt: "1710225230659",
+        updatedAt: "1735666876281",
+        role: "<value>",
+        content: "<value>",
+        userProperties: {
+          identificationType: "COOKIED",
+        },
+      },
+    ],
   },
   message: {
     id: "<id>",
-    type: "support_ticket",
+    type: "openai",
     externalId: null,
-    externalUrl: null,
+    externalUrl: "https://plump-barge.info",
     conversationId: "<id>",
-    createdAt: "1710225230659",
-    updatedAt: "1735666876281",
-    role: "<value>",
-    content: "<value>",
+    createdAt: "1709046915886",
+    updatedAt: "1735640644257",
+    role: "system",
+    content: [],
   },
 };
 ```
@@ -51,6 +67,7 @@ let value: GetFeedbackByIdResponseBody = {
 | `type`                                                                                                                                                                   | [operations.GetFeedbackByIdType](../../models/operations/getfeedbackbyidtype.md)                                                                                         | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `messageId`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `createdAt`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
+| `updatedAt`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `reasons`                                                                                                                                                                | [operations.GetFeedbackByIdReasons](../../models/operations/getfeedbackbyidreasons.md)[]                                                                                 | :heavy_minus_sign:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `details`                                                                                                                                                                | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `properties`                                                                                                                                                             | Record<string, *any*>                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | A customizable collection of custom properties or attributes.                                                                                                            |

@@ -10,6 +10,7 @@ let value: PositiveFeedback = {
   type: "positive",
   messageId: "<id>",
   createdAt: "1723345333062",
+  updatedAt: "1735633533765",
   details: "<value>",
   userProperties: {
     identificationType: "COOKIED",
@@ -17,24 +18,44 @@ let value: PositiveFeedback = {
   conversation: {
     id: "<id>",
     externalId: "<id>",
-    externalUrl: "https://concerned-integer.name/",
-    type: "support_copilot",
+    externalUrl: "https://linear-orchid.net/",
+    type: "openai",
     supportTicketConversationId: "<id>",
-    createdAt: "1718795467397",
-    updatedAt: "1735642779071",
+    createdAt: "1718600127591",
+    updatedAt: "1735614597742",
     projectId: "<id>",
-    integrationId: "<id>",
-    visibility: null,
-    messages: [],
+    integrationId: null,
+    visibility: "public",
+    messages: [
+      {
+        id: "<id>",
+        type: "openai",
+        externalId: null,
+        externalUrl: "https://muted-glider.net/",
+        conversationId: "<id>",
+        createdAt: "1727082986532",
+        updatedAt: "1735641575395",
+        role: "assistant",
+        content: [
+          {
+            type: "text",
+          },
+        ],
+        userProperties: {
+          identificationType: "COOKIED",
+        },
+      },
+    ],
+    messagesOpenAIFormat: [],
   },
   message: {
     id: "<id>",
     type: "support_copilot",
     externalId: "<id>",
-    externalUrl: null,
+    externalUrl: "https://perfumed-juggernaut.name",
     conversationId: "<id>",
-    createdAt: "1729106822008",
-    updatedAt: "1735613114800",
+    createdAt: "1713190979921",
+    updatedAt: "1735649045851",
     role: "<value>",
     content: "<value>",
   },
@@ -49,6 +70,7 @@ let value: PositiveFeedback = {
 | `type`                                                                                                                                                                   | [components.GetAllFeedbackResponseType](../../models/components/getallfeedbackresponsetype.md)                                                                           | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `messageId`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `createdAt`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
+| `updatedAt`                                                                                                                                                              | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `reasons`                                                                                                                                                                | [components.Reasons](../../models/components/reasons.md)[]                                                                                                               | :heavy_minus_sign:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `details`                                                                                                                                                                | *string*                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                       | N/A                                                                                                                                                                      |
 | `properties`                                                                                                                                                             | Record<string, *any*>                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                       | A customizable collection of custom properties or attributes.                                                                                                            |

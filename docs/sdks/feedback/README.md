@@ -10,6 +10,7 @@ Use to provide positive or negative feedback along with details.
 * [submit](#submit) - Log Feedback
 * [list](#list) - Get All Feedback
 * [getFeedbackById](#getfeedbackbyid) - Get Feedback by ID
+* [deleteFeedbackById](#deletefeedbackbyid) - Delete Feedback by ID
 
 ## submit
 
@@ -312,6 +313,101 @@ import {
 ### Response
 
 **Promise\<[operations.GetFeedbackByIdResponseBody](../../models/operations/getfeedbackbyidresponsebody.md)\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.BadRequest          | 400                        | application/problem+json   |
+| errors.Unauthorized        | 401                        | application/problem+json   |
+| errors.Forbidden           | 403                        | application/problem+json   |
+| errors.NotFound            | 404                        | application/problem+json   |
+| errors.UnprocessableEntity | 422                        | application/problem+json   |
+| errors.InternalServerError | 500                        | application/problem+json   |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## deleteFeedbackById
+
+Delete Feedback by ID
+
+### Example Usage
+
+```typescript
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
+
+const inkeepAnalytics = new InkeepAnalytics({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await inkeepAnalytics.feedback.deleteFeedbackById({
+    id: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { feedbackDeleteFeedbackById } from "@inkeep/inkeep-analytics/funcs/feedbackDeleteFeedbackById.js";
+
+// Use `InkeepAnalyticsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const inkeepAnalytics = new InkeepAnalyticsCore({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await feedbackDeleteFeedbackById(inkeepAnalytics, {
+    id: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("feedbackDeleteFeedbackById failed:", res.error);
+  }
+}
+
+run();
+```
+
+### React hooks and utilities
+
+This method can be used in React components through the following hooks and
+associated utilities.
+
+> Check out [this guide][hook-guide] for information about each of the utilities
+> below and how to get started using React hooks.
+
+[hook-guide]: ../../../REACT_QUERY.md
+
+```tsx
+import {
+  // Mutation hook for triggering the API call.
+  useFeedbackDeleteFeedbackByIdMutation
+} from "@inkeep/inkeep-analytics/react-query/feedbackDeleteFeedbackById.js";
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteFeedbackByIdRequest](../../models/operations/deletefeedbackbyidrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.DeleteFeedbackByIdResponseBody](../../models/operations/deletefeedbackbyidresponsebody.md)\>**
 
 ### Errors
 

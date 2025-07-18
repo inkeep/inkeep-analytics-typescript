@@ -15,6 +15,7 @@ import { MCPScope } from "./scopes.js";
 import { createRegisterTool } from "./tools.js";
 import { tool$conversationGetConversationByExternalId } from "./tools/conversationGetConversationByExternalId.js";
 import { tool$conversationsList } from "./tools/conversationsList.js";
+import { tool$feedbackDeleteFeedbackById } from "./tools/feedbackDeleteFeedbackById.js";
 import { tool$feedbackGetFeedbackById } from "./tools/feedbackGetFeedbackById.js";
 import { tool$feedbackList } from "./tools/feedbackList.js";
 import { tool$feedbackSubmit } from "./tools/feedbackSubmit.js";
@@ -38,7 +39,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "InkeepAnalytics",
-    version: "0.2.4-alpha.28",
+    version: "0.2.4-alpha.29",
   });
 
   const client = new InkeepAnalyticsCore({
@@ -75,6 +76,7 @@ export function createMCPServer(deps: {
   tool(tool$feedbackSubmit);
   tool(tool$feedbackList);
   tool(tool$feedbackGetFeedbackById);
+  tool(tool$feedbackDeleteFeedbackById);
   tool(tool$queryConversations);
   tool(tool$queryQueryEvents);
   tool(tool$queryQueryFeedback);

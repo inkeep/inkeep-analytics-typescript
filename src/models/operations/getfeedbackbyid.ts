@@ -88,6 +88,7 @@ export type GetFeedbackByIdResponseBody = {
   type: GetFeedbackByIdType;
   messageId: string;
   createdAt: string;
+  updatedAt: string;
   reasons?: Array<GetFeedbackByIdReasons> | null | undefined;
   details: string;
   /**
@@ -503,6 +504,7 @@ export const GetFeedbackByIdResponseBody$inboundSchema: z.ZodType<
   type: GetFeedbackByIdType$inboundSchema,
   messageId: z.string(),
   createdAt: z.string(),
+  updatedAt: z.string(),
   reasons: z.nullable(
     z.array(z.lazy(() => GetFeedbackByIdReasons$inboundSchema)),
   ).optional(),
@@ -524,6 +526,7 @@ export type GetFeedbackByIdResponseBody$Outbound = {
   type: string;
   messageId: string;
   createdAt: string;
+  updatedAt: string;
   reasons?: Array<GetFeedbackByIdReasons$Outbound> | null | undefined;
   details: string;
   properties?: { [k: string]: any } | null | undefined;
@@ -543,6 +546,7 @@ export const GetFeedbackByIdResponseBody$outboundSchema: z.ZodType<
   type: GetFeedbackByIdType$outboundSchema,
   messageId: z.string(),
   createdAt: z.string(),
+  updatedAt: z.string(),
   reasons: z.nullable(
     z.array(z.lazy(() => GetFeedbackByIdReasons$outboundSchema)),
   ).optional(),

@@ -84,6 +84,10 @@ export type LogFeedbackRequestBody = {
    * A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.
    */
   createdAt?: Date | null | undefined;
+  /**
+   * A timestamp in ISO 8601 format with timezone information. If not provided, the current time will be used.
+   */
+  updatedAt?: Date | null | undefined;
   reasons?: Array<Reasons> | null | undefined;
   details: string;
   /**
@@ -170,6 +174,7 @@ export type LogFeedbackResponseBody = {
   type: LogFeedbackFeedbackType;
   messageId: string;
   createdAt: string;
+  updatedAt: string;
   reasons?: Array<LogFeedbackReasons> | null | undefined;
   details: string;
   /**
@@ -495,6 +500,9 @@ export const LogFeedbackRequestBody$inboundSchema: z.ZodType<
   createdAt: z.nullable(
     z.string().datetime({ offset: true }).transform(v => new Date(v)),
   ).optional(),
+  updatedAt: z.nullable(
+    z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  ).optional(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$inboundSchema))).optional(),
   details: z.string(),
   properties: z.nullable(z.record(z.any())).optional(),
@@ -509,6 +517,7 @@ export type LogFeedbackRequestBody$Outbound = {
   type: string;
   messageId: string;
   createdAt?: string | null | undefined;
+  updatedAt?: string | null | undefined;
   reasons?: Array<Reasons$Outbound> | null | undefined;
   details: string;
   properties?: { [k: string]: any } | null | undefined;
@@ -526,6 +535,7 @@ export const LogFeedbackRequestBody$outboundSchema: z.ZodType<
   type: Type$outboundSchema,
   messageId: z.string(),
   createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$outboundSchema))).optional(),
   details: z.string(),
   properties: z.nullable(z.record(z.any())).optional(),
@@ -905,6 +915,7 @@ export const LogFeedbackResponseBody$inboundSchema: z.ZodType<
   type: LogFeedbackFeedbackType$inboundSchema,
   messageId: z.string(),
   createdAt: z.string(),
+  updatedAt: z.string(),
   reasons: z.nullable(z.array(z.lazy(() => LogFeedbackReasons$inboundSchema)))
     .optional(),
   details: z.string(),
@@ -922,6 +933,7 @@ export type LogFeedbackResponseBody$Outbound = {
   type: string;
   messageId: string;
   createdAt: string;
+  updatedAt: string;
   reasons?: Array<LogFeedbackReasons$Outbound> | null | undefined;
   details: string;
   properties?: { [k: string]: any } | null | undefined;
@@ -939,6 +951,7 @@ export const LogFeedbackResponseBody$outboundSchema: z.ZodType<
   type: LogFeedbackFeedbackType$outboundSchema,
   messageId: z.string(),
   createdAt: z.string(),
+  updatedAt: z.string(),
   reasons: z.nullable(z.array(z.lazy(() => LogFeedbackReasons$outboundSchema)))
     .optional(),
   details: z.string(),
