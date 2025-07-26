@@ -90,7 +90,7 @@ export type GetFeedbackByIdResponseBody = {
   createdAt: string;
   updatedAt: string;
   reasons?: Array<GetFeedbackByIdReasons> | null | undefined;
-  details: string;
+  details?: string | null | undefined;
   /**
    * A customizable collection of custom properties or attributes.
    */
@@ -508,7 +508,7 @@ export const GetFeedbackByIdResponseBody$inboundSchema: z.ZodType<
   reasons: z.nullable(
     z.array(z.lazy(() => GetFeedbackByIdReasons$inboundSchema)),
   ).optional(),
-  details: z.string(),
+  details: z.nullable(z.string()).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() => GetFeedbackByIdUserProperties$inboundSchema),
@@ -528,7 +528,7 @@ export type GetFeedbackByIdResponseBody$Outbound = {
   createdAt: string;
   updatedAt: string;
   reasons?: Array<GetFeedbackByIdReasons$Outbound> | null | undefined;
-  details: string;
+  details?: string | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
   userProperties?: GetFeedbackByIdUserProperties$Outbound | null | undefined;
   sources?: Array<GetFeedbackByIdSources$Outbound> | null | undefined;
@@ -550,7 +550,7 @@ export const GetFeedbackByIdResponseBody$outboundSchema: z.ZodType<
   reasons: z.nullable(
     z.array(z.lazy(() => GetFeedbackByIdReasons$outboundSchema)),
   ).optional(),
-  details: z.string(),
+  details: z.nullable(z.string()).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() => GetFeedbackByIdUserProperties$outboundSchema),
