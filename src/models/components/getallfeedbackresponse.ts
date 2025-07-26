@@ -96,7 +96,7 @@ export type PositiveFeedback = {
   createdAt: string;
   updatedAt: string;
   reasons?: Array<Reasons> | null | undefined;
-  details: string;
+  details?: string | null | undefined;
   /**
    * A customizable collection of custom properties or attributes.
    */
@@ -182,7 +182,7 @@ export type NegativeFeedback = {
   createdAt: string;
   updatedAt: string;
   reasons?: Array<GetAllFeedbackResponseReasons> | null | undefined;
-  details: string;
+  details?: string | null | undefined;
   /**
    * A customizable collection of custom properties or attributes.
    */
@@ -547,7 +547,7 @@ export const PositiveFeedback$inboundSchema: z.ZodType<
   createdAt: z.string(),
   updatedAt: z.string(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$inboundSchema))).optional(),
-  details: z.string(),
+  details: z.nullable(z.string()).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() => GetAllFeedbackResponseUserProperties$inboundSchema),
@@ -565,7 +565,7 @@ export type PositiveFeedback$Outbound = {
   createdAt: string;
   updatedAt: string;
   reasons?: Array<Reasons$Outbound> | null | undefined;
-  details: string;
+  details?: string | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
   userProperties?:
     | GetAllFeedbackResponseUserProperties$Outbound
@@ -588,7 +588,7 @@ export const PositiveFeedback$outboundSchema: z.ZodType<
   createdAt: z.string(),
   updatedAt: z.string(),
   reasons: z.nullable(z.array(z.lazy(() => Reasons$outboundSchema))).optional(),
-  details: z.string(),
+  details: z.nullable(z.string()).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() => GetAllFeedbackResponseUserProperties$outboundSchema),
@@ -1029,7 +1029,7 @@ export const NegativeFeedback$inboundSchema: z.ZodType<
   reasons: z.nullable(
     z.array(z.lazy(() => GetAllFeedbackResponseReasons$inboundSchema)),
   ).optional(),
-  details: z.string(),
+  details: z.nullable(z.string()).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() =>
@@ -1051,7 +1051,7 @@ export type NegativeFeedback$Outbound = {
   createdAt: string;
   updatedAt: string;
   reasons?: Array<GetAllFeedbackResponseReasons$Outbound> | null | undefined;
-  details: string;
+  details?: string | null | undefined;
   properties?: { [k: string]: any } | null | undefined;
   userProperties?:
     | GetAllFeedbackResponseNegativeFeedbackUserProperties$Outbound
@@ -1076,7 +1076,7 @@ export const NegativeFeedback$outboundSchema: z.ZodType<
   reasons: z.nullable(
     z.array(z.lazy(() => GetAllFeedbackResponseReasons$outboundSchema)),
   ).optional(),
-  details: z.string(),
+  details: z.nullable(z.string()).optional(),
   properties: z.nullable(z.record(z.any())).optional(),
   userProperties: z.nullable(
     z.lazy(() =>
