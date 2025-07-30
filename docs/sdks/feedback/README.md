@@ -20,6 +20,7 @@ Logs new feedback or updates an existing one.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="logFeedback" method="post" path="/feedback" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
@@ -31,7 +32,6 @@ async function run() {
   const result = await inkeepAnalytics.feedback.submit({
     type: "positive",
     messageId: "<id>",
-    details: "<value>",
     userProperties: {
       identificationType: "COOKIED",
     },
@@ -61,7 +61,6 @@ async function run() {
   const res = await feedbackSubmit(inkeepAnalytics, {
     type: "positive",
     messageId: "<id>",
-    details: "<value>",
     userProperties: {
       identificationType: "COOKIED",
     },
@@ -124,6 +123,7 @@ Get All Feedback
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="getAllFeedback" method="get" path="/feedback" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
@@ -226,6 +226,7 @@ Get Feedback by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="getFeedbackById" method="get" path="/feedback/{id}" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
@@ -332,6 +333,7 @@ Delete Feedback by ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="deleteFeedbackById" method="delete" path="/feedback/{id}" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 

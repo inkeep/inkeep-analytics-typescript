@@ -15,6 +15,7 @@ Get Conversation by External ID
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="getConversationByExternalId" method="get" path="/conversations/external/{externalId}" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
