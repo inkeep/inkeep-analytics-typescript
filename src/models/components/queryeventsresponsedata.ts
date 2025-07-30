@@ -26,6 +26,7 @@ export type EventsResultItem = {
   userProperties?: { [k: string]: string } | null | undefined;
   sum?: number | undefined;
   count?: number | undefined;
+  countDistinct?: number | undefined;
   avg?: number | undefined;
   min?: number | undefined;
   max?: number | undefined;
@@ -101,6 +102,18 @@ export type EventsResultItem = {
   countSearchQuery?: number | undefined;
   countProperties?: number | undefined;
   countUserProperties?: number | undefined;
+  countDistinctId?: number | undefined;
+  countDistinctOrganizationId?: number | undefined;
+  countDistinctMessageId?: number | undefined;
+  countDistinctConversationId?: number | undefined;
+  countDistinctCreatedAt?: number | undefined;
+  countDistinctProjectId?: number | undefined;
+  countDistinctIntegrationId?: number | undefined;
+  countDistinctEventType?: number | undefined;
+  countDistinctType?: number | undefined;
+  countDistinctSearchQuery?: number | undefined;
+  countDistinctProperties?: number | undefined;
+  countDistinctUserProperties?: number | undefined;
   avgId?: number | undefined;
   avgOrganizationId?: number | undefined;
   avgMessageId?: number | undefined;
@@ -208,6 +221,7 @@ export const EventsResultItem$inboundSchema: z.ZodType<
     userProperties: z.nullable(z.record(z.string())).optional(),
     sum: z.number().optional(),
     count: z.number().optional(),
+    countDistinct: z.number().optional(),
     avg: z.number().optional(),
     min: z.number().optional(),
     max: z.number().optional(),
@@ -283,6 +297,18 @@ export const EventsResultItem$inboundSchema: z.ZodType<
     count_searchQuery: z.number().optional(),
     count_properties: z.number().optional(),
     count_userProperties: z.number().optional(),
+    countDistinct_id: z.number().optional(),
+    countDistinct_organizationId: z.number().optional(),
+    countDistinct_messageId: z.number().optional(),
+    countDistinct_conversationId: z.number().optional(),
+    countDistinct_createdAt: z.number().optional(),
+    countDistinct_projectId: z.number().optional(),
+    countDistinct_integrationId: z.number().optional(),
+    countDistinct_eventType: z.number().optional(),
+    countDistinct_type: z.number().optional(),
+    countDistinct_searchQuery: z.number().optional(),
+    countDistinct_properties: z.number().optional(),
+    countDistinct_userProperties: z.number().optional(),
     avg_id: z.number().optional(),
     avg_organizationId: z.number().optional(),
     avg_messageId: z.number().optional(),
@@ -424,6 +450,18 @@ export const EventsResultItem$inboundSchema: z.ZodType<
     "count_searchQuery": "countSearchQuery",
     "count_properties": "countProperties",
     "count_userProperties": "countUserProperties",
+    "countDistinct_id": "countDistinctId",
+    "countDistinct_organizationId": "countDistinctOrganizationId",
+    "countDistinct_messageId": "countDistinctMessageId",
+    "countDistinct_conversationId": "countDistinctConversationId",
+    "countDistinct_createdAt": "countDistinctCreatedAt",
+    "countDistinct_projectId": "countDistinctProjectId",
+    "countDistinct_integrationId": "countDistinctIntegrationId",
+    "countDistinct_eventType": "countDistinctEventType",
+    "countDistinct_type": "countDistinctType",
+    "countDistinct_searchQuery": "countDistinctSearchQuery",
+    "countDistinct_properties": "countDistinctProperties",
+    "countDistinct_userProperties": "countDistinctUserProperties",
     "avg_id": "avgId",
     "avg_organizationId": "avgOrganizationId",
     "avg_messageId": "avgMessageId",
@@ -510,6 +548,7 @@ export type EventsResultItem$Outbound = {
   userProperties?: { [k: string]: string } | null | undefined;
   sum?: number | undefined;
   count?: number | undefined;
+  countDistinct?: number | undefined;
   avg?: number | undefined;
   min?: number | undefined;
   max?: number | undefined;
@@ -585,6 +624,18 @@ export type EventsResultItem$Outbound = {
   count_searchQuery?: number | undefined;
   count_properties?: number | undefined;
   count_userProperties?: number | undefined;
+  countDistinct_id?: number | undefined;
+  countDistinct_organizationId?: number | undefined;
+  countDistinct_messageId?: number | undefined;
+  countDistinct_conversationId?: number | undefined;
+  countDistinct_createdAt?: number | undefined;
+  countDistinct_projectId?: number | undefined;
+  countDistinct_integrationId?: number | undefined;
+  countDistinct_eventType?: number | undefined;
+  countDistinct_type?: number | undefined;
+  countDistinct_searchQuery?: number | undefined;
+  countDistinct_properties?: number | undefined;
+  countDistinct_userProperties?: number | undefined;
   avg_id?: number | undefined;
   avg_organizationId?: number | undefined;
   avg_messageId?: number | undefined;
@@ -672,6 +723,7 @@ export const EventsResultItem$outboundSchema: z.ZodType<
   userProperties: z.nullable(z.record(z.string())).optional(),
   sum: z.number().optional(),
   count: z.number().optional(),
+  countDistinct: z.number().optional(),
   avg: z.number().optional(),
   min: z.number().optional(),
   max: z.number().optional(),
@@ -747,6 +799,18 @@ export const EventsResultItem$outboundSchema: z.ZodType<
   countSearchQuery: z.number().optional(),
   countProperties: z.number().optional(),
   countUserProperties: z.number().optional(),
+  countDistinctId: z.number().optional(),
+  countDistinctOrganizationId: z.number().optional(),
+  countDistinctMessageId: z.number().optional(),
+  countDistinctConversationId: z.number().optional(),
+  countDistinctCreatedAt: z.number().optional(),
+  countDistinctProjectId: z.number().optional(),
+  countDistinctIntegrationId: z.number().optional(),
+  countDistinctEventType: z.number().optional(),
+  countDistinctType: z.number().optional(),
+  countDistinctSearchQuery: z.number().optional(),
+  countDistinctProperties: z.number().optional(),
+  countDistinctUserProperties: z.number().optional(),
   avgId: z.number().optional(),
   avgOrganizationId: z.number().optional(),
   avgMessageId: z.number().optional(),
@@ -888,6 +952,18 @@ export const EventsResultItem$outboundSchema: z.ZodType<
       countSearchQuery: "count_searchQuery",
       countProperties: "count_properties",
       countUserProperties: "count_userProperties",
+      countDistinctId: "countDistinct_id",
+      countDistinctOrganizationId: "countDistinct_organizationId",
+      countDistinctMessageId: "countDistinct_messageId",
+      countDistinctConversationId: "countDistinct_conversationId",
+      countDistinctCreatedAt: "countDistinct_createdAt",
+      countDistinctProjectId: "countDistinct_projectId",
+      countDistinctIntegrationId: "countDistinct_integrationId",
+      countDistinctEventType: "countDistinct_eventType",
+      countDistinctType: "countDistinct_type",
+      countDistinctSearchQuery: "countDistinct_searchQuery",
+      countDistinctProperties: "countDistinct_properties",
+      countDistinctUserProperties: "countDistinct_userProperties",
       avgId: "avg_id",
       avgOrganizationId: "avg_organizationId",
       avgMessageId: "avg_messageId",
