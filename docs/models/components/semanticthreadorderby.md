@@ -8,7 +8,7 @@ Specifies how to order SemanticThread query results by field and direction
 import { SemanticThreadOrderBy } from "@inkeep/inkeep-analytics/models/components";
 
 let value: SemanticThreadOrderBy = {
-  field: "count_isOnTopic",
+  field: "count_hasPositiveFeedback",
   direction: "desc",
 };
 ```

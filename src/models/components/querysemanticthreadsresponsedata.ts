@@ -93,6 +93,7 @@ export type SemanticThreadResultItem = {
   isInitialQuestionAnswer?: boolean | undefined;
   sum?: number | undefined;
   count?: number | undefined;
+  countDistinct?: number | undefined;
   avg?: number | undefined;
   min?: number | undefined;
   max?: number | undefined;
@@ -294,6 +295,39 @@ export type SemanticThreadResultItem = {
   countConversationIds?: number | undefined;
   countAreAIAnnotationsVerified?: number | undefined;
   countIsInitialQuestionAnswer?: number | undefined;
+  countDistinctId?: number | undefined;
+  countDistinctMessageIds?: number | undefined;
+  countDistinctMessagesCount?: number | undefined;
+  countDistinctOrganizationId?: number | undefined;
+  countDistinctQuestion?: number | undefined;
+  countDistinctQuestionLength?: number | undefined;
+  countDistinctAnswer?: number | undefined;
+  countDistinctIsOnTopic?: number | undefined;
+  countDistinctIsClear?: number | undefined;
+  countDistinctIsDocumented?: number | undefined;
+  countDistinctIsFeatureSupported?: number | undefined;
+  countDistinctIsAnswerConfident?: number | undefined;
+  countDistinctGapSummary?: number | undefined;
+  countDistinctSubject?: number | undefined;
+  countDistinctCategory?: number | undefined;
+  countDistinctLanguages?: number | undefined;
+  countDistinctFirstPartyEntities?: number | undefined;
+  countDistinctThirdPartyEntities?: number | undefined;
+  countDistinctEmotion?: number | undefined;
+  countDistinctSentiment?: number | undefined;
+  countDistinctQuestionType?: number | undefined;
+  countDistinctProjectId?: number | undefined;
+  countDistinctIntegrationId?: number | undefined;
+  countDistinctProperties?: number | undefined;
+  countDistinctUserProperties?: number | undefined;
+  countDistinctFirstMessageTime?: number | undefined;
+  countDistinctLastMessageTime?: number | undefined;
+  countDistinctLastUpdated?: number | undefined;
+  countDistinctHasPositiveFeedback?: number | undefined;
+  countDistinctHasNegativeFeedback?: number | undefined;
+  countDistinctConversationIds?: number | undefined;
+  countDistinctAreAIAnnotationsVerified?: number | undefined;
+  countDistinctIsInitialQuestionAnswer?: number | undefined;
   avgId?: number | undefined;
   avgMessageIds?: number | undefined;
   avgMessagesCount?: number | undefined;
@@ -666,6 +700,7 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
     isInitialQuestionAnswer: z.boolean().optional(),
     sum: z.number().optional(),
     count: z.number().optional(),
+    countDistinct: z.number().optional(),
     avg: z.number().optional(),
     min: z.number().optional(),
     max: z.number().optional(),
@@ -867,6 +902,39 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
     count_conversationIds: z.number().optional(),
     count_areAIAnnotationsVerified: z.number().optional(),
     count_isInitialQuestionAnswer: z.number().optional(),
+    countDistinct_id: z.number().optional(),
+    countDistinct_messageIds: z.number().optional(),
+    countDistinct_messagesCount: z.number().optional(),
+    countDistinct_organizationId: z.number().optional(),
+    countDistinct_question: z.number().optional(),
+    countDistinct_questionLength: z.number().optional(),
+    countDistinct_answer: z.number().optional(),
+    countDistinct_isOnTopic: z.number().optional(),
+    countDistinct_isClear: z.number().optional(),
+    countDistinct_isDocumented: z.number().optional(),
+    countDistinct_isFeatureSupported: z.number().optional(),
+    countDistinct_isAnswerConfident: z.number().optional(),
+    countDistinct_gapSummary: z.number().optional(),
+    countDistinct_subject: z.number().optional(),
+    countDistinct_category: z.number().optional(),
+    countDistinct_languages: z.number().optional(),
+    countDistinct_firstPartyEntities: z.number().optional(),
+    countDistinct_thirdPartyEntities: z.number().optional(),
+    countDistinct_emotion: z.number().optional(),
+    countDistinct_sentiment: z.number().optional(),
+    countDistinct_questionType: z.number().optional(),
+    countDistinct_projectId: z.number().optional(),
+    countDistinct_integrationId: z.number().optional(),
+    countDistinct_properties: z.number().optional(),
+    countDistinct_userProperties: z.number().optional(),
+    countDistinct_firstMessageTime: z.number().optional(),
+    countDistinct_lastMessageTime: z.number().optional(),
+    countDistinct_lastUpdated: z.number().optional(),
+    countDistinct_hasPositiveFeedback: z.number().optional(),
+    countDistinct_hasNegativeFeedback: z.number().optional(),
+    countDistinct_conversationIds: z.number().optional(),
+    countDistinct_areAIAnnotationsVerified: z.number().optional(),
+    countDistinct_isInitialQuestionAnswer: z.number().optional(),
     avg_id: z.number().optional(),
     avg_messageIds: z.number().optional(),
     avg_messagesCount: z.number().optional(),
@@ -1169,6 +1237,41 @@ export const SemanticThreadResultItem$inboundSchema: z.ZodType<
     "count_conversationIds": "countConversationIds",
     "count_areAIAnnotationsVerified": "countAreAIAnnotationsVerified",
     "count_isInitialQuestionAnswer": "countIsInitialQuestionAnswer",
+    "countDistinct_id": "countDistinctId",
+    "countDistinct_messageIds": "countDistinctMessageIds",
+    "countDistinct_messagesCount": "countDistinctMessagesCount",
+    "countDistinct_organizationId": "countDistinctOrganizationId",
+    "countDistinct_question": "countDistinctQuestion",
+    "countDistinct_questionLength": "countDistinctQuestionLength",
+    "countDistinct_answer": "countDistinctAnswer",
+    "countDistinct_isOnTopic": "countDistinctIsOnTopic",
+    "countDistinct_isClear": "countDistinctIsClear",
+    "countDistinct_isDocumented": "countDistinctIsDocumented",
+    "countDistinct_isFeatureSupported": "countDistinctIsFeatureSupported",
+    "countDistinct_isAnswerConfident": "countDistinctIsAnswerConfident",
+    "countDistinct_gapSummary": "countDistinctGapSummary",
+    "countDistinct_subject": "countDistinctSubject",
+    "countDistinct_category": "countDistinctCategory",
+    "countDistinct_languages": "countDistinctLanguages",
+    "countDistinct_firstPartyEntities": "countDistinctFirstPartyEntities",
+    "countDistinct_thirdPartyEntities": "countDistinctThirdPartyEntities",
+    "countDistinct_emotion": "countDistinctEmotion",
+    "countDistinct_sentiment": "countDistinctSentiment",
+    "countDistinct_questionType": "countDistinctQuestionType",
+    "countDistinct_projectId": "countDistinctProjectId",
+    "countDistinct_integrationId": "countDistinctIntegrationId",
+    "countDistinct_properties": "countDistinctProperties",
+    "countDistinct_userProperties": "countDistinctUserProperties",
+    "countDistinct_firstMessageTime": "countDistinctFirstMessageTime",
+    "countDistinct_lastMessageTime": "countDistinctLastMessageTime",
+    "countDistinct_lastUpdated": "countDistinctLastUpdated",
+    "countDistinct_hasPositiveFeedback": "countDistinctHasPositiveFeedback",
+    "countDistinct_hasNegativeFeedback": "countDistinctHasNegativeFeedback",
+    "countDistinct_conversationIds": "countDistinctConversationIds",
+    "countDistinct_areAIAnnotationsVerified":
+      "countDistinctAreAIAnnotationsVerified",
+    "countDistinct_isInitialQuestionAnswer":
+      "countDistinctIsInitialQuestionAnswer",
     "avg_id": "avgId",
     "avg_messageIds": "avgMessageIds",
     "avg_messagesCount": "avgMessagesCount",
@@ -1311,6 +1414,7 @@ export type SemanticThreadResultItem$Outbound = {
   isInitialQuestionAnswer?: boolean | undefined;
   sum?: number | undefined;
   count?: number | undefined;
+  countDistinct?: number | undefined;
   avg?: number | undefined;
   min?: number | undefined;
   max?: number | undefined;
@@ -1512,6 +1616,39 @@ export type SemanticThreadResultItem$Outbound = {
   count_conversationIds?: number | undefined;
   count_areAIAnnotationsVerified?: number | undefined;
   count_isInitialQuestionAnswer?: number | undefined;
+  countDistinct_id?: number | undefined;
+  countDistinct_messageIds?: number | undefined;
+  countDistinct_messagesCount?: number | undefined;
+  countDistinct_organizationId?: number | undefined;
+  countDistinct_question?: number | undefined;
+  countDistinct_questionLength?: number | undefined;
+  countDistinct_answer?: number | undefined;
+  countDistinct_isOnTopic?: number | undefined;
+  countDistinct_isClear?: number | undefined;
+  countDistinct_isDocumented?: number | undefined;
+  countDistinct_isFeatureSupported?: number | undefined;
+  countDistinct_isAnswerConfident?: number | undefined;
+  countDistinct_gapSummary?: number | undefined;
+  countDistinct_subject?: number | undefined;
+  countDistinct_category?: number | undefined;
+  countDistinct_languages?: number | undefined;
+  countDistinct_firstPartyEntities?: number | undefined;
+  countDistinct_thirdPartyEntities?: number | undefined;
+  countDistinct_emotion?: number | undefined;
+  countDistinct_sentiment?: number | undefined;
+  countDistinct_questionType?: number | undefined;
+  countDistinct_projectId?: number | undefined;
+  countDistinct_integrationId?: number | undefined;
+  countDistinct_properties?: number | undefined;
+  countDistinct_userProperties?: number | undefined;
+  countDistinct_firstMessageTime?: number | undefined;
+  countDistinct_lastMessageTime?: number | undefined;
+  countDistinct_lastUpdated?: number | undefined;
+  countDistinct_hasPositiveFeedback?: number | undefined;
+  countDistinct_hasNegativeFeedback?: number | undefined;
+  countDistinct_conversationIds?: number | undefined;
+  countDistinct_areAIAnnotationsVerified?: number | undefined;
+  countDistinct_isInitialQuestionAnswer?: number | undefined;
   avg_id?: number | undefined;
   avg_messageIds?: number | undefined;
   avg_messagesCount?: number | undefined;
@@ -1657,6 +1794,7 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
   isInitialQuestionAnswer: z.boolean().optional(),
   sum: z.number().optional(),
   count: z.number().optional(),
+  countDistinct: z.number().optional(),
   avg: z.number().optional(),
   min: z.number().optional(),
   max: z.number().optional(),
@@ -1858,6 +1996,39 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
   countConversationIds: z.number().optional(),
   countAreAIAnnotationsVerified: z.number().optional(),
   countIsInitialQuestionAnswer: z.number().optional(),
+  countDistinctId: z.number().optional(),
+  countDistinctMessageIds: z.number().optional(),
+  countDistinctMessagesCount: z.number().optional(),
+  countDistinctOrganizationId: z.number().optional(),
+  countDistinctQuestion: z.number().optional(),
+  countDistinctQuestionLength: z.number().optional(),
+  countDistinctAnswer: z.number().optional(),
+  countDistinctIsOnTopic: z.number().optional(),
+  countDistinctIsClear: z.number().optional(),
+  countDistinctIsDocumented: z.number().optional(),
+  countDistinctIsFeatureSupported: z.number().optional(),
+  countDistinctIsAnswerConfident: z.number().optional(),
+  countDistinctGapSummary: z.number().optional(),
+  countDistinctSubject: z.number().optional(),
+  countDistinctCategory: z.number().optional(),
+  countDistinctLanguages: z.number().optional(),
+  countDistinctFirstPartyEntities: z.number().optional(),
+  countDistinctThirdPartyEntities: z.number().optional(),
+  countDistinctEmotion: z.number().optional(),
+  countDistinctSentiment: z.number().optional(),
+  countDistinctQuestionType: z.number().optional(),
+  countDistinctProjectId: z.number().optional(),
+  countDistinctIntegrationId: z.number().optional(),
+  countDistinctProperties: z.number().optional(),
+  countDistinctUserProperties: z.number().optional(),
+  countDistinctFirstMessageTime: z.number().optional(),
+  countDistinctLastMessageTime: z.number().optional(),
+  countDistinctLastUpdated: z.number().optional(),
+  countDistinctHasPositiveFeedback: z.number().optional(),
+  countDistinctHasNegativeFeedback: z.number().optional(),
+  countDistinctConversationIds: z.number().optional(),
+  countDistinctAreAIAnnotationsVerified: z.number().optional(),
+  countDistinctIsInitialQuestionAnswer: z.number().optional(),
   avgId: z.number().optional(),
   avgMessageIds: z.number().optional(),
   avgMessagesCount: z.number().optional(),
@@ -2160,6 +2331,41 @@ export const SemanticThreadResultItem$outboundSchema: z.ZodType<
       countConversationIds: "count_conversationIds",
       countAreAIAnnotationsVerified: "count_areAIAnnotationsVerified",
       countIsInitialQuestionAnswer: "count_isInitialQuestionAnswer",
+      countDistinctId: "countDistinct_id",
+      countDistinctMessageIds: "countDistinct_messageIds",
+      countDistinctMessagesCount: "countDistinct_messagesCount",
+      countDistinctOrganizationId: "countDistinct_organizationId",
+      countDistinctQuestion: "countDistinct_question",
+      countDistinctQuestionLength: "countDistinct_questionLength",
+      countDistinctAnswer: "countDistinct_answer",
+      countDistinctIsOnTopic: "countDistinct_isOnTopic",
+      countDistinctIsClear: "countDistinct_isClear",
+      countDistinctIsDocumented: "countDistinct_isDocumented",
+      countDistinctIsFeatureSupported: "countDistinct_isFeatureSupported",
+      countDistinctIsAnswerConfident: "countDistinct_isAnswerConfident",
+      countDistinctGapSummary: "countDistinct_gapSummary",
+      countDistinctSubject: "countDistinct_subject",
+      countDistinctCategory: "countDistinct_category",
+      countDistinctLanguages: "countDistinct_languages",
+      countDistinctFirstPartyEntities: "countDistinct_firstPartyEntities",
+      countDistinctThirdPartyEntities: "countDistinct_thirdPartyEntities",
+      countDistinctEmotion: "countDistinct_emotion",
+      countDistinctSentiment: "countDistinct_sentiment",
+      countDistinctQuestionType: "countDistinct_questionType",
+      countDistinctProjectId: "countDistinct_projectId",
+      countDistinctIntegrationId: "countDistinct_integrationId",
+      countDistinctProperties: "countDistinct_properties",
+      countDistinctUserProperties: "countDistinct_userProperties",
+      countDistinctFirstMessageTime: "countDistinct_firstMessageTime",
+      countDistinctLastMessageTime: "countDistinct_lastMessageTime",
+      countDistinctLastUpdated: "countDistinct_lastUpdated",
+      countDistinctHasPositiveFeedback: "countDistinct_hasPositiveFeedback",
+      countDistinctHasNegativeFeedback: "countDistinct_hasNegativeFeedback",
+      countDistinctConversationIds: "countDistinct_conversationIds",
+      countDistinctAreAIAnnotationsVerified:
+        "countDistinct_areAIAnnotationsVerified",
+      countDistinctIsInitialQuestionAnswer:
+        "countDistinct_isInitialQuestionAnswer",
       avgId: "avg_id",
       avgMessageIds: "avg_messageIds",
       avgMessagesCount: "avg_messagesCount",
