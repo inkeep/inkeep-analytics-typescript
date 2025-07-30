@@ -15,6 +15,7 @@ Top Search Queries
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="topSearchQueries" method="get" path="/query/top-search-queries" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
@@ -116,6 +117,7 @@ Weekly Search Users
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="weeklySearchUsers" method="get" path="/query/weekly-search-users" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 

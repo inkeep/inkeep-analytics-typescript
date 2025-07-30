@@ -18,6 +18,7 @@ Logs a new conversation or updates an existing one with new messages. Always inc
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="logConversation" method="post" path="/conversations" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
@@ -129,6 +130,7 @@ Get All Conversations
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="getAllConversation" method="get" path="/conversations" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
@@ -231,6 +233,7 @@ Get Conversation
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="getConversation" method="get" path="/conversations/{id}" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
@@ -338,6 +341,7 @@ Delete Conversation
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="deleteConversation" method="delete" path="/conversations/{id}" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 

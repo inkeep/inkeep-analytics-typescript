@@ -15,6 +15,7 @@ Log Event
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="logEvent" method="post" path="/events" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 

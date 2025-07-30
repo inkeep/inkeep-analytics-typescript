@@ -19,6 +19,7 @@ Query Conversations
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="queryConversations" method="post" path="/query/conversations" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
@@ -113,6 +114,7 @@ Query Events
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="queryEvents" method="post" path="/query/events" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
@@ -207,6 +209,7 @@ Query Feedback
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="queryFeedback" method="post" path="/query/feedback" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
@@ -301,6 +304,7 @@ Query Semantic Threads
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="querySemanticThreads" method="post" path="/query/semantic-threads" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
@@ -395,6 +399,7 @@ Export Semantic Threads Query Results
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="exportSemanticThreadsQueryResults" method="post" path="/query/semantic-threads/export" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
@@ -489,6 +494,7 @@ Query Property Keys
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="queryPropertyKeys" method="post" path="/query/property-keys" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
@@ -595,6 +601,7 @@ Query Property Values
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="queryPropertyValues" method="post" path="/query/property-values" -->
 ```typescript
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
 
