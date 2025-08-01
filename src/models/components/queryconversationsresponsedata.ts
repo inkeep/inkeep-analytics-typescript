@@ -79,7 +79,6 @@ export type ConversationsResultItem = {
     | undefined;
   sum?: number | undefined;
   count?: number | undefined;
-  countDistinct?: number | undefined;
   avg?: number | undefined;
   min?: number | undefined;
   max?: number | undefined;
@@ -137,15 +136,6 @@ export type ConversationsResultItem = {
   countType?: number | undefined;
   countProperties?: number | undefined;
   countUserProperties?: number | undefined;
-  countDistinctId?: number | undefined;
-  countDistinctUserMessageCount?: number | undefined;
-  countDistinctOrganizationId?: number | undefined;
-  countDistinctProjectId?: number | undefined;
-  countDistinctIntegrationId?: number | undefined;
-  countDistinctFirstMessageTime?: number | undefined;
-  countDistinctType?: number | undefined;
-  countDistinctProperties?: number | undefined;
-  countDistinctUserProperties?: number | undefined;
   avgId?: number | undefined;
   avgUserMessageCount?: number | undefined;
   avgOrganizationId?: number | undefined;
@@ -463,7 +453,6 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
     ).optional(),
     sum: z.number().optional(),
     count: z.number().optional(),
-    countDistinct: z.number().optional(),
     avg: z.number().optional(),
     min: z.number().optional(),
     max: z.number().optional(),
@@ -521,15 +510,6 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
     count_type: z.number().optional(),
     count_properties: z.number().optional(),
     count_userProperties: z.number().optional(),
-    countDistinct_id: z.number().optional(),
-    countDistinct_userMessageCount: z.number().optional(),
-    countDistinct_organizationId: z.number().optional(),
-    countDistinct_projectId: z.number().optional(),
-    countDistinct_integrationId: z.number().optional(),
-    countDistinct_firstMessageTime: z.number().optional(),
-    countDistinct_type: z.number().optional(),
-    countDistinct_properties: z.number().optional(),
-    countDistinct_userProperties: z.number().optional(),
     avg_id: z.number().optional(),
     avg_userMessageCount: z.number().optional(),
     avg_organizationId: z.number().optional(),
@@ -644,15 +624,6 @@ export const ConversationsResultItem$inboundSchema: z.ZodType<
     "count_type": "countType",
     "count_properties": "countProperties",
     "count_userProperties": "countUserProperties",
-    "countDistinct_id": "countDistinctId",
-    "countDistinct_userMessageCount": "countDistinctUserMessageCount",
-    "countDistinct_organizationId": "countDistinctOrganizationId",
-    "countDistinct_projectId": "countDistinctProjectId",
-    "countDistinct_integrationId": "countDistinctIntegrationId",
-    "countDistinct_firstMessageTime": "countDistinctFirstMessageTime",
-    "countDistinct_type": "countDistinctType",
-    "countDistinct_properties": "countDistinctProperties",
-    "countDistinct_userProperties": "countDistinctUserProperties",
     "avg_id": "avgId",
     "avg_userMessageCount": "avgUserMessageCount",
     "avg_organizationId": "avgOrganizationId",
@@ -730,7 +701,6 @@ export type ConversationsResultItem$Outbound = {
     | undefined;
   sum?: number | undefined;
   count?: number | undefined;
-  countDistinct?: number | undefined;
   avg?: number | undefined;
   min?: number | undefined;
   max?: number | undefined;
@@ -788,15 +758,6 @@ export type ConversationsResultItem$Outbound = {
   count_type?: number | undefined;
   count_properties?: number | undefined;
   count_userProperties?: number | undefined;
-  countDistinct_id?: number | undefined;
-  countDistinct_userMessageCount?: number | undefined;
-  countDistinct_organizationId?: number | undefined;
-  countDistinct_projectId?: number | undefined;
-  countDistinct_integrationId?: number | undefined;
-  countDistinct_firstMessageTime?: number | undefined;
-  countDistinct_type?: number | undefined;
-  countDistinct_properties?: number | undefined;
-  countDistinct_userProperties?: number | undefined;
   avg_id?: number | undefined;
   avg_userMessageCount?: number | undefined;
   avg_organizationId?: number | undefined;
@@ -875,7 +836,6 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
   ).optional(),
   sum: z.number().optional(),
   count: z.number().optional(),
-  countDistinct: z.number().optional(),
   avg: z.number().optional(),
   min: z.number().optional(),
   max: z.number().optional(),
@@ -933,15 +893,6 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
   countType: z.number().optional(),
   countProperties: z.number().optional(),
   countUserProperties: z.number().optional(),
-  countDistinctId: z.number().optional(),
-  countDistinctUserMessageCount: z.number().optional(),
-  countDistinctOrganizationId: z.number().optional(),
-  countDistinctProjectId: z.number().optional(),
-  countDistinctIntegrationId: z.number().optional(),
-  countDistinctFirstMessageTime: z.number().optional(),
-  countDistinctType: z.number().optional(),
-  countDistinctProperties: z.number().optional(),
-  countDistinctUserProperties: z.number().optional(),
   avgId: z.number().optional(),
   avgUserMessageCount: z.number().optional(),
   avgOrganizationId: z.number().optional(),
@@ -1056,15 +1007,6 @@ export const ConversationsResultItem$outboundSchema: z.ZodType<
       countType: "count_type",
       countProperties: "count_properties",
       countUserProperties: "count_userProperties",
-      countDistinctId: "countDistinct_id",
-      countDistinctUserMessageCount: "countDistinct_userMessageCount",
-      countDistinctOrganizationId: "countDistinct_organizationId",
-      countDistinctProjectId: "countDistinct_projectId",
-      countDistinctIntegrationId: "countDistinct_integrationId",
-      countDistinctFirstMessageTime: "countDistinct_firstMessageTime",
-      countDistinctType: "countDistinct_type",
-      countDistinctProperties: "countDistinct_properties",
-      countDistinctUserProperties: "countDistinct_userProperties",
       avgId: "avg_id",
       avgUserMessageCount: "avg_userMessageCount",
       avgOrganizationId: "avg_organizationId",

@@ -13,8 +13,6 @@ import {
   ConversationsFilter$outboundSchema,
 } from "./conversationsfilter.js";
 
-export type And = ConversationsFilter;
-
 /**
  * ConversationsFilter AND operator
  */
@@ -25,44 +23,7 @@ export type ConversationsFilterAND = {
   and: Array<ConversationsFilter>;
 };
 
-/** @internal */
-export const And$inboundSchema: z.ZodType<And, z.ZodTypeDef, unknown> = z.lazy(
-  () => ConversationsFilter$inboundSchema
-);
-
-/** @internal */
-export type And$Outbound = ConversationsFilter$Outbound;
-
-/** @internal */
-export const And$outboundSchema: z.ZodType<And$Outbound, z.ZodTypeDef, And> = z
-  .lazy(() => ConversationsFilter$outboundSchema);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace And$ {
-  /** @deprecated use `And$inboundSchema` instead. */
-  export const inboundSchema = And$inboundSchema;
-  /** @deprecated use `And$outboundSchema` instead. */
-  export const outboundSchema = And$outboundSchema;
-  /** @deprecated use `And$Outbound` instead. */
-  export type Outbound = And$Outbound;
-}
-
-export function andToJSON(and: And): string {
-  return JSON.stringify(And$outboundSchema.parse(and));
-}
-
-export function andFromJSON(
-  jsonString: string,
-): SafeParseResult<And, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => And$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'And' from JSON`,
-  );
-}
+export type And = ConversationsFilter;
 
 /** @internal */
 export const ConversationsFilterAND$inboundSchema: z.ZodType<
@@ -115,5 +76,44 @@ export function conversationsFilterANDFromJSON(
     jsonString,
     (x) => ConversationsFilterAND$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'ConversationsFilterAND' from JSON`,
+  );
+}
+
+/** @internal */
+export const And$inboundSchema: z.ZodType<And, z.ZodTypeDef, unknown> = z.lazy(
+  () => ConversationsFilter$inboundSchema
+);
+
+/** @internal */
+export type And$Outbound = ConversationsFilter$Outbound;
+
+/** @internal */
+export const And$outboundSchema: z.ZodType<And$Outbound, z.ZodTypeDef, And> = z
+  .lazy(() => ConversationsFilter$outboundSchema);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace And$ {
+  /** @deprecated use `And$inboundSchema` instead. */
+  export const inboundSchema = And$inboundSchema;
+  /** @deprecated use `And$outboundSchema` instead. */
+  export const outboundSchema = And$outboundSchema;
+  /** @deprecated use `And$Outbound` instead. */
+  export type Outbound = And$Outbound;
+}
+
+export function andToJSON(and: And): string {
+  return JSON.stringify(And$outboundSchema.parse(and));
+}
+
+export function andFromJSON(
+  jsonString: string,
+): SafeParseResult<And, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => And$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'And' from JSON`,
   );
 }

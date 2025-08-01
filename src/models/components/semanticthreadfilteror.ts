@@ -13,8 +13,6 @@ import {
   SemanticThreadFilter$outboundSchema,
 } from "./semanticthreadfilter.js";
 
-export type SemanticThreadFilterOROR = SemanticThreadFilter;
-
 /**
  * SemanticThreadFilter OR operator
  */
@@ -25,53 +23,7 @@ export type SemanticThreadFilterOR = {
   or: Array<SemanticThreadFilter>;
 };
 
-/** @internal */
-export const SemanticThreadFilterOROR$inboundSchema: z.ZodType<
-  SemanticThreadFilterOROR,
-  z.ZodTypeDef,
-  unknown
-> = z.lazy(() => SemanticThreadFilter$inboundSchema);
-
-/** @internal */
-export type SemanticThreadFilterOROR$Outbound = SemanticThreadFilter$Outbound;
-
-/** @internal */
-export const SemanticThreadFilterOROR$outboundSchema: z.ZodType<
-  SemanticThreadFilterOROR$Outbound,
-  z.ZodTypeDef,
-  SemanticThreadFilterOROR
-> = z.lazy(() => SemanticThreadFilter$outboundSchema);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SemanticThreadFilterOROR$ {
-  /** @deprecated use `SemanticThreadFilterOROR$inboundSchema` instead. */
-  export const inboundSchema = SemanticThreadFilterOROR$inboundSchema;
-  /** @deprecated use `SemanticThreadFilterOROR$outboundSchema` instead. */
-  export const outboundSchema = SemanticThreadFilterOROR$outboundSchema;
-  /** @deprecated use `SemanticThreadFilterOROR$Outbound` instead. */
-  export type Outbound = SemanticThreadFilterOROR$Outbound;
-}
-
-export function semanticThreadFilterORORToJSON(
-  semanticThreadFilterOROR: SemanticThreadFilterOROR,
-): string {
-  return JSON.stringify(
-    SemanticThreadFilterOROR$outboundSchema.parse(semanticThreadFilterOROR),
-  );
-}
-
-export function semanticThreadFilterORORFromJSON(
-  jsonString: string,
-): SafeParseResult<SemanticThreadFilterOROR, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SemanticThreadFilterOROR$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SemanticThreadFilterOROR' from JSON`,
-  );
-}
+export type SemanticThreadFilterOROR = SemanticThreadFilter;
 
 /** @internal */
 export const SemanticThreadFilterOR$inboundSchema: z.ZodType<
@@ -124,5 +76,53 @@ export function semanticThreadFilterORFromJSON(
     jsonString,
     (x) => SemanticThreadFilterOR$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'SemanticThreadFilterOR' from JSON`,
+  );
+}
+
+/** @internal */
+export const SemanticThreadFilterOROR$inboundSchema: z.ZodType<
+  SemanticThreadFilterOROR,
+  z.ZodTypeDef,
+  unknown
+> = z.lazy(() => SemanticThreadFilter$inboundSchema);
+
+/** @internal */
+export type SemanticThreadFilterOROR$Outbound = SemanticThreadFilter$Outbound;
+
+/** @internal */
+export const SemanticThreadFilterOROR$outboundSchema: z.ZodType<
+  SemanticThreadFilterOROR$Outbound,
+  z.ZodTypeDef,
+  SemanticThreadFilterOROR
+> = z.lazy(() => SemanticThreadFilter$outboundSchema);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SemanticThreadFilterOROR$ {
+  /** @deprecated use `SemanticThreadFilterOROR$inboundSchema` instead. */
+  export const inboundSchema = SemanticThreadFilterOROR$inboundSchema;
+  /** @deprecated use `SemanticThreadFilterOROR$outboundSchema` instead. */
+  export const outboundSchema = SemanticThreadFilterOROR$outboundSchema;
+  /** @deprecated use `SemanticThreadFilterOROR$Outbound` instead. */
+  export type Outbound = SemanticThreadFilterOROR$Outbound;
+}
+
+export function semanticThreadFilterORORToJSON(
+  semanticThreadFilterOROR: SemanticThreadFilterOROR,
+): string {
+  return JSON.stringify(
+    SemanticThreadFilterOROR$outboundSchema.parse(semanticThreadFilterOROR),
+  );
+}
+
+export function semanticThreadFilterORORFromJSON(
+  jsonString: string,
+): SafeParseResult<SemanticThreadFilterOROR, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SemanticThreadFilterOROR$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SemanticThreadFilterOROR' from JSON`,
   );
 }

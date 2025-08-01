@@ -13,8 +13,6 @@ import {
   SemanticThreadFilter$outboundSchema,
 } from "./semanticthreadfilter.js";
 
-export type SemanticThreadFilterANDAND = SemanticThreadFilter;
-
 /**
  * SemanticThreadFilter AND operator
  */
@@ -25,53 +23,7 @@ export type SemanticThreadFilterAND = {
   and: Array<SemanticThreadFilter>;
 };
 
-/** @internal */
-export const SemanticThreadFilterANDAND$inboundSchema: z.ZodType<
-  SemanticThreadFilterANDAND,
-  z.ZodTypeDef,
-  unknown
-> = z.lazy(() => SemanticThreadFilter$inboundSchema);
-
-/** @internal */
-export type SemanticThreadFilterANDAND$Outbound = SemanticThreadFilter$Outbound;
-
-/** @internal */
-export const SemanticThreadFilterANDAND$outboundSchema: z.ZodType<
-  SemanticThreadFilterANDAND$Outbound,
-  z.ZodTypeDef,
-  SemanticThreadFilterANDAND
-> = z.lazy(() => SemanticThreadFilter$outboundSchema);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace SemanticThreadFilterANDAND$ {
-  /** @deprecated use `SemanticThreadFilterANDAND$inboundSchema` instead. */
-  export const inboundSchema = SemanticThreadFilterANDAND$inboundSchema;
-  /** @deprecated use `SemanticThreadFilterANDAND$outboundSchema` instead. */
-  export const outboundSchema = SemanticThreadFilterANDAND$outboundSchema;
-  /** @deprecated use `SemanticThreadFilterANDAND$Outbound` instead. */
-  export type Outbound = SemanticThreadFilterANDAND$Outbound;
-}
-
-export function semanticThreadFilterANDANDToJSON(
-  semanticThreadFilterANDAND: SemanticThreadFilterANDAND,
-): string {
-  return JSON.stringify(
-    SemanticThreadFilterANDAND$outboundSchema.parse(semanticThreadFilterANDAND),
-  );
-}
-
-export function semanticThreadFilterANDANDFromJSON(
-  jsonString: string,
-): SafeParseResult<SemanticThreadFilterANDAND, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SemanticThreadFilterANDAND$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SemanticThreadFilterANDAND' from JSON`,
-  );
-}
+export type SemanticThreadFilterANDAND = SemanticThreadFilter;
 
 /** @internal */
 export const SemanticThreadFilterAND$inboundSchema: z.ZodType<
@@ -124,5 +76,53 @@ export function semanticThreadFilterANDFromJSON(
     jsonString,
     (x) => SemanticThreadFilterAND$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'SemanticThreadFilterAND' from JSON`,
+  );
+}
+
+/** @internal */
+export const SemanticThreadFilterANDAND$inboundSchema: z.ZodType<
+  SemanticThreadFilterANDAND,
+  z.ZodTypeDef,
+  unknown
+> = z.lazy(() => SemanticThreadFilter$inboundSchema);
+
+/** @internal */
+export type SemanticThreadFilterANDAND$Outbound = SemanticThreadFilter$Outbound;
+
+/** @internal */
+export const SemanticThreadFilterANDAND$outboundSchema: z.ZodType<
+  SemanticThreadFilterANDAND$Outbound,
+  z.ZodTypeDef,
+  SemanticThreadFilterANDAND
+> = z.lazy(() => SemanticThreadFilter$outboundSchema);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SemanticThreadFilterANDAND$ {
+  /** @deprecated use `SemanticThreadFilterANDAND$inboundSchema` instead. */
+  export const inboundSchema = SemanticThreadFilterANDAND$inboundSchema;
+  /** @deprecated use `SemanticThreadFilterANDAND$outboundSchema` instead. */
+  export const outboundSchema = SemanticThreadFilterANDAND$outboundSchema;
+  /** @deprecated use `SemanticThreadFilterANDAND$Outbound` instead. */
+  export type Outbound = SemanticThreadFilterANDAND$Outbound;
+}
+
+export function semanticThreadFilterANDANDToJSON(
+  semanticThreadFilterANDAND: SemanticThreadFilterANDAND,
+): string {
+  return JSON.stringify(
+    SemanticThreadFilterANDAND$outboundSchema.parse(semanticThreadFilterANDAND),
+  );
+}
+
+export function semanticThreadFilterANDANDFromJSON(
+  jsonString: string,
+): SafeParseResult<SemanticThreadFilterANDAND, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SemanticThreadFilterANDAND$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SemanticThreadFilterANDAND' from JSON`,
   );
 }
