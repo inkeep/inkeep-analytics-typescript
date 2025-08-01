@@ -100,7 +100,6 @@ export type FeedbackResultItem = {
   integrationId?: string | null | undefined;
   sum?: number | undefined;
   count?: number | undefined;
-  countDistinct?: number | undefined;
   avg?: number | undefined;
   min?: number | undefined;
   max?: number | undefined;
@@ -188,20 +187,6 @@ export type FeedbackResultItem = {
   countConversationId?: number | undefined;
   countProjectId?: number | undefined;
   countIntegrationId?: number | undefined;
-  countDistinctId?: number | undefined;
-  countDistinctType?: number | undefined;
-  countDistinctMessageId?: number | undefined;
-  countDistinctCreatedAt?: number | undefined;
-  countDistinctUpdatedAt?: number | undefined;
-  countDistinctOrganizationId?: number | undefined;
-  countDistinctReasons?: number | undefined;
-  countDistinctSources?: number | undefined;
-  countDistinctDetails?: number | undefined;
-  countDistinctProperties?: number | undefined;
-  countDistinctUserProperties?: number | undefined;
-  countDistinctConversationId?: number | undefined;
-  countDistinctProjectId?: number | undefined;
-  countDistinctIntegrationId?: number | undefined;
   avgId?: number | undefined;
   avgType?: number | undefined;
   avgMessageId?: number | undefined;
@@ -678,7 +663,6 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     integrationId: z.nullable(z.string()).optional(),
     sum: z.number().optional(),
     count: z.number().optional(),
-    countDistinct: z.number().optional(),
     avg: z.number().optional(),
     min: z.number().optional(),
     max: z.number().optional(),
@@ -766,20 +750,6 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     count_conversationId: z.number().optional(),
     count_projectId: z.number().optional(),
     count_integrationId: z.number().optional(),
-    countDistinct_id: z.number().optional(),
-    countDistinct_type: z.number().optional(),
-    countDistinct_messageId: z.number().optional(),
-    countDistinct_createdAt: z.number().optional(),
-    countDistinct_updatedAt: z.number().optional(),
-    countDistinct_organizationId: z.number().optional(),
-    countDistinct_reasons: z.number().optional(),
-    countDistinct_sources: z.number().optional(),
-    countDistinct_details: z.number().optional(),
-    countDistinct_properties: z.number().optional(),
-    countDistinct_userProperties: z.number().optional(),
-    countDistinct_conversationId: z.number().optional(),
-    countDistinct_projectId: z.number().optional(),
-    countDistinct_integrationId: z.number().optional(),
     avg_id: z.number().optional(),
     avg_type: z.number().optional(),
     avg_messageId: z.number().optional(),
@@ -939,20 +909,6 @@ export const FeedbackResultItem$inboundSchema: z.ZodType<
     "count_conversationId": "countConversationId",
     "count_projectId": "countProjectId",
     "count_integrationId": "countIntegrationId",
-    "countDistinct_id": "countDistinctId",
-    "countDistinct_type": "countDistinctType",
-    "countDistinct_messageId": "countDistinctMessageId",
-    "countDistinct_createdAt": "countDistinctCreatedAt",
-    "countDistinct_updatedAt": "countDistinctUpdatedAt",
-    "countDistinct_organizationId": "countDistinctOrganizationId",
-    "countDistinct_reasons": "countDistinctReasons",
-    "countDistinct_sources": "countDistinctSources",
-    "countDistinct_details": "countDistinctDetails",
-    "countDistinct_properties": "countDistinctProperties",
-    "countDistinct_userProperties": "countDistinctUserProperties",
-    "countDistinct_conversationId": "countDistinctConversationId",
-    "countDistinct_projectId": "countDistinctProjectId",
-    "countDistinct_integrationId": "countDistinctIntegrationId",
     "avg_id": "avgId",
     "avg_type": "avgType",
     "avg_messageId": "avgMessageId",
@@ -1050,7 +1006,6 @@ export type FeedbackResultItem$Outbound = {
   integrationId?: string | null | undefined;
   sum?: number | undefined;
   count?: number | undefined;
-  countDistinct?: number | undefined;
   avg?: number | undefined;
   min?: number | undefined;
   max?: number | undefined;
@@ -1138,20 +1093,6 @@ export type FeedbackResultItem$Outbound = {
   count_conversationId?: number | undefined;
   count_projectId?: number | undefined;
   count_integrationId?: number | undefined;
-  countDistinct_id?: number | undefined;
-  countDistinct_type?: number | undefined;
-  countDistinct_messageId?: number | undefined;
-  countDistinct_createdAt?: number | undefined;
-  countDistinct_updatedAt?: number | undefined;
-  countDistinct_organizationId?: number | undefined;
-  countDistinct_reasons?: number | undefined;
-  countDistinct_sources?: number | undefined;
-  countDistinct_details?: number | undefined;
-  countDistinct_properties?: number | undefined;
-  countDistinct_userProperties?: number | undefined;
-  countDistinct_conversationId?: number | undefined;
-  countDistinct_projectId?: number | undefined;
-  countDistinct_integrationId?: number | undefined;
   avg_id?: number | undefined;
   avg_type?: number | undefined;
   avg_messageId?: number | undefined;
@@ -1253,7 +1194,6 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   integrationId: z.nullable(z.string()).optional(),
   sum: z.number().optional(),
   count: z.number().optional(),
-  countDistinct: z.number().optional(),
   avg: z.number().optional(),
   min: z.number().optional(),
   max: z.number().optional(),
@@ -1341,20 +1281,6 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
   countConversationId: z.number().optional(),
   countProjectId: z.number().optional(),
   countIntegrationId: z.number().optional(),
-  countDistinctId: z.number().optional(),
-  countDistinctType: z.number().optional(),
-  countDistinctMessageId: z.number().optional(),
-  countDistinctCreatedAt: z.number().optional(),
-  countDistinctUpdatedAt: z.number().optional(),
-  countDistinctOrganizationId: z.number().optional(),
-  countDistinctReasons: z.number().optional(),
-  countDistinctSources: z.number().optional(),
-  countDistinctDetails: z.number().optional(),
-  countDistinctProperties: z.number().optional(),
-  countDistinctUserProperties: z.number().optional(),
-  countDistinctConversationId: z.number().optional(),
-  countDistinctProjectId: z.number().optional(),
-  countDistinctIntegrationId: z.number().optional(),
   avgId: z.number().optional(),
   avgType: z.number().optional(),
   avgMessageId: z.number().optional(),
@@ -1514,20 +1440,6 @@ export const FeedbackResultItem$outboundSchema: z.ZodType<
       countConversationId: "count_conversationId",
       countProjectId: "count_projectId",
       countIntegrationId: "count_integrationId",
-      countDistinctId: "countDistinct_id",
-      countDistinctType: "countDistinct_type",
-      countDistinctMessageId: "countDistinct_messageId",
-      countDistinctCreatedAt: "countDistinct_createdAt",
-      countDistinctUpdatedAt: "countDistinct_updatedAt",
-      countDistinctOrganizationId: "countDistinct_organizationId",
-      countDistinctReasons: "countDistinct_reasons",
-      countDistinctSources: "countDistinct_sources",
-      countDistinctDetails: "countDistinct_details",
-      countDistinctProperties: "countDistinct_properties",
-      countDistinctUserProperties: "countDistinct_userProperties",
-      countDistinctConversationId: "countDistinct_conversationId",
-      countDistinctProjectId: "countDistinct_projectId",
-      countDistinctIntegrationId: "countDistinct_integrationId",
       avgId: "avg_id",
       avgType: "avg_type",
       avgMessageId: "avg_messageId",

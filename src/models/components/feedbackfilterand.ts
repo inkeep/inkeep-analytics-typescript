@@ -13,8 +13,6 @@ import {
   FeedbackFilter$outboundSchema,
 } from "./feedbackfilter.js";
 
-export type FeedbackFilterANDAND = FeedbackFilter;
-
 /**
  * FeedbackFilter AND operator
  */
@@ -25,53 +23,7 @@ export type FeedbackFilterAND = {
   and: Array<FeedbackFilter>;
 };
 
-/** @internal */
-export const FeedbackFilterANDAND$inboundSchema: z.ZodType<
-  FeedbackFilterANDAND,
-  z.ZodTypeDef,
-  unknown
-> = z.lazy(() => FeedbackFilter$inboundSchema);
-
-/** @internal */
-export type FeedbackFilterANDAND$Outbound = FeedbackFilter$Outbound;
-
-/** @internal */
-export const FeedbackFilterANDAND$outboundSchema: z.ZodType<
-  FeedbackFilterANDAND$Outbound,
-  z.ZodTypeDef,
-  FeedbackFilterANDAND
-> = z.lazy(() => FeedbackFilter$outboundSchema);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace FeedbackFilterANDAND$ {
-  /** @deprecated use `FeedbackFilterANDAND$inboundSchema` instead. */
-  export const inboundSchema = FeedbackFilterANDAND$inboundSchema;
-  /** @deprecated use `FeedbackFilterANDAND$outboundSchema` instead. */
-  export const outboundSchema = FeedbackFilterANDAND$outboundSchema;
-  /** @deprecated use `FeedbackFilterANDAND$Outbound` instead. */
-  export type Outbound = FeedbackFilterANDAND$Outbound;
-}
-
-export function feedbackFilterANDANDToJSON(
-  feedbackFilterANDAND: FeedbackFilterANDAND,
-): string {
-  return JSON.stringify(
-    FeedbackFilterANDAND$outboundSchema.parse(feedbackFilterANDAND),
-  );
-}
-
-export function feedbackFilterANDANDFromJSON(
-  jsonString: string,
-): SafeParseResult<FeedbackFilterANDAND, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => FeedbackFilterANDAND$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'FeedbackFilterANDAND' from JSON`,
-  );
-}
+export type FeedbackFilterANDAND = FeedbackFilter;
 
 /** @internal */
 export const FeedbackFilterAND$inboundSchema: z.ZodType<
@@ -124,5 +76,53 @@ export function feedbackFilterANDFromJSON(
     jsonString,
     (x) => FeedbackFilterAND$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'FeedbackFilterAND' from JSON`,
+  );
+}
+
+/** @internal */
+export const FeedbackFilterANDAND$inboundSchema: z.ZodType<
+  FeedbackFilterANDAND,
+  z.ZodTypeDef,
+  unknown
+> = z.lazy(() => FeedbackFilter$inboundSchema);
+
+/** @internal */
+export type FeedbackFilterANDAND$Outbound = FeedbackFilter$Outbound;
+
+/** @internal */
+export const FeedbackFilterANDAND$outboundSchema: z.ZodType<
+  FeedbackFilterANDAND$Outbound,
+  z.ZodTypeDef,
+  FeedbackFilterANDAND
+> = z.lazy(() => FeedbackFilter$outboundSchema);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace FeedbackFilterANDAND$ {
+  /** @deprecated use `FeedbackFilterANDAND$inboundSchema` instead. */
+  export const inboundSchema = FeedbackFilterANDAND$inboundSchema;
+  /** @deprecated use `FeedbackFilterANDAND$outboundSchema` instead. */
+  export const outboundSchema = FeedbackFilterANDAND$outboundSchema;
+  /** @deprecated use `FeedbackFilterANDAND$Outbound` instead. */
+  export type Outbound = FeedbackFilterANDAND$Outbound;
+}
+
+export function feedbackFilterANDANDToJSON(
+  feedbackFilterANDAND: FeedbackFilterANDAND,
+): string {
+  return JSON.stringify(
+    FeedbackFilterANDAND$outboundSchema.parse(feedbackFilterANDAND),
+  );
+}
+
+export function feedbackFilterANDANDFromJSON(
+  jsonString: string,
+): SafeParseResult<FeedbackFilterANDAND, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FeedbackFilterANDAND$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FeedbackFilterANDAND' from JSON`,
   );
 }

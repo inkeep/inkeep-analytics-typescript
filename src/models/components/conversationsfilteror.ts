@@ -13,8 +13,6 @@ import {
   ConversationsFilter$outboundSchema,
 } from "./conversationsfilter.js";
 
-export type Or = ConversationsFilter;
-
 /**
  * ConversationsFilter OR operator
  */
@@ -25,44 +23,7 @@ export type ConversationsFilterOR = {
   or: Array<ConversationsFilter>;
 };
 
-/** @internal */
-export const Or$inboundSchema: z.ZodType<Or, z.ZodTypeDef, unknown> = z.lazy(
-  () => ConversationsFilter$inboundSchema
-);
-
-/** @internal */
-export type Or$Outbound = ConversationsFilter$Outbound;
-
-/** @internal */
-export const Or$outboundSchema: z.ZodType<Or$Outbound, z.ZodTypeDef, Or> = z
-  .lazy(() => ConversationsFilter$outboundSchema);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Or$ {
-  /** @deprecated use `Or$inboundSchema` instead. */
-  export const inboundSchema = Or$inboundSchema;
-  /** @deprecated use `Or$outboundSchema` instead. */
-  export const outboundSchema = Or$outboundSchema;
-  /** @deprecated use `Or$Outbound` instead. */
-  export type Outbound = Or$Outbound;
-}
-
-export function orToJSON(or: Or): string {
-  return JSON.stringify(Or$outboundSchema.parse(or));
-}
-
-export function orFromJSON(
-  jsonString: string,
-): SafeParseResult<Or, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Or$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Or' from JSON`,
-  );
-}
+export type Or = ConversationsFilter;
 
 /** @internal */
 export const ConversationsFilterOR$inboundSchema: z.ZodType<
@@ -115,5 +76,44 @@ export function conversationsFilterORFromJSON(
     jsonString,
     (x) => ConversationsFilterOR$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'ConversationsFilterOR' from JSON`,
+  );
+}
+
+/** @internal */
+export const Or$inboundSchema: z.ZodType<Or, z.ZodTypeDef, unknown> = z.lazy(
+  () => ConversationsFilter$inboundSchema
+);
+
+/** @internal */
+export type Or$Outbound = ConversationsFilter$Outbound;
+
+/** @internal */
+export const Or$outboundSchema: z.ZodType<Or$Outbound, z.ZodTypeDef, Or> = z
+  .lazy(() => ConversationsFilter$outboundSchema);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace Or$ {
+  /** @deprecated use `Or$inboundSchema` instead. */
+  export const inboundSchema = Or$inboundSchema;
+  /** @deprecated use `Or$outboundSchema` instead. */
+  export const outboundSchema = Or$outboundSchema;
+  /** @deprecated use `Or$Outbound` instead. */
+  export type Outbound = Or$Outbound;
+}
+
+export function orToJSON(or: Or): string {
+  return JSON.stringify(Or$outboundSchema.parse(or));
+}
+
+export function orFromJSON(
+  jsonString: string,
+): SafeParseResult<Or, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Or$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Or' from JSON`,
   );
 }

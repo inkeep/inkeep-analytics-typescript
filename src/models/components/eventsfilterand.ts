@@ -13,8 +13,6 @@ import {
   EventsFilter$outboundSchema,
 } from "./eventsfilter.js";
 
-export type EventsFilterANDAND = EventsFilter;
-
 /**
  * EventsFilter AND operator
  */
@@ -25,53 +23,7 @@ export type EventsFilterAND = {
   and: Array<EventsFilter>;
 };
 
-/** @internal */
-export const EventsFilterANDAND$inboundSchema: z.ZodType<
-  EventsFilterANDAND,
-  z.ZodTypeDef,
-  unknown
-> = z.lazy(() => EventsFilter$inboundSchema);
-
-/** @internal */
-export type EventsFilterANDAND$Outbound = EventsFilter$Outbound;
-
-/** @internal */
-export const EventsFilterANDAND$outboundSchema: z.ZodType<
-  EventsFilterANDAND$Outbound,
-  z.ZodTypeDef,
-  EventsFilterANDAND
-> = z.lazy(() => EventsFilter$outboundSchema);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace EventsFilterANDAND$ {
-  /** @deprecated use `EventsFilterANDAND$inboundSchema` instead. */
-  export const inboundSchema = EventsFilterANDAND$inboundSchema;
-  /** @deprecated use `EventsFilterANDAND$outboundSchema` instead. */
-  export const outboundSchema = EventsFilterANDAND$outboundSchema;
-  /** @deprecated use `EventsFilterANDAND$Outbound` instead. */
-  export type Outbound = EventsFilterANDAND$Outbound;
-}
-
-export function eventsFilterANDANDToJSON(
-  eventsFilterANDAND: EventsFilterANDAND,
-): string {
-  return JSON.stringify(
-    EventsFilterANDAND$outboundSchema.parse(eventsFilterANDAND),
-  );
-}
-
-export function eventsFilterANDANDFromJSON(
-  jsonString: string,
-): SafeParseResult<EventsFilterANDAND, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EventsFilterANDAND$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EventsFilterANDAND' from JSON`,
-  );
-}
+export type EventsFilterANDAND = EventsFilter;
 
 /** @internal */
 export const EventsFilterAND$inboundSchema: z.ZodType<
@@ -122,5 +74,53 @@ export function eventsFilterANDFromJSON(
     jsonString,
     (x) => EventsFilterAND$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'EventsFilterAND' from JSON`,
+  );
+}
+
+/** @internal */
+export const EventsFilterANDAND$inboundSchema: z.ZodType<
+  EventsFilterANDAND,
+  z.ZodTypeDef,
+  unknown
+> = z.lazy(() => EventsFilter$inboundSchema);
+
+/** @internal */
+export type EventsFilterANDAND$Outbound = EventsFilter$Outbound;
+
+/** @internal */
+export const EventsFilterANDAND$outboundSchema: z.ZodType<
+  EventsFilterANDAND$Outbound,
+  z.ZodTypeDef,
+  EventsFilterANDAND
+> = z.lazy(() => EventsFilter$outboundSchema);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace EventsFilterANDAND$ {
+  /** @deprecated use `EventsFilterANDAND$inboundSchema` instead. */
+  export const inboundSchema = EventsFilterANDAND$inboundSchema;
+  /** @deprecated use `EventsFilterANDAND$outboundSchema` instead. */
+  export const outboundSchema = EventsFilterANDAND$outboundSchema;
+  /** @deprecated use `EventsFilterANDAND$Outbound` instead. */
+  export type Outbound = EventsFilterANDAND$Outbound;
+}
+
+export function eventsFilterANDANDToJSON(
+  eventsFilterANDAND: EventsFilterANDAND,
+): string {
+  return JSON.stringify(
+    EventsFilterANDAND$outboundSchema.parse(eventsFilterANDAND),
+  );
+}
+
+export function eventsFilterANDANDFromJSON(
+  jsonString: string,
+): SafeParseResult<EventsFilterANDAND, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => EventsFilterANDAND$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'EventsFilterANDAND' from JSON`,
   );
 }
