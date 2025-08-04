@@ -8,7 +8,7 @@ import { ConversationsFilterCondition } from "@inkeep/inkeep-analytics/models/co
 let value: ConversationsFilterCondition = {
   condition: {
     field: "userMessageCount",
-    operator: "arrayContains",
+    operator: "jsonContains",
     value: "<value>",
   },
 };

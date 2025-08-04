@@ -8,7 +8,7 @@ import { FeedbackFilterCondition } from "@inkeep/inkeep-analytics/models/compone
 let value: FeedbackFilterCondition = {
   condition: {
     field: "userProperties",
-    operator: "jsonContainedBy",
+    operator: "jsonHasKey",
     value: "<value>",
   },
 };

@@ -9,7 +9,7 @@
 const value: components.ConversationsFilterCondition = {
   condition: {
     field: "userMessageCount",
-    operator: "arrayContains",
+    operator: "jsonContains",
     value: "<value>",
   },
 };

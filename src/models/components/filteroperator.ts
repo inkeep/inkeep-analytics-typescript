@@ -21,6 +21,7 @@ export const FilterOperator = {
   JsonContains: "jsonContains",
   JsonContainedBy: "jsonContainedBy",
   JsonHasKey: "jsonHasKey",
+  JsonArrayContainsObject: "jsonArrayContainsObject",
   JsonHasAnyKey: "jsonHasAnyKey",
   JsonHasAllKeys: "jsonHasAllKeys",
   IsNull: "isNull",
