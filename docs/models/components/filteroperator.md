@@ -13,5 +13,5 @@ let value: FilterOperator = "notIn";
 ## Values
 
 ```typescript
-"eq" | "neq" | "gt" | "gte" | "lt" | "lte" | "in" | "notIn" | "arrayContains" | "jsonContains" | "jsonContainedBy" | "jsonHasKey" | "jsonHasAnyKey" | "jsonHasAllKeys" | "isNull" | "isNotNull"
+"eq" | "neq" | "gt" | "gte" | "lt" | "lte" | "in" | "notIn" | "arrayContains" | "jsonContains" | "jsonContainedBy" | "jsonHasKey" | "jsonArrayContainsObject" | "jsonHasAnyKey" | "jsonHasAllKeys" | "isNull" | "isNotNull"
 ```

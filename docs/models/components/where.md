@@ -45,7 +45,7 @@ const value: components.EventsFilterOR = {
 const value: components.ConversationsFilterCondition = {
   condition: {
     field: "userMessageCount",
-    operator: "arrayContains",
+    operator: "jsonContains",
     value: "<value>",
   },
 };
@@ -109,7 +109,7 @@ const value: components.SemanticThreadFilterOR = {
 const value: components.FeedbackFilterCondition = {
   condition: {
     field: "userProperties",
-    operator: "jsonContainedBy",
+    operator: "jsonHasKey",
     value: "<value>",
   },
 };

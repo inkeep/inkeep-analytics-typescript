@@ -7,7 +7,7 @@ import { FeedbackFilterConditionCondition } from "@inkeep/inkeep-analytics/model
 
 let value: FeedbackFilterConditionCondition = {
   field: "id",
-  operator: "jsonHasAllKeys",
+  operator: "jsonHasAnyKey",
   value: true,
 };
 ```

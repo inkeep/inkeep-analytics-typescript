@@ -9,7 +9,7 @@
 const value: components.FeedbackFilterCondition = {
   condition: {
     field: "userProperties",
-    operator: "jsonContainedBy",
+    operator: "jsonHasKey",
     value: "<value>",
   },
 };
