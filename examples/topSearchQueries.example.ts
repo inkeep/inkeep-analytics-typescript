@@ -8,7 +8,7 @@ dotenv.config();
  * Example usage of the @inkeep/inkeep-analytics SDK
  *
  * To run this example from the examples directory:
- * npm run build && npx tsx topSearchQueries.ts
+ * npm run build && npx tsx topSearchQueries.example.ts
  */
 
 import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
