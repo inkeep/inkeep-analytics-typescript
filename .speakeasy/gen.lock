@@ -3,10 +3,10 @@ id: 63a2136d-3fa3-4a0b-a766-1ddb2460cc12
 management:
   docChecksum: 70c76a1dc44e466c8e88842bdb15f661
   docVersion: 0.1.1
-  speakeasyVersion: 1.596.0
-  generationVersion: 2.672.0
-  releaseVersion: 0.2.4-alpha.33
-  configChecksum: 4167732c073e3714b1d446f1b22dd972
+  speakeasyVersion: 1.605.0
+  generationVersion: 2.684.0
+  releaseVersion: 0.2.4-alpha.34
+  configChecksum: d1e2cc0c1c9c96a7a8c49a8c2e9932ef
   repoURL: https://github.com/inkeep/inkeep-analytics-typescript.git
   installationURL: https://github.com/inkeep/inkeep-analytics-typescript
   published: true
@@ -15,7 +15,7 @@ features:
     additionalDependencies: 0.1.0
     additionalProperties: 0.1.1
     constsAndDefaults: 0.1.12
-    core: 3.21.19
+    core: 3.21.20
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     downloadStreams: 0.1.1
