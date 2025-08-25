@@ -24,7 +24,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.2.4-alpha.33
+  version: 0.2.4-alpha.34
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -60,4 +60,5 @@ typescript:
   packageName: '@inkeep/inkeep-analytics'
   responseFormat: flat
   templateVersion: v2
+  usageSDKInitImports: []
   useIndexModules: true
