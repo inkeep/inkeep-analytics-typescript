@@ -3,29 +3,29 @@ id: 63a2136d-3fa3-4a0b-a766-1ddb2460cc12
 management:
   docChecksum: 70c76a1dc44e466c8e88842bdb15f661
   docVersion: 0.1.1
-  speakeasyVersion: 1.596.0
-  generationVersion: 2.672.0
-  releaseVersion: 0.2.4-alpha.33
-  configChecksum: 4167732c073e3714b1d446f1b22dd972
+  speakeasyVersion: 1.666.2
+  generationVersion: 2.768.1
+  releaseVersion: 0.2.4-alpha.34
+  configChecksum: 0da456ceeba495e235a9e5e06219b714
   repoURL: https://github.com/inkeep/inkeep-analytics-typescript.git
   installationURL: https://github.com/inkeep/inkeep-analytics-typescript
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    additionalProperties: 0.1.1
+    additionalProperties: 0.1.2
     constsAndDefaults: 0.1.12
-    core: 3.21.19
+    core: 3.26.14
     defaultEnabledRetries: 0.1.0
-    devContainers: 2.90.0
+    devContainers: 2.90.1
     downloadStreams: 0.1.1
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
-    globalSecurity: 2.82.13
+    globalSecurity: 2.82.14
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
-    globalServerURLs: 2.82.5
-    groups: 2.81.2
+    globalServerURLs: 2.83.0
+    groups: 2.81.3
     mcpServer: 0.9.3
     methodSecurity: 2.82.6
     nameOverrides: 2.81.2
@@ -33,8 +33,8 @@ features:
     reactQueryHooks: 0.2.3
     responseFormat: 0.2.3
     retries: 2.83.0
-    sdkHooks: 0.3.0
-    unions: 2.85.11
+    sdkHooks: 0.4.0
+    unions: 2.86.3
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -52,7 +52,6 @@ generatedFiles:
   - docs/models/components/content.md
   - docs/models/components/conversation.md
   - docs/models/components/conversationsaggregationselection.md
-  - docs/models/components/conversationsaggregationselectiontype.md
   - docs/models/components/conversationsfield.md
   - docs/models/components/conversationsfilter.md
   - docs/models/components/conversationsfilterand.md
@@ -65,10 +64,8 @@ generatedFiles:
   - docs/models/components/conversationsselection.md
   - docs/models/components/conversationssimplefieldselection.md
   - docs/models/components/conversationssimplefieldselectionfield.md
-  - docs/models/components/conversationssimplefieldselectiontype.md
   - docs/models/components/conversationstimebasedgroupbyselection.md
   - docs/models/components/conversationstimebasedgroupbyselectionfield.md
-  - docs/models/components/conversationstimebasedgroupbyselectiontype.md
   - docs/models/components/createconversation.md
   - docs/models/components/createopenaiconversation.md
   - docs/models/components/createopenaiconversationcontent.md
@@ -87,7 +84,6 @@ generatedFiles:
   - docs/models/components/createsupportcopilotconversationmessagestype.md
   - docs/models/components/createsupportcopilotconversationmessagesuserid.md
   - docs/models/components/createsupportcopilotconversationmessagesuserproperties.md
-  - docs/models/components/createsupportcopilotconversationtype.md
   - docs/models/components/createsupportcopilotconversationtype1.md
   - docs/models/components/createsupportcopilotconversationuserid.md
   - docs/models/components/createsupportcopilotconversationuserproperties.md
@@ -100,18 +96,15 @@ generatedFiles:
   - docs/models/components/createsupportticketconversationmessagestype.md
   - docs/models/components/createsupportticketconversationmessagesuserid.md
   - docs/models/components/createsupportticketconversationmessagesuserproperties.md
-  - docs/models/components/createsupportticketconversationtype.md
   - docs/models/components/createsupportticketconversationtype1.md
   - docs/models/components/createsupportticketconversationuserid.md
   - docs/models/components/createsupportticketconversationuserproperties.md
   - docs/models/components/createsupportticketconversationvisibility.md
   - docs/models/components/detail.md
   - docs/models/components/direction.md
-  - docs/models/components/entitytype.md
   - docs/models/components/eventsaggregationselection.md
   - docs/models/components/eventsaggregationselectionaggregation.md
   - docs/models/components/eventsaggregationselectionfield.md
-  - docs/models/components/eventsaggregationselectiontype.md
   - docs/models/components/eventsfield.md
   - docs/models/components/eventsfilter.md
   - docs/models/components/eventsfilterand.md
@@ -130,14 +123,11 @@ generatedFiles:
   - docs/models/components/eventsselection.md
   - docs/models/components/eventssimplefieldselection.md
   - docs/models/components/eventssimplefieldselectionfield.md
-  - docs/models/components/eventssimplefieldselectiontype.md
   - docs/models/components/eventstimebasedgroupbyselection.md
   - docs/models/components/eventstimebasedgroupbyselectionfield.md
-  - docs/models/components/eventstimebasedgroupbyselectiontype.md
   - docs/models/components/feedbackaggregationselection.md
   - docs/models/components/feedbackaggregationselectionaggregation.md
   - docs/models/components/feedbackaggregationselectionfield.md
-  - docs/models/components/feedbackaggregationselectiontype.md
   - docs/models/components/feedbackfield.md
   - docs/models/components/feedbackfilter.md
   - docs/models/components/feedbackfilterand.md
@@ -157,10 +147,8 @@ generatedFiles:
   - docs/models/components/feedbackselection.md
   - docs/models/components/feedbacksimplefieldselection.md
   - docs/models/components/feedbacksimplefieldselectionfield.md
-  - docs/models/components/feedbacksimplefieldselectiontype.md
   - docs/models/components/feedbacktimebasedgroupbyselection.md
   - docs/models/components/feedbacktimebasedgroupbyselectionfield.md
-  - docs/models/components/feedbacktimebasedgroupbyselectiontype.md
   - docs/models/components/field.md
   - docs/models/components/filteroperator.md
   - docs/models/components/four.md
@@ -179,7 +167,6 @@ generatedFiles:
   - docs/models/components/getallfeedbackresponseuserproperties.md
   - docs/models/components/id.md
   - docs/models/components/insertconversationevent.md
-  - docs/models/components/insertconversationevententitytype.md
   - docs/models/components/insertconversationeventid.md
   - docs/models/components/insertconversationeventuserid.md
   - docs/models/components/insertconversationeventuserproperties.md
@@ -189,7 +176,6 @@ generatedFiles:
   - docs/models/components/insertmessageeventuserid.md
   - docs/models/components/insertmessageeventuserproperties.md
   - docs/models/components/insertsearchevent.md
-  - docs/models/components/insertsearchevententitytype.md
   - docs/models/components/insertsearcheventid.md
   - docs/models/components/insertsearcheventuserid.md
   - docs/models/components/insertsearcheventuserproperties.md
@@ -205,7 +191,6 @@ generatedFiles:
   - docs/models/components/openaicontentitemtype.md
   - docs/models/components/openaiconversation.md
   - docs/models/components/openaiconversationid.md
-  - docs/models/components/openaiconversationtype.md
   - docs/models/components/openaiconversationuserid.md
   - docs/models/components/openaiconversationuserproperties.md
   - docs/models/components/openaiconversationvisibility.md
@@ -261,25 +246,21 @@ generatedFiles:
   - docs/models/components/role.md
   - docs/models/components/security.md
   - docs/models/components/selectconversationevent.md
-  - docs/models/components/selectconversationevententitytype.md
   - docs/models/components/selectconversationeventid.md
   - docs/models/components/selectconversationeventuserid.md
   - docs/models/components/selectconversationeventuserproperties.md
   - docs/models/components/selectevent.md
   - docs/models/components/selectmessageevent.md
-  - docs/models/components/selectmessageevententitytype.md
   - docs/models/components/selectmessageeventid.md
   - docs/models/components/selectmessageeventuserid.md
   - docs/models/components/selectmessageeventuserproperties.md
   - docs/models/components/selectsearchevent.md
-  - docs/models/components/selectsearchevententitytype.md
   - docs/models/components/selectsearcheventid.md
   - docs/models/components/selectsearcheventuserid.md
   - docs/models/components/selectsearcheventuserproperties.md
   - docs/models/components/semanticthreadaggregationselection.md
   - docs/models/components/semanticthreadaggregationselectionaggregation.md
   - docs/models/components/semanticthreadaggregationselectionfield.md
-  - docs/models/components/semanticthreadaggregationselectiontype.md
   - docs/models/components/semanticthreadfield.md
   - docs/models/components/semanticthreadfilter.md
   - docs/models/components/semanticthreadfilterand.md
@@ -299,16 +280,13 @@ generatedFiles:
   - docs/models/components/semanticthreadselection.md
   - docs/models/components/semanticthreadsimplefieldselection.md
   - docs/models/components/semanticthreadsimplefieldselectionfield.md
-  - docs/models/components/semanticthreadsimplefieldselectiontype.md
   - docs/models/components/semanticthreadtimebasedgroupbyselection.md
   - docs/models/components/semanticthreadtimebasedgroupbyselectionfield.md
-  - docs/models/components/semanticthreadtimebasedgroupbyselectiontype.md
   - docs/models/components/seven.md
   - docs/models/components/sources.md
   - docs/models/components/status.md
   - docs/models/components/supportcopilotconversation.md
   - docs/models/components/supportcopilotconversationid.md
-  - docs/models/components/supportcopilotconversationtype.md
   - docs/models/components/supportcopilotconversationuserid.md
   - docs/models/components/supportcopilotconversationuserproperties.md
   - docs/models/components/supportcopilotconversationvisibility.md
@@ -322,7 +300,6 @@ generatedFiles:
   - docs/models/components/supportcopilotmessageuserproperties.md
   - docs/models/components/supportticketconversation.md
   - docs/models/components/supportticketconversationid.md
-  - docs/models/components/supportticketconversationtype.md
   - docs/models/components/supportticketconversationuserid.md
   - docs/models/components/supportticketconversationuserproperties.md
   - docs/models/components/supportticketconversationvisibility.md
@@ -334,7 +311,6 @@ generatedFiles:
   - docs/models/components/supportticketmessageuserid.md
   - docs/models/components/supportticketmessageuserproperties.md
   - docs/models/components/timeunit.md
-  - docs/models/components/type.md
   - docs/models/components/type1.md
   - docs/models/components/userid.md
   - docs/models/components/userproperties.md
@@ -647,6 +623,7 @@ generatedFiles:
   - src/types/operations.ts
   - src/types/rfcdate.ts
   - src/types/streams.ts
+  - src/types/unrecognized.ts
   - tsconfig.json
 examples:
   topSearchQueries:

@@ -74,12 +74,9 @@ bun add @tanstack/react-query react react-dom
 ### Yarn
 
 ```bash
-yarn add @inkeep/inkeep-analytics zod
+yarn add @inkeep/inkeep-analytics
 # Install optional peer dependencies if you plan to use React hooks
 yarn add @tanstack/react-query react react-dom
-
-# Note that Yarn does not install peer dependencies automatically. You will need
-# to install zod as shown above.
 ```
 
 > [!NOTE]
@@ -601,7 +598,7 @@ httpClient.addHook("requestError", (error, request) => {
   console.groupEnd();
 });
 
-const sdk = new InkeepAnalytics({ httpClient });
+const sdk = new InkeepAnalytics({ httpClient: httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 

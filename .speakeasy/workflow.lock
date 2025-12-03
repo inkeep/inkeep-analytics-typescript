@@ -1,4 +1,4 @@
-speakeasyVersion: 1.596.0
+speakeasyVersion: 1.666.2
 sources:
     Inkeep Analytics API:
         sourceNamespace: inkeep-analytics-api
@@ -6,7 +6,7 @@ sources:
         sourceBlobDigest: sha256:55b1b6aa7efa7193719f310504ab7dcf93b41f4368f9603e8c2f169db899f385
         tags:
             - latest
-            - speakeasy-sdk-regen-1754325423
+            - speakeasy-sdk-regen-1754454800
             - 0.1.1
 targets:
     inkeep-analytics:
@@ -15,7 +15,7 @@ targets:
         sourceRevisionDigest: sha256:cfaf97907f52bfd4ac6ecd7130f44c15ca33da9c0d26469e91a9b4152b3ed413
         sourceBlobDigest: sha256:55b1b6aa7efa7193719f310504ab7dcf93b41f4368f9603e8c2f169db899f385
         codeSamplesNamespace: inkeep-analytics-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:d2445d10c40aef993d8b00b7c86cd3d803093f6838ab4e48483c7fd213459b4b
+        codeSamplesRevisionDigest: sha256:41405845d0e2e35bd24f0993db8c49d7b9905b0b760b58d311cb9e0817461bf1
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
