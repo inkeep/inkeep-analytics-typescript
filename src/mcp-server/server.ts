@@ -20,6 +20,9 @@ import { tool$feedbackGetFeedbackById } from "./tools/feedbackGetFeedbackById.js
 import { tool$feedbackList } from "./tools/feedbackList.js";
 import { tool$feedbackSubmit } from "./tools/feedbackSubmit.js";
 import { tool$queryConversations } from "./tools/queryConversations.js";
+import { tool$queryExportConversationsQueryResults } from "./tools/queryExportConversationsQueryResults.js";
+import { tool$queryExportEventsQueryResults } from "./tools/queryExportEventsQueryResults.js";
+import { tool$queryExportFeedbackQueryResults } from "./tools/queryExportFeedbackQueryResults.js";
 import { tool$queryExportSemanticThreadsQueryResults } from "./tools/queryExportSemanticThreadsQueryResults.js";
 import { tool$queryQueryEvents } from "./tools/queryQueryEvents.js";
 import { tool$queryQueryFeedback } from "./tools/queryQueryFeedback.js";
@@ -39,7 +42,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "InkeepAnalytics",
-    version: "0.2.4-alpha.33",
+    version: "0.2.4-alpha.34",
   });
 
   const client = new InkeepAnalyticsCore({
@@ -82,6 +85,9 @@ export function createMCPServer(deps: {
   tool(tool$queryQueryFeedback);
   tool(tool$queryQuerySemanticThreads);
   tool(tool$queryExportSemanticThreadsQueryResults);
+  tool(tool$queryExportConversationsQueryResults);
+  tool(tool$queryExportEventsQueryResults);
+  tool(tool$queryExportFeedbackQueryResults);
   tool(tool$queryQueryPropertyKeys);
   tool(tool$queryQueryPropertyValues);
 

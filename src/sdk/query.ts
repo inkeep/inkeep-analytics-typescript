@@ -3,6 +3,9 @@
  */
 
 import { queryConversations } from "../funcs/queryConversations.js";
+import { queryExportConversationsQueryResults } from "../funcs/queryExportConversationsQueryResults.js";
+import { queryExportEventsQueryResults } from "../funcs/queryExportEventsQueryResults.js";
+import { queryExportFeedbackQueryResults } from "../funcs/queryExportFeedbackQueryResults.js";
 import { queryExportSemanticThreadsQueryResults } from "../funcs/queryExportSemanticThreadsQueryResults.js";
 import { queryQueryEvents } from "../funcs/queryQueryEvents.js";
 import { queryQueryFeedback } from "../funcs/queryQueryFeedback.js";
@@ -78,6 +81,48 @@ export class Query extends ClientSDK {
     options?: RequestOptions,
   ): Promise<ReadableStream<Uint8Array>> {
     return unwrapAsync(queryExportSemanticThreadsQueryResults(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Export Conversations Query Results
+   */
+  async exportConversationsQueryResults(
+    request: components.QueryConversationsRequestBody,
+    options?: RequestOptions,
+  ): Promise<ReadableStream<Uint8Array>> {
+    return unwrapAsync(queryExportConversationsQueryResults(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Export Events Query Results
+   */
+  async exportEventsQueryResults(
+    request: components.QueryEventsRequestBody,
+    options?: RequestOptions,
+  ): Promise<ReadableStream<Uint8Array>> {
+    return unwrapAsync(queryExportEventsQueryResults(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Export Feedback Query Results
+   */
+  async exportFeedbackQueryResults(
+    request: components.QueryFeedbackRequestBody,
+    options?: RequestOptions,
+  ): Promise<ReadableStream<Uint8Array>> {
+    return unwrapAsync(queryExportFeedbackQueryResults(
       this,
       request,
       options,
