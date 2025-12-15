@@ -55,6 +55,10 @@ export type UserProperties = {
    */
   supportAgentName?: string | null | undefined;
   /**
+   * The email of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  supportAgentEmail?: string | null | undefined;
+  /**
    * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   userType?: string | null | undefined;
@@ -136,6 +140,10 @@ export type CreateOpenAIConversationUserProperties = {
    * The name of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   supportAgentName?: string | null | undefined;
+  /**
+   * The email of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  supportAgentEmail?: string | null | undefined;
   /**
    * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
@@ -264,6 +272,7 @@ export const UserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
+    supportAgentEmail: z.nullable(z.string()).optional(),
     userType: z.nullable(z.string()).optional(),
   }).catchall(z.any()),
   "additionalProperties",
@@ -275,6 +284,7 @@ export type UserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
+  supportAgentEmail?: string | null | undefined;
   userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
@@ -289,6 +299,7 @@ export const UserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
+  supportAgentEmail: z.nullable(z.string()).optional(),
   userType: z.nullable(z.string()).optional(),
   additionalProperties: z.record(z.any()).optional(),
 }).transform((v) => {
@@ -549,6 +560,7 @@ export const CreateOpenAIConversationUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
+    supportAgentEmail: z.nullable(z.string()).optional(),
     userType: z.nullable(z.string()).optional(),
   }).catchall(z.any()),
   "additionalProperties",
@@ -560,6 +572,7 @@ export type CreateOpenAIConversationUserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
+  supportAgentEmail?: string | null | undefined;
   userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
@@ -574,6 +587,7 @@ export const CreateOpenAIConversationUserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
+  supportAgentEmail: z.nullable(z.string()).optional(),
   userType: z.nullable(z.string()).optional(),
   additionalProperties: z.record(z.any()).optional(),
 }).transform((v) => {
