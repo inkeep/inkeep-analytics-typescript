@@ -74,6 +74,10 @@ export type SupportTicketMessageUserProperties = {
    */
   supportAgentName?: string | null | undefined;
   /**
+   * The email of the support agent assigned to the user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
+   */
+  supportAgentEmail?: string | null | undefined;
+  /**
    * The type of user. This value is sent by the Inkeep Support Agent Copilot. This value is used to create the graphs on the Inkeep Portal.
    */
   userType?: string | null | undefined;
@@ -285,6 +289,7 @@ export const SupportTicketMessageUserProperties$inboundSchema: z.ZodType<
     identificationType: z.nullable(z.string()).optional(),
     userId: z.nullable(z.union([z.string(), z.number()])).optional(),
     supportAgentName: z.nullable(z.string()).optional(),
+    supportAgentEmail: z.nullable(z.string()).optional(),
     userType: z.nullable(z.string()).optional(),
   }).catchall(z.any()),
   "additionalProperties",
@@ -296,6 +301,7 @@ export type SupportTicketMessageUserProperties$Outbound = {
   identificationType?: string | null | undefined;
   userId?: string | number | null | undefined;
   supportAgentName?: string | null | undefined;
+  supportAgentEmail?: string | null | undefined;
   userType?: string | null | undefined;
   [additionalProperties: string]: unknown;
 };
@@ -310,6 +316,7 @@ export const SupportTicketMessageUserProperties$outboundSchema: z.ZodType<
   identificationType: z.nullable(z.string()).optional(),
   userId: z.nullable(z.union([z.string(), z.number()])).optional(),
   supportAgentName: z.nullable(z.string()).optional(),
+  supportAgentEmail: z.nullable(z.string()).optional(),
   userType: z.nullable(z.string()).optional(),
   additionalProperties: z.record(z.any()).optional(),
 }).transform((v) => {
