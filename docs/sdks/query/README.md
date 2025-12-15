@@ -1,5 +1,4 @@
 # Query
-(*query*)
 
 ## Overview
 
@@ -10,6 +9,9 @@
 * [queryFeedback](#queryfeedback) - Query Feedback
 * [querySemanticThreads](#querysemanticthreads) - Query Semantic Threads
 * [exportSemanticThreadsQueryResults](#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
+* [exportConversationsQueryResults](#exportconversationsqueryresults) - Export Conversations Query Results
+* [exportEventsQueryResults](#exporteventsqueryresults) - Export Events Query Results
+* [exportFeedbackQueryResults](#exportfeedbackqueryresults) - Export Feedback Query Results
 * [queryPropertyKeys](#querypropertykeys) - Query Property Keys
 * [queryPropertyValues](#querypropertyvalues) - Query Property Values
 
@@ -469,6 +471,291 @@ import {
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [components.QuerySemanticThreadsRequestBody](../../models/components/querysemanticthreadsrequestbody.md)                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[ReadableStream<Uint8Array>](../../models/.md)\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.BadRequest          | 400                        | application/problem+json   |
+| errors.Unauthorized        | 401                        | application/problem+json   |
+| errors.Forbidden           | 403                        | application/problem+json   |
+| errors.UnprocessableEntity | 422                        | application/problem+json   |
+| errors.InternalServerError | 500                        | application/problem+json   |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## exportConversationsQueryResults
+
+Export Conversations Query Results
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="exportConversationsQueryResults" method="post" path="/query/conversations/export" -->
+```typescript
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
+
+const inkeepAnalytics = new InkeepAnalytics({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await inkeepAnalytics.query.exportConversationsQueryResults({
+    notes: "Count of support ticket conversations by integration",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { queryExportConversationsQueryResults } from "@inkeep/inkeep-analytics/funcs/queryExportConversationsQueryResults.js";
+
+// Use `InkeepAnalyticsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const inkeepAnalytics = new InkeepAnalyticsCore({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await queryExportConversationsQueryResults(inkeepAnalytics, {
+    notes: "Count of support ticket conversations by integration",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("queryExportConversationsQueryResults failed:", res.error);
+  }
+}
+
+run();
+```
+
+### React hooks and utilities
+
+This method can be used in React components through the following hooks and
+associated utilities.
+
+> Check out [this guide][hook-guide] for information about each of the utilities
+> below and how to get started using React hooks.
+
+[hook-guide]: ../../../REACT_QUERY.md
+
+```tsx
+import {
+  // Mutation hook for triggering the API call.
+  useQueryExportConversationsQueryResultsMutation
+} from "@inkeep/inkeep-analytics/react-query/queryExportConversationsQueryResults.js";
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [components.QueryConversationsRequestBody](../../models/components/queryconversationsrequestbody.md)                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[ReadableStream<Uint8Array>](../../models/.md)\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.BadRequest          | 400                        | application/problem+json   |
+| errors.Unauthorized        | 401                        | application/problem+json   |
+| errors.Forbidden           | 403                        | application/problem+json   |
+| errors.UnprocessableEntity | 422                        | application/problem+json   |
+| errors.InternalServerError | 500                        | application/problem+json   |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## exportEventsQueryResults
+
+Export Events Query Results
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="exportEventsQueryResults" method="post" path="/query/events/export" -->
+```typescript
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
+
+const inkeepAnalytics = new InkeepAnalytics({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await inkeepAnalytics.query.exportEventsQueryResults({
+    notes: "Count of events by type",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { queryExportEventsQueryResults } from "@inkeep/inkeep-analytics/funcs/queryExportEventsQueryResults.js";
+
+// Use `InkeepAnalyticsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const inkeepAnalytics = new InkeepAnalyticsCore({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await queryExportEventsQueryResults(inkeepAnalytics, {
+    notes: "Count of events by type",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("queryExportEventsQueryResults failed:", res.error);
+  }
+}
+
+run();
+```
+
+### React hooks and utilities
+
+This method can be used in React components through the following hooks and
+associated utilities.
+
+> Check out [this guide][hook-guide] for information about each of the utilities
+> below and how to get started using React hooks.
+
+[hook-guide]: ../../../REACT_QUERY.md
+
+```tsx
+import {
+  // Mutation hook for triggering the API call.
+  useQueryExportEventsQueryResultsMutation
+} from "@inkeep/inkeep-analytics/react-query/queryExportEventsQueryResults.js";
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [components.QueryEventsRequestBody](../../models/components/queryeventsrequestbody.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[ReadableStream<Uint8Array>](../../models/.md)\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.BadRequest          | 400                        | application/problem+json   |
+| errors.Unauthorized        | 401                        | application/problem+json   |
+| errors.Forbidden           | 403                        | application/problem+json   |
+| errors.UnprocessableEntity | 422                        | application/problem+json   |
+| errors.InternalServerError | 500                        | application/problem+json   |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## exportFeedbackQueryResults
+
+Export Feedback Query Results
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="exportFeedbackQueryResults" method="post" path="/query/feedback/export" -->
+```typescript
+import { InkeepAnalytics } from "@inkeep/inkeep-analytics";
+
+const inkeepAnalytics = new InkeepAnalytics({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
+
+async function run() {
+  const result = await inkeepAnalytics.query.exportFeedbackQueryResults({
+    notes: "Count of feedback by type",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { InkeepAnalyticsCore } from "@inkeep/inkeep-analytics/core.js";
+import { queryExportFeedbackQueryResults } from "@inkeep/inkeep-analytics/funcs/queryExportFeedbackQueryResults.js";
+
+// Use `InkeepAnalyticsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const inkeepAnalytics = new InkeepAnalyticsCore({
+  apiIntegrationKey: process.env["INKEEPANALYTICS_API_INTEGRATION_KEY"] ?? "",
+});
+
+async function run() {
+  const res = await queryExportFeedbackQueryResults(inkeepAnalytics, {
+    notes: "Count of feedback by type",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("queryExportFeedbackQueryResults failed:", res.error);
+  }
+}
+
+run();
+```
+
+### React hooks and utilities
+
+This method can be used in React components through the following hooks and
+associated utilities.
+
+> Check out [this guide][hook-guide] for information about each of the utilities
+> below and how to get started using React hooks.
+
+[hook-guide]: ../../../REACT_QUERY.md
+
+```tsx
+import {
+  // Mutation hook for triggering the API call.
+  useQueryExportFeedbackQueryResultsMutation
+} from "@inkeep/inkeep-analytics/react-query/queryExportFeedbackQueryResults.js";
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [components.QueryFeedbackRequestBody](../../models/components/queryfeedbackrequestbody.md)                                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |

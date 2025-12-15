@@ -74,12 +74,9 @@ bun add @tanstack/react-query react react-dom
 ### Yarn
 
 ```bash
-yarn add @inkeep/inkeep-analytics zod
+yarn add @inkeep/inkeep-analytics
 # Install optional peer dependencies if you plan to use React hooks
 yarn add @tanstack/react-query react react-dom
-
-# Note that Yarn does not install peer dependencies automatically. You will need
-# to install zod as shown above.
 ```
 
 > [!NOTE]
@@ -263,40 +260,43 @@ run();
 <details open>
 <summary>Available methods</summary>
 
-### [conversation](docs/sdks/conversation/README.md)
+### [InkeepAnalytics SDK](docs/sdks/inkeepanalytics/README.md)
+
+* [topSearchQueries](docs/sdks/inkeepanalytics/README.md#topsearchqueries) - Top Search Queries
+* [weeklySearchUsers](docs/sdks/inkeepanalytics/README.md#weeklysearchusers) - Weekly Search Users
+
+### [Conversation](docs/sdks/conversation/README.md)
 
 * [getConversationByExternalId](docs/sdks/conversation/README.md#getconversationbyexternalid) - Get Conversation by External ID
 
-### [conversations](docs/sdks/conversations/README.md)
+### [Conversations](docs/sdks/conversations/README.md)
 
 * [log](docs/sdks/conversations/README.md#log) - Log Conversation
 * [list](docs/sdks/conversations/README.md#list) - Get All Conversations
 * [get](docs/sdks/conversations/README.md#get) - Get Conversation
 * [delete](docs/sdks/conversations/README.md#delete) - Delete Conversation
 
-### [events](docs/sdks/events/README.md)
+### [Events](docs/sdks/events/README.md)
 
 * [log](docs/sdks/events/README.md#log) - Log Event
 
-### [feedback](docs/sdks/feedback/README.md)
+### [Feedback](docs/sdks/feedback/README.md)
 
 * [submit](docs/sdks/feedback/README.md#submit) - Log Feedback
 * [list](docs/sdks/feedback/README.md#list) - Get All Feedback
 * [getFeedbackById](docs/sdks/feedback/README.md#getfeedbackbyid) - Get Feedback by ID
 * [deleteFeedbackById](docs/sdks/feedback/README.md#deletefeedbackbyid) - Delete Feedback by ID
 
-### [InkeepAnalytics SDK](docs/sdks/inkeepanalytics/README.md)
-
-* [topSearchQueries](docs/sdks/inkeepanalytics/README.md#topsearchqueries) - Top Search Queries
-* [weeklySearchUsers](docs/sdks/inkeepanalytics/README.md#weeklysearchusers) - Weekly Search Users
-
-### [query](docs/sdks/query/README.md)
+### [Query](docs/sdks/query/README.md)
 
 * [conversations](docs/sdks/query/README.md#conversations) - Query Conversations
 * [queryEvents](docs/sdks/query/README.md#queryevents) - Query Events
 * [queryFeedback](docs/sdks/query/README.md#queryfeedback) - Query Feedback
 * [querySemanticThreads](docs/sdks/query/README.md#querysemanticthreads) - Query Semantic Threads
 * [exportSemanticThreadsQueryResults](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
+* [exportConversationsQueryResults](docs/sdks/query/README.md#exportconversationsqueryresults) - Export Conversations Query Results
+* [exportEventsQueryResults](docs/sdks/query/README.md#exporteventsqueryresults) - Export Events Query Results
+* [exportFeedbackQueryResults](docs/sdks/query/README.md#exportfeedbackqueryresults) - Export Feedback Query Results
 * [queryPropertyKeys](docs/sdks/query/README.md#querypropertykeys) - Query Property Keys
 * [queryPropertyValues](docs/sdks/query/README.md#querypropertyvalues) - Query Property Values
 
@@ -329,6 +329,9 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`feedbackList`](docs/sdks/feedback/README.md#list) - Get All Feedback
 - [`feedbackSubmit`](docs/sdks/feedback/README.md#submit) - Log Feedback
 - [`queryConversations`](docs/sdks/query/README.md#conversations) - Query Conversations
+- [`queryExportConversationsQueryResults`](docs/sdks/query/README.md#exportconversationsqueryresults) - Export Conversations Query Results
+- [`queryExportEventsQueryResults`](docs/sdks/query/README.md#exporteventsqueryresults) - Export Events Query Results
+- [`queryExportFeedbackQueryResults`](docs/sdks/query/README.md#exportfeedbackqueryresults) - Export Feedback Query Results
 - [`queryExportSemanticThreadsQueryResults`](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 - [`queryQueryEvents`](docs/sdks/query/README.md#queryevents) - Query Events
 - [`queryQueryFeedback`](docs/sdks/query/README.md#queryfeedback) - Query Feedback
@@ -374,6 +377,9 @@ To learn about this feature and how to get started, check
 - [`useFeedbackList`](docs/sdks/feedback/README.md#list) - Get All Feedback
 - [`useFeedbackSubmitMutation`](docs/sdks/feedback/README.md#submit) - Log Feedback
 - [`useQueryConversationsMutation`](docs/sdks/query/README.md#conversations) - Query Conversations
+- [`useQueryExportConversationsQueryResultsMutation`](docs/sdks/query/README.md#exportconversationsqueryresults) - Export Conversations Query Results
+- [`useQueryExportEventsQueryResultsMutation`](docs/sdks/query/README.md#exporteventsqueryresults) - Export Events Query Results
+- [`useQueryExportFeedbackQueryResultsMutation`](docs/sdks/query/README.md#exportfeedbackqueryresults) - Export Feedback Query Results
 - [`useQueryExportSemanticThreadsQueryResultsMutation`](docs/sdks/query/README.md#exportsemanticthreadsqueryresults) - Export Semantic Threads Query Results
 - [`useQueryQueryEventsMutation`](docs/sdks/query/README.md#queryevents) - Query Events
 - [`useQueryQueryFeedbackMutation`](docs/sdks/query/README.md#queryfeedback) - Query Feedback
@@ -523,7 +529,7 @@ run();
 
 
 **Inherit from [`InkeepAnalyticsError`](./src/models/errors/inkeepanalyticserror.ts)**:
-* [`NotFound`](./src/models/errors/notfound.ts): Not Found. Status code `404`. Applicable to 7 of 19 methods.*
+* [`NotFound`](./src/models/errors/notfound.ts): Not Found. Status code `404`. Applicable to 7 of 22 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
@@ -601,7 +607,7 @@ httpClient.addHook("requestError", (error, request) => {
   console.groupEnd();
 });
 
-const sdk = new InkeepAnalytics({ httpClient });
+const sdk = new InkeepAnalytics({ httpClient: httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 

@@ -1,0 +1,17 @@
+# Mode
+
+Export mode for JSON fields (properties, userProperties). "unpack" (default): Flattens JSON into separate columns (e.g., properties.key1, properties.key2). "json": Exports the entire JSON object as a single stringified column. Only applicable to JSON fields like properties and userProperties.
+
+## Example Usage
+
+```typescript
+import { Mode } from "@inkeep/inkeep-analytics/models/components";
+
+let value: Mode = "json";
+```
+
+## Values
+
+```typescript
+"unpack" | "json"
+```
