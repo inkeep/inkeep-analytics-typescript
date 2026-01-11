@@ -5,28 +5,30 @@
 import {
   InvalidateQueryFilters,
   QueryClient,
-  QueryFunctionContext,
-  QueryKey,
   useQuery,
   UseQueryResult,
   useSuspenseQuery,
   UseSuspenseQueryResult,
 } from "@tanstack/react-query";
-import { InkeepAnalyticsCore } from "../core.js";
-import { feedbackList } from "../funcs/feedbackList.js";
-import { combineSignals } from "../lib/primitives.js";
-import { RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
 import * as operations from "../models/operations/index.js";
-import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
 import {
   QueryHookOptions,
   SuspenseQueryHookOptions,
   TupleToPrefixes,
 } from "./_types.js";
-
-export type FeedbackListQueryData = components.GetAllFeedbackResponse;
+import {
+  buildFeedbackListQuery,
+  FeedbackListQueryData,
+  prefetchFeedbackList,
+  queryKeyFeedbackList,
+} from "./feedbackList.core.js";
+export {
+  buildFeedbackListQuery,
+  type FeedbackListQueryData,
+  prefetchFeedbackList,
+  queryKeyFeedbackList,
+};
 
 /**
  * Get All Feedback
@@ -61,19 +63,6 @@ export function useFeedbackListSuspense(
       options,
     ),
     ...options,
-  });
-}
-
-export function prefetchFeedbackList(
-  queryClient: QueryClient,
-  client$: InkeepAnalyticsCore,
-  request: operations.GetAllFeedbackRequest,
-): Promise<void> {
-  return queryClient.prefetchQuery({
-    ...buildFeedbackListQuery(
-      client$,
-      request,
-    ),
   });
 }
 
@@ -116,44 +105,4 @@ export function invalidateAllFeedbackList(
     ...filters,
     queryKey: ["@inkeep/inkeep-analytics", "feedback", "list"],
   });
-}
-
-export function buildFeedbackListQuery(
-  client$: InkeepAnalyticsCore,
-  request: operations.GetAllFeedbackRequest,
-  options?: RequestOptions,
-): {
-  queryKey: QueryKey;
-  queryFn: (context: QueryFunctionContext) => Promise<FeedbackListQueryData>;
-} {
-  return {
-    queryKey: queryKeyFeedbackList({
-      limit: request.limit,
-      offset: request.offset,
-    }),
-    queryFn: async function feedbackListQueryFn(
-      ctx,
-    ): Promise<FeedbackListQueryData> {
-      const sig = combineSignals(ctx.signal, options?.fetchOptions?.signal);
-      const mergedOptions = {
-        ...options,
-        fetchOptions: { ...options?.fetchOptions, signal: sig },
-      };
-
-      return unwrapAsync(feedbackList(
-        client$,
-        request,
-        mergedOptions,
-      ));
-    },
-  };
-}
-
-export function queryKeyFeedbackList(
-  parameters: {
-    limit?: number | null | undefined;
-    offset?: number | null | undefined;
-  },
-): QueryKey {
-  return ["@inkeep/inkeep-analytics", "feedback", "list", parameters];
 }

@@ -5,28 +5,30 @@
 import {
   InvalidateQueryFilters,
   QueryClient,
-  QueryFunctionContext,
-  QueryKey,
   useQuery,
   UseQueryResult,
   useSuspenseQuery,
   UseSuspenseQueryResult,
 } from "@tanstack/react-query";
-import { InkeepAnalyticsCore } from "../core.js";
-import { conversationsList } from "../funcs/conversationsList.js";
-import { combineSignals } from "../lib/primitives.js";
-import { RequestOptions } from "../lib/sdks.js";
 import * as operations from "../models/operations/index.js";
-import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
 import {
   QueryHookOptions,
   SuspenseQueryHookOptions,
   TupleToPrefixes,
 } from "./_types.js";
-
-export type ConversationsListQueryData =
-  operations.GetAllConversationResponseBody;
+import {
+  buildConversationsListQuery,
+  ConversationsListQueryData,
+  prefetchConversationsList,
+  queryKeyConversationsList,
+} from "./conversationsList.core.js";
+export {
+  buildConversationsListQuery,
+  type ConversationsListQueryData,
+  prefetchConversationsList,
+  queryKeyConversationsList,
+};
 
 /**
  * Get All Conversations
@@ -61,19 +63,6 @@ export function useConversationsListSuspense(
       options,
     ),
     ...options,
-  });
-}
-
-export function prefetchConversationsList(
-  queryClient: QueryClient,
-  client$: InkeepAnalyticsCore,
-  request: operations.GetAllConversationRequest,
-): Promise<void> {
-  return queryClient.prefetchQuery({
-    ...buildConversationsListQuery(
-      client$,
-      request,
-    ),
   });
 }
 
@@ -121,46 +110,4 @@ export function invalidateAllConversationsList(
     ...filters,
     queryKey: ["@inkeep/inkeep-analytics", "conversations", "list"],
   });
-}
-
-export function buildConversationsListQuery(
-  client$: InkeepAnalyticsCore,
-  request: operations.GetAllConversationRequest,
-  options?: RequestOptions,
-): {
-  queryKey: QueryKey;
-  queryFn: (
-    context: QueryFunctionContext,
-  ) => Promise<ConversationsListQueryData>;
-} {
-  return {
-    queryKey: queryKeyConversationsList({
-      limit: request.limit,
-      offset: request.offset,
-    }),
-    queryFn: async function conversationsListQueryFn(
-      ctx,
-    ): Promise<ConversationsListQueryData> {
-      const sig = combineSignals(ctx.signal, options?.fetchOptions?.signal);
-      const mergedOptions = {
-        ...options,
-        fetchOptions: { ...options?.fetchOptions, signal: sig },
-      };
-
-      return unwrapAsync(conversationsList(
-        client$,
-        request,
-        mergedOptions,
-      ));
-    },
-  };
-}
-
-export function queryKeyConversationsList(
-  parameters: {
-    limit?: number | null | undefined;
-    offset?: number | null | undefined;
-  },
-): QueryKey {
-  return ["@inkeep/inkeep-analytics", "conversations", "list", parameters];
 }
