@@ -11,6 +11,17 @@ import { InkeepAnalyticsCore } from "../core.js";
 import { feedbackSubmit } from "../funcs/feedbackSubmit.js";
 import { combineSignals } from "../lib/primitives.js";
 import { RequestOptions } from "../lib/sdks.js";
+import {
+  ConnectionError,
+  InvalidRequestError,
+  RequestAbortedError,
+  RequestTimeoutError,
+  UnexpectedClientError,
+} from "../models/errors/httpclienterrors.js";
+import * as errors from "../models/errors/index.js";
+import { InkeepAnalyticsError } from "../models/errors/inkeepanalyticserror.js";
+import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
+import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
@@ -23,6 +34,21 @@ export type FeedbackSubmitMutationVariables = {
 
 export type FeedbackSubmitMutationData = operations.LogFeedbackResponseBody;
 
+export type FeedbackSubmitMutationError =
+  | errors.BadRequest
+  | errors.Unauthorized
+  | errors.Forbidden
+  | errors.UnprocessableEntity
+  | errors.InternalServerError
+  | InkeepAnalyticsError
+  | ResponseValidationError
+  | ConnectionError
+  | RequestAbortedError
+  | RequestTimeoutError
+  | InvalidRequestError
+  | UnexpectedClientError
+  | SDKValidationError;
+
 /**
  * Log Feedback
  *
@@ -34,12 +60,12 @@ export type FeedbackSubmitMutationData = operations.LogFeedbackResponseBody;
 export function useFeedbackSubmitMutation(
   options?: MutationHookOptions<
     FeedbackSubmitMutationData,
-    Error,
+    FeedbackSubmitMutationError,
     FeedbackSubmitMutationVariables
   >,
 ): UseMutationResult<
   FeedbackSubmitMutationData,
-  Error,
+  FeedbackSubmitMutationError,
   FeedbackSubmitMutationVariables
 > {
   const client = useInkeepAnalyticsContext();

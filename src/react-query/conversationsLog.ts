@@ -12,6 +12,17 @@ import { conversationsLog } from "../funcs/conversationsLog.js";
 import { combineSignals } from "../lib/primitives.js";
 import { RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
+import {
+  ConnectionError,
+  InvalidRequestError,
+  RequestAbortedError,
+  RequestTimeoutError,
+  UnexpectedClientError,
+} from "../models/errors/httpclienterrors.js";
+import * as errors from "../models/errors/index.js";
+import { InkeepAnalyticsError } from "../models/errors/inkeepanalyticserror.js";
+import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
+import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
@@ -25,6 +36,21 @@ export type ConversationsLogMutationVariables = {
 
 export type ConversationsLogMutationData = components.Conversation;
 
+export type ConversationsLogMutationError =
+  | errors.BadRequest
+  | errors.Unauthorized
+  | errors.Forbidden
+  | errors.UnprocessableEntity
+  | errors.InternalServerError
+  | InkeepAnalyticsError
+  | ResponseValidationError
+  | ConnectionError
+  | RequestAbortedError
+  | RequestTimeoutError
+  | InvalidRequestError
+  | UnexpectedClientError
+  | SDKValidationError;
+
 /**
  * Log Conversation
  *
@@ -36,12 +62,12 @@ export type ConversationsLogMutationData = components.Conversation;
 export function useConversationsLogMutation(
   options?: MutationHookOptions<
     ConversationsLogMutationData,
-    Error,
+    ConversationsLogMutationError,
     ConversationsLogMutationVariables
   >,
 ): UseMutationResult<
   ConversationsLogMutationData,
-  Error,
+  ConversationsLogMutationError,
   ConversationsLogMutationVariables
 > {
   const client = useInkeepAnalyticsContext();

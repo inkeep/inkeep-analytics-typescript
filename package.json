@@ -1,6 +1,6 @@
 {
   "name": "@inkeep/inkeep-analytics",
-  "version": "0.2.4-alpha.35",
+  "version": "0.2.4-alpha.36",
   "author": "Speakeasy",
   "type": "module",
   "bin": {
@@ -65,7 +65,7 @@
     "typescript-eslint": "^8.26.0"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": ">=1.5.0 <1.10.0",
+    "@modelcontextprotocol/sdk": "^1.25.2",
     "zod": "^3.25.0 || ^4.0.0"
   },
   "exports": {

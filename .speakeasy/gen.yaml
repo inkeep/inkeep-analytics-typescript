@@ -16,6 +16,7 @@ generation:
     requestResponseComponentNamesFeb2024: true
     securityFeb2025: false
     sharedErrorComponentsApr2025: false
+    sharedNestedComponentsJan2026: false
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: true
@@ -29,7 +30,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.2.4-alpha.35
+  version: 0.2.4-alpha.36
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -49,6 +50,7 @@ typescript:
   enumFormat: union
   envVarPrefix: INKEEPANALYTICS
   exportZodModelNamespace: false
+  flatAdditionalProperties: false
   flattenGlobalSecurity: true
   flatteningOrder: parameters-first
   formStringArrayEncodeMode: encoded-string
@@ -67,6 +69,7 @@ typescript:
   inputModelSuffix: input
   jsonpath: legacy
   laxMode: strict
+  legacyFileNaming: true
   maxMethodParams: 0
   methodArguments: require-security-and-request
   modelPropertyCasing: camel
@@ -75,6 +78,7 @@ typescript:
   outputModelSuffix: output
   packageName: '@inkeep/inkeep-analytics'
   preApplyUnionDiscriminators: true
+  preserveModelFieldNames: false
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2
