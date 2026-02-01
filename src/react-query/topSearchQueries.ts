@@ -5,35 +5,67 @@
 import {
   InvalidateQueryFilters,
   QueryClient,
-  QueryFunctionContext,
-  QueryKey,
   useQuery,
   UseQueryResult,
   useSuspenseQuery,
   UseSuspenseQueryResult,
 } from "@tanstack/react-query";
-import { InkeepAnalyticsCore } from "../core.js";
-import { topSearchQueries } from "../funcs/topSearchQueries.js";
-import { combineSignals } from "../lib/primitives.js";
-import { RequestOptions } from "../lib/sdks.js";
+import {
+  ConnectionError,
+  InvalidRequestError,
+  RequestAbortedError,
+  RequestTimeoutError,
+  UnexpectedClientError,
+} from "../models/errors/httpclienterrors.js";
+import * as errors from "../models/errors/index.js";
+import { InkeepAnalyticsError } from "../models/errors/inkeepanalyticserror.js";
+import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
+import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
-import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
 import {
   QueryHookOptions,
   SuspenseQueryHookOptions,
   TupleToPrefixes,
 } from "./_types.js";
+import {
+  buildTopSearchQueriesQuery,
+  prefetchTopSearchQueries,
+  queryKeyTopSearchQueries,
+  TopSearchQueriesQueryData,
+} from "./topSearchQueries.core.js";
+export {
+  buildTopSearchQueriesQuery,
+  prefetchTopSearchQueries,
+  queryKeyTopSearchQueries,
+  type TopSearchQueriesQueryData,
+};
 
-export type TopSearchQueriesQueryData = operations.TopSearchQueriesResponseBody;
+export type TopSearchQueriesQueryError =
+  | errors.BadRequest
+  | errors.Unauthorized
+  | errors.Forbidden
+  | errors.UnprocessableEntity
+  | errors.InternalServerError
+  | InkeepAnalyticsError
+  | ResponseValidationError
+  | ConnectionError
+  | RequestAbortedError
+  | RequestTimeoutError
+  | InvalidRequestError
+  | UnexpectedClientError
+  | SDKValidationError;
 
 /**
  * Top Search Queries
  */
 export function useTopSearchQueries(
   request: operations.TopSearchQueriesRequest,
-  options?: QueryHookOptions<TopSearchQueriesQueryData>,
-): UseQueryResult<TopSearchQueriesQueryData, Error> {
+  options?: QueryHookOptions<
+    TopSearchQueriesQueryData,
+    TopSearchQueriesQueryError
+  >,
+): UseQueryResult<TopSearchQueriesQueryData, TopSearchQueriesQueryError> {
   const client = useInkeepAnalyticsContext();
   return useQuery({
     ...buildTopSearchQueriesQuery(
@@ -50,8 +82,14 @@ export function useTopSearchQueries(
  */
 export function useTopSearchQueriesSuspense(
   request: operations.TopSearchQueriesRequest,
-  options?: SuspenseQueryHookOptions<TopSearchQueriesQueryData>,
-): UseSuspenseQueryResult<TopSearchQueriesQueryData, Error> {
+  options?: SuspenseQueryHookOptions<
+    TopSearchQueriesQueryData,
+    TopSearchQueriesQueryError
+  >,
+): UseSuspenseQueryResult<
+  TopSearchQueriesQueryData,
+  TopSearchQueriesQueryError
+> {
   const client = useInkeepAnalyticsContext();
   return useSuspenseQuery({
     ...buildTopSearchQueriesQuery(
@@ -60,19 +98,6 @@ export function useTopSearchQueriesSuspense(
       options,
     ),
     ...options,
-  });
-}
-
-export function prefetchTopSearchQueries(
-  queryClient: QueryClient,
-  client$: InkeepAnalyticsCore,
-  request: operations.TopSearchQueriesRequest,
-): Promise<void> {
-  return queryClient.prefetchQuery({
-    ...buildTopSearchQueriesQuery(
-      client$,
-      request,
-    ),
   });
 }
 
@@ -109,43 +134,4 @@ export function invalidateAllTopSearchQueries(
     ...filters,
     queryKey: ["@inkeep/inkeep-analytics", "topSearchQueries"],
   });
-}
-
-export function buildTopSearchQueriesQuery(
-  client$: InkeepAnalyticsCore,
-  request: operations.TopSearchQueriesRequest,
-  options?: RequestOptions,
-): {
-  queryKey: QueryKey;
-  queryFn: (
-    context: QueryFunctionContext,
-  ) => Promise<TopSearchQueriesQueryData>;
-} {
-  return {
-    queryKey: queryKeyTopSearchQueries({
-      after: request.after,
-      projectId: request.projectId,
-    }),
-    queryFn: async function topSearchQueriesQueryFn(
-      ctx,
-    ): Promise<TopSearchQueriesQueryData> {
-      const sig = combineSignals(ctx.signal, options?.fetchOptions?.signal);
-      const mergedOptions = {
-        ...options,
-        fetchOptions: { ...options?.fetchOptions, signal: sig },
-      };
-
-      return unwrapAsync(topSearchQueries(
-        client$,
-        request,
-        mergedOptions,
-      ));
-    },
-  };
-}
-
-export function queryKeyTopSearchQueries(
-  parameters: { after?: string | undefined; projectId?: string | undefined },
-): QueryKey {
-  return ["@inkeep/inkeep-analytics", "topSearchQueries", parameters];
 }

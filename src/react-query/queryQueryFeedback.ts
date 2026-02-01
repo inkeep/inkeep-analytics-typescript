@@ -12,6 +12,17 @@ import { queryQueryFeedback } from "../funcs/queryQueryFeedback.js";
 import { combineSignals } from "../lib/primitives.js";
 import { RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
+import {
+  ConnectionError,
+  InvalidRequestError,
+  RequestAbortedError,
+  RequestTimeoutError,
+  UnexpectedClientError,
+} from "../models/errors/httpclienterrors.js";
+import * as errors from "../models/errors/index.js";
+import { InkeepAnalyticsError } from "../models/errors/inkeepanalyticserror.js";
+import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
+import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
 import { MutationHookOptions } from "./_types.js";
@@ -24,18 +35,33 @@ export type QueryQueryFeedbackMutationVariables = {
 export type QueryQueryFeedbackMutationData =
   components.QueryFeedbackResponseBody;
 
+export type QueryQueryFeedbackMutationError =
+  | errors.BadRequest
+  | errors.Unauthorized
+  | errors.Forbidden
+  | errors.UnprocessableEntity
+  | errors.InternalServerError
+  | InkeepAnalyticsError
+  | ResponseValidationError
+  | ConnectionError
+  | RequestAbortedError
+  | RequestTimeoutError
+  | InvalidRequestError
+  | UnexpectedClientError
+  | SDKValidationError;
+
 /**
  * Query Feedback
  */
 export function useQueryQueryFeedbackMutation(
   options?: MutationHookOptions<
     QueryQueryFeedbackMutationData,
-    Error,
+    QueryQueryFeedbackMutationError,
     QueryQueryFeedbackMutationVariables
   >,
 ): UseMutationResult<
   QueryQueryFeedbackMutationData,
-  Error,
+  QueryQueryFeedbackMutationError,
   QueryQueryFeedbackMutationVariables
 > {
   const client = useInkeepAnalyticsContext();
