@@ -5,37 +5,71 @@
 import {
   InvalidateQueryFilters,
   QueryClient,
-  QueryFunctionContext,
-  QueryKey,
   useQuery,
   UseQueryResult,
   useSuspenseQuery,
   UseSuspenseQueryResult,
 } from "@tanstack/react-query";
-import { InkeepAnalyticsCore } from "../core.js";
-import { conversationGetConversationByExternalId } from "../funcs/conversationGetConversationByExternalId.js";
-import { combineSignals } from "../lib/primitives.js";
-import { RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
+import {
+  ConnectionError,
+  InvalidRequestError,
+  RequestAbortedError,
+  RequestTimeoutError,
+  UnexpectedClientError,
+} from "../models/errors/httpclienterrors.js";
+import * as errors from "../models/errors/index.js";
+import { InkeepAnalyticsError } from "../models/errors/inkeepanalyticserror.js";
+import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
+import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
-import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
 import {
   QueryHookOptions,
   SuspenseQueryHookOptions,
   TupleToPrefixes,
 } from "./_types.js";
+import {
+  buildConversationGetConversationByExternalIdQuery,
+  ConversationGetConversationByExternalIdQueryData,
+  prefetchConversationGetConversationByExternalId,
+  queryKeyConversationGetConversationByExternalId,
+} from "./conversationGetConversationByExternalId.core.js";
+export {
+  buildConversationGetConversationByExternalIdQuery,
+  type ConversationGetConversationByExternalIdQueryData,
+  prefetchConversationGetConversationByExternalId,
+  queryKeyConversationGetConversationByExternalId,
+};
 
-export type ConversationGetConversationByExternalIdQueryData =
-  components.Conversation;
+export type ConversationGetConversationByExternalIdQueryError =
+  | errors.BadRequest
+  | errors.Unauthorized
+  | errors.Forbidden
+  | errors.NotFound
+  | errors.UnprocessableEntity
+  | errors.InternalServerError
+  | InkeepAnalyticsError
+  | ResponseValidationError
+  | ConnectionError
+  | RequestAbortedError
+  | RequestTimeoutError
+  | InvalidRequestError
+  | UnexpectedClientError
+  | SDKValidationError;
 
 /**
  * Get Conversation by External ID
  */
 export function useConversationGetConversationByExternalId(
   request: operations.GetConversationByExternalIdRequest,
-  options?: QueryHookOptions<ConversationGetConversationByExternalIdQueryData>,
-): UseQueryResult<ConversationGetConversationByExternalIdQueryData, Error> {
+  options?: QueryHookOptions<
+    ConversationGetConversationByExternalIdQueryData,
+    ConversationGetConversationByExternalIdQueryError
+  >,
+): UseQueryResult<
+  ConversationGetConversationByExternalIdQueryData,
+  ConversationGetConversationByExternalIdQueryError
+> {
   const client = useInkeepAnalyticsContext();
   return useQuery({
     ...buildConversationGetConversationByExternalIdQuery(
@@ -53,11 +87,12 @@ export function useConversationGetConversationByExternalId(
 export function useConversationGetConversationByExternalIdSuspense(
   request: operations.GetConversationByExternalIdRequest,
   options?: SuspenseQueryHookOptions<
-    ConversationGetConversationByExternalIdQueryData
+    ConversationGetConversationByExternalIdQueryData,
+    ConversationGetConversationByExternalIdQueryError
   >,
 ): UseSuspenseQueryResult<
   ConversationGetConversationByExternalIdQueryData,
-  Error
+  ConversationGetConversationByExternalIdQueryError
 > {
   const client = useInkeepAnalyticsContext();
   return useSuspenseQuery({
@@ -67,19 +102,6 @@ export function useConversationGetConversationByExternalIdSuspense(
       options,
     ),
     ...options,
-  });
-}
-
-export function prefetchConversationGetConversationByExternalId(
-  queryClient: QueryClient,
-  client$: InkeepAnalyticsCore,
-  request: operations.GetConversationByExternalIdRequest,
-): Promise<void> {
-  return queryClient.prefetchQuery({
-    ...buildConversationGetConversationByExternalIdQuery(
-      client$,
-      request,
-    ),
   });
 }
 
@@ -124,47 +146,4 @@ export function invalidateAllConversationGetConversationByExternalId(
       "getConversationByExternalId",
     ],
   });
-}
-
-export function buildConversationGetConversationByExternalIdQuery(
-  client$: InkeepAnalyticsCore,
-  request: operations.GetConversationByExternalIdRequest,
-  options?: RequestOptions,
-): {
-  queryKey: QueryKey;
-  queryFn: (
-    context: QueryFunctionContext,
-  ) => Promise<ConversationGetConversationByExternalIdQueryData>;
-} {
-  return {
-    queryKey: queryKeyConversationGetConversationByExternalId(
-      request.externalId,
-    ),
-    queryFn: async function conversationGetConversationByExternalIdQueryFn(
-      ctx,
-    ): Promise<ConversationGetConversationByExternalIdQueryData> {
-      const sig = combineSignals(ctx.signal, options?.fetchOptions?.signal);
-      const mergedOptions = {
-        ...options,
-        fetchOptions: { ...options?.fetchOptions, signal: sig },
-      };
-
-      return unwrapAsync(conversationGetConversationByExternalId(
-        client$,
-        request,
-        mergedOptions,
-      ));
-    },
-  };
-}
-
-export function queryKeyConversationGetConversationByExternalId(
-  externalId: string,
-): QueryKey {
-  return [
-    "@inkeep/inkeep-analytics",
-    "conversation",
-    "getConversationByExternalId",
-    externalId,
-  ];
 }

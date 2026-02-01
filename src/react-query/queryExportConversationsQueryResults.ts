@@ -12,6 +12,17 @@ import { queryExportConversationsQueryResults } from "../funcs/queryExportConver
 import { combineSignals } from "../lib/primitives.js";
 import { RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
+import {
+  ConnectionError,
+  InvalidRequestError,
+  RequestAbortedError,
+  RequestTimeoutError,
+  UnexpectedClientError,
+} from "../models/errors/httpclienterrors.js";
+import * as errors from "../models/errors/index.js";
+import { InkeepAnalyticsError } from "../models/errors/inkeepanalyticserror.js";
+import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
+import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
 import { MutationHookOptions } from "./_types.js";
@@ -25,18 +36,33 @@ export type QueryExportConversationsQueryResultsMutationData = ReadableStream<
   Uint8Array
 >;
 
+export type QueryExportConversationsQueryResultsMutationError =
+  | errors.BadRequest
+  | errors.Unauthorized
+  | errors.Forbidden
+  | errors.UnprocessableEntity
+  | errors.InternalServerError
+  | InkeepAnalyticsError
+  | ResponseValidationError
+  | ConnectionError
+  | RequestAbortedError
+  | RequestTimeoutError
+  | InvalidRequestError
+  | UnexpectedClientError
+  | SDKValidationError;
+
 /**
  * Export Conversations Query Results
  */
 export function useQueryExportConversationsQueryResultsMutation(
   options?: MutationHookOptions<
     QueryExportConversationsQueryResultsMutationData,
-    Error,
+    QueryExportConversationsQueryResultsMutationError,
     QueryExportConversationsQueryResultsMutationVariables
   >,
 ): UseMutationResult<
   QueryExportConversationsQueryResultsMutationData,
-  Error,
+  QueryExportConversationsQueryResultsMutationError,
   QueryExportConversationsQueryResultsMutationVariables
 > {
   const client = useInkeepAnalyticsContext();
