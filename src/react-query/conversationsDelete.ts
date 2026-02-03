@@ -11,6 +11,17 @@ import { InkeepAnalyticsCore } from "../core.js";
 import { conversationsDelete } from "../funcs/conversationsDelete.js";
 import { combineSignals } from "../lib/primitives.js";
 import { RequestOptions } from "../lib/sdks.js";
+import {
+  ConnectionError,
+  InvalidRequestError,
+  RequestAbortedError,
+  RequestTimeoutError,
+  UnexpectedClientError,
+} from "../models/errors/httpclienterrors.js";
+import * as errors from "../models/errors/index.js";
+import { InkeepAnalyticsError } from "../models/errors/inkeepanalyticserror.js";
+import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
+import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
@@ -25,18 +36,34 @@ export type ConversationsDeleteMutationVariables = {
 export type ConversationsDeleteMutationData =
   operations.DeleteConversationResponseBody;
 
+export type ConversationsDeleteMutationError =
+  | errors.BadRequest
+  | errors.Unauthorized
+  | errors.Forbidden
+  | errors.NotFound
+  | errors.UnprocessableEntity
+  | errors.InternalServerError
+  | InkeepAnalyticsError
+  | ResponseValidationError
+  | ConnectionError
+  | RequestAbortedError
+  | RequestTimeoutError
+  | InvalidRequestError
+  | UnexpectedClientError
+  | SDKValidationError;
+
 /**
  * Delete Conversation
  */
 export function useConversationsDeleteMutation(
   options?: MutationHookOptions<
     ConversationsDeleteMutationData,
-    Error,
+    ConversationsDeleteMutationError,
     ConversationsDeleteMutationVariables
   >,
 ): UseMutationResult<
   ConversationsDeleteMutationData,
-  Error,
+  ConversationsDeleteMutationError,
   ConversationsDeleteMutationVariables
 > {
   const client = useInkeepAnalyticsContext();

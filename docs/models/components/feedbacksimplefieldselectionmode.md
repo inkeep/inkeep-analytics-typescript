@@ -1,6 +1,6 @@
 # FeedbackSimpleFieldSelectionMode
 
-Export mode for JSON fields (properties, userProperties). "unpack" (default): Flattens JSON into separate columns (e.g., properties.key1, properties.key2). "json": Exports the entire JSON object as a single stringified column. Only applicable to JSON fields like properties and userProperties.
+Export mode for JSON/array fields. "unpack" (default): Flattens JSON into separate columns (e.g., properties.key1, properties.key2). "json": Exports the entire JSON object as a single stringified column. Applicable to: properties, userProperties, and for feedback exports: reasons, sources.
 
 ## Example Usage
 

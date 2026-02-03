@@ -48,14 +48,14 @@ export type SemanticThreadSimpleFieldSelectionField = ClosedEnum<
 >;
 
 /**
- * Export mode for JSON fields (properties, userProperties). "unpack" (default): Flattens JSON into separate columns (e.g., properties.key1, properties.key2). "json": Exports the entire JSON object as a single stringified column. Only applicable to JSON fields like properties and userProperties.
+ * Export mode for JSON/array fields. "unpack" (default): Flattens JSON into separate columns (e.g., properties.key1, properties.key2). "json": Exports the entire JSON object as a single stringified column. Applicable to: properties, userProperties, and for feedback exports: reasons, sources.
  */
 export const SemanticThreadSimpleFieldSelectionMode = {
   Unpack: "unpack",
   Json: "json",
 } as const;
 /**
- * Export mode for JSON fields (properties, userProperties). "unpack" (default): Flattens JSON into separate columns (e.g., properties.key1, properties.key2). "json": Exports the entire JSON object as a single stringified column. Only applicable to JSON fields like properties and userProperties.
+ * Export mode for JSON/array fields. "unpack" (default): Flattens JSON into separate columns (e.g., properties.key1, properties.key2). "json": Exports the entire JSON object as a single stringified column. Applicable to: properties, userProperties, and for feedback exports: reasons, sources.
  */
 export type SemanticThreadSimpleFieldSelectionMode = ClosedEnum<
   typeof SemanticThreadSimpleFieldSelectionMode
@@ -69,7 +69,7 @@ export type SemanticThreadSimpleFieldSelection = {
    */
   path?: Array<string> | undefined;
   /**
-   * Export mode for JSON fields (properties, userProperties). "unpack" (default): Flattens JSON into separate columns (e.g., properties.key1, properties.key2). "json": Exports the entire JSON object as a single stringified column. Only applicable to JSON fields like properties and userProperties.
+   * Export mode for JSON/array fields. "unpack" (default): Flattens JSON into separate columns (e.g., properties.key1, properties.key2). "json": Exports the entire JSON object as a single stringified column. Applicable to: properties, userProperties, and for feedback exports: reasons, sources.
    */
   mode?: SemanticThreadSimpleFieldSelectionMode | undefined;
 };
