@@ -11,6 +11,17 @@ import { InkeepAnalyticsCore } from "../core.js";
 import { feedbackDeleteFeedbackById } from "../funcs/feedbackDeleteFeedbackById.js";
 import { combineSignals } from "../lib/primitives.js";
 import { RequestOptions } from "../lib/sdks.js";
+import {
+  ConnectionError,
+  InvalidRequestError,
+  RequestAbortedError,
+  RequestTimeoutError,
+  UnexpectedClientError,
+} from "../models/errors/httpclienterrors.js";
+import * as errors from "../models/errors/index.js";
+import { InkeepAnalyticsError } from "../models/errors/inkeepanalyticserror.js";
+import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
+import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
@@ -24,18 +35,34 @@ export type FeedbackDeleteFeedbackByIdMutationVariables = {
 export type FeedbackDeleteFeedbackByIdMutationData =
   operations.DeleteFeedbackByIdResponseBody;
 
+export type FeedbackDeleteFeedbackByIdMutationError =
+  | errors.BadRequest
+  | errors.Unauthorized
+  | errors.Forbidden
+  | errors.NotFound
+  | errors.UnprocessableEntity
+  | errors.InternalServerError
+  | InkeepAnalyticsError
+  | ResponseValidationError
+  | ConnectionError
+  | RequestAbortedError
+  | RequestTimeoutError
+  | InvalidRequestError
+  | UnexpectedClientError
+  | SDKValidationError;
+
 /**
  * Delete Feedback by ID
  */
 export function useFeedbackDeleteFeedbackByIdMutation(
   options?: MutationHookOptions<
     FeedbackDeleteFeedbackByIdMutationData,
-    Error,
+    FeedbackDeleteFeedbackByIdMutationError,
     FeedbackDeleteFeedbackByIdMutationVariables
   >,
 ): UseMutationResult<
   FeedbackDeleteFeedbackByIdMutationData,
-  Error,
+  FeedbackDeleteFeedbackByIdMutationError,
   FeedbackDeleteFeedbackByIdMutationVariables
 > {
   const client = useInkeepAnalyticsContext();

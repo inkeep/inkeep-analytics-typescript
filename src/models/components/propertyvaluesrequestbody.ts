@@ -7,6 +7,78 @@ import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  ConversationsFilterAND,
+  ConversationsFilterAND$inboundSchema,
+  ConversationsFilterAND$Outbound,
+  ConversationsFilterAND$outboundSchema,
+} from "./conversationsfilterand.js";
+import {
+  ConversationsFilterCondition,
+  ConversationsFilterCondition$inboundSchema,
+  ConversationsFilterCondition$Outbound,
+  ConversationsFilterCondition$outboundSchema,
+} from "./conversationsfiltercondition.js";
+import {
+  ConversationsFilterOR,
+  ConversationsFilterOR$inboundSchema,
+  ConversationsFilterOR$Outbound,
+  ConversationsFilterOR$outboundSchema,
+} from "./conversationsfilteror.js";
+import {
+  EventsFilterAND,
+  EventsFilterAND$inboundSchema,
+  EventsFilterAND$Outbound,
+  EventsFilterAND$outboundSchema,
+} from "./eventsfilterand.js";
+import {
+  EventsFilterCondition,
+  EventsFilterCondition$inboundSchema,
+  EventsFilterCondition$Outbound,
+  EventsFilterCondition$outboundSchema,
+} from "./eventsfiltercondition.js";
+import {
+  EventsFilterOR,
+  EventsFilterOR$inboundSchema,
+  EventsFilterOR$Outbound,
+  EventsFilterOR$outboundSchema,
+} from "./eventsfilteror.js";
+import {
+  FeedbackFilterAND,
+  FeedbackFilterAND$inboundSchema,
+  FeedbackFilterAND$Outbound,
+  FeedbackFilterAND$outboundSchema,
+} from "./feedbackfilterand.js";
+import {
+  FeedbackFilterCondition,
+  FeedbackFilterCondition$inboundSchema,
+  FeedbackFilterCondition$Outbound,
+  FeedbackFilterCondition$outboundSchema,
+} from "./feedbackfiltercondition.js";
+import {
+  FeedbackFilterOR,
+  FeedbackFilterOR$inboundSchema,
+  FeedbackFilterOR$Outbound,
+  FeedbackFilterOR$outboundSchema,
+} from "./feedbackfilteror.js";
+import {
+  SemanticThreadFilterAND,
+  SemanticThreadFilterAND$inboundSchema,
+  SemanticThreadFilterAND$Outbound,
+  SemanticThreadFilterAND$outboundSchema,
+} from "./semanticthreadfilterand.js";
+import {
+  SemanticThreadFilterCondition,
+  SemanticThreadFilterCondition$inboundSchema,
+  SemanticThreadFilterCondition$Outbound,
+  SemanticThreadFilterCondition$outboundSchema,
+} from "./semanticthreadfiltercondition.js";
+import {
+  SemanticThreadFilterOR,
+  SemanticThreadFilterOR$inboundSchema,
+  SemanticThreadFilterOR$Outbound,
+  SemanticThreadFilterOR$outboundSchema,
+} from "./semanticthreadfilteror.js";
 
 /**
  * Which JSON field to query values from
@@ -32,6 +104,20 @@ export type PropertyValuesRequestBodyViews = ClosedEnum<
   typeof PropertyValuesRequestBodyViews
 >;
 
+export type PropertyValuesRequestBodyWhere =
+  | EventsFilterCondition
+  | EventsFilterAND
+  | EventsFilterOR
+  | ConversationsFilterCondition
+  | ConversationsFilterAND
+  | ConversationsFilterOR
+  | SemanticThreadFilterCondition
+  | SemanticThreadFilterAND
+  | SemanticThreadFilterOR
+  | FeedbackFilterCondition
+  | FeedbackFilterAND
+  | FeedbackFilterOR;
+
 /**
  * Query Property Values Params
  */
@@ -48,6 +134,20 @@ export type PropertyValuesRequestBody = {
    * Optional list of views to query (defaults to all views)
    */
   views?: Array<PropertyValuesRequestBodyViews> | undefined;
+  where?:
+    | EventsFilterCondition
+    | EventsFilterAND
+    | EventsFilterOR
+    | ConversationsFilterCondition
+    | ConversationsFilterAND
+    | ConversationsFilterOR
+    | SemanticThreadFilterCondition
+    | SemanticThreadFilterAND
+    | SemanticThreadFilterOR
+    | FeedbackFilterCondition
+    | FeedbackFilterAND
+    | FeedbackFilterOR
+    | undefined;
   /**
    * Maximum number of values to return
    */
@@ -73,6 +173,79 @@ export const PropertyValuesRequestBodyViews$outboundSchema: z.ZodNativeEnum<
 > = PropertyValuesRequestBodyViews$inboundSchema;
 
 /** @internal */
+export const PropertyValuesRequestBodyWhere$inboundSchema: z.ZodType<
+  PropertyValuesRequestBodyWhere,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  EventsFilterCondition$inboundSchema,
+  EventsFilterAND$inboundSchema,
+  EventsFilterOR$inboundSchema,
+  ConversationsFilterCondition$inboundSchema,
+  ConversationsFilterAND$inboundSchema,
+  ConversationsFilterOR$inboundSchema,
+  SemanticThreadFilterCondition$inboundSchema,
+  SemanticThreadFilterAND$inboundSchema,
+  SemanticThreadFilterOR$inboundSchema,
+  FeedbackFilterCondition$inboundSchema,
+  FeedbackFilterAND$inboundSchema,
+  FeedbackFilterOR$inboundSchema,
+]);
+/** @internal */
+export type PropertyValuesRequestBodyWhere$Outbound =
+  | EventsFilterCondition$Outbound
+  | EventsFilterAND$Outbound
+  | EventsFilterOR$Outbound
+  | ConversationsFilterCondition$Outbound
+  | ConversationsFilterAND$Outbound
+  | ConversationsFilterOR$Outbound
+  | SemanticThreadFilterCondition$Outbound
+  | SemanticThreadFilterAND$Outbound
+  | SemanticThreadFilterOR$Outbound
+  | FeedbackFilterCondition$Outbound
+  | FeedbackFilterAND$Outbound
+  | FeedbackFilterOR$Outbound;
+
+/** @internal */
+export const PropertyValuesRequestBodyWhere$outboundSchema: z.ZodType<
+  PropertyValuesRequestBodyWhere$Outbound,
+  z.ZodTypeDef,
+  PropertyValuesRequestBodyWhere
+> = z.union([
+  EventsFilterCondition$outboundSchema,
+  EventsFilterAND$outboundSchema,
+  EventsFilterOR$outboundSchema,
+  ConversationsFilterCondition$outboundSchema,
+  ConversationsFilterAND$outboundSchema,
+  ConversationsFilterOR$outboundSchema,
+  SemanticThreadFilterCondition$outboundSchema,
+  SemanticThreadFilterAND$outboundSchema,
+  SemanticThreadFilterOR$outboundSchema,
+  FeedbackFilterCondition$outboundSchema,
+  FeedbackFilterAND$outboundSchema,
+  FeedbackFilterOR$outboundSchema,
+]);
+
+export function propertyValuesRequestBodyWhereToJSON(
+  propertyValuesRequestBodyWhere: PropertyValuesRequestBodyWhere,
+): string {
+  return JSON.stringify(
+    PropertyValuesRequestBodyWhere$outboundSchema.parse(
+      propertyValuesRequestBodyWhere,
+    ),
+  );
+}
+export function propertyValuesRequestBodyWhereFromJSON(
+  jsonString: string,
+): SafeParseResult<PropertyValuesRequestBodyWhere, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PropertyValuesRequestBodyWhere$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PropertyValuesRequestBodyWhere' from JSON`,
+  );
+}
+
+/** @internal */
 export const PropertyValuesRequestBody$inboundSchema: z.ZodType<
   PropertyValuesRequestBody,
   z.ZodTypeDef,
@@ -81,6 +254,20 @@ export const PropertyValuesRequestBody$inboundSchema: z.ZodType<
   field: PropertyValuesRequestBodyField$inboundSchema,
   key: z.string(),
   views: z.array(PropertyValuesRequestBodyViews$inboundSchema).optional(),
+  where: z.union([
+    EventsFilterCondition$inboundSchema,
+    EventsFilterAND$inboundSchema,
+    EventsFilterOR$inboundSchema,
+    ConversationsFilterCondition$inboundSchema,
+    ConversationsFilterAND$inboundSchema,
+    ConversationsFilterOR$inboundSchema,
+    SemanticThreadFilterCondition$inboundSchema,
+    SemanticThreadFilterAND$inboundSchema,
+    SemanticThreadFilterOR$inboundSchema,
+    FeedbackFilterCondition$inboundSchema,
+    FeedbackFilterAND$inboundSchema,
+    FeedbackFilterOR$inboundSchema,
+  ]).optional(),
   limit: z.number().default(100),
 });
 /** @internal */
@@ -88,6 +275,20 @@ export type PropertyValuesRequestBody$Outbound = {
   field: string;
   key: string;
   views?: Array<string> | undefined;
+  where?:
+    | EventsFilterCondition$Outbound
+    | EventsFilterAND$Outbound
+    | EventsFilterOR$Outbound
+    | ConversationsFilterCondition$Outbound
+    | ConversationsFilterAND$Outbound
+    | ConversationsFilterOR$Outbound
+    | SemanticThreadFilterCondition$Outbound
+    | SemanticThreadFilterAND$Outbound
+    | SemanticThreadFilterOR$Outbound
+    | FeedbackFilterCondition$Outbound
+    | FeedbackFilterAND$Outbound
+    | FeedbackFilterOR$Outbound
+    | undefined;
   limit: number;
 };
 
@@ -100,6 +301,20 @@ export const PropertyValuesRequestBody$outboundSchema: z.ZodType<
   field: PropertyValuesRequestBodyField$outboundSchema,
   key: z.string(),
   views: z.array(PropertyValuesRequestBodyViews$outboundSchema).optional(),
+  where: z.union([
+    EventsFilterCondition$outboundSchema,
+    EventsFilterAND$outboundSchema,
+    EventsFilterOR$outboundSchema,
+    ConversationsFilterCondition$outboundSchema,
+    ConversationsFilterAND$outboundSchema,
+    ConversationsFilterOR$outboundSchema,
+    SemanticThreadFilterCondition$outboundSchema,
+    SemanticThreadFilterAND$outboundSchema,
+    SemanticThreadFilterOR$outboundSchema,
+    FeedbackFilterCondition$outboundSchema,
+    FeedbackFilterAND$outboundSchema,
+    FeedbackFilterOR$outboundSchema,
+  ]).optional(),
   limit: z.number().default(100),
 });
 

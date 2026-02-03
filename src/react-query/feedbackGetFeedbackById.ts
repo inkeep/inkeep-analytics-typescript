@@ -5,36 +5,71 @@
 import {
   InvalidateQueryFilters,
   QueryClient,
-  QueryFunctionContext,
-  QueryKey,
   useQuery,
   UseQueryResult,
   useSuspenseQuery,
   UseSuspenseQueryResult,
 } from "@tanstack/react-query";
-import { InkeepAnalyticsCore } from "../core.js";
-import { feedbackGetFeedbackById } from "../funcs/feedbackGetFeedbackById.js";
-import { combineSignals } from "../lib/primitives.js";
-import { RequestOptions } from "../lib/sdks.js";
+import {
+  ConnectionError,
+  InvalidRequestError,
+  RequestAbortedError,
+  RequestTimeoutError,
+  UnexpectedClientError,
+} from "../models/errors/httpclienterrors.js";
+import * as errors from "../models/errors/index.js";
+import { InkeepAnalyticsError } from "../models/errors/inkeepanalyticserror.js";
+import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
+import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
-import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
 import {
   QueryHookOptions,
   SuspenseQueryHookOptions,
   TupleToPrefixes,
 } from "./_types.js";
+import {
+  buildFeedbackGetFeedbackByIdQuery,
+  FeedbackGetFeedbackByIdQueryData,
+  prefetchFeedbackGetFeedbackById,
+  queryKeyFeedbackGetFeedbackById,
+} from "./feedbackGetFeedbackById.core.js";
+export {
+  buildFeedbackGetFeedbackByIdQuery,
+  type FeedbackGetFeedbackByIdQueryData,
+  prefetchFeedbackGetFeedbackById,
+  queryKeyFeedbackGetFeedbackById,
+};
 
-export type FeedbackGetFeedbackByIdQueryData =
-  operations.GetFeedbackByIdResponseBody;
+export type FeedbackGetFeedbackByIdQueryError =
+  | errors.BadRequest
+  | errors.Unauthorized
+  | errors.Forbidden
+  | errors.NotFound
+  | errors.UnprocessableEntity
+  | errors.InternalServerError
+  | InkeepAnalyticsError
+  | ResponseValidationError
+  | ConnectionError
+  | RequestAbortedError
+  | RequestTimeoutError
+  | InvalidRequestError
+  | UnexpectedClientError
+  | SDKValidationError;
 
 /**
  * Get Feedback by ID
  */
 export function useFeedbackGetFeedbackById(
   request: operations.GetFeedbackByIdRequest,
-  options?: QueryHookOptions<FeedbackGetFeedbackByIdQueryData>,
-): UseQueryResult<FeedbackGetFeedbackByIdQueryData, Error> {
+  options?: QueryHookOptions<
+    FeedbackGetFeedbackByIdQueryData,
+    FeedbackGetFeedbackByIdQueryError
+  >,
+): UseQueryResult<
+  FeedbackGetFeedbackByIdQueryData,
+  FeedbackGetFeedbackByIdQueryError
+> {
   const client = useInkeepAnalyticsContext();
   return useQuery({
     ...buildFeedbackGetFeedbackByIdQuery(
@@ -51,8 +86,14 @@ export function useFeedbackGetFeedbackById(
  */
 export function useFeedbackGetFeedbackByIdSuspense(
   request: operations.GetFeedbackByIdRequest,
-  options?: SuspenseQueryHookOptions<FeedbackGetFeedbackByIdQueryData>,
-): UseSuspenseQueryResult<FeedbackGetFeedbackByIdQueryData, Error> {
+  options?: SuspenseQueryHookOptions<
+    FeedbackGetFeedbackByIdQueryData,
+    FeedbackGetFeedbackByIdQueryError
+  >,
+): UseSuspenseQueryResult<
+  FeedbackGetFeedbackByIdQueryData,
+  FeedbackGetFeedbackByIdQueryError
+> {
   const client = useInkeepAnalyticsContext();
   return useSuspenseQuery({
     ...buildFeedbackGetFeedbackByIdQuery(
@@ -61,19 +102,6 @@ export function useFeedbackGetFeedbackByIdSuspense(
       options,
     ),
     ...options,
-  });
-}
-
-export function prefetchFeedbackGetFeedbackById(
-  queryClient: QueryClient,
-  client$: InkeepAnalyticsCore,
-  request: operations.GetFeedbackByIdRequest,
-): Promise<void> {
-  return queryClient.prefetchQuery({
-    ...buildFeedbackGetFeedbackByIdQuery(
-      client$,
-      request,
-    ),
   });
 }
 
@@ -111,38 +139,4 @@ export function invalidateAllFeedbackGetFeedbackById(
     ...filters,
     queryKey: ["@inkeep/inkeep-analytics", "feedback", "getFeedbackById"],
   });
-}
-
-export function buildFeedbackGetFeedbackByIdQuery(
-  client$: InkeepAnalyticsCore,
-  request: operations.GetFeedbackByIdRequest,
-  options?: RequestOptions,
-): {
-  queryKey: QueryKey;
-  queryFn: (
-    context: QueryFunctionContext,
-  ) => Promise<FeedbackGetFeedbackByIdQueryData>;
-} {
-  return {
-    queryKey: queryKeyFeedbackGetFeedbackById(request.id),
-    queryFn: async function feedbackGetFeedbackByIdQueryFn(
-      ctx,
-    ): Promise<FeedbackGetFeedbackByIdQueryData> {
-      const sig = combineSignals(ctx.signal, options?.fetchOptions?.signal);
-      const mergedOptions = {
-        ...options,
-        fetchOptions: { ...options?.fetchOptions, signal: sig },
-      };
-
-      return unwrapAsync(feedbackGetFeedbackById(
-        client$,
-        request,
-        mergedOptions,
-      ));
-    },
-  };
-}
-
-export function queryKeyFeedbackGetFeedbackById(id: string): QueryKey {
-  return ["@inkeep/inkeep-analytics", "feedback", "getFeedbackById", id];
 }

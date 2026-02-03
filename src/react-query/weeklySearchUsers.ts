@@ -5,36 +5,67 @@
 import {
   InvalidateQueryFilters,
   QueryClient,
-  QueryFunctionContext,
-  QueryKey,
   useQuery,
   UseQueryResult,
   useSuspenseQuery,
   UseSuspenseQueryResult,
 } from "@tanstack/react-query";
-import { InkeepAnalyticsCore } from "../core.js";
-import { weeklySearchUsers } from "../funcs/weeklySearchUsers.js";
-import { combineSignals } from "../lib/primitives.js";
-import { RequestOptions } from "../lib/sdks.js";
+import {
+  ConnectionError,
+  InvalidRequestError,
+  RequestAbortedError,
+  RequestTimeoutError,
+  UnexpectedClientError,
+} from "../models/errors/httpclienterrors.js";
+import * as errors from "../models/errors/index.js";
+import { InkeepAnalyticsError } from "../models/errors/inkeepanalyticserror.js";
+import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
+import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
-import { unwrapAsync } from "../types/fp.js";
 import { useInkeepAnalyticsContext } from "./_context.js";
 import {
   QueryHookOptions,
   SuspenseQueryHookOptions,
   TupleToPrefixes,
 } from "./_types.js";
+import {
+  buildWeeklySearchUsersQuery,
+  prefetchWeeklySearchUsers,
+  queryKeyWeeklySearchUsers,
+  WeeklySearchUsersQueryData,
+} from "./weeklySearchUsers.core.js";
+export {
+  buildWeeklySearchUsersQuery,
+  prefetchWeeklySearchUsers,
+  queryKeyWeeklySearchUsers,
+  type WeeklySearchUsersQueryData,
+};
 
-export type WeeklySearchUsersQueryData =
-  operations.WeeklySearchUsersResponseBody;
+export type WeeklySearchUsersQueryError =
+  | errors.BadRequest
+  | errors.Unauthorized
+  | errors.Forbidden
+  | errors.UnprocessableEntity
+  | errors.InternalServerError
+  | InkeepAnalyticsError
+  | ResponseValidationError
+  | ConnectionError
+  | RequestAbortedError
+  | RequestTimeoutError
+  | InvalidRequestError
+  | UnexpectedClientError
+  | SDKValidationError;
 
 /**
  * Weekly Search Users
  */
 export function useWeeklySearchUsers(
   request: operations.WeeklySearchUsersRequest,
-  options?: QueryHookOptions<WeeklySearchUsersQueryData>,
-): UseQueryResult<WeeklySearchUsersQueryData, Error> {
+  options?: QueryHookOptions<
+    WeeklySearchUsersQueryData,
+    WeeklySearchUsersQueryError
+  >,
+): UseQueryResult<WeeklySearchUsersQueryData, WeeklySearchUsersQueryError> {
   const client = useInkeepAnalyticsContext();
   return useQuery({
     ...buildWeeklySearchUsersQuery(
@@ -51,8 +82,14 @@ export function useWeeklySearchUsers(
  */
 export function useWeeklySearchUsersSuspense(
   request: operations.WeeklySearchUsersRequest,
-  options?: SuspenseQueryHookOptions<WeeklySearchUsersQueryData>,
-): UseSuspenseQueryResult<WeeklySearchUsersQueryData, Error> {
+  options?: SuspenseQueryHookOptions<
+    WeeklySearchUsersQueryData,
+    WeeklySearchUsersQueryError
+  >,
+): UseSuspenseQueryResult<
+  WeeklySearchUsersQueryData,
+  WeeklySearchUsersQueryError
+> {
   const client = useInkeepAnalyticsContext();
   return useSuspenseQuery({
     ...buildWeeklySearchUsersQuery(
@@ -61,19 +98,6 @@ export function useWeeklySearchUsersSuspense(
       options,
     ),
     ...options,
-  });
-}
-
-export function prefetchWeeklySearchUsers(
-  queryClient: QueryClient,
-  client$: InkeepAnalyticsCore,
-  request: operations.WeeklySearchUsersRequest,
-): Promise<void> {
-  return queryClient.prefetchQuery({
-    ...buildWeeklySearchUsersQuery(
-      client$,
-      request,
-    ),
   });
 }
 
@@ -114,43 +138,4 @@ export function invalidateAllWeeklySearchUsers(
     ...filters,
     queryKey: ["@inkeep/inkeep-analytics", "weeklySearchUsers"],
   });
-}
-
-export function buildWeeklySearchUsersQuery(
-  client$: InkeepAnalyticsCore,
-  request: operations.WeeklySearchUsersRequest,
-  options?: RequestOptions,
-): {
-  queryKey: QueryKey;
-  queryFn: (
-    context: QueryFunctionContext,
-  ) => Promise<WeeklySearchUsersQueryData>;
-} {
-  return {
-    queryKey: queryKeyWeeklySearchUsers({
-      after: request.after,
-      projectId: request.projectId,
-    }),
-    queryFn: async function weeklySearchUsersQueryFn(
-      ctx,
-    ): Promise<WeeklySearchUsersQueryData> {
-      const sig = combineSignals(ctx.signal, options?.fetchOptions?.signal);
-      const mergedOptions = {
-        ...options,
-        fetchOptions: { ...options?.fetchOptions, signal: sig },
-      };
-
-      return unwrapAsync(weeklySearchUsers(
-        client$,
-        request,
-        mergedOptions,
-      ));
-    },
-  };
-}
-
-export function queryKeyWeeklySearchUsers(
-  parameters: { after?: string | undefined; projectId?: string | undefined },
-): QueryKey {
-  return ["@inkeep/inkeep-analytics", "weeklySearchUsers", parameters];
 }
